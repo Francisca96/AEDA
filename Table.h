@@ -4,19 +4,17 @@
 using namespace std;
 
 class Table {
-	private: string _minBet;
-	private: string _maxBet;
-	private: string _playersVectors;
-	private: string _moneyOfTable;
-	private: string _numberMaxOfPlayers;
+	unsigned int minBet;
+	unsigned int maxBet;
+	vector<Player*> players;
+	unsigned int moneyOfTable;
+	unsigned int numberMaxOfPlayers;
 
-	public: void getMinBet();
-
-	public: void setMinBet(string aMinBet);
-
-	public: void getMaxBet();
-
-	public: void setMaxBet(string aMaxBet);
+public:
+	void getMinBet();
+	void setMinBet(string aMinBet);
+	void getMaxBet();
+	void setMaxBet(string aMaxBet);
 };
 
-#endif
+

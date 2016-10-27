@@ -5,21 +5,17 @@
 using namespace std;
 
 class Player {
-	private: string initialMoney;
-	private: string currentMoney;
-	private: string averageProfit;
+	unsigned int initialMoney;
+	unsigned int currentMoney;
+	int averageProfit;
 
-	public: void takeInsurance();
-
-	public: void surrender();
-
-	public: void split();
-
-	public: void doubleDown();
-
-	public: void canUseSideRules();
-
-	public: void bet();
+public:
+	void takeInsurance();
+	void surrender();
+	void split();
+	void doubleDown();
+	void canUseSideRules();
+	void bet();
 };
 
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////

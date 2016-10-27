@@ -4,11 +4,16 @@
 #include <string>
 using namespace std;
 
+struct Carta {
+
+};
+
 class Dealer {
-	private: string _deckVector;
+	vector<Carta*> deck;
+	vector<Carta*> hand;
 
-	public: void hit();
-
-	public: void stand();
+public:
+	void hit();
+	void stand();
 };
 

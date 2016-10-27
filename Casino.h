@@ -4,6 +4,7 @@
 using namespace std;
 
 class Casino {
-	private: string tablesVector;
-	private: string playersVector;
+	vector<Table*> tables;
+	vector<Player*> players;
+public:
 };
