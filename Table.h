@@ -1,20 +1,22 @@
 #pragma once
 
 #include <string>
+#include <vector>
+
 using namespace std;
 
 class Table {
 	unsigned int minBet;
 	unsigned int maxBet;
-	vector<Player*> players;
 	unsigned int moneyOfTable;
 	unsigned int numberMaxOfPlayers;
+	vector<Player*> players;
 
 public:
-	void getMinBet();
-	void setMinBet(string aMinBet);
-	void getMaxBet();
-	void setMaxBet(string aMaxBet);
+	unsigned int getMinBet();
+	unsigned int getMaxBet();
+	void setMaxBet(unsigned int aMaxBet);
+	void setMinBet(unsigned int aMinBet);
 };
 
 

@@ -2,19 +2,19 @@
 
 #include "Table.h"
 
-void Table::getMinBet() {
-	return this->_minBet;
+unsigned int Table::getMinBet() {
+	return this->minBet;
 }
 
-void Table::setMinBet(string aMinBet) {
-	this->_minBet = aMinBet;
+unsigned int Table::getMaxBet() {
+	return this->maxBet;
 }
 
-void Table::getMaxBet() {
-	return this->_maxBet;
+void Table::setMinBet(unsigned int aMinBet) {
+	this->minBet = aMinBet;
 }
 
-void Table::setMaxBet(string aMaxBet) {
-	this->_maxBet = aMaxBet;
+void Table::setMaxBet(unsigned int aMaxBet) {
+	this->maxBet = aMaxBet;
 }
 
