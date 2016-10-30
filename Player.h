@@ -6,6 +6,7 @@
 using namespace std;
 
 class Player {
+private:
 	unsigned int initialMoney;
 	unsigned int currentMoney;
 	int averageProfit;
