@@ -6,16 +6,21 @@
 
 using namespace std;
 
-struct Carta {
-
+struct Card {
+	string rank;
+	char suits;
+	unsigned int score;
 };
 
 class Dealer {
-	vector<Carta*> deck;
-	vector<Carta*> hand;
-
+private:
+	vector<Card> deck;
+	vector<Card> deckDiscarded;
+	vector<Card> hand;
+	unsigned handScore;
 public:
 	void hit();
 	void stand();
+	unsigned int handScore;
 };
 
