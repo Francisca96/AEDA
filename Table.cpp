@@ -2,7 +2,11 @@
 
 #include "Table.h"
 
-Table::Table(unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers) {
+Table::Table() {
+}
+
+Table::Table(bool play, unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers, Dealer dealerOfTable) {
+	this->continuingPlay = play;
 	this->minBet = minBet;
 	this->maxBet = maxBet;
 	this->moneyOfTable = moneyOfTable;
@@ -14,9 +18,6 @@ void Table::setMaxBet(unsigned int aMaxBet) {
 	this->maxBet = aMaxBet;
 }
 
-void Table::setMoneyOfTable(unsigned int moneyOfTable) {
-	this->moneyOfTable = moneyOfTable;
-}
 
 void Table::addPlayer(Player * newPlayer) {
 	this->players.push_back(newPlayer);
@@ -36,5 +37,12 @@ unsigned int Table::getMinBet() {
 
 unsigned int Table::getMaxBet() {
 	return this->maxBet;
+}
+
+void Table::play() {
+	while (continuingPlay == 1)
+	{
+		dealerOfTable.hit();
+	}
 }
 

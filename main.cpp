@@ -1,7 +1,12 @@
-//
-// Created by Maria Francisca Azevedo Paupério on 27/10/16.
-//
+#pragma once
+
+#include <string>
+#include <vector>
+#include <exception>
+#include "Casino.h"
+#include "utils.h"
+#include "cmdUI.h"
 
 int main(){
-
+	return 0;
 }

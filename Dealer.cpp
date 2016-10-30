@@ -1,18 +1,28 @@
 #pragma once
 
+#include <algorithm>
 #include "Dealer.h"
 
-void Dealer::hit() {
-	Card nextCard;
-	nextCard = deck[deck.size()];
-	deckDiscarded.push_back(nextCard);
-	deck.erase(deck.begin + deck.size());
-	hand.push_back(nextCard);
-	handScore = handScore();
+
+Dealer::Dealer() {
+	deck = creatDeck();
+	shuffleDeck();
+}
+
+void Dealer::shuffleDeck() {
+	random_shuffle(deck.begin(), deck.end());
+}
+
+void Dealer::hit() {	
+	deckDiscarded.push_back(deck.back());
+	hand.push_back(deck.back());
+	deck.pop_back();
+	this->handScore = handScore();
 }
 
 void Dealer::stand() {
-	//TODO: alterar variável de jogador atual
+	
+	nextPlayer++;
 }
 
 unsigned int Dealer::handScore(){

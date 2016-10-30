@@ -1,26 +1,24 @@
 #pragma once
 
-#include <exception>
-#include <string>
 #include <vector>
+#include "Table.h"
+#include "utils.h"
 
 using namespace std;
 
-struct Card {
-	string rank;
-	char suits;
-	unsigned int score;
-};
-
 class Dealer {
 private:
+	vector<Card> hand;
+	unsigned int handScore;
+	unsigned int nextPlayer;
 	vector<Card> deck;
 	vector<Card> deckDiscarded;
-	vector<Card> hand;
-	unsigned handScore;
+
 public:
+	Dealer();
+	void shuffleDeck();
 	void hit();
 	void stand();
-	unsigned int handScore;
+	unsigned int handScore();
 };
 
