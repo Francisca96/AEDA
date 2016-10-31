@@ -16,9 +16,11 @@ private:
 
 public:
 	Dealer();
+	Dealer(vector<Card> newDeck);
 	void shuffleDeck();
-	void hit();
+	Card discard();
+	void hit(Card newCard);
 	void stand();
-	unsigned int handScore();
+	unsigned int setHandScore();
 };
 

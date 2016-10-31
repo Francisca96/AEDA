@@ -5,7 +5,10 @@
 
 
 Dealer::Dealer() {
-	deck = creatDeck();
+}
+
+Dealer::Dealer(vector<Card> newDeck) {
+	this->deck = newDeck;
 	shuffleDeck();
 }
 
@@ -13,11 +16,17 @@ void Dealer::shuffleDeck() {
 	random_shuffle(deck.begin(), deck.end());
 }
 
-void Dealer::hit() {	
-	deckDiscarded.push_back(deck.back());
-	hand.push_back(deck.back());
+Card Dealer::discard() {
+	Card nextCard;
+	nextCard = deck.back();
+	deckDiscarded.push_back(nextCard);
 	deck.pop_back();
-	this->handScore = handScore();
+	return nextCard;
+}
+
+void Dealer::hit(Card newCard) {
+	hand.push_back(newCard);
+	setHandScore();
 }
 
 void Dealer::stand() {
@@ -25,13 +34,12 @@ void Dealer::stand() {
 	nextPlayer++;
 }
 
-unsigned int Dealer::handScore(){
-	unsigned int score = 0;
-
-	for(int i=0; i<hand.size(); i++){
-		score += hand[i].score;
+unsigned int Dealer::setHandScore(){
+	this->handScore = 0;
+	for (size_t i = 0; i < hand.size(); i++)
+	{
+		this->handScore += hand.at(i).score;
 	}
-
-	return score;
+	return this->handScore;
 }
 

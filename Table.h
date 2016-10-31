@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 class Table {
 private:
 	bool continuingPlay;
@@ -14,15 +13,16 @@ private:
 	unsigned int maxBet;
 	unsigned int moneyOfTable;
 	unsigned int numberMaxOfPlayers;
-	unsigned int indexNexToPlay;
+	unsigned int indexNextToPlay;
 	Dealer dealerOfTable;
 	vector<Player*> players;
 
 public:
 	Table();
-	Table(bool, unsigned int, unsigned int, unsigned int, unsigned int, Dealer); // Table() is a construct of a class Table with 6 args(continuingPlay, minBet, maxBet, moneyOfTbale, numberMaxOfPlayers, dealerOfTable)
+	Table(bool, unsigned int, unsigned int, unsigned int, unsigned int); // Table() is a construct of a class Table with 6 args(continuingPlay, minBet, maxBet, moneyOfTbale, numberMaxOfPlayers, dealerOfTable)
 	void setMinBet(unsigned int minBet);
 	void setMaxBet(unsigned int maxBet);
+	void setDealer(Dealer dealerOfTable);
 	void addPlayer(Player *newPlayer);
 	void addPlayers(vector <Player *> newPlayers);
 	unsigned int getMinBet();

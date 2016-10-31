@@ -5,7 +5,7 @@
 Table::Table() {
 }
 
-Table::Table(bool play, unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers, Dealer dealerOfTable) {
+Table::Table(bool play, unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers) {
 	this->continuingPlay = play;
 	this->minBet = minBet;
 	this->maxBet = maxBet;
@@ -16,6 +16,10 @@ Table::Table(bool play, unsigned int minBet, unsigned int maxBet, unsigned int m
 
 void Table::setMaxBet(unsigned int aMaxBet) {
 	this->maxBet = aMaxBet;
+}
+
+void Table::setDealer(Dealer dealerOfTable) {
+	this->dealerOfTable = dealerOfTable;
 }
 
 
@@ -42,7 +46,7 @@ unsigned int Table::getMaxBet() {
 void Table::play() {
 	while (continuingPlay == 1)
 	{
-		dealerOfTable.hit();
+		
 	}
 }
 
