@@ -52,9 +52,9 @@ void Table::play() {
 	{
 		getInitialBets();
 		dealOneCardToAllPlayers();
-		dealerOfTable.receiveCard();
+		dealerOfTable.hit(dealerOfTable.discard());
 		dealOneCardToAllPlayers();
-		dealerOfTable.receiveCard();
+		dealerOfTable.hit(dealerOfTable.discard());
 		if (dealerOfTable.visibleCards.at(0) == "A") {
 			//askPlayersForInsurance
 		}
@@ -64,7 +64,7 @@ void Table::play() {
 
 void Table::getInitialBets()
 {
-	unsigned int betValue;
+	//unsigned int betValue; is not be used
 	if (actualBets.size() != players.size()) {
 		actualBets.resize(players.size());
 	}
@@ -78,7 +78,7 @@ void Table::dealOneCardToAllPlayers() {
 		//inform players to reset counters because the deck has been reshuffled
 	}
 	for (size_t i = 0; i < players.size(); i++) {
-		players.at(i)->receiveCard(dealerOfTable.discard());
+		players.at(i)->hit(dealerOfTable.discard());
 	}
 }
 

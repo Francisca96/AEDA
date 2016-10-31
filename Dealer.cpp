@@ -23,6 +23,10 @@ Card Dealer::discard() {
 
 void Dealer::hit(Card newCard) {
 	hand.push_back(newCard);
+	if (hand.size() == 2)
+	{
+		visibleCards.push_back(hand.at(1));
+	}
 	setHandScore();
 }
 
@@ -38,14 +42,6 @@ unsigned int Dealer::setHandScore(){
 		this->handScore += hand.at(i).score;
 	}
 	return this->handScore;
-}
-
-void Dealer::receiveCard()
-{
-	hand.push_back(discard());
-	if (hand.size() == 2) {
-		visibleCards.push_back(hand.at(1));
-	}
 }
 
 void Dealer::setAllCardsVisible()

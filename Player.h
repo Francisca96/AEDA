@@ -16,7 +16,6 @@ private:
 	int averageProfit;
 
 public:
-	void receiveCard(Card &newCard);
 	void hit(Card newCard);
 	void takeInsurance();
 	void surrender();

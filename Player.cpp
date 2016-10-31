@@ -2,11 +2,6 @@
 
 #include "Player.h"
 
-void Player::receiveCard(Card &newCard)
-{
-	hand.push_back(newCard);
-	setHandScore();
-}
 
 void Player::hit(Card newCard) {
 	hand.push_back(newCard);

@@ -3,7 +3,7 @@
 #include "utils.h"
 
 
-vector<Card>& createDeck() {
+vector<Card> createDeck() {
 	vector <string> suits = { "Heart","Diamond","Club","Spade" };
 	string ranks = "A234567890JQK";
 	Card newCard;
@@ -39,8 +39,8 @@ vector<Card>& createDeck() {
 			}
 			deck.push_back(newCard);
 		}
-		return deck;
 	}
+	return deck;
 }
 
 

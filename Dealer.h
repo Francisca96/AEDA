@@ -15,6 +15,8 @@ private:
 
 public:
 	vector<Card> visibleCards;
+	//Default constructor
+	Dealer() {};
 	//Instanciates a new Dealer
 	Dealer(vector<Card> newDeck);
 	//shuffles Dealer's Deck
@@ -27,8 +29,6 @@ public:
 	void stand();
 	//Updates handScore
 	unsigned int setHandScore();
-	//Receive Card
-	void receiveCard();
 	//Show Cards
 	void setAllCardsVisible();
 	//get deck size to see if reshuffle is needed
