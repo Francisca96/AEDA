@@ -9,7 +9,7 @@ using namespace std;
 class Table {
 private:
 	static unsigned int nextID;
-	bool keepPlaying;
+	unsigned int roundsLeft;
 	unsigned int minBet;
 	unsigned int maxBet;
 	unsigned int moneyOfTable;
@@ -18,11 +18,11 @@ private:
 	unsigned int tableID;
 	Dealer dealerOfTable;
 	vector<Player*> players;
+	vector<int> playersStatus;
 	vector<unsigned int> actualBets;
 
 public:
-	//removed keepPlaying from the constructor (Quando criamos a mesa acho que faz sentido o keepPlaying ser true;
-	Table(unsigned int, unsigned int, unsigned int, unsigned int); // Table() is a construct of a class Table with 5 args(minBet, maxBet, moneyOfTbale, maxNumberOfPlayers, dealerOfTable)
+	Table(unsigned int,unsigned int, unsigned int, unsigned int, unsigned int,Dealer&); // Table() is a construct of a class Table with 6 args(roudnsLeft,minBet, maxBet, moneyOfTbale, maxNumberOfPlayers, dealerOfTable)
 	void setMinBet(unsigned int minBet);
 	void setMaxBet(unsigned int maxBet);
 	void setDealer(Dealer &dealerOfTable);
