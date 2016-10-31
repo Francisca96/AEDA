@@ -56,8 +56,9 @@ void Table::play() {
 		dealOneCardToAllPlayers();
 		dealerOfTable.receiveCard();
 		if (dealerOfTable.visibleCards.at(0) == "A") {
-		
+			//askPlayersForInsurance
 		}
+		dealerOfTable.setAllCardsVisible();
 	}
 }
 
@@ -71,6 +72,11 @@ void Table::getInitialBets()
 }
 
 void Table::dealOneCardToAllPlayers() {
+	//check if deck has cards for all the players + dealer
+	if (dealerOfTable.getDeck().size() < players.size() + 1) {
+		dealerOfTable.addCardsToDeck(dealerOfTable.getDiscardedDeck());
+		//inform players to reset counters because the deck has been reshuffled
+	}
 	for (size_t i = 0; i < players.size(); i++) {
 		players.at(i)->receiveCard(dealerOfTable.discard());
 	}

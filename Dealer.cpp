@@ -56,3 +56,20 @@ void Dealer::setAllCardsVisible()
 	}
 }
 
+vector<Card>& Dealer::getDeck()
+{
+	return deck;
+}
+
+void Dealer::addCardsToDeck(vector<Card>& cards)
+{
+	deck.insert(deck.end(), cards.begin(), cards.end());
+	shuffleDeck();
+}
+
+vector<Card>& Dealer::getDiscardedDeck()
+{
+	return deckDiscarded;
+}
+
+
