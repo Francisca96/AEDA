@@ -32,5 +32,9 @@ public:
 	void receiveCard();
 	//Show Cards
 	void setAllCardsVisible();
+	//get deck size to see if reshuffle is needed
+	vector<Card>& getDeck();
+	void addCardsToDeck(vector<Card> &cards);
+	vector<Card>& getDiscardedDeck();
 };
 
