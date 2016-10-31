@@ -25,15 +25,14 @@ public:
 	unsigned int getHandScore();
 	void setCurrentMoney(unsigned int money);
 	unsigned int getCurrentMoney();
-	virtual unsigned int bet() = 0;
+	//bots currently bet's always the minValue
+	virtual unsigned int bet(unsigned int minValue, unsigned int maxValue);
 	virtual unsigned int play() = 0;
 };
 
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 class Bot0: public Player {
 public:
-	//bot 0 currently bet's always the minValue
-	unsigned int bet(unsigned int minValue, unsigned int maxValue);
 	//play method
 	unsigned int play();
 };
@@ -41,14 +40,15 @@ public:
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
 class Bot1: public Player {
 public:
-	unsigned int bet();
+	//play method
+	unsigned int play();
 };
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
 class Bot2: public Player {
 public:
-	unsigned int bet();
-};
+	//play method
+	unsigned int play();
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
 class Human: public Player {
