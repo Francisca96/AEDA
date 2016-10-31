@@ -24,10 +24,6 @@ void Player::doubleDown() {
 	throw "Not yet implemented";
 }
 
-void Player::canUseSideRules() {
-	throw "Not yet implemented";
-}
-
 unsigned int Player::setHandScore() {
 	this->handScore = 0;
 	for (size_t i = 0; i < hand.size(); i++)
@@ -63,6 +59,7 @@ unsigned int Bot0::play()
 {
 	unsigned int handScore = getHandScore();
 	if (handScore < 17) {
+
 		return 0; // 0 means hit
 	}
 	else if (handScore <= 21) {

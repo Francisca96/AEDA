@@ -29,11 +29,10 @@ void Dealer::hit(Card &newCard) {
 	}
 	setHandScore();
 }
-
+/*
 void Dealer::stand() {
-	
 	nextPlayer++;
-}
+}*/
 
 unsigned int Dealer::setHandScore(){
 	this->handScore = 0;
@@ -66,6 +65,16 @@ void Dealer::addCardsToDeck(vector<Card>& cards)
 vector<Card>& Dealer::getDiscardedDeck()
 {
 	return deckDiscarded;
+}
+
+
+unsigned int Dealer::play()
+{
+	if (handScore < 17) {
+		hit(discard());
+		return 0; //means hit
+	}
+	else return 1; //means stand
 }
 
 

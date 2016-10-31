@@ -53,8 +53,9 @@ void Table::play() {
 	//If dealer has a blackjack, collect bets from anyone that didn’t buy insurance.Players that did buy insurance receive their original bets back.Players with blackjack will receive their original bet, even if they didn’t purchase insurance.
 	while (roundsLeft > 0)
 	{
+		unsigned int dealerStatus = 0;
 		unsigned int playerHandScore;
-		bool ArranjarNomeParaEstaVar = false;
+		bool runPlayersAgain = true;
 		getInitialBets();
 		dealOneCardToAllPlayers();
 		dealerOfTable.hit(dealerOfTable.discard());
@@ -64,6 +65,7 @@ void Table::play() {
 			//askPlayersForInsurance
 		}
 		dealerOfTable.setAllCardsVisible();
+		while(runPlayersAgain == true)
 		for (size_t i = 0; i < players.size(); i++) {
 			if (playersStatus.at(i) != 0) {
 				continue;
@@ -82,10 +84,16 @@ void Table::play() {
 			if (playerHandScore >= 21) {
 				playersStatus.at(i) == playerHandScore;
 			}
+			runPlayersAgain = false;
 		}
+		if (dealerOfTable.play() == 1) //stand
+		{
+			dealerStatus = 1;
+		}
+		
 		for (size_t i = 0; i < playersStatus.size(); i++) {
 			if (playersStatus.at(i) == 0) {
-				ArranjarNomeParaEstaVar = true;
+				runPlayersAgain = true;
 			}
 		}
 

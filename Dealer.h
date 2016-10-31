@@ -25,8 +25,8 @@ public:
 	Card discard();
 	//Places a Card in the Dealer hand and updates the handscore
 	void hit(Card &newCard);
-	//Increases nextPlayer by 1;
-	void stand();
+	/*Increases nextPlayer by 1;
+	void stand();*/
 	//Updates handScore
 	unsigned int setHandScore();
 	//Show Cards
@@ -35,5 +35,6 @@ public:
 	vector<Card>& getDeck();
 	void addCardsToDeck(vector<Card> &cards);
 	vector<Card>& getDiscardedDeck();
+	unsigned int play();
 };
 
