@@ -15,6 +15,7 @@ private:
 	int averageProfit;
 
 public:
+	void receiveCard(Card &newCard);
 	void hit(Card newCard);
 	void takeInsurance();
 	void surrender();
@@ -28,6 +29,7 @@ public:
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 class Bot0: public Player {
 public:
+	//
 	unsigned int bet();
 };
 

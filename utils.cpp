@@ -1,6 +1,48 @@
 #include "utils.h"
 
 
+vector<Card>& createDeck(){
+	vector <string> suits = { "Heart","Diamond","Club","Spade" };
+	string ranks = "A234567890JQK";
+	Card newCard;
+	vector <Card> deck;
+
+for (unsigned int i = 0; i < ranks.length(); i++)
+{
+	for (size_t j = 0; j < suits.size(); j++)
+	{
+		if (i == 0)
+		{
+			newCard.suits = suits.at(j);
+			newCard.rank = ranks.at(i);
+			newCard.score = 1;
+		}
+		else if (i < 9)
+		{
+			newCard.suits = suits.at(j);
+			newCard.rank = ranks.at(i);
+			newCard.score = i + 1;
+		}
+		else if (i == 9)
+		{
+			newCard.suits = suits.at(j);
+			newCard.rank = "10";
+			newCard.score = i + 1;
+		}
+		else if (i >= 1)
+		{
+			newCard.suits = suits.at(j);
+			newCard.rank = ranks.at(i);
+			newCard.score = 10;
+		}
+		deck.push_back(newCard);
+	}
+}
+return deck;
+}
+
+
+
 void clearScreen(){
 	system("CLS");
 }

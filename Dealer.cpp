@@ -4,9 +4,6 @@
 #include "Dealer.h"
 
 
-Dealer::Dealer() {
-}
-
 Dealer::Dealer(vector<Card> newDeck) {
 	this->deck = newDeck;
 	shuffleDeck();
@@ -41,5 +38,21 @@ unsigned int Dealer::setHandScore(){
 		this->handScore += hand.at(i).score;
 	}
 	return this->handScore;
+}
+
+void Dealer::receiveCard()
+{
+	hand.push_back(discard());
+	if (hand.size() == 2) {
+		visibleCards.push_back(hand.at(1));
+	}
+}
+
+void Dealer::setAllCardsVisible()
+{
+	visibleCards.resize(hand.size());
+	for (size_t i = 0; i < hand.size(); i++) {
+		visibleCards.at(i) = hand.at(i);
+	}
 }
 
