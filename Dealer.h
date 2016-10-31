@@ -24,7 +24,7 @@ public:
 	//Removes a Card from the end of the deck and returns it. Additionaly pushes the Card to the deckDiscarded vector
 	Card discard();
 	//Places a Card in the Dealer hand and updates the handscore
-	void hit(Card &newCard);
+	Card& hit();
 	/*Increases nextPlayer by 1;
 	void stand();*/
 	//Updates handScore
@@ -35,6 +35,7 @@ public:
 	vector<Card>& getDeck();
 	void addCardsToDeck(vector<Card> &cards);
 	vector<Card>& getDiscardedDeck();
-	unsigned int play();
+	unsigned int getHandScore();
+	string play();
 };
 

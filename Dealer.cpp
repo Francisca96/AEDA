@@ -21,13 +21,10 @@ Card Dealer::discard() {
 	return nextCard;
 }
 
-void Dealer::hit(Card &newCard) {
-	hand.push_back(newCard);
-	if (hand.size() == 2)
-	{
-		visibleCards.push_back(hand.at(1));
-	}
+Card& Dealer::hit() {
+	hand.push_back(discard());
 	setHandScore();
+	return hand.back();
 }
 /*
 void Dealer::stand() {
@@ -67,14 +64,19 @@ vector<Card>& Dealer::getDiscardedDeck()
 	return deckDiscarded;
 }
 
+unsigned int Dealer::getHandScore()
+{
+	return handScore;
+}
 
-unsigned int Dealer::play()
+
+string Dealer::play()
 {
 	if (handScore < 17) {
-		hit(discard());
-		return 0; //means hit
+		hit();
+		return "hit"; //means hit
 	}
-	else return 1; //means stand
+	else return "stand"; //means stand
 }
 
 

@@ -53,51 +53,31 @@ void Table::play() {
 	//If dealer has a blackjack, collect bets from anyone that didn’t buy insurance.Players that did buy insurance receive their original bets back.Players with blackjack will receive their original bet, even if they didn’t purchase insurance.
 	while (roundsLeft > 0)
 	{
-		unsigned int dealerStatus = 0;
-		unsigned int playerHandScore;
-		bool runPlayersAgain = true;
 		getInitialBets();
 		dealOneCardToAllPlayers();
-		dealerOfTable.hit(dealerOfTable.discard());
+		dealerOfTable.hit();
 		dealOneCardToAllPlayers();
-		dealerOfTable.hit(dealerOfTable.discard());
-		if (dealerOfTable.visibleCards.at(0) == "A") {
-			//askPlayersForInsurance
+		if (dealerOfTable.hit() == "A") {
+			//ask for insurance;
 		}
-		dealerOfTable.setAllCardsVisible();
-		while(runPlayersAgain == true)
 		for (size_t i = 0; i < players.size(); i++) {
-			if (playersStatus.at(i) != 0) {
-				continue;
-			}
-			unsigned int playersChoice = players.at(i)->play();
-			if (playersChoice == 0)//hit
-			{
-				players.at(i)->hit(dealerOfTable.discard());
-			}
-			else if (playersChoice == 1) //stand
-			{
-				playersStatus.at(i) == players.at(i)->getHandScore(); //only sets status when stand, or blackjack, or busted (>21)
-				continue;
-			}
-			playerHandScore = players.at(i)->getHandScore();
-			if (playerHandScore >= 21) {
-				playersStatus.at(i) == playerHandScore;
-			}
-			runPlayersAgain = false;
+			while (players.at(i)->play() != "stand"){}
 		}
-		if (dealerOfTable.play() == 1) //stand
-		{
-			dealerStatus = 1;
-		}
-		
-		for (size_t i = 0; i < playersStatus.size(); i++) {
-			if (playersStatus.at(i) == 0) {
-				runPlayersAgain = true;
+		while (dealerOfTable.play() != "stand"){}
+		for (size_t i = 0; i < players.size(); i++) {
+			if (players.at(i)->getHandScore() == 21 && players.at(i)->getHandSize == 2 && dealerOfTable.getHandScore() < 21) {
+				payToPlayer(players.at(i), actualBets.at(i) * 2.5);
+			}
+			else if (players.at(i)->getHandScore() <= 21 && players.at(i)->getHandScore() == dealerOfTable.getHandScore() ) {
+				payToPlayer(players.at(i), actualBets.at(i));
+			}
+			else if (players.at(i)->getHandScore() > dealerOfTable.getHandScore() && players.at(i)->getHandScore() < 21) {
+				payToPlayer(players.at(i), actualBets.at(i) * 2);
+			}
+			else if (dealerOfTable.getHandScore() > 21 && players.at(i)->getHandScore() <= 21) {
+				payToPlayer(players.at(i), actualBets.at(i) * 2);
 			}
 		}
-
-		//continue developing here ...
 	}
 }
 
@@ -121,6 +101,11 @@ void Table::dealOneCardToAllPlayers() {
 	for (size_t i = 0; i < players.size(); i++) {
 		players.at(i)->hit(dealerOfTable.discard());
 	}
+}
+
+void Table::payToPlayer(Player * player1, unsigned int value)
+{
+	player1->addMoney(value);
 }
 
 

@@ -22,7 +22,7 @@ private:
 	vector<unsigned int> actualBets;
 
 public:
-	Table(unsigned int,unsigned int, unsigned int, unsigned int, unsigned int,Dealer&); // Table() is a construct of a class Table with 6 args(roudnsLeft,minBet, maxBet, moneyOfTbale, maxNumberOfPlayers, dealerOfTable)
+	Table(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, Dealer&); // Table() is a construct of a class Table with 6 args(roudnsLeft,minBet, maxBet, moneyOfTbale, maxNumberOfPlayers, dealerOfTable)
 	void setMinBet(unsigned int minBet);
 	void setMaxBet(unsigned int maxBet);
 	void setDealer(Dealer &dealerOfTable);
@@ -30,9 +30,10 @@ public:
 	void addPlayers(vector <Player *> newPlayers);
 	unsigned int getMinBet();
 	unsigned int getMaxBet();
-	void play(); //Please comment the functionality of this method;
+	void play();
 	void getInitialBets();
 	void dealOneCardToAllPlayers();
+	void payToPlayer(Player* player1, unsigned int value);
 };
 
 

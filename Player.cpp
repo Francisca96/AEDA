@@ -24,6 +24,11 @@ void Player::doubleDown() {
 	throw "Not yet implemented";
 }
 
+unsigned int Player::getHandSize()
+{
+	return hand.size();
+}
+
 unsigned int Player::setHandScore() {
 	this->handScore = 0;
 	for (size_t i = 0; i < hand.size(); i++)
@@ -47,6 +52,11 @@ unsigned int Player::getCurrentMoney()
 	return currentMoney;
 }
 
+void Player::addMoney(unsigned int value)
+{
+	currentMoney += value;
+}
+
 unsigned int Player::bet(unsigned int minValue, unsigned int maxValue)
 {
 	unsigned int betValue = minValue;
@@ -55,30 +65,28 @@ unsigned int Player::bet(unsigned int minValue, unsigned int maxValue)
 }
 
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
-unsigned int Bot0::play()
+string Bot0::play()
 {
 	unsigned int handScore = getHandScore();
 	if (handScore < 17) {
 
-		return 0; // 0 means hit
+		return "hit"; // 0 means hit
 	}
-	else if (handScore <= 21) {
-		return 1; // means stand
-	}
+	return "stand"; // means stand
 }
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
-unsigned int Bot1::play()
+string Bot1::play()
 {
 	unsigned int handScore = getHandScore();
-	vector<Card> discarded = getDiscardedDeck();
+	vector<Card> discarded = getDiscardedDeck(); //fix this ! getDiscardedDeck is implemented in dealer
 	int hitCards = 0;
 	for(int i=0; i<discarded.size(); i++){
 		if(discarded.at(i).score <= 5){
 			hitCards++;
 		}
 	}
-	return 0; // 0 means hit
+	return "hit"; // 0 means hit
 }
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
