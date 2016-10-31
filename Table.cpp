@@ -59,6 +59,10 @@ void Table::play() {
 			//askPlayersForInsurance
 		}
 		dealerOfTable.setAllCardsVisible();
+		for (size_t i = 0; i < players.size(); i++) {
+			if (players.at(i)->play() == 0)
+		}
+		//continue developing here ...
 	}
 }
 
