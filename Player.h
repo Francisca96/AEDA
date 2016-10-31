@@ -21,8 +21,10 @@ public:
 	void surrender();
 	void split();
 	void doubleDown();
-	void canUseSideRules();
 	unsigned int setHandScore();
+	unsigned int getHandScore();
+	void setCurrentMoney(unsigned int money);
+	unsigned int getCurrentMoney();
 	virtual unsigned int bet() = 0;
 	virtual unsigned int play() = 0;
 };
@@ -30,9 +32,10 @@ public:
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 class Bot0: public Player {
 public:
-	//
-	unsigned int bet();
-
+	//bot 0 currently bet's always the minValue
+	unsigned int bet(unsigned int minValue, unsigned int maxValue);
+	//play method
+	unsigned int play();
 };
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////

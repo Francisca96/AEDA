@@ -17,7 +17,7 @@ struct Card {
 	}
 };
 
-vector <Card> createDeck();
+vector <Card>& createDeck();
 
 
 void clearScreen();

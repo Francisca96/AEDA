@@ -21,7 +21,7 @@ Card Dealer::discard() {
 	return nextCard;
 }
 
-void Dealer::hit(Card newCard) {
+void Dealer::hit(Card &newCard) {
 	hand.push_back(newCard);
 	if (hand.size() == 2)
 	{

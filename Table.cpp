@@ -4,12 +4,13 @@
 
 unsigned int Table::nextID = 0;
 
-Table::Table(unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers) {
-	this->keepPlaying = true;
+Table::Table(unsigned int roundsLeft,unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers, Dealer& newDealer) {
+	this->roundsLeft = roundsLeft;
 	this->minBet = minBet;
 	this->maxBet = maxBet;
 	this->moneyOfTable = moneyOfTable;
 	this->maxNumberOfPlayers = maxNumberOfPlayers;
+	this->dealerOfTable = newDealer;
 	tableID = nextID;
 	nextID++;
 }
@@ -25,10 +26,12 @@ void Table::setDealer(Dealer &dealerOfTable) {
 
 void Table::addPlayer(Player * newPlayer) {
 	this->players.push_back(newPlayer);
+	playersStatus.resize(players.size());
 }
 
 void Table::addPlayers(vector<Player *> newPlayers) {
 	players.insert(players.end(), newPlayers.begin(), newPlayers.end());
+	playersStatus.resize(players.size());
 }
 
 void Table::setMinBet(unsigned int aMinBet) {
@@ -48,8 +51,10 @@ void Table::play() {
 	//if dealer's card is an Ace, ask players if they want to take insurance()
 	//If they do, take each player’s insurance (it should be half of their original bet) and flip over dealer's second card to see whether or not dealer has a blackjack.
 	//If dealer has a blackjack, collect bets from anyone that didn’t buy insurance.Players that did buy insurance receive their original bets back.Players with blackjack will receive their original bet, even if they didn’t purchase insurance.
-	while (keepPlaying == 1)
+	while (roundsLeft > 0)
 	{
+		unsigned int playerHandScore;
+		bool ArranjarNomeParaEstaVar = false;
 		getInitialBets();
 		dealOneCardToAllPlayers();
 		dealerOfTable.hit(dealerOfTable.discard());
@@ -60,22 +65,43 @@ void Table::play() {
 		}
 		dealerOfTable.setAllCardsVisible();
 		for (size_t i = 0; i < players.size(); i++) {
-			if (players.at(i)->play() == 0)
+			if (playersStatus.at(i) != 0) {
+				continue;
+			}
+			unsigned int playersChoice = players.at(i)->play();
+			if (playersChoice == 0)//hit
 			{
-
+				players.at(i)->hit(dealerOfTable.discard());
+			}
+			else if (playersChoice == 1) //stand
+			{
+				playersStatus.at(i) == players.at(i)->getHandScore(); //only sets status when stand, or blackjack, or busted (>21)
+				continue;
+			}
+			playerHandScore = players.at(i)->getHandScore();
+			if (playerHandScore >= 21) {
+				playersStatus.at(i) == playerHandScore;
 			}
 		}
+		for (size_t i = 0; i < playersStatus.size(); i++) {
+			if (playersStatus.at(i) == 0) {
+				ArranjarNomeParaEstaVar = true;
+			}
+		}
+
 		//continue developing here ...
 	}
 }
 
 void Table::getInitialBets()
 {
-	//unsigned int betValue; is not be used
 	if (actualBets.size() != players.size()) {
 		actualBets.resize(players.size());
 	}
-	
+	for (size_t i = 0; i < players.size(); i++) {
+		actualBets.at(i) = players.at(i)->bet();
+		moneyOfTable += actualBets.at(i);
+	}
 }
 
 void Table::dealOneCardToAllPlayers() {
