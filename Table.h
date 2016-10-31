@@ -1,19 +1,21 @@
 ﻿#pragma once
 
+#include <vector>
 #include "Dealer.h"
 #include "Player.h"
-#include "utils.h"
 
 using namespace std;
 
 class Table {
 private:
+	static unsigned int nextID;
 	bool continuingPlay;
 	unsigned int minBet;
 	unsigned int maxBet;
 	unsigned int moneyOfTable;
 	unsigned int numberMaxOfPlayers;
 	unsigned int indexNextToPlay;
+	unsigned int tableID;
 	Dealer dealerOfTable;
 	vector<Player*> players;
 

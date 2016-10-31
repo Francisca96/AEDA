@@ -2,6 +2,8 @@
 
 #include "Table.h"
 
+unsigned int Table::nextID = 0;
+
 Table::Table() {
 }
 
@@ -11,6 +13,8 @@ Table::Table(bool play, unsigned int minBet, unsigned int maxBet, unsigned int m
 	this->maxBet = maxBet;
 	this->moneyOfTable = moneyOfTable;
 	this->numberMaxOfPlayers = numberMaxOfPlayers;
+	tableID = nextID;
+	nextID++;
 }
 
 

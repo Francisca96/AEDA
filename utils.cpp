@@ -1,10 +1,11 @@
+#pragma once
+
 #include "utils.h"
 
 
-void clearScreen(){
+void clearScreen() {
 	system("CLS");
 }
-
 
 unsigned short int readUnsignedIntBetween(unsigned int minValue, unsigned int  maxValue){
 	unsigned int short newInt;

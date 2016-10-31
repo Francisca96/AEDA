@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-#include "Table.h"
 #include "utils.h"
 
 using namespace std;
