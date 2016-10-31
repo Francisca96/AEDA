@@ -19,8 +19,6 @@ struct Card {
 
 vector <Card>& createDeck();
 
-
-
 void clearScreen();
 
 unsigned short int readUnsignedIntBetween(unsigned int min, unsigned int max);
