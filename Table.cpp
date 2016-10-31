@@ -4,25 +4,21 @@
 
 unsigned int Table::nextID = 0;
 
-Table::Table() {
-}
-
-Table::Table(bool play, unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers) {
-	this->continuingPlay = play;
+Table::Table(unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers) {
+	this->keepPlaying = true;
 	this->minBet = minBet;
 	this->maxBet = maxBet;
 	this->moneyOfTable = moneyOfTable;
-	this->numberMaxOfPlayers = numberMaxOfPlayers;
+	this->maxNumberOfPlayers = maxNumberOfPlayers;
 	tableID = nextID;
 	nextID++;
 }
-
 
 void Table::setMaxBet(unsigned int aMaxBet) {
 	this->maxBet = aMaxBet;
 }
 
-void Table::setDealer(Dealer dealerOfTable) {
+void Table::setDealer(Dealer &dealerOfTable) {
 	this->dealerOfTable = dealerOfTable;
 }
 
@@ -48,9 +44,36 @@ unsigned int Table::getMaxBet() {
 }
 
 void Table::play() {
-	while (continuingPlay == 1)
+	//sequence : get Initial Bets then deal one card to each player and to the dealer (2x times) (first Dealer card face down)
+	//if dealer's card is an Ace, ask players if they want to take insurance()
+	//If they do, take each player’s insurance (it should be half of their original bet) and flip over dealer's second card to see whether or not dealer has a blackjack.
+	//If dealer has a blackjack, collect bets from anyone that didn’t buy insurance.Players that did buy insurance receive their original bets back.Players with blackjack will receive their original bet, even if they didn’t purchase insurance.
+	while (keepPlaying == 1)
 	{
+		getInitialBets();
+		dealOneCardToAllPlayers();
+		dealerOfTable.receiveCard();
+		dealOneCardToAllPlayers();
+		dealerOfTable.receiveCard();
+		if (dealerOfTable.visibleCards.at(0) == "A") {
 		
+		}
 	}
 }
+
+void Table::getInitialBets()
+{
+	unsigned int betValue;
+	if (actualBets.size() != players.size()) {
+		actualBets.resize(players.size());
+	}
+	
+}
+
+void Table::dealOneCardToAllPlayers() {
+	for (size_t i = 0; i < players.size(); i++) {
+		players.at(i)->receiveCard(dealerOfTable.discard());
+	}
+}
+
 
