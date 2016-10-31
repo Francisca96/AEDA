@@ -51,13 +51,14 @@ unsigned int Player::getCurrentMoney()
 	return currentMoney;
 }
 
-unsigned int Bot0::bet(unsigned int minValue, unsigned int maxValue)
+unsigned int Player::bet(unsigned int minValue, unsigned int maxValue)
 {
 	unsigned int betValue = minValue;
 	setCurrentMoney(getCurrentMoney() - betValue);
 	return betValue;
 }
 
+//////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 unsigned int Bot0::play()
 {
 	unsigned int handScore = getHandScore();
@@ -68,3 +69,20 @@ unsigned int Bot0::play()
 		return 1; // means stand
 	}
 }
+
+//////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
+unsigned int Bot1::play()
+{
+	unsigned int handScore = getHandScore();
+	vector<Card> discarded = getDiscardedDeck();
+	int hitCards = 0;
+	for(int i=0; i<discarded.size(); i++){
+		if(discarded.at(i).score <= 5){
+			hitCards++;
+		}
+	}
+	return 0; // 0 means hit
+}
+
+//////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
+//////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
