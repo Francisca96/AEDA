@@ -61,11 +61,11 @@ void Table::play() {
 			//ask for insurance;
 		}
 		for (size_t i = 0; i < players.size(); i++) {
-			while (players.at(i)->play() != "stand"){}
+			while (players.at(i)->play(dealerOfTable) != "stand"){}
 		}
 		while (dealerOfTable.play() != "stand"){}
 		for (size_t i = 0; i < players.size(); i++) {
-			if (players.at(i)->getHandScore() == 21 && players.at(i)->getHandSize == 2 && dealerOfTable.getHandScore() < 21) {
+			if (players.at(i)->getHandScore() == 21 && players.at(i)->getHandSize() == 2 && dealerOfTable.getHandScore() < 21) {
 				payToPlayer(players.at(i), actualBets.at(i) * 2.5);
 			}
 			else if (players.at(i)->getHandScore() <= 21 && players.at(i)->getHandScore() == dealerOfTable.getHandScore() ) {
@@ -87,7 +87,7 @@ void Table::getInitialBets()
 		actualBets.resize(players.size());
 	}
 	for (size_t i = 0; i < players.size(); i++) {
-		actualBets.at(i) = players.at(i)->bet();
+		actualBets.at(i) = players.at(i)->bet(minBet,maxBet);
 		moneyOfTable += actualBets.at(i);
 	}
 }

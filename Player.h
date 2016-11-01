@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "utils.h"
+#include "Dealer.h"
 
 using namespace std;
 
@@ -30,31 +31,31 @@ public:
 	void addMoney(unsigned int value);
 	//bots currently bet's always the minValue
 	virtual unsigned int bet(unsigned int minValue, unsigned int maxValue);
-	virtual string play() = 0;
+	virtual string play(Dealer &dealerOfTable) = 0;
 };
 
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 class Bot0: public Player {
 public:
 	//play method
-	string play();
+	string play(Dealer &dealerOfTable);
 };
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
 class Bot1: public Player {
 public:
 	//play method
-	string play();
+	string play(Dealer &dealerOfTable);
 };
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
-class Bot2: public Player {
+class Bot2 : public Player {
 public:
 	//play method
-	unsigned int play();
-
+	string play(Dealer &dealerOfTable);
+};
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
 class Human: public Player {
 public:
-	unsigned int bet();
+	unsigned int bet(unsigned int minValue, unsigned int maxValue);
 };

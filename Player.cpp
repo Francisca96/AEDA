@@ -65,21 +65,22 @@ unsigned int Player::bet(unsigned int minValue, unsigned int maxValue)
 }
 
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
-string Bot0::play()
+string Bot0::play(Dealer &dealerOfTable)
 {
+	string options[] = { "hit","stand" };
 	unsigned int handScore = getHandScore();
 	if (handScore < 17) {
 
-		return "hit"; // 0 means hit
+		return options[0]; // 0 means hit
 	}
-	return "stand"; // means stand
+	return options[1]; // means stand
 }
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
-string Bot1::play()
+string Bot1::play(Dealer &dealerOfTable)
 {
 	unsigned int handScore = getHandScore();
-	vector<Card> discarded = getDiscardedDeck(); //fix this ! getDiscardedDeck is implemented in dealer
+	vector<Card> discarded = dealerOfTable.getDiscardedDeck(); //fix this ! getDiscardedDeck is implemented in dealer
 	int hitCards = 0;
 	for(int i=0; i<discarded.size(); i++){
 		if(discarded.at(i).score <= 5){
