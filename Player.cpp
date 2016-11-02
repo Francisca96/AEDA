@@ -105,6 +105,27 @@ void Player::addMoney(unsigned int value)
 	currentMoney += value;
 }
 
+void Player::showStatistics()
+{
+	averageProfit = (float)((currentMoney - initialMoney) / float(roundsPlayed));
+	
+	Bot0 *bot0 = dynamic_cast<Bot0*> (this);
+	Bot1 *bot1 = dynamic_cast<Bot1*> (this);
+	Bot2 *bot2 = dynamic_cast<Bot2*> (this);
+	cout << setw(15) << "Bot " << name;
+	if (bot0 != nullptr) {
+		cout << setw(15) << "0";
+	}
+	else if (bot1 != nullptr){
+		cout << setw(15) << "1";
+	}
+	else if (bot2 != nullptr) {
+		cout << setw(15) << "2";
+	}
+	cout << setw(15) << roundsPlayed << setw(30) << averageProfit << " $/round\n";
+
+}
+
 unsigned int Player::bet(unsigned int minValue, unsigned int maxValue)
 {
 	unsigned int betValue = minValue;

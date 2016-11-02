@@ -4,6 +4,13 @@
 
 unsigned int Table::nextID = 0;
 
+void TooManyPlayers::what()
+{
+	cout << "Error while loading players to table\n";
+	cout << "The table already has " << actualNumOfPlayers << "out of " << maxNumberOfPlayers << "\n";
+}
+
+
 Table::Table(unsigned int roundsLeft,unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers, Dealer& newDealer) {
 	this->roundsLeft = roundsLeft;
 	this->minBet = minBet;
@@ -11,6 +18,7 @@ Table::Table(unsigned int roundsLeft,unsigned int minBet, unsigned int maxBet, u
 	this->moneyOfTable = moneyOfTable;
 	this->maxNumberOfPlayers = maxNumberOfPlayers;
 	this->dealerOfTable = newDealer;
+	initialMoney = moneyOfTable;
 	tableID = nextID;
 	nextID++;
 }
@@ -19,19 +27,27 @@ void Table::setMaxBet(unsigned int aMaxBet) {
 	this->maxBet = aMaxBet;
 }
 
-void Table::setDealer(Dealer &dealerOfTable) {
+void Table::setDealer(Dealer dealerOfTable) {
 	this->dealerOfTable = dealerOfTable;
 }
 
 
 void Table::addPlayer(Player * newPlayer) {
 	this->players.push_back(newPlayer);
-	playersStatus.resize(players.size());
+	actualBets.resize(players.size());
 }
 
 void Table::addPlayers(vector<Player *> newPlayers) {
+	if (newPlayers.size() + players.size() > maxNumberOfPlayers) {
+		throw TooManyPlayers (maxNumberOfPlayers,players.size());
+	}
 	players.insert(players.end(), newPlayers.begin(), newPlayers.end());
-	playersStatus.resize(players.size());
+	actualBets.resize(players.size());
+}
+
+void Table::removePlayer(Player * player1)
+{
+
 }
 
 void Table::setMinBet(unsigned int aMinBet) {
@@ -39,11 +55,11 @@ void Table::setMinBet(unsigned int aMinBet) {
 }
 
 unsigned int Table::getMinBet() {
-	return this->minBet;
+	return minBet;
 }
 
 unsigned int Table::getMaxBet() {
-	return this->maxBet;
+	return maxBet;
 }
 
 void Table::play() {
@@ -97,12 +113,21 @@ void Table::play() {
 				payToPlayer(players.at(i), actualBets.at(i) * 2);
 				cout << "Dealer got busted! Player " << players.at(i)->getName() << " will receive 2 times his original bet!\n";
 			}
+			else if (players.at(i)->getHandScore() != 21 && dealerOfTable.getHandScore() == 21) {
+				cout << "Dealer has blackjack! " << players.at(i)->getName() << " lost his bet!\n";
+			}
 			players.at(i)->clearHand();
+			players.at(i)->setRoundsPlayed(players.at(i)->getRoundsPlayed() + 1);
 			dealerOfTable.clearHand();
 		}
 		
 		roundsLeft--;
 	}
+}
+
+unsigned int Table::getTableID()
+{
+	return tableID;
 }
 
 void Table::getInitialBets()
@@ -116,6 +141,11 @@ void Table::getInitialBets()
 	}
 }
 
+Dealer * Table::getDealer()
+{
+	return &dealerOfTable;
+}
+
 void Table::dealOneCardToAllPlayers() {
 	//check if deck has cards for all the players + dealer
 	if (dealerOfTable.getDeck().size() < players.size() + 1) {
@@ -127,9 +157,10 @@ void Table::dealOneCardToAllPlayers() {
 	}
 }
 
-void Table::payToPlayer(Player * player1, unsigned int value)
+void Table::payToPlayer(Player * player1, float value)
 {
 	player1->addMoney(value);
+	moneyOfTable -= value;
 }
 
 unsigned int Table::restartDeck()
@@ -145,4 +176,18 @@ unsigned int Table::restartDeck()
 	return 1;
 }
 
+float Table::closeTable()
+{
+	players.clear();
+	actualBets.clear();
+	cout << "Table ID." << tableID << " has been CLOSED\n";
+	cout << "Profit of table " << tableID << " : " << setprecision(2) <<moneyOfTable - initialMoney << "$\n";
+	return moneyOfTable;
+}
+
+TooManyPlayers::TooManyPlayers(unsigned int maxNumberOfPlayers, unsigned int actualNumOfPlayers)
+{
+	this->maxNumberOfPlayers = maxNumberOfPlayers;
+	this->actualNumOfPlayers = actualNumOfPlayers;
+}
 

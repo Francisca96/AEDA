@@ -3,15 +3,21 @@
 #include <algorithm>
 #include "Dealer.h"
 
+unsigned int Dealer::nextID = 0;
 
 Dealer::Dealer()
 {
 	deck = createDeck();
+	shuffleDeck();
+	ID = nextID;
+	nextID++;
 }
 
 Dealer::Dealer(vector<Card> newDeck) {
 	this->deck = newDeck;
 	shuffleDeck();
+	ID = nextID;
+	nextID++;
 }
 
 void Dealer::shuffleDeck() {

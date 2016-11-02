@@ -7,6 +7,8 @@ using namespace std;
 
 class Dealer {
 private:
+	static unsigned int nextID;
+	unsigned int ID;
 	vector<Card> hand;
 	unsigned int handScore;
 	unsigned int nextPlayer;

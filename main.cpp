@@ -15,21 +15,28 @@ int testFunction1() {
 	unsigned int roundsToPlay = 10;
 	unsigned int moneyOfTable = 30000;
 	unsigned int maxNumberOfPlayers = 8;
+	vector<Table*> tablesVector;
 	Dealer pro;
-	Table table1(roundsToPlay, minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
-	Player * noob0Bot0 = new Bot0("Gabe", 10000);
-	Player * noob1Bot0 = new Bot0("Walt", 15000);
-	table1.addPlayer(noob0Bot0);
-	table1.addPlayer(noob1Bot0);
-	table1.play();
+	Table * table1 = new Table(roundsToPlay, minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
+	tablesVector.push_back(table1);
+	Casino estoril;
+	Player * noobie1 = new Bot0("Gabe", 10000);
+	Player * noobie2 = new Bot0("Walt", 15000);
+	estoril.addTableToCasino(table1);
+	estoril.addPlayerToCasino(noobie1);
+	estoril.addPlayerToCasino(noobie2);
+	estoril.addPlayerToTable(noobie1, table1);
+	estoril.addPlayerToTable(noobie2, table1);
+	table1->play();
+	table1->closeTable();
+	
 	return 0;
 }
 
 
 int main(){
 	string test;
-	testFunction1();
-	getline(cin, test);
+	
 	//Center window
 	pair <int, int> xy;
 	xy = centerWindow();
@@ -40,6 +47,8 @@ int main(){
 	Users(usersVEC, user);
 
 	//TODO: implement fuction of display menu
+	testFunction1();
+	getline(cin, test);
 
 	//verify users and changes of files
 	char decision;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <iomanip>
 #include <vector>
 #include "utils.h"
 #include "Dealer.h"
@@ -11,11 +12,11 @@ class Player {
 private:
 	string name;
 	unsigned int initialMoney;
-	unsigned int currentMoney;
+	float currentMoney;
 	vector <Card> hand;
 	unsigned int handScore;
 	unsigned int roundsPlayed;
-	int averageProfit;
+	float averageProfit;
 	int currentCounting;
 
 public:
@@ -39,6 +40,7 @@ public:
 	void setRoundsPlayed(unsigned int rounds);
 	void setInitialMoney(unsigned int money);
 	void addMoney(unsigned int value);
+	void showStatistics();
 	//bots currently bet's always the minValue
 	virtual unsigned int bet(unsigned int minValue, unsigned int maxValue);
 	virtual void clearHand();
