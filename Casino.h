@@ -1,5 +1,6 @@
 #pragma once
 
+#include "utils.h"
 #include <vector>
 #include <string>
 #include "Dealer.h"
@@ -18,4 +19,6 @@ private:
 	vector<Table> tables;
 	vector<Player*> players;
 public:
+	Casino();
+	Casino(vector<Table> &tablesVector);
 };

@@ -9,8 +9,27 @@
 
 using namespace std;
 
+int testFunction1() {
+	unsigned int minBet = 2;
+	unsigned int maxBet = 1000;
+	unsigned int roundsToPlay = 100;
+	unsigned int moneyOfTable = 30000;
+	unsigned int maxNumberOfPlayers = 8;
+	Dealer pro;
+	Table table1(roundsToPlay, minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
+	Player * noob0Bot0 = new Bot0("Gabe", 10000);
+	Player * noob1Bot0 = new Bot0("Walt", 15000);
+	table1.addPlayer(noob0Bot0);
+	table1.addPlayer(noob1Bot0);
+	table1.play();
+	return 0;
+}
+
 
 int main(){
+	string test;
+	testFunction1();
+	getline(cin, test);
 	//Center window
 	pair <int, int> xy;
 	xy = centerWindow();

@@ -61,23 +61,35 @@ void Table::play() {
 			//ask for insurance;
 		}
 		for (size_t i = 0; i < players.size(); i++) {
-			while (players.at(i)->play(dealerOfTable) != "stand"){}
+			do {
+				cout << "Name:" << players.at(i)->getName() << "; Money:" << players.at(i)->getCurrentMoney() << "; Handscore: " << players.at(i)->getHandScore() << "\n";
+			}
+				while (players.at(i)->play(dealerOfTable) != "stand");
+			cout << "Name:" << players.at(i)->getName() << " just hitted \n";
 		}
 		while (dealerOfTable.play() != "stand"){}
 		for (size_t i = 0; i < players.size(); i++) {
+			if (players.at(i)->getHandScore() > 21) {
+				cout << "Name: " << players.at(i)->getName() << "has" << players.at(i)->getHandScore() << " points, so he got busted!\n";
+			}
 			if (players.at(i)->getHandScore() == 21 && players.at(i)->getHandSize() == 2 && dealerOfTable.getHandScore() < 21) {
 				payToPlayer(players.at(i), actualBets.at(i) * 2.5);
+				cout << "Name: " << players.at(i)->getName() << "has" << players.at(i)->getHandScore() << " so he did a blackjack!\n";
 			}
 			else if (players.at(i)->getHandScore() <= 21 && players.at(i)->getHandScore() == dealerOfTable.getHandScore() ) {
 				payToPlayer(players.at(i), actualBets.at(i));
+				cout << "Name: " << players.at(i)->getName() << "has" << players.at(i)->getHandScore() << " points, which is equal to the Dealer!\n";
 			}
 			else if (players.at(i)->getHandScore() > dealerOfTable.getHandScore() && players.at(i)->getHandScore() < 21) {
 				payToPlayer(players.at(i), actualBets.at(i) * 2);
+				cout << "Name: " << players.at(i)->getName() << "has" << players.at(i)->getHandScore() << " points, so he won the bet!\n";
 			}
 			else if (dealerOfTable.getHandScore() > 21 && players.at(i)->getHandScore() <= 21) {
 				payToPlayer(players.at(i), actualBets.at(i) * 2);
+				cout << "Dealer got busted! Player " << players.at(i)->getName() << " will receive 2 times his original bet!\n";
 			}
 		}
+		roundsLeft--;
 	}
 }
 

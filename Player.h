@@ -14,6 +14,7 @@ private:
 	unsigned int currentMoney;
 	vector <Card> hand;
 	unsigned int handScore;
+	unsigned int roundsPlayed;
 	int averageProfit;
 
 
@@ -24,10 +25,17 @@ public:
 	void split();
 	void doubleDown();
 	unsigned int getHandSize();
-	unsigned int setHandScore();
-	unsigned int getHandScore();
-	void setCurrentMoney(unsigned int money);
+	unsigned int getRoundsPlayed();
 	unsigned int getCurrentMoney();
+	unsigned int getAverageProfit();
+	unsigned int getHandScore();
+	unsigned int getInitialMoney();
+	string getName();
+	void setName(string newName);
+	unsigned int setHandScore();
+	void setCurrentMoney(unsigned int money);
+	void setRoundsPlayed(unsigned int rounds);
+	void setInitialMoney(unsigned int money);
 	void addMoney(unsigned int value);
 	//bots currently bet's always the minValue
 	virtual unsigned int bet(unsigned int minValue, unsigned int maxValue);
@@ -37,6 +45,8 @@ public:
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 class Bot0: public Player {
 public:
+	Bot0() {};
+	Bot0(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
 };

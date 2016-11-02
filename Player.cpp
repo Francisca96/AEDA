@@ -42,6 +42,21 @@ unsigned int Player::getHandScore() {
 	return handScore;
 }
 
+string Player::getName()
+{
+	return name;
+}
+
+void Player::setName(string newName)
+{
+	name = newName;
+}
+
+unsigned int Player::getAverageProfit()
+{
+	return averageProfit;
+}
+
 void Player::setCurrentMoney(unsigned int money)
 {
 	currentMoney = money;
@@ -50,6 +65,26 @@ void Player::setCurrentMoney(unsigned int money)
 unsigned int Player::getCurrentMoney()
 {
 	return currentMoney;
+}
+
+unsigned int Player::getInitialMoney()
+{
+	return initialMoney;
+}
+
+unsigned int Player::getRoundsPlayed()
+{
+	return roundsPlayed;
+}
+
+void Player::setRoundsPlayed(unsigned int rounds)
+{
+	roundsPlayed = rounds;
+}
+
+void Player::setInitialMoney(unsigned int money)
+{
+	initialMoney = money;
 }
 
 void Player::addMoney(unsigned int value)
@@ -64,7 +99,15 @@ unsigned int Player::bet(unsigned int minValue, unsigned int maxValue)
 	return betValue;
 }
 
+
+
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
+Bot0::Bot0(string name, unsigned int initialMoney)
+{
+	this->setName(name);
+	this->setInitialMoney(initialMoney);
+}
+
 string Bot0::play(Dealer &dealerOfTable)
 {
 	string options[] = { "hit","stand" };

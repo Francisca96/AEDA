@@ -4,6 +4,11 @@
 #include "Dealer.h"
 
 
+Dealer::Dealer()
+{
+	deck = createDeck();
+}
+
 Dealer::Dealer(vector<Card> newDeck) {
 	this->deck = newDeck;
 	shuffleDeck();

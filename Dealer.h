@@ -15,8 +15,8 @@ private:
 
 public:
 	vector<Card> visibleCards;
-	//Default constructor
-	Dealer() {};
+	//Default constructor - creates a default deck of 52 cards
+	Dealer();
 	//Instanciates a new Dealer
 	Dealer(vector<Card> newDeck);
 	//shuffles Dealer's Deck
