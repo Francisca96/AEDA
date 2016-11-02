@@ -22,13 +22,17 @@ int testFunction1() {
 	Casino estoril;
 	Player * noobie1 = new Bot0("Gabe", 10000);
 	Player * noobie2 = new Bot0("Walt", 15000);
+	Player * noobie3 = new Bot0("Josh", 1000);
 	estoril.addTableToCasino(table1);
 	estoril.addPlayerToCasino(noobie1);
 	estoril.addPlayerToCasino(noobie2);
+	estoril.addPlayerToCasino(noobie3);
 	estoril.addPlayerToTable(noobie1, table1);
 	estoril.addPlayerToTable(noobie2, table1);
+	estoril.addPlayerToTable(noobie3, table1);
 	table1->play();
 	table1->closeTable();
+	estoril.showStatistics();
 	
 	return 0;
 }

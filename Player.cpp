@@ -122,7 +122,7 @@ void Player::showStatistics()
 	else if (bot2 != nullptr) {
 		cout << setw(15) << "2";
 	}
-	cout << setw(15) << roundsPlayed << setw(30) << averageProfit << " $/round\n";
+	cout << setw(15) << roundsPlayed << setw(30) << setprecision(2) <<averageProfit << " $/round\n";
 
 }
 

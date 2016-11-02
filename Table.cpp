@@ -95,19 +95,19 @@ void Table::play() {
 		cout << "Dealer stands! with " << dealerOfTable.getHandScore() << " points\n";
 		for (size_t i = 0; i < players.size(); i++) {
 			if (players.at(i)->getHandScore() > 21) {
-				cout << "Name: " << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " points, so he got busted!\n";
+				cout  << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " points, so he got busted!\n";
 			}
 			if (players.at(i)->getHandScore() == 21 && players.at(i)->getHandSize() == 2 && dealerOfTable.getHandScore() < 21) {
 				payToPlayer(players.at(i), actualBets.at(i) * 2.5);
-				cout << "Name: " << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " so he did a blackjack!\n";
+				cout << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " so he did a blackjack!\n";
 			}
 			else if (players.at(i)->getHandScore() <= 21 && players.at(i)->getHandScore() == dealerOfTable.getHandScore() ) {
 				payToPlayer(players.at(i), actualBets.at(i));
-				cout << "Name: " << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " points, which is equal to the Dealer!\n";
+				cout << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " points, which is equal to the Dealer!\n";
 			}
 			else if (players.at(i)->getHandScore() > dealerOfTable.getHandScore() && players.at(i)->getHandScore() < 21) {
 				payToPlayer(players.at(i), actualBets.at(i) * 2);
-				cout << "Name: " << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " points, so he won the bet!\n";
+				cout << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " points, so he won the bet!\n";
 			}
 			else if (dealerOfTable.getHandScore() > 21 && players.at(i)->getHandScore() <= 21) {
 				payToPlayer(players.at(i), actualBets.at(i) * 2);
@@ -122,6 +122,9 @@ void Table::play() {
 		}
 		
 		roundsLeft--;
+	}
+	for (size_t i = 0; i < players.size(); i++) {
+		cout << players.at(i)->getName() << " has finished with " << players.at(i)->getCurrentMoney() << "$ in his hand!\n";
 	}
 }
 
