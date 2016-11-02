@@ -45,8 +45,8 @@ private:
 	vector<Table *> tables;
 	vector<Player*> players;
 public:
-	Casino();
-	Casino(vector<Table*> &tables, vector<Player *> &players);
+	Casino(unsigned int totalMoney);
+	Casino(unsigned int totalMoney,vector<Table*> &tables, vector<Player *> &players);
 	void addTablesToCasino(vector<Table*> tables);
 	void addTableToCasino(Table* table);
 	void addPlayerToCasino(Player * player1);

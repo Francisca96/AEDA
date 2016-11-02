@@ -2,17 +2,19 @@
 
 #include "Casino.h"
 
-Casino::Casino()
+Casino::Casino(unsigned int totalMoney)
 {
+	this->totalMoney = totalMoney;
 }
 
-Casino::Casino(vector<Table*> &tablesVector, vector<Player *> &playersVector)
+Casino::Casino(unsigned int totalMoney,vector<Table*> &tablesVector, vector<Player *> &playersVector)
 {
-	tables = tablesVector;
-	players = playersVector;
+	addTablesToCasino(tablesVector);
+	addPlayersToCasino(playersVector);
 	for (size_t i = 0; i < tables.size(); i++) {
 		dealers.push_back(tables.at(i)->getDealer());
 	}
+	this->totalMoney = totalMoney;
 }
 
 void Casino::addTablesToCasino(vector<Table*> tables)
@@ -29,9 +31,9 @@ void Casino::addTableToCasino(Table * table)
 			if (tables.at(i) == table) {
 				throw ExistingTable(table);
 			}
-			tables.push_back(table);
 		}
 		tables.push_back(table);
+		totalMoney -= table->getInitialMoney();
 	}
 	catch (ExistingTable &e) {
 		e.what();

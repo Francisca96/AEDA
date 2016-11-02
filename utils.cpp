@@ -42,14 +42,31 @@ vector<Card> createDeck() {
 	return deck;
 }
 
+string getHumanPlay()
+{
+	string option;
+	getline(cin, option);
+	while (option != "hit" && option != "stand" && option != "HIT" && option != "STAND" && option != "Hit" && option != "Stand") {
+		cout << "Please insert a valid entry: ";
+		getline(cin, option);
+	}
+	if (option == "HIT" || option == "Hit") {
+		option = "hit";
+	}
+	else if (option == "Stand" || option == "STAND") {
+		option = "stand";
+	}
+	return option;
+}
+
 unsigned short int readUnsignedIntBetween(unsigned int minValue, unsigned int  maxValue){
 	unsigned int short newInt;
-	cout << "Insira um valor: ";
+	cout << "Insert Your Bet ( " << minValue << "$ - " << maxValue << "$ ) : ";
 	while (!(cin >> newInt) || newInt > maxValue || newInt < minValue) {
 		cout << endl;
 		cin.clear();
 		cin.ignore();
-		cout << "Valor invalido. Introduza um novo unsigned short int: ";
+		cout << "Invalid Bet: Insert a new one: ";
 	}
 	cin.ignore();
 	cout << endl;

@@ -128,6 +128,11 @@ void Table::play() {
 	}
 }
 
+unsigned int Table::getInitialMoney()
+{
+	return initialMoney;
+}
+
 unsigned int Table::getTableID()
 {
 	return tableID;

@@ -21,6 +21,8 @@ struct Card {
 
 vector <Card> createDeck();
 
+string getHumanPlay();
+
 unsigned short int readUnsignedIntBetween(unsigned int min, unsigned int max);
 
 int readIntBetween(int min, int max);

@@ -39,6 +39,7 @@ public:
 	void addPlayers(vector <Player *> newPlayers);
 	void removePlayer(Player * player1);
 	void play();
+	unsigned int getInitialMoney();
 	unsigned int getTableID();
 	unsigned int getMinBet();
 	unsigned int getMaxBet();

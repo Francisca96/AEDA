@@ -2,6 +2,18 @@
 
 #include "Player.h"
 
+//Exceptions
+void NameTooShort::what()
+{
+	cout << "Error - A name shoud have no less than 3 characters\n";
+}
+
+void TooYoung::what()
+{
+	cout << "Error - In order to play you should be at least 18 years old\n";
+}
+
+//Player
 
 void Player::hit(Card newCard) {
 	hand.push_back(newCard);
@@ -22,6 +34,11 @@ void Player::split() {
 
 void Player::doubleDown() {
 	throw "Not yet implemented";
+}
+
+vector<Card>& Player::getHand()
+{
+	return hand;
 }
 
 unsigned int Player::getHandSize()
@@ -174,3 +191,50 @@ string Bot1::play(Dealer &dealerOfTable)
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
+
+Human::Human(string name, unsigned int age)
+{
+	try {
+		if (name.length() < 3) {
+			throw NameTooShort();
+		}
+		setName(name);
+		if (age < 18) {
+			throw TooYoung();
+		}
+		this->age = age;
+		setInitialMoney(1000);
+	}
+	catch (NameTooShort &n) {
+		n.what();
+	}
+	catch (TooYoung &y) {
+		y.what();
+	}
+}
+
+unsigned int Human::bet(unsigned int minValue, unsigned int maxValue)
+{
+	unsigned int betValue;
+	cout << "Your Turn " << getName() << "\n";
+	betValue = readUnsignedIntBetween(minValue, maxValue);
+	setCurrentMoney(getCurrentMoney() - betValue);
+	return betValue;
+}
+
+string Human::play(Dealer & dealerOfTable)
+{
+	string option;
+	cout << "Your Turn -> In your hand you have the following:\n";
+	for (size_t i = 0; i < getHandSize(); i++) {
+		cout << getHand().at(i).rank << " of " << getHand().at(i).suits << "\n";
+	}
+	cout << "Current hand score-> " << getHandScore() << "\n";
+	cout << "To hit write 'hit' to stand write 'stand' : ";
+	option = getHumanPlay();
+	if (option == "hit") {
+		hit(dealerOfTable.discard());
+	}
+	return option;
+}
+

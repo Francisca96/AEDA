@@ -15,27 +15,27 @@ int testFunction1() {
 	unsigned int roundsToPlay = 10;
 	unsigned int moneyOfTable = 30000;
 	unsigned int maxNumberOfPlayers = 8;
+	unsigned int casinoMoney = 1000000;
 	vector<Table*> tablesVector;
+	vector<Player *> playersVector;
 	Dealer pro;
 	Table * table1 = new Table(roundsToPlay, minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
 	tablesVector.push_back(table1);
-	Casino estoril;
-	Player * noobie1 = new Bot0("Gabe", 10000);
-	Player * noobie2 = new Bot0("Walt", 15000);
-	Player * noobie3 = new Bot0("Josh", 1000);
+	Casino estoril(casinoMoney);
+	playersVector.push_back(new Bot0("Gabe", 10000));
+	playersVector.push_back(new Bot0("Walt", 15000));
+	playersVector.push_back(new Bot0("Josh", 1000));
+	playersVector.push_back(new Human("Renato", 18));
 	estoril.addTableToCasino(table1);
-	estoril.addPlayerToCasino(noobie1);
-	estoril.addPlayerToCasino(noobie2);
-	estoril.addPlayerToCasino(noobie3);
-	estoril.addPlayerToTable(noobie1, table1);
-	estoril.addPlayerToTable(noobie2, table1);
-	estoril.addPlayerToTable(noobie3, table1);
+	estoril.addPlayersToCasino(playersVector);
+	estoril.addPlayersToTable(playersVector,table1);
 	table1->play();
 	table1->closeTable();
 	estoril.showStatistics();
 	
 	return 0;
 }
+
 
 
 int main(){

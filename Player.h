@@ -8,6 +8,14 @@
 
 using namespace std;
 
+class NameTooShort {
+public:
+	void what();
+};
+class TooYoung {
+public:
+	void what();
+};
 class Player {
 private:
 	string name;
@@ -25,6 +33,7 @@ public:
 	void surrender();
 	void split();
 	void doubleDown();
+	vector<Card> & getHand();
 	unsigned int getHandSize();
 	unsigned int getRoundsPlayed();
 	unsigned int getCurrentMoney();
@@ -71,6 +80,10 @@ public:
 };
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
 class Human: public Player {
+private:
+	unsigned int age;
 public:
+	Human(string name, unsigned int age);
 	unsigned int bet(unsigned int minValue, unsigned int maxValue);
+	string play(Dealer &dealerOfTable);
 };
