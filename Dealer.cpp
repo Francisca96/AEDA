@@ -74,6 +74,16 @@ unsigned int Dealer::getHandScore()
 	return handScore;
 }
 
+void Dealer::clearDiscardedDeck()
+{
+	deckDiscarded.clear();
+}
+
+void Dealer::clearHand()
+{
+	hand.clear();
+}
+
 
 string Dealer::play()
 {

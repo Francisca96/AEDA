@@ -62,6 +62,11 @@ void Player::setCurrentMoney(unsigned int money)
 	currentMoney = money;
 }
 
+void Player::setCurrentCounter(int counter)
+{
+	currentCounting = counter;
+}
+
 unsigned int Player::getCurrentMoney()
 {
 	return currentMoney;
@@ -70,6 +75,11 @@ unsigned int Player::getCurrentMoney()
 unsigned int Player::getInitialMoney()
 {
 	return initialMoney;
+}
+
+unsigned int Player::getCurrentCounter()
+{
+	return currentCounting;
 }
 
 unsigned int Player::getRoundsPlayed()
@@ -85,6 +95,9 @@ void Player::setRoundsPlayed(unsigned int rounds)
 void Player::setInitialMoney(unsigned int money)
 {
 	initialMoney = money;
+	currentMoney = initialMoney;
+	averageProfit = 0;
+	roundsPlayed = 0;
 }
 
 void Player::addMoney(unsigned int value)
@@ -97,6 +110,11 @@ unsigned int Player::bet(unsigned int minValue, unsigned int maxValue)
 	unsigned int betValue = minValue;
 	setCurrentMoney(getCurrentMoney() - betValue);
 	return betValue;
+}
+
+void Player::clearHand()
+{
+	hand.clear();
 }
 
 
@@ -113,7 +131,7 @@ string Bot0::play(Dealer &dealerOfTable)
 	string options[] = { "hit","stand" };
 	unsigned int handScore = getHandScore();
 	if (handScore < 17) {
-
+		hit(dealerOfTable.discard());
 		return options[0]; // 0 means hit
 	}
 	return options[1]; // means stand

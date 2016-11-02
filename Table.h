@@ -34,6 +34,7 @@ public:
 	void getInitialBets();
 	void dealOneCardToAllPlayers();
 	void payToPlayer(Player* player1, unsigned int value);
+	unsigned int restartDeck();
 };
 
 

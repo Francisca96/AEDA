@@ -36,6 +36,8 @@ public:
 	void addCardsToDeck(vector<Card> &cards);
 	vector<Card>& getDiscardedDeck();
 	unsigned int getHandScore();
+	void clearDiscardedDeck();
+	void clearHand();
 	string play();
 };
 

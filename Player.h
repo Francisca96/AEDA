@@ -16,7 +16,7 @@ private:
 	unsigned int handScore;
 	unsigned int roundsPlayed;
 	int averageProfit;
-
+	int currentCounting;
 
 public:
 	void hit(Card newCard);
@@ -30,15 +30,18 @@ public:
 	unsigned int getAverageProfit();
 	unsigned int getHandScore();
 	unsigned int getInitialMoney();
+	unsigned int getCurrentCounter();
 	string getName();
 	void setName(string newName);
 	unsigned int setHandScore();
 	void setCurrentMoney(unsigned int money);
+	void setCurrentCounter(int counter);
 	void setRoundsPlayed(unsigned int rounds);
 	void setInitialMoney(unsigned int money);
 	void addMoney(unsigned int value);
 	//bots currently bet's always the minValue
 	virtual unsigned int bet(unsigned int minValue, unsigned int maxValue);
+	virtual void clearHand();
 	virtual string play(Dealer &dealerOfTable) = 0;
 };
 
