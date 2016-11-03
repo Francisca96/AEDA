@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "utils.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -16,7 +17,6 @@ private:
 	vector<Card> deckDiscarded;
 
 public:
-	vector<Card> visibleCards;
 	//Default constructor - creates a default deck of 52 cards
 	Dealer();
 	//Instanciates a new Dealer
@@ -31,10 +31,9 @@ public:
 	void stand();*/
 	//Updates handScore
 	unsigned int setHandScore();
-	//Show Cards
-	void setAllCardsVisible();
 	//get deck size to see if reshuffle is needed
 	vector<Card>& getDeck();
+	vector<Card>& getHand();
 	void addCardsToDeck(vector<Card> &cards);
 	vector<Card>& getDiscardedDeck();
 	unsigned int getHandScore();

@@ -12,7 +12,7 @@ using namespace std;
 int testFunction1() {
 	unsigned int minBet = 2;
 	unsigned int maxBet = 1000;
-	unsigned int roundsToPlay = 10;
+	unsigned int roundsToPlay = 20;
 	unsigned int moneyOfTable = 30000;
 	unsigned int maxNumberOfPlayers = 8;
 	unsigned int casinoMoney = 1000000;
@@ -22,10 +22,9 @@ int testFunction1() {
 	Table * table1 = new Table(roundsToPlay, minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
 	tablesVector.push_back(table1);
 	Casino estoril(casinoMoney);
-	playersVector.push_back(new Bot0("Gabe", 10000));
-	playersVector.push_back(new Bot0("Walt", 15000));
 	playersVector.push_back(new Bot0("Josh", 1000));
-	playersVector.push_back(new Human("Renato", 18));
+	playersVector.push_back(new Bot1("Renato", 1000));
+	playersVector.push_back(new Bot1("Joao", 1000));
 	estoril.addTableToCasino(table1);
 	estoril.addPlayersToCasino(playersVector);
 	estoril.addPlayersToTable(playersVector,table1);

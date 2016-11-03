@@ -2,6 +2,8 @@
 
 #include "utils.h"
 
+
+
 vector<Card> createDeck() {
 	vector <string> suits = {"Heart" ,"Diamond" ,"Club" ,"Spade"};
 	string ranks = "A234567890JQK";
@@ -16,7 +18,7 @@ vector<Card> createDeck() {
 			{
 				newCard.suits = suits.at(j);
 				newCard.rank = ranks.at(i);
-				newCard.score = 1;
+				newCard.score = 11;
 			}
 			else if (i < 9)
 			{

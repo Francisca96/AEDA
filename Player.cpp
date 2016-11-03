@@ -2,6 +2,10 @@
 
 #include "Player.h"
 
+
+int bot1RunningCount = 0;
+
+
 //Exceptions
 void NameTooShort::what()
 {
@@ -145,8 +149,12 @@ void Player::showStatistics()
 
 unsigned int Player::bet(unsigned int minValue, unsigned int maxValue)
 {
+	if (getCurrentMoney() < minValue) {
+		return 0; //0 means kick the player from the table;
+	}
 	unsigned int betValue = minValue;
 	setCurrentMoney(getCurrentMoney() - betValue);
+	cout << name << " bets " << betValue << "$\n";
 	return betValue;
 }
 
@@ -164,6 +172,7 @@ Bot0::Bot0(string name, unsigned int initialMoney)
 	this->setInitialMoney(initialMoney);
 }
 
+
 string Bot0::play(Dealer &dealerOfTable)
 {
 	string options[] = { "hit","stand" };
@@ -176,17 +185,79 @@ string Bot0::play(Dealer &dealerOfTable)
 }
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
-string Bot1::play(Dealer &dealerOfTable)
-{
-	unsigned int handScore = getHandScore();
-	vector<Card> discarded = dealerOfTable.getDiscardedDeck(); //fix this ! getDiscardedDeck is implemented in dealer
-	int hitCards = 0;
-	for(int i=0; i<discarded.size(); i++){
-		if(discarded.at(i).score <= 5){
-			hitCards++;
+
+unsigned int Bot1::bet(unsigned int minValue, unsigned int maxValue) {
+	unsigned int currentMoney = getCurrentMoney();
+	if (currentMoney < minValue){
+		return 0; //0 means kick the player from the table;
+	}
+	int trueCount = getBot1RunningCount();
+	cout << "Current running count =" << trueCount << ".\n";
+	unsigned int betValue;
+	if (trueCount <= 0) {
+		betValue = minValue;
+	}
+	else if (trueCount == 1) {
+		if (2 * minValue > maxValue) {
+			betValue = maxValue;
+		}
+		else {
+			betValue = 2 * minValue;
 		}
 	}
-	return "hit"; // 0 means hit
+	else if (trueCount == 2) {
+		if (3 * minValue > maxValue) {
+			betValue = maxValue;
+		}
+		else { betValue = 3 * minValue; }
+	}
+	else if (trueCount == 3) {
+		if (4 * minValue > maxValue) {
+			betValue = maxValue;
+		}
+		else {
+			betValue = 4 * minValue;
+		}
+	}
+	else if (trueCount == 4) {
+		if (5 * minValue > maxValue) {
+			betValue = maxValue;
+		}
+		else {
+			betValue = 5 * minValue;
+		}
+	}
+	else if (trueCount >= 5) {
+		if (6 * minValue > maxValue) {
+			betValue = maxValue;
+		}
+		else {
+			betValue = 6 * minValue;
+		}
+	}
+	if (betValue > currentMoney) {
+		betValue = currentMoney;
+	}
+	setCurrentMoney(currentMoney - betValue);
+	cout << getName() << " bets " << betValue << "$\n";
+	return betValue;
+}
+
+Bot1::Bot1(string name, unsigned int initialMoney)
+{
+	this->setName(name);
+	this->setInitialMoney(initialMoney);
+}
+
+string Bot1::play(Dealer &dealerOfTable)
+{
+	string options[] = { "hit","stand" };
+	unsigned int handScore = getHandScore();
+	if (handScore < 17) {
+		hit(dealerOfTable.discard());
+		return options[0]; // 0 means hit
+	}
+	return options[1]; // means stand
 }
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
@@ -213,8 +284,12 @@ Human::Human(string name, unsigned int age)
 	}
 }
 
+
 unsigned int Human::bet(unsigned int minValue, unsigned int maxValue)
 {
+	if (getCurrentMoney() < minValue) {
+		return 0; //0 means kick the player from the table;
+	}
 	unsigned int betValue;
 	cout << "Your Turn " << getName() << "\n";
 	betValue = readUnsignedIntBetween(minValue, maxValue);
@@ -222,7 +297,7 @@ unsigned int Human::bet(unsigned int minValue, unsigned int maxValue)
 	return betValue;
 }
 
-string Human::play(Dealer & dealerOfTable)
+string Human::play(Dealer &dealerOfTable)
 {
 	string option;
 	cout << "Your Turn -> In your hand you have the following:\n";
@@ -230,6 +305,7 @@ string Human::play(Dealer & dealerOfTable)
 		cout << getHand().at(i).rank << " of " << getHand().at(i).suits << "\n";
 	}
 	cout << "Current hand score-> " << getHandScore() << "\n";
+	cout << "Current money-> " << getCurrentMoney() << "\n";
 	cout << "To hit write 'hit' to stand write 'stand' : ";
 	option = getHumanPlay();
 	if (option == "hit") {
@@ -237,4 +313,3 @@ string Human::play(Dealer & dealerOfTable)
 	}
 	return option;
 }
-

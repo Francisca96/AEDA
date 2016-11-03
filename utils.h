@@ -8,6 +8,8 @@
 
 using namespace std;
 
+
+
 struct Card {
 	string rank;
 	string suits;
@@ -18,6 +20,8 @@ struct Card {
 		return (this->rank == a);
 	}
 };
+
+
 
 vector <Card> createDeck();
 

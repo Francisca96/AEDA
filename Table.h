@@ -3,6 +3,7 @@
 #include <vector>
 #include "Dealer.h"
 #include "Player.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -49,11 +50,12 @@ public:
 	void payToPlayer(Player* player1, float value);
 	unsigned int restartDeck();
 	void showTableInfo();
+	void kickPlayer(unsigned int index);
 	/**
 	*@return moneyOfTable
 	*removes all players from the Table
 	*/
 	float closeTable();
+	
 };
-
 

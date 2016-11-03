@@ -29,6 +29,7 @@ Card Dealer::discard() {
 	nextCard = deck.back();
 	deckDiscarded.push_back(nextCard);
 	deck.pop_back();
+	Player::updateBot1RunningCount(nextCard);
 	return nextCard;
 }
 
@@ -51,17 +52,15 @@ unsigned int Dealer::setHandScore(){
 	return this->handScore;
 }
 
-void Dealer::setAllCardsVisible()
-{
-	visibleCards.resize(hand.size());
-	for (size_t i = 0; i < hand.size(); i++) {
-		visibleCards.at(i) = hand.at(i);
-	}
-}
 
 vector<Card>& Dealer::getDeck()
 {
 	return deck;
+}
+
+vector<Card>& Dealer::getHand()
+{
+	return hand;
 }
 
 void Dealer::addCardsToDeck(vector<Card>& cards)
