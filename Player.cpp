@@ -5,11 +5,11 @@
 
 int bot1RunningCount = 0;
 void Player::updateBot1RunningCount(Card &aCard) {
-	string tempRank = aCard.rank;
-	if (tempRank <= "6") {
+	unsigned int tempScore = aCard.score;
+	if (tempScore <= 6) {
 		bot1RunningCount++;
 	}
-	else if (tempRank >= "A") {
+	else if (tempScore >= 10) {
 		bot1RunningCount--;
 	}
 }

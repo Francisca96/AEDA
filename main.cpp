@@ -12,7 +12,7 @@ using namespace std;
 int testFunction1() {
 	unsigned int minBet = 2;
 	unsigned int maxBet = 1000;
-	unsigned int roundsToPlay = 10;
+	unsigned int roundsToPlay = 1000;
 	unsigned int moneyOfTable = 30000;
 	unsigned int maxNumberOfPlayers = 8;
 	unsigned int casinoMoney = 1000000;
