@@ -19,9 +19,10 @@ struct Card {
 	{
 		return (this->rank == a);
 	}
+	
 };
-
-
+std::ostream& operator<<(std::ostream& out, const Card& c);
+std::ostream& operator<<(std::ostream& out, const vector<Card>& v);
 
 vector <Card> createDeck();
 

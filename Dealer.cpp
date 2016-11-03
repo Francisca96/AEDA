@@ -49,6 +49,13 @@ unsigned int Dealer::setHandScore(){
 	{
 		this->handScore += hand.at(i).score;
 	}
+	if (handScore > 21) {
+		for (size_t i = 0; i < hand.size(); i++) {
+			if (hand.at(i).score == 11 && handScore > 21) {
+				this->handScore -= 10;
+			}
+		}
+	}
 	return this->handScore;
 }
 

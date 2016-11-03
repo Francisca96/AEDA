@@ -87,17 +87,21 @@ void Table::play() {
 			do {
 				if (restartDeck() == 0) { cout << "Deck has been restarted\n"; Player::resetBot1RunningCount();
 				}
-				//cout << "Name: " << players.at(i)->getName() << "; Money:" << players.at(i)->getCurrentMoney() << "; Handscore: " << players.at(i)->getHandScore() << "\n";
 			}
 				while (players.at(i)->play(dealerOfTable) != "stand");
-			cout << "Name: " << players.at(i)->getName() << " standed with " << players.at(i)->getHandScore() << " points.\n";
+			cout << "Name: " << players.at(i)->getName() << "; Money:" << players.at(i)->getCurrentMoney() << "; Handscore: " << players.at(i)->getHandScore() << "\n";
+			cout << "In " << players.at(i)->getName() << "'s hand: ";
+			cout << players.at(i)->getHand();
+			cout << "\n";
 		}
 		do {
 			if (restartDeck() == 0) { cout << "Deck has been restarted\n"; Player::resetBot1RunningCount();
 			}
 			//cout << "Dealer handscore. " << dealerOfTable.getHandScore() << "\n";
 		} while (dealerOfTable.play() != "stand");
-		cout << "Dealer stands! with " << dealerOfTable.getHandScore() << " points\n";
+		
+		cout << "Dealer stands, with " << dealerOfTable.getHandScore() << " points. In his hand:\n";
+		cout << dealerOfTable.getHand();
 		for (size_t i = 0; i < players.size(); i++) {
 			if (players.at(i)->getHandScore() > 21) {
 				//cout  << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " points, so he got busted!\n";

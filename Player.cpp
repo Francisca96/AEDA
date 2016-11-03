@@ -4,7 +4,23 @@
 
 
 int bot1RunningCount = 0;
+void Player::updateBot1RunningCount(Card &aCard) {
+	string tempRank = aCard.rank;
+	if (tempRank <= "6") {
+		bot1RunningCount++;
+	}
+	else if (tempRank >= "A") {
+		bot1RunningCount--;
+	}
+}
+void Player::resetBot1RunningCount() {
+	bot1RunningCount = 0;
+}
 
+int Player::getBot1RunningCount()
+{
+	return bot1RunningCount;
+}
 
 //Exceptions
 void NameTooShort::what()
@@ -55,6 +71,13 @@ unsigned int Player::setHandScore() {
 	for (size_t i = 0; i < hand.size(); i++)
 	{
 		this->handScore += hand.at(i).score;
+	}
+	if (handScore > 21) {
+		for (size_t i = 0; i < hand.size(); i++) {
+			if (hand.at(i).score == 11 && handScore > 21) {
+				this->handScore -= 10;
+			}
+		}
 	}
 	return this->handScore;
 }

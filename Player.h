@@ -31,21 +31,9 @@ private:
 	int currentCounting;
 
 public:
-	static void updateBot1RunningCount(Card &aCard) {
-		string tempRank = aCard.rank;
-		if (tempRank <= "6") {
-			bot1RunningCount++;
-		}
-		else if (tempRank >= "A") {
-			bot1RunningCount--;
-		}
-	}
-	static void resetBot1RunningCount() {
-		bot1RunningCount = 0;
-	}
-	static int getBot1RunningCount() {
-		return bot1RunningCount;
-	}
+	static void updateBot1RunningCount(Card &aCard);
+	static void resetBot1RunningCount();
+	static int getBot1RunningCount();
 	void hit(Card newCard);
 	void takeInsurance();
 	void surrender();

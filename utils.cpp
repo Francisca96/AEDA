@@ -3,7 +3,15 @@
 #include "utils.h"
 
 
-
+std::ostream& operator<<(std::ostream& out, const Card& c) {
+	return out << c.rank << c.suits;
+}
+std::ostream& operator<<(std::ostream& out, const vector<Card>& v) {
+	for (size_t i = 0; i < v.size(); i++) {
+		out << v.at(i) << " ; ";
+	}
+	return out << "\n";
+}
 vector<Card> createDeck() {
 	vector <string> suits = {"Heart" ,"Diamond" ,"Club" ,"Spade"};
 	string ranks = "A234567890JQK";
