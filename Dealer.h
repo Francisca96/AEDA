@@ -39,6 +39,7 @@ public:
 	unsigned int getHandScore();
 	void clearDiscardedDeck();
 	void clearHand();
+	bool hasCardInHand(Card& c);
 	string play();
 };
 

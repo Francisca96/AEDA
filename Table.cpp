@@ -81,7 +81,7 @@ void Table::play() {
 		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; Player::resetBot1RunningCount();
 		}
 		if (dealerOfTable.hit() == "A") {
-			//ask for insurance;
+			//ToDo :: ask for insurance;
 		}
 		for (size_t i = 0; i < players.size(); i++) {
 			do {

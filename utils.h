@@ -15,6 +15,10 @@ struct Card {
 	string suits;
 	unsigned int score;
 
+	bool operator==(const Card &a) const
+	{
+		return (this->rank == a.rank);
+	}
 	bool operator==(const string &a) const
 	{
 		return (this->rank == a);

@@ -275,12 +275,73 @@ Bot1::Bot1(string name, unsigned int initialMoney)
 string Bot1::play(Dealer &dealerOfTable)
 {
 	string options[] = { "hit","stand" };
-	unsigned int handScore = getHandScore();
-	if (handScore < 17) {
-		hit(dealerOfTable.discard());
-		return options[0]; // 0 means hit
+	string option;
+	unsigned int botHandScore = getHandScore();
+	unsigned int dealerHandScore = dealerOfTable.getHandScore();
+	int runningCount = getBot1RunningCount();
+	if (botHandScore == 16 && dealerHandScore == 10) {
+		if (runningCount < 0) {
+			option = options[0];
+		}else option = options[1];
 	}
-	return options[1]; // means stand
+	else if (botHandScore == 15 && dealerHandScore == 10) {
+		if (runningCount < 4) {
+			option =  options[0];
+		} else option = options[1];
+			
+	}
+	else if (botHandScore == 12 && dealerHandScore == 3) {
+		if (runningCount < 2) {
+			option =  options[0];
+		}else
+		option =  options[1];
+	}
+	else if (botHandScore == 12 && dealerHandScore == 2) {
+		if (runningCount < 3) {
+			option =  options[0];
+		}else
+		option =  options[1];
+	}
+	else if (botHandScore == 13 && dealerHandScore == 2) {
+		if (runningCount < -1) {
+			option =  options[0];
+		}else
+		option =  options[1];
+	}
+	else if (botHandScore == 12 && dealerHandScore == 4) {
+			if (runningCount < 0) {
+				option =  options[0];
+			}else
+			option =  options[1];
+		}
+	else if (botHandScore == 12 && dealerHandScore == 5) {
+			if (runningCount < -2) {
+				option =  options[0];
+			}else
+			option =  options[1];
+		}
+	else if (botHandScore == 12 && dealerHandScore == 6) {
+			if (runningCount < -1) {
+				option =  options[0];
+			}else
+			option =  options[1];
+	}
+	else if (botHandScore == 13 && dealerHandScore == 3){
+		if (runningCount < -2){
+			option =  options[0];
+		}else
+		option =  options[1];
+	}
+	else if (botHandScore < 17) {
+		option =  options[0];
+	}
+	else {
+		option = options[1];
+	}
+	if (option == options[0]) {
+		hit(dealerOfTable.discard());
+	}
+	return option; // means stand
 }
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////

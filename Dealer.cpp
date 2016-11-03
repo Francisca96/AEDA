@@ -96,6 +96,16 @@ void Dealer::clearHand()
 	hand.clear();
 }
 
+bool Dealer::hasCardInHand(Card & c)
+{
+	for (size_t i = 0; i < hand.size(); i++) {
+		if (hand.at(i) == c) {
+			return true;
+		}
+	}
+	return false;
+}
+
 
 string Dealer::play()
 {
