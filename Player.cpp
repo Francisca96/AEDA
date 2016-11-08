@@ -40,10 +40,6 @@ void Player::hit(Card newCard) {
 	setHandScore();
 }
 
-void Player::takeInsurance() {
-	throw "Not yet implemented";
-}
-
 void Player::surrender() {
 	throw "Not yet implemented";
 }
@@ -195,6 +191,9 @@ Bot0::Bot0(string name, unsigned int initialMoney)
 	this->setInitialMoney(initialMoney);
 }
 
+bool Bot0::takeInsurance() {
+    return false;
+}
 
 string Bot0::play(Dealer &dealerOfTable)
 {
@@ -208,6 +207,14 @@ string Bot0::play(Dealer &dealerOfTable)
 }
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
+bool Bot1::takeInsurance() {
+    unsigned int insurance;
+
+    insurance = bet()/2;
+    getCurrentMoney() -= insurance;
+
+    return true;
+}
 
 unsigned int Bot1::bet(unsigned int minValue, unsigned int maxValue) {
 	unsigned int currentMoney = getCurrentMoney();
@@ -345,7 +352,24 @@ string Bot1::play(Dealer &dealerOfTable)
 }
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
+bool Bot2::takeInsurance() {
+
+}
+
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
+bool Human::takeInsurance() {
+    unsigned int insurance;
+    cout << "Do you want insurance?\n 0 - No    1 - Yes\n";
+    cin >> insurance;
+
+    if(insurance == 1){
+        insurance = bet()/2;
+        getCurrentMoney() -= insurance;
+        return true;
+    }
+
+    return false;
+}
 
 Human::Human(string name, unsigned int age)
 {

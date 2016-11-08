@@ -35,7 +35,7 @@ public:
 	static void resetBot1RunningCount();
 	static int getBot1RunningCount();
 	void hit(Card newCard);
-	void takeInsurance();
+	virtual bool takeInsurance() = 0;
 	void surrender();
 	void split();
 	void doubleDown();

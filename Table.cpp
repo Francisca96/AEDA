@@ -66,8 +66,8 @@ unsigned int Table::getMaxBet() {
 void Table::play() {
 	//sequence : get Initial Bets then deal one card to each player and to the dealer (2x times) (first Dealer card face down)
 	//if dealer's card is an Ace, ask players if they want to take insurance()
-	//If they do, take each player’s insurance (it should be half of their original bet) and flip over dealer's second card to see whether or not dealer has a blackjack.
-	//If dealer has a blackjack, collect bets from anyone that didn’t buy insurance.Players that did buy insurance receive their original bets back.Players with blackjack will receive their original bet, even if they didn’t purchase insurance.
+	//If they do, take each playerï¿½s insurance (it should be half of their original bet) and flip over dealer's second card to see whether or not dealer has a blackjack.
+	//If dealer has a blackjack, collect bets from anyone that didnï¿½t buy insurance.Players that did buy insurance receive their original bets back.Players with blackjack will receive their original bet, even if they didnï¿½t purchase insurance.
 	while (roundsLeft > 0)
 	{	
 		cout << "Rounds left." << roundsLeft << "\n";
@@ -81,7 +81,9 @@ void Table::play() {
 		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; Player::resetBot1RunningCount();
 		}
 		if (dealerOfTable.hit() == "A") {
-			//ToDo :: ask for insurance;
+			for(int i = 0; i < players.size(); i++){
+				players.at(i).takeInsurance();
+			}
 		}
 		for (size_t i = 0; i < players.size(); i++) {
 			do {
