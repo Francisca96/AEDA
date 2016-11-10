@@ -55,11 +55,13 @@ void Table::setMinBet(unsigned int aMinBet) {
 	this->minBet = aMinBet;
 }
 
-unsigned int Table::getMinBet() {
+unsigned int Table::getMinBet() const
+{
 	return minBet;
 }
 
-unsigned int Table::getMaxBet() {
+unsigned int Table::getMaxBet() const
+{
 	return maxBet;
 }
 
@@ -143,17 +145,17 @@ void Table::play() {
 	}
 }
 
-unsigned int Table::getInitialMoney()
+unsigned int Table::getInitialMoney() const
 {
 	return initialMoney;
 }
 
-unsigned int Table::getTableID()
+unsigned int Table::getTableID() const
 {
 	return tableID;
 }
 
-void Table::getInitialBets()
+void Table::getInitialBets() const
 {
 	if (actualBets.size() != players.size()) {
 		actualBets.resize(players.size());
@@ -170,12 +172,13 @@ void Table::getInitialBets()
 	}
 }
 
-Dealer * Table::getDealer()
+Dealer * Table::getDealer() const
 {
 	return &dealerOfTable;
 }
 
-vector<Player*> Table::getPlayers() {
+vector<Player*> Table::getPlayers() const
+{
 	return players;
 }
 

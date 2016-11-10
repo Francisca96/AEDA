@@ -34,12 +34,12 @@ void Player::doubleDown() {
 	throw "Not yet implemented";
 }
 
-vector<Card>& Player::getHand()
+vector<Card>& Player::getHand() const
 {
 	return hand;
 }
 
-unsigned int Player::getHandSize()
+unsigned int Player::getHandSize() const
 {
 	return hand.size();
 }
@@ -60,11 +60,12 @@ unsigned int Player::setHandScore() {
 	return this->handScore;
 }
 
-unsigned int Player::getHandScore() {
+unsigned int Player::getHandScore() const
+{
 	return handScore;
 }
 
-string Player::getName()
+string Player::getName() const
 {
 	return name;
 }
@@ -74,7 +75,7 @@ void Player::setName(string newName)
 	name = newName;
 }
 
-unsigned int Player::getAverageProfit()
+unsigned int Player::getAverageProfit() const
 {
 	return averageProfit;
 }
@@ -85,19 +86,19 @@ void Player::setCurrentMoney(unsigned int money)
 }
 
 
-unsigned int Player::getCurrentMoney()
+unsigned int Player::getCurrentMoney() const
 {
 	return currentMoney;
 }
 
-unsigned int Player::getInitialMoney()
+unsigned int Player::getInitialMoney() const
 {
 	return initialMoney;
 }
 
 
 
-unsigned int Player::getRoundsPlayed()
+unsigned int Player::getRoundsPlayed() const
 {
 	return roundsPlayed;
 }
