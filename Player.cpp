@@ -182,6 +182,9 @@ void Player::clearHand()
 	hand.clear();
 }
 
+bool Player::takeInsurance(Dealer &dealerOfTable){
+	return false;
+}
 
 
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
@@ -191,7 +194,7 @@ Bot0::Bot0(string name, unsigned int initialMoney)
 	this->setInitialMoney(initialMoney);
 }
 
-bool Bot0::takeInsurance() {
+bool Bot0::takeInsurance(Dealer &dealerOfTable) {
     return false;
 }
 
@@ -207,7 +210,7 @@ string Bot0::play(Dealer &dealerOfTable)
 }
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
-bool Bot1::takeInsurance() {
+bool Bot1::takeInsurance(Dealer &dealerOfTable) {
     unsigned int insurance;
 
     insurance = bet()/2;
@@ -281,7 +284,7 @@ Bot1::Bot1(string name, unsigned int initialMoney)
 
 string Bot1::play(Dealer &dealerOfTable)
 {
-	string options[] = { "hit","stand" };
+	string options[] = {"hit", "stand"};
 	string option;
 	unsigned int botHandScore = getHandScore();
 	unsigned int dealerHandScore = dealerOfTable.getHandScore();
@@ -352,12 +355,12 @@ string Bot1::play(Dealer &dealerOfTable)
 }
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
-bool Bot2::takeInsurance() {
+bool Bot2::takeInsurance(Dealer &dealerOfTable) {
 
 }
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
-bool Human::takeInsurance() {
+bool Human::takeInsurance(Dealer &dealerOfTable) {
     unsigned int insurance;
     cout << "Do you want insurance?\n 0 - No    1 - Yes\n";
     cin >> insurance;

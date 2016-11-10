@@ -82,7 +82,9 @@ void Table::play() {
 		}
 		if (dealerOfTable.hit() == "A") {
 			for(int i = 0; i < players.size(); i++){
-				players.at(i).takeInsurance();
+				if(players.at(i).takeInsurance()){
+					moneyOfTable += actualBets.at(i)/2;
+				}
 			}
 		}
 		for (size_t i = 0; i < players.size(); i++) {
