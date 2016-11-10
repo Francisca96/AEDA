@@ -26,9 +26,6 @@ void Player::surrender() {
 	throw "Not yet implemented";
 }
 
-void Player::split() {
-	throw "Not yet implemented";
-}
 
 void Player::doubleDown() {
 	throw "Not yet implemented";
@@ -196,7 +193,7 @@ string Bot0::play(Table &table)
 	string options[] = { "hit","stand" };
 	unsigned int handScore = getHandScore();
 	if (handScore < 17) {
-		hit(table.getDealer().discard(table.getPlayers()));
+		hit(table.getDealer()->discard(table.getPlayers()));
 		return options[0]; // 0 means hit
 	}
 	return options[1]; // means stand
@@ -433,7 +430,7 @@ unsigned int Human::bet(Table &currentTable)
 	return betValue;
 }
 
-string Human::play(Dealer &dealerOfTable)
+string Human::play(Table &table)
 {
 	string option;
 	cout << "Your Turn -> In your hand you have the following:\n";
@@ -445,7 +442,7 @@ string Human::play(Dealer &dealerOfTable)
 	cout << "To hit write 'hit' to stand write 'stand' : ";
 	option = getHumanPlay();
 	if (option == "hit") {
-		hit(dealerOfTable.discard());
+		hit(table.getDealer()->discard(table.getPlayers()));
 	}
 	return option;
 }
