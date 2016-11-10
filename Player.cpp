@@ -156,6 +156,7 @@ void Player::clearHand()
 	hand.clear();
 }
 
+<<<<<<< HEAD
 int Player::getCurrentCount() const
 {
 	return 0;
@@ -171,6 +172,13 @@ void Player::resetCount()
 }
 
 bool Player::takeInsurance(Dealer &dealerOfTable){
+=======
+bool Player::takeInsurance(Table &table){
+	return false;
+}
+
+bool Player::split(vector<Card> * secHand){
+>>>>>>> origin/master
 	return false;
 }
 
@@ -182,11 +190,7 @@ Bot0::Bot0(string name, unsigned int initialMoney)
 	this->setInitialMoney(initialMoney);
 }
 
-bool Bot0::takeInsurance(Dealer &dealerOfTable) {
-    return false;
-}
-
-string Bot0::play(Dealer &dealerOfTable)
+string Bot0::play(Table &table)
 {
 	string options[] = { "hit","stand" };
 	unsigned int handScore = getHandScore();
@@ -198,13 +202,18 @@ string Bot0::play(Dealer &dealerOfTable)
 }
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
-bool Bot1::takeInsurance(Dealer &dealerOfTable) {
+bool Bot1::takeInsurance(Table &table) {
     unsigned int insurance;
 
+	//TODO: alterar algoritmo
     insurance = bet()/2;
     getCurrentMoney() -= insurance;
 
     return true;
+}
+
+bool Bot1::split(vector<Card> * secHand) {
+
 }
 
 unsigned int Bot1::bet(unsigned int minValue, unsigned int maxValue) {
@@ -364,12 +373,16 @@ void Bot1::resetCount()
 }
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
-bool Bot2::takeInsurance(Dealer &dealerOfTable) {
+bool Bot2::takeInsurance(Table &table) {
+	//TODO: fazer algoritmo
+}
 
+bool Bot2::split(vector<Card> * secHand) {
+	//TODO: fazer algoritmo
 }
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
-bool Human::takeInsurance(Dealer &dealerOfTable) {
+bool Human::takeInsurance(Table &table) {
     unsigned int insurance;
     cout << "Do you want insurance?\n 0 - No    1 - Yes\n";
     cin >> insurance;
@@ -381,6 +394,10 @@ bool Human::takeInsurance(Dealer &dealerOfTable) {
     }
 
     return false;
+}
+
+bool Human::split(vector<Card> * secHand) {
+	cout << "Do you want to split?\n 0 - No    1 - Yes\n";
 }
 
 Human::Human(string name, unsigned int age)

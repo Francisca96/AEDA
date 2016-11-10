@@ -5,6 +5,7 @@
 #include <vector>
 #include "utils.h"
 #include "Dealer.h"
+#include "Table.h"
 
 using namespace std;
 
@@ -31,9 +32,9 @@ private:
 
 public:
 	void hit(Card newCard);
-	virtual bool takeInsurance(Dealer &dealerOfTable);
+	virtual bool takeInsurance(Table &table);
 	void surrender();
-	void split();
+	virtual bool split(vector<Card> * secHand);
 	void doubleDown();
 	vector<Card> & getHand();
 	unsigned int getHandSize();
@@ -67,7 +68,6 @@ public:
 	Bot0(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
-	bool takeInsurance(Dealer &dealerOfTable);
 };
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
@@ -79,10 +79,15 @@ public:
 	Bot1(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
+<<<<<<< HEAD
 	int getCurrentCount() const;
 	void addCount(Card &card1);
 	void resetCount();
 	bool takeInsurance(Dealer &dealerOfTable);
+=======
+	bool takeInsurance(Table &table);
+	bool split(vector<Card> * secHand);
+>>>>>>> origin/master
 };
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
@@ -90,8 +95,10 @@ class Bot2 : public Player {
 public:
 	//play method
 	string play(Dealer &dealerOfTable);
-	bool takeInsurance(Dealer &dealerOfTable);
+	bool takeInsurance(Table &table);
+	bool split(vector<Card> * secHand);
 };
+
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
 class Human: public Player {
 private:
@@ -99,5 +106,7 @@ private:
 public:
 	Human(string name, unsigned int age);
 	unsigned int bet(unsigned int minValue, unsigned int maxValue);
-	string play(Dealer &dealerOfTable);
+	string play(Table &table);
+	bool takeInsurance(Table &table);
+	bool split(vector<Card> * secHand);
 };
