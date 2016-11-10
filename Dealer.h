@@ -6,6 +6,7 @@
 
 using namespace std;
 
+
 class Dealer {
 private:
 	static unsigned int nextID;

@@ -9,7 +9,6 @@
 
 using namespace std;
 
-class Dealer;
 
 class NameTooShort {
 public:
@@ -54,7 +53,7 @@ public:
 	//bots currently bet's always the minValue
 	virtual unsigned int bet(Table &table);
 	virtual void clearHand();
-	virtual string play(Dealer &dealerOfTable) = 0;
+	virtual string play(Table &table) = 0;
 	virtual int getCurrentCount() const;
 	virtual void addCount(Card &card1);
 	virtual void resetCount();
@@ -79,7 +78,7 @@ public:
 	unsigned int bet(Table &table);
 	Bot1(string name, unsigned int initialMoney);
 	//play method
-	string play(Dealer &dealerOfTable);
+	string play(Table &table);
 	bool takeInsurance(Table &table);
 	int getCurrentCount() const;
 	void addCount(Card &card1);
@@ -91,7 +90,7 @@ public:
 class Bot2 : public Player {
 public:
 	//play method
-	string play(Dealer &dealerOfTable);
+	string play(Table &table);
 	bool takeInsurance(Table &table);
 	bool split(vector<Card> * secHand);
 };
@@ -103,7 +102,7 @@ private:
 public:
 	Human(string name, unsigned int age);
 	unsigned int bet(Table &table);
-	string play(Dealer &dealerOfTable);
+	string play(Table &table);
 	unsigned int bet(Table &table);
 	string play(Table &table);
 	bool takeInsurance(Table &table);

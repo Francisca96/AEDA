@@ -274,12 +274,13 @@ Bot1::Bot1(string name, unsigned int initialMoney)
 	this->setInitialMoney(initialMoney);
 }
 
-string Bot1::play(Dealer &dealerOfTable)
+string Bot1::play(Table &table)
 {
 	string options[] = {"hit", "stand"};
 	string option;
+	Dealer * dealerOfTable = table.getDealer();
 	unsigned int botHandScore = getHandScore();
-	unsigned int dealerHandScore = dealerOfTable.getHandScore();
+	unsigned int dealerHandScore = dealerOfTable->getHandScore();
 	int runningCount = currentCount;
 	if (botHandScore == 16 && dealerHandScore == 10) {
 		if (runningCount < 0) {
@@ -341,7 +342,7 @@ string Bot1::play(Dealer &dealerOfTable)
 		option = options[1];
 	}
 	if (option == options[0]) {
-		hit(dealerOfTable.discard());
+		hit(dealerOfTable->discard(table.getPlayers()));
 	}
 	return option; // means stand
 }
@@ -396,11 +397,11 @@ bool Human::split(vector<Card> * secHand) {
 	unsigned int split;
 	cout << "Do you want split?\n 0 - No    1 - Yes\n";
 	split=readBinary();
-
+	vector<Card> hand = getHand();
 
 	if(split == 1){
-		*secHand.push_back(hand.at(1));
-		hand.erase(hand.begin()+1);
+		secHand->push_back(hand.at(1));
+		hand.erase(getHand().begin()+1);
 		return true;
 	}
 }

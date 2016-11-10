@@ -5,8 +5,6 @@
 #include "Player.h"
 #include "utils.h"
 
-class Player;
-class Dealer;
 
 using namespace std;
 

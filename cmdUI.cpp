@@ -2,6 +2,7 @@
 
 #include "cmdUI.h"
 
+
 void clearScreen() {
 	system("CLS");
 }
