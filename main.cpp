@@ -39,8 +39,6 @@ int testFunction1() {
 
 
 int main(){
-	string test;
-	
 	//Center window
 	pair <int, int> xy;
 	xy = centerWindow();
@@ -52,7 +50,6 @@ int main(){
 
 	//TODO: implement fuction of display menu
 	testFunction1();
-	getline(cin, test);
 
 	//verify users and changes of files
 	char decision;
@@ -67,7 +64,7 @@ int main(){
 		}
 		cout << (char)187 << endl;
 		cout << setw((xy.first - 50) / 2) << (char)186 << setw(51) << (char)186 << endl;
-		cout << setw((xy.first - 50) / 2) << (char)186 << setw((50 + 35) / 2) << "Deseja Guarda as Alteracoes Feitas?" << setw(9) << (char)186 << endl;
+		cout << setw((xy.first - 50) / 2) << (char)186 << setw((50 + 35) / 2) << "Do you want ave all changes?" << setw(9) << (char)186 << endl;
 		cout << setw((xy.first - 50) / 2) << (char)186 << setw(51) << (char)186 << endl;
 		cout << setw((xy.first - 50) / 2) << (char)200;
 		for (int i = 0; i < 50; i++)
@@ -75,11 +72,11 @@ int main(){
 			cout << (char)205;
 		}
 		cout << (char)188 << endl;
-		cout << endl << "Se Sim digite 'Y', caso contrario digite 'N': ";
+		cout << endl << "Yes 'Y' or No 'N': ";
 		cin >> decision;
 		while (!(decision == 'Y' || decision == 'y' || decision == 'N' || decision == 'n'))
 		{
-			cout << endl << "Se Sim digite 'Y', caso contrario digite 'N': ";
+			cout << endl << "Yes 'Y' or No 'N': ";
 			cin >> decision;
 		}
 
