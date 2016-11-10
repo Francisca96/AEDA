@@ -86,7 +86,7 @@ void Table::play() {
 			}
 		}
 		for(int j=0; j < actualPlayers.size(); j++) {
-			if (actualPlayers.at(j)->getHand().at(1) == actualPlayers.at(j)->getHand().at(2)) {
+			if (actualPlayers.at(j)->getHand().at(0) == actualPlayers.at(j)->getHand().at(1)) {
 				vector<Card> *secHand;
 				actualPlayers.at(j)->split(secHand);
 			}
@@ -181,7 +181,7 @@ vector<Player*> Table::getPlayers() {
 
 void Table::dealOneCardToAllPlayers() {
 	for (size_t i = 0; i < players.size(); i++) {
-		Card discarded = dealerOfTable.discard();
+		Card discarded = dealerOfTable.discard(players);
 		players.at(i)->hit(discarded);
 	}
 }
