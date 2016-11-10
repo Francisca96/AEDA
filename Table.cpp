@@ -81,10 +81,16 @@ void Table::play() {
 		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; Player::resetBot1RunningCount();
 		}
 		if (dealerOfTable.hit() == "A") {
-			for(int i = 0; i < players.size(); i++){
+			for(int i = 0; i < actualPlayers.size(); i++){
 				if(players.at(i).takeInsurance()){
 					moneyOfTable += actualBets.at(i)/2;
 				}
+			}
+		}
+		for(int j=0; j < actualPlayers.size(); j++) {
+			if (actualPlayers.at(j)->getHand().at(1) == actualPlayers.at(j)->getHand().at(2)) {
+				vector<Card> *secHand;
+				actualPlayers.at(j)->split(secHand);
 			}
 		}
 		for (size_t i = 0; i < players.size(); i++) {

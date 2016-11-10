@@ -167,7 +167,7 @@ void Player::showStatistics()
 
 }
 
-unsigned int Player::bet(Table currentTable)
+unsigned int Player::bet(Table &currentTable)
 {
 	if (getCurrentMoney() < currentTable.getMinBet()) {
 		return 0; //0 means kick the player from the table;
@@ -183,7 +183,11 @@ void Player::clearHand()
 	hand.clear();
 }
 
-bool Player::takeInsurance(Dealer &dealerOfTable){
+bool Player::takeInsurance(Table &table){
+	return false;
+}
+
+bool Player::split(vector<Card> * secHand){
 	return false;
 }
 
@@ -195,7 +199,7 @@ Bot0::Bot0(string name, unsigned int initialMoney)
 	this->setInitialMoney(initialMoney);
 }
 
-bool Bot0::takeInsurance(Dealer &dealerOfTable, Table &currentTable) {
+bool Bot0::takeInsurance(Table &currentTable) {
     return false;
 }
 
@@ -211,13 +215,15 @@ string Bot0::play(Dealer &dealerOfTable)
 }
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
-bool Bot1::takeInsurance(Dealer &dealerOfTable, Table &currentTable) {
+bool Bot1::takeInsurance(Table &currentTable) {
     unsigned int insurance;
-
     insurance = bet(currentTable)/2;
     setCurrentMoney(getCurrentMoney()-insurance);
-
     return true;
+}
+
+bool Bot1::split(vector<Card> * secHand) {
+
 }
 
 unsigned int Bot1::bet(Table &currentTable) {
@@ -356,23 +362,32 @@ string Bot1::play(Dealer &dealerOfTable)
 }
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
-bool Bot2::takeInsurance(Dealer &dealerOfTable, Table &currentTable) {
 
+bool Bot2::takeInsurance(Table &table) {
+	//TODO: fazer algoritmo
+}
+
+bool Bot2::split(vector<Card> * secHand) {
+	//TODO: fazer algoritmo
 }
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
-bool Human::takeInsurance(Dealer &dealerOfTable, Table &currentTable) {
+bool Human::takeInsurance(Table &table) {
     unsigned int insurance;
     cout << "Do you want insurance?\n 0 - No    1 - Yes\n";
     cin >> insurance;
 
     if(insurance == 1){
-        insurance = bet(currentTable)/2;
+        insurance = bet(table)/2;
         setCurrentMoney(getCurrentMoney() - insurance);
         return true;
     }
 
     return false;
+}
+
+bool Human::split(vector<Card> * secHand) {
+	cout << "Do you want to split?\n 0 - No    1 - Yes\n";
 }
 
 Human::Human(string name, unsigned int age)

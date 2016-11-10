@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <vector>
 #include "utils.h"
+#include "Dealer.h"
 #include "Table.h"
 
 using namespace std;
@@ -35,9 +36,9 @@ public:
 	static void resetBot1RunningCount();
 	static int getBot1RunningCount();
 	void hit(Card newCard);
-	virtual bool takeInsurance(Dealer &dealerOfTable);
+	virtual bool takeInsurance(Table &table);
 	void surrender();
-	void split();
+	virtual bool split(vector<Card> * secHand);
 	void doubleDown();
 	vector<Card> & getHand();
 	unsigned int getHandSize();
@@ -57,7 +58,7 @@ public:
 	void addMoney(unsigned int value);
 	void showStatistics();
 	//bots currently bet's always the minValue
-	virtual unsigned int bet(Table currentTable);
+	virtual unsigned int bet(Table &currentTable);
 	virtual void clearHand();
 	virtual string play(Dealer &dealerOfTable) = 0;
 	
@@ -70,7 +71,7 @@ public:
 	Bot0(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
-	bool takeInsurance(Dealer &dealerOfTable, Table &currentTable);
+	bool takeInsurance(Table &currentTable);
 };
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
@@ -80,7 +81,8 @@ public:
 	Bot1(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
-	bool takeInsurance(Dealer &dealerOfTable, Table &currentTable);
+	bool takeInsurance(Table &currentTable);
+	bool split(vector<Card> * secHand);
 };
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
@@ -88,8 +90,10 @@ class Bot2 : public Player {
 public:
 	//play method
 	string play(Dealer &dealerOfTable);
-	bool takeInsurance(Dealer &dealerOfTable, Table &currentTable);
+	bool takeInsurance(Table &table);
+	bool split(vector<Card> * secHand);
 };
+
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
 class Human: public Player {
 private:
@@ -98,5 +102,8 @@ public:
 	Human(string name, unsigned int age);
 	unsigned int bet(Table &currentTable);
 	string play(Dealer &dealerOfTable);
-	bool takeInsurance(Dealer &dealerOfTable, Table &currentTable);
+	unsigned int bet(Table &table);
+	string play(Table &table);
+	bool takeInsurance(Table &table);
+	bool split(vector<Card> * secHand);
 };
