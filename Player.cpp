@@ -3,24 +3,6 @@
 #include "Player.h"
 
 
-int bot1RunningCount = 0;
-void Player::updateBot1RunningCount(Card &aCard) {
-	unsigned int tempScore = aCard.score;
-	if (tempScore <= 6) {
-		bot1RunningCount++;
-	}
-	else if (tempScore >= 10) {
-		bot1RunningCount--;
-	}
-}
-void Player::resetBot1RunningCount() {
-	bot1RunningCount = 0;
-}
-
-int Player::getBot1RunningCount()
-{
-	return bot1RunningCount;
-}
 
 //Exceptions
 void NameTooShort::what()
@@ -102,10 +84,6 @@ void Player::setCurrentMoney(unsigned int money)
 	currentMoney = money;
 }
 
-void Player::setCurrentCounter(int counter)
-{
-	currentCounting = counter;
-}
 
 unsigned int Player::getCurrentMoney()
 {
@@ -117,10 +95,7 @@ unsigned int Player::getInitialMoney()
 	return initialMoney;
 }
 
-unsigned int Player::getCurrentCounter()
-{
-	return currentCounting;
-}
+
 
 unsigned int Player::getRoundsPlayed()
 {
@@ -166,12 +141,12 @@ void Player::showStatistics()
 
 }
 
-unsigned int Player::bet(unsigned int minValue, unsigned int maxValue)
+unsigned int Player::bet(Table &currentTable)
 {
-	if (getCurrentMoney() < minValue) {
+	if (getCurrentMoney() < currentTable.getMinBet()) {
 		return 0; //0 means kick the player from the table;
 	}
-	unsigned int betValue = minValue;
+	unsigned int betValue = currentTable.getMinBet();
 	setCurrentMoney(getCurrentMoney() - betValue);
 	cout << name << " bets " << betValue << "$\n";
 	return betValue;
@@ -180,6 +155,20 @@ unsigned int Player::bet(unsigned int minValue, unsigned int maxValue)
 void Player::clearHand()
 {
 	hand.clear();
+}
+
+int Player::getCurrentCount() const
+{
+	return 0;
+}
+
+void Player::addCount(Card &card)
+{
+
+}
+
+void Player::resetCount()
+{
 }
 
 bool Player::takeInsurance(Table &table){
@@ -198,73 +187,80 @@ Bot0::Bot0(string name, unsigned int initialMoney)
 	this->setInitialMoney(initialMoney);
 }
 
+bool Bot0::takeInsurance(Table &currentTable) {
+    return false;
+}
+
 string Bot0::play(Table &table)
 {
 	string options[] = { "hit","stand" };
 	unsigned int handScore = getHandScore();
 	if (handScore < 17) {
-		hit(dealerOfTable.discard());
+		hit(table.getDealer().discard(table.getPlayers()));
 		return options[0]; // 0 means hit
 	}
 	return options[1]; // means stand
 }
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
-bool Bot1::takeInsurance(Table &table) {
-	//TODO: fazer algoritmo
+bool Bot1::takeInsurance(Table &currentTable) {
+    unsigned int insurance;
+    insurance = bet(currentTable)/2;
+    setCurrentMoney(getCurrentMoney()-insurance);
+    return true;
 }
 
 bool Bot1::split(vector<Card> * secHand) {
 	//TODO: fazer algoritmo
 }
 
-unsigned int Bot1::bet(unsigned int minValue, unsigned int maxValue) {
+unsigned int Bot1::bet(Table &currentTable) {
 	unsigned int currentMoney = getCurrentMoney();
-	if (currentMoney < minValue){
+	if (currentMoney < currentTable.getMinBet()){
 		return 0; //0 means kick the player from the table;
 	}
-	int trueCount = getBot1RunningCount();
+	int trueCount = currentCount;
 	cout << "Current running count =" << trueCount << ".\n";
 	unsigned int betValue;
 	if (trueCount <= 0) {
-		betValue = minValue;
+		betValue = currentTable.getMinBet();
 	}
 	else if (trueCount == 1) {
-		if (2 * minValue > maxValue) {
-			betValue = maxValue;
+		if (2 * currentTable.getMinBet() > currentTable.getMaxBet()) {
+			betValue = currentTable.getMaxBet();
 		}
 		else {
-			betValue = 2 * minValue;
+			betValue = 2 * currentTable.getMinBet();
 		}
 	}
 	else if (trueCount == 2) {
-		if (3 * minValue > maxValue) {
-			betValue = maxValue;
+		if (3 * currentTable.getMinBet() > currentTable.getMaxBet()) {
+			betValue = currentTable.getMaxBet();
 		}
-		else { betValue = 3 * minValue; }
+		else { betValue = 3 * currentTable.getMinBet(); }
 	}
 	else if (trueCount == 3) {
-		if (4 * minValue > maxValue) {
-			betValue = maxValue;
+		if (4 * currentTable.getMinBet() > currentTable.getMaxBet()) {
+			betValue = currentTable.getMaxBet();
 		}
 		else {
-			betValue = 4 * minValue;
+			betValue = 4 * currentTable.getMinBet();
 		}
 	}
 	else if (trueCount == 4) {
-		if (5 * minValue > maxValue) {
-			betValue = maxValue;
+		if (5 * currentTable.getMinBet() > currentTable.getMaxBet()) {
+			betValue = currentTable.getMaxBet();
 		}
 		else {
-			betValue = 5 * minValue;
+			betValue = 5 * currentTable.getMinBet();
 		}
 	}
 	else if (trueCount >= 5) {
-		if (6 * minValue > maxValue) {
-			betValue = maxValue;
+		if (6 * currentTable.getMinBet() > currentTable.getMaxBet()) {
+			betValue = currentTable.getMaxBet();
 		}
 		else {
-			betValue = 6 * minValue;
+			betValue = 6 * currentTable.getMinBet();
 		}
 	}
 	if (betValue > currentMoney) {
@@ -287,7 +283,7 @@ string Bot1::play(Dealer &dealerOfTable)
 	string option;
 	unsigned int botHandScore = getHandScore();
 	unsigned int dealerHandScore = dealerOfTable.getHandScore();
-	int runningCount = getBot1RunningCount();
+	int runningCount = currentCount;
 	if (botHandScore == 16 && dealerHandScore == 10) {
 		if (runningCount < 0) {
 			option = options[0];
@@ -353,7 +349,29 @@ string Bot1::play(Dealer &dealerOfTable)
 	return option; // means stand
 }
 
+int Bot1::getCurrentCount() const
+{
+	return currentCount;
+}
+
+void Bot1::addCount(Card &card1)
+{
+	int score = card1.score;
+	if (card1.score <= 6) {
+		currentCount++;
+	}
+	else if (card1.score >= 10) {
+		currentCount--;
+	}
+}
+
+void Bot1::resetCount()
+{
+	currentCount = 0;
+}
+
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
+
 bool Bot2::takeInsurance(Table &table) {
 	//TODO: fazer algoritmo
 }
@@ -369,8 +387,8 @@ bool Human::takeInsurance(Table &table) {
     insurance=readBinary();
 
     if(insurance == 1){
-        insurance = bet()/2;
-        getCurrentMoney() -= insurance;
+        insurance = bet(table)/2;
+        setCurrentMoney(getCurrentMoney() - insurance);
         return true;
     }
 
@@ -412,14 +430,14 @@ Human::Human(string name, unsigned int age)
 }
 
 
-unsigned int Human::bet(unsigned int minValue, unsigned int maxValue)
+unsigned int Human::bet(Table &currentTable)
 {
-	if (getCurrentMoney() < minValue) {
+	if (getCurrentMoney() < currentTable.getMinBet()) {
 		return 0; //0 means kick the player from the table;
 	}
 	unsigned int betValue;
 	cout << "Your Turn " << getName() << "\n";
-	betValue = readUnsignedIntBetween(minValue, maxValue);
+	betValue = readUnsignedIntBetween(currentTable.getMinBet(), currentTable.getMaxBet());
 	setCurrentMoney(getCurrentMoney() - betValue);
 	return betValue;
 }

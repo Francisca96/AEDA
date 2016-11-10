@@ -8,7 +8,7 @@
 #include "Table.h"
 
 using namespace std;
-extern int bot1RunningCount;
+
 class Dealer;
 
 class NameTooShort {
@@ -29,12 +29,8 @@ private:
 	unsigned int handScore;
 	unsigned int roundsPlayed;
 	float averageProfit;
-	int currentCounting;
 
 public:
-	static void updateBot1RunningCount(Card &aCard);
-	static void resetBot1RunningCount();
-	static int getBot1RunningCount();
 	void hit(Card newCard);
 	virtual bool takeInsurance(Table &table);
 	void surrender();
@@ -47,20 +43,21 @@ public:
 	unsigned int getAverageProfit();
 	unsigned int getHandScore();
 	unsigned int getInitialMoney();
-	unsigned int getCurrentCounter();
 	string getName();
 	void setName(string newName);
 	unsigned int setHandScore();
 	void setCurrentMoney(unsigned int money);
-	void setCurrentCounter(int counter);
 	void setRoundsPlayed(unsigned int rounds);
 	void setInitialMoney(unsigned int money);
 	void addMoney(unsigned int value);
 	void showStatistics();
 	//bots currently bet's always the minValue
-	virtual unsigned int bet(unsigned int minValue, unsigned int maxValue);
+	virtual unsigned int bet(Table &currentTable);
 	virtual void clearHand();
 	virtual string play(Dealer &dealerOfTable) = 0;
+	virtual int getCurrentCount() const;
+	virtual void addCount(Card &card1);
+	virtual void resetCount();
 	
 };
 
@@ -70,17 +67,23 @@ public:
 	Bot0() {};
 	Bot0(string name, unsigned int initialMoney);
 	//play method
-	string play(Dealer &dealerOfTable);
+	string play(Table &table);
+	bool takeInsurance(Table &currentTable);
 };
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
 class Bot1: public Player {
+private:
+	int currentCount;
 public:
-	unsigned int bet(unsigned int minValue, unsigned int maxValue);
+	unsigned int bet(Table &currentTable);
 	Bot1(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
-	bool takeInsurance(Table &table);
+	bool takeInsurance(Table &currentTable);
+	int getCurrentCount() const;
+	void addCount(Card &card1);
+	void resetCount();
 	bool split(vector<Card> * secHand);
 };
 
@@ -99,7 +102,9 @@ private:
 	unsigned int age;
 public:
 	Human(string name, unsigned int age);
-	unsigned int bet(unsigned int minValue, unsigned int maxValue);
+	unsigned int bet(Table &currentTable);
+	string play(Dealer &dealerOfTable);
+	unsigned int bet(Table &table);
 	string play(Table &table);
 	bool takeInsurance(Table &table);
 	bool split(vector<Card> * secHand);

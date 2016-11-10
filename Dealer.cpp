@@ -24,17 +24,19 @@ void Dealer::shuffleDeck() {
 	random_shuffle(deck.begin(), deck.end());
 }
 
-Card Dealer::discard() {
+Card Dealer::discard(vector<Player *> players) {
 	Card nextCard;
 	nextCard = deck.back();
 	deckDiscarded.push_back(nextCard);
 	deck.pop_back();
-	Player::updateBot1RunningCount(nextCard);
+	for (size_t i = 0; i < players.size(); i++) {
+		players.at(i)->addCount(nextCard);
+	}
 	return nextCard;
 }
 
-Card& Dealer::hit() {
-	hand.push_back(discard());
+Card& Dealer::hit(vector<Player *> players) {
+	hand.push_back(discard(players));
 	setHandScore();
 	return hand.back();
 }

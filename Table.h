@@ -50,11 +50,13 @@ public:
 	unsigned int getMaxBet();
 	void getInitialBets();
 	Dealer * getDealer();
+	vector <Player *> getPlayers();
 	void dealOneCardToAllPlayers();
 	void payToPlayer(Player* player1, float value);
 	unsigned int restartDeck();
 	void showTableInfo();
 	void kickPlayer(unsigned int index);
+	void resetBot1Counters();
 	/**
 	*@return moneyOfTable
 	*removes all players from the Table

@@ -71,16 +71,14 @@ void Table::play() {
 	while (roundsLeft > 0)
 	{	
 		cout << "Rounds left." << roundsLeft << "\n";
-		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; Player::resetBot1RunningCount(); }
+		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
 		getInitialBets();
 		dealOneCardToAllPlayers();
-		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; Player::resetBot1RunningCount();
-		}
-		dealerOfTable.hit();
+		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
+		dealerOfTable.hit(players);
 		dealOneCardToAllPlayers();
-		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; Player::resetBot1RunningCount();
-		}
-		if (dealerOfTable.hit() == "A") {
+		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
+		if (dealerOfTable.hit(players) == "A") {
 			for(int i = 0; i < actualPlayers.size(); i++){
 				if(actualPlayers.at(i)->takeInsurance()){
 					moneyOfTable += actualBets.at(i)/2;
@@ -95,8 +93,7 @@ void Table::play() {
 		}
 		for (size_t i = 0; i < players.size(); i++) {
 			do {
-				if (restartDeck() == 0) { cout << "Deck has been restarted\n"; Player::resetBot1RunningCount();
-				}
+				if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
 			}
 				while (players.at(i)->play(dealerOfTable) != "stand");
 			cout << "Name: " << players.at(i)->getName() << "; Money:" << players.at(i)->getCurrentMoney() << "; Handscore: " << players.at(i)->getHandScore() << "\n";
@@ -105,8 +102,7 @@ void Table::play() {
 			cout << "\n";
 		}
 		do {
-			if (restartDeck() == 0) { cout << "Deck has been restarted\n"; Player::resetBot1RunningCount();
-			}
+			if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
 			//cout << "Dealer handscore. " << dealerOfTable.getHandScore() << "\n";
 		} while (dealerOfTable.play() != "stand");
 		
@@ -179,6 +175,10 @@ Dealer * Table::getDealer()
 	return &dealerOfTable;
 }
 
+vector<Player*> Table::getPlayers() {
+	return players;
+}
+
 void Table::dealOneCardToAllPlayers() {
 	for (size_t i = 0; i < players.size(); i++) {
 		Card discarded = dealerOfTable.discard();
@@ -208,6 +208,13 @@ unsigned int Table::restartDeck()
 void Table::kickPlayer(unsigned int index)
 {
 	players.erase(players.begin() + index);
+}
+
+void Table::resetBot1Counters()
+{
+	for (size_t i = 0; i < players.size(); i++) {
+		players.at(i)->resetCount();
+	}
 }
 
 float Table::closeTable()

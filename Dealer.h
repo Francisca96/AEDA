@@ -24,9 +24,9 @@ public:
 	//shuffles Dealer's Deck
 	void shuffleDeck();
 	//Removes a Card from the end of the deck and returns it. Additionaly pushes the Card to the deckDiscarded vector
-	Card discard();
+	Card discard(vector<Player *> players);
 	//Places a Card in the Dealer hand and updates the handscore
-	Card& hit();
+	Card& hit(vector<Player *> players);
 	/*Increases nextPlayer by 1;
 	void stand();*/
 	//Updates handScore
