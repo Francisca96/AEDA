@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <vector>
 #include "utils.h"
-#include "Dealer.h"
+#include "Table.h"
 
 using namespace std;
 extern int bot1RunningCount;
@@ -57,7 +57,7 @@ public:
 	void addMoney(unsigned int value);
 	void showStatistics();
 	//bots currently bet's always the minValue
-	virtual unsigned int bet(unsigned int minValue, unsigned int maxValue);
+	virtual unsigned int bet(Table currentTable);
 	virtual void clearHand();
 	virtual string play(Dealer &dealerOfTable) = 0;
 	
@@ -70,17 +70,17 @@ public:
 	Bot0(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
-	bool takeInsurance(Dealer &dealerOfTable);
+	bool takeInsurance(Dealer &dealerOfTable, Table &currentTable);
 };
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
 class Bot1: public Player {
 public:
-	unsigned int bet(unsigned int minValue, unsigned int maxValue);
+	unsigned int bet(Table &currentTable);
 	Bot1(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
-	bool takeInsurance(Dealer &dealerOfTable);
+	bool takeInsurance(Dealer &dealerOfTable, Table &currentTable);
 };
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
@@ -88,7 +88,7 @@ class Bot2 : public Player {
 public:
 	//play method
 	string play(Dealer &dealerOfTable);
-	bool takeInsurance(Dealer &dealerOfTable);
+	bool takeInsurance(Dealer &dealerOfTable, Table &currentTable);
 };
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
 class Human: public Player {
@@ -96,6 +96,7 @@ private:
 	unsigned int age;
 public:
 	Human(string name, unsigned int age);
-	unsigned int bet(unsigned int minValue, unsigned int maxValue);
+	unsigned int bet(Table &currentTable);
 	string play(Dealer &dealerOfTable);
+	bool takeInsurance(Dealer &dealerOfTable, Table &currentTable);
 };
