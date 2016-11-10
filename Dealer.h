@@ -32,11 +32,11 @@ public:
 	//Updates handScore
 	unsigned int setHandScore();
 	//get deck size to see if reshuffle is needed
-	vector<Card>& getDeck();
-	vector<Card>& getHand();
+	vector<Card>& getDeck() const;
+	vector<Card>& getHand() const;
 	void addCardsToDeck(vector<Card> &cards);
-	vector<Card>& getDiscardedDeck();
-	unsigned int getHandScore();
+	vector<Card>& getDiscardedDeck() const;
+	unsigned int getHandScore() const;
 	void clearDiscardedDeck();
 	void clearHand();
 	bool hasCardInHand(Card& c);
