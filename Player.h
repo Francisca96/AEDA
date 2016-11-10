@@ -8,7 +8,7 @@
 #include "Table.h"
 
 using namespace std;
-extern int bot1RunningCount;
+
 class Dealer;
 
 class NameTooShort {
@@ -29,12 +29,8 @@ private:
 	unsigned int handScore;
 	unsigned int roundsPlayed;
 	float averageProfit;
-	int currentCounting;
 
 public:
-	static void updateBot1RunningCount(Card &aCard);
-	static void resetBot1RunningCount();
-	static int getBot1RunningCount();
 	void hit(Card newCard);
 	virtual bool takeInsurance(Table &table);
 	void surrender();
@@ -47,12 +43,10 @@ public:
 	unsigned int getAverageProfit();
 	unsigned int getHandScore();
 	unsigned int getInitialMoney();
-	unsigned int getCurrentCounter();
 	string getName();
 	void setName(string newName);
 	unsigned int setHandScore();
 	void setCurrentMoney(unsigned int money);
-	void setCurrentCounter(int counter);
 	void setRoundsPlayed(unsigned int rounds);
 	void setInitialMoney(unsigned int money);
 	void addMoney(unsigned int value);
@@ -61,6 +55,9 @@ public:
 	virtual unsigned int bet(Table &currentTable);
 	virtual void clearHand();
 	virtual string play(Dealer &dealerOfTable) = 0;
+	virtual int getCurrentCount() const;
+	virtual void addCount(Card &card1);
+	virtual void resetCount();
 	
 };
 
@@ -76,12 +73,17 @@ public:
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
 class Bot1: public Player {
+private:
+	int currentCount;
 public:
 	unsigned int bet(Table &currentTable);
 	Bot1(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
 	bool takeInsurance(Table &currentTable);
+	int getCurrentCount() const;
+	void addCount(Card &card1);
+	void resetCount();
 	bool split(vector<Card> * secHand);
 };
 

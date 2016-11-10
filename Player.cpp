@@ -103,10 +103,6 @@ void Player::setCurrentMoney(unsigned int money)
 	currentMoney = money;
 }
 
-void Player::setCurrentCounter(int counter)
-{
-	currentCounting = counter;
-}
 
 unsigned int Player::getCurrentMoney()
 {
@@ -118,10 +114,7 @@ unsigned int Player::getInitialMoney()
 	return initialMoney;
 }
 
-unsigned int Player::getCurrentCounter()
-{
-	return currentCounting;
-}
+
 
 unsigned int Player::getRoundsPlayed()
 {
@@ -181,6 +174,20 @@ unsigned int Player::bet(Table &currentTable)
 void Player::clearHand()
 {
 	hand.clear();
+}
+
+int Player::getCurrentCount() const
+{
+	return 0;
+}
+
+void Player::addCount(Card &card)
+{
+
+}
+
+void Player::resetCount()
+{
 }
 
 bool Player::takeInsurance(Table &table){
@@ -359,6 +366,27 @@ string Bot1::play(Dealer &dealerOfTable)
 		hit(dealerOfTable.discard());
 	}
 	return option; // means stand
+}
+
+int Bot1::getCurrentCount() const
+{
+	return currentCount;
+}
+
+void Bot1::addCount(Card &card1)
+{
+	int score = card1.score;
+	if (card1.score <= 6) {
+		currentCount++;
+	}
+	else if (card1.score >= 10) {
+		currentCount--;
+	}
+}
+
+void Bot1::resetCount()
+{
+	currentCount = 0;
 }
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////

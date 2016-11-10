@@ -55,6 +55,7 @@ public:
 	unsigned int restartDeck();
 	void showTableInfo();
 	void kickPlayer(unsigned int index);
+	void resetBot1Counters();
 	/**
 	*@return moneyOfTable
 	*removes all players from the Table
