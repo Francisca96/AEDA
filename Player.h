@@ -70,6 +70,7 @@ public:
 	Bot0(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
+	bool takeInsurance(Dealer &dealerOfTable);
 };
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
@@ -79,6 +80,7 @@ public:
 	Bot1(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
+	bool takeInsurance(Dealer &dealerOfTable);
 };
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
@@ -86,6 +88,7 @@ class Bot2 : public Player {
 public:
 	//play method
 	string play(Dealer &dealerOfTable);
+	bool takeInsurance(Dealer &dealerOfTable);
 };
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
 class Human: public Player {
