@@ -82,13 +82,13 @@ void Table::play() {
 		}
 		if (dealerOfTable.hit() == "A") {
 			for(int i = 0; i < actualPlayers.size(); i++){
-				if(players.at(i).takeInsurance()){
+				if(actualPlayers.at(i)->takeInsurance()){
 					moneyOfTable += actualBets.at(i)/2;
 				}
 			}
 		}
 		for(int j=0; j < actualPlayers.size(); j++) {
-			if (actualPlayers.at(j)->getHand().at(1) == actualPlayers.at(j)->getHand().at(2)) {
+			if (actualPlayers.at(j)->getHand().at(0) == actualPlayers.at(j)->getHand().at(1)) {
 				vector<Card> *secHand;
 				actualPlayers.at(j)->split(secHand);
 			}

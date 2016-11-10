@@ -211,17 +211,11 @@ string Bot0::play(Table &table)
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
 bool Bot1::takeInsurance(Table &table) {
-    unsigned int insurance;
-
-	//TODO: alterar algoritmo
-    insurance = bet()/2;
-    getCurrentMoney() -= insurance;
-
-    return true;
+	//TODO: fazer algoritmo
 }
 
 bool Bot1::split(vector<Card> * secHand) {
-
+	//TODO: fazer algoritmo
 }
 
 unsigned int Bot1::bet(unsigned int minValue, unsigned int maxValue) {
@@ -372,7 +366,7 @@ bool Bot2::split(vector<Card> * secHand) {
 bool Human::takeInsurance(Table &table) {
     unsigned int insurance;
     cout << "Do you want insurance?\n 0 - No    1 - Yes\n";
-    cin >> insurance;
+    insurance=readBinary();
 
     if(insurance == 1){
         insurance = bet()/2;
@@ -384,7 +378,16 @@ bool Human::takeInsurance(Table &table) {
 }
 
 bool Human::split(vector<Card> * secHand) {
-	cout << "Do you want to split?\n 0 - No    1 - Yes\n";
+	unsigned int split;
+	cout << "Do you want split?\n 0 - No    1 - Yes\n";
+	split=readBinary();
+
+
+	if(split == 1){
+		*secHand.push_back(hand.at(1));
+		hand.erase(hand.begin()+1);
+		return true;
+	}
 }
 
 Human::Human(string name, unsigned int age)
