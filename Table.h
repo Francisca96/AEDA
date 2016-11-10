@@ -5,6 +5,9 @@
 #include "Player.h"
 #include "utils.h"
 
+class Player;
+class Dealer;
+
 using namespace std;
 
 //Exception Class- (maxNumberOfPlayers,actualNumOfPlayers)
@@ -29,6 +32,7 @@ private:
 	unsigned int tableID;
 	Dealer dealerOfTable;
 	vector<Player*> players;
+	vector<Player*> actualPlayers;
 	vector<unsigned int> actualBets;
 
 public:
