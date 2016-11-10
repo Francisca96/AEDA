@@ -30,7 +30,7 @@ std::ostream& operator<<(std::ostream& out, const vector<Card>& v);
 
 vector <Card> createDeck();
 
-string getHumanPlay() const;
+string getHumanPlay();
 
 unsigned short int readUnsignedIntBetween(unsigned int min, unsigned int max);
 

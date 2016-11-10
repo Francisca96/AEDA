@@ -52,7 +52,7 @@ vector<Card> createDeck() {
 	return deck;
 }
 
-string getHumanPlay() const
+string getHumanPlay()
 {
 	string option;
 	getline(cin, option);
