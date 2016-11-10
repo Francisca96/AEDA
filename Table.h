@@ -50,6 +50,7 @@ public:
 	unsigned int getMaxBet();
 	void getInitialBets();
 	Dealer * getDealer();
+	vector <Player *> getPlayers();
 	void dealOneCardToAllPlayers();
 	void payToPlayer(Player* player1, float value);
 	unsigned int restartDeck();

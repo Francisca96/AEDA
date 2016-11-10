@@ -175,6 +175,10 @@ Dealer * Table::getDealer()
 	return &dealerOfTable;
 }
 
+vector<Player*> Table::getPlayers() {
+	return players;
+}
+
 void Table::dealOneCardToAllPlayers() {
 	for (size_t i = 0; i < players.size(); i++) {
 		Card discarded = dealerOfTable.discard();

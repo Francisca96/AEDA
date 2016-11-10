@@ -67,7 +67,7 @@ public:
 	Bot0() {};
 	Bot0(string name, unsigned int initialMoney);
 	//play method
-	string play(Dealer &dealerOfTable);
+	string play(Table &table);
 	bool takeInsurance(Table &currentTable);
 };
 

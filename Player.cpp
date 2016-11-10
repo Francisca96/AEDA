@@ -3,25 +3,6 @@
 #include "Player.h"
 
 
-int bot1RunningCount = 0;
-void Player::updateBot1RunningCount(Card &aCard) {
-
-	unsigned int tempScore = aCard.score;
-	if (tempScore <= 6) {
-		bot1RunningCount++;
-	}
-	else if (tempScore >= 10) {
-		bot1RunningCount--;
-	}
-}
-void Player::resetBot1RunningCount() {
-	bot1RunningCount = 0;
-}
-
-int Player::getBot1RunningCount()
-{
-	return bot1RunningCount;
-}
 
 //Exceptions
 void NameTooShort::what()
@@ -210,12 +191,12 @@ bool Bot0::takeInsurance(Table &currentTable) {
     return false;
 }
 
-string Bot0::play(Dealer &dealerOfTable)
+string Bot0::play(Table &table)
 {
 	string options[] = { "hit","stand" };
 	unsigned int handScore = getHandScore();
 	if (handScore < 17) {
-		hit(dealerOfTable.discard());
+		hit(table.getDealer().discard(table.getPlayers()));
 		return options[0]; // 0 means hit
 	}
 	return options[1]; // means stand
@@ -238,7 +219,7 @@ unsigned int Bot1::bet(Table &currentTable) {
 	if (currentMoney < currentTable.getMinBet()){
 		return 0; //0 means kick the player from the table;
 	}
-	int trueCount = getBot1RunningCount();
+	int trueCount = currentCount;
 	cout << "Current running count =" << trueCount << ".\n";
 	unsigned int betValue;
 	if (trueCount <= 0) {
@@ -302,7 +283,7 @@ string Bot1::play(Dealer &dealerOfTable)
 	string option;
 	unsigned int botHandScore = getHandScore();
 	unsigned int dealerHandScore = dealerOfTable.getHandScore();
-	int runningCount = getBot1RunningCount();
+	int runningCount = currentCount;
 	if (botHandScore == 16 && dealerHandScore == 10) {
 		if (runningCount < 0) {
 			option = options[0];
