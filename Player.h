@@ -4,7 +4,6 @@
 #include <iomanip>
 #include <vector>
 #include "utils.h"
-#include "Dealer.h"
 #include "Table.h"
 
 using namespace std;
@@ -79,7 +78,7 @@ public:
 	unsigned int bet(Table &currentTable);
 	Bot1(string name, unsigned int initialMoney);
 	//play method
-	string play(Dealer &dealerOfTable);
+	string play(Table &table);
 	bool takeInsurance(Table &currentTable);
 	int getCurrentCount() const;
 	void addCount(Card &card1);
@@ -103,7 +102,6 @@ private:
 public:
 	Human(string name, unsigned int age);
 	unsigned int bet(Table &currentTable);
-	string play(Dealer &dealerOfTable);
 	unsigned int bet(Table &table);
 	string play(Table &table);
 	bool takeInsurance(Table &table);

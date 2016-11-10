@@ -196,7 +196,7 @@ string Bot0::play(Table &table)
 	string options[] = { "hit","stand" };
 	unsigned int handScore = getHandScore();
 	if (handScore < 17) {
-		hit(table.getDealer().discard(table.getPlayers()));
+		hit(table.getDealer()->discard(table.getPlayers()));
 		return options[0]; // 0 means hit
 	}
 	return options[1]; // means stand
@@ -277,12 +277,12 @@ Bot1::Bot1(string name, unsigned int initialMoney)
 	this->setInitialMoney(initialMoney);
 }
 
-string Bot1::play(Dealer &dealerOfTable)
+string Bot1::play(Table &table)
 {
 	string options[] = {"hit", "stand"};
 	string option;
 	unsigned int botHandScore = getHandScore();
-	unsigned int dealerHandScore = dealerOfTable.getHandScore();
+	unsigned int dealerHandScore = table.getDealer->getHandScore();
 	int runningCount = currentCount;
 	if (botHandScore == 16 && dealerHandScore == 10) {
 		if (runningCount < 0) {
@@ -344,7 +344,7 @@ string Bot1::play(Dealer &dealerOfTable)
 		option = options[1];
 	}
 	if (option == options[0]) {
-		hit(dealerOfTable.discard());
+		hit(table.getDealer()->discard(table.getPlayers()));
 	}
 	return option; // means stand
 }
@@ -433,7 +433,7 @@ unsigned int Human::bet(Table &currentTable)
 	return betValue;
 }
 
-string Human::play(Dealer &dealerOfTable)
+string Human::play(Table &table)
 {
 	string option;
 	cout << "Your Turn -> In your hand you have the following:\n";
@@ -445,7 +445,7 @@ string Human::play(Dealer &dealerOfTable)
 	cout << "To hit write 'hit' to stand write 'stand' : ";
 	option = getHumanPlay();
 	if (option == "hit") {
-		hit(dealerOfTable.discard());
+		hit(table.getDealer()->discard(table.getPlayers()));
 	}
 	return option;
 }
