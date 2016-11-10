@@ -79,15 +79,12 @@ public:
 	Bot1(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
-<<<<<<< HEAD
 	int getCurrentCount() const;
 	void addCount(Card &card1);
 	void resetCount();
 	bool takeInsurance(Dealer &dealerOfTable);
-=======
 	bool takeInsurance(Table &table);
 	bool split(vector<Card> * secHand);
->>>>>>> origin/master
 };
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////

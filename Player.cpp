@@ -156,7 +156,6 @@ void Player::clearHand()
 	hand.clear();
 }
 
-<<<<<<< HEAD
 int Player::getCurrentCount() const
 {
 	return 0;
@@ -171,14 +170,11 @@ void Player::resetCount()
 {
 }
 
-bool Player::takeInsurance(Dealer &dealerOfTable){
-=======
 bool Player::takeInsurance(Table &table){
 	return false;
 }
 
 bool Player::split(vector<Card> * secHand){
->>>>>>> origin/master
 	return false;
 }
 
