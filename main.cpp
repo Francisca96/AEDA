@@ -22,7 +22,7 @@ int testFunction1() {
 	Table * table1 = new Table(roundsToPlay, minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
 	tablesVector.push_back(table1);
 	Casino estoril(casinoMoney);
-	playersVector.push_back(new Bot0("Josh", 1000));
+	playersVector.push_back(new Bot0("Kika", 1000));
 	playersVector.push_back(new Bot1("Renato", 1000));
 	playersVector.push_back(new Bot1("Joao", 1000));
 	estoril.addTableToCasino(table1);

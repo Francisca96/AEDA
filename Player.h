@@ -31,7 +31,7 @@ private:
 
 public:
 	void hit(Card newCard);
-	virtual bool takeInsurance() = 0;
+	virtual bool takeInsurance(Dealer &dealerOfTable);
 	void surrender();
 	void split();
 	void doubleDown();
@@ -67,6 +67,7 @@ public:
 	Bot0(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
+	bool takeInsurance(Dealer &dealerOfTable);
 };
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
@@ -81,6 +82,7 @@ public:
 	int getCurrentCount() const;
 	void addCount(Card &card1);
 	void resetCount();
+	bool takeInsurance(Dealer &dealerOfTable);
 };
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
@@ -88,6 +90,7 @@ class Bot2 : public Player {
 public:
 	//play method
 	string play(Dealer &dealerOfTable);
+	bool takeInsurance(Dealer &dealerOfTable);
 };
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
 class Human: public Player {
