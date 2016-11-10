@@ -80,13 +80,13 @@ void Table::play() {
 		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
 		if (dealerOfTable.hit(players) == "A") {
 			for(int i = 0; i < actualPlayers.size(); i++){
-				if(players.at(i).takeInsurance(*this)){
+				if(actualPlayers.at(i)->takeInsurance(*this)){
 					moneyOfTable += actualBets.at(i)/2;
 				}
 			}
 		}
 		for(int j=0; j < actualPlayers.size(); j++) {
-			if (actualPlayers.at(j)->getHand().at(1) == actualPlayers.at(j)->getHand().at(2)) {
+			if (actualPlayers.at(j)->getHand().at(0) == actualPlayers.at(j)->getHand().at(1)) {
 				vector<Card> *secHand;
 				actualPlayers.at(j)->split(secHand);
 			}
@@ -197,7 +197,7 @@ unsigned int Table::restartDeck()
 	if (dealerOfTable.getDiscardedDeck().size() >= 3 * dealerOfTable.getDeck().size()) {
 		dealerOfTable.addCardsToDeck(dealerOfTable.getDiscardedDeck()); //already shuffles the deck
 		for (size_t i = 0; i < players.size(); i++) {
-			players.at(i)->setCurrentCounter(0);
+			players.at(i)->resetCount();
 		}
 		dealerOfTable.clearDiscardedDeck();
 		return 0;

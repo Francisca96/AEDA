@@ -106,7 +106,7 @@ unsigned int readUnsignedInt() {
 		cin.clear();
 		cin.ignore();
 
-		cout << "Valor invalido, insira um novo valor unsigned int: ";
+		cout << "Valor inválido, insira um novo valor unsigned int: ";
 	}
 	cin.ignore();
 	cout << endl;
@@ -119,12 +119,28 @@ int readInt() {
 		cout << endl;
 		cin.clear();
 		cin.ignore();
-		cout << "Valor invalido, insira um novo valor unsigned int: ";
+		cout << "Valor inválido, insira um novo valor unsigned int: ";
 	}
 	cin.ignore();
 	cout << endl;
 	return newInt;
 }
+
+int readBinary(){
+	int value;
+	cin >> value;
+
+	while (value != 0 || value != 1){
+		cout << endl;
+		cin.clear();
+		cin.ignore();
+		cout << "Valor inválido, insira 0 ou 1: ";
+	}
+	cin.ignore();
+	cout << endl;
+	return value;
+}
+
 float readFloat() {
 	float newFloat;
 	cout << "Insira um novo valor: ";

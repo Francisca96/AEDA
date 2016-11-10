@@ -40,6 +40,8 @@ unsigned int readUnsignedInt();
 
 int readInt();
 
+int readBinary();
+
 float readFloat();
 
 char readCharYorN();
