@@ -52,7 +52,7 @@ public:
 	void addMoney(unsigned int value);
 	void showStatistics();
 	//bots currently bet's always the minValue
-	virtual unsigned int bet(Table &currentTable);
+	virtual unsigned int bet(Table &table);
 	virtual void clearHand();
 	virtual string play(Dealer &dealerOfTable) = 0;
 	virtual int getCurrentCount() const;
@@ -68,7 +68,7 @@ public:
 	Bot0(string name, unsigned int initialMoney);
 	//play method
 	string play(Table &table);
-	bool takeInsurance(Table &currentTable);
+	bool takeInsurance(Table &table);
 };
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
@@ -76,11 +76,11 @@ class Bot1: public Player {
 private:
 	int currentCount;
 public:
-	unsigned int bet(Table &currentTable);
+	unsigned int bet(Table &table);
 	Bot1(string name, unsigned int initialMoney);
 	//play method
 	string play(Dealer &dealerOfTable);
-	bool takeInsurance(Table &currentTable);
+	bool takeInsurance(Table &table);
 	int getCurrentCount() const;
 	void addCount(Card &card1);
 	void resetCount();
@@ -102,7 +102,7 @@ private:
 	unsigned int age;
 public:
 	Human(string name, unsigned int age);
-	unsigned int bet(Table &currentTable);
+	unsigned int bet(Table &table);
 	string play(Dealer &dealerOfTable);
 	unsigned int bet(Table &table);
 	string play(Table &table);
