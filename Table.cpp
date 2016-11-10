@@ -82,7 +82,7 @@ void Table::play() {
 		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
 		if (dealerOfTable.hit(players) == "A") {
 			for(int i = 0; i < actualPlayers.size(); i++){
-				if(actualPlayers.at(i)->takeInsurance()){
+				if(actualPlayers.at(i)->takeInsurance(*this)){
 					moneyOfTable += actualBets.at(i)/2;
 				}
 			}
@@ -161,7 +161,7 @@ void Table::getInitialBets() const
 		actualBets.resize(players.size());
 	}
 	for (size_t i = 0; i < players.size(); i++) {
-		actualBets.at(i) = players.at(i)->bet(minBet,maxBet);
+		actualBets.at(i) = players.at(i)->bet(*this);
 		if (actualBets.at(i) == 0) { //kick the player
 			cout << players.at(i)->getName() << " we enjoyed your money ! Come back when you have some more...\n";
 			kickPlayer(i);
@@ -184,7 +184,7 @@ vector<Player*> Table::getPlayers() const
 
 void Table::dealOneCardToAllPlayers() {
 	for (size_t i = 0; i < players.size(); i++) {
-		Card discarded = dealerOfTable.discard();
+		Card discarded = dealerOfTable.discard(players);
 		players.at(i)->hit(discarded);
 	}
 }
@@ -200,7 +200,7 @@ unsigned int Table::restartDeck()
 	if (dealerOfTable.getDiscardedDeck().size() >= 3 * dealerOfTable.getDeck().size()) {
 		dealerOfTable.addCardsToDeck(dealerOfTable.getDiscardedDeck()); //already shuffles the deck
 		for (size_t i = 0; i < players.size(); i++) {
-			players.at(i)->setCurrentCounter(0);
+			players.at(i)->resetCount();
 		}
 		dealerOfTable.clearDiscardedDeck();
 		return 0;
