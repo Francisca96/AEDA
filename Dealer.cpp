@@ -62,12 +62,12 @@ unsigned int Dealer::setHandScore(){
 }
 
 
-vector<Card>& Dealer::getDeck()
+vector<Card>& Dealer::getDeck() const
 {
 	return deck;
 }
 
-vector<Card>& Dealer::getHand()
+vector<Card>& Dealer::getHand() const
 {
 	return hand;
 }
@@ -78,12 +78,12 @@ void Dealer::addCardsToDeck(vector<Card>& cards)
 	shuffleDeck();
 }
 
-vector<Card>& Dealer::getDiscardedDeck()
+vector<Card>& Dealer::getDiscardedDeck() const
 {
 	return deckDiscarded;
 }
 
-unsigned int Dealer::getHandScore()
+unsigned int Dealer::getHandScore() const
 {
 	return handScore;
 }

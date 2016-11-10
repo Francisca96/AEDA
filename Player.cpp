@@ -36,7 +36,7 @@ vector<Card>& Player::getHand()
 	return hand;
 }
 
-unsigned int Player::getHandSize()
+unsigned int Player::getHandSize() const
 {
 	return hand.size();
 }
@@ -57,11 +57,12 @@ unsigned int Player::setHandScore() {
 	return this->handScore;
 }
 
-unsigned int Player::getHandScore() {
+unsigned int Player::getHandScore() const
+{
 	return handScore;
 }
 
-string Player::getName()
+string Player::getName() const
 {
 	return name;
 }
@@ -71,7 +72,7 @@ void Player::setName(string newName)
 	name = newName;
 }
 
-unsigned int Player::getAverageProfit()
+unsigned int Player::getAverageProfit() const
 {
 	return averageProfit;
 }
@@ -82,19 +83,19 @@ void Player::setCurrentMoney(unsigned int money)
 }
 
 
-unsigned int Player::getCurrentMoney()
+unsigned int Player::getCurrentMoney() const
 {
 	return currentMoney;
 }
 
-unsigned int Player::getInitialMoney()
+unsigned int Player::getInitialMoney() const
 {
 	return initialMoney;
 }
 
 
 
-unsigned int Player::getRoundsPlayed()
+unsigned int Player::getRoundsPlayed() const
 {
 	return roundsPlayed;
 }
@@ -281,6 +282,7 @@ string Bot1::play(Table &table)
 	Dealer * dealerOfTable = table.getDealer();
 	unsigned int botHandScore = getHandScore();
 	unsigned int dealerHandScore = dealerOfTable->getHandScore();
+
 	int runningCount = currentCount;
 	if (botHandScore == 16 && dealerHandScore == 10) {
 		if (runningCount < 0) {
@@ -342,7 +344,9 @@ string Bot1::play(Table &table)
 		option = options[1];
 	}
 	if (option == options[0]) {
+
 		hit(dealerOfTable->discard(table.getPlayers()));
+
 	}
 	return option; // means stand
 }

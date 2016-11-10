@@ -4,7 +4,6 @@
 #include <iomanip>
 #include <vector>
 #include "utils.h"
-#include "Dealer.h"
 #include "Table.h"
 
 using namespace std;
@@ -36,13 +35,13 @@ public:
 	virtual bool split(vector<Card> * secHand);
 	void doubleDown();
 	vector<Card> & getHand();
-	unsigned int getHandSize();
-	unsigned int getRoundsPlayed();
-	unsigned int getCurrentMoney();
-	unsigned int getAverageProfit();
-	unsigned int getHandScore();
-	unsigned int getInitialMoney();
-	string getName();
+	unsigned int getHandSize() const;
+	unsigned int getRoundsPlayed() const;
+	unsigned int getCurrentMoney() const;
+	unsigned int getAverageProfit() const;
+	unsigned int getHandScore() const;
+	unsigned int getInitialMoney() const;
+	string getName() const;
 	void setName(string newName);
 	unsigned int setHandScore();
 	void setCurrentMoney(unsigned int money);
@@ -104,7 +103,6 @@ public:
 	unsigned int bet(Table &table);
 	string play(Table &table);
 	unsigned int bet(Table &table);
-	string play(Table &table);
 	bool takeInsurance(Table &table);
 	bool split(vector<Card> * secHand);
 };
