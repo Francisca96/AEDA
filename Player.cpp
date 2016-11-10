@@ -3,25 +3,6 @@
 #include "Player.h"
 
 
-int bot1RunningCount = 0;
-void Player::updateBot1RunningCount(Card &aCard) {
-	unsigned int tempScore = aCard.score;
-	if (tempScore <= 6) {
-		bot1RunningCount++;
-	}
-	else if (tempScore >= 10) {
-		bot1RunningCount--;
-	}
-}
-void Player::resetBot1RunningCount() {
-	bot1RunningCount = 0;
-}
-
-int Player::getBot1RunningCount()
-{
-	return bot1RunningCount;
-}
-
 //Exceptions
 void NameTooShort::what()
 {
@@ -102,10 +83,6 @@ void Player::setCurrentMoney(unsigned int money)
 	currentMoney = money;
 }
 
-void Player::setCurrentCounter(int counter)
-{
-	currentCounting = counter;
-}
 
 unsigned int Player::getCurrentMoney()
 {
@@ -117,10 +94,7 @@ unsigned int Player::getInitialMoney()
 	return initialMoney;
 }
 
-unsigned int Player::getCurrentCounter()
-{
-	return currentCounting;
-}
+
 
 unsigned int Player::getRoundsPlayed()
 {
@@ -180,6 +154,20 @@ unsigned int Player::bet(unsigned int minValue, unsigned int maxValue)
 void Player::clearHand()
 {
 	hand.clear();
+}
+
+int Player::getCurrentCount() const
+{
+	return 0;
+}
+
+void Player::addCount(Card &card)
+{
+
+}
+
+void Player::resetCount()
+{
 }
 
 
@@ -349,6 +337,27 @@ string Bot1::play(Dealer &dealerOfTable)
 		hit(dealerOfTable.discard());
 	}
 	return option; // means stand
+}
+
+int Bot1::getCurrentCount() const
+{
+	return currentCount;
+}
+
+void Bot1::addCount(Card &card1)
+{
+	int score = card1.score;
+	if (card1.score <= 6) {
+		currentCount++;
+	}
+	else if (card1.score >= 10) {
+		currentCount--;
+	}
+}
+
+void Bot1::resetCount()
+{
+	currentCount = 0;
 }
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////

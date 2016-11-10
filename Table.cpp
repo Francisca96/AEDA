@@ -76,7 +76,7 @@ void Table::play() {
 		dealOneCardToAllPlayers();
 		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; Player::resetBot1RunningCount();
 		}
-		dealerOfTable.hit();
+		dealerOfTable.hit(players);
 		dealOneCardToAllPlayers();
 		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; Player::resetBot1RunningCount();
 		}
@@ -200,6 +200,13 @@ unsigned int Table::restartDeck()
 void Table::kickPlayer(unsigned int index)
 {
 	players.erase(players.begin() + index);
+}
+
+void Table::resetBot1Counters()
+{
+	for (size_t i = 0; i < players.size(); i++) {
+		players.at(i)->resetCount();
+	}
 }
 
 float Table::closeTable()
