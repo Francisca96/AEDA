@@ -4,9 +4,7 @@
 #include <vector>
 #include <iomanip>
 #include <string>
-#include "Dealer.h"
 #include "Table.h"
-#include "Player.h"
 
 
 using namespace std;

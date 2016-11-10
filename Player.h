@@ -8,6 +8,8 @@
 
 using namespace std;
 
+class Table;
+
 
 class NameTooShort {
 public:
@@ -102,7 +104,6 @@ public:
 	Human(string name, unsigned int age);
 	unsigned int bet(Table &table);
 	string play(Table &table);
-	unsigned int bet(Table &table);
 	bool takeInsurance(Table &table);
 	bool split(vector<Card> * secHand);
 };

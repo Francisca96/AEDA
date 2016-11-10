@@ -12,7 +12,7 @@ void TooManyPlayers::what()
 }
 
 
-Table::Table(unsigned int roundsLeft,unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers, Dealer& newDealer) {
+Table::Table(unsigned int roundsLeft,unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers, Dealer * newDealer) {
 	this->roundsLeft = roundsLeft;
 	this->minBet = minBet;
 	this->maxBet = maxBet;
@@ -28,7 +28,7 @@ void Table::setMaxBet(unsigned int aMaxBet) {
 	this->maxBet = aMaxBet;
 }
 
-void Table::setDealer(Dealer dealerOfTable) {
+void Table::setDealer(Dealer *dealerOfTable) {
 	this->dealerOfTable = dealerOfTable;
 }
 
@@ -77,10 +77,10 @@ void Table::play() {
 		getInitialBets();
 		dealOneCardToAllPlayers();
 		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
-		dealerOfTable.hit(players);
+		dealerOfTable->hit(players);
 		dealOneCardToAllPlayers();
 		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
-		if (dealerOfTable.hit(players) == "A") {
+		if (dealerOfTable->hit(players) == "A") {
 			for(int i = 0; i < actualPlayers.size(); i++){
 				if(actualPlayers.at(i)->takeInsurance(*this)){
 					moneyOfTable += actualBets.at(i)/2;
@@ -89,7 +89,7 @@ void Table::play() {
 		}
 		for(int j=0; j < actualPlayers.size(); j++) {
 			if (actualPlayers.at(j)->getHand().at(0) == actualPlayers.at(j)->getHand().at(1)) {
-				vector<Card> *secHand;
+				vector<Card> *secHand = new vector <Card>;
 				actualPlayers.at(j)->split(secHand);
 			}
 		}
@@ -97,7 +97,7 @@ void Table::play() {
 			do {
 				if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
 			}
-				while (players.at(i)->play(dealerOfTable) != "stand");
+				while (players.at(i)->play(*this) != "stand");
 			cout << "Name: " << players.at(i)->getName() << "; Money:" << players.at(i)->getCurrentMoney() << "; Handscore: " << players.at(i)->getHandScore() << "\n";
 			cout << "In " << players.at(i)->getName() << "'s hand: ";
 			cout << players.at(i)->getHand();
@@ -105,37 +105,37 @@ void Table::play() {
 		}
 		do {
 			if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
-			//cout << "Dealer handscore. " << dealerOfTable.getHandScore() << "\n";
-		} while (dealerOfTable.play() != "stand");
+			//cout << "Dealer handscore. " << dealerOfTable->getHandScore() << "\n";
+		} while (dealerOfTable->play(*this) != "stand");
 		
-		cout << "Dealer stands, with " << dealerOfTable.getHandScore() << " points. In his hand:\n";
-		cout << dealerOfTable.getHand();
+		cout << "Dealer stands, with " << dealerOfTable->getHandScore() << " points. In his hand:\n";
+		cout << dealerOfTable->getHand();
 		for (size_t i = 0; i < players.size(); i++) {
 			if (players.at(i)->getHandScore() > 21) {
 				//cout  << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " points, so he got busted!\n";
 			}
-			if (players.at(i)->getHandScore() == 21 && players.at(i)->getHandSize() == 2 && dealerOfTable.getHandScore() < 21) {
+			if (players.at(i)->getHandScore() == 21 && players.at(i)->getHandSize() == 2 && dealerOfTable->getHandScore() < 21) {
 				payToPlayer(players.at(i), actualBets.at(i) * 2.5);
 				//cout << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " so he did a blackjack!\n";
 			}
-			else if (players.at(i)->getHandScore() <= 21 && players.at(i)->getHandScore() == dealerOfTable.getHandScore() ) {
+			else if (players.at(i)->getHandScore() <= 21 && players.at(i)->getHandScore() == dealerOfTable->getHandScore() ) {
 				payToPlayer(players.at(i), actualBets.at(i));
 				//cout << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " points, which is equal to the Dealer!\n";
 			}
-			else if (players.at(i)->getHandScore() > dealerOfTable.getHandScore() && players.at(i)->getHandScore() < 21) {
+			else if (players.at(i)->getHandScore() > dealerOfTable->getHandScore() && players.at(i)->getHandScore() < 21) {
 				payToPlayer(players.at(i), actualBets.at(i) * 2);
 				//cout << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " points, so he won the bet!\n";
 			}
-			else if (dealerOfTable.getHandScore() > 21 && players.at(i)->getHandScore() <= 21) {
+			else if (dealerOfTable->getHandScore() > 21 && players.at(i)->getHandScore() <= 21) {
 				payToPlayer(players.at(i), actualBets.at(i) * 2);
 				//cout << "Dealer got busted! Player " << players.at(i)->getName() << " will receive 2 times his original bet!\n";
 			}
-			else if (players.at(i)->getHandScore() != 21 && dealerOfTable.getHandScore() == 21) {
+			else if (players.at(i)->getHandScore() != 21 && dealerOfTable->getHandScore() == 21) {
 				//cout << "Dealer has blackjack! " << players.at(i)->getName() << " lost his bet!\n";
 			}
 			players.at(i)->clearHand();
 			players.at(i)->setRoundsPlayed(players.at(i)->getRoundsPlayed() + 1);
-			dealerOfTable.clearHand();
+			dealerOfTable->clearHand();
 		}
 		
 		roundsLeft--;
@@ -172,9 +172,9 @@ void Table::getInitialBets()
 	}
 }
 
-Dealer * Table::getDealer() const
+Dealer * Table::getDealer()
 {
-	return &dealerOfTable;
+	return dealerOfTable;
 }
 
 vector<Player*> Table::getPlayers() const
@@ -184,7 +184,7 @@ vector<Player*> Table::getPlayers() const
 
 void Table::dealOneCardToAllPlayers() {
 	for (size_t i = 0; i < players.size(); i++) {
-		Card discarded = dealerOfTable.discard(players);
+		Card discarded = dealerOfTable->discard(players);
 		players.at(i)->hit(discarded);
 	}
 }
@@ -197,12 +197,12 @@ void Table::payToPlayer(Player * player1, float value)
 
 unsigned int Table::restartDeck()
 {
-	if (dealerOfTable.getDiscardedDeck().size() >= 3 * dealerOfTable.getDeck().size()) {
-		dealerOfTable.addCardsToDeck(dealerOfTable.getDiscardedDeck()); //already shuffles the deck
+	if (dealerOfTable->getDiscardedDeck().size() >= 3 * dealerOfTable->getDeck().size()) {
+		dealerOfTable->addCardsToDeck(dealerOfTable->getDiscardedDeck()); //already shuffles the deck
 		for (size_t i = 0; i < players.size(); i++) {
 			players.at(i)->resetCount();
 		}
-		dealerOfTable.clearDiscardedDeck();
+		dealerOfTable->clearDiscardedDeck();
 		return 0;
 	}
 	return 1;

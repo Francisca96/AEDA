@@ -2,9 +2,9 @@
 
 #include <vector>
 #include "Dealer.h"
-#include "Player.h"
-#include "utils.h"
 
+class Player;
+class Dealer;
 
 using namespace std;
 
@@ -28,16 +28,16 @@ private:
 	float moneyOfTable;
 	unsigned int maxNumberOfPlayers;
 	unsigned int tableID;
-	Dealer dealerOfTable;
+	Dealer * dealerOfTable;
 	vector<Player*> players;
 	vector<Player*> actualPlayers;
 	vector<unsigned int> actualBets;
 
 public:
-	Table(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, Dealer&); // Table() is a construct of a class Table with 6 args(roudnsLeft,minBet, maxBet, moneyOfTbale, maxNumberOfPlayers, dealerOfTable)
+	Table(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, Dealer*); // Table() is a construct of a class Table with 6 args(roudnsLeft,minBet, maxBet, moneyOfTbale, maxNumberOfPlayers, dealerOfTable)
 	void setMinBet(unsigned int minBet);
 	void setMaxBet(unsigned int maxBet);
-	void setDealer(Dealer dealerOfTable);
+	void setDealer(Dealer *dealerOfTable);
 	void addPlayer(Player *newPlayer);
 	void addPlayers(vector <Player *> newPlayers);
 	void removePlayer(Player * player1);
@@ -47,7 +47,7 @@ public:
 	unsigned int getMinBet() const;
 	unsigned int getMaxBet() const;
 	void getInitialBets();
-	Dealer * getDealer() const;
+	Dealer * getDealer();
 	vector <Player *> getPlayers() const;
 	void dealOneCardToAllPlayers();
 	void payToPlayer(Player* player1, float value);

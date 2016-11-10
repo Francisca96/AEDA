@@ -210,6 +210,7 @@ bool Bot1::takeInsurance(Table &table) {
 
 bool Bot1::split(vector<Card> * secHand) {
 	//TODO: fazer algoritmo
+	return true;
 }
 
 unsigned int Bot1::bet(Table &table) {
@@ -376,10 +377,12 @@ void Bot1::resetCount()
 
 bool Bot2::takeInsurance(Table &table) {
 	//TODO: fazer algoritmo
+	return false;
 }
 
 bool Bot2::split(vector<Card> * secHand) {
 	//TODO: fazer algoritmo
+	return true;
 }
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
@@ -434,18 +437,27 @@ Human::Human(string name, unsigned int age)
 
 unsigned int Human::bet(Table &table)
 {
-	if (getCurrentMoney() < table.getMinBet()) {
+	unsigned int maxbet = getCurrentMoney();
+	if (maxbet < table.getMinBet()) {
 		return 0; //0 means kick the player from the table;
 	}
 	unsigned int betValue;
 	cout << "Your Turn " << getName() << "\n";
-	betValue = readUnsignedIntBetween(table.getMinBet(), table.getMaxBet());
+	if (maxbet > table.getMaxBet())
+	{
+		maxbet = table.getMaxBet();
+	}
+	betValue = readUnsignedIntBetween(table.getMinBet(), maxbet);
 	setCurrentMoney(getCurrentMoney() - betValue);
 	return betValue;
 }
 
 string Human::play(Table &table)
 {
+	if (getHandScore() >= 21)
+	{
+		return "stand";
+	}
 	string option;
 	cout << "Your Turn -> In your hand you have the following:\n";
 	for (size_t i = 0; i < getHandSize(); i++) {

@@ -62,12 +62,12 @@ unsigned int Dealer::setHandScore(){
 }
 
 
-vector<Card>& Dealer::getDeck() const
+vector<Card>& Dealer::getDeck()
 {
 	return deck;
 }
 
-vector<Card>& Dealer::getHand() const
+vector<Card>& Dealer::getHand()
 {
 	return hand;
 }
@@ -78,7 +78,7 @@ void Dealer::addCardsToDeck(vector<Card>& cards)
 	shuffleDeck();
 }
 
-vector<Card>& Dealer::getDiscardedDeck() const
+vector<Card>& Dealer::getDiscardedDeck()
 {
 	return deckDiscarded;
 }
@@ -109,10 +109,10 @@ bool Dealer::hasCardInHand(Card & c)
 }
 
 
-string Dealer::play()
+string Dealer::play(Table &table)
 {
 	if (handScore < 17) {
-		hit();
+		hit(table.getPlayers());
 		return "hit"; //means hit
 	}
 	else return "stand"; //means stand

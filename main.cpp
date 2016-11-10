@@ -18,13 +18,14 @@ int testFunction1() {
 	unsigned int casinoMoney = 1000000;
 	vector<Table*> tablesVector;
 	vector<Player *> playersVector;
-	Dealer pro;
+	Dealer *pro = new Dealer;
 	Table * table1 = new Table(roundsToPlay, minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
 	tablesVector.push_back(table1);
 	Casino estoril(casinoMoney);
 	playersVector.push_back(new Bot0("Kika", 1000));
 	playersVector.push_back(new Bot1("Renato", 1000));
 	playersVector.push_back(new Bot1("Joao", 1000));
+	playersVector.push_back(new Human("Rui", 18));
 	estoril.addTableToCasino(table1);
 	estoril.addPlayersToCasino(playersVector);
 	estoril.addPlayersToTable(playersVector,table1);

@@ -1,11 +1,11 @@
 #pragma once
 
 #include <vector>
-#include "utils.h"
 #include "Player.h"
 
 using namespace std;
-
+class Player;
+class Table;
 
 class Dealer {
 private:
@@ -33,14 +33,14 @@ public:
 	//Updates handScore
 	unsigned int setHandScore();
 	//get deck size to see if reshuffle is needed
-	vector<Card>& getDeck() const;
-	vector<Card>& getHand() const;
+	vector<Card>& getDeck();
+	vector<Card>& getHand();
 	void addCardsToDeck(vector<Card> &cards);
-	vector<Card>& getDiscardedDeck() const;
+	vector<Card>& getDiscardedDeck();
 	unsigned int getHandScore() const;
 	void clearDiscardedDeck();
 	void clearHand();
 	bool hasCardInHand(Card& c);
-	string play();
+	string play(Table &table);
 };
 
