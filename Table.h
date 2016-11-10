@@ -46,7 +46,7 @@ public:
 	unsigned int getTableID() const;
 	unsigned int getMinBet() const;
 	unsigned int getMaxBet() const;
-	void getInitialBets() const;
+	void getInitialBets();
 	Dealer * getDealer() const;
 	vector <Player *> getPlayers() const;
 	void dealOneCardToAllPlayers();

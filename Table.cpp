@@ -155,7 +155,7 @@ unsigned int Table::getTableID() const
 	return tableID;
 }
 
-void Table::getInitialBets() const
+void Table::getInitialBets()
 {
 	if (actualBets.size() != players.size()) {
 		actualBets.resize(players.size());
