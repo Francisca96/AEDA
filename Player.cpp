@@ -169,6 +169,14 @@ void Player::resetCount()
 {
 }
 
+unsigned int Player::getAge() const {
+	return this->age;
+}
+
+void Player::setAge(unsigned int age) {
+	this->age = age;
+}
+
 bool Player::takeInsurance(Table &table){
 	return false;
 }
@@ -413,6 +421,7 @@ bool Human::split(vector<Card> * secHand) {
 	}
 }
 
+
 Human::Human(string name, unsigned int age)
 {
 	try {
@@ -423,7 +432,7 @@ Human::Human(string name, unsigned int age)
 		if (age < 18) {
 			throw TooYoung();
 		}
-		this->age = age;
+		this->setAge(age);
 		setInitialMoney(1000);
 	}
 	catch (NameTooShort &n) {

@@ -28,6 +28,7 @@ private:
 	unsigned int handScore;
 	unsigned int roundsPlayed;
 	float averageProfit;
+	unsigned int age;
 
 public:
 	void hit(Card newCard);
@@ -57,6 +58,9 @@ public:
 	virtual int getCurrentCount() const;
 	virtual void addCount(Card &card1);
 	virtual void resetCount();
+	unsigned int getAge() const;
+	void setAge(unsigned int age);
+
 	
 };
 
@@ -97,8 +101,6 @@ public:
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
 class Human: public Player {
-private:
-	unsigned int age;
 public:
 	Human(string name, unsigned int age);
 	unsigned int bet(Table &table);

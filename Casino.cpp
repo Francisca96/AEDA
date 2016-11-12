@@ -109,12 +109,8 @@ void Casino::readPlayersFile() {
 	string line;
 	stringstream ssLine;
 	string name;
-	unsigned int initialMoney;
-	unsigned int currentMoney;
-	vector <Card> hand;
-	unsigned int handScore;
-	unsigned int roundsPlayed;
-	float averageProfit;
+	unsigned int initialMoney, age;
+
 	for (int i = 0; i < 3; i++)
 	{
 		if (inFile.is_open())
@@ -129,21 +125,10 @@ void Casino::readPlayersFile() {
 				ssLine >> initialMoney;
 				line.erase(0, line.find_first_of(" ; ") + 3);
 				ssLine << line;
-				ssLine >> currentMoney;
-				line.erase(0, line.find_first_of(" ; ") + 3);
-				if (line.find_first_of("/") != string::npos)
-				{
+				ssLine >> age;
 
-				}
-				line.erase(0, line.find_first_of(" ; ") + 3);
-				ssLine << line;
-				ssLine >> handScore;
-				line.erase(0, line.find_first_of(" ; ") + 3);
-				ssLine << line;
-				ssLine >> roundsPlayed;
-				line.erase(0, line.find_first_of(" ; ") + 3);
-				ssLine << line;
-				ssLine >> averageProfit;
+				Human *newPlayer = new Human(name, age);
+				players.push_back(newPlayer);
 			}
 			return;
 		}
@@ -198,12 +183,15 @@ void Casino::savePlayersFile() {
 		{
 			for (size_t i = 0; i < players.size(); i++)
 			{
-				outFile << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getCurrentMoney() << " ; ";
-				for (size_t j = 0; j < players.at(i)->getHand().size(); j++)
+				Human *h = dynamic_cast<Human *>(players.at(i));
+				if (h != NULL)
 				{
-					outFile << " /" << players.at(i)->getHand().at(j);
+					outFile << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
 				}
-				outFile << " ; " << players.at(i)->getHandScore() << " ; " << players.at(i)->getRoundsPlayed() << " ; " << setprecision(2) << fixed << players.at(i)->getAverageProfit() << endl;
+				else
+				{
+					outFile << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << endl;
+				}
 			}
 			return;
 		}
