@@ -86,12 +86,12 @@ unsigned short int readUnsignedIntBetween(unsigned int minValue, unsigned int  m
 
 int readIntBetween(int min, int max){
 	int newInt;
-	cout << "Insira um valor: ";
+	cout << "Insert a value: ";
 	while(!(cin >> newInt) || newInt > max || newInt < min) {
 		cout << endl;
 		cin.clear();
 		cin.ignore();
-		cout << "Valor invalido. Introduza um novo int: ";
+		cout << "Wroght value, value between " << min << " - " << max;
 	}
 	cin.ignore();
 	cout << endl;
@@ -191,8 +191,16 @@ void Users(vector <int> &usersVEC, int &user) {
 		}
 		if (find == 0)
 		{
-			usersVEC.push_back(usersVEC.back() + 1);
-			user = usersVEC.back();
+			if (usersVEC.size() != 0)
+			{
+				usersVEC.push_back(usersVEC.back() + 1);
+				user = usersVEC.back();
+			}
+			else
+			{
+				usersVEC.push_back(1);
+				user = usersVEC.back();
+			}
 		}
 	}
 	else
