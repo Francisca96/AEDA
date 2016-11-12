@@ -49,19 +49,27 @@ int main(){
 	Users(usersVEC, user);
 
 	//TODO: implement fuction of display menu
-	int choise;
-	start_menu(xy, choise);
-	switch (choise)
+	int choise, exit = 0;
+	while (!exit)
 	{
-	case 1:
-		system("CLS");
-		testFunction1();
-
-	default:
-		break;
+		start_menu(xy, choise);
+		switch (choise)
+		{
+		case 1:
+			system("CLS");
+			//TODO: play (game run in normal mode with a human player)
+			//testFunction1();
+		case 2:
+			//TODO: simulation (game run all alone for n cycles)
+		case 3:
+			//TODO: choose table (selection one table to play on simulation or normal mode)
+		case 0:
+			exit = 1;
+		default:
+			break;
+		}
+		system("pause");
 	}
-	system("pause");
-
 	//verify users and changes of files
 	char decision;
 	Users(usersVEC, user);

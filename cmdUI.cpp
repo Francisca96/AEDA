@@ -103,9 +103,9 @@ void start_menu(pair <int, int> xy, int &choise) {
 	text = "1. Play";
 	cout << (char)185 /*╣*/ << endl
 		<< setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
-	text = "2. Choose Table";
+	text = "2. Simulation";
 	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
-	text = "3. Simulation";
+	text = "3. Choose Table";
 	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
 	text = "0. EXIT";
 	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
