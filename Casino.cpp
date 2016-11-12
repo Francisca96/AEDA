@@ -108,6 +108,7 @@ void Casino::readPlayersFile() {
 	ifstream inFile(playersFile);
 	string line;
 	stringstream ssLine;
+	string player;
 	string name;
 	unsigned int initialMoney, age;
 
@@ -119,16 +120,19 @@ void Casino::readPlayersFile() {
 
 			while (getline(inFile, line))
 			{
-				name = line.substr(0, line.find_first_of(" ; "));
+				player = line.substr(0, line.find_first_of(" ; "));
 				line.erase(0, line.find_first_of(" ; ") + 3);
-				ssLine << line;
-				ssLine >> initialMoney;
+				name = line.substr(0, line.find_first_of(";")-1);
+				line.erase(0, line.find_first_of(";") + 2);
+				initialMoney = stoi(line.substr(0, line.find_first_of(" ; ")), nullptr, 10);
 				line.erase(0, line.find_first_of(" ; ") + 3);
-				ssLine << line;
-				ssLine >> age;
-
-				Human *newPlayer = new Human(name, age);
-				players.push_back(newPlayer);
+				if (player == "3")
+				{
+					ssLine << line;
+					ssLine >> age;
+					Human *newHuman = new Human(name, age);
+					players.push_back(newHuman);
+				}
 			}
 			return;
 		}
@@ -184,13 +188,24 @@ void Casino::savePlayersFile() {
 			for (size_t i = 0; i < players.size(); i++)
 			{
 				Human *h = dynamic_cast<Human *>(players.at(i));
+				Bot0 *b0 = dynamic_cast<Bot0 *>(players.at(i));
+				Bot1 *b1 = dynamic_cast<Bot1 *>(players.at(i));
+				Bot2 *b2 = dynamic_cast<Bot2 *>(players.at(i));
 				if (h != NULL)
 				{
-					outFile << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
+					outFile << "3 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
 				}
-				else
+				if (b0 != NULL)
 				{
-					outFile << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << endl;
+					outFile << "0 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
+				}
+				if (b1 != NULL)
+				{
+					outFile << "1 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
+				}
+				if (b2 != NULL)
+				{
+					outFile << "2 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
 				}
 			}
 			return;
@@ -207,6 +222,13 @@ void Casino::showStatistics()
 		players.at(i)->showStatistics();
 	}
 
+}
+
+void Casino::showPlayers() {
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		cout << players.at(i)->getName() << endl;
+	}
 }
 
 PlayerNotLogged::PlayerNotLogged(Player * player1)

@@ -66,8 +66,11 @@ int main(){
 	casino.setDealersFile(dealersFileName);
 	casino.setTablesFile(tablesFileName);
 
-		
-	int choise, exit = 0;
+	casino.readPlayersFile();
+	casino.showPlayers();
+	system("pause");
+
+	/*int choise, exit = 0;
 	while (!exit)
 	{
 		start_menu(xy, choise);
@@ -94,7 +97,7 @@ int main(){
 		default:
 			break;
 		}
-	}
+	}*/
 
 	//save changes of files
 	int save;

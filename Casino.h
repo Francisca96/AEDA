@@ -62,4 +62,5 @@ public:
 	void saveDealersFile();
 	void saveTablesFile();
 	void showStatistics();
+	void showPlayers();
 };
