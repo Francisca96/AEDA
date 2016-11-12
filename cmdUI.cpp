@@ -46,7 +46,20 @@ pair <int,int> centerWindow() {
 	return xy;
 }
 
-void start_menu(pair <int, int> xy) {
+void start_menu(pair <int, int> xy, int &choise) {
+	//display author rights
+	system("CLS");
+	cursorxy((xy.first - 50) / 2 - 2, xy.second - 2);
+	cout << (char)201; //╔
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)205; //═
+	}
+	cout << (char)187 << endl; //╗
+	cout << setw((xy.first - 50) / 2 - 1) << (char)186 /*║*/ << setw((50 - 31) / 2) << " " << "BlackJack " << (char)184 << " Console Application" << setw(12) << (char)186 /*║*/ << endl;
+	cout << setw((xy.first - 50) / 2 - 1) << (char)186 /*║*/ << setw((50 + 43) / 2) << "AEDA 2016/2017 Grupo D, All Rights Reserved" << setw(6) << (char)186 /*║*/ << endl;
+	cursorxy(0, 0);
+
 	//draw of title (different draw if screen is small)
 	cout << endl << endl;
 	if (xy.first >= 78)
@@ -69,5 +82,38 @@ void start_menu(pair <int, int> xy) {
 			<< setw((xy.first - 44) / 2) << (char)218 << (char)217 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)192 << (char)191 << (char)179 << (char)179 << " " << (char)179 << (char)179 << (char)179 << (char)192 << (char)196 << (char)196 << (char)191 << (char)179 << (char)179 << " " << (char)179 << (char)179 << (char)179 << (char)192 << (char)217 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)179 << (char)179 << (char)192 << (char)196 << (char)196 << (char)191 << (char)179 << (char)179 << " " << (char)179 << (char)179 << endl
 			<< setw((xy.first - 44) / 2) << (char)192 << (char)196 << (char)196 << (char)196 << (char)196 << (char)217 << (char)192 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << (char)192 << (char)196 << (char)196 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << (char)192 << (char)196 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << (char)192 << (char)196 << (char)196 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << endl;
 	}
-	
+	cout << endl << endl;
+
+	//display menu
+	string text;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)201; //╔
+	for (unsigned int i = 0; i <= 36; i++)
+	{
+		cout << (char)205; //═
+	}
+	cout << (char)187 << endl; //╗
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 //║
+		<< setw((36 + 4) / 2) << "MENU"
+		<< setw(18) << (char)186 << endl; //║
+	cout << setw((xy.first - 36) / 2 - 1) << (char)204; //╠
+	for (unsigned int i = 0; i <= 36; i++)
+	{
+		cout << (char)205; //═
+	}
+	text = "1. Play";
+	cout << (char)185 /*╣*/ << endl
+		<< setw((xy.first - 36) / 2 - 1) << (char)186 << setw((38+text.length())/2) << text << setw(38 - (38 + text.length()) / 2) << (char)186 << endl;
+	text = "2. Choose Table";
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw((38 + text.length()) / 2) << text << setw(38 - (38 + text.length()) / 2) << (char)186 << endl;
+	text = "3. Simulation";
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw((38 + text.length()) / 2) << text << setw(38 - (38 + text.length()) / 2) << (char)186 << endl;
+	text = "0. EXIT";
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw((38 + text.length()) / 2) << text << setw(38 - (38 + text.length()) / 2) << (char)186 << endl;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)200;
+	for (unsigned int i = 0; i <= 36; i++)
+	{
+		cout << (char)205;
+	}
+	cout << (char)188 << endl << endl;
+	choise = readIntBetween(0, 3);
 }

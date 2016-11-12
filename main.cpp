@@ -49,8 +49,17 @@ int main(){
 	Users(usersVEC, user);
 
 	//TODO: implement fuction of display menu
-	start_menu(xy);
-	testFunction1();
+	int choise;
+	start_menu(xy, choise);
+	switch (choise)
+	{
+	case 1:
+		system("CLS");
+		testFunction1();
+
+	default:
+		break;
+	}
 	system("pause");
 
 	//verify users and changes of files

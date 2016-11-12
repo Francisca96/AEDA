@@ -86,12 +86,12 @@ unsigned short int readUnsignedIntBetween(unsigned int minValue, unsigned int  m
 
 int readIntBetween(int min, int max){
 	int newInt;
-	cout << "Insira um valor: ";
+	cout << "Insert a value: ";
 	while(!(cin >> newInt) || newInt > max || newInt < min) {
 		cout << endl;
 		cin.clear();
 		cin.ignore();
-		cout << "Valor invalido. Introduza um novo int: ";
+		cout << "Wroght value, value between " << min << " - " << max;
 	}
 	cin.ignore();
 	cout << endl;

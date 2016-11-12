@@ -16,6 +16,7 @@
 #endif
 
 #include <iostream>
+#include "utils.h"
 
 using namespace std;
 
@@ -26,4 +27,4 @@ void cursorxy(int x, int y);
 
 pair <int, int> centerWindow();
 
-void start_menu(pair <int, int> xy);
+void start_menu(pair <int, int> xy, int &choise);
