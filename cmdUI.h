@@ -3,6 +3,7 @@
 #ifdef _WIN32
 #define OS_Windows 0
 #include <windows.h>
+#include <iomanip> 
 #elif __APPLE__
 #include "TargetConditionals.h"
 #define OS_Windows 1
@@ -24,3 +25,5 @@ void clearScreen();
 void cursorxy(int x, int y);
 
 pair <int, int> centerWindow();
+
+void start_menu(pair <int, int> xy);

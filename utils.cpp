@@ -191,8 +191,16 @@ void Users(vector <int> &usersVEC, int &user) {
 		}
 		if (find == 0)
 		{
-			usersVEC.push_back(usersVEC.back() + 1);
-			user = usersVEC.back();
+			if (usersVEC.size() != 0)
+			{
+				usersVEC.push_back(usersVEC.back() + 1);
+				user = usersVEC.back();
+			}
+			else
+			{
+				usersVEC.push_back(1);
+				user = usersVEC.back();
+			}
 		}
 	}
 	else

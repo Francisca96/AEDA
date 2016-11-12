@@ -49,7 +49,9 @@ int main(){
 	Users(usersVEC, user);
 
 	//TODO: implement fuction of display menu
+	start_menu(xy);
 	testFunction1();
+	system("pause");
 
 	//verify users and changes of files
 	char decision;
@@ -64,7 +66,8 @@ int main(){
 		}
 		cout << (char)187 << endl;
 		cout << setw((xy.first - 50) / 2) << (char)186 << setw(51) << (char)186 << endl;
-		cout << setw((xy.first - 50) / 2) << (char)186 << setw((50 + 35) / 2) << "Do you want ave all changes?" << setw(9) << (char)186 << endl;
+		string text = "Do you want save all changes?";
+		cout << setw((xy.first - 50) / 2) << (char)186 << setw((50 + text.length()) / 2) << text << setw(51 - (50 + text.length()) / 2) << (char)186 << endl;
 		cout << setw((xy.first - 50) / 2) << (char)186 << setw(51) << (char)186 << endl;
 		cout << setw((xy.first - 50) / 2) << (char)200;
 		for (int i = 0; i < 50; i++)
