@@ -3,7 +3,6 @@
 #ifdef _WIN32
 #define OS_Windows 0
 #include <windows.h>
-#include <iomanip> 
 #elif __APPLE__
 #include "TargetConditionals.h"
 #define OS_Windows 1
@@ -17,13 +16,14 @@
 
 #include <iostream>
 #include "utils.h"
+#include <iomanip> 
 
 using namespace std;
 
 
 void clearScreen();
 
-void cursorxy(int x, int y);
+void cursorxy(short x, short y);
 
 pair <int, int> centerWindow();
 

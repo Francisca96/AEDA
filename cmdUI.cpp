@@ -7,7 +7,7 @@ void clearScreen() {
 	system("CLS");
 }
 
-void cursorxy(int x, int y) {
+void cursorxy(short x, short y) {
 	if (OS_Windows == 0)
 	{
 		COORD p = { x, y };
