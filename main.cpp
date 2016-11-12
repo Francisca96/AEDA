@@ -50,16 +50,16 @@ int main(){
 
 	//do the code just here
 	//creat a casino
-	string playersFileName, dealersFileName, tablesFileName;
+	string playersFileName = "players.txt", dealersFileName = "dealers.txt", tablesFileName = "tables.txt";
 	Casino casino(100000);
 
 	//read files names
-	cout << "Write file name of players" << endl;
+	/*cout << "Write file name of players" << endl;
 	readNameOfFile(playersFileName);
 	cout << "Write file name of dealers" << endl;
 	readNameOfFile(dealersFileName);
 	cout << "Write file name of tables" << endl;
-	readNameOfFile(tablesFileName);
+	readNameOfFile(tablesFileName);*/
 
 	//set files name on casino
 	casino.setPlayersFile(playersFileName);
@@ -97,7 +97,14 @@ int main(){
 	}
 
 	//save changes of files
-	saveChanges(usersVEC, user, xy);
+	int save;
+	saveChanges(usersVEC, user, xy, save);
+	if (save)
+	{
+		casino.savePlayersFile();
+		//casino.saveDealersFile();
+		//casino.saveTablesFile();
+	}
 
 	return 0;
 }

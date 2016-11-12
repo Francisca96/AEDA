@@ -271,7 +271,7 @@ int BinaryInt(int id, vector <int> VEC) {
 	return -1;
 }
 
-int saveChanges(vector <int> &usersVEC, int &user, pair <int, int> xy) {
+int saveChanges(vector <int> &usersVEC, int &user, pair <int, int> xy, int &save) {
 	char decision;
 	Users(usersVEC, user);
 	if (usersVEC.size() == 1)
@@ -304,14 +304,13 @@ int saveChanges(vector <int> &usersVEC, int &user, pair <int, int> xy) {
 		//alteracao
 		if (decision == 'Y' || decision == 'y')
 		{
-			FileCopy("", "");//copy file temp for original
-			remove("");//delete file temp
 			remove("users_temp.txt");
-
+			save = 1;
 		}
 		else if (decision == 'N' || decision == 'n')
 		{
 			remove("users_temp.txt");//delete file temp
+			save = 0;
 		}
 	}
 	else
@@ -342,3 +341,4 @@ int readNameOfFile(string & fileName) {
 	}
 	return 0;
 }
+

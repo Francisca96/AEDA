@@ -72,7 +72,7 @@ void Player::setName(string newName)
 	name = newName;
 }
 
-unsigned int Player::getAverageProfit() const
+float Player::getAverageProfit() const
 {
 	return averageProfit;
 }

@@ -5,7 +5,7 @@
 #include <vector>
 #include <cstdlib>
 #include <fstream>
-#include <iomanip> 
+#include <iomanip>
 
 using namespace std;
 
@@ -55,6 +55,6 @@ bool FileExist(string filetxt_temp);
 
 int BinaryInt(int id, vector <int> VEC);
 
-int saveChanges(vector <int> &usersVEC, int &user, pair <int, int> xy);
+int saveChanges(vector <int> &usersVEC, int &user, pair <int, int> xy, int &save);
 
 int readNameOfFile(string &fileName);

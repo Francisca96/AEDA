@@ -107,6 +107,14 @@ void Casino::setTablesFile(string tablesFile) {
 void Casino::readPlayersFile() {
 	ifstream inFile(playersFile);
 	string line;
+	stringstream ssLine;
+	string name;
+	unsigned int initialMoney;
+	unsigned int currentMoney;
+	vector <Card> hand;
+	unsigned int handScore;
+	unsigned int roundsPlayed;
+	float averageProfit;
 	for (int i = 0; i < 3; i++)
 	{
 		if (inFile.is_open())
@@ -115,7 +123,27 @@ void Casino::readPlayersFile() {
 
 			while (getline(inFile, line))
 			{
+				name = line.substr(0, line.find_first_of(" ; "));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				ssLine << line;
+				ssLine >> initialMoney;
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				ssLine << line;
+				ssLine >> currentMoney;
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				if (line.find_first_of("/") != string::npos)
+				{
 
+				}
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				ssLine << line;
+				ssLine >> handScore;
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				ssLine << line;
+				ssLine >> roundsPlayed;
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				ssLine << line;
+				ssLine >> averageProfit;
 			}
 			return;
 		}
@@ -145,6 +173,7 @@ void Casino::readDealersFile() {
 void Casino::readTablesFile() {
 	ifstream inFile(tablesFile);
 	string line;
+	stringstream ssLine;
 	for (int i = 0; i < 3; i++)
 	{
 		if (inFile.is_open())
