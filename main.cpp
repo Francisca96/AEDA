@@ -48,7 +48,25 @@ int main(){
 	int user = 0;
 	Users(usersVEC, user);
 
-	//TODO: implement fuction of display menu
+	//do the code just here
+	//creat a casino
+	string playersFileName, dealersFileName, tablesFileName;
+	Casino casino(100000);
+
+	//read files names
+	cout << "Write file name of players" << endl;
+	readNameOfFile(playersFileName);
+	cout << "Write file name of dealers" << endl;
+	readNameOfFile(dealersFileName);
+	cout << "Write file name of tables" << endl;
+	readNameOfFile(tablesFileName);
+
+	//set files name on casino
+	casino.setPlayersFile(playersFileName);
+	casino.setDealersFile(dealersFileName);
+	casino.setTablesFile(tablesFileName);
+
+		
 	int choise, exit = 0;
 	while (!exit)
 	{
@@ -58,7 +76,7 @@ int main(){
 		case 1:
 			system("CLS");
 			//TODO: play (game run in normal mode with a human player)
-			//testFunction1();
+			testFunction1();
 			break;
 		case 2:
 			//TODO: simulation (game run all alone for n cycles)
@@ -76,7 +94,6 @@ int main(){
 		default:
 			break;
 		}
-		system("pause");
 	}
 
 	//save changes of files

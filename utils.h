@@ -56,3 +56,5 @@ bool FileExist(string filetxt_temp);
 int BinaryInt(int id, vector <int> VEC);
 
 int saveChanges(vector <int> &usersVEC, int &user, pair <int, int> xy);
+
+int readNameOfFile(string &fileName);

@@ -95,9 +95,9 @@ void start_menu(pair <int, int> xy, int &choise) {
 	cout << endl << endl;
 	if (xy.first >= 78)
 	{
-		cout << setw((xy.first - 78) / 2 - 1) << " " << " _______    _        __      _____  _     _   _____     __     _____  _    _  " << endl
-			<< setw((xy.first - 78) / 2 - 1) << " "  << "/_____  |  | |      /  \\    /  __/ | \\   / / |___  |   /  \\   /  __/ | \\  / / " << endl
-			<< setw((xy.first - 78) / 2 - 1) << " "  << "  | | | |  | |     /    \\   | |    | |  / /      | |  /    \\  | |    | | / /  " << endl
+		cout << setw((xy.first - 78) / 2 - 1) << " " << " _______    _        __      _____  _    _    _____     __     _____  _    _  " << endl
+			<< setw((xy.first - 78) / 2 - 1) << " "  << "/_____  |  | |      /  \\    /  __/ | \\  / /  |___  |   /  \\   /  __/ | \\  / / " << endl
+			<< setw((xy.first - 78) / 2 - 1) << " "  << "  | | | |  | |     /    \\   | |    | | / /       | |  /    \\  | |    | | / /  " << endl
 			<< setw((xy.first - 78) / 2 - 1) << " "  << "  | |_| |  | |    |  /\\  |  | |    | |/ /        | | |  /\\  | | |    | |/ /   " << endl
 			<< setw((xy.first - 78) / 2 - 1) << " "  << "  |  __  | | |    | |__| |  | |    |    |    _   | | | |__| | | |    |    |   " << endl
 			<< setw((xy.first - 78) / 2 - 1) << " "  << "  | |  | | | |    |  __  |  | |    | |\\ \\   | |  | | |  __  | | |    | |\\ \\   " << endl
@@ -123,7 +123,7 @@ void start_menu(pair <int, int> xy, int &choise) {
 
 void manageCasino(pair<int, int> xy) {
 	int choise, exit = 0;
-	vector <string> options = { "1. Create ..." ,"2. Delete...", "3. Manage Tables", "4. Choose Files", "0. Return to MENU" };
+	vector <string> options = { "1. Create ..." ,"2. Delete...", "3. Manage Tables", "4. Stats" ,"5. Choose Files", "0. Return to MENU" };
 	while (!exit)
 	{
 		system("CLS");
@@ -144,6 +144,9 @@ void manageCasino(pair<int, int> xy) {
 			//TODO: implement showTables();
 			break;
 		case 4:
+			//TODO: show stats
+			break;
+		case 5:
 			//TODO: implement selectFiles();
 			break;
 		default:
@@ -152,9 +155,14 @@ void manageCasino(pair<int, int> xy) {
 	}
 }
 
+int createNewTable() {
+
+	return 0;
+}
+
 void createMenu(pair<int, int> xy) {
 	int choise, exit = 0;
-	vector <string> options = { "1. Table" ,"2. Employee", "3. Player (BOT)", "0. Return to MANAGE CASINO" };
+	vector <string> options = { "1. Table" ,"2. Dealer", "3. Player (BOT)", "0. Return to MANAGE CASINO" };
 	while (!exit)
 	{
 		system("CLS");
@@ -166,10 +174,13 @@ void createMenu(pair<int, int> xy) {
 			exit = 1;
 			break;
 		case 1:
-			//TODO: create table;
+			if (createNewTable() != 0)
+			{
+				cout << "Fail to create new table" << endl;
+			}
 			break;
 		case 2:
-			//TODO: create employee;
+			//TODO: create dealer;
 			break;
 		case 3:
 			//TODO: create BOT;
@@ -183,7 +194,7 @@ void createMenu(pair<int, int> xy) {
 
 void deleteMenu(pair<int, int> xy) {
 	int choise, exit = 0;
-	vector <string> options = { "1. Table" ,"2. Employee", "3. Player (BOT)", "0. Return to MANAGE CASINO" };
+	vector <string> options = { "1. Table" ,"2. Dealer", "3. Player (BOT)", "0. Return to MANAGE CASINO" };
 	while (!exit)
 	{
 		system("CLS");
@@ -198,7 +209,7 @@ void deleteMenu(pair<int, int> xy) {
 			//TODO: delete table;
 			break;
 		case 2:
-			//TODO: delete employee;
+			//TODO: delete Dealer;
 			break;
 		case 3:
 			//TODO: delete BOT;

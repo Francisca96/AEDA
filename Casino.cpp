@@ -92,6 +92,96 @@ void Casino::addPlayerToTable(Player * player1, Table * table)
 	}
 }
 
+void Casino::setPlayersFile(string playerFile) {
+	this->playersFile = playerFile;
+}
+
+void Casino::setDealersFile(string dealersFile) {
+	this->dealersFile = dealersFile;
+}
+
+void Casino::setTablesFile(string tablesFile) {
+	this->tablesFile = tablesFile;
+}
+
+void Casino::readPlayersFile() {
+	ifstream inFile(playersFile);
+	string line;
+	for (int i = 0; i < 3; i++)
+	{
+		if (inFile.is_open())
+		{
+			if (!players.empty()) players.clear();
+
+			while (getline(inFile, line))
+			{
+
+			}
+			return;
+		}
+	}
+	cout << "Fail to open players file" << endl;
+}
+
+void Casino::readDealersFile() {
+	ifstream inFile(dealersFile);
+	string line;
+	for (int i = 0; i < 3; i++)
+	{
+		if (inFile.is_open())
+		{
+			if (!dealers.empty()) dealers.clear();
+
+			while (getline(inFile, line))
+			{
+
+			}
+			return;
+		}
+	}
+	cout << "Fail to open dealers file" << endl;
+}
+
+void Casino::readTablesFile() {
+	ifstream inFile(tablesFile);
+	string line;
+	for (int i = 0; i < 3; i++)
+	{
+		if (inFile.is_open())
+		{
+			if (!tables.empty()) tables.clear();
+
+			while (getline(inFile, line))
+			{
+
+			}
+			return;
+		}
+	}
+	cout << "Fail to read tables file" << endl;
+}
+
+void Casino::savePlayersFile() {
+	ofstream outFile(playersFile);
+	for (int i = 0; i < 3; i++)
+	{
+		if (outFile.is_open())
+		{
+			for (size_t i = 0; i < players.size(); i++)
+			{
+				outFile << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getCurrentMoney() << " ; ";
+				for (size_t j = 0; j < players.at(i)->getHand().size(); j++)
+				{
+					outFile << " /" << players.at(i)->getHand().at(j);
+				}
+				outFile << " ; " << players.at(i)->getHandScore() << " ; " << players.at(i)->getRoundsPlayed() << " ; " << setprecision(2) << fixed << players.at(i)->getAverageProfit() << endl;
+			}
+			return;
+		}
+	}
+	cout << "Fail to open delaers file" << endl;
+}
+
 void Casino::showStatistics()
 {
 	cout << "Statistics\n\n\n\n";

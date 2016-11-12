@@ -331,3 +331,14 @@ int saveChanges(vector <int> &usersVEC, int &user, pair <int, int> xy) {
 	}
 	return 0;
 }
+
+int readNameOfFile(string & fileName) {
+	cout << "Name of File?" << endl;
+	cin >> fileName;
+	while (fileName.find(".txt") != fileName.length() - 4)
+	{
+		cout << "Write name of file again" << endl;
+		cin >> fileName;
+	}
+	return 0;
+}

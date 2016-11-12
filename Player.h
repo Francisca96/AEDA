@@ -21,10 +21,9 @@ public:
 };
 class Player {
 private:
-	
 	string name;
 	unsigned int initialMoney;
-	float currentMoney;
+	unsigned int currentMoney;
 	vector <Card> hand;
 	unsigned int handScore;
 	unsigned int roundsPlayed;
@@ -40,7 +39,7 @@ public:
 	unsigned int getHandSize() const;
 	unsigned int getRoundsPlayed() const;
 	unsigned int getCurrentMoney() const;
-	unsigned int getAverageProfit() const;
+	float getAverageProfit() const;
 	unsigned int getHandScore() const;
 	unsigned int getInitialMoney() const;
 	string getName() const;
