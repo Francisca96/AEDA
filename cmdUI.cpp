@@ -102,13 +102,13 @@ void start_menu(pair <int, int> xy, int &choise) {
 	}
 	text = "1. Play";
 	cout << (char)185 /*╣*/ << endl
-		<< setw((xy.first - 36) / 2 - 1) << (char)186 << setw((38+text.length())/2) << text << setw(38 - (38 + text.length()) / 2) << (char)186 << endl;
+		<< setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
 	text = "2. Choose Table";
-	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw((38 + text.length()) / 2) << text << setw(38 - (38 + text.length()) / 2) << (char)186 << endl;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
 	text = "3. Simulation";
-	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw((38 + text.length()) / 2) << text << setw(38 - (38 + text.length()) / 2) << (char)186 << endl;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
 	text = "0. EXIT";
-	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw((38 + text.length()) / 2) << text << setw(38 - (38 + text.length()) / 2) << (char)186 << endl;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
 	cout << setw((xy.first - 36) / 2 - 1) << (char)200;
 	for (unsigned int i = 0; i <= 36; i++)
 	{
