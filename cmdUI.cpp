@@ -15,6 +15,37 @@ void cursorxy(short x, short y) {
 	}
 }
 
+void displayMenu0(pair<int, int> xy, string title, vector <string> menuOptions) {
+	string text;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)201; //╔
+	for (unsigned int i = 0; i <= 36; i++)
+	{
+		cout << (char)205; //═
+	}
+	cout << (char)187 << endl; //╗
+	text = title;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 //║
+		<< setw((38 + text.length()) / 2) << text
+		<< setw(38 - (38 + text.length()) / 2) << (char)186 << endl; //║
+	cout << setw((xy.first - 36) / 2 - 1) << (char)204; //╠
+	for (unsigned int i = 0; i <= 36; i++)
+	{
+		cout << (char)205; //═
+	}
+	cout << (char)185 /*╣*/ << endl;
+	for (size_t i = 0; i < menuOptions.size(); i++)
+	{
+		text = menuOptions.at(i);
+		cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
+	}
+	cout << setw((xy.first - 36) / 2 - 1) << (char)200;
+	for (unsigned int i = 0; i <= 36; i++)
+	{
+		cout << (char)205;
+	}
+	cout << (char)188 << endl << endl;
+}
+
 pair <int,int> centerWindow() {
 	if (OS_Windows == 0)
 	{
@@ -85,35 +116,96 @@ void start_menu(pair <int, int> xy, int &choise) {
 	cout << endl << endl;
 
 	//display menu
-	string text;
-	cout << setw((xy.first - 36) / 2 - 1) << (char)201; //╔
-	for (unsigned int i = 0; i <= 36; i++)
+	vector <string> options = {"1. Play" ,"2. Simulation", "3. Choose Table", "4. Manage Casino", "0. EXIT"};
+	displayMenu0(xy, "MENU", options);	
+	choise = readIntBetween(0, 4);
+}
+
+void manageCasino(pair<int, int> xy) {
+	int choise, exit = 0;
+	vector <string> options = { "1. Create ..." ,"2. Delete...", "3. Manage Tables", "4. Choose Files", "0. Return to MENU" };
+	while (!exit)
 	{
-		cout << (char)205; //═
+		system("CLS");
+		displayMenu0(xy, "MANAGE CASINO", options);
+		choise = readIntBetween(0, 4);
+		switch (choise)
+		{
+		case 0:
+			exit = 1;
+			break;
+		case 1:
+			createMenu(xy);
+			break;
+		case 2:
+			deleteMenu(xy);
+			break;
+		case 3:
+			//TODO: implement showTables();
+			break;
+		case 4:
+			//TODO: implement selectFiles();
+			break;
+		default:
+			break;
+		}
 	}
-	cout << (char)187 << endl; //╗
-	cout << setw((xy.first - 36) / 2 - 1) << (char)186 //║
-		<< setw((36 + 4) / 2) << "MENU"
-		<< setw(18) << (char)186 << endl; //║
-	cout << setw((xy.first - 36) / 2 - 1) << (char)204; //╠
-	for (unsigned int i = 0; i <= 36; i++)
+}
+
+void createMenu(pair<int, int> xy) {
+	int choise, exit = 0;
+	vector <string> options = { "1. Table" ,"2. Employee", "3. Player (BOT)", "0. Return to MANAGE CASINO" };
+	while (!exit)
 	{
-		cout << (char)205; //═
+		system("CLS");
+		displayMenu0(xy, "1. Create ...", options);
+		choise = readIntBetween(0, 3);
+		switch (choise)
+		{
+		case 0:
+			exit = 1;
+			break;
+		case 1:
+			//TODO: create table;
+			break;
+		case 2:
+			//TODO: create employee;
+			break;
+		case 3:
+			//TODO: create BOT;
+			break;
+			break;
+		default:
+			break;
+		}
 	}
-	text = "1. Play";
-	cout << (char)185 /*╣*/ << endl
-		<< setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
-	text = "2. Simulation";
-	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
-	text = "3. Choose Table";
-	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
-	text = "0. EXIT";
-	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
-	cout << setw((xy.first - 36) / 2 - 1) << (char)200;
-	for (unsigned int i = 0; i <= 36; i++)
+}
+
+void deleteMenu(pair<int, int> xy) {
+	int choise, exit = 0;
+	vector <string> options = { "1. Table" ,"2. Employee", "3. Player (BOT)", "0. Return to MANAGE CASINO" };
+	while (!exit)
 	{
-		cout << (char)205;
+		system("CLS");
+		displayMenu0(xy, "1. Delete ...", options);
+		choise = readIntBetween(0, 3);
+		switch (choise)
+		{
+		case 0:
+			exit = 1;
+			break;
+		case 1:
+			//TODO: delete table;
+			break;
+		case 2:
+			//TODO: delete employee;
+			break;
+		case 3:
+			//TODO: delete BOT;
+			break;
+			break;
+		default:
+			break;
+		}
 	}
-	cout << (char)188 << endl << endl;
-	choise = readIntBetween(0, 3);
 }

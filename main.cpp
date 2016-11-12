@@ -59,12 +59,20 @@ int main(){
 			system("CLS");
 			//TODO: play (game run in normal mode with a human player)
 			//testFunction1();
+			break;
 		case 2:
 			//TODO: simulation (game run all alone for n cycles)
+			break;
 		case 3:
 			//TODO: choose table (selection one table to play on simulation or normal mode)
+			break;
+		case 4:
+			//TODO: menu to creat table, define employee of table, and bots to tables, choose files...
+			manageCasino(xy);
+			break;
 		case 0:
 			exit = 1;
+			break;
 		default:
 			break;
 		}

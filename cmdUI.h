@@ -28,3 +28,9 @@ void cursorxy(short x, short y);
 pair <int, int> centerWindow();
 
 void start_menu(pair <int, int> xy, int &choise);
+
+void manageCasino(pair <int, int> xy);
+
+void createMenu(pair <int, int> xy);
+
+void deleteMenu(pair <int, int> xy);
