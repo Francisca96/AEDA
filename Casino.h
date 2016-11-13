@@ -53,6 +53,7 @@ public:
 	void addPlayersToCasino(vector<Player *> &playersVector);
 	void addPlayersToTable(vector<Player *> &playersVector, Table * table);
 	void addPlayerToTable(Player * player1,Table * table);
+	void addDealerToCasino(Dealer *newDealer);
 	void setPlayersFile(string playerFile);
 	void setDealersFile(string dealersFile);
 	void setTablesFile(string tablesFile);

@@ -481,3 +481,7 @@ string Human::play(Table &table)
 	}
 	return option;
 }
+
+PlayerAlreadyExist::PlayerAlreadyExist(Player * player) {
+	this->name = player->getName();
+}

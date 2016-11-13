@@ -149,3 +149,7 @@ DealerNotExist::DealerNotExist(Dealer *dealer) {
 DealerIsOnTableAlready::DealerIsOnTableAlready(Dealer * dealer) {
 	this->dealerID = dealer->getID();
 }
+
+DealerAlreadyExist::DealerAlreadyExist(Dealer * dealer) {
+	this->dealerID = dealer->getID();
+}

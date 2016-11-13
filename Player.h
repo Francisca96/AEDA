@@ -108,3 +108,10 @@ public:
 	bool takeInsurance(Table &table);
 	bool split(vector<Card> * secHand);
 };
+
+class PlayerAlreadyExist {
+private:
+	string name;
+public:
+	PlayerAlreadyExist(Player *player);
+};

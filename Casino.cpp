@@ -42,6 +42,13 @@ void Casino::addTableToCasino(Table * table)
 
 void Casino::addPlayerToCasino(Player * player1)
 {
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		if (player1->getName() == players.at(i)->getName())
+		{
+			throw PlayerAlreadyExist(player1);
+		}
+	}
 	players.push_back(player1);
 }
 
@@ -90,6 +97,17 @@ void Casino::addPlayerToTable(Player * player1, Table * table)
 	catch (PlayerNotLogged &p) {
 		p.what();
 	}
+}
+
+void Casino::addDealerToCasino(Dealer * newDealer) {
+	for (size_t i = 0; i < dealers.size(); i++)
+	{
+		if (newDealer->getID() == dealers.at(i)->getID())
+		{
+			throw DealerAlreadyExist(newDealer);
+		}
+	}
+	dealers.push_back(newDealer);
 }
 
 void Casino::setPlayersFile(string playerFile) {
@@ -224,7 +242,7 @@ void Casino::readTablesFile() {
 				}
 				Table *newTable = new Table(minBet, maxBet, initialMoney, maxNumberOfPlayers, dealerOfTable);
 				newTable->setID(tableID);
-				tables.push_back(newTable);
+				this->addTableToCasino(newTable);
 			}
 			return;
 		}
@@ -386,7 +404,7 @@ void Casino::create(pair<short, short> xy) {
 						if (dealerOfTable->getTableOn() != -1)
 						{
 							Table *newTable = new Table(minBet, maxBet, initialMoney, numberMaxOfPlayer, dealerOfTable);
-							tables.push_back(newTable);
+							this->addTableToCasino(newTable);
 						}
 						else
 						{
@@ -415,8 +433,54 @@ void Casino::create(pair<short, short> xy) {
 			}
 			break;
 		case 2:
+			try
+			{
+				Dealer *newDealer = new Dealer();
+				this->addDealerToCasino(newDealer);
+			}
+			catch (DealerAlreadyExist)
+			{
+				cout << "Dealer wasn't created with success" << endl;
+				cout << "This Dealer already Exist" << endl;
+				system("pause");
+			}
 			break;
 		case 3:
+			try
+			{
+				Player *newBot;
+				string name;
+				while (name.length() == 0)
+				{
+					cout << "What name do you want for bot?" << endl;
+					getline(cin, name);
+				}
+				cout << "How many initial money do you want for bot?" << endl;
+				unsigned int money = readUnsignedInt();
+				cout << "What Bot do you want create (0 , 1 , 2)?" << endl;
+				unsigned int botInteligent = readUnsignedIntBetween(0, 2);
+				if (botInteligent == 0)
+				{
+					newBot = new Bot0(name, money);
+				}
+				if (botInteligent == 1)
+				{
+					newBot = new Bot1(name, money);
+				}
+				/*if (botInteligent == 2)
+				{
+					newBot = new Bot2(name, money);
+				}*/
+				this->addPlayerToCasino(newBot);
+				cout << "Player was created with success" << endl;
+				system("pause");
+			}
+			catch (PlayerAlreadyExist)
+			{
+				cout << "Player wasn't created with success" << endl;
+				cout << "This Player already Exist" << endl;
+				system("pause");
+			}
 			break;
 		default:
 			break;

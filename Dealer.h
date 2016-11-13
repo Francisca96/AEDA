@@ -56,6 +56,13 @@ public:
 	DealerNotExist(Dealer * dealer);
 };
 
+class DealerAlreadyExist {
+private:
+	int dealerID;
+public:
+	DealerAlreadyExist(Dealer * dealer);
+};
+
 class DealerIsOnTableAlready {
 private:
 	int dealerID;
