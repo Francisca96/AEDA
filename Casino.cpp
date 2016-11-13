@@ -437,6 +437,8 @@ void Casino::create(pair<short, short> xy) {
 			{
 				Dealer *newDealer = new Dealer();
 				this->addDealerToCasino(newDealer);
+				cout << "Dealer was created with success" << endl;
+				system("pause");
 			}
 			catch (DealerAlreadyExist)
 			{
@@ -448,7 +450,7 @@ void Casino::create(pair<short, short> xy) {
 		case 3:
 			try
 			{
-				Player *newBot;
+				Player *newBot = new Bot0();
 				string name;
 				while (name.length() == 0)
 				{
