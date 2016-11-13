@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <exception>
 #include "Casino.h"
-#include "utils.h"
+//#include "utils.h"
 #include "cmdUI.h"
 
 using namespace std;
@@ -52,7 +52,6 @@ int main(){
 
 	unsigned int minBet = 2;
 	unsigned int maxBet = 1000;
-	unsigned int roundsToPlay = 200;
 	unsigned int moneyOfTable = 30000;
 	unsigned int maxNumberOfPlayers = 6;
 	Dealer *pro = new Dealer;
@@ -72,6 +71,7 @@ int main(){
 	pair <short, short> coordXY;
 	coordXY.first = (xy.first % 32) / 2 - 1;
 	bool found = false;
+	unsigned int roundsToPlay;
 	while (!exit)
 	{
 		start_menu(xy, choise);
@@ -80,6 +80,7 @@ int main(){
 		case 1:
 			system("CLS");
 			//TODO: play (game run in normal mode with a human player)
+			cout << "Please insert you name: " << endl;
 			try
 			{
 				//casino.getTableToPlay()->play();
@@ -100,6 +101,8 @@ int main(){
 			break;
 		case 2:
 			//TODO: simulation (game run all alone for n cycles)
+			cout << "How many rounds do you want to simulate?" << endl;
+			roundsToPlay = readUnsignedInt();
 			try
 			{
 				casino.getTableToPlay()->simulation(roundsToPlay);
@@ -154,7 +157,7 @@ int main(){
 			break;
 		case 4:
 			//TODO: menu to creat table, define employee of table, and bots to tables, choose files...
-			manageCasino(xy);
+			casino.manage(xy);
 			break;
 		case 0:
 			exit = 1;

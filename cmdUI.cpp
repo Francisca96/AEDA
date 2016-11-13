@@ -121,102 +121,26 @@ void start_menu(pair <int, int> xy, int &choise) {
 	choise = readIntBetween(0, 4);
 }
 
-void manageCasino(pair<int, int> xy) {
-	int choise, exit = 0;
-	vector <string> options = {"1. Create ..." ,"2. Delete...", "3. Manage Tables", "4. Stats" ,"5. Choose Files", "" , "0. Return to MENU" };
-	while (!exit)
-	{
-		system("CLS");
-		displayMenu0(xy, "MANAGE CASINO", options);
-		choise = readIntBetween(0, 4);
-		switch (choise)
-		{
-		case 0:
-			exit = 1;
-			break;
-		case 1:
-			createMenu(xy);
-			break;
-		case 2:
-			deleteMenu(xy);
-			break;
-		case 3:
-			//TODO: implement showTables();
-			break;
-		case 4:
-			//TODO: show stats
-			break;
-		case 5:
-			//TODO: implement selectFiles();
-			break;
-		default:
-			break;
-		}
-	}
+void manageCasino(pair<int, int> xy, unsigned int &choise) {
+	int exit = 0;
+	vector <string> options = {"1. Create ..." ,"2. Delete...", "3. Manage Tables", "4. Stats" , "" , "0. Return to MENU" };
+	system("CLS");
+	displayMenu0(xy, "MANAGE CASINO", options);
+	choise = readIntBetween(0, 4);
 }
 
-int createNewTable() {
-
-	return 0;
+void createMenu(pair<int, int> xy, unsigned int &choise) {
+	int exit = 0;
+	vector <string> options = { "-. Create ..." ,"  1. Table" ,"  2. Dealer", "  3. Player (BOT)", "-. Delete...", "-. Manage Tables", "-. Stats" , "" ,"0. Back" };
+	system("CLS");
+	displayMenu0(xy, "1. Create ...", options);
+	choise = readIntBetween(0, 3);
 }
 
-void createMenu(pair<int, int> xy) {
-	int choise, exit = 0;
-	vector <string> options = { "-. Create ..." ,"  1. Table" ,"  2. Dealer", "  3. Player (BOT)", "-. Delete...", "-. Manage Tables", "-. Stats" ,"-. Choose Files" , "" ,"0. Back" };
-	while (!exit)
-	{
-		system("CLS");
-		displayMenu0(xy, "1. Create ...", options);
-		choise = readIntBetween(0, 3);
-		switch (choise)
-		{
-		case 0:
-			exit = 1;
-			break;
-		case 1:
-			if (createNewTable() != 0)
-			{
-				cout << "Fail to create new table" << endl;
-			}
-			break;
-		case 2:
-			//TODO: create dealer;
-			break;
-		case 3:
-			//TODO: create BOT;
-			break;
-			break;
-		default:
-			break;
-		}
-	}
-}
-
-void deleteMenu(pair<int, int> xy) {
-	int choise, exit = 0;
-	vector <string> options = { "-. Create ..." , "-. Delete...", "  1. Table" ,"  2. Dealer", "  3. Player (BOT)", "-. Manage Tables", "-. Stats" ,"-. Choose Files" ,"" , "0. Back" };
-	while (!exit)
-	{
-		system("CLS");
-		displayMenu0(xy, "1. Delete ...", options);
-		choise = readIntBetween(0, 3);
-		switch (choise)
-		{
-		case 0:
-			exit = 1;
-			break;
-		case 1:
-			//TODO: delete table;
-			break;
-		case 2:
-			//TODO: delete Dealer;
-			break;
-		case 3:
-			//TODO: delete BOT;
-			break;
-			break;
-		default:
-			break;
-		}
-	}
+void deleteMenu(pair<int, int> xy, unsigned int &choise) {
+	int exit = 0;
+	vector <string> options = { "-. Create ..." , "-. Delete...", "  1. Table" ,"  2. Dealer", "  3. Player (BOT)", "-. Manage Tables", "-. Stats" ,"" , "0. Back" };
+	system("CLS");
+	displayMenu0(xy, "1. Delete ...", options);
+	choise = readIntBetween(0, 3);
 }

@@ -45,6 +45,7 @@ private:
 public:
 	Table(int ID);
 	Table( unsigned int, unsigned int, unsigned int, unsigned int, Dealer*); // Table() is a construct of a class Table with 6 args(minBet, maxBet, moneyOfTbale, maxNumberOfPlayers, dealerOfTable)
+	~Table();
 	void setMinBet(unsigned int minBet);
 	void setMaxBet(unsigned int maxBet);
 	void setDealer(Dealer *dealerOfTable);

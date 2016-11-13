@@ -16,6 +16,7 @@ private:
 	unsigned int nextPlayer;
 	vector<Card> deck;
 	vector<Card> deckDiscarded;
+	int TableID;
 
 public:
 	//Default constructor - creates a default deck of 52 cards
@@ -44,5 +45,20 @@ public:
 	bool hasCardInHand(Card& c);
 	string play(Table &table);
 	unsigned int getID() const;
+	void setTable(int tableID);
+	int getTableOn() const;
 };
 
+class DealerNotExist {
+private:
+	int dealerID;
+public:
+	DealerNotExist(Dealer * dealer);
+};
+
+class DealerIsOnTableAlready {
+private:
+	int dealerID;
+public:
+	DealerIsOnTableAlready(Dealer * dealer);
+};

@@ -69,4 +69,7 @@ public:
 	vector<Table*> getTables() const;
 	void setTableToPlay(int tableID);
 	Table * getTableToPlay() const;
+	void manage(pair <short, short> xy);
+	void create(pair <short, short> xy);
+	void eliminate(pair <short, short> xy);
 };

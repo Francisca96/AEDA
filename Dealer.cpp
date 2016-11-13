@@ -9,6 +9,7 @@ Dealer::Dealer()
 {
 	deck = createDeck();
 	shuffleDeck();
+	TableID = -1;
 	ID = nextID;
 	nextID++;
 }
@@ -16,6 +17,7 @@ Dealer::Dealer()
 Dealer::Dealer(unsigned int ID) {
 	deck = createDeck();
 	shuffleDeck();
+	TableID = -1;
 	this->ID = ID;
 	if (ID > nextID)
 	{
@@ -132,4 +134,18 @@ unsigned int Dealer::getID() const {
 	return this->ID;
 }
 
+void Dealer::setTable(int tableID) {
+	this->TableID = tableID;
+}
 
+int Dealer::getTableOn() const {
+	return this->TableID;
+}
+
+DealerNotExist::DealerNotExist(Dealer *dealer) {
+	this->dealerID = dealer->getID();
+}
+
+DealerIsOnTableAlready::DealerIsOnTableAlready(Dealer * dealer) {
+	this->dealerID = dealer->getID();
+}

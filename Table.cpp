@@ -25,6 +25,11 @@ Table::Table(unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable
 	initialMoney = moneyOfTable;
 	tableID = nextID;
 	nextID++;
+	newDealer->setTable(tableID);
+}
+
+Table::~Table() {
+	dealerOfTable->setTable(-1);
 }
 
 void Table::setMaxBet(unsigned int aMaxBet) {
@@ -32,7 +37,9 @@ void Table::setMaxBet(unsigned int aMaxBet) {
 }
 
 void Table::setDealer(Dealer *dealerOfTable) {
+	this->dealerOfTable->setTable(-1);
 	this->dealerOfTable = dealerOfTable;
+	dealerOfTable->setTable(tableID);
 }
 
 void Table::setID(int ID) {

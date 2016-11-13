@@ -321,6 +321,134 @@ Table * Casino::getTableToPlay() const {
 	throw TableNotInCasino(new Table(tableToPlay));
 }
 
+void Casino::manage(pair<short, short> xy) {
+	unsigned int exit = 0;
+	unsigned int choise;
+	while (!exit)
+	{
+		manageCasino(xy, choise);
+		switch (choise)
+		{
+		case 0:
+			exit = 1;
+			break;
+		case 1:
+			this->create(xy);
+			break;
+		case 2:
+			this->eliminate(xy);
+			break;
+		case 3:
+			//TODO: this->manageTables(xy);
+			break;
+		case 4:
+			//TODO: this->stats(xy);
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void Casino::create(pair<short, short> xy) {
+	unsigned int exit = 0;
+	unsigned int choise;
+	while (!exit)
+	{
+		createMenu(xy, choise);
+		switch (choise)
+		{
+		case 0:
+			exit = 1;
+			break;
+		case 1:
+			try
+			{
+				unsigned int minBet, maxBet, numberMaxOfPlayer, initialMoney, dealerID, found = 0;
+				Dealer *dealerOfTable;
+				system("CLS");
+				cout << "Initial Money?" << endl;
+				initialMoney = readUnsignedIntBetween(1000, this->totalMoney);
+				cout << "Min Bet?" << endl;
+				minBet = readUnsignedIntBetween(1, initialMoney - 1);
+				cout << "Max Bet?" << endl;
+				maxBet = readUnsignedIntBetween(minBet, initialMoney);
+				cout << "Number Max Of Players?" << endl;
+				numberMaxOfPlayer = readUnsignedIntBetween(1, 6);
+				this->showDealers();
+				dealerID = readUnsignedInt();
+				for (size_t i = 0; i < dealers.size(); i++)
+				{
+					if (dealerID == dealers.at(i)->getID())
+					{
+						found = 1;
+						dealerOfTable = dealers.at(i);
+						if (dealerOfTable->getTableOn() != -1)
+						{
+							Table *newTable = new Table(minBet, maxBet, initialMoney, numberMaxOfPlayer, dealerOfTable);
+							tables.push_back(newTable);
+						}
+						else
+						{
+							throw DealerIsOnTableAlready(new Dealer(dealerID));
+						}
+					}
+				}
+				if (found != 1)
+				{
+					throw DealerNotExist(new Dealer(dealerID));
+				}
+				cout << "Tables was created with success" << endl;
+				system("pause");
+			}
+			catch (DealerNotExist)
+			{
+				cout << "Tables wasn't created with success" << endl;
+				cout << "The Dealer doesn't exist, pls try again" << endl;
+				system("pause");
+			}
+			catch (DealerIsOnTableAlready)
+			{
+				cout << "Tables wasn't created with success" << endl;
+				cout << "The Dealer have one table already, pls try again" << endl;
+				system("pause");
+			}
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void Casino::eliminate(pair<short, short> xy) {
+	unsigned int exit = 0;
+	unsigned int choise;
+	while (!exit)
+	{
+		deleteMenu(xy, choise);
+		switch (choise)
+		{
+		case 0:
+			exit = 1;
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		default:
+			break;
+		}
+	}
+}
+
 void Casino::showStatistics() const {
 	cout << "Statistics\n\n\n\n";
 	cout << setw(15) << "NAME" << setw(15) << "BRAIN LEVEL" << setw(15) << "ROUNDS PLAYED" << setw(30) << "AVG. PROFIT" << endl;
