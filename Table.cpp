@@ -12,8 +12,7 @@ void TooManyPlayers::what()
 }
 
 
-Table::Table(unsigned int roundsLeft,unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers, Dealer * newDealer) {
-	this->roundsLeft = roundsLeft;
+Table::Table(unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers, Dealer * newDealer) {
 	this->minBet = minBet;
 	this->maxBet = maxBet;
 	this->moneyOfTable = moneyOfTable;
@@ -30,6 +29,14 @@ void Table::setMaxBet(unsigned int aMaxBet) {
 
 void Table::setDealer(Dealer *dealerOfTable) {
 	this->dealerOfTable = dealerOfTable;
+}
+
+void Table::setID(unsigned int ID) {
+	this->tableID = ID;
+	if (ID > nextID)
+	{
+		nextID = ID + 1;
+	}
 }
 
 
@@ -65,7 +72,11 @@ unsigned int Table::getMaxBet() const
 	return maxBet;
 }
 
-void Table::play() {
+unsigned int Table::getNumberMaxOfPlayers() const {
+	return this->maxNumberOfPlayers;
+}
+
+void Table::play(unsigned int roundsLeft) {
 	//sequence : get Initial Bets then deal one card to each player and to the dealer (2x times) (first Dealer card face down)
 	//if dealer's card is an Ace, ask players if they want to take insurance()
 	//If they do, take each player�s insurance (it should be half of their original bet) and flip over dealer's second card to see whether or not dealer has a blackjack.
@@ -206,6 +217,57 @@ unsigned int Table::restartDeck()
 		return 0;
 	}
 	return 1;
+}
+
+void Table::showTableInfo(pair<short, short> xy) {
+	string text;
+	cursorxy(xy.first, xy.second);
+	cout << (char)201; //╔
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)205; //═
+	}
+	cout << (char)187; //╗
+	xy.second++;
+	cursorxy(xy.first, xy.second);
+	text = "  TableID: ";
+	cout << (char)186 //║
+		<< text << setw(30 - text.length()) << (char)186; //║
+	cursorxy(xy.first + text.length() + 1, xy.second);
+	cout << this->getTableID();
+	xy.second++;
+	cursorxy(xy.first, xy.second);
+	cout << (char)204; //╠
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)205; //═
+	}
+	cout << (char)185 /*╣*/;
+	xy.second++;
+	cursorxy(xy.first, xy.second);
+	text = "  Players:";
+	cout << (char)186  << text << setw(30 - text.length()) << (char)186;
+	xy.second++;
+	cursorxy(xy.first, xy.second);
+	for (size_t i = 0; i < this->getPlayers().size(); i++)
+	{
+		text = this->getPlayers().at(i)->getName();
+		cout << (char)186  << "   " << text << setw(30 - (3 + text.length())) << (char)186;
+		xy.second++;
+		cursorxy(xy.first, xy.second);
+	}
+	text = "  Money of Table: ";
+	cout << (char)186 << text << setw(30 - text.length()) << (char)186;
+	cursorxy(xy.first+ text.length()+1, xy.second);
+	cout << this->getInitialMoney();
+	xy.second++;
+	cursorxy(xy.first, xy.second);
+	cout << (char)200;
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)205;
+	}
+	cout << (char)188;
 }
 
 void Table::kickPlayer(unsigned int index)

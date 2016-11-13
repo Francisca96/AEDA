@@ -13,6 +13,16 @@ Dealer::Dealer()
 	nextID++;
 }
 
+Dealer::Dealer(unsigned int ID) {
+	deck = createDeck();
+	shuffleDeck();
+	this->ID = ID;
+	if (ID > nextID)
+	{
+		nextID = ID + 1;
+	}
+}
+
 Dealer::Dealer(vector<Card> newDeck) {
 	this->deck = newDeck;
 	shuffleDeck();
@@ -116,6 +126,10 @@ string Dealer::play(Table &table)
 		return "hit"; //means hit
 	}
 	else return "stand"; //means stand
+}
+
+unsigned int Dealer::getID() const {
+	return this->ID;
 }
 
 

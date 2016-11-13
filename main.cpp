@@ -19,7 +19,7 @@ int testFunction1() {
 	vector<Table*> tablesVector;
 	vector<Player *> playersVector;
 	Dealer *pro = new Dealer;
-	Table * table1 = new Table(roundsToPlay, minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
+	Table * table1 = new Table(minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
 	tablesVector.push_back(table1);
 	Casino estoril(casinoMoney);
 	playersVector.push_back(new Bot0("Kika", 1000));
@@ -29,7 +29,7 @@ int testFunction1() {
 	estoril.addTableToCasino(table1);
 	estoril.addPlayersToCasino(playersVector);
 	estoril.addPlayersToTable(playersVector,table1);
-	table1->play();
+	table1->play(roundsToPlay);
 	table1->closeTable();
 	estoril.showStatistics();
 	
@@ -48,77 +48,107 @@ int main(){
 	int user = 0;
 	Users(usersVEC, user);
 
-	//TODO: implement fuction of display menu
-	int choise;
-	start_menu(xy, choise);
-	switch (choise)
+	//do the code just here
+	//creat a casino
+	string playersFileName = "players.txt", dealersFileName = "dealers.txt", tablesFileName = "tables.txt";
+	Casino casino(100000);
+
+	//read files names
+	/*cout << "Write file name of players" << endl;
+	readNameOfFile(playersFileName);
+	cout << "Write file name of dealers" << endl;
+	readNameOfFile(dealersFileName);
+	cout << "Write file name of tables" << endl;
+	readNameOfFile(tablesFileName);*/
+
+	//set files name on casino
+	casino.setPlayersFile(playersFileName);
+	casino.setDealersFile(dealersFileName);
+	casino.setTablesFile(tablesFileName);
+
+	casino.readPlayersFile();
+	casino.readDealersFile();
+	casino.readTablesFile();
+	/*DEGUB*/
+	/*cout << "Players: " << endl;
+	casino.showPlayers();
+	cout << "Dealers: " << endl;
+	casino.showDealers();
+	cout << "Tables: " << endl;
+	casino.showTables();
+	system("pause");*/
+	
+
+	int choise, exit = 0;
+	pair <short, short> coordXY;
+	coordXY.first = (xy.first % 32) / 2 - 1;
+	bool found = false;
+	while (!exit)
 	{
-	case 1:
-		system("CLS");
-		testFunction1();
+		start_menu(xy, choise);
+		switch (choise)
+		{
+		case 1:
+			system("CLS");
+			//TODO: play (game run in normal mode with a human player)
+			testFunction1();
+			break;
+		case 2:
+			//TODO: simulation (game run all alone for n cycles)
+			break;
+		case 3:
+			//TODO: choose table (selection one table to play on simulation or normal mode)
+			system("CLS");
+			unsigned int tableID;
 
-	default:
-		break;
-	}
-	system("pause");
-
-	//verify users and changes of files
-	char decision;
-	Users(usersVEC, user);
-	if (usersVEC.size() == 1)
-	{
-		system("cls");
-		cout << setw((xy.first - 50) / 2) << (char)201;
-		for (int i = 0; i < 50; i++)
-		{
-			cout << (char)205;
-		}
-		cout << (char)187 << endl;
-		cout << setw((xy.first - 50) / 2) << (char)186 << setw(51) << (char)186 << endl;
-		string text = "Do you want save all changes?";
-		cout << setw((xy.first - 50) / 2) << (char)186 << setw((50 + text.length()) / 2) << text << setw(51 - (50 + text.length()) / 2) << (char)186 << endl;
-		cout << setw((xy.first - 50) / 2) << (char)186 << setw(51) << (char)186 << endl;
-		cout << setw((xy.first - 50) / 2) << (char)200;
-		for (int i = 0; i < 50; i++)
-		{
-			cout << (char)205;
-		}
-		cout << (char)188 << endl;
-		cout << endl << "Yes 'Y' or No 'N': ";
-		cin >> decision;
-		while (!(decision == 'Y' || decision == 'y' || decision == 'N' || decision == 'n'))
-		{
-			cout << endl << "Yes 'Y' or No 'N': ";
-			cin >> decision;
-		}
-
-		//alteracao
-		if (decision == 'Y' || decision == 'y')
-		{
-			FileCopy("","");//copy file temp for original
-			remove("");//delete file temp
-			remove("users_temp.txt");
-
-		}
-		else if (decision == 'N' || decision == 'n')
-		{
-			remove("users_temp.txt");//delete file temp
-		}
-	}
-	else
-	{
-		//elimina usuario no vetor
-		usersVEC.erase(usersVEC.begin() + BinaryInt(user, usersVEC));
-
-		ofstream UserFileO("users_temp.txt");
-		if (UserFileO.is_open())
-		{
-			for (unsigned int i = 0; i < usersVEC.size(); i++)
+			for (size_t i = 0; i < casino.getTables().size(); i++)
 			{
-				UserFileO << usersVEC.at(i) << endl;
+				casino.getTables().at(i)->showTableInfo(coordXY);
+				coordXY.first += 32;
+				if (coordXY.first + 32 > xy.first)
+				{
+					coordXY.first = (xy.first % 32) / 2;
+					coordXY.second += 13;
+				}
 			}
-			UserFileO.close();
+			cout << endl << endl << endl;
+			while (!found)
+			{
+				cout  << "Select table by ID" << endl;
+				tableID = readInt();
+				for (size_t i = 0; i < casino.getTables().size(); i++)
+				{
+					if (casino.getTables().at(i)->getTableID() == tableID)
+					{
+						found = true;
+						casino.setTableToPlay(tableID);
+						cout << "Table select with success" << endl;
+						break;
+					}
+				}
+			}
+			system("pause");
+			break;
+		case 4:
+			//TODO: menu to creat table, define employee of table, and bots to tables, choose files...
+			manageCasino(xy);
+			break;
+		case 0:
+			exit = 1;
+			break;
+		default:
+			break;
 		}
+	}
+
+	//save changes of files
+	int save;
+	saveChanges(usersVEC, user, xy, save);
+	if (save)
+	{
+		casino.savePlayersFile();
+		casino.saveDealersFile();
+		casino.saveTablesFile();
 	}
 
 	return 0;

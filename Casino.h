@@ -1,10 +1,11 @@
 #pragma once
 
-#include "utils.h"
 #include <vector>
 #include <iomanip>
 #include <string>
+#include <sstream>
 #include "Table.h"
+#include "utils.h"
 
 
 using namespace std;
@@ -39,6 +40,7 @@ private:
 	string dealersFile;
 	string tablesFile;
 	unsigned int totalMoney;
+	unsigned int tableToPlay;
 	vector<Dealer*> dealers;
 	vector<Table *> tables;
 	vector<Player*> players;
@@ -51,5 +53,19 @@ public:
 	void addPlayersToCasino(vector<Player *> &playersVector);
 	void addPlayersToTable(vector<Player *> &playersVector, Table * table);
 	void addPlayerToTable(Player * player1,Table * table);
-	void showStatistics();
+	void setPlayersFile(string playerFile);
+	void setDealersFile(string dealersFile);
+	void setTablesFile(string tablesFile);
+	void readPlayersFile();
+	void readDealersFile();
+	void readTablesFile();
+	void savePlayersFile();
+	void saveDealersFile();
+	void saveTablesFile();
+	void showStatistics() const;
+	void showPlayers() const;
+	void showDealers() const;
+	void showTables() const;
+	vector<Table*> getTables() const;
+	void setTableToPlay(unsigned int tableID);
 };
