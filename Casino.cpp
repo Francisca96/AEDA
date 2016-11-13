@@ -303,8 +303,22 @@ vector<Table*> Casino::getTables() const {
 	return this->tables;
 }
 
-void Casino::setTableToPlay(unsigned int tableID) {
+void Casino::setTableToPlay(int tableID) {
 	this->tableToPlay = tableID;
+}
+
+Table * Casino::getTableToPlay() const {
+	if (this->tableToPlay != -1)
+	{
+		for (size_t i = 0; i < tables.size(); i++)
+		{
+			if (this->tableToPlay == tables.at(i)->getTableID())
+			{
+				return tables.at(i);
+			}
+		}
+	}
+	throw TableNotInCasino(new Table(tableToPlay));
 }
 
 void Casino::showStatistics() const {

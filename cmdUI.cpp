@@ -36,7 +36,7 @@ void displayMenu0(pair<int, int> xy, string title, vector <string> menuOptions) 
 	for (size_t i = 0; i < menuOptions.size(); i++)
 	{
 		text = menuOptions.at(i);
-		cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(10) << " " << text << setw(38 - (10 + text.length())) << (char)186 << endl;
+		cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(7) << " " << text << setw(38 - (7 + text.length())) << (char)186 << endl;
 	}
 	cout << setw((xy.first - 36) / 2 - 1) << (char)200;
 	for (unsigned int i = 0; i <= 36; i++)
@@ -116,14 +116,14 @@ void start_menu(pair <int, int> xy, int &choise) {
 	cout << endl << endl;
 
 	//display menu
-	vector <string> options = {"1. Play" ,"2. Simulation", "3. Choose Table", "4. Manage Casino", "0. EXIT"};
+	vector <string> options = {"1. Play" ,"2. Simulation", "3. Choose Table", "4. Manage Casino", "" ,"0. EXIT"};
 	displayMenu0(xy, "MENU", options);	
 	choise = readIntBetween(0, 4);
 }
 
 void manageCasino(pair<int, int> xy) {
 	int choise, exit = 0;
-	vector <string> options = { "1. Create ..." ,"2. Delete...", "3. Manage Tables", "4. Stats" ,"5. Choose Files", "0. Return to MENU" };
+	vector <string> options = {"1. Create ..." ,"2. Delete...", "3. Manage Tables", "4. Stats" ,"5. Choose Files", "" , "0. Return to MENU" };
 	while (!exit)
 	{
 		system("CLS");
@@ -162,7 +162,7 @@ int createNewTable() {
 
 void createMenu(pair<int, int> xy) {
 	int choise, exit = 0;
-	vector <string> options = { "1. Table" ,"2. Dealer", "3. Player (BOT)", "0. Return to MANAGE CASINO" };
+	vector <string> options = { "-. Create ..." ,"  1. Table" ,"  2. Dealer", "  3. Player (BOT)", "-. Delete...", "-. Manage Tables", "-. Stats" ,"-. Choose Files" , "" ,"0. Back" };
 	while (!exit)
 	{
 		system("CLS");
@@ -194,7 +194,7 @@ void createMenu(pair<int, int> xy) {
 
 void deleteMenu(pair<int, int> xy) {
 	int choise, exit = 0;
-	vector <string> options = { "1. Table" ,"2. Dealer", "3. Player (BOT)", "0. Return to MANAGE CASINO" };
+	vector <string> options = { "-. Create ..." , "-. Delete...", "  1. Table" ,"  2. Dealer", "  3. Player (BOT)", "-. Manage Tables", "-. Stats" ,"-. Choose Files" ,"" , "0. Back" };
 	while (!exit)
 	{
 		system("CLS");
