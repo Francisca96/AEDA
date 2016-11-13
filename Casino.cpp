@@ -131,8 +131,30 @@ void Casino::readPlayersFile() {
 					ssLine << line;
 					ssLine >> age;
 					Human *newHuman = new Human(name, age);
+					newHuman->setInitialMoney(initialMoney);
 					players.push_back(newHuman);
 				}
+				if (player == "0")
+				{
+					ssLine << line;
+					ssLine >> age;
+					Bot0 *newBot0 = new Bot0(name, initialMoney);
+					players.push_back(newBot0);
+				}
+				if (player == "1")
+				{
+					ssLine << line;
+					ssLine >> age;
+					Bot1 *newBot1 = new Bot1(name, initialMoney);
+					players.push_back(newBot1);
+				}
+				/*if (player == "2")
+				{
+					ssLine << line;
+					ssLine >> age;
+					Bot2 *newBot2 = new Bot2();
+					players.push_back(newBot2);
+				}*/
 			}
 			return;
 		}
@@ -151,7 +173,8 @@ void Casino::readDealersFile() {
 
 			while (getline(inFile, line))
 			{
-
+				Dealer *newDealer = new Dealer(stoi(line));
+				dealers.push_back(newDealer);
 			}
 			return;
 		}
@@ -162,7 +185,15 @@ void Casino::readDealersFile() {
 void Casino::readTablesFile() {
 	ifstream inFile(tablesFile);
 	string line;
-	stringstream ssLine;
+
+	unsigned int tableID;
+	unsigned int minBet;
+	unsigned int maxBet;
+	unsigned int initialMoney;
+	unsigned int maxNumberOfPlayers;
+	unsigned int dealerID;
+	Dealer *dealerOfTable = new Dealer();
+
 	for (int i = 0; i < 3; i++)
 	{
 		if (inFile.is_open())
@@ -171,7 +202,29 @@ void Casino::readTablesFile() {
 
 			while (getline(inFile, line))
 			{
-
+				tableID = stoi(line.substr(0, line.find_first_of(" ; ")));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				minBet = stoi(line.substr(0, line.find_first_of(" ; ")));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				maxBet = stoi(line.substr(0, line.find_first_of(" ; ")));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				initialMoney = stoi(line.substr(0, line.find_first_of(" ; ")));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				maxNumberOfPlayers = stoi(line.substr(0, line.find_first_of(" ; ")));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				dealerID = stoi(line.substr(0, line.find_first_of(" ; ")));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				for (size_t i = 0; i < dealers.size(); i++)
+				{
+					if (dealers.at(i)->getID() == dealerID)
+					{
+						dealerOfTable = dealers.at(i);
+						break;
+					}
+				}
+				Table *newTable = new Table(minBet, maxBet, initialMoney, maxNumberOfPlayers, dealerOfTable);
+				newTable->setID(tableID);
+				tables.push_back(newTable);
 			}
 			return;
 		}
@@ -211,11 +264,50 @@ void Casino::savePlayersFile() {
 			return;
 		}
 	}
-	cout << "Fail to open delaers file" << endl;
+	cout << "Fail to open players file" << endl;
 }
 
-void Casino::showStatistics()
-{
+void Casino::saveDealersFile() {
+	ofstream outFile(dealersFile);
+	for (int i = 0; i < 3; i++)
+	{
+		if (outFile.is_open())
+		{
+			for (size_t i = 0; i < dealers.size(); i++)
+			{
+				outFile << dealers.at(i)->getID() << endl;
+			}
+			return;
+		}
+	}
+	cout << "Fail to open dealers file" << endl;
+}
+
+void Casino::saveTablesFile() {
+	ofstream outFile(tablesFile);
+	for (int i = 0; i < 3; i++)
+	{
+		if (outFile.is_open())
+		{
+			for (size_t i = 0; i < dealers.size(); i++)
+			{
+				outFile << tables.at(i)->getTableID() << " ; " << tables.at(i)->getMinBet() << " ; " << tables.at(i)->getMaxBet() << " ; " << tables.at(i)->getInitialMoney() << " ; " << tables.at(i)->getNumberMaxOfPlayers() << " ; " << tables.at(i)->getDealer()->getID() << " ; " << endl;
+			}
+			return;
+		}
+	}
+	cout << "Fail to open tables file" << endl;
+}
+
+vector<Table*> Casino::getTables() const {
+	return this->tables;
+}
+
+void Casino::setTableToPlay(unsigned int tableID) {
+	this->tableToPlay = tableID;
+}
+
+void Casino::showStatistics() const {
 	cout << "Statistics\n\n\n\n";
 	cout << setw(15) << "NAME" << setw(15) << "BRAIN LEVEL" << setw(15) << "ROUNDS PLAYED" << setw(30) << "AVG. PROFIT" << endl;
 	for (size_t i = 0; i < players.size(); i++) {
@@ -224,10 +316,24 @@ void Casino::showStatistics()
 
 }
 
-void Casino::showPlayers() {
+void Casino::showPlayers() const {
 	for (size_t i = 0; i < players.size(); i++)
 	{
 		cout << players.at(i)->getName() << endl;
+	}
+}
+
+void Casino::showDealers() const {
+	for (size_t i = 0; i < dealers.size(); i++)
+	{
+		cout << dealers.at(i)->getID() << endl;
+	}
+}
+
+void Casino::showTables() const {
+	for (size_t i = 0; i < tables.size(); i++)
+	{
+		cout << tables.at(i)->getTableID() << endl;
 	}
 }
 

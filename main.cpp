@@ -19,7 +19,7 @@ int testFunction1() {
 	vector<Table*> tablesVector;
 	vector<Player *> playersVector;
 	Dealer *pro = new Dealer;
-	Table * table1 = new Table(roundsToPlay, minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
+	Table * table1 = new Table(minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
 	tablesVector.push_back(table1);
 	Casino estoril(casinoMoney);
 	playersVector.push_back(new Bot0("Kika", 1000));
@@ -29,7 +29,7 @@ int testFunction1() {
 	estoril.addTableToCasino(table1);
 	estoril.addPlayersToCasino(playersVector);
 	estoril.addPlayersToTable(playersVector,table1);
-	table1->play();
+	table1->play(roundsToPlay);
 	table1->closeTable();
 	estoril.showStatistics();
 	
@@ -67,10 +67,22 @@ int main(){
 	casino.setTablesFile(tablesFileName);
 
 	casino.readPlayersFile();
+	casino.readDealersFile();
+	casino.readTablesFile();
+	/*DEGUB*/
+	/*cout << "Players: " << endl;
 	casino.showPlayers();
-	system("pause");
+	cout << "Dealers: " << endl;
+	casino.showDealers();
+	cout << "Tables: " << endl;
+	casino.showTables();
+	system("pause");*/
+	
 
-	/*int choise, exit = 0;
+	int choise, exit = 0;
+	pair <short, short> coordXY;
+	coordXY.first = (xy.first % 32) / 2 - 1;
+	bool found = false;
 	while (!exit)
 	{
 		start_menu(xy, choise);
@@ -86,6 +98,36 @@ int main(){
 			break;
 		case 3:
 			//TODO: choose table (selection one table to play on simulation or normal mode)
+			system("CLS");
+			unsigned int tableID;
+
+			for (size_t i = 0; i < casino.getTables().size(); i++)
+			{
+				casino.getTables().at(i)->showTableInfo(coordXY);
+				coordXY.first += 32;
+				if (coordXY.first + 32 > xy.first)
+				{
+					coordXY.first = (xy.first % 32) / 2;
+					coordXY.second += 13;
+				}
+			}
+			cout << endl << endl << endl;
+			while (!found)
+			{
+				cout  << "Select table by ID" << endl;
+				tableID = readInt();
+				for (size_t i = 0; i < casino.getTables().size(); i++)
+				{
+					if (casino.getTables().at(i)->getTableID() == tableID)
+					{
+						found = true;
+						casino.setTableToPlay(tableID);
+						cout << "Table select with success" << endl;
+						break;
+					}
+				}
+			}
+			system("pause");
 			break;
 		case 4:
 			//TODO: menu to creat table, define employee of table, and bots to tables, choose files...
@@ -97,7 +139,7 @@ int main(){
 		default:
 			break;
 		}
-	}*/
+	}
 
 	//save changes of files
 	int save;
@@ -105,8 +147,8 @@ int main(){
 	if (save)
 	{
 		casino.savePlayersFile();
-		//casino.saveDealersFile();
-		//casino.saveTablesFile();
+		casino.saveDealersFile();
+		casino.saveTablesFile();
 	}
 
 	return 0;

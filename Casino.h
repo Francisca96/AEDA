@@ -40,6 +40,7 @@ private:
 	string dealersFile;
 	string tablesFile;
 	unsigned int totalMoney;
+	unsigned int tableToPlay;
 	vector<Dealer*> dealers;
 	vector<Table *> tables;
 	vector<Player*> players;
@@ -61,6 +62,10 @@ public:
 	void savePlayersFile();
 	void saveDealersFile();
 	void saveTablesFile();
-	void showStatistics();
-	void showPlayers();
+	void showStatistics() const;
+	void showPlayers() const;
+	void showDealers() const;
+	void showTables() const;
+	vector<Table*> getTables() const;
+	void setTableToPlay(unsigned int tableID);
 };

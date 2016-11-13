@@ -20,6 +20,7 @@ private:
 public:
 	//Default constructor - creates a default deck of 52 cards
 	Dealer();
+	Dealer(unsigned int ID);
 	//Instanciates a new Dealer
 	Dealer(vector<Card> newDeck);
 	//shuffles Dealer's Deck
@@ -42,5 +43,6 @@ public:
 	void clearHand();
 	bool hasCardInHand(Card& c);
 	string play(Table &table);
+	unsigned int getID() const;
 };
 
