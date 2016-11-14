@@ -47,6 +47,7 @@ public:
 	unsigned int getID() const;
 	void setTable(int tableID);
 	int getTableOn() const;
+	static void setNextID(unsigned int ID);
 };
 
 class DealerNotExist {
@@ -61,6 +62,7 @@ private:
 	int dealerID;
 public:
 	DealerAlreadyExist(Dealer * dealer);
+	int getID() const;
 };
 
 class DealerIsOnTableAlready {
@@ -68,4 +70,13 @@ private:
 	int dealerID;
 public:
 	DealerIsOnTableAlready(Dealer * dealer);
+};
+
+class DealerStillOnTable {
+private:
+	int dealerID;
+	unsigned int tableID;
+public:
+	DealerStillOnTable(Dealer *dealer);
+	unsigned int getTableID() const;
 };

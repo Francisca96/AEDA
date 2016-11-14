@@ -40,6 +40,21 @@ void Casino::addTableToCasino(Table * table)
 	}
 }
 
+
+
+void Casino::removeTableFromCasino(Table * table) {
+	for (size_t i = 0; i < tables.size(); i++)
+	{
+		if (tables.at(i)->getTableID() == table->getTableID())
+		{
+			delete tables.at(i);
+			tables.erase(tables.begin() + i);
+			return;
+		}
+	}
+	throw TableNotInCasino(table);
+}
+
 void Casino::addPlayerToCasino(Player * player1)
 {
 	for (size_t i = 0; i < players.size(); i++)
@@ -50,6 +65,23 @@ void Casino::addPlayerToCasino(Player * player1)
 		}
 	}
 	players.push_back(player1);
+}
+
+void Casino::removePlayerFromCasino(string name) {
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		if (players.at(i)->getName() == name)
+		{
+			if (players.at(i)->getOnTable() != -1)
+			{
+				throw PlayerStillOnTable(players.at(i));
+			}
+			delete players.at(i);
+			players.erase(players.begin() + i);
+			return;
+		}
+	}
+	throw PlayerNotExist(name);
 }
 
 void Casino::addPlayersToCasino(vector<Player*>& newPlayers)
@@ -108,6 +140,23 @@ void Casino::addDealerToCasino(Dealer * newDealer) {
 		}
 	}
 	dealers.push_back(newDealer);
+}
+
+void Casino::removeDealerFromCasino(Dealer *dealer) {
+	for (size_t i = 0; i < dealers.size(); i++)
+	{
+		if (dealers.at(i)->getID() == dealer->getID())
+		{
+			if (dealers.at(i)->getTableOn() != -1)
+			{
+				throw DealerStillOnTable(dealers.at(i));
+			}
+			delete dealers.at(i);
+			dealers.erase(dealers.begin() + i);
+			return;
+		}
+	}
+	throw DealerNotExist(dealer);
 }
 
 void Casino::setPlayersFile(string playerFile) {
@@ -192,11 +241,27 @@ void Casino::readDealersFile() {
 			while (getline(inFile, line))
 			{
 				Dealer *newDealer = new Dealer(stoi(line));
-				dealers.push_back(newDealer);
+				try
+				{
+					this->addDealerToCasino(newDealer);
+				}
+				catch (DealerAlreadyExist dealer)
+				{
+					cout << "Dealer with ID : " << dealer.getID() << " already exist" << endl;
+				}
 			}
 			return;
 		}
 	}
+	unsigned int maxID = 0;
+	for (size_t i = 0; i < dealers.size(); i++)
+	{
+		if (dealers.at(i)->getID() >= maxID)
+		{
+			maxID = dealers.at(i)->getID() + 1;
+		}
+	}
+	Dealer::setNextID(maxID);
 	cout << "Fail to open dealers file" << endl;
 }
 
@@ -502,12 +567,71 @@ void Casino::eliminate(pair<short, short> xy) {
 			exit = 1;
 			break;
 		case 1:
+			try
+			{
+				this->showTables();
+				unsigned int tableID = readUnsignedInt();
+				Table *table = new Table(tableID);
+				this->removeTableFromCasino(table);
+				cout << "The tablet was deleted with success" << endl;
+				system("pause");
+			}
+			catch (TableNotInCasino)
+			{
+				cout << "The tablet wasn´t deleted with success" << endl;
+				cout << "The tablet doesn't exist" << endl;
+				system("pause");
+			}
 			break;
 		case 2:
+			try
+			{
+				this->showDealers();
+				unsigned int dealerID = readUnsignedInt();
+				Dealer *dealer = new Dealer(dealerID);
+				this->removeDealerFromCasino(dealer);
+				cout << "The dealer was deleted with success" << endl;
+				system("pause");
+			}
+			catch (DealerNotExist)
+			{
+				cout << "The dealer wasn´t deleted with success" << endl;
+				cout << "The dealer doesn't exist" << endl;
+				system("pause");
+			}
+			catch (DealerStillOnTable dealer)
+			{
+				cout << "The dealer wasn´t deleted with success" << endl;
+				cout << "The dealer still on table : " << dealer.getTableID() << " please remove from table first" << endl;
+				system("pause");
+			}
 			break;
 		case 3:
-			break;
-		case 4:
+			try
+			{
+				this->showPlayers();
+				string name;
+				while (name.length() == 0)
+				{
+					cout << "What is the name of bot to remove?" << endl;
+					getline(cin, name);
+				}
+				this->removePlayerFromCasino(name);
+				cout << "The player was deleted with success" << endl;
+				system("pause");
+			}
+			catch (PlayerNotExist)
+			{
+				cout << "The player wasn´t deleted with success" << endl;
+				cout << "The player doesn't exist" << endl;
+				system("pause");
+			}
+			catch (PlayerStillOnTable player)
+			{
+				cout << "The player wasn´t deleted with success" << endl;
+				cout << "The player still on table : " << player.getTableId() << " please remove from table first" << endl;
+				system("pause");
+			}
 			break;
 		default:
 			break;

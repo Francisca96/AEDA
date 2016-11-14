@@ -49,11 +49,14 @@ public:
 	Casino(unsigned int totalMoney,vector<Table*> &tables, vector<Player *> &players);
 	void addTablesToCasino(vector<Table*> tables);
 	void addTableToCasino(Table* table);
+	void removeTableFromCasino(Table* table);
 	void addPlayerToCasino(Player * player1);
+	void removePlayerFromCasino(string name);
 	void addPlayersToCasino(vector<Player *> &playersVector);
 	void addPlayersToTable(vector<Player *> &playersVector, Table * table);
 	void addPlayerToTable(Player * player1,Table * table);
 	void addDealerToCasino(Dealer *newDealer);
+	void removeDealerFromCasino(Dealer *dealer);
 	void setPlayersFile(string playerFile);
 	void setDealersFile(string dealersFile);
 	void setTablesFile(string tablesFile);

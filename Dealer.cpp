@@ -19,10 +19,6 @@ Dealer::Dealer(unsigned int ID) {
 	shuffleDeck();
 	TableID = -1;
 	this->ID = ID;
-	if (ID > nextID)
-	{
-		nextID = ID + 1;
-	}
 }
 
 Dealer::Dealer(vector<Card> newDeck) {
@@ -142,6 +138,10 @@ int Dealer::getTableOn() const {
 	return this->TableID;
 }
 
+void Dealer::setNextID(unsigned int ID) {
+	nextID = ID;
+}
+
 DealerNotExist::DealerNotExist(Dealer *dealer) {
 	this->dealerID = dealer->getID();
 }
@@ -152,4 +152,17 @@ DealerIsOnTableAlready::DealerIsOnTableAlready(Dealer * dealer) {
 
 DealerAlreadyExist::DealerAlreadyExist(Dealer * dealer) {
 	this->dealerID = dealer->getID();
+}
+
+int DealerAlreadyExist::getID() const {
+	return dealerID;
+}
+
+DealerStillOnTable::DealerStillOnTable(Dealer * dealer) {
+	this->dealerID = dealer->getID();
+	this->tableID = dealer->getTableOn();
+}
+
+unsigned int DealerStillOnTable::getTableID() const {
+	return this->tableID;
 }

@@ -23,12 +23,13 @@ class Player {
 private:
 	string name;
 	unsigned int initialMoney;
-	unsigned int currentMoney;
+	float currentMoney;
 	vector <Card> hand;
 	unsigned int handScore;
 	unsigned int roundsPlayed;
 	float averageProfit;
 	unsigned int age;
+	int onTable;
 
 public:
 	void hit(Card newCard);
@@ -49,7 +50,7 @@ public:
 	void setCurrentMoney(unsigned int money);
 	void setRoundsPlayed(unsigned int rounds);
 	void setInitialMoney(unsigned int money);
-	void addMoney(unsigned int value);
+	void addMoney(float value);
 	void showStatistics();
 	//bots currently bet's always the minValue
 	virtual unsigned int bet(Table &table);
@@ -60,6 +61,8 @@ public:
 	virtual void resetCount();
 	unsigned int getAge() const;
 	void setAge(unsigned int age);
+	void setOnTable(int tableID);
+	int getOnTable() const;
 
 	
 };
@@ -114,4 +117,20 @@ private:
 	string name;
 public:
 	PlayerAlreadyExist(Player *player);
+};
+
+class PlayerNotExist {
+private:
+	string name;
+public:
+	PlayerNotExist(string name);
+};
+
+class PlayerStillOnTable {
+private:
+	string name;
+	unsigned int tableID;
+public:
+	PlayerStillOnTable(Player *player);
+	unsigned int getTableId() const;
 };

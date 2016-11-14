@@ -29,6 +29,11 @@ Table::Table(unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable
 }
 
 Table::~Table() {
+	this->closeTable();
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		players.at(i)->setOnTable(-1);
+	}
 	dealerOfTable->setTable(-1);
 }
 
@@ -53,6 +58,7 @@ void Table::setID(int ID) {
 
 void Table::addPlayer(Player * newPlayer) {
 	this->players.push_back(newPlayer);
+	newPlayer->setOnTable(this->getTableID());
 	actualBets.resize(players.size());
 }
 
@@ -61,6 +67,10 @@ void Table::addPlayers(vector<Player *> newPlayers) {
 		throw TooManyPlayers (maxNumberOfPlayers,players.size());
 	}
 	players.insert(players.end(), newPlayers.begin(), newPlayers.end());
+	for (size_t i = 0; i < newPlayers.size(); i++)
+	{
+		newPlayers.at(i)->setOnTable(this->getTableID());
+	}
 	actualBets.resize(players.size());
 }
 
@@ -102,13 +112,13 @@ void Table::simulation(unsigned int roundsLeft) {
 		dealOneCardToAllPlayers();
 		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
 		if (dealerOfTable->hit(players) == "A") {
-			for(int i = 0; i < actualPlayers.size(); i++){
+			for(size_t i = 0; i < actualPlayers.size(); i++){
 				if(actualPlayers.at(i)->takeInsurance(*this)){
 					moneyOfTable += actualBets.at(i)/2;
 				}
 			}
 		}
-		for(int j=0; j < actualPlayers.size(); j++) {
+		for(size_t j=0; j < actualPlayers.size(); j++) {
 			if (actualPlayers.at(j)->getHand().at(0) == actualPlayers.at(j)->getHand().at(1)) {
 				vector<Card> *secHand = new vector <Card>;
 				actualPlayers.at(j)->split(secHand);
@@ -286,6 +296,7 @@ void Table::showTableInfo(pair<short, short> xy) {
 
 void Table::kickPlayer(unsigned int index)
 {
+	players.at(index)->setOnTable(-1);
 	players.erase(players.begin() + index);
 }
 
