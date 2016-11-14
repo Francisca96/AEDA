@@ -29,8 +29,8 @@ pair <int, int> centerWindow();
 
 void start_menu(pair <int, int> xy, int &choise);
 
-void manageCasino(pair <int, int> xy);
+void manageCasino(pair <int, int> xy, unsigned int &choise);
 
-void createMenu(pair <int, int> xy);
+void createMenu(pair <int, int> xy, unsigned int &choise);
 
-void deleteMenu(pair <int, int> xy);
+void deleteMenu(pair <int, int> xy, unsigned int &choise);

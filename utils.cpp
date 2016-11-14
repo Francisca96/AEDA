@@ -71,12 +71,12 @@ string getHumanPlay()
 
 unsigned short int readUnsignedIntBetween(unsigned int minValue, unsigned int  maxValue){
 	unsigned int short newInt;
-	cout << "Insert Your Bet ( " << minValue << "$ - " << maxValue << "$ ) : ";
+	cout << "Insert Value ( " << minValue << " - " << maxValue << " ) : ";
 	while (!(cin >> newInt) || newInt > maxValue || newInt < minValue) {
 		cout << endl;
 		cin.clear();
 		cin.ignore();
-		cout << "Invalid Bet: Insert a new one: ";
+		cout << "Invalid Value: Insert a new one: ";
 	}
 	cin.ignore();
 	cout << endl;

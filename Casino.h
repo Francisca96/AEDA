@@ -40,7 +40,7 @@ private:
 	string dealersFile;
 	string tablesFile;
 	unsigned int totalMoney;
-	unsigned int tableToPlay;
+	int tableToPlay;
 	vector<Dealer*> dealers;
 	vector<Table *> tables;
 	vector<Player*> players;
@@ -49,10 +49,14 @@ public:
 	Casino(unsigned int totalMoney,vector<Table*> &tables, vector<Player *> &players);
 	void addTablesToCasino(vector<Table*> tables);
 	void addTableToCasino(Table* table);
+	void removeTableFromCasino(Table* table);
 	void addPlayerToCasino(Player * player1);
+	void removePlayerFromCasino(string name);
 	void addPlayersToCasino(vector<Player *> &playersVector);
 	void addPlayersToTable(vector<Player *> &playersVector, Table * table);
 	void addPlayerToTable(Player * player1,Table * table);
+	void addDealerToCasino(Dealer *newDealer);
+	void removeDealerFromCasino(Dealer *dealer);
 	void setPlayersFile(string playerFile);
 	void setDealersFile(string dealersFile);
 	void setTablesFile(string tablesFile);
@@ -67,5 +71,9 @@ public:
 	void showDealers() const;
 	void showTables() const;
 	vector<Table*> getTables() const;
-	void setTableToPlay(unsigned int tableID);
+	void setTableToPlay(int tableID);
+	Table * getTableToPlay() const;
+	void manage(pair <short, short> xy);
+	void create(pair <short, short> xy);
+	void eliminate(pair <short, short> xy);
 };

@@ -4,38 +4,10 @@
 #include <iomanip>
 #include <exception>
 #include "Casino.h"
-#include "utils.h"
+//#include "utils.h"
 #include "cmdUI.h"
 
 using namespace std;
-
-int testFunction1() {
-	unsigned int minBet = 2;
-	unsigned int maxBet = 1000;
-	unsigned int roundsToPlay = 200;
-	unsigned int moneyOfTable = 30000;
-	unsigned int maxNumberOfPlayers = 8;
-	unsigned int casinoMoney = 1000000;
-	vector<Table*> tablesVector;
-	vector<Player *> playersVector;
-	Dealer *pro = new Dealer;
-	Table * table1 = new Table(minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
-	tablesVector.push_back(table1);
-	Casino estoril(casinoMoney);
-	playersVector.push_back(new Bot0("Kika", 1000));
-	playersVector.push_back(new Bot1("Renato", 1000));
-	playersVector.push_back(new Bot1("Joao", 1000));
-	playersVector.push_back(new Human("Rui", 18));
-	estoril.addTableToCasino(table1);
-	estoril.addPlayersToCasino(playersVector);
-	estoril.addPlayersToTable(playersVector,table1);
-	table1->play(roundsToPlay);
-	table1->closeTable();
-	estoril.showStatistics();
-	
-	return 0;
-}
-
 
 
 int main(){
@@ -77,12 +49,29 @@ int main(){
 	cout << "Tables: " << endl;
 	casino.showTables();
 	system("pause");*/
-	
 
+	unsigned int minBet = 2;
+	unsigned int maxBet = 1000;
+	unsigned int moneyOfTable = 30000;
+	unsigned int maxNumberOfPlayers = 6;
+	Dealer *pro = new Dealer;
+	Table * table1 = new Table(minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
+	vector<Player *> playersVector;
+	playersVector.push_back(new Bot0("Kika", 1000));
+	playersVector.push_back(new Bot1("Renato", 1000));
+	playersVector.push_back(new Bot1("Joao", 1000));
+	playersVector.push_back(new Bot0("Rui", 1000));
+	casino.addTableToCasino(table1);
+	casino.addPlayersToCasino(playersVector);
+	casino.addPlayersToTable(playersVector, table1);
+	casino.setTableToPlay(-1);
+
+	/*END OF DEBUG*/
 	int choise, exit = 0;
 	pair <short, short> coordXY;
 	coordXY.first = (xy.first % 32) / 2 - 1;
 	bool found = false;
+	unsigned int roundsToPlay;
 	while (!exit)
 	{
 		start_menu(xy, choise);
@@ -91,15 +80,52 @@ int main(){
 		case 1:
 			system("CLS");
 			//TODO: play (game run in normal mode with a human player)
-			testFunction1();
+			cout << "Please insert you name: " << endl;
+			try
+			{
+				//casino.getTableToPlay()->play();
+				casino.showStatistics();
+				system("pause");
+			}
+			catch (TableNotInCasino)
+			{
+				cout << "Please select a table first" << endl;
+				system("pause");
+			}
+			catch (NoPlayersOnTable noPlayersOnTable)
+			{
+				cout << "The table: " << noPlayersOnTable.getID() << " dont have players" << endl;
+				cout << "Please select a table with players first" << endl;
+				system("pause");
+			}
 			break;
 		case 2:
 			//TODO: simulation (game run all alone for n cycles)
+			cout << "How many rounds do you want to simulate?" << endl;
+			roundsToPlay = readUnsignedInt();
+			try
+			{
+				casino.getTableToPlay()->simulation(roundsToPlay);
+				casino.showStatistics();
+				system("pause");
+			}
+			catch (TableNotInCasino)
+			{
+				cout << "Please select a table first" << endl;
+				system("pause");
+			}
+			catch (NoPlayersOnTable noPlayerOnTable)
+			{
+				cout << "The table: " << noPlayerOnTable.getID() << " dont have players" << endl;
+				cout << "Please select a table with players first" << endl;
+				system("pause");
+			}
 			break;
 		case 3:
 			//TODO: choose table (selection one table to play on simulation or normal mode)
 			system("CLS");
 			unsigned int tableID;
+			found = false;
 
 			for (size_t i = 0; i < casino.getTables().size(); i++)
 			{
@@ -131,7 +157,7 @@ int main(){
 			break;
 		case 4:
 			//TODO: menu to creat table, define employee of table, and bots to tables, choose files...
-			manageCasino(xy);
+			casino.manage(xy);
 			break;
 		case 0:
 			exit = 1;

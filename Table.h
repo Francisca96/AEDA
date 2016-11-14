@@ -19,6 +19,14 @@ public:
 	void what();
 };
 
+class NoPlayersOnTable {
+private:
+	unsigned int tableID;
+public:
+	NoPlayersOnTable(Table *noPlayersOnTable);
+	unsigned int getID() const;
+};
+
 class Table {
 private:
 	static unsigned int nextID;
@@ -28,24 +36,27 @@ private:
 	unsigned int initialMoney;
 	float moneyOfTable;
 	unsigned int maxNumberOfPlayers;
-	unsigned int tableID;
+	int tableID;
 	Dealer * dealerOfTable;
 	vector<Player*> players;
 	vector<Player*> actualPlayers;
 	vector<unsigned int> actualBets;
 
 public:
+	Table(int ID);
 	Table( unsigned int, unsigned int, unsigned int, unsigned int, Dealer*); // Table() is a construct of a class Table with 6 args(minBet, maxBet, moneyOfTbale, maxNumberOfPlayers, dealerOfTable)
+	~Table();
 	void setMinBet(unsigned int minBet);
 	void setMaxBet(unsigned int maxBet);
 	void setDealer(Dealer *dealerOfTable);
-	void setID(unsigned int ID);
+	void setID(int ID);
 	void addPlayer(Player *newPlayer);
 	void addPlayers(vector <Player *> newPlayers);
 	void removePlayer(Player * player1);
-	void play(unsigned int roundsLeft);
+	void play();
+	void simulation(unsigned int roundsLeft);
 	unsigned int getInitialMoney() const;
-	unsigned int getTableID() const;
+	int getTableID() const;
 	unsigned int getMinBet() const;
 	unsigned int getMaxBet() const;
 	unsigned int getNumberMaxOfPlayers() const;
