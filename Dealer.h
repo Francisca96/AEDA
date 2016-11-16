@@ -16,10 +16,12 @@ private:
 	unsigned int nextPlayer;
 	vector<Card> deck;
 	vector<Card> deckDiscarded;
+	int TableID;
 
 public:
 	//Default constructor - creates a default deck of 52 cards
 	Dealer();
+	Dealer(unsigned int ID);
 	//Instanciates a new Dealer
 	Dealer(vector<Card> newDeck);
 	//shuffles Dealer's Deck
@@ -42,5 +44,39 @@ public:
 	void clearHand();
 	bool hasCardInHand(Card& c);
 	string play(Table &table);
+	unsigned int getID() const;
+	void setTable(int tableID);
+	int getTableOn() const;
+	static void setNextID(unsigned int ID);
 };
 
+class DealerNotExist {
+private:
+	int dealerID;
+public:
+	DealerNotExist(Dealer * dealer);
+};
+
+class DealerAlreadyExist {
+private:
+	int dealerID;
+public:
+	DealerAlreadyExist(Dealer * dealer);
+	int getID() const;
+};
+
+class DealerIsOnTableAlready {
+private:
+	int dealerID;
+public:
+	DealerIsOnTableAlready(Dealer * dealer);
+};
+
+class DealerStillOnTable {
+private:
+	int dealerID;
+	unsigned int tableID;
+public:
+	DealerStillOnTable(Dealer *dealer);
+	unsigned int getTableID() const;
+};

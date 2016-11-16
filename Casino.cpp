@@ -40,9 +40,48 @@ void Casino::addTableToCasino(Table * table)
 	}
 }
 
+
+
+void Casino::removeTableFromCasino(Table * table) {
+	for (size_t i = 0; i < tables.size(); i++)
+	{
+		if (tables.at(i)->getTableID() == table->getTableID())
+		{
+			delete tables.at(i);
+			tables.erase(tables.begin() + i);
+			return;
+		}
+	}
+	throw TableNotInCasino(table);
+}
+
 void Casino::addPlayerToCasino(Player * player1)
 {
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		if (player1->getName() == players.at(i)->getName())
+		{
+			throw PlayerAlreadyExist(player1);
+		}
+	}
 	players.push_back(player1);
+}
+
+void Casino::removePlayerFromCasino(string name) {
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		if (players.at(i)->getName() == name)
+		{
+			if (players.at(i)->getOnTable() != -1)
+			{
+				throw PlayerStillOnTable(players.at(i));
+			}
+			delete players.at(i);
+			players.erase(players.begin() + i);
+			return;
+		}
+	}
+	throw PlayerNotExist(name);
 }
 
 void Casino::addPlayersToCasino(vector<Player*>& newPlayers)
@@ -92,14 +131,542 @@ void Casino::addPlayerToTable(Player * player1, Table * table)
 	}
 }
 
-void Casino::showStatistics()
-{
+void Casino::addDealerToCasino(Dealer * newDealer) {
+	for (size_t i = 0; i < dealers.size(); i++)
+	{
+		if (newDealer->getID() == dealers.at(i)->getID())
+		{
+			throw DealerAlreadyExist(newDealer);
+		}
+	}
+	dealers.push_back(newDealer);
+}
+
+void Casino::removeDealerFromCasino(Dealer *dealer) {
+	for (size_t i = 0; i < dealers.size(); i++)
+	{
+		if (dealers.at(i)->getID() == dealer->getID())
+		{
+			if (dealers.at(i)->getTableOn() != -1)
+			{
+				throw DealerStillOnTable(dealers.at(i));
+			}
+			delete dealers.at(i);
+			dealers.erase(dealers.begin() + i);
+			return;
+		}
+	}
+	throw DealerNotExist(dealer);
+}
+
+void Casino::setPlayersFile(string playerFile) {
+	this->playersFile = playerFile;
+}
+
+void Casino::setDealersFile(string dealersFile) {
+	this->dealersFile = dealersFile;
+}
+
+void Casino::setTablesFile(string tablesFile) {
+	this->tablesFile = tablesFile;
+}
+
+void Casino::readPlayersFile() {
+	ifstream inFile(playersFile);
+	string line;
+	stringstream ssLine;
+	string player;
+	string name;
+	unsigned int initialMoney, age;
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (inFile.is_open())
+		{
+			if (!players.empty()) players.clear();
+
+			while (getline(inFile, line))
+			{
+				player = line.substr(0, line.find_first_of(" ; "));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				name = line.substr(0, line.find_first_of(";")-1);
+				line.erase(0, line.find_first_of(";") + 2);
+				initialMoney = stoi(line.substr(0, line.find_first_of(" ; ")), nullptr, 10);
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				if (player == "3")
+				{
+					ssLine << line;
+					ssLine >> age;
+					Human *newHuman = new Human(name, age);
+					newHuman->setInitialMoney(initialMoney);
+					players.push_back(newHuman);
+				}
+				if (player == "0")
+				{
+					ssLine << line;
+					ssLine >> age;
+					Bot0 *newBot0 = new Bot0(name, initialMoney);
+					players.push_back(newBot0);
+				}
+				if (player == "1")
+				{
+					ssLine << line;
+					ssLine >> age;
+					Bot1 *newBot1 = new Bot1(name, initialMoney);
+					players.push_back(newBot1);
+				}
+				/*if (player == "2")
+				{
+					ssLine << line;
+					ssLine >> age;
+					Bot2 *newBot2 = new Bot2();
+					players.push_back(newBot2);
+				}*/
+			}
+			return;
+		}
+	}
+	cout << "Fail to open players file" << endl;
+}
+
+void Casino::readDealersFile() {
+	ifstream inFile(dealersFile);
+	string line;
+	for (int i = 0; i < 3; i++)
+	{
+		if (inFile.is_open())
+		{
+			if (!dealers.empty()) dealers.clear();
+
+			while (getline(inFile, line))
+			{
+				Dealer *newDealer = new Dealer(stoi(line));
+				try
+				{
+					this->addDealerToCasino(newDealer);
+				}
+				catch (DealerAlreadyExist dealer)
+				{
+					cout << "Dealer with ID : " << dealer.getID() << " already exist" << endl;
+				}
+			}
+			return;
+		}
+	}
+	unsigned int maxID = 0;
+	for (size_t i = 0; i < dealers.size(); i++)
+	{
+		if (dealers.at(i)->getID() >= maxID)
+		{
+			maxID = dealers.at(i)->getID() + 1;
+		}
+	}
+	Dealer::setNextID(maxID);
+	cout << "Fail to open dealers file" << endl;
+}
+
+void Casino::readTablesFile() {
+	ifstream inFile(tablesFile);
+	string line;
+
+	unsigned int tableID;
+	unsigned int minBet;
+	unsigned int maxBet;
+	unsigned int initialMoney;
+	unsigned int maxNumberOfPlayers;
+	unsigned int dealerID;
+	Dealer *dealerOfTable = new Dealer();
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (inFile.is_open())
+		{
+			if (!tables.empty()) tables.clear();
+
+			while (getline(inFile, line))
+			{
+				tableID = stoi(line.substr(0, line.find_first_of(" ; ")));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				minBet = stoi(line.substr(0, line.find_first_of(" ; ")));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				maxBet = stoi(line.substr(0, line.find_first_of(" ; ")));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				initialMoney = stoi(line.substr(0, line.find_first_of(" ; ")));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				maxNumberOfPlayers = stoi(line.substr(0, line.find_first_of(" ; ")));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				dealerID = stoi(line.substr(0, line.find_first_of(" ; ")));
+				line.erase(0, line.find_first_of(" ; ") + 3);
+				for (size_t i = 0; i < dealers.size(); i++)
+				{
+					if (dealers.at(i)->getID() == dealerID)
+					{
+						dealerOfTable = dealers.at(i);
+						break;
+					}
+				}
+				Table *newTable = new Table(minBet, maxBet, initialMoney, maxNumberOfPlayers, dealerOfTable);
+				newTable->setID(tableID);
+				this->addTableToCasino(newTable);
+			}
+			return;
+		}
+	}
+	cout << "Fail to read tables file" << endl;
+}
+
+void Casino::savePlayersFile() {
+	ofstream outFile(playersFile);
+	for (int i = 0; i < 3; i++)
+	{
+		if (outFile.is_open())
+		{
+			for (size_t i = 0; i < players.size(); i++)
+			{
+				Human *h = dynamic_cast<Human *>(players.at(i));
+				Bot0 *b0 = dynamic_cast<Bot0 *>(players.at(i));
+				Bot1 *b1 = dynamic_cast<Bot1 *>(players.at(i));
+				Bot2 *b2 = dynamic_cast<Bot2 *>(players.at(i));
+				if (h != NULL)
+				{
+					outFile << "3 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
+				}
+				if (b0 != NULL)
+				{
+					outFile << "0 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
+				}
+				if (b1 != NULL)
+				{
+					outFile << "1 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
+				}
+				if (b2 != NULL)
+				{
+					outFile << "2 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
+				}
+			}
+			return;
+		}
+	}
+	cout << "Fail to open players file" << endl;
+}
+
+void Casino::saveDealersFile() {
+	ofstream outFile(dealersFile);
+	for (int i = 0; i < 3; i++)
+	{
+		if (outFile.is_open())
+		{
+			for (size_t i = 0; i < dealers.size(); i++)
+			{
+				outFile << dealers.at(i)->getID() << endl;
+			}
+			return;
+		}
+	}
+	cout << "Fail to open dealers file" << endl;
+}
+
+void Casino::saveTablesFile() {
+	ofstream outFile(tablesFile);
+	for (int i = 0; i < 3; i++)
+	{
+		if (outFile.is_open())
+		{
+			for (size_t i = 0; i < dealers.size(); i++)
+			{
+				outFile << tables.at(i)->getTableID() << " ; " << tables.at(i)->getMinBet() << " ; " << tables.at(i)->getMaxBet() << " ; " << tables.at(i)->getInitialMoney() << " ; " << tables.at(i)->getNumberMaxOfPlayers() << " ; " << tables.at(i)->getDealer()->getID() << " ; " << endl;
+			}
+			return;
+		}
+	}
+	cout << "Fail to open tables file" << endl;
+}
+
+vector<Table*> Casino::getTables() const {
+	return this->tables;
+}
+
+void Casino::setTableToPlay(int tableID) {
+	this->tableToPlay = tableID;
+}
+
+Table * Casino::getTableToPlay() const {
+	if (this->tableToPlay != -1)
+	{
+		for (size_t i = 0; i < tables.size(); i++)
+		{
+			if (this->tableToPlay == tables.at(i)->getTableID())
+			{
+				return tables.at(i);
+			}
+		}
+	}
+	throw TableNotInCasino(new Table(tableToPlay));
+}
+
+void Casino::manage(pair<short, short> xy) {
+	unsigned int exit = 0;
+	unsigned int choise;
+	while (!exit)
+	{
+		manageCasino(xy, choise);
+		switch (choise)
+		{
+		case 0:
+			exit = 1;
+			break;
+		case 1:
+			this->create(xy);
+			break;
+		case 2:
+			this->eliminate(xy);
+			break;
+		case 3:
+			//TODO: this->manageTables(xy);
+			break;
+		case 4:
+			//TODO: this->stats(xy);
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void Casino::create(pair<short, short> xy) {
+	unsigned int exit = 0;
+	unsigned int choise;
+	while (!exit)
+	{
+		createMenu(xy, choise);
+		switch (choise)
+		{
+		case 0:
+			exit = 1;
+			break;
+		case 1:
+			try
+			{
+				unsigned int minBet, maxBet, numberMaxOfPlayer, initialMoney, dealerID, found = 0;
+				Dealer *dealerOfTable;
+				system("CLS");
+				cout << "Initial Money?" << endl;
+				initialMoney = readUnsignedIntBetween(1000, this->totalMoney);
+				cout << "Min Bet?" << endl;
+				minBet = readUnsignedIntBetween(1, initialMoney - 1);
+				cout << "Max Bet?" << endl;
+				maxBet = readUnsignedIntBetween(minBet, initialMoney);
+				cout << "Number Max Of Players?" << endl;
+				numberMaxOfPlayer = readUnsignedIntBetween(1, 6);
+				this->showDealers();
+				dealerID = readUnsignedInt();
+				for (size_t i = 0; i < dealers.size(); i++)
+				{
+					if (dealerID == dealers.at(i)->getID())
+					{
+						found = 1;
+						dealerOfTable = dealers.at(i);
+						if (dealerOfTable->getTableOn() != -1)
+						{
+							Table *newTable = new Table(minBet, maxBet, initialMoney, numberMaxOfPlayer, dealerOfTable);
+							this->addTableToCasino(newTable);
+						}
+						else
+						{
+							throw DealerIsOnTableAlready(new Dealer(dealerID));
+						}
+					}
+				}
+				if (found != 1)
+				{
+					throw DealerNotExist(new Dealer(dealerID));
+				}
+				cout << "Tables was created with success" << endl;
+				system("pause");
+			}
+			catch (DealerNotExist)
+			{
+				cout << "Tables wasn't created with success" << endl;
+				cout << "The Dealer doesn't exist, pls try again" << endl;
+				system("pause");
+			}
+			catch (DealerIsOnTableAlready)
+			{
+				cout << "Tables wasn't created with success" << endl;
+				cout << "The Dealer have one table already, pls try again" << endl;
+				system("pause");
+			}
+			break;
+		case 2:
+			try
+			{
+				Dealer *newDealer = new Dealer();
+				this->addDealerToCasino(newDealer);
+				cout << "Dealer was created with success" << endl;
+				system("pause");
+			}
+			catch (DealerAlreadyExist)
+			{
+				cout << "Dealer wasn't created with success" << endl;
+				cout << "This Dealer already Exist" << endl;
+				system("pause");
+			}
+			break;
+		case 3:
+			try
+			{
+				Player *newBot = new Bot0();
+				string name;
+				while (name.length() == 0)
+				{
+					cout << "What name do you want for bot?" << endl;
+					getline(cin, name);
+				}
+				cout << "How many initial money do you want for bot?" << endl;
+				unsigned int money = readUnsignedInt();
+				cout << "What Bot do you want create (0 , 1 , 2)?" << endl;
+				unsigned int botInteligent = readUnsignedIntBetween(0, 2);
+				if (botInteligent == 0)
+				{
+					newBot = new Bot0(name, money);
+				}
+				if (botInteligent == 1)
+				{
+					newBot = new Bot1(name, money);
+				}
+				/*if (botInteligent == 2)
+				{
+					newBot = new Bot2(name, money);
+				}*/
+				this->addPlayerToCasino(newBot);
+				cout << "Player was created with success" << endl;
+				system("pause");
+			}
+			catch (PlayerAlreadyExist)
+			{
+				cout << "Player wasn't created with success" << endl;
+				cout << "This Player already Exist" << endl;
+				system("pause");
+			}
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void Casino::eliminate(pair<short, short> xy) {
+	unsigned int exit = 0;
+	unsigned int choise;
+	while (!exit)
+	{
+		deleteMenu(xy, choise);
+		switch (choise)
+		{
+		case 0:
+			exit = 1;
+			break;
+		case 1:
+			try
+			{
+				this->showTables();
+				unsigned int tableID = readUnsignedInt();
+				Table *table = new Table(tableID);
+				this->removeTableFromCasino(table);
+				cout << "The tablet was deleted with success" << endl;
+				system("pause");
+			}
+			catch (TableNotInCasino)
+			{
+				cout << "The tablet wasn´t deleted with success" << endl;
+				cout << "The tablet doesn't exist" << endl;
+				system("pause");
+			}
+			break;
+		case 2:
+			try
+			{
+				this->showDealers();
+				unsigned int dealerID = readUnsignedInt();
+				Dealer *dealer = new Dealer(dealerID);
+				this->removeDealerFromCasino(dealer);
+				cout << "The dealer was deleted with success" << endl;
+				system("pause");
+			}
+			catch (DealerNotExist)
+			{
+				cout << "The dealer wasn´t deleted with success" << endl;
+				cout << "The dealer doesn't exist" << endl;
+				system("pause");
+			}
+			catch (DealerStillOnTable dealer)
+			{
+				cout << "The dealer wasn´t deleted with success" << endl;
+				cout << "The dealer still on table : " << dealer.getTableID() << " please remove from table first" << endl;
+				system("pause");
+			}
+			break;
+		case 3:
+			try
+			{
+				this->showPlayers();
+				string name;
+				while (name.length() == 0)
+				{
+					cout << "What is the name of bot to remove?" << endl;
+					getline(cin, name);
+				}
+				this->removePlayerFromCasino(name);
+				cout << "The player was deleted with success" << endl;
+				system("pause");
+			}
+			catch (PlayerNotExist)
+			{
+				cout << "The player wasn´t deleted with success" << endl;
+				cout << "The player doesn't exist" << endl;
+				system("pause");
+			}
+			catch (PlayerStillOnTable player)
+			{
+				cout << "The player wasn´t deleted with success" << endl;
+				cout << "The player still on table : " << player.getTableId() << " please remove from table first" << endl;
+				system("pause");
+			}
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void Casino::showStatistics() const {
 	cout << "Statistics\n\n\n\n";
 	cout << setw(15) << "NAME" << setw(15) << "BRAIN LEVEL" << setw(15) << "ROUNDS PLAYED" << setw(30) << "AVG. PROFIT" << endl;
 	for (size_t i = 0; i < players.size(); i++) {
 		players.at(i)->showStatistics();
 	}
 
+}
+
+void Casino::showPlayers() const {
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		cout << players.at(i)->getName() << endl;
+	}
+}
+
+void Casino::showDealers() const {
+	for (size_t i = 0; i < dealers.size(); i++)
+	{
+		cout << dealers.at(i)->getID() << endl;
+	}
+}
+
+void Casino::showTables() const {
+	for (size_t i = 0; i < tables.size(); i++)
+	{
+		cout << tables.at(i)->getTableID() << endl;
+	}
 }
 
 PlayerNotLogged::PlayerNotLogged(Player * player1)

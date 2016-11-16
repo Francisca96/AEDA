@@ -71,12 +71,12 @@ string getHumanPlay()
 
 unsigned short int readUnsignedIntBetween(unsigned int minValue, unsigned int  maxValue){
 	unsigned int short newInt;
-	cout << "Insert Your Bet ( " << minValue << "$ - " << maxValue << "$ ) : ";
+	cout << "Insert Value ( " << minValue << " - " << maxValue << " ) : ";
 	while (!(cin >> newInt) || newInt > maxValue || newInt < minValue) {
 		cout << endl;
 		cin.clear();
 		cin.ignore();
-		cout << "Invalid Bet: Insert a new one: ";
+		cout << "Invalid Value: Insert a new one: ";
 	}
 	cin.ignore();
 	cout << endl;
@@ -86,12 +86,12 @@ unsigned short int readUnsignedIntBetween(unsigned int minValue, unsigned int  m
 
 int readIntBetween(int min, int max){
 	int newInt;
-	cout << "Insira um valor: ";
+	cout << "Insert a value: ";
 	while(!(cin >> newInt) || newInt > max || newInt < min) {
 		cout << endl;
 		cin.clear();
 		cin.ignore();
-		cout << "Valor invalido. Introduza um novo int: ";
+		cout << "Wroght value, value between " << min << " - " << max;
 	}
 	cin.ignore();
 	cout << endl;
@@ -191,8 +191,16 @@ void Users(vector <int> &usersVEC, int &user) {
 		}
 		if (find == 0)
 		{
-			usersVEC.push_back(usersVEC.back() + 1);
-			user = usersVEC.back();
+			if (usersVEC.size() != 0)
+			{
+				usersVEC.push_back(usersVEC.back() + 1);
+				user = usersVEC.back();
+			}
+			else
+			{
+				usersVEC.push_back(1);
+				user = usersVEC.back();
+			}
 		}
 	}
 	else
@@ -262,3 +270,75 @@ int BinaryInt(int id, vector <int> VEC) {
 	}
 	return -1;
 }
+
+int saveChanges(vector <int> &usersVEC, int &user, pair <int, int> xy, int &save) {
+	char decision;
+	Users(usersVEC, user);
+	if (usersVEC.size() == 1)
+	{
+		system("cls");
+		cout << setw((xy.first - 50) / 2) << (char)201;
+		for (int i = 0; i < 50; i++)
+		{
+			cout << (char)205;
+		}
+		cout << (char)187 << endl;
+		cout << setw((xy.first - 50) / 2) << (char)186 << setw(51) << (char)186 << endl;
+		string text = "Do you want save all changes?";
+		cout << setw((xy.first - 50) / 2) << (char)186 << setw((50 + text.length()) / 2) << text << setw(51 - (50 + text.length()) / 2) << (char)186 << endl;
+		cout << setw((xy.first - 50) / 2) << (char)186 << setw(51) << (char)186 << endl;
+		cout << setw((xy.first - 50) / 2) << (char)200;
+		for (int i = 0; i < 50; i++)
+		{
+			cout << (char)205;
+		}
+		cout << (char)188 << endl;
+		cout << endl << "Yes 'Y' or No 'N': ";
+		cin >> decision;
+		while (!(decision == 'Y' || decision == 'y' || decision == 'N' || decision == 'n'))
+		{
+			cout << endl << "Yes 'Y' or No 'N': ";
+			cin >> decision;
+		}
+
+		//alteracao
+		if (decision == 'Y' || decision == 'y')
+		{
+			remove("users_temp.txt");
+			save = 1;
+		}
+		else if (decision == 'N' || decision == 'n')
+		{
+			remove("users_temp.txt");//delete file temp
+			save = 0;
+		}
+	}
+	else
+	{
+		//elimina usuario no vetor
+		usersVEC.erase(usersVEC.begin() + BinaryInt(user, usersVEC));
+
+		ofstream UserFileO("users_temp.txt");
+		if (UserFileO.is_open())
+		{
+			for (unsigned int i = 0; i < usersVEC.size(); i++)
+			{
+				UserFileO << usersVEC.at(i) << endl;
+			}
+			UserFileO.close();
+		}
+	}
+	return 0;
+}
+
+int readNameOfFile(string & fileName) {
+	cout << "Name of File?" << endl;
+	cin >> fileName;
+	while (fileName.find(".txt") != fileName.length() - 4)
+	{
+		cout << "Write name of file again" << endl;
+		cin >> fileName;
+	}
+	return 0;
+}
+

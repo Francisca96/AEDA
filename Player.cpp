@@ -72,7 +72,7 @@ void Player::setName(string newName)
 	name = newName;
 }
 
-unsigned int Player::getAverageProfit() const
+float Player::getAverageProfit() const
 {
 	return averageProfit;
 }
@@ -113,7 +113,7 @@ void Player::setInitialMoney(unsigned int money)
 	roundsPlayed = 0;
 }
 
-void Player::addMoney(unsigned int value)
+void Player::addMoney(float value)
 {
 	currentMoney += value;
 }
@@ -169,6 +169,22 @@ void Player::resetCount()
 {
 }
 
+unsigned int Player::getAge() const {
+	return this->age;
+}
+
+void Player::setAge(unsigned int age) {
+	this->age = age;
+}
+
+void Player::setOnTable(int tableID) {
+	this->onTable = tableID;
+}
+
+int Player::getOnTable() const {
+	return this->onTable;
+}
+
 bool Player::takeInsurance(Table &table){
 	return false;
 }
@@ -181,6 +197,7 @@ bool Player::split(vector<Card> * secHand){
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 Bot0::Bot0(string name, unsigned int initialMoney)
 {
+	this->setOnTable(-1);
 	this->setName(name);
 	this->setInitialMoney(initialMoney);
 }
@@ -272,6 +289,7 @@ unsigned int Bot1::bet(Table &table) {
 
 Bot1::Bot1(string name, unsigned int initialMoney)
 {
+	this->setOnTable(-1);
 	this->setName(name);
 	this->setInitialMoney(initialMoney);
 }
@@ -411,7 +429,12 @@ bool Human::split(vector<Card> * secHand) {
 		hand.erase(getHand().begin()+1);
 		return true;
 	}
+	else
+	{
+		return false;
+	}
 }
+
 
 Human::Human(string name, unsigned int age)
 {
@@ -423,8 +446,9 @@ Human::Human(string name, unsigned int age)
 		if (age < 18) {
 			throw TooYoung();
 		}
-		this->age = age;
+		this->setAge(age);
 		setInitialMoney(1000);
+		this->setOnTable(-1);
 	}
 	catch (NameTooShort &n) {
 		n.what();
@@ -471,4 +495,21 @@ string Human::play(Table &table)
 		hit(table.getDealer()->discard(table.getPlayers()));
 	}
 	return option;
+}
+
+PlayerAlreadyExist::PlayerAlreadyExist(Player * player) {
+	this->name = player->getName();
+}
+
+PlayerNotExist::PlayerNotExist(string name) {
+	this->name = name;
+}
+
+PlayerStillOnTable::PlayerStillOnTable(Player * player) {
+	this->name = player->getName();
+	this->tableID = player->getOnTable();
+}
+
+unsigned int PlayerStillOnTable::getTableId() const {
+	return this->tableID;
 }

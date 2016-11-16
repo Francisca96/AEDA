@@ -21,7 +21,6 @@ public:
 };
 class Player {
 private:
-	
 	string name;
 	unsigned int initialMoney;
 	float currentMoney;
@@ -29,6 +28,8 @@ private:
 	unsigned int handScore;
 	unsigned int roundsPlayed;
 	float averageProfit;
+	unsigned int age;
+	int onTable;
 
 public:
 	void hit(Card newCard);
@@ -40,7 +41,7 @@ public:
 	unsigned int getHandSize() const;
 	unsigned int getRoundsPlayed() const;
 	unsigned int getCurrentMoney() const;
-	unsigned int getAverageProfit() const;
+	float getAverageProfit() const;
 	unsigned int getHandScore() const;
 	unsigned int getInitialMoney() const;
 	string getName() const;
@@ -49,7 +50,7 @@ public:
 	void setCurrentMoney(unsigned int money);
 	void setRoundsPlayed(unsigned int rounds);
 	void setInitialMoney(unsigned int money);
-	void addMoney(unsigned int value);
+	void addMoney(float value);
 	void showStatistics();
 	//bots currently bet's always the minValue
 	virtual unsigned int bet(Table &table);
@@ -58,6 +59,11 @@ public:
 	virtual int getCurrentCount() const;
 	virtual void addCount(Card &card1);
 	virtual void resetCount();
+	unsigned int getAge() const;
+	void setAge(unsigned int age);
+	void setOnTable(int tableID);
+	int getOnTable() const;
+
 	
 };
 
@@ -98,12 +104,33 @@ public:
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
 class Human: public Player {
-private:
-	unsigned int age;
 public:
 	Human(string name, unsigned int age);
 	unsigned int bet(Table &table);
 	string play(Table &table);
 	bool takeInsurance(Table &table);
 	bool split(vector<Card> * secHand);
+};
+
+class PlayerAlreadyExist {
+private:
+	string name;
+public:
+	PlayerAlreadyExist(Player *player);
+};
+
+class PlayerNotExist {
+private:
+	string name;
+public:
+	PlayerNotExist(string name);
+};
+
+class PlayerStillOnTable {
+private:
+	string name;
+	unsigned int tableID;
+public:
+	PlayerStillOnTable(Player *player);
+	unsigned int getTableId() const;
 };

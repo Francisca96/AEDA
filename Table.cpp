@@ -12,8 +12,11 @@ void TooManyPlayers::what()
 }
 
 
-Table::Table(unsigned int roundsLeft,unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers, Dealer * newDealer) {
-	this->roundsLeft = roundsLeft;
+Table::Table(int ID) {
+	this->tableID = ID;
+}
+
+Table::Table(unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers, Dealer * newDealer) {
 	this->minBet = minBet;
 	this->maxBet = maxBet;
 	this->moneyOfTable = moneyOfTable;
@@ -22,6 +25,16 @@ Table::Table(unsigned int roundsLeft,unsigned int minBet, unsigned int maxBet, u
 	initialMoney = moneyOfTable;
 	tableID = nextID;
 	nextID++;
+	newDealer->setTable(tableID);
+}
+
+Table::~Table() {
+	this->closeTable();
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		players.at(i)->setOnTable(-1);
+	}
+	dealerOfTable->setTable(-1);
 }
 
 void Table::setMaxBet(unsigned int aMaxBet) {
@@ -29,12 +42,23 @@ void Table::setMaxBet(unsigned int aMaxBet) {
 }
 
 void Table::setDealer(Dealer *dealerOfTable) {
+	this->dealerOfTable->setTable(-1);
 	this->dealerOfTable = dealerOfTable;
+	dealerOfTable->setTable(tableID);
+}
+
+void Table::setID(int ID) {
+	this->tableID = ID;
+	if (ID >= nextID)
+	{
+		nextID = ID + 1;
+	}
 }
 
 
 void Table::addPlayer(Player * newPlayer) {
 	this->players.push_back(newPlayer);
+	newPlayer->setOnTable(this->getTableID());
 	actualBets.resize(players.size());
 }
 
@@ -43,12 +67,11 @@ void Table::addPlayers(vector<Player *> newPlayers) {
 		throw TooManyPlayers (maxNumberOfPlayers,players.size());
 	}
 	players.insert(players.end(), newPlayers.begin(), newPlayers.end());
+	for (size_t i = 0; i < newPlayers.size(); i++)
+	{
+		newPlayers.at(i)->setOnTable(this->getTableID());
+	}
 	actualBets.resize(players.size());
-}
-
-void Table::removePlayer(Player * player1)
-{
-
 }
 
 void Table::setMinBet(unsigned int aMinBet) {
@@ -65,11 +88,19 @@ unsigned int Table::getMaxBet() const
 	return maxBet;
 }
 
-void Table::play() {
+unsigned int Table::getNumberMaxOfPlayers() const {
+	return this->maxNumberOfPlayers;
+}
+
+void Table::simulation(unsigned int roundsLeft) {
 	//sequence : get Initial Bets then deal one card to each player and to the dealer (2x times) (first Dealer card face down)
 	//if dealer's card is an Ace, ask players if they want to take insurance()
 	//If they do, take each player�s insurance (it should be half of their original bet) and flip over dealer's second card to see whether or not dealer has a blackjack.
 	//If dealer has a blackjack, collect bets from anyone that didn�t buy insurance.Players that did buy insurance receive their original bets back.Players with blackjack will receive their original bet, even if they didn�t purchase insurance.
+	if (players.size() == 0)
+	{
+		throw NoPlayersOnTable(new Table(this->getTableID()));
+	}
 	while (roundsLeft > 0)
 	{	
 		cout << "Rounds left." << roundsLeft << "\n";
@@ -81,13 +112,13 @@ void Table::play() {
 		dealOneCardToAllPlayers();
 		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
 		if (dealerOfTable->hit(players) == "A") {
-			for(int i = 0; i < actualPlayers.size(); i++){
+			for(size_t i = 0; i < actualPlayers.size(); i++){
 				if(actualPlayers.at(i)->takeInsurance(*this)){
 					moneyOfTable += actualBets.at(i)/2;
 				}
 			}
 		}
-		for(int j=0; j < actualPlayers.size(); j++) {
+		for(size_t j=0; j < actualPlayers.size(); j++) {
 			if (actualPlayers.at(j)->getHand().at(0) == actualPlayers.at(j)->getHand().at(1)) {
 				vector<Card> *secHand = new vector <Card>;
 				actualPlayers.at(j)->split(secHand);
@@ -143,6 +174,7 @@ void Table::play() {
 	for (size_t i = 0; i < players.size(); i++) {
 		cout << players.at(i)->getName() << " has finished with " << players.at(i)->getCurrentMoney() << "$ in his hand!\n";
 	}
+	this->closeTable();
 }
 
 unsigned int Table::getInitialMoney() const
@@ -150,7 +182,7 @@ unsigned int Table::getInitialMoney() const
 	return initialMoney;
 }
 
-unsigned int Table::getTableID() const
+int Table::getTableID() const
 {
 	return tableID;
 }
@@ -208,8 +240,63 @@ unsigned int Table::restartDeck()
 	return 1;
 }
 
+void Table::showTableInfo(pair<short, short> xy) {
+	string text;
+	cursorxy(xy.first, xy.second);
+	cout << (char)201; //╔
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)205; //═
+	}
+	cout << (char)187; //╗
+	xy.second++;
+	cursorxy(xy.first, xy.second);
+	text = "  TableID: ";
+	cout << (char)186 //║
+		<< text << setw(30 - text.length()) << (char)186; //║
+	cursorxy(xy.first + text.length() + 1, xy.second);
+	cout << this->getTableID();
+	xy.second++;
+	cursorxy(xy.first, xy.second);
+	cout << (char)204; //╠
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)205; //═
+	}
+	cout << (char)185 /*╣*/;
+	xy.second++;
+	cursorxy(xy.first, xy.second);
+	text = "  Players:";
+	cout << (char)186  << text << setw(30 - text.length()) << (char)186;
+	xy.second++;
+	cursorxy(xy.first, xy.second);
+	for (size_t i = 0; i < this->getPlayers().size(); i++)
+	{
+		text = this->getPlayers().at(i)->getName();
+		cout << (char)186  << "   " << text << setw(30 - (3 + text.length())) << (char)186;
+		xy.second++;
+		cursorxy(xy.first, xy.second);
+	}
+	cout << (char)186 << setw(30) << (char)186;
+	xy.second++;
+	cursorxy(xy.first, xy.second);
+	text = "  Money of Table: ";
+	cout << (char)186 << text << setw(30 - text.length()) << (char)186;
+	cursorxy(xy.first+ text.length()+1, xy.second);
+	cout << this->getInitialMoney();
+	xy.second++;
+	cursorxy(xy.first, xy.second);
+	cout << (char)200;
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)205;
+	}
+	cout << (char)188;
+}
+
 void Table::kickPlayer(unsigned int index)
 {
+	players.at(index)->setOnTable(-1);
 	players.erase(players.begin() + index);
 }
 
@@ -229,11 +316,16 @@ float Table::closeTable()
 	return moneyOfTable;
 }
 
-
-
 TooManyPlayers::TooManyPlayers(unsigned int maxNumberOfPlayers, unsigned int actualNumOfPlayers)
 {
 	this->maxNumberOfPlayers = maxNumberOfPlayers;
 	this->actualNumOfPlayers = actualNumOfPlayers;
 }
 
+NoPlayersOnTable::NoPlayersOnTable(Table *table) {
+	this->tableID = table->getTableID();
+}
+
+unsigned int NoPlayersOnTable::getID() const {
+	return this->tableID;
+}
