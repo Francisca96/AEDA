@@ -22,8 +22,8 @@ void Player::hit(Card newCard) {
 	setHandScore();
 }
 
-void Player::surrender() {
-	throw "Not yet implemented";
+bool surrender(Table &table) {
+	return false;
 }
 
 
@@ -240,6 +240,11 @@ bool Player::takeInsurance(Table &table){
 	return false;
 }
 
+bool Player::surrender(Table & table)
+{
+	return false;
+}
+
 bool Player::split(Dealer *dealerOfTable){
 	return false;
 }
@@ -271,7 +276,7 @@ string Bot0::play(Table &table)
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
 bool Bot1::takeInsurance(Table &table) {
 	unsigned int insurance = getActualBet() / 2;
-	if (currentCount > 3) {
+	if (currentCount >= 3) {
 		setCurrentMoney(getCurrentMoney() - insurance);
 		return true;
 	}
@@ -297,6 +302,25 @@ bool Bot1::split(Dealer *dealerOfTable) {
 			}
 		}
 
+	}
+	return false;
+}
+
+bool Bot1::surrender(Table & table)
+{	//based on fab4 surrender guides
+	unsigned int dealerHandScore = table.getDealer()->getHandScore();
+	unsigned int personalScore = getHandScore();
+	if (personalScore == 14 && dealerHandScore == 10 && currentCount >= 3) {
+		return true;
+	}
+	else if (personalScore == 15 && dealerHandScore == 10 && currentCount >= 0) {
+		return true;
+	}
+	else if (personalScore == 15 && dealerHandScore == 9 && currentCount >= 2) {
+		return true;
+	}
+	else if (personalScore == 15 && dealerHandScore == 11 && currentCount >= 1) {
+		return true;
 	}
 	return false;
 }
@@ -368,61 +392,96 @@ Bot1::Bot1(string name, unsigned int initialMoney)
 
 string Bot1::play(Table &table)
 {
-	string options[] = {"hit", "stand"};
+	string options[] = {"hit", "stand","double"};
 	string option;
 	Dealer * dealerOfTable = table.getDealer();
 	unsigned int botHandScore = getHandScore();
-	unsigned int dealerHandScore = dealerOfTable->getHandScore();
+	Card dealerCard1 = dealerOfTable->getHand().at(0);
 
 	int runningCount = currentCount;
-	if (botHandScore == 16 && dealerHandScore == 10) {
+	if (botHandScore == 16 && dealerCard1.score == 10) {
 		if (runningCount < 0) {
 			option = options[0];
 		}else option = options[1];
 	}
-	else if (botHandScore == 15 && dealerHandScore == 10) {
+	else if (botHandScore == 15 && dealerCard1.score == 10) {
 		if (runningCount < 4) {
 			option =  options[0];
 		} else option = options[1];
 			
 	}
-	else if (botHandScore == 12 && dealerHandScore == 3) {
+	else if (botHandScore == 10 && dealerCard1.score == 10) {
+		if (runningCount < 4) {
+			option = options[0];
+		}
+		else option = options[2];
+
+	}
+	else if (botHandScore == 12 && dealerCard1.score == 3) {
 		if (runningCount < 2) {
 			option =  options[0];
 		}else
 		option =  options[1];
 	}
-	else if (botHandScore == 12 && dealerHandScore == 2) {
+	else if (botHandScore == 12 && dealerCard1.score == 2) {
 		if (runningCount < 3) {
 			option =  options[0];
 		}else
 		option =  options[1];
 	}
-	else if (botHandScore == 13 && dealerHandScore == 2) {
+	else if (botHandScore == 11 && dealerCard1.score == 11) {
+		if (runningCount < 1) {
+			option = options[0];
+		}
+		else
+			option = options[2];
+	}
+	else if (botHandScore == 9 && dealerCard1.score==2) {
+		if (runningCount < 1) {
+			option = options[0];
+		}
+		else
+			option = options[2];
+	}
+	else if (botHandScore == 10 && dealerCard1.score == 11){
+		if (runningCount < 4) {
+			option = options[0];
+		}
+		else
+			option = options[2];
+	}
+	else if (botHandScore == 9 && dealerCard1.score == 7) {
+		if (runningCount < 3) {
+			option = options[0];
+		}
+		else
+			option = options[2];
+	}
+	else if (botHandScore == 13 && dealerCard1.score == 2) {
 		if (runningCount < -1) {
 			option =  options[0];
 		}else
 		option =  options[1];
 	}
-	else if (botHandScore == 12 && dealerHandScore == 4) {
+	else if (botHandScore == 12 && dealerCard1.score == 4) {
 			if (runningCount < 0) {
 				option =  options[0];
 			}else
 			option =  options[1];
 		}
-	else if (botHandScore == 12 && dealerHandScore == 5) {
+	else if (botHandScore == 12 && dealerCard1.score == 5) {
 			if (runningCount < -2) {
 				option =  options[0];
 			}else
 			option =  options[1];
 		}
-	else if (botHandScore == 12 && dealerHandScore == 6) {
+	else if (botHandScore == 12 && dealerCard1.score == 6) {
 			if (runningCount < -1) {
 				option =  options[0];
 			}else
 			option =  options[1];
 	}
-	else if (botHandScore == 13 && dealerHandScore == 3){
+	else if (botHandScore == 13 && dealerCard1.score == 3){
 		if (runningCount < -2){
 			option =  options[0];
 		}else
@@ -435,9 +494,12 @@ string Bot1::play(Table &table)
 		option = options[1];
 	}
 	if (option == options[0]) {
-
 		hit(dealerOfTable->discard(table.getPlayers()));
-
+	}
+	if (option == options[2]) {
+		hit(dealerOfTable->discard(table.getPlayers()));
+		setCurrentMoney(getCurrentMoney() - getActualBet());
+		setActualBet(2 * getActualBet());
 	}
 	return option; // means stand
 }

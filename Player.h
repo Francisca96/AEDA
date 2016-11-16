@@ -20,6 +20,32 @@ class TooYoung {
 public:
 	void what();
 };
+
+class PlayerAlreadyExist {
+private:
+	string name;
+public:
+	PlayerAlreadyExist(Player *player);
+};
+
+class PlayerNotExist {
+private:
+	string name;
+public:
+	PlayerNotExist(string name);
+};
+
+class PlayerStillOnTable {
+private:
+	string name;
+	unsigned int tableID;
+public:
+	PlayerStillOnTable(Player *player);
+	unsigned int getTableId() const;
+};
+
+
+
 class Player {
 private:
 	string name;
@@ -37,7 +63,7 @@ private:
 public:
 	void hit(Card newCard);
 	virtual bool takeInsurance(Table &table);
-	void surrender();
+	virtual bool surrender(Table &table);
 	virtual bool split(Dealer *dealerOfTable);
 	void doubleDown();
 	vector<Card> & getHand();
@@ -102,6 +128,7 @@ public:
 	void addCount(Card &card1);
 	void resetCount();
 	bool split( Dealer *dealerOfTable);
+	virtual bool surrender(Table &table);
 };
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
@@ -123,25 +150,3 @@ public:
 	bool split( Dealer *dealerOfTable);
 };
 
-class PlayerAlreadyExist {
-private:
-	string name;
-public:
-	PlayerAlreadyExist(Player *player);
-};
-
-class PlayerNotExist {
-private:
-	string name;
-public:
-	PlayerNotExist(string name);
-};
-
-class PlayerStillOnTable {
-private:
-	string name;
-	unsigned int tableID;
-public:
-	PlayerStillOnTable(Player *player);
-	unsigned int getTableId() const;
-};

@@ -41,7 +41,6 @@ private:
 	Dealer * dealerOfTable;
 	vector<Player*> players;
 	vector<Player*> actualPlayers;
-	vector<unsigned int> actualBets;
 
 public:
 	Table(int ID);
