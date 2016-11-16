@@ -48,6 +48,7 @@ public:
 	void setTable(int tableID);
 	int getTableOn() const;
 	static void setNextID(unsigned int ID);
+	static unsigned int getNextID();
 };
 
 class DealerNotExist {

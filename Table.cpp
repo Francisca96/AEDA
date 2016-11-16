@@ -316,6 +316,14 @@ float Table::closeTable()
 	return moneyOfTable;
 }
 
+void Table::setNextID(unsigned int tableNextID) {
+	nextID = tableNextID;
+}
+
+unsigned int Table::getNextId() {
+	return nextID;
+}
+
 TooManyPlayers::TooManyPlayers(unsigned int maxNumberOfPlayers, unsigned int actualNumOfPlayers)
 {
 	this->maxNumberOfPlayers = maxNumberOfPlayers;

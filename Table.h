@@ -74,5 +74,7 @@ public:
 	*removes all players from the Table
 	*/
 	float closeTable();
+	static void setNextID(unsigned int tableNextID);
+	static unsigned int getNextId();
 	
 };

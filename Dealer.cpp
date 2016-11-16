@@ -142,6 +142,10 @@ void Dealer::setNextID(unsigned int ID) {
 	nextID = ID;
 }
 
+unsigned int Dealer::getNextID() {
+	return nextID;
+}
+
 DealerNotExist::DealerNotExist(Dealer *dealer) {
 	this->dealerID = dealer->getID();
 }

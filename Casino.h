@@ -69,11 +69,15 @@ public:
 	void showStatistics() const;
 	void showPlayers() const;
 	void showDealers() const;
-	void showTables() const;
+	void showTables(pair <short, short> xy);
 	vector<Table*> getTables() const;
+	void selectTable(pair <short, short> xy);
 	void setTableToPlay(int tableID);
 	Table * getTableToPlay() const;
 	void manage(pair <short, short> xy);
 	void create(pair <short, short> xy);
 	void eliminate(pair <short, short> xy);
+	void manageTables(pair <short, short> xy, unsigned int tableID);
+	unsigned int findTable(unsigned int tableID);
+	unsigned int findDealer(unsigned int dealerID);
 };
