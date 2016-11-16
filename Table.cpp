@@ -49,10 +49,6 @@ void Table::setDealer(Dealer *dealerOfTable) {
 
 void Table::setID(int ID) {
 	this->tableID = ID;
-	if (ID >= nextID)
-	{
-		nextID = ID + 1;
-	}
 }
 
 
