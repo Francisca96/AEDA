@@ -667,6 +667,7 @@ void Casino::eliminate(pair<short, short> xy) {
 void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 	unsigned int exit = 0;
 	unsigned int choise, dealerID;
+	string playerName;
 	Dealer *dealerOfTable;
 	while (!exit)
 	{
@@ -689,7 +690,6 @@ void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 				tables.at(this->findTable(tableID))->setDealer(dealers.at(dealerIndex));
 				cout << "Dealer was set with success" << endl;
 				system("pause");
-				break;
 			}
 			catch (DealerNotExist)
 			{
@@ -712,22 +712,92 @@ void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 			//TODO: add player to a table
 			try
 			{
-
+				if (tables.at(findTable(tableID))->getPlayers().size() == tables.at(findTable(tableID))->getNumberMaxOfPlayers())
+				{
+					throw TooManyPlayers(tables.at(findTable(tableID))->getNumberMaxOfPlayers(), tables.at(findTable(tableID))->getNumberMaxOfPlayers() + 1);
+				}
+				showPlayers();
+				playerName = "";
+				while (playerName.length() == 0)
+				{
+					getline(cin, playerName);
+				}
+				unsigned int playerIndex = findPlayer(playerName);
+				if (players.at(playerIndex)->getOnTable() != -1)
+				{
+					throw PlayerStillOnTable(players.at(playerIndex));
+				}
+				tables.at(findTable(tableID))->addPlayer(players.at(playerIndex));
+				cout << "Player was added with success to table" << endl;
+				system("pause");
 			}
 			catch (TableNotInCasino &table)
 			{
 				throw table;
+			}
+			catch (PlayerNotExist &player)
+			{
+				cout << "The player wasn't added to table" << endl;
+				cout << "The player does not exist" << endl;
+				system("pause");
+			}
+			catch (PlayerStillOnTable)
+			{
+				cout << "The player wasn't added to table" << endl;
+				cout << "The player is on other table already" << endl;
+				system("pause");
+			}
+			catch (TooManyPlayers)
+			{
+				cout << "The player wasn't added to table" << endl;
+				cout << "The table is full" << endl;
+				system("pause");
 			}
 			break;
 		case 3:
 			//TODO: remove player from a table
 			try
 			{
-
+				Table *table = tables.at(findTable(tableID));
+				if (table->getPlayers().size() == 0)
+				{
+					throw NoPlayersOnTable(table);
+				}
+				for (size_t i = 0; i < table->getPlayers().size(); i++)
+				{
+					cout << table->getPlayers().at(i)->getName() << endl;
+				}
+				playerName = "";
+				while (playerName.length() == 0)
+				{
+					getline(cin, playerName);
+				}
+				unsigned int playerIndex;
+				table = tables.at(findTable(tableID));
+				table->removePlayer(playerName);
+				cout << "Player was removed from table with success" << endl;
+				system("pause");
 			}
 			catch (TableNotInCasino &table)
 			{
 				throw table;
+			}
+			catch (PlayerNotExist &player)
+			{
+				cout << "The player wasn't remove from table" << endl;
+				cout << "The player does not exist" << endl;
+				system("pause");
+			}
+			catch (PlayerIsntOnTable)
+			{
+				cout << "The player wasn't remove from table" << endl;
+				cout << "The player wasn't on table" << endl;
+				system("pause");
+			}
+			catch (NoPlayersOnTable)
+			{
+				cout << "The table dont have players to remove" << endl;
+				system("pause");
 			}
 			break;
 		default:
@@ -757,6 +827,17 @@ unsigned int Casino::findDealer(unsigned int dealerID) {
 		}
 	}
 	throw DealerNotExist(new Dealer(dealerID));
+}
+
+unsigned int Casino::findPlayer(string name) {
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		if (players.at(i)->getName() == name)
+		{
+			return i;
+		}
+	}
+	throw PlayerNotExist(name);
 }
 
 void Casino::showStatistics() const {

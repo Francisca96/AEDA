@@ -70,6 +70,19 @@ void Table::addPlayers(vector<Player *> newPlayers) {
 	actualBets.resize(players.size());
 }
 
+void Table::removePlayer(string &name) {
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		if (players.at(i)->getName() == name)
+		{
+			players.at(i)->setOnTable(-1);
+			players.erase(players.begin() + i);
+			return;
+		}
+	}
+	throw PlayerIsntOnTable(name);
+}
+
 void Table::setMinBet(unsigned int aMinBet) {
 	this->minBet = aMinBet;
 }

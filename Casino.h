@@ -80,4 +80,5 @@ public:
 	void manageTables(pair <short, short> xy, unsigned int tableID);
 	unsigned int findTable(unsigned int tableID);
 	unsigned int findDealer(unsigned int dealerID);
+	unsigned int findPlayer(string name);
 };

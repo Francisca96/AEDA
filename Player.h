@@ -134,3 +134,11 @@ public:
 	PlayerStillOnTable(Player *player);
 	unsigned int getTableId() const;
 };
+
+class PlayerIsntOnTable {
+private:
+	string name;
+public:
+	PlayerIsntOnTable(string &name);
+};
+

@@ -52,7 +52,7 @@ public:
 	void setID(int ID);
 	void addPlayer(Player *newPlayer);
 	void addPlayers(vector <Player *> newPlayers);
-	void removePlayer(Player * player1);
+	void removePlayer(string &name);
 	void play();
 	void simulation(unsigned int roundsLeft);
 	unsigned int getInitialMoney() const;
