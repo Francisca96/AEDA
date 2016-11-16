@@ -271,8 +271,11 @@ string Bot0::play(Table &table)
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
 bool Bot1::takeInsurance(Table &table) {
 	unsigned int insurance = getActualBet() / 2;
-    setCurrentMoney(getCurrentMoney()-insurance);
-    return true;
+	if (currentCount > 3) {
+		setCurrentMoney(getCurrentMoney() - insurance);
+		return true;
+	}
+	return false;;
 }
 
 bool Bot1::split(Dealer *dealerOfTable) {
