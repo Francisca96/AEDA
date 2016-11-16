@@ -9,6 +9,7 @@
 using namespace std;
 
 class Table;
+class Dealer;
 
 
 class NameTooShort {
@@ -25,28 +26,33 @@ private:
 	unsigned int initialMoney;
 	float currentMoney;
 	vector <Card> hand;
+	vector <Card> hand2;
 	unsigned int handScore;
+	unsigned int hand2Score;
 	unsigned int roundsPlayed;
 	float averageProfit;
 	unsigned int age;
 	int onTable;
-
+	int actualBet;
 public:
 	void hit(Card newCard);
 	virtual bool takeInsurance(Table &table);
 	void surrender();
-	virtual bool split(vector<Card> * secHand);
+	virtual bool split(Dealer *dealerOfTable);
 	void doubleDown();
 	vector<Card> & getHand();
+	vector<Card> & getHand2();
 	unsigned int getHandSize() const;
 	unsigned int getRoundsPlayed() const;
 	unsigned int getCurrentMoney() const;
 	float getAverageProfit() const;
 	unsigned int getHandScore() const;
+	unsigned int getHand2Score() const;
 	unsigned int getInitialMoney() const;
 	string getName() const;
 	void setName(string newName);
 	unsigned int setHandScore();
+	unsigned int setHand2Score();
 	void setCurrentMoney(unsigned int money);
 	void setRoundsPlayed(unsigned int rounds);
 	void setInitialMoney(unsigned int money);
@@ -54,7 +60,10 @@ public:
 	void showStatistics();
 	//bots currently bet's always the minValue
 	virtual unsigned int bet(Table &table);
-	virtual void clearHand();
+	void clearHand();
+	void clearHand2();
+	void setActualBet(unsigned int bet);
+	unsigned int getActualBet();
 	virtual string play(Table &table) = 0;
 	virtual int getCurrentCount() const;
 	virtual void addCount(Card &card1);
@@ -63,6 +72,8 @@ public:
 	void setAge(unsigned int age);
 	void setOnTable(int tableID);
 	int getOnTable() const;
+	void removeCardFromFirstHandAndSetItOnSecondHand();
+
 
 	
 };
@@ -90,7 +101,7 @@ public:
 	int getCurrentCount() const;
 	void addCount(Card &card1);
 	void resetCount();
-	bool split(vector<Card> * secHand);
+	bool split( Dealer *dealerOfTable);
 };
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
@@ -99,7 +110,7 @@ public:
 	//play method
 	string play(Table &table);
 	bool takeInsurance(Table &table);
-	bool split(vector<Card> * secHand);
+	bool split(Dealer *dealerOfTable);
 };
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
@@ -109,7 +120,7 @@ public:
 	unsigned int bet(Table &table);
 	string play(Table &table);
 	bool takeInsurance(Table &table);
-	bool split(vector<Card> * secHand);
+	bool split( Dealer *dealerOfTable);
 };
 
 class PlayerAlreadyExist {

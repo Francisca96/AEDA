@@ -97,6 +97,7 @@ void Table::simulation(unsigned int roundsLeft) {
 	//if dealer's card is an Ace, ask players if they want to take insurance()
 	//If they do, take each player�s insurance (it should be half of their original bet) and flip over dealer's second card to see whether or not dealer has a blackjack.
 	//If dealer has a blackjack, collect bets from anyone that didn�t buy insurance.Players that did buy insurance receive their original bets back.Players with blackjack will receive their original bet, even if they didn�t purchase insurance.
+	//Ask players with both cards equal if they want to split.
 	if (players.size() == 0)
 	{
 		throw NoPlayersOnTable(new Table(this->getTableID()));
@@ -104,25 +105,28 @@ void Table::simulation(unsigned int roundsLeft) {
 	while (roundsLeft > 0)
 	{	
 		cout << "Rounds left." << roundsLeft << "\n";
-		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
+		restartDeck();
 		getInitialBets();
 		dealOneCardToAllPlayers();
-		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
+		restartDeck();
 		dealerOfTable->hit(players);
 		dealOneCardToAllPlayers();
-		if (restartDeck() == 0) { cout << "Deck has been restarted\n"; void resetBot1Counters();}
+		restartDeck();
 		if (dealerOfTable->hit(players) == "A") {
 			for(size_t i = 0; i < actualPlayers.size(); i++){
 				if(actualPlayers.at(i)->takeInsurance(*this)){
 					moneyOfTable += actualBets.at(i)/2;
+					if (dealerOfTable->getHandScore() == 21) {
+						actualPlayers.at(i)->addMoney(actualBets.at(i));
+						moneyOfTable -= actualBets.at(i);
+					}
 				}
 			}
+			
 		}
 		for(size_t j=0; j < actualPlayers.size(); j++) {
-			if (actualPlayers.at(j)->getHand().at(0) == actualPlayers.at(j)->getHand().at(1)) {
-				vector<Card> *secHand = new vector <Card>;
-				actualPlayers.at(j)->split(secHand);
-			}
+			actualPlayers.at(j)->split(dealerOfTable);
+			
 		}
 		for (size_t i = 0; i < players.size(); i++) {
 			do {
@@ -165,6 +169,7 @@ void Table::simulation(unsigned int roundsLeft) {
 				//cout << "Dealer has blackjack! " << players.at(i)->getName() << " lost his bet!\n";
 			}
 			players.at(i)->clearHand();
+			players.at(i)->clearHand2();
 			players.at(i)->setRoundsPlayed(players.at(i)->getRoundsPlayed() + 1);
 			dealerOfTable->clearHand();
 		}

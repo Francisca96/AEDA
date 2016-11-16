@@ -6,6 +6,7 @@
 
 class Player;
 class Dealer;
+class Table;
 
 using namespace std;
 
