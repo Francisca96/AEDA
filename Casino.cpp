@@ -491,7 +491,7 @@ void Casino::create(pair<short, short> xy) {
 				cout << "Min Bet?" << endl;
 				minBet = readUnsignedIntBetween(1, initialMoney/100);
 				cout << "Max Bet?" << endl;
-				maxBet = readUnsignedIntBetween(minBet, 10*minBet);
+				maxBet = readUnsignedIntBetween(minBet, 32*minBet);
 				cout << "Number Max Of Players?" << endl;
 				numberMaxOfPlayer = readUnsignedIntBetween(1, 6);
 				this->showDealers(xy);
@@ -559,10 +559,10 @@ void Casino::create(pair<short, short> xy) {
 				{
 					newBot = new Bot1(name, money);
 				}
-				/*if (botInteligent == 2)
+				if (botInteligent == 2)
 				{
 					newBot = new Bot2(name, money);
-				}*/
+				}
 				this->addPlayerToCasino(newBot);
 				cout << "Player was created with success" << endl;
 				system("pause");

@@ -22,6 +22,7 @@ Dealer::Dealer(unsigned int ID) {
 }
 
 Dealer::Dealer(vector<Card> newDeck) {
+	TableID = -1;
 	this->deck = newDeck;
 	shuffleDeck();
 	ID = nextID;
