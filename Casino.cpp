@@ -497,7 +497,7 @@ void Casino::create(pair<short, short> xy) {
 				this->showDealers(xy);
 				dealerID = readUnsignedInt();
 				dealerOfTable = dealers.at(this->findDealer(dealerID));
-				if (dealerOfTable->getTableOn() != -1)
+				if (dealerOfTable->getTableOn() == -1)
 				{
 					Table *newTable = new Table(minBet, maxBet, initialMoney, numberMaxOfPlayer, dealerOfTable);
 					this->addTableToCasino(newTable);
