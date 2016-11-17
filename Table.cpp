@@ -20,7 +20,7 @@ Table::Table(unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable
 	this->minBet = minBet;
 	this->maxBet = maxBet;
 	this->moneyOfTable = moneyOfTable;
-	this->maxNumberOfPlayers = maxNumberOfPlayers;
+	this->maxNumberOfPlayers = numberOfMaxPlayers;
 	this->dealerOfTable = newDealer;
 	initialMoney = moneyOfTable;
 	tableID = nextID;
