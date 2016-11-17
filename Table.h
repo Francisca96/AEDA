@@ -71,7 +71,6 @@ public:
 	void resetBot1Counters();
 	/**
 	*@return moneyOfTable
-	*removes all players from the Table
 	*/
 	float closeTable();
 	
