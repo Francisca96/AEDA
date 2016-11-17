@@ -81,7 +81,7 @@ int main(){
 			cout << "Please insert you name: " << endl;
 			try
 			{
-				//casino.getTableToPlay()->play();
+				casino.getTableToPlay()->play();
 				system("pause");
 			}
 			catch (TableNotInCasino)
@@ -93,6 +93,12 @@ int main(){
 			{
 				cout << "The table: " << noPlayersOnTable.getID() << " dont have players" << endl;
 				cout << "Please select a table with players first" << endl;
+				system("pause");
+			}
+			catch (TooManyPlayers)
+			{
+				cout << "You can't play on table selected" << endl;
+				cout << "The table is full" << endl;
 				system("pause");
 			}
 			break;
@@ -120,7 +126,6 @@ int main(){
 			break;
 		case 3:
 			//TODO: choose table (selection one table to play on simulation or normal mode)
-			unsigned int tableID;
 			try
 			{
 				casino.selectTable(xy);
