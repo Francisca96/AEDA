@@ -27,10 +27,12 @@ void cursorxy(short x, short y);
 
 pair <int, int> centerWindow();
 
-void start_menu(pair <int, int> xy, int &choise);
+void start_menu(pair <short, short> xy, int &choise);
 
-void manageCasino(pair <int, int> xy, unsigned int &choise);
+void manageCasino(pair <short, short> xy, unsigned int &choise);
 
-void createMenu(pair <int, int> xy, unsigned int &choise);
+void createMenu(pair <short, short> xy, unsigned int &choise);
 
-void deleteMenu(pair <int, int> xy, unsigned int &choise);
+void deleteMenu(pair <short, short> xy, unsigned int &choise);
+
+void manageTableMenu(pair <short, short> xy, unsigned int &choise);

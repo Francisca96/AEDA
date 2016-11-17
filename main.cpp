@@ -68,10 +68,8 @@ int main(){
 
 	/*END OF DEBUG*/
 	int choise, exit = 0;
-	pair <short, short> coordXY;
-	coordXY.first = (xy.first % 32) / 2 - 1;
-	bool found = false;
 	unsigned int roundsToPlay;
+	bool found = false;
 	while (!exit)
 	{
 		start_menu(xy, choise);
@@ -84,7 +82,6 @@ int main(){
 			try
 			{
 				//casino.getTableToPlay()->play();
-				casino.showStatistics();
 				system("pause");
 			}
 			catch (TableNotInCasino)
@@ -123,35 +120,14 @@ int main(){
 			break;
 		case 3:
 			//TODO: choose table (selection one table to play on simulation or normal mode)
-			system("CLS");
 			unsigned int tableID;
-			found = false;
-
-			for (size_t i = 0; i < casino.getTables().size(); i++)
+			try
 			{
-				casino.getTables().at(i)->showTableInfo(coordXY);
-				coordXY.first += 32;
-				if (coordXY.first + 32 > xy.first)
-				{
-					coordXY.first = (xy.first % 32) / 2;
-					coordXY.second += 13;
-				}
+				casino.selectTable(xy);
 			}
-			cout << endl << endl << endl;
-			while (!found)
+			catch (TableNotInCasino)
 			{
-				cout  << "Select table by ID" << endl;
-				tableID = readInt();
-				for (size_t i = 0; i < casino.getTables().size(); i++)
-				{
-					if (casino.getTables().at(i)->getTableID() == tableID)
-					{
-						found = true;
-						casino.setTableToPlay(tableID);
-						cout << "Table select with success" << endl;
-						break;
-					}
-				}
+				cout << "This table not exist" << endl;
 			}
 			system("pause");
 			break;
