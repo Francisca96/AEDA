@@ -44,6 +44,12 @@ public:
 	PlayerStillOnTable(Player *player);
 	unsigned int getTableId() const;
 };
+class PlayerIsntOnTable {
+private:
+	string name;
+public:
+	PlayerIsntOnTable(string &name);
+};
 
 
 
@@ -150,4 +156,8 @@ public:
 	bool takeInsurance(Table &table);
 	bool split( Dealer *dealerOfTable);
 };
+
+
+
+
 

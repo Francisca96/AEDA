@@ -49,10 +49,6 @@ void Table::setDealer(Dealer *dealerOfTable) {
 
 void Table::setID(int ID) {
 	this->tableID = ID;
-	if (ID >= nextID)
-	{
-		nextID = ID + 1;
-	}
 }
 
 
@@ -70,6 +66,19 @@ void Table::addPlayers(vector<Player *> newPlayers) {
 	{
 		newPlayers.at(i)->setOnTable(this->getTableID());
 	}
+}
+
+void Table::removePlayer(string &name) {
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		if (players.at(i)->getName() == name)
+		{
+			players.at(i)->setOnTable(-1);
+			players.erase(players.begin() + i);
+			return;
+		}
+	}
+	throw PlayerIsntOnTable(name);
 }
 
 void Table::setMinBet(unsigned int aMinBet) {
@@ -337,6 +346,14 @@ float Table::closeTable()
 	cout << "Table ID." << tableID << " has been CLOSED\n";
 	cout << "Profit of table " << tableID << " : " << setprecision(2) <<moneyOfTable - initialMoney << "$\n";
 	return moneyOfTable;
+}
+
+void Table::setNextID(unsigned int tableNextID) {
+	nextID = tableNextID;
+}
+
+unsigned int Table::getNextId() {
+	return nextID;
 }
 
 TooManyPlayers::TooManyPlayers(unsigned int maxNumberOfPlayers, unsigned int actualNumOfPlayers)

@@ -91,7 +91,7 @@ int readIntBetween(int min, int max){
 		cout << endl;
 		cin.clear();
 		cin.ignore();
-		cout << "Wroght value, value between " << min << " - " << max;
+		cout << "Wrong value, value between " << min << " - " << max;
 	}
 	cin.ignore();
 	cout << endl;

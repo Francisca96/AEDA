@@ -648,3 +648,7 @@ PlayerStillOnTable::PlayerStillOnTable(Player * player) {
 unsigned int PlayerStillOnTable::getTableId() const {
 	return this->tableID;
 }
+
+PlayerIsntOnTable::PlayerIsntOnTable(string & name) {
+	this->name = name;
+}
