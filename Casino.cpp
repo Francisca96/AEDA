@@ -959,7 +959,7 @@ void Casino::showTables(pair <short, short> xy) {
 		if (coordXY.first + 32 > xy.first)
 		{
 			coordXY.first = (xy.first % 32) / 2;
-			coordXY.second += 13;
+			coordXY.second += 14;
 		}
 	}
 	cout << endl << endl << endl;

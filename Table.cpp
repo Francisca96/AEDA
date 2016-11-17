@@ -135,6 +135,14 @@ void Table::simulation(unsigned int roundsLeft) {
 	{
 		throw NoPlayersOnTable(new Table(this->getTableID()));
 	}
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		Human *h = dynamic_cast<Human *>(players.at(i));
+		if (h != NULL)
+		{
+			throw HumanOnTable(players.at(i));
+		}
+	}
 	while (roundsLeft > 0)
 	{
 		dealerBlackJack = false;
@@ -305,6 +313,14 @@ void Table::showTableInfo(pair<short, short> xy) {
 		<< text << setw(30 - text.length()) << (char)186; //║
 	cursorxy(xy.first + text.length() + 1, xy.second);
 	cout << this->getTableID();
+	xy.second++;
+	cursorxy(xy.first + 30, xy.second);
+	cout << (char)186; //║
+	cursorxy(xy.first, xy.second);
+	cout << (char)186; //║
+	cout << "  minBet:" << this->getMinBet();
+	cursorxy(xy.first + 16, xy.second);
+	cout << "maxBet:" << this->getMaxBet();
 	xy.second++;
 	cursorxy(xy.first, xy.second);
 	cout << (char)204; //╠
