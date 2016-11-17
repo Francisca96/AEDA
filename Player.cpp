@@ -742,3 +742,7 @@ unsigned int PlayerStillOnTable::getTableId() const {
 PlayerIsntOnTable::PlayerIsntOnTable(string & name) {
 	this->name = name;
 }
+
+HumanOnTable::HumanOnTable(Player * player) {
+	this->name = player->getName();
+}

@@ -123,6 +123,12 @@ int main(){
 				cout << "Please select a table with players first" << endl;
 				system("pause");
 			}
+			catch (HumanOnTable)
+			{
+				cout << "The table has a human" << endl;
+				cout << "Please select a table with no humans" << endl;
+				system("pause");
+			}
 			break;
 		case 3:
 			//TODO: choose table (selection one table to play on simulation or normal mode)

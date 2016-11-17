@@ -135,6 +135,14 @@ void Table::simulation(unsigned int roundsLeft) {
 	{
 		throw NoPlayersOnTable(new Table(this->getTableID()));
 	}
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		Human *h = dynamic_cast<Human *>(players.at(i));
+		if (h != NULL)
+		{
+			throw HumanOnTable(players.at(i));
+		}
+	}
 	while (roundsLeft > 0)
 	{
 		dealerBlackJack = false;

@@ -44,6 +44,7 @@ public:
 	PlayerStillOnTable(Player *player);
 	unsigned int getTableId() const;
 };
+
 class PlayerIsntOnTable {
 private:
 	string name;
@@ -51,7 +52,12 @@ public:
 	PlayerIsntOnTable(string &name);
 };
 
-
+class HumanOnTable {
+private:
+	string name;
+public:
+	HumanOnTable(Player *player);
+};
 
 class Player {
 private:
