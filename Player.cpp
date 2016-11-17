@@ -578,7 +578,7 @@ bool Bot2::takeInsurance(Table &table) {
 
 bool Bot2::split(Dealer *dealerOfTable) {
 	//TODO: fazer algoritmo
-	return true;
+	return false;
 }
 
 bool Bot2::surrender(Table & table)
