@@ -67,8 +67,8 @@ public:
 	void saveDealersFile();
 	void saveTablesFile();
 	void showStatistics() const;
-	void showPlayers() const;
-	void showDealers() const;
+	void showPlayers(pair <short, short> xy) const;
+	void showDealers(pair <short, short> xy) const;
 	void showTables(pair <short, short> xy);
 	vector<Table*> getTables() const;
 	void selectTable(pair <short, short> xy);

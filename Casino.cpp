@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "Casino.h"
 
@@ -494,7 +494,7 @@ void Casino::create(pair<short, short> xy) {
 				maxBet = readUnsignedIntBetween(minBet, 10*minBet);
 				cout << "Number Max Of Players?" << endl;
 				numberMaxOfPlayer = readUnsignedIntBetween(1, 6);
-				this->showDealers();
+				this->showDealers(xy);
 				dealerID = readUnsignedInt();
 				dealerOfTable = dealers.at(this->findDealer(dealerID));
 				if (dealerOfTable->getTableOn() != -1)
@@ -603,7 +603,7 @@ void Casino::eliminate(pair<short, short> xy) {
 			}
 			catch (TableNotInCasino)
 			{
-				cout << "The tablet wasn�t deleted with success" << endl;
+				cout << "The tablet wasn´t deleted with success" << endl;
 				cout << "The tablet doesn't exist" << endl;
 				system("pause");
 			}
@@ -611,7 +611,7 @@ void Casino::eliminate(pair<short, short> xy) {
 		case 2:
 			try
 			{
-				this->showDealers();
+				this->showDealers(xy);
 				unsigned int dealerID = readUnsignedInt();
 				Dealer *dealer = new Dealer(dealerID);
 				this->removeDealerFromCasino(dealer);
@@ -620,13 +620,13 @@ void Casino::eliminate(pair<short, short> xy) {
 			}
 			catch (DealerNotExist)
 			{
-				cout << "The dealer wasn�t deleted with success" << endl;
+				cout << "The dealer wasn´t deleted with success" << endl;
 				cout << "The dealer doesn't exist" << endl;
 				system("pause");
 			}
 			catch (DealerStillOnTable dealer)
 			{
-				cout << "The dealer wasn�t deleted with success" << endl;
+				cout << "The dealer wasn´t deleted with success" << endl;
 				cout << "The dealer still on table : " << dealer.getTableID() << " please remove from table first" << endl;
 				system("pause");
 			}
@@ -634,7 +634,7 @@ void Casino::eliminate(pair<short, short> xy) {
 		case 3:
 			try
 			{
-				this->showPlayers();
+				this->showPlayers(xy);
 				string name;
 				while (name.length() == 0)
 				{
@@ -647,13 +647,13 @@ void Casino::eliminate(pair<short, short> xy) {
 			}
 			catch (PlayerNotExist)
 			{
-				cout << "The player wasn�t deleted with success" << endl;
+				cout << "The player wasn´t deleted with success" << endl;
 				cout << "The player doesn't exist" << endl;
 				system("pause");
 			}
 			catch (PlayerStillOnTable player)
 			{
-				cout << "The player wasn�t deleted with success" << endl;
+				cout << "The player wasn´t deleted with success" << endl;
 				cout << "The player still on table : " << player.getTableId() << " please remove from table first" << endl;
 				system("pause");
 			}
@@ -679,7 +679,7 @@ void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 		case 1:
 			try
 			{
-				showDealers();
+				showDealers(xy);
 				dealerID = readUnsignedInt();
 				unsigned int dealerIndex = this->findDealer(dealerID);
 				if (dealers.at(dealerIndex)->getTableOn() != -1)
@@ -708,14 +708,14 @@ void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 			}
 			break;
 		case 2:
-			//TODO: add player to a table
 			try
 			{
 				if (tables.at(findTable(tableID))->getPlayers().size() == tables.at(findTable(tableID))->getNumberMaxOfPlayers())
 				{
 					throw TooManyPlayers(tables.at(findTable(tableID))->getNumberMaxOfPlayers(), tables.at(findTable(tableID))->getNumberMaxOfPlayers() + 1);
 				}
-				showPlayers();
+				showPlayers(xy);
+				cout << "Select the player that you want to add to the table" << endl;
 				playerName = "";
 				while (playerName.length() == 0)
 				{
@@ -754,7 +754,6 @@ void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 			}
 			break;
 		case 3:
-			//TODO: remove player from a table
 			try
 			{
 				Table *table = tables.at(findTable(tableID));
@@ -847,18 +846,104 @@ void Casino::showStatistics() const {
 
 }
 
-void Casino::showPlayers() const {
+void Casino::showPlayers(pair <short, short> xy) const {
+	system("cls");
+	string text, name;
+	stringstream sstext;
+	cout << setw((xy.first - 50) / 2 - 1) << (char)218; //┌
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)196; //─
+	}
+	cout << (char)191 << endl; //┐
+	cout << setw((xy.first - 50) / 2 - 1) << (char)179; //│
+	cout << setw((50 + 12) / 2 + 1) << "Players Info" << setw(50 - (50 + 12) / 2 + 1) << (char)179 << endl;
+	cout << setw((xy.first - 50) / 2 - 1) << (char)195; //├
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)196; //─
+	}
+	cout << (char)180 << endl; //┤
+	cout << setw((xy.first - 50) / 2 - 1) << (char)179; //│
+	cout << setw(13) << "Player Name" << setw(21) << "On Table" << setw(18) << (char)179 << endl;
+	cout << setw((xy.first - 50) / 2 - 1) << (char)195; //├
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)196; //─
+	}
+	cout << (char)180 << endl; //┤
 	for (size_t i = 0; i < players.size(); i++)
 	{
-		cout << players.at(i)->getName() << endl;
+		cout << setw((xy.first - 50) / 2 - 1) << (char)179; //│
+		name = players.at(i)->getName();
+		cout << setw(2) << " " << name << setw(24 - name.length()) << " " ;
+		if (players.at(i)->getOnTable() != -1)
+		{
+			sstext.clear();
+			sstext << players.at(i)->getOnTable();
+			sstext >> text;
+		}
+		else
+		{
+			text = "Player isn't allocated";
+		}
+		cout << text << setw(26 - text.length()) << (char)179 << endl;
 	}
+	cout << setw((xy.first - 50) / 2 - 1) << (char)192; //└
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)196; //─
+	}
+	cout << (char)217 << endl; //┘
 }
 
-void Casino::showDealers() const {
+void Casino::showDealers(pair <short, short> xy ) const {
+	system("cls");
+	string text;
+	stringstream sstext;
+	cout << setw((xy.first - 50) / 2 - 1) << (char)218; //┌
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)196; //─
+	}
+	cout << (char)191 << endl; //┐
+	cout << setw((xy.first - 50) / 2 - 1) << (char)179; //│
+	cout << setw((50 + 12) / 2 + 1) << "Dealers Info" << setw(50 - (50 + 12) / 2 + 1) << (char)179 << endl;
+	cout << setw((xy.first - 50) / 2 - 1) << (char)195; //├
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)196; //─
+	}
+	cout << (char)180 << endl; //┤
+	cout << setw((xy.first - 50) / 2 - 1) << (char)179; //│
+	cout << setw(10) << "DealerID" << setw(15) << "On Table" << setw(27) << (char)179 << endl;
+	cout << setw((xy.first - 50) / 2 - 1) << (char)195; //├
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)196; //─
+	}
+	cout << (char)180 << endl; //┤
 	for (size_t i = 0; i < dealers.size(); i++)
 	{
-		cout << dealers.at(i)->getID() << endl;
+		cout << setw((xy.first - 50) / 2 - 1) << (char)179; //│
+		if (dealers.at(i)->getTableOn() != -1)
+		{
+			sstext.clear();
+			sstext << dealers.at(i)->getTableOn();
+			sstext >> text;
+		}
+		else
+		{
+			text = "Dealer isn't allocated";
+		}
+		cout << setw(10) << dealers.at(i)->getID() << setw(7) << " " << text << setw(35-text.length()) << (char)179 << endl;
 	}
+	cout << setw((xy.first - 50) / 2 - 1) << (char)192; //└
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)196; //─
+	}
+	cout << (char)217 << endl; //┘
 }
 
 void Casino::showTables(pair <short, short> xy) {
