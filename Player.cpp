@@ -22,8 +22,8 @@ void Player::hit(Card newCard) {
 	setHandScore();
 }
 
-void Player::surrender() {
-	throw "Not yet implemented";
+bool surrender(Table &table) {
+	return false;
 }
 
 
@@ -34,6 +34,11 @@ void Player::doubleDown() {
 vector<Card>& Player::getHand()
 {
 	return hand;
+}
+
+vector<Card>& Player::getHand2()
+{
+	return hand2;
 }
 
 unsigned int Player::getHandSize() const
@@ -57,9 +62,31 @@ unsigned int Player::setHandScore() {
 	return this->handScore;
 }
 
+unsigned int Player::setHand2Score()
+{
+	this->hand2Score = 0;
+	for (size_t i = 0; i < hand2.size(); i++)
+	{
+		this->hand2Score += hand2.at(i).score;
+	}
+	if (hand2Score > 21) {
+		for (size_t i = 0; i < hand2.size(); i++) {
+			if (hand2.at(i).score == 11 && hand2Score > 21) {
+				this->hand2Score -= 10;
+			}
+		}
+	}
+	return this->hand2Score;
+}
+
 unsigned int Player::getHandScore() const
 {
 	return handScore;
+}
+
+unsigned int Player::getHand2Score() const
+{
+	return hand2Score;
 }
 
 string Player::getName() const
@@ -147,12 +174,28 @@ unsigned int Player::bet(Table &table)
 	unsigned int betValue = table.getMinBet();
 	setCurrentMoney(getCurrentMoney() - betValue);
 	cout << name << " bets " << betValue << "$\n";
+	setActualBet(betValue);
 	return betValue;
 }
 
 void Player::clearHand()
 {
 	hand.clear();
+}
+
+void Player::clearHand2()
+{
+	hand2.clear();
+}
+
+void Player::setActualBet(unsigned int bet)
+{
+	actualBet = bet;
+}
+
+unsigned int Player::getActualBet()
+{
+	return actualBet;
 }
 
 int Player::getCurrentCount() const
@@ -168,6 +211,7 @@ void Player::addCount(Card &card)
 void Player::resetCount()
 {
 }
+
 
 unsigned int Player::getAge() const {
 	return this->age;
@@ -185,11 +229,23 @@ int Player::getOnTable() const {
 	return this->onTable;
 }
 
+void Player::removeCardFromFirstHandAndSetItOnSecondHand()
+{
+	Card secondCard = hand.at(1);
+	hand.pop_back();
+	hand2.push_back(secondCard);
+}
+
 bool Player::takeInsurance(Table &table){
 	return false;
 }
 
-bool Player::split(vector<Card> * secHand){
+bool Player::surrender(Table & table)
+{
+	return false;
+}
+
+bool Player::split(Dealer *dealerOfTable){
 	return false;
 }
 
@@ -219,15 +275,54 @@ string Bot0::play(Table &table)
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
 bool Bot1::takeInsurance(Table &table) {
-    unsigned int insurance;
-    insurance = bet(table)/2;
-    setCurrentMoney(getCurrentMoney()-insurance);
-    return true;
+	unsigned int insurance = getActualBet() / 2;
+	if (currentCount >= 3) {
+		setCurrentMoney(getCurrentMoney() - insurance);
+		return true;
+	}
+	return false;;
 }
 
-bool Bot1::split(vector<Card> * secHand) {
-	//TODO: fazer algoritmo
-	return true;
+bool Bot1::split(Dealer *dealerOfTable) {
+	vector<Card> hand1 = getHand();
+	Card dealerFirstCard = dealerOfTable->getHand().at(0);
+	if (hand1.at(0) == hand1.at(1)) {
+		if (hand1.at(0).score == 10) {
+			if (currentCount >= 5 && dealerFirstCard.score == 5) {
+				removeCardFromFirstHandAndSetItOnSecondHand();
+				setHand2Score();
+				setHandScore();
+				return true;
+			}
+			else if (currentCount >= 4 && dealerFirstCard.score == 6) {
+				removeCardFromFirstHandAndSetItOnSecondHand();
+				setHand2Score();
+				setHandScore();
+				return true;
+			}
+		}
+
+	}
+	return false;
+}
+
+bool Bot1::surrender(Table & table)
+{	//based on fab4 surrender guides
+	unsigned int dealerHandScore = table.getDealer()->getHandScore();
+	unsigned int personalScore = getHandScore();
+	if (personalScore == 14 && dealerHandScore == 10 && currentCount >= 3) {
+		return true;
+	}
+	else if (personalScore == 15 && dealerHandScore == 10 && currentCount >= 0) {
+		return true;
+	}
+	else if (personalScore == 15 && dealerHandScore == 9 && currentCount >= 2) {
+		return true;
+	}
+	else if (personalScore == 15 && dealerHandScore == 11 && currentCount >= 1) {
+		return true;
+	}
+	return false;
 }
 
 unsigned int Bot1::bet(Table &table) {
@@ -284,6 +379,7 @@ unsigned int Bot1::bet(Table &table) {
 	}
 	setCurrentMoney(currentMoney - betValue);
 	cout << getName() << " bets " << betValue << "$\n";
+	setActualBet(betValue);
 	return betValue;
 }
 
@@ -296,61 +392,96 @@ Bot1::Bot1(string name, unsigned int initialMoney)
 
 string Bot1::play(Table &table)
 {
-	string options[] = {"hit", "stand"};
+	string options[] = {"hit", "stand","double"};
 	string option;
 	Dealer * dealerOfTable = table.getDealer();
 	unsigned int botHandScore = getHandScore();
-	unsigned int dealerHandScore = dealerOfTable->getHandScore();
+	Card dealerCard1 = dealerOfTable->getHand().at(0);
 
 	int runningCount = currentCount;
-	if (botHandScore == 16 && dealerHandScore == 10) {
+	if (botHandScore == 16 && dealerCard1.score == 10) {
 		if (runningCount < 0) {
 			option = options[0];
 		}else option = options[1];
 	}
-	else if (botHandScore == 15 && dealerHandScore == 10) {
+	else if (botHandScore == 15 && dealerCard1.score == 10) {
 		if (runningCount < 4) {
 			option =  options[0];
 		} else option = options[1];
 			
 	}
-	else if (botHandScore == 12 && dealerHandScore == 3) {
+	else if (botHandScore == 10 && dealerCard1.score == 10) {
+		if (runningCount < 4) {
+			option = options[0];
+		}
+		else option = options[2];
+
+	}
+	else if (botHandScore == 12 && dealerCard1.score == 3) {
 		if (runningCount < 2) {
 			option =  options[0];
 		}else
 		option =  options[1];
 	}
-	else if (botHandScore == 12 && dealerHandScore == 2) {
+	else if (botHandScore == 12 && dealerCard1.score == 2) {
 		if (runningCount < 3) {
 			option =  options[0];
 		}else
 		option =  options[1];
 	}
-	else if (botHandScore == 13 && dealerHandScore == 2) {
+	else if (botHandScore == 11 && dealerCard1.score == 11) {
+		if (runningCount < 1) {
+			option = options[0];
+		}
+		else
+			option = options[2];
+	}
+	else if (botHandScore == 9 && dealerCard1.score==2) {
+		if (runningCount < 1) {
+			option = options[0];
+		}
+		else
+			option = options[2];
+	}
+	else if (botHandScore == 10 && dealerCard1.score == 11){
+		if (runningCount < 4) {
+			option = options[0];
+		}
+		else
+			option = options[2];
+	}
+	else if (botHandScore == 9 && dealerCard1.score == 7) {
+		if (runningCount < 3) {
+			option = options[0];
+		}
+		else
+			option = options[2];
+	}
+	else if (botHandScore == 13 && dealerCard1.score == 2) {
 		if (runningCount < -1) {
 			option =  options[0];
 		}else
 		option =  options[1];
 	}
-	else if (botHandScore == 12 && dealerHandScore == 4) {
+	else if (botHandScore == 12 && dealerCard1.score == 4) {
 			if (runningCount < 0) {
 				option =  options[0];
 			}else
 			option =  options[1];
 		}
-	else if (botHandScore == 12 && dealerHandScore == 5) {
+	else if (botHandScore == 12 && dealerCard1.score == 5) {
 			if (runningCount < -2) {
 				option =  options[0];
 			}else
 			option =  options[1];
 		}
-	else if (botHandScore == 12 && dealerHandScore == 6) {
+	else if (botHandScore == 12 && dealerCard1.score == 6) {
 			if (runningCount < -1) {
 				option =  options[0];
 			}else
 			option =  options[1];
 	}
-	else if (botHandScore == 13 && dealerHandScore == 3){
+	else if (botHandScore == 13 && dealerCard1.score == 3){
 		if (runningCount < -2){
 			option =  options[0];
 		}else
@@ -363,9 +494,12 @@ string Bot1::play(Table &table)
 		option = options[1];
 	}
 	if (option == options[0]) {
-
 		hit(dealerOfTable->discard(table.getPlayers()));
-
+	}
+	if (option == options[2]) {
+		hit(dealerOfTable->discard(table.getPlayers()));
+		setCurrentMoney(getCurrentMoney() - getActualBet());
+		setActualBet(2 * getActualBet());
 	}
 	return option; // means stand
 }
@@ -393,14 +527,104 @@ void Bot1::resetCount()
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
 
+Bot2::Bot2(string name, unsigned int initialMoney)
+{
+	this->setOnTable(-1);
+	setName(name);
+	setInitialMoney(initialMoney);
+	currentCount = 0;
+}
+
+unsigned int Bot2::bet(Table & table)
+{
+	unsigned int betValue;
+	if (getCurrentMoney() < table.getMinBet()) {
+		return 0; //0 means kick the player from the table;
+	}
+	if (currentCount < 2) {
+		betValue = table.getMinBet();
+	}
+	else
+	{
+		betValue = 2 * lastBetValue;
+		if (betValue > table.getMaxBet()) {
+			betValue = table.getMaxBet();
+		}
+	}
+	if (betValue > getCurrentMoney()) {
+		betValue = getCurrentMoney();
+	}
+	lastBetValue = betValue;
+	setCurrentMoney(getCurrentMoney() - betValue);
+	setActualBet(betValue);
+	return betValue;
+}
+
+string Bot2::play(Table & table)
+{
+	string options[] = { "hit","stand" };
+	unsigned int handScore = getHandScore();
+	if (handScore < 17) {
+		hit(table.getDealer()->discard(table.getPlayers()));
+		return options[0]; // 0 means hit
+	}
+	return options[1]; // means stand
+}
+
 bool Bot2::takeInsurance(Table &table) {
 	//TODO: fazer algoritmo
 	return false;
 }
 
-bool Bot2::split(vector<Card> * secHand) {
+bool Bot2::split(Dealer *dealerOfTable) {
 	//TODO: fazer algoritmo
 	return true;
+}
+
+bool Bot2::surrender(Table & table)
+{
+	//based on fab4 surrender guides
+	unsigned int dealerHandScore = table.getDealer()->getHandScore();
+	unsigned int personalScore = getHandScore();
+	if (personalScore == 14 && dealerHandScore == 10 && currentCount >= 3) {
+		return true;
+	}
+	else if (personalScore == 15 && dealerHandScore == 10 && currentCount >= 0) {
+		return true;
+	}
+	else if (personalScore == 15 && dealerHandScore == 9 && currentCount >= 2) {
+		return true;
+	}
+	else if (personalScore == 15 && dealerHandScore == 11 && currentCount >= 1) {
+		return true;
+	}
+	return false;
+	
+}
+
+int Bot2::getCurrentCount() const
+{
+	return currentCount;
+}
+
+void Bot2::addCount(Card & card1)
+{
+	if (card1.score == 5) {
+		currentCount++;
+	}
+	else if (card1.score == 11) {
+		currentCount--;
+	}
+}
+
+void Bot2::resetCount()
+{
+	currentCount = 0;
+}
+
+void Bot2::setLastBetValue(unsigned int lastBet)
+{
+	lastBetValue = lastBet;
 }
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
@@ -418,21 +642,21 @@ bool Human::takeInsurance(Table &table) {
     return false;
 }
 
-bool Human::split(vector<Card> * secHand) {
+bool Human::split(Dealer *dealerOfTable) {
 	unsigned int split;
-	cout << "Do you want split?\n 0 - No    1 - Yes\n";
-	split=readBinary();
 	vector<Card> hand = getHand();
+	if (hand.at(0) == hand.at(1)) {
+		cout << "Do you want split?\n 0 - No    1 - Yes\n";
+		split = readBinary();
+		vector<Card> hand = getHand();
 
-	if(split == 1){
-		secHand->push_back(hand.at(1));
-		hand.erase(getHand().begin()+1);
-		return true;
+		if (split == 1) {
+			removeCardFromFirstHandAndSetItOnSecondHand();
+			return true;
+		}
 	}
-	else
-	{
-		return false;
-	}
+	return false;
+	
 }
 
 
@@ -473,6 +697,7 @@ unsigned int Human::bet(Table &table)
 	}
 	betValue = readUnsignedIntBetween(table.getMinBet(), maxbet);
 	setCurrentMoney(getCurrentMoney() - betValue);
+	setActualBet(betValue);
 	return betValue;
 }
 

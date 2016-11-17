@@ -6,6 +6,7 @@
 
 class Player;
 class Dealer;
+class Table;
 
 using namespace std;
 
@@ -40,7 +41,6 @@ private:
 	Dealer * dealerOfTable;
 	vector<Player*> players;
 	vector<Player*> actualPlayers;
-	vector<unsigned int> actualBets;
 
 public:
 	Table(int ID);
@@ -71,7 +71,7 @@ public:
 	void resetBot1Counters();
 	/**
 	*@return moneyOfTable
-	*removes all players from the Table
+	*clears bots Counters
 	*/
 	float closeTable();
 	static void setNextID(unsigned int tableNextID);
