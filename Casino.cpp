@@ -668,7 +668,6 @@ void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 	unsigned int exit = 0;
 	unsigned int choise, dealerID;
 	string playerName;
-	Dealer *dealerOfTable;
 	while (!exit)
 	{
 		manageTableMenu(xy, choise);
@@ -735,7 +734,7 @@ void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 			{
 				throw table;
 			}
-			catch (PlayerNotExist &player)
+			catch (PlayerNotExist)
 			{
 				cout << "The player wasn't added to table" << endl;
 				cout << "The player does not exist" << endl;
@@ -772,7 +771,6 @@ void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 				{
 					getline(cin, playerName);
 				}
-				unsigned int playerIndex;
 				table = tables.at(findTable(tableID));
 				table->removePlayer(playerName);
 				cout << "Player was removed from table with success" << endl;
@@ -782,7 +780,7 @@ void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 			{
 				throw table;
 			}
-			catch (PlayerNotExist &player)
+			catch (PlayerNotExist)
 			{
 				cout << "The player wasn't remove from table" << endl;
 				cout << "The player does not exist" << endl;
