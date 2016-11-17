@@ -71,6 +71,7 @@ public:
 	void resetBot1Counters();
 	/**
 	*@return moneyOfTable
+	*clears bots Counters
 	*/
 	float closeTable();
 	static void setNextID(unsigned int tableNextID);

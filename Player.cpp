@@ -527,6 +527,50 @@ void Bot1::resetCount()
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
 
+Bot2::Bot2(string name, unsigned int initialMoney)
+{
+	this->setOnTable(-1);
+	setName(name);
+	setInitialMoney(initialMoney);
+	currentCount = 0;
+}
+
+unsigned int Bot2::bet(Table & table)
+{
+	unsigned int betValue;
+	if (getCurrentMoney() < table.getMinBet()) {
+		return 0; //0 means kick the player from the table;
+	}
+	if (currentCount < 2) {
+		betValue = table.getMinBet();
+	}
+	else
+	{
+		betValue = 2 * lastBetValue;
+		if (betValue > table.getMaxBet()) {
+			betValue = table.getMaxBet();
+		}
+	}
+	if (betValue > getCurrentMoney()) {
+		betValue = getCurrentMoney();
+	}
+	lastBetValue = betValue;
+	setCurrentMoney(getCurrentMoney() - betValue);
+	setActualBet(betValue);
+	return betValue;
+}
+
+string Bot2::play(Table & table)
+{
+	string options[] = { "hit","stand" };
+	unsigned int handScore = getHandScore();
+	if (handScore < 17) {
+		hit(table.getDealer()->discard(table.getPlayers()));
+		return options[0]; // 0 means hit
+	}
+	return options[1]; // means stand
+}
+
 bool Bot2::takeInsurance(Table &table) {
 	//TODO: fazer algoritmo
 	return false;
@@ -535,6 +579,52 @@ bool Bot2::takeInsurance(Table &table) {
 bool Bot2::split(Dealer *dealerOfTable) {
 	//TODO: fazer algoritmo
 	return true;
+}
+
+bool Bot2::surrender(Table & table)
+{
+	//based on fab4 surrender guides
+	unsigned int dealerHandScore = table.getDealer()->getHandScore();
+	unsigned int personalScore = getHandScore();
+	if (personalScore == 14 && dealerHandScore == 10 && currentCount >= 3) {
+		return true;
+	}
+	else if (personalScore == 15 && dealerHandScore == 10 && currentCount >= 0) {
+		return true;
+	}
+	else if (personalScore == 15 && dealerHandScore == 9 && currentCount >= 2) {
+		return true;
+	}
+	else if (personalScore == 15 && dealerHandScore == 11 && currentCount >= 1) {
+		return true;
+	}
+	return false;
+	
+}
+
+int Bot2::getCurrentCount() const
+{
+	return currentCount;
+}
+
+void Bot2::addCount(Card & card1)
+{
+	if (card1.score == 5) {
+		currentCount++;
+	}
+	else if (card1.score == 11) {
+		currentCount--;
+	}
+}
+
+void Bot2::resetCount()
+{
+	currentCount = 0;
+}
+
+void Bot2::setLastBetValue(unsigned int lastBet)
+{
+	lastBetValue = lastBet;
 }
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////

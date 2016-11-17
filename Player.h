@@ -140,11 +140,21 @@ public:
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
 class Bot2 : public Player {
+private:
+	int currentCount;
+	unsigned int lastBetValue;
 public:
+	Bot2(string name, unsigned int initialMoney);
+	unsigned int bet(Table &table);
 	//play method
 	string play(Table &table);
 	bool takeInsurance(Table &table);
 	bool split(Dealer *dealerOfTable);
+	virtual bool surrender(Table &table);
+	int getCurrentCount() const;
+	void addCount(Card &card1);
+	void resetCount();
+	void setLastBetValue(unsigned int lastBet);
 };
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////

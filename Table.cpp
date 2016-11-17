@@ -343,6 +343,9 @@ void Table::payToPlayer(Player * player1, float value)
 
 float Table::closeTable()
 {
+	for (size_t i = 0; i < players.size(); i++) {
+		players.at(i)->resetCount();
+	}
 	cout << "Table ID." << tableID << " has been CLOSED\n";
 	cout << "Profit of table " << tableID << " : " << setprecision(2) <<moneyOfTable - initialMoney << "$\n";
 	return moneyOfTable;
