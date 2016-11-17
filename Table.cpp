@@ -81,6 +81,29 @@ void Table::removePlayer(string &name) {
 	throw PlayerIsntOnTable(name);
 }
 
+void Table::play() {
+	system("cls");
+	if (this->maxNumberOfPlayers == this->getPlayers().size())
+	{
+		throw TooManyPlayers(maxNumberOfPlayers, maxNumberOfPlayers + 1);
+	}
+	string nameOfPlayer = "";
+	unsigned int ageOfPlayer;
+	cout << "What is your name?" << endl;
+	while (nameOfPlayer.length() == 0)
+	{
+		getline(cin, nameOfPlayer);
+	}
+	cout << "What is your age?" << endl;
+	ageOfPlayer = readUnsignedIntBetween(0, 100);
+	Human *humanPlayer = new Human(nameOfPlayer, ageOfPlayer);
+	this->addPlayer(humanPlayer);
+	while (!exit)
+	{
+
+	}
+}
+
 void Table::setMinBet(unsigned int aMinBet) {
 	this->minBet = aMinBet;
 }
