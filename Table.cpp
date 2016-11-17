@@ -314,6 +314,14 @@ void Table::showTableInfo(pair<short, short> xy) {
 	cursorxy(xy.first + text.length() + 1, xy.second);
 	cout << this->getTableID();
 	xy.second++;
+	cursorxy(xy.first + 30, xy.second);
+	cout << (char)186; //║
+	cursorxy(xy.first, xy.second);
+	cout << (char)186; //║
+	cout << "  minBet:" << this->getMinBet();
+	cursorxy(xy.first + 16, xy.second);
+	cout << "maxBet:" << this->getMaxBet();
+	xy.second++;
 	cursorxy(xy.first, xy.second);
 	cout << (char)204; //╠
 	for (unsigned int i = 0; i <= 28; i++)
