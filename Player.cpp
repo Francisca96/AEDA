@@ -499,7 +499,9 @@ string Bot1::play(Table &table)
 	if (option == options[2]) {
 		hit(dealerOfTable->discard(table.getPlayers()));
 		setCurrentMoney(getCurrentMoney() - getActualBet());
+		table.addMoneyToTable(getActualBet());
 		setActualBet(2 * getActualBet());
+		
 	}
 	return option; // means stand
 }
@@ -572,13 +574,11 @@ string Bot2::play(Table & table)
 }
 
 bool Bot2::takeInsurance(Table &table) {
-	//TODO: fazer algoritmo
 	return false;
 }
 
 bool Bot2::split(Dealer *dealerOfTable) {
-	//TODO: fazer algoritmo
-	return true;
+	return false;
 }
 
 bool Bot2::surrender(Table & table)
