@@ -56,7 +56,7 @@ string getHumanPlay()
 {
 	string option;
 	getline(cin, option);
-	while (option != "hit" && option != "stand" && option != "HIT" && option != "STAND" && option != "Hit" && option != "Stand") {
+	while (option != "hit" && option != "stand" && option != "HIT" && option != "STAND" && option != "Hit" && option != "Stand" && option != "EXIT" && option != "Exit" && option != "exit") {
 		cout << "Please insert a valid entry: ";
 		getline(cin, option);
 	}
@@ -65,6 +65,10 @@ string getHumanPlay()
 	}
 	else if (option == "Stand" || option == "STAND") {
 		option = "stand";
+	}
+	else if (option == "Exit" || option == "EXIT")
+	{
+		option = "exit";
 	}
 	return option;
 }

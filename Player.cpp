@@ -659,8 +659,16 @@ bool Human::split(Dealer *dealerOfTable) {
 	
 }
 
+void Human::setUserID(unsigned int userID) {
+	this->userID = userID;
+}
 
-Human::Human(string name, unsigned int age)
+unsigned int Human::getUserID() const {
+	return this->userID;
+}
+
+
+Human::Human(string name, unsigned int age, unsigned int userID)
 {
 	try {
 		if (name.length() < 3) {
@@ -673,6 +681,7 @@ Human::Human(string name, unsigned int age)
 		this->setAge(age);
 		setInitialMoney(1000);
 		this->setOnTable(-1);
+		this->userID = userID;
 	}
 	catch (NameTooShort &n) {
 		n.what();

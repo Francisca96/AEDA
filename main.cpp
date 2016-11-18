@@ -81,7 +81,7 @@ int main(){
 			cout << "Please insert you name: " << endl;
 			try
 			{
-				casino.getTableToPlay()->play();
+				casino.getTableToPlay()->play(user);
 				system("pause");
 			}
 			catch (TableNotInCasino)

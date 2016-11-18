@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <vector>
+#include <sstream>
 #include "Dealer.h"
 #include "cmdUI.h"
 
@@ -53,7 +54,7 @@ public:
 	void addPlayer(Player *newPlayer);
 	void addPlayers(vector <Player *> newPlayers);
 	void removePlayer(string &name);
-	void play();
+	void play(unsigned int userID);
 	void simulation(unsigned int roundsLeft);
 	unsigned int getInitialMoney() const;
 	int getTableID() const;

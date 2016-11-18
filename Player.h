@@ -165,12 +165,16 @@ public:
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
 class Human: public Player {
+private:
+	unsigned int userID;
 public:
-	Human(string name, unsigned int age);
+	Human(string name, unsigned int age, unsigned int userID);
 	unsigned int bet(Table &table);
 	string play(Table &table);
 	bool takeInsurance(Table &table);
 	bool split( Dealer *dealerOfTable);
+	void setUserID(unsigned int userID);
+	unsigned int getUserID() const;
 };
 
 

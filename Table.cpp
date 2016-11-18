@@ -81,12 +81,12 @@ void Table::removePlayer(string &name) {
 	throw PlayerIsntOnTable(name);
 }
 
-void Table::play() {
+void Table::play(unsigned int userID) {
 	system("cls");
-	if (this->maxNumberOfPlayers == this->getPlayers().size())
-	{
-		throw TooManyPlayers(maxNumberOfPlayers, maxNumberOfPlayers + 1);
-	}
+	stringstream sstream;
+	string tableFILE;
+
+	//create human player
 	string nameOfPlayer = "";
 	unsigned int ageOfPlayer;
 	cout << "What is your name?" << endl;
@@ -96,11 +96,56 @@ void Table::play() {
 	}
 	cout << "What is your age?" << endl;
 	ageOfPlayer = readUnsignedIntBetween(0, 100);
-	Human *humanPlayer = new Human(nameOfPlayer, ageOfPlayer);
+	Human *humanPlayer = new Human(nameOfPlayer, ageOfPlayer, userID);
+
+	//verify if file exist, if not create a file for table
+	sstream << this->tableID;
+	sstream >> tableFILE;
+	tableFILE.insert(0, "table");
+	tableFILE += "_temp.txt";
+	if (FileExist(tableFILE))
+	{
+		//TODO: read table file
+	}
+	if (this->maxNumberOfPlayers == this->getPlayers().size())
+	{
+		throw TooManyPlayers(maxNumberOfPlayers, maxNumberOfPlayers + 1);
+	}
 	this->addPlayer(humanPlayer);
+	//TODO: write table file
+
+	//realplay
+	system("cls");
+	bool exit = false;
 	while (!exit)
 	{
+		//TODO: play mode
+		exit = true;
+	}
 
+	//TODO: read table file
+	bool HumanStillOnTable = false;
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		if (players.at(i) == humanPlayer)
+		{
+			delete humanPlayer;
+			players.erase(players.begin() + i);
+		}
+		else
+		{
+			Human *h = dynamic_cast<Human *>(players.at(i));
+			Bot2 *b2 = dynamic_cast<Bot2 *>(players.at(i));
+			if (h != NULL)
+			{
+				HumanStillOnTable = true;
+			}
+		}
+	}
+	//TODO: write table file
+	if (!HumanStillOnTable)
+	{
+		remove(tableFILE.c_str());
 	}
 }
 
