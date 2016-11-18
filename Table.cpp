@@ -147,6 +147,7 @@ void Table::simulation(unsigned int roundsLeft) {
 	{
 		dealerBlackJack = false;
 		cout << "Rounds left." << roundsLeft << "\n";
+		actualPlayers = players;
 		restartDeck();
 		getInitialBets();
 		dealOneCardToAllPlayers();
@@ -161,6 +162,7 @@ void Table::simulation(unsigned int roundsLeft) {
 					if ((dealerOfTable->getHandScore() == 21) && (actualPlayers.at(i)->getHandScore() == 21)) {
 						dealerBlackJack = true;
 						payToPlayer(actualPlayers.at(i), actualPlayers.at(i)->getActualBet());
+						actualPlayers.erase(actualPlayers.begin(), actualPlayers.begin() + i); i--;
 					}
 				}
 			}
@@ -179,31 +181,33 @@ void Table::simulation(unsigned int roundsLeft) {
 		for(size_t j=0; j < actualPlayers.size(); j++) {
 			actualPlayers.at(j)->split(dealerOfTable); //carefull, when splitting you have to bet again
 		}
-		for (size_t i = 0; i < players.size(); i++) {
+		for (size_t i = 0; i < actualPlayers.size(); i++) {
 			do {
 				restartDeck(); 
-				if (lastOptionSelected == "double" || players.at(i)->getHandScore() == 21) {
-					lastOptionSelected = "stand";
+				if (lastOptionSelected == "double" || actualPlayers.at(i)->getHandScore() == 21) {
 					break; //break of do while
 				}
 			}
-				while (lastOptionSelected == players.at(i)->play(*this) && lastOptionSelected != "stand");
-			cout << "Name: " << players.at(i)->getName() << "; Money:" << players.at(i)->getCurrentMoney() << "; Handscore: " << players.at(i)->getHandScore() << "\n";
-			cout << "In " << players.at(i)->getName() << "'s hand: ";
-			cout << players.at(i)->getHand();
+				while (lastOptionSelected == actualPlayers.at(i)->play(*this) && lastOptionSelected != "stand");
+			cout << "Name: " << actualPlayers.at(i)->getName() << "; Money:" << actualPlayers.at(i)->getCurrentMoney() << "; Handscore: " << actualPlayers.at(i)->getHandScore() << "\n";
+			cout << "In " << actualPlayers.at(i)->getName() << "'s hand: ";
+			cout << actualPlayers.at(i)->getHand();
 			cout << "\n";
 		}
 		if (dealerBlackJack == false) {
 			do {
 				restartDeck();
-				//cout << "Dealer handscore. " << dealerOfTable->getHandScore() << "\n";
+				cout << "Dealer handscore. " << dealerOfTable->getHandScore() << "\n";
+				if (dealerOfTable->getHandScore() >= 21) {
+					break;
+				}
 			} while (dealerOfTable->play(*this) != "stand");
 		}
 		
 		cout << "Dealer stands, with " << dealerOfTable->getHandScore() << " points. In his hand:\n";
 		cout << dealerOfTable->getHand();
-		for (size_t i = 0; i < players.size(); i++) {
-			actualBet = players.at(i)->getActualBet();
+		for (size_t i = 0; i < actualPlayers.size(); i++) {
+			actualBet = actualPlayers.at(i)->getActualBet();
 			if (players.at(i)->getHandScore() > 21) {
 				//cout  << players.at(i)->getName() << " has " << players.at(i)->getHandScore() << " points, so he got busted!\n";
 			}
@@ -370,6 +374,11 @@ void Table::resetBot1Counters()
 	for (size_t i = 0; i < players.size(); i++) {
 		players.at(i)->resetCount();
 	}
+}
+
+void Table::addMoneyToTable(unsigned int money)
+{
+	moneyOfTable += money;
 }
 
 void Table::payToPlayer(Player * player1, float value)

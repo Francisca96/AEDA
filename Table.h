@@ -69,6 +69,7 @@ public:
 	void showTableInfo(pair <short, short> xy);
 	void kickPlayer(unsigned int index);
 	void resetBot1Counters();
+	void addMoneyToTable(unsigned int money);
 	/**
 	*@return moneyOfTable
 	*clears bots Counters
