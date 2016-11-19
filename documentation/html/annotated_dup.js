@@ -1,0 +1,28 @@
+var annotated_dup =
+[
+    [ "Bot0", "class_bot0.html", "class_bot0" ],
+    [ "Bot1", "class_bot1.html", "class_bot1" ],
+    [ "Bot2", "class_bot2.html", "class_bot2" ],
+    [ "Card", "struct_card.html", "struct_card" ],
+    [ "Casino", "class_casino.html", "class_casino" ],
+    [ "Dealer", "class_dealer.html", "class_dealer" ],
+    [ "DealerAlreadyExistException", "class_dealer_already_exist_exception.html", "class_dealer_already_exist_exception" ],
+    [ "DealerIsOnTableAlreadyException", "class_dealer_is_on_table_already_exception.html", "class_dealer_is_on_table_already_exception" ],
+    [ "DealerNotExistException", "class_dealer_not_exist_exception.html", "class_dealer_not_exist_exception" ],
+    [ "DealerStillOnTableException", "class_dealer_still_on_table_exception.html", "class_dealer_still_on_table_exception" ],
+    [ "ExistingTableException", "class_existing_table_exception.html", "class_existing_table_exception" ],
+    [ "Human", "class_human.html", "class_human" ],
+    [ "HumanOnTableException", "class_human_on_table_exception.html", "class_human_on_table_exception" ],
+    [ "NameTooShortException", "class_name_too_short_exception.html", "class_name_too_short_exception" ],
+    [ "NoPlayersOnTableException", "class_no_players_on_table_exception.html", "class_no_players_on_table_exception" ],
+    [ "Player", "class_player.html", "class_player" ],
+    [ "PlayerAlreadyExistException", "class_player_already_exist_exception.html", "class_player_already_exist_exception" ],
+    [ "PlayerIsntOnTableException", "class_player_isnt_on_table_exception.html", "class_player_isnt_on_table_exception" ],
+    [ "PlayerNotExistException", "class_player_not_exist_exception.html", "class_player_not_exist_exception" ],
+    [ "PlayerNotLoggedException", "class_player_not_logged_exception.html", "class_player_not_logged_exception" ],
+    [ "PlayerStillOnTableException", "class_player_still_on_table_exception.html", "class_player_still_on_table_exception" ],
+    [ "Table", "class_table.html", "class_table" ],
+    [ "TableNotInCasinoException", "class_table_not_in_casino_exception.html", "class_table_not_in_casino_exception" ],
+    [ "TooManyPlayersException", "class_too_many_players_exception.html", "class_too_many_players_exception" ],
+    [ "TooYoungException", "class_too_young_exception.html", "class_too_young_exception" ]
+];

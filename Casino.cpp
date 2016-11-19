@@ -29,13 +29,13 @@ void Casino::addTableToCasino(Table * table)
 	try {
 		for (size_t i = 0; i < tables.size(); i++) {
 			if (tables.at(i) == table) {
-				throw ExistingTable(table);
+				throw ExistingTableException(table);
 			}
 		}
 		tables.push_back(table);
 		totalMoney -= table->getInitialMoney();
 	}
-	catch (ExistingTable &e) {
+	catch (ExistingTableException &e) {
 		e.what();
 	}
 }
@@ -50,7 +50,7 @@ void Casino::removeTableFromCasino(Table * table) {
 			return;
 		}
 	}
-	throw TableNotInCasino(table);
+	throw TableNotInCasinoException(table);
 }
 
 void Casino::addPlayerToCasino(Player * player1)
@@ -106,7 +106,7 @@ void Casino::addPlayerToTable(Player * player1, Table * table)
 			}
 		}
 		if (foundTable == false) {
-			throw TableNotInCasino(table);
+			throw TableNotInCasinoException(table);
 		}
 
 		for (size_t i = 0; i < players.size(); i++) {
@@ -117,14 +117,14 @@ void Casino::addPlayerToTable(Player * player1, Table * table)
 			}
 		}
 		if (foundPlayer == false) {
-			throw PlayerNotLogged(player1);
+			throw PlayerNotLoggedException(player1);
 		}
 		
 	}
 	catch (TooManyPlayersException &e) {
 		e.what();
 	}
-	catch (PlayerNotLogged &p) {
+	catch (PlayerNotLoggedException &p) {
 		p.what();
 	}
 }
@@ -405,7 +405,7 @@ void Casino::selectTable(pair<short, short> xy) {
 			return;
 		}
 	}
-	throw TableNotInCasino(new Table(tableID));
+	throw TableNotInCasinoException(new Table(tableID));
 }
 
 void Casino::setTableToPlay(int tableID) {
@@ -423,16 +423,16 @@ Table * Casino::getTableToPlay() const {
 			}
 		}
 	}
-	throw TableNotInCasino(new Table(tableToPlay));
+	throw TableNotInCasinoException(new Table(tableToPlay));
 }
 
 void Casino::manage(pair<short, short> xy) {
 	unsigned int exit = 0;
-	unsigned int choise, tableID;
+	unsigned int choice, tableID;
 	while (!exit)
 	{
-		manageCasino(xy, choise);
-		switch (choise)
+		manageCasino(xy, choice);
+		switch (choice)
 		{
 		case 0:
 			exit = 1;
@@ -452,7 +452,7 @@ void Casino::manage(pair<short, short> xy) {
 				this->findTable(tableID);
 				this->manageTables(xy, tableID);
 			}
-			catch (TableNotInCasino)
+			catch (TableNotInCasinoException)
 			{
 				cout << "This table not exist" << endl;
 				system("pause");
@@ -469,11 +469,11 @@ void Casino::manage(pair<short, short> xy) {
 
 void Casino::create(pair<short, short> xy) {
 	unsigned int exit = 0;
-	unsigned int choise;
+	unsigned int choice;
 	while (!exit)
 	{
-		createMenu(xy, choise);
-		switch (choise)
+		createMenu(xy, choice);
+		switch (choice)
 		{
 		case 0:
 			exit = 1;
@@ -580,11 +580,11 @@ void Casino::create(pair<short, short> xy) {
 
 void Casino::eliminate(pair<short, short> xy) {
 	unsigned int exit = 0;
-	unsigned int choise;
+	unsigned int choice;
 	while (!exit)
 	{
-		deleteMenu(xy, choise);
-		switch (choise)
+		deleteMenu(xy, choice);
+		switch (choice)
 		{
 		case 0:
 			exit = 1;
@@ -599,7 +599,7 @@ void Casino::eliminate(pair<short, short> xy) {
 				cout << "The tablet was deleted with success" << endl;
 				system("pause");
 			}
-			catch (TableNotInCasino)
+			catch (TableNotInCasinoException)
 			{
 				cout << "The tablet wasn´t deleted with success" << endl;
 				cout << "The tablet doesn't exist" << endl;
@@ -664,12 +664,12 @@ void Casino::eliminate(pair<short, short> xy) {
 
 void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 	unsigned int exit = 0;
-	unsigned int choise, dealerID;
+	unsigned int choice, dealerID;
 	string playerName;
 	while (!exit)
 	{
-		manageTableMenu(xy, choise);
-		switch (choise)
+		manageTableMenu(xy, choice);
+		switch (choice)
 		{
 		case 0:
 			exit = 1;
@@ -700,7 +700,7 @@ void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 				cout << "This Dealer have one table for him already" << endl;
 				system("pause");
 			}
-			catch (TableNotInCasino &table)
+			catch (TableNotInCasinoException &table)
 			{
 				throw table;
 			}
@@ -728,7 +728,7 @@ void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 				cout << "Player was added with success to table" << endl;
 				system("pause");
 			}
-			catch (TableNotInCasino &table)
+			catch (TableNotInCasinoException &table)
 			{
 				throw table;
 			}
@@ -773,7 +773,7 @@ void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 				cout << "Player was removed from table with success" << endl;
 				system("pause");
 			}
-			catch (TableNotInCasino &table)
+			catch (TableNotInCasinoException &table)
 			{
 				throw table;
 			}
@@ -810,7 +810,7 @@ unsigned int Casino::findTable(unsigned int tableID) {
 			return i;
 		}
 	}
-	throw TableNotInCasino(new Table(tableID));
+	throw TableNotInCasinoException(new Table(tableID));
 }
 
 unsigned int Casino::findDealer(unsigned int dealerID) {
@@ -963,32 +963,32 @@ void Casino::showTables(pair <short, short> xy) {
 	cout << endl << endl << endl;
 }
 
-PlayerNotLogged::PlayerNotLogged(Player * player1)
+PlayerNotLoggedException::PlayerNotLoggedException(Player * player1)
 {
 	name = player1->getName();
 }
 
-void PlayerNotLogged::what()
+void PlayerNotLoggedException::what()
 {
 	cout << name << " is not logged in this Casino, try to log in first.\n";
 }
 
-ExistingTable::ExistingTable(Table * table)
+ExistingTableException::ExistingTableException(Table * table)
 {
 	id = table->getTableID();
 }
 
-void ExistingTable::what()
+void ExistingTableException::what()
 {
 	cout << "Table ID." << id << " already exists in this casino\n";
 }
 
-TableNotInCasino::TableNotInCasino(Table * table)
+TableNotInCasinoException::TableNotInCasinoException(Table * table)
 {
 	id = table->getTableID();
 }
 
-void TableNotInCasino::what()
+void TableNotInCasinoException::what()
 {
 	cout << "Table Id." << id << " is not registered in this casino\n";
 }
