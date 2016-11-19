@@ -237,7 +237,7 @@ public:
  *
  * @brief	A player.
  *			Abstract Class.
- *			Player is the base class
+ *			Player is the base class.
  * @author	Ineeve
  * @date	19/11/2016
  */
@@ -786,7 +786,7 @@ public:
 /**
  * @class	Bot0
  *
- * @brief	Bot of type 0
+ * @brief	Bot of type 0.
  * 			The most basic bot, always bets the minimum allowed, stands on 17 (or more).
  *
  * @author	Ineeve
@@ -919,14 +919,14 @@ public:
 	/**
 	 * @fn	bool Bot1::takeInsurance(Table &table);
 	 *
-	 * @brief	Take insurance.
+	 * @brief	Take insurance if current count >= 3;
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
 	 *
-	 * @return	True if it succeeds, false if it fails.
+	 * @return	True if it takes insurance, false if it does not.
 	 */
 
 	bool takeInsurance(Table &table);
@@ -947,12 +947,12 @@ public:
 	/**
 	 * @fn	void Bot1::addCount(Card &card1);
 	 *
-	 * @brief	Adds a count.
+	 * @brief	Updates the current counter with a new card.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @param [in,out]	card1	The first card.
+	 * @param [in,out]	card1	The card to update the counter.
 	 */
 
 	void addCount(Card &card1);
@@ -960,7 +960,7 @@ public:
 	/**
 	 * @fn	void Bot1::resetCount();
 	 *
-	 * @brief	Resets the count.
+	 * @brief	Resets the current counter.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
@@ -971,14 +971,14 @@ public:
 	/**
 	 * @fn	bool Bot1::split( Dealer *dealerOfTable);
 	 *
-	 * @brief	Splits the given dealer of table.
+	 * @brief	Splits the hand or not.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @param [in,out]	dealerOfTable	If non-null, the dealer of table.
+	 * @param [in,out]	dealerOfTable	Poiner to the dealer of the table.
 	 *
-	 * @return	True if it succeeds, false if it fails.
+	 * @return	True if it splits, false if it does not.
 	 */
 
 	bool split( Dealer *dealerOfTable);
@@ -986,14 +986,15 @@ public:
 	/**
 	 * @fn	virtual bool Bot1::surrender(Table &table);
 	 *
-	 * @brief	Surrenders the given table.
+	 * @brief	Surrenders or not.
+	 * 			Surrender algorithm is based on the fab4 surrender guides. 
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
 	 *
-	 * @return	True if it succeeds, false if it fails.
+	 * @return	True if it surrenders, false if it does not.
 	 */
 
 	virtual bool surrender(Table &table);
@@ -1002,8 +1003,8 @@ public:
 /**
  * @class	Bot2
  *
- * @brief	///////////////////////////////////////////////// BOT 2
- * 			////////////////////////////////////////////////////.
+ * @brief	Bot of type 2.
+ * 			This bot plays using the Ace/Five Count strategy guide.
  *
  * @author	Ineeve
  * @date	19/11/2016
@@ -1011,7 +1012,7 @@ public:
 
 class Bot2 : public Player {
 private:
-	/** @brief	Number of currents. */
+	/** @brief	Current counter. */
 	int currentCount;
 	/** @brief	The last bet value. */
 	unsigned int lastBetValue;
@@ -1034,14 +1035,14 @@ public:
 	/**
 	 * @fn	unsigned int Bot2::bet(Table &table);
 	 *
-	 * @brief	Bets the given table.
+	 * @brief	Bets according to the Ace/Five guidelines.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
 	 *
-	 * @return	An int.
+	 * @return	The initial bet value.
 	 */
 
 	unsigned int bet(Table &table);
@@ -1050,7 +1051,7 @@ public:
 	/**
 	 * @fn	string Bot2::play(Table &table);
 	 *
-	 * @brief	Plays the given table.
+	 * @brief	Plays according to the Ace/Five rules.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
@@ -1065,14 +1066,14 @@ public:
 	/**
 	 * @fn	bool Bot2::takeInsurance(Table &table);
 	 *
-	 * @brief	Take insurance.
-	 *
+	 * @brief	Ckeck if bot2 wants to take insurance.
+	 *			Bot2 never takes insurance.
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
 	 *
-	 * @return	True if it succeeds, false if it fails.
+	 * @return	False.
 	 */
 
 	bool takeInsurance(Table &table);
@@ -1080,14 +1081,14 @@ public:
 	/**
 	 * @fn	bool Bot2::split(Dealer *dealerOfTable);
 	 *
-	 * @brief	Splits the given dealer of table.
-	 *
+	 * @brief	Checks if the bot wants to split.
+	 *			Bot2 never splits.
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @param [in,out]	dealerOfTable	If non-null, the dealer of table.
+	 * @param [in,out]	dealerOfTable	Pointer to the dealer of the table.
 	 *
-	 * @return	True if it succeeds, false if it fails.
+	 * @return	False.
 	 */
 
 	bool split(Dealer *dealerOfTable);
@@ -1095,14 +1096,14 @@ public:
 	/**
 	 * @fn	virtual bool Bot2::surrender(Table &table);
 	 *
-	 * @brief	Surrenders the given table.
+	 * @brief	Surrenders or not.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
 	 *
-	 * @return	True if it succeeds, false if it fails.
+	 * @return	True if it surrenders, false if it does not.
 	 */
 
 	virtual bool surrender(Table &table);
@@ -1110,7 +1111,7 @@ public:
 	/**
 	 * @fn	int Bot2::getCurrentCount() const;
 	 *
-	 * @brief	Gets current count.
+	 * @brief	Gets the current count.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
@@ -1123,12 +1124,12 @@ public:
 	/**
 	 * @fn	void Bot2::addCount(Card &card1);
 	 *
-	 * @brief	Adds a count.
+	 * @brief	Updates the counter with a given card.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @param [in,out]	card1	The first card.
+	 * @param [in,out]	card1	The card to update the counter.
 	 */
 
 	void addCount(Card &card1);
@@ -1136,7 +1137,7 @@ public:
 	/**
 	 * @fn	void Bot2::resetCount();
 	 *
-	 * @brief	Resets the count.
+	 * @brief	Resets the counter.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
@@ -1161,8 +1162,8 @@ public:
 /**
  * @class	Human
  *
- * @brief	///////////////////////////////////////////////// HUMAN
- * 			////////////////////////////////////////////////////.
+ * @brief	A Human player.
+ * 			
  *
  * @author	Ineeve
  * @date	19/11/2016
@@ -1188,14 +1189,14 @@ public:
 	/**
 	 * @fn	unsigned int Human::bet(Table &table);
 	 *
-	 * @brief	Bets the given table.
+	 * @brief	Asks the human player to place his bet.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
 	 *
-	 * @return	An int.
+	 * @return	The human bet.
 	 */
 
 	unsigned int bet(Table &table);
@@ -1203,14 +1204,14 @@ public:
 	/**
 	 * @fn	string Human::play(Table &table);
 	 *
-	 * @brief	Plays the given table.
+	 * @brief	Ask the human player to hit or stand.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
 	 *
-	 * @return	A string.
+	 * @return	A string: "hit" or "stand";
 	 */
 
 	string play(Table &table);
@@ -1218,14 +1219,14 @@ public:
 	/**
 	 * @fn	bool Human::takeInsurance(Table &table);
 	 *
-	 * @brief	Take insurance.
+	 * @brief	Ask the human player for insurance.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
 	 *
-	 * @return	True if it succeeds, false if it fails.
+	 * @return	True if human takes insurance, false if it does not.
 	 */
 
 	bool takeInsurance(Table &table);
@@ -1233,14 +1234,14 @@ public:
 	/**
 	 * @fn	bool Human::split( Dealer *dealerOfTable);
 	 *
-	 * @brief	Splits the given dealer of table.
+	 * @brief	Ask human if he want to split his hand.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @param [in,out]	dealerOfTable	If non-null, the dealer of table.
+	 * @param [in,out]	dealerOfTable	Pointer to the dealer of the table.
 	 *
-	 * @return	True if it succeeds, false if it fails.
+	 * @return	True if human splits, false otherwise.
 	 */
 
 	bool split( Dealer *dealerOfTable);

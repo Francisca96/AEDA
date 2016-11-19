@@ -1,5 +1,5 @@
 ﻿/**
- * @file	C:\Users\Renato Campos\Documents\GitHub\aeda-casino\Table.h
+ * @file	C:\Users\ineeve\Documents\GitHub\aeda-casino\Table.h
  *
  * @brief	Declares the table class.
  */
