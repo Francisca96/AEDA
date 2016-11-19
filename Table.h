@@ -58,7 +58,7 @@ public:
 	void addPlayer(Player *newPlayer);
 	void addPlayers(vector <Player *> newPlayers);
 	void removePlayer(string &name);
-	void play(unsigned int userID);
+	void play(pair <short, short> xy, unsigned int userID);
 	void simulation(unsigned int roundsLeft);
 	unsigned int getInitialMoney() const;
 	int getTableID() const;
@@ -85,5 +85,6 @@ public:
 
 	void readTableFile();
 	void writeTableFile();
+	void showPlay(pair <short, short> xy);
 	
 };

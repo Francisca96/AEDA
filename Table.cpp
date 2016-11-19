@@ -83,7 +83,7 @@ void Table::removePlayer(string &name) {
 	throw PlayerIsntOnTable(name);
 }
 
-void Table::play(unsigned int userID) {
+void Table::play(pair <short, short> xy, unsigned int userID) {
 	system("cls");
 	stringstream sstream;
 	string tableFILE;
@@ -126,6 +126,7 @@ void Table::play(unsigned int userID) {
 	bool exit = false;
 	while (!exit)
 	{
+		this->readTableFile();
 		while (bossUserID != userID)
 		{
 			waitXTime(1);
@@ -136,9 +137,11 @@ void Table::play(unsigned int userID) {
 			//TODO: prepare round to play
 			dealerBlackJack = false;
 			actualPlayers = players;
+			this->writeTableFile();
 		}
 		if (nextPlayerIndex == 0 && phaseOfPlaying == 1)
 		{
+			restartDeck();
 			dealOneCardToAllPlayers();
 			this->writeTableFile();
 			restartDeck();
@@ -159,6 +162,8 @@ void Table::play(unsigned int userID) {
 				{
 					if (actualPlayers.at(i)->getUserID() != userID)
 					{
+						bossUserID = actualPlayers.at(i)->getUserID();
+						this->writeTableFile();
 						while (bossUserID != userID)
 						{
 							waitXTime(1);
@@ -171,19 +176,20 @@ void Table::play(unsigned int userID) {
 						{
 							unsigned int betValue;
 							betValue = actualPlayers.at(i)->bet(*this);
-							if (betValue == 0)
-							{
-								actualPlayers.erase(actualPlayers.begin() + i);
-								//TODO: change exit method
-								exit = 1;
-							}
+							this->readTableFile();
+							actualPlayers.at(i)->setCurrentMoney(actualPlayers.at(i)->getCurrentMoney() - betValue);
+							actualPlayers.at(i)->setActualBet(betValue);
 							//TODO: change for playerID after
 							nextPlayerIndex = i + 1;
+
 							this->writeTableFile();
 						}
 						else
 						{
-							actualPlayers.at(i)->play2(*this);
+							while (actualPlayers.at(i)->getHandScore() < 21 && actualPlayers.at(i)->play(*this) != "stand")
+							{
+								restartDeck();
+							}
 							//TODO: change for playerID after
 							nextPlayerIndex = i + 1;
 							this->writeTableFile();
@@ -206,7 +212,10 @@ void Table::play(unsigned int userID) {
 					}
 					else
 					{
-						actualPlayers.at(i)->play2(*this);
+						while (actualPlayers.at(i)->getHandScore() < 21 && actualPlayers.at(i)->play(*this) != "stand")
+						{
+							restartDeck();
+						}
 						//TODO: change for playerID after
 						nextPlayerIndex = i + 1;
 						this->writeTableFile();
@@ -217,16 +226,65 @@ void Table::play(unsigned int userID) {
 			{
 				nextPlayerIndex = 0;
 				phaseOfPlaying = 1;
+				this->writeTableFile();
 			}
 			if (nextPlayerIndex == actualPlayers.size() && phaseOfPlaying == 2)
 			{
 				nextPlayerIndex = 0;
-			}
-			if (actualPlayers.size() == 0)
-			{
-				dealerOfTable->play2(*this);
-
 				phaseOfPlaying = 0;
+				while (dealerOfTable->getHandScore() < 21 && dealerOfTable->play(*this) != "stand")
+				{
+					restartDeck();
+				}
+				unsigned int actualBet;
+				for (size_t j = 0; j < actualPlayers.size(); j++)
+				{
+					actualBet = actualPlayers.at(j)->getActualBet();
+					if (actualPlayers.at(j)->getHandScore() > 21)
+					{
+						//cout  << players.at(j)->getName() << " has " << players.at(j)->getHandScore() << " points, so he got busted!\n";
+					}
+					else
+					{
+						if (actualPlayers.at(j)->getHandScore() == 21 && actualPlayers.at(j)->getHandSize() == 2 && dealerOfTable->getHandScore() < 21)
+						{
+							payToPlayer(players.at(j), actualBet * 2.5);
+							//cout << players.at(j)->getName() << " has " << players.at(j)->getHandScore() << " so he did a blackjack!\n";
+						}
+						else if (actualPlayers.at(j)->getHandScore() <= 21 && actualPlayers.at(j)->getHandScore() == dealerOfTable->getHandScore())
+						{
+							payToPlayer(actualPlayers.at(j), actualBet);
+							//cout << actualPlayers.at(j)->getName() << " has " << actualPlayers.at(j)->getHandScore() << " points, which is equal to the Dealer!\n";
+						}
+						else if (actualPlayers.at(j)->getHandScore() > dealerOfTable->getHandScore() && actualPlayers.at(j)->getHandScore() < 21)
+						{
+							payToPlayer(actualPlayers.at(j), actualBet * 2);
+							//cout << actualPlayers.at(j)->getName() << " has " << actualPlayers.at(j)->getHandScore() << " points, so he won the bet!\n";
+						}
+						else if (dealerOfTable->getHandScore() > 21 && actualPlayers.at(j)->getHandScore() <= 21)
+						{
+							payToPlayer(actualPlayers.at(j), actualBet * 2);
+							//cout << "Dealer got busted! Player " << actualPlayers.at(j)->getName() << " will receive 2 times his original bet!\n";
+						}
+						else if (actualPlayers.at(j)->getHandScore() != 21 && dealerOfTable->getHandScore() == 21)
+						{
+							//cout << "Dealer has blackjack! " << actualPlayers.at(j)->getName() << " lost his bet!\n";
+						}
+					}
+					actualPlayers.at(j)->clearHand();
+					actualPlayers.at(j)->clearHand2();
+					actualPlayers.at(j)->setRoundsPlayed(players.at(j)->getRoundsPlayed() + 1);
+					dealerOfTable->clearHand();
+				}
+				players = actualPlayers;
+				actualPlayers.clear();
+				this->writeTableFile();
+				cout << "Do you want exit from table? (y/n)" << endl;
+				char option = readCharYorN();
+				if (option == 'y')
+				{
+					exit = true;
+				}
 			}
 		}
 	}
@@ -247,6 +305,7 @@ void Table::play(unsigned int userID) {
 			if (h != NULL)
 			{
 				HumanStillOnTable = true;
+				bossUserID = players.at(i)->getUserID();
 			}
 		}
 	}
@@ -644,6 +703,7 @@ void Table::readTableFile() {
 			getline(inFile, line);
 			this->phaseOfPlaying = stoi(line);
 			inFile.close();
+			return;
 		}
 		else
 		{
@@ -676,7 +736,7 @@ void Table::writeTableFile() {
 			outFile << "}" << endl << "{" << endl;
 			for (size_t i = 0; i < actualPlayers.size(); i++)
 			{
-				players.at(i)->saveInfo(outFile);
+				actualPlayers.at(i)->saveInfo(outFile);
 				outFile << endl;
 			}
 			outFile << "}" << endl;

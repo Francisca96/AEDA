@@ -78,7 +78,6 @@ int main(){
 		case 1:
 			system("CLS");
 			//TODO: play (game run in normal mode with a human player)
-			cout << "Please insert you name: " << endl;
 			try
 			{
 				casino.getTableToPlay()->play(user);

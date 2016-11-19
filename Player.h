@@ -105,7 +105,6 @@ public:
 	void setActualBet(unsigned int bet);
 	unsigned int getActualBet();
 	virtual string play(Table &table) = 0;
-	virtual void play2(Table &table) = 0;
 	virtual int getCurrentCount() const;
 	virtual void addCount(Card &card1);
 	virtual void resetCount();
@@ -127,7 +126,6 @@ public:
 	Bot0(string name, unsigned int initialMoney);
 	//play method
 	string play(Table &table);
-	void play2(Table &table);
 	bool takeInsurance(Table &table);
 	virtual ostream& saveInfo(ostream& out);
 };
@@ -142,7 +140,6 @@ public:
 	Bot1(string &line);
 	//play method
 	string play(Table &table);
-	void play2(Table &table);
 	bool takeInsurance(Table &table);
 	int getCurrentCount() const;
 	void addCount(Card &card1);
@@ -163,7 +160,6 @@ public:
 	unsigned int bet(Table &table);
 	//play method
 	string play(Table &table);
-	void play2(Table &table);
 	bool takeInsurance(Table &table);
 	bool split(Dealer *dealerOfTable);
 	virtual bool surrender(Table &table);
@@ -183,7 +179,6 @@ public:
 	Human(string &line);
 	unsigned int bet(Table &table);
 	string play(Table &table);
-	void play2(Table &table);
 	bool takeInsurance(Table &table);
 	bool split( Dealer *dealerOfTable);
 	void setUserID(unsigned int userID);

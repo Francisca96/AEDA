@@ -186,11 +186,13 @@ unsigned int Player::bet(Table &table)
 void Player::clearHand()
 {
 	hand.clear();
+	this->setHandScore();
 }
 
 void Player::clearHand2()
 {
 	hand2.clear();
+	this->setHand2Score();
 }
 
 void Player::setActualBet(unsigned int bet)
@@ -255,7 +257,7 @@ ostream & Player::saveInfo(ostream & out) {
 	{
 		out << "}; ";
 	}
-	if (hand.size() != 0)
+	if (hand2.size() != 0)
 	{
 		out << "{";
 	}
@@ -308,6 +310,7 @@ Bot0::Bot0(string & line) {
 			line.erase(0, line.find_first_of("; ") + 2);
 			this->hit(newCard);
 		}
+		line.erase(0, line.find_first_of("; ") + 2);
 	}
 	this->clearHand2();
 	if (line.at(0) == '{')
@@ -324,6 +327,7 @@ Bot0::Bot0(string & line) {
 			line.erase(0, line.find_first_of("; ") + 2);
 			this->hit2(newCard);
 		}
+		line.erase(0, line.find_first_of("; ") + 2);
 	}
 	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of("; "))));
 	line.erase(0, line.find_first_of("; ") + 2);
@@ -511,6 +515,7 @@ Bot1::Bot1(string & line) {
 			line.erase(0, line.find_first_of("; ") + 2);
 			this->hit(newCard);
 		}
+		line.erase(0, line.find_first_of("; ") + 2);
 	}
 	this->clearHand2();
 	if (line.at(0) == '{')
@@ -527,6 +532,7 @@ Bot1::Bot1(string & line) {
 			line.erase(0, line.find_first_of("; ") + 2);
 			this->hit2(newCard);
 		}
+		line.erase(0, line.find_first_of("; ") + 2);
 	}
 	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of("; "))));
 	line.erase(0, line.find_first_of("; ") + 2);
@@ -710,6 +716,7 @@ Bot2::Bot2(string & line) {
 			line.erase(0, line.find_first_of("; ") + 2);
 			this->hit(newCard);
 		}
+		line.erase(0, line.find_first_of("; ") + 2);
 	}
 	this->clearHand2();
 	if (line.at(0) == '{')
@@ -726,6 +733,7 @@ Bot2::Bot2(string & line) {
 			line.erase(0, line.find_first_of("; ") + 2);
 			this->hit2(newCard);
 		}
+		line.erase(0, line.find_first_of("; ") + 2);
 	}
 	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of("; "))));
 	line.erase(0, line.find_first_of("; ") + 2);
@@ -931,6 +939,7 @@ Human::Human(string & line) {
 			line.erase(0, line.find_first_of("; ") + 2);
 			this->hit(newCard);
 		}
+		line.erase(0, line.find_first_of("; ") + 2);
 	}
 	this->clearHand2();
 	if (line.at(0) == '{')
@@ -947,6 +956,7 @@ Human::Human(string & line) {
 			line.erase(0, line.find_first_of("; ") + 2);
 			this->hit2(newCard);
 		}
+		line.erase(0, line.find_first_of("; ") + 2);
 	}
 	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of("; "))));
 	line.erase(0, line.find_first_of("; ") + 2);
@@ -974,8 +984,8 @@ unsigned int Human::bet(Table &table)
 		maxbet = table.getMaxBet();
 	}
 	betValue = readUnsignedIntBetween(table.getMinBet(), maxbet);
-	setCurrentMoney(getCurrentMoney() - betValue);
-	setActualBet(betValue);
+	this->setActualBet(betValue);
+	this->setCurrentMoney(this->getCurrentMoney() - betValue);
 	return betValue;
 }
 
@@ -986,27 +996,20 @@ string Human::play(Table &table)
 		return "stand";
 	}
 	string option;
-	while (getHandScore() < 21 && option != "stand")
+	cout << "Your Turn -> In your hand you have the following:\n";
+	for (size_t i = 0; i < getHandSize(); i++)
 	{
-		cout << "Your Turn -> In your hand you have the following:\n";
-		for (size_t i = 0; i < getHandSize(); i++)
-		{
-			cout << getHand().at(i).rank << " of " << getHand().at(i).suits << "\n";
-		}
-		cout << "Current hand score-> " << getHandScore() << "\n";
-		cout << "Current money-> " << getCurrentMoney() << "\n";
-		cout << "To hit write 'hit' to stand write 'stand' : ";
-		option = getHumanPlay();
-		if (option == "hit")
-		{
-			hit(table.getDealer()->discard(table.getPlayers()));
-		}
+		cout << getHand().at(i).rank << " of " << getHand().at(i).suits << "\n";
+	}
+	cout << "Current hand score-> " << getHandScore() << "\n";
+	cout << "Current money-> " << getCurrentMoney() << "\n";
+	cout << "To hit write 'hit' to stand write 'stand' : ";
+	option = getHumanPlay();
+	if (option == "hit")
+	{
+		hit(table.getDealer()->discard(table.getPlayers()));
 	}
 	return option;
-}
-
-void Human::play2(Table & table) {
-
 }
 
 PlayerAlreadyExist::PlayerAlreadyExist(Player * player) {
