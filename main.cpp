@@ -84,7 +84,7 @@ int main(){
 				casino.getTableToPlay()->play();
 				system("pause");
 			}
-			catch (TableNotInCasino)
+			catch (TableNotInCasinoException)
 			{
 				cout << "Please select a table first" << endl;
 				system("pause");
@@ -112,7 +112,7 @@ int main(){
 				casino.showStatistics();
 				system("pause");
 			}
-			catch (TableNotInCasino)
+			catch (TableNotInCasinoException)
 			{
 				cout << "Please select a table first" << endl;
 				system("pause");
@@ -136,7 +136,7 @@ int main(){
 			{
 				casino.selectTable(xy);
 			}
-			catch (TableNotInCasino)
+			catch (TableNotInCasinoException)
 			{
 				cout << "This table not exist" << endl;
 			}
