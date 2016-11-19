@@ -346,3 +346,13 @@ int readNameOfFile(string & fileName) {
 	return 0;
 }
 
+void waitXTime(unsigned int time) {
+	clock_t t1 = clock();
+	float seconds_past = 0.0;
+	while (seconds_past < time)
+	{
+		seconds_past = (clock() - t1) / CLOCKS_PER_SEC;
+	}
+	return;
+}
+

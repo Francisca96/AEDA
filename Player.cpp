@@ -110,7 +110,7 @@ void Player::setCurrentMoney(unsigned int money)
 }
 
 
-unsigned int Player::getCurrentMoney() const
+float Player::getCurrentMoney() const
 {
 	return currentMoney;
 }
@@ -236,6 +236,27 @@ void Player::removeCardFromFirstHandAndSetItOnSecondHand()
 	hand2.push_back(secondCard);
 }
 
+ostream & Player::operator<<(ostream & out) {
+	out << name << "; " << initialMoney << "; " << setprecision(2) << fixed << currentMoney << "; ";
+	for (size_t i = 0; i < hand.size(); i++)
+	{
+		cout << "{" << hand.at(i).rank << "/" << hand.at(i).suits << "; ";
+	}
+	if (hand.size != 0)
+	{
+		cout << "}; ";
+	}
+	for (size_t i = 0; i < hand2.size(); i++)
+	{
+		cout << "{" << hand2.at(i).rank << "/" << hand2.at(i).suits << "; ";
+	}
+	if (hand2.size != 0)
+	{
+		cout << "}; ";
+	}
+	cout << roundsPlayed << "; " << setprecision(2) << fixed << averageProfit << "; " << age << "; " << onTable << "; " << actualBet << "; ";
+}
+
 bool Player::takeInsurance(Table &table){
 	return false;
 }
@@ -260,6 +281,12 @@ Bot0::Bot0(string name, unsigned int initialMoney)
 
 bool Bot0::takeInsurance(Table &table) {
     return false;
+}
+
+ostream & Bot0::operator<<(ostream & out) {
+	out << "0; ";
+	Player::operator<<(out);
+	return out;
 }
 
 string Bot0::play(Table &table)
@@ -323,6 +350,13 @@ bool Bot1::surrender(Table & table)
 		return true;
 	}
 	return false;
+}
+
+ostream & Bot1::operator<<(ostream & out) {
+	out << "1; ";
+	Player::operator<<(out);
+	out << currentCount << "; ";
+	return out;
 }
 
 unsigned int Bot1::bet(Table &table) {
@@ -627,6 +661,13 @@ void Bot2::setLastBetValue(unsigned int lastBet)
 	lastBetValue = lastBet;
 }
 
+ostream & Bot2::operator<<(ostream & out) {
+	out << "2; ";
+	Player::operator<<(out);
+	out << currentCount << "; " << lastBetValue << "; ";
+	return out;
+}
+
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
 bool Human::takeInsurance(Table &table) {
     unsigned int insurance;
@@ -667,8 +708,15 @@ unsigned int Human::getUserID() const {
 	return this->userID;
 }
 
+ostream & Human::operator<<(ostream & out) {
+	out << "3; ";
+	Player::operator<<(out);
+	out << userID << "; ";
+	return out;
+}
 
-Human::Human(string name, unsigned int age, unsigned int userID)
+
+Human::Human(string name, unsigned int age, int userID)
 {
 	try {
 		if (name.length() < 3) {

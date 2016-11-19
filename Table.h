@@ -43,6 +43,10 @@ private:
 	vector<Player*> players;
 	vector<Player*> actualPlayers;
 
+	unsigned int nextPlayerIndex;
+	unsigned int bossUserID;
+	unsigned int phaseOfPlaying;
+
 public:
 	Table(int ID);
 	Table( unsigned int, unsigned int, unsigned int, unsigned int, Dealer*); // Table() is a construct of a class Table with 6 args(minBet, maxBet, moneyOfTbale, maxNumberOfPlayers, dealerOfTable)
@@ -78,5 +82,8 @@ public:
 	float closeTable();
 	static void setNextID(unsigned int tableNextID);
 	static unsigned int getNextId();
+
+	void readTableFile();
+	void writeTableFile();
 	
 };

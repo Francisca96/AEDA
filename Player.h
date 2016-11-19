@@ -83,7 +83,7 @@ public:
 	vector<Card> & getHand2();
 	unsigned int getHandSize() const;
 	unsigned int getRoundsPlayed() const;
-	unsigned int getCurrentMoney() const;
+	float getCurrentMoney() const;
 	float getAverageProfit() const;
 	unsigned int getHandScore() const;
 	unsigned int getHand2Score() const;
@@ -112,19 +112,21 @@ public:
 	void setOnTable(int tableID);
 	int getOnTable() const;
 	void removeCardFromFirstHandAndSetItOnSecondHand();
-
-
-	
+	virtual void setUserID(unsigned int userID) {}
+	virtual unsigned int getUserID() const { return 0; }
+	virtual ostream& operator<<(ostream& out);
 };
 
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 class Bot0: public Player {
 public:
 	Bot0() {};
+	Bot0(string &line);
 	Bot0(string name, unsigned int initialMoney);
 	//play method
 	string play(Table &table);
 	bool takeInsurance(Table &table);
+	virtual ostream& operator<<(ostream& out);
 };
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
@@ -134,6 +136,7 @@ private:
 public:
 	unsigned int bet(Table &table);
 	Bot1(string name, unsigned int initialMoney);
+	Bot1(string &line);
 	//play method
 	string play(Table &table);
 	bool takeInsurance(Table &table);
@@ -142,6 +145,7 @@ public:
 	void resetCount();
 	bool split( Dealer *dealerOfTable);
 	virtual bool surrender(Table &table);
+	virtual ostream& operator<<(ostream& out);
 };
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
@@ -151,6 +155,7 @@ private:
 	unsigned int lastBetValue;
 public:
 	Bot2(string name, unsigned int initialMoney);
+	Bot2(string &line);
 	unsigned int bet(Table &table);
 	//play method
 	string play(Table &table);
@@ -161,6 +166,7 @@ public:
 	void addCount(Card &card1);
 	void resetCount();
 	void setLastBetValue(unsigned int lastBet);
+	virtual ostream& operator<<(ostream& out);
 };
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
@@ -168,13 +174,15 @@ class Human: public Player {
 private:
 	unsigned int userID;
 public:
-	Human(string name, unsigned int age, unsigned int userID);
+	Human(string name, unsigned int age, int userID);
+	Human(string &line);
 	unsigned int bet(Table &table);
 	string play(Table &table);
 	bool takeInsurance(Table &table);
 	bool split( Dealer *dealerOfTable);
 	void setUserID(unsigned int userID);
 	unsigned int getUserID() const;
+	virtual ostream& operator<<(ostream& out);
 };
 
 

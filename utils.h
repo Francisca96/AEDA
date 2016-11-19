@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <iomanip>
+#include <time.h>
 
 using namespace std;
 
@@ -23,6 +24,27 @@ struct Card {
 	bool operator==(const string &a) const
 	{
 		return (this->rank == a);
+	}
+	ostream& operator<<(ostream& out) {
+		out << this->rank;
+		if (this->suits == "Heart")
+		{
+			out << (char)3;
+		}
+		if (this->suits == "Diamond")
+		{
+			out << (char)4;
+		}
+		if (this->suits == "Club")
+		{
+			out << (char)5;
+		}
+		if (this->suits == "Spade")
+		{
+			out << (char)6;
+		}
+
+		return out;
 	}
 	
 };
@@ -58,3 +80,5 @@ int BinaryInt(int id, vector <int> VEC);
 int saveChanges(vector <int> &usersVEC, int &user, pair <int, int> xy, int &save);
 
 int readNameOfFile(string &fileName);
+
+void waitXTime(unsigned int time);
