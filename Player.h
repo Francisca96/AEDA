@@ -92,7 +92,7 @@ public:
 	void setName(string newName);
 	unsigned int setHandScore();
 	unsigned int setHand2Score();
-	void setCurrentMoney(unsigned int money);
+	void setCurrentMoney(float money);
 	void setRoundsPlayed(unsigned int rounds);
 	void setInitialMoney(unsigned int money);
 	void addMoney(float value);

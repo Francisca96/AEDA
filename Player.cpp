@@ -104,7 +104,7 @@ float Player::getAverageProfit() const
 	return averageProfit;
 }
 
-void Player::setCurrentMoney(unsigned int money)
+void Player::setCurrentMoney(float money)
 {
 	currentMoney = money;
 }
@@ -240,21 +240,22 @@ ostream & Player::operator<<(ostream & out) {
 	out << name << "; " << initialMoney << "; " << setprecision(2) << fixed << currentMoney << "; ";
 	for (size_t i = 0; i < hand.size(); i++)
 	{
-		cout << "{" << hand.at(i).rank << "/" << hand.at(i).suits << "; ";
+		out << "{" << hand.at(i).rank << "/" << hand.at(i).suits << "; ";
 	}
-	if (hand.size != 0)
+	if (hand.size() != 0)
 	{
-		cout << "}; ";
+		out << "}; ";
 	}
 	for (size_t i = 0; i < hand2.size(); i++)
 	{
-		cout << "{" << hand2.at(i).rank << "/" << hand2.at(i).suits << "; ";
+		out << "{" << hand2.at(i).rank << "/" << hand2.at(i).suits << "; ";
 	}
-	if (hand2.size != 0)
+	if (hand2.size() != 0)
 	{
-		cout << "}; ";
+		out << "}; ";
 	}
-	cout << roundsPlayed << "; " << setprecision(2) << fixed << averageProfit << "; " << age << "; " << onTable << "; " << actualBet << "; ";
+	out << roundsPlayed << "; " << setprecision(2) << fixed << averageProfit << "; " << age << "; " << onTable << "; " << actualBet << "; ";
+	return out;
 }
 
 bool Player::takeInsurance(Table &table){
@@ -360,7 +361,7 @@ ostream & Bot1::operator<<(ostream & out) {
 }
 
 unsigned int Bot1::bet(Table &table) {
-	unsigned int currentMoney = getCurrentMoney();
+	float currentMoney = getCurrentMoney();
 	if (currentMoney < table.getMinBet()){
 		return 0; //0 means kick the player from the table;
 	}
@@ -742,7 +743,7 @@ Human::Human(string name, unsigned int age, int userID)
 
 unsigned int Human::bet(Table &table)
 {
-	unsigned int maxbet = getCurrentMoney();
+	float maxbet = getCurrentMoney();
 	if (maxbet < table.getMinBet()) {
 		return 0; //0 means kick the player from the table;
 	}
