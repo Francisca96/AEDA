@@ -51,33 +51,33 @@ public:
 	static unsigned int getNextID();
 };
 
-class DealerNotExist {
+class DealerNotExistException {
 private:
 	int dealerID;
 public:
-	DealerNotExist(Dealer * dealer);
+	DealerNotExistException(Dealer * dealer);
 };
 
-class DealerAlreadyExist {
+class DealerAlreadyExistException {
 private:
 	int dealerID;
 public:
-	DealerAlreadyExist(Dealer * dealer);
+	DealerAlreadyExistException(Dealer * dealer);
 	int getID() const;
 };
 
-class DealerIsOnTableAlready {
+class DealerIsOnTableAlreadyException {
 private:
 	int dealerID;
 public:
-	DealerIsOnTableAlready(Dealer * dealer);
+	DealerIsOnTableAlreadyException(Dealer * dealer);
 };
 
-class DealerStillOnTable {
+class DealerStillOnTableException {
 private:
 	int dealerID;
 	unsigned int tableID;
 public:
-	DealerStillOnTable(Dealer *dealer);
+	DealerStillOnTableException(Dealer *dealer);
 	unsigned int getTableID() const;
 };

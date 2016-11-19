@@ -147,27 +147,27 @@ unsigned int Dealer::getNextID() {
 	return nextID;
 }
 
-DealerNotExist::DealerNotExist(Dealer *dealer) {
+DealerNotExistException::DealerNotExistException(Dealer *dealer) {
 	this->dealerID = dealer->getID();
 }
 
-DealerIsOnTableAlready::DealerIsOnTableAlready(Dealer * dealer) {
+DealerIsOnTableAlreadyException::DealerIsOnTableAlreadyException(Dealer * dealer) {
 	this->dealerID = dealer->getID();
 }
 
-DealerAlreadyExist::DealerAlreadyExist(Dealer * dealer) {
+DealerAlreadyExistException::DealerAlreadyExistException(Dealer * dealer) {
 	this->dealerID = dealer->getID();
 }
 
-int DealerAlreadyExist::getID() const {
+int DealerAlreadyExistException::getID() const {
 	return dealerID;
 }
 
-DealerStillOnTable::DealerStillOnTable(Dealer * dealer) {
+DealerStillOnTableException::DealerStillOnTableException(Dealer * dealer) {
 	this->dealerID = dealer->getID();
 	this->tableID = dealer->getTableOn();
 }
 
-unsigned int DealerStillOnTable::getTableID() const {
+unsigned int DealerStillOnTableException::getTableID() const {
 	return this->tableID;
 }
