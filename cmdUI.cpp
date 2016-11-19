@@ -75,9 +75,10 @@ pair <int,int> centerWindow() {
 
 		pair <int, int> xy = { console_x,console_y };
 		return xy;
-#endif
+#else
 	pair <int, int> xy = {-1,-1};
 	return xy;
+#endif
 }
 
 void start_menu(pair <short, short> xy, int &choise) {

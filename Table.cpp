@@ -8,7 +8,7 @@ unsigned int Table::nextID = 0;
 void TooManyPlayersException::what()
 {
 	cout << "Error while loading players to table\n";
-	cout << "The table already has " << actualNumOfPlayers << "out of " << maxNumberOfPlayers << "\n";
+	cout << "The table already has " << actualNumOfPlayers << "out of " << maxNumberOfPlayers << " players\n";
 }
 
 

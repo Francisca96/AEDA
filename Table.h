@@ -1,5 +1,5 @@
 ﻿/**
- * @file	C:\Users\ineeve\Documents\GitHub\aeda-casino\Table.h
+ * @file	C:\Users\Renato Campos\Documents\GitHub\aeda-casino\Table.h
  *
  * @brief	Declares the table class.
  */
@@ -15,7 +15,7 @@
  *
  * @brief	A player, human or bot.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	18/11/2016
  */
 
@@ -26,7 +26,7 @@ class Player;
  *
  * @brief	A Casino's dealer.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	18/11/2016
  */
 
@@ -37,7 +37,7 @@ class Dealer;
  *
  * @brief	A table.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	18/11/2016
  */
 
@@ -51,7 +51,7 @@ using namespace std;
  *
  * @brief	Exception for signalling too many players in a table errors.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	18/11/2016
  */
 
@@ -68,7 +68,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param	maxNumberOfPlayers	The maximum number of players.
@@ -82,7 +82,7 @@ public:
 	 *
 	 * @brief	Displays information about this exception.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 */
 
@@ -94,7 +94,7 @@ public:
  *
  * @brief	Exception for signalling no players on table errors.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	18/11/2016
  */
 
@@ -109,7 +109,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param [in]	NoPlayersOnTableException
@@ -122,7 +122,7 @@ public:
 	 *
 	 * @brief	Gets the identifier.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @return	The identifier.
@@ -136,7 +136,7 @@ public:
  *
  * @brief	A table.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	18/11/2016
  */
 
@@ -171,7 +171,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param	ID	The identifier.
@@ -184,7 +184,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param 		  	minBet		  	The minimum bet.
@@ -201,7 +201,7 @@ public:
 	 *
 	 * @brief	Destructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 */
 
@@ -212,7 +212,7 @@ public:
 	 *
 	 * @brief	Sets minimum bet.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param	minBet	The minimum bet.
@@ -225,7 +225,7 @@ public:
 	 *
 	 * @brief	Sets maximum bet.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param	maxBet	The maximum bet.
@@ -238,7 +238,7 @@ public:
 	 *
 	 * @brief	Sets a dealer.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param [in,out]	dealerOfTable	Pointer to the dealer of table.
@@ -251,7 +251,7 @@ public:
 	 *
 	 * @brief	Sets an identifier.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param	ID	The identifier.
@@ -264,7 +264,7 @@ public:
 	 *
 	 * @brief	Adds a player to this table.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param [in,out]	newPlayer	Pointer to the new player.
@@ -277,7 +277,7 @@ public:
 	 *
 	 * @brief	Adds the players to this table.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param [in,out]	newPlayers	Vector of pointers to the new players.
@@ -290,7 +290,7 @@ public:
 	 *
 	 * @brief	Removes the player described by his name.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param [in]	name	The player's name.
@@ -303,7 +303,7 @@ public:
 	 *
 	 * @brief	Plays Blackjack allowing humans to play against bots and other humans too.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 */
 
@@ -314,7 +314,7 @@ public:
 	 *
 	 * @brief	Simulates a blackjack game for the given rounds.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param	roundsLeft	The rounds to be played.
@@ -327,7 +327,7 @@ public:
 	 *
 	 * @brief	Gets initial money of this table.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @return	The initial money.
@@ -340,7 +340,7 @@ public:
 	 *
 	 * @brief	Gets table identifier.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @return	The table identifier.
@@ -353,7 +353,7 @@ public:
 	 *
 	 * @brief	Gets minimum bet.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @return	The minimum bet.
@@ -366,7 +366,7 @@ public:
 	 *
 	 * @brief	Gets maximum bet.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @return	The maximum bet.
@@ -379,7 +379,7 @@ public:
 	 *
 	 * @brief	Gets maximum number of players.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @return	The maximum number of players.
@@ -392,7 +392,7 @@ public:
 	 *
 	 * @brief	Ask players for their initial bets.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 */
 
@@ -403,7 +403,7 @@ public:
 	 *
 	 * @brief	Gets the dealer.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @return	A pointer to the dealer.
@@ -416,7 +416,7 @@ public:
 	 *
 	 * @brief	Gets the players.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @return	A vector of pointers to the players in the table.
@@ -429,7 +429,7 @@ public:
 	 *
 	 * @brief	Deal one card to all players.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 */
 
@@ -440,7 +440,7 @@ public:
 	 *
 	 * @brief	Pay to player a given amount.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param [in,out] player1	A pointer to a player.
@@ -454,7 +454,7 @@ public:
 	 *
 	 * @brief	Restart deck.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @return	0 - deck restarted sucessfully; 1 - deck not ready to be restarted.  
@@ -467,7 +467,7 @@ public:
 	 *
 	 * @brief	Shows the table information.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param	xy - the coordinates to set the cursor.
@@ -480,7 +480,7 @@ public:
 	 *
 	 * @brief	Kicks a player.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param	index	Zero-based index of the player to kick.
@@ -493,7 +493,7 @@ public:
 	 *
 	 * @brief	Resets All bots of type 1 counters.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 */
 
@@ -504,7 +504,7 @@ public:
 	 *
 	 * @brief	Adds money to this table.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param	money	The amount of money to be added.
@@ -517,7 +517,7 @@ public:
 	 *
 	 * @brief	Closes the table. Resets all bot counters.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @return	moneyOfTable The final money of the table that should be added to the casino.
@@ -530,7 +530,7 @@ public:
 	 *
 	 * @brief	Sets next identifier.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @param	tableNextID	Identifier for the next table.
@@ -543,7 +543,7 @@ public:
 	 *
 	 * @brief	Gets the next identifier of the tables.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
 	 * @return	The next identifier.
