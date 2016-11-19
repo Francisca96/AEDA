@@ -1,0 +1,1341 @@
+.TH "Player" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Player \- A player\&. Abstract Class\&. \fBPlayer\fP is the base class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Player\&.h>\fP
+.PP
+Inherited by \fBBot0\fP, \fBBot1\fP, \fBBot2\fP, and \fBHuman\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBhit\fP (\fBCard\fP newCard)"
+.br
+.RI "Hits the given new card\&. Saves the card on the hand\&. Updates the handscore\&. "
+.ti -1c
+.RI "virtual bool \fBtakeInsurance\fP (\fBTable\fP &table)"
+.br
+.RI "Take insurance\&. "
+.ti -1c
+.RI "virtual bool \fBsurrender\fP (\fBTable\fP &table)"
+.br
+.RI "Surrenders or not\&. When this method is called, it will check if the player wants to surrender\&. "
+.ti -1c
+.RI "virtual bool \fBsplit\fP (\fBDealer\fP *dealerOfTable)"
+.br
+.RI "Splits his hand or not\&. When this method is called it will apply an algorithm depending on the type of player, to check if the player wants to split his hand\&. "
+.ti -1c
+.RI "void \fBdoubleDown\fP ()"
+.br
+.RI "Double down\&. Doubles down the current bet\&. When a player doubles down, he will hit a new card, double is bet, and won't be allowed to play anymore until the end of the round\&. "
+.ti -1c
+.RI "vector< \fBCard\fP > & \fBgetHand\fP ()"
+.br
+.RI "Gets the hand\&. "
+.ti -1c
+.RI "vector< \fBCard\fP > & \fBgetHand2\fP ()"
+.br
+.RI "Gets the second hand\&. "
+.ti -1c
+.RI "unsigned int \fBgetHandSize\fP () const"
+.br
+.RI "Gets hand size\&. "
+.ti -1c
+.RI "unsigned int \fBgetRoundsPlayed\fP () const"
+.br
+.RI "Gets rounds played\&. "
+.ti -1c
+.RI "unsigned int \fBgetCurrentMoney\fP () const"
+.br
+.RI "Gets current money\&. "
+.ti -1c
+.RI "float \fBgetAverageProfit\fP () const"
+.br
+.RI "Gets average profit\&. "
+.ti -1c
+.RI "unsigned int \fBgetHandScore\fP () const"
+.br
+.RI "Gets hand score\&. "
+.ti -1c
+.RI "unsigned int \fBgetHand2Score\fP () const"
+.br
+.RI "Gets second hand score\&. "
+.ti -1c
+.RI "unsigned int \fBgetInitialMoney\fP () const"
+.br
+.RI "Gets initial money\&. "
+.ti -1c
+.RI "string \fBgetName\fP () const"
+.br
+.RI "Gets the name\&. "
+.ti -1c
+.RI "void \fBsetName\fP (string newName)"
+.br
+.RI "Sets a name\&. "
+.ti -1c
+.RI "unsigned int \fBsetHandScore\fP ()"
+.br
+.RI "Sets hand score\&. "
+.ti -1c
+.RI "unsigned int \fBsetHand2Score\fP ()"
+.br
+.RI "Sets second hand score\&. "
+.ti -1c
+.RI "void \fBsetCurrentMoney\fP (unsigned int money)"
+.br
+.RI "Sets current money\&. "
+.ti -1c
+.RI "void \fBsetRoundsPlayed\fP (unsigned int rounds)"
+.br
+.RI "Sets rounds played\&. "
+.ti -1c
+.RI "void \fBsetInitialMoney\fP (unsigned int money)"
+.br
+.RI "Sets initial money\&. "
+.ti -1c
+.RI "void \fBaddMoney\fP (float value)"
+.br
+.RI "Adds money to the player\&. "
+.ti -1c
+.RI "void \fBshowStatistics\fP ()"
+.br
+.RI "Shows the statistics\&. "
+.ti -1c
+.RI "virtual unsigned int \fBbet\fP (\fBTable\fP &table)"
+.br
+.RI "Bets an amount of money\&. If player is a kind of bot, it will bet accordingly to algorithms that are available on the internet\&. "
+.ti -1c
+.RI "void \fBclearHand\fP ()"
+.br
+.RI "Clears the hand\&. "
+.ti -1c
+.RI "void \fBclearHand2\fP ()"
+.br
+.RI "Clears the second hand\&. "
+.ti -1c
+.RI "void \fBsetActualBet\fP (unsigned int \fBbet\fP)"
+.br
+.RI "Sets actual bet\&. "
+.ti -1c
+.RI "unsigned int \fBgetActualBet\fP ()"
+.br
+.RI "Gets actual bet\&. "
+.ti -1c
+.RI "virtual string \fBplay\fP (\fBTable\fP &table)=0"
+.br
+.RI "Play consists of a method that decides what is the best move\&. All the bots have different implementations of this method\&. "
+.ti -1c
+.RI "virtual int \fBgetCurrentCount\fP () const"
+.br
+.RI "Gets current count\&. Different kinds of players may hold different counts\&. "
+.ti -1c
+.RI "virtual void \fBaddCount\fP (\fBCard\fP &card1)"
+.br
+.RI "Updates the current count with a given card\&. "
+.ti -1c
+.RI "virtual void \fBresetCount\fP ()"
+.br
+.RI "Resets the current count\&. Should be called when the deck is reshuffled or the table closes\&. "
+.ti -1c
+.RI "unsigned int \fBgetAge\fP () const"
+.br
+.RI "Gets the age\&. "
+.ti -1c
+.RI "void \fBsetAge\fP (unsigned int age)"
+.br
+.RI "Sets an age\&. "
+.ti -1c
+.RI "void \fBsetOnTable\fP (int tableID)"
+.br
+.RI "Sits on a table\&. -1 if the player is not on any table\&. "
+.ti -1c
+.RI "int \fBgetOnTable\fP () const"
+.br
+.RI "Gets if the player is on table or not\&. "
+.ti -1c
+.RI "void \fBremoveCardFromFirstHandAndSetItOnSecondHand\fP ()"
+.br
+.RI "Removes the card from first hand sets it on the second hand\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A player\&. Abstract Class\&. \fBPlayer\fP is the base class\&. 
+
+A player, human or bot\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 245 of file Player\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Player::addCount (\fBCard\fP & card1)\fC [virtual]\fP"
+
+.PP
+Updates the current count with a given card\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcard1\fP The card that will try to update the count\&. 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBBot2\fP, and \fBBot1\fP\&.
+.PP
+Definition at line 206 of file Player\&.cpp\&.
+.PP
+.nf
+207 {
+208 
+209 }
+.fi
+.SS "void Player::addMoney (float value)"
+
+.PP
+Adds money to the player\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP The amount of money to be added\&. 
+.RE
+.PP
+
+.PP
+Definition at line 143 of file Player\&.cpp\&.
+.PP
+Referenced by Table::payToPlayer()\&.
+.PP
+.nf
+144 {
+145     currentMoney += value;
+146 }
+.fi
+.SS "unsigned int Player::bet (\fBTable\fP & table)\fC [virtual]\fP"
+
+.PP
+Bets an amount of money\&. If player is a kind of bot, it will bet accordingly to algorithms that are available on the internet\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+An int\&. 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBHuman\fP, \fBBot2\fP, and \fBBot1\fP\&.
+.PP
+Definition at line 169 of file Player\&.cpp\&.
+.PP
+References Table::getMinBet()\&.
+.PP
+.nf
+170 {
+171     if (getCurrentMoney() < table\&.getMinBet()) {
+172         return 0; //0 means kick the player from the table;
+173     }
+174     unsigned int betValue = table\&.getMinBet();
+175     setCurrentMoney(getCurrentMoney() - betValue);
+176     cout << name << " bets " << betValue << "$\n";
+177     setActualBet(betValue);
+178     return betValue;
+179 }
+.fi
+.SS "void Player::clearHand ()"
+
+.PP
+Clears the hand\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 181 of file Player\&.cpp\&.
+.PP
+.nf
+182 {
+183     hand\&.clear();
+184 }
+.fi
+.SS "void Player::clearHand2 ()"
+
+.PP
+Clears the second hand\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 186 of file Player\&.cpp\&.
+.PP
+.nf
+187 {
+188     hand2\&.clear();
+189 }
+.fi
+.SS "void Player::doubleDown ()"
+
+.PP
+Double down\&. Doubles down the current bet\&. When a player doubles down, he will hit a new card, double is bet, and won't be allowed to play anymore until the end of the round\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file Player\&.cpp\&.
+.PP
+.nf
+30                         {
+31     throw "Not yet implemented";
+32 }
+.fi
+.SS "unsigned int Player::getActualBet ()"
+
+.PP
+Gets actual bet\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The actual bet\&. 
+.RE
+.PP
+
+.PP
+Definition at line 196 of file Player\&.cpp\&.
+.PP
+.nf
+197 {
+198     return actualBet;
+199 }
+.fi
+.SS "unsigned int Player::getAge () const"
+
+.PP
+Gets the age\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The player's age\&. 
+.RE
+.PP
+
+.PP
+Definition at line 216 of file Player\&.cpp\&.
+.PP
+.nf
+216                                   {
+217     return this->age;
+218 }
+.fi
+.SS "float Player::getAverageProfit () const"
+
+.PP
+Gets average profit\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The average profit\&. 
+.RE
+.PP
+
+.PP
+Definition at line 102 of file Player\&.cpp\&.
+.PP
+.nf
+103 {
+104     return averageProfit;
+105 }
+.fi
+.SS "int Player::getCurrentCount () const\fC [virtual]\fP"
+
+.PP
+Gets current count\&. Different kinds of players may hold different counts\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current count\&. 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBBot2\fP, and \fBBot1\fP\&.
+.PP
+Definition at line 201 of file Player\&.cpp\&.
+.PP
+.nf
+202 {
+203     return 0;
+204 }
+.fi
+.SS "unsigned int Player::getCurrentMoney () const"
+
+.PP
+Gets current money\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current money\&. 
+.RE
+.PP
+
+.PP
+Definition at line 113 of file Player\&.cpp\&.
+.PP
+.nf
+114 {
+115     return currentMoney;
+116 }
+.fi
+.SS "vector< \fBCard\fP > & Player::getHand ()"
+
+.PP
+Gets the hand\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The hand\&. 
+.RE
+.PP
+
+.PP
+Definition at line 34 of file Player\&.cpp\&.
+.PP
+.nf
+35 {
+36     return hand;
+37 }
+.fi
+.SS "vector< \fBCard\fP > & Player::getHand2 ()"
+
+.PP
+Gets the second hand\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The second hand\&. 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file Player\&.cpp\&.
+.PP
+.nf
+40 {
+41     return hand2;
+42 }
+.fi
+.SS "unsigned int Player::getHand2Score () const"
+
+.PP
+Gets second hand score\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The second hand score\&. 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file Player\&.cpp\&.
+.PP
+.nf
+88 {
+89     return hand2Score;
+90 }
+.fi
+.SS "unsigned int Player::getHandScore () const"
+
+.PP
+Gets hand score\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The hand score\&. 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file Player\&.cpp\&.
+.PP
+.nf
+83 {
+84     return handScore;
+85 }
+.fi
+.SS "unsigned int Player::getHandSize () const"
+
+.PP
+Gets hand size\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The hand size\&. 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file Player\&.cpp\&.
+.PP
+.nf
+45 {
+46     return hand\&.size();
+47 }
+.fi
+.SS "unsigned int Player::getInitialMoney () const"
+
+.PP
+Gets initial money\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The initial money\&. 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file Player\&.cpp\&.
+.PP
+.nf
+119 {
+120     return initialMoney;
+121 }
+.fi
+.SS "string Player::getName () const"
+
+.PP
+Gets the name\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The name\&. 
+.RE
+.PP
+
+.PP
+Definition at line 92 of file Player\&.cpp\&.
+.PP
+Referenced by Casino::addPlayerToCasino(), HumanOnTableException::HumanOnTableException(), PlayerAlreadyExistException::PlayerAlreadyExistException(), PlayerNotLoggedException::PlayerNotLoggedException(), and PlayerStillOnTableException::PlayerStillOnTableException()\&.
+.PP
+.nf
+93 {
+94     return name;
+95 }
+.fi
+.SS "int Player::getOnTable () const"
+
+.PP
+Gets if the player is on table or not\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+ID of the table\&. -1 if the player is not on any table\&. 
+.RE
+.PP
+
+.PP
+Definition at line 228 of file Player\&.cpp\&.
+.PP
+Referenced by PlayerStillOnTableException::PlayerStillOnTableException()\&.
+.PP
+.nf
+228                              {
+229     return this->onTable;
+230 }
+.fi
+.SS "unsigned int Player::getRoundsPlayed () const"
+
+.PP
+Gets rounds played\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The rounds played\&. 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file Player\&.cpp\&.
+.PP
+.nf
+126 {
+127     return roundsPlayed;
+128 }
+.fi
+.SS "void Player::hit (\fBCard\fP newCard)"
+
+.PP
+Hits the given new card\&. Saves the card on the hand\&. Updates the handscore\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewCard\fP The new card\&. 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file Player\&.cpp\&.
+.PP
+.nf
+20                              {
+21     hand\&.push_back(newCard);
+22     setHandScore();
+23 }
+.fi
+.SS "string Player::play (\fBTable\fP & table)\fC [pure virtual]\fP"
+
+.PP
+Play consists of a method that decides what is the best move\&. All the bots have different implementations of this method\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table that the player is on\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A string with the option selected, 'hit','stand' or 'double'\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBHuman\fP, \fBBot2\fP, \fBBot1\fP, and \fBBot0\fP\&.
+.SS "void Player::removeCardFromFirstHandAndSetItOnSecondHand ()"
+
+.PP
+Removes the card from first hand sets it on the second hand\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 232 of file Player\&.cpp\&.
+.PP
+.nf
+233 {
+234     Card secondCard = hand\&.at(1);
+235     hand\&.pop_back();
+236     hand2\&.push_back(secondCard);
+237 }
+.fi
+.SS "void Player::resetCount ()\fC [virtual]\fP"
+
+.PP
+Resets the current count\&. Should be called when the deck is reshuffled or the table closes\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBBot2\fP, and \fBBot1\fP\&.
+.PP
+Definition at line 211 of file Player\&.cpp\&.
+.PP
+.nf
+212 {
+213 }
+.fi
+.SS "void Player::setActualBet (unsigned int bet)"
+
+.PP
+Sets actual bet\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbet\fP The money to bet\&. 
+.RE
+.PP
+
+.PP
+Definition at line 191 of file Player\&.cpp\&.
+.PP
+.nf
+192 {
+193     actualBet = bet;
+194 }
+.fi
+.SS "void Player::setAge (unsigned int age)"
+
+.PP
+Sets an age\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIage\fP The age\&. 
+.RE
+.PP
+
+.PP
+Definition at line 220 of file Player\&.cpp\&.
+.PP
+.nf
+220                                     {
+221     this->age = age;
+222 }
+.fi
+.SS "void Player::setCurrentMoney (unsigned int money)"
+
+.PP
+Sets current money\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fImoney\fP The money\&. 
+.RE
+.PP
+
+.PP
+Definition at line 107 of file Player\&.cpp\&.
+.PP
+.nf
+108 {
+109     currentMoney = money;
+110 }
+.fi
+.SS "unsigned int Player::setHand2Score ()"
+
+.PP
+Sets second hand score\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The second hand score\&. 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file Player\&.cpp\&.
+.PP
+.nf
+66 {
+67     this->hand2Score = 0;
+68     for (size_t i = 0; i < hand2\&.size(); i++)
+69     {
+70         this->hand2Score += hand2\&.at(i)\&.score;
+71     }
+72     if (hand2Score > 21) {
+73         for (size_t i = 0; i < hand2\&.size(); i++) {
+74             if (hand2\&.at(i)\&.score == 11 && hand2Score > 21) {
+75                 this->hand2Score -= 10;
+76             }
+77         }
+78     }
+79     return this->hand2Score;
+80 }
+.fi
+.SS "unsigned int Player::setHandScore ()"
+
+.PP
+Sets hand score\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current hand score\&. 
+.RE
+.PP
+
+.PP
+Definition at line 49 of file Player\&.cpp\&.
+.PP
+.nf
+49                                   {
+50     this->handScore = 0;
+51     for (size_t i = 0; i < hand\&.size(); i++)
+52     {
+53         this->handScore += hand\&.at(i)\&.score;
+54     }
+55     if (handScore > 21) {
+56         for (size_t i = 0; i < hand\&.size(); i++) {
+57             if (hand\&.at(i)\&.score == 11 && handScore > 21) {
+58                 this->handScore -= 10;
+59             }
+60         }
+61     }
+62     return this->handScore;
+63 }
+.fi
+.SS "void Player::setInitialMoney (unsigned int money)"
+
+.PP
+Sets initial money\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fImoney\fP The money\&. 
+.RE
+.PP
+
+.PP
+Definition at line 135 of file Player\&.cpp\&.
+.PP
+Referenced by Casino::readPlayersFile()\&.
+.PP
+.nf
+136 {
+137     initialMoney = money;
+138     currentMoney = initialMoney;
+139     averageProfit = 0;
+140     roundsPlayed = 0;
+141 }
+.fi
+.SS "void Player::setName (string newName)"
+
+.PP
+Sets a name\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP Name of the player\&. 
+.RE
+.PP
+
+.PP
+Definition at line 97 of file Player\&.cpp\&.
+.PP
+.nf
+98 {
+99     name = newName;
+100 }
+.fi
+.SS "void Player::setOnTable (int tableID)"
+
+.PP
+Sits on a table\&. -1 if the player is not on any table\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItableID\fP Identifier for the table\&. 
+.RE
+.PP
+
+.PP
+Definition at line 224 of file Player\&.cpp\&.
+.PP
+Referenced by Table::addPlayer()\&.
+.PP
+.nf
+224                                    {
+225     this->onTable = tableID;
+226 }
+.fi
+.SS "void Player::setRoundsPlayed (unsigned int rounds)"
+
+.PP
+Sets rounds played\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrounds\fP The number of rounds\&. 
+.RE
+.PP
+
+.PP
+Definition at line 130 of file Player\&.cpp\&.
+.PP
+.nf
+131 {
+132     roundsPlayed = rounds;
+133 }
+.fi
+.SS "void Player::showStatistics ()"
+
+.PP
+Shows the statistics\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file Player\&.cpp\&.
+.PP
+.nf
+149 {
+150     averageProfit = (float)((currentMoney - initialMoney) / float(roundsPlayed));
+151     
+152     Bot0 *bot0 = dynamic_cast<Bot0*> (this);
+153     Bot1 *bot1 = dynamic_cast<Bot1*> (this);
+154     Bot2 *bot2 = dynamic_cast<Bot2*> (this);
+155     cout << setw(15) << "Bot " << name;
+156     if (bot0 != nullptr) {
+157         cout << setw(15) << "0";
+158     }
+159     else if (bot1 != nullptr){
+160         cout << setw(15) << "1";
+161     }
+162     else if (bot2 != nullptr) {
+163         cout << setw(15) << "2";
+164     }
+165     cout << setw(15) << roundsPlayed << setw(30) << setprecision(2) <<averageProfit << " $/round\n";
+166 
+167 }
+.fi
+.SS "bool Player::split (\fBDealer\fP * dealerOfTable)\fC [virtual]\fP"
+
+.PP
+Splits his hand or not\&. When this method is called it will apply an algorithm depending on the type of player, to check if the player wants to split his hand\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdealerOfTable\fP Pointer to the dealer of the table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if it succeeds, false if it fails\&. 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBHuman\fP, \fBBot2\fP, and \fBBot1\fP\&.
+.PP
+Definition at line 248 of file Player\&.cpp\&.
+.PP
+.nf
+248                                        {
+249     return false;
+250 }
+.fi
+.SS "bool Player::surrender (\fBTable\fP & table)\fC [virtual]\fP"
+
+.PP
+Surrenders or not\&. When this method is called, it will check if the player wants to surrender\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table that the player is on\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if it succeeds, false if it fails\&. 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBBot2\fP, and \fBBot1\fP\&.
+.PP
+Definition at line 243 of file Player\&.cpp\&.
+.PP
+.nf
+244 {
+245     return false;
+246 }
+.fi
+.SS "bool Player::takeInsurance (\fBTable\fP & table)\fC [virtual]\fP"
+
+.PP
+Take insurance\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table that the player is on\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if it succeeds, false if it fails\&. 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBHuman\fP, \fBBot2\fP, \fBBot1\fP, and \fBBot0\fP\&.
+.PP
+Definition at line 239 of file Player\&.cpp\&.
+.PP
+.nf
+239                                       {
+240     return false;
+241 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

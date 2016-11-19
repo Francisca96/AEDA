@@ -1,0 +1,1051 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_player" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>Player</compoundname>
+    <derivedcompoundref refid="class_bot0" prot="public" virt="non-virtual">Bot0</derivedcompoundref>
+    <derivedcompoundref refid="class_bot1" prot="public" virt="non-virtual">Bot1</derivedcompoundref>
+    <derivedcompoundref refid="class_bot2" prot="public" virt="non-virtual">Bot2</derivedcompoundref>
+    <derivedcompoundref refid="class_human" prot="public" virt="non-virtual">Human</derivedcompoundref>
+    <includes refid="_player_8h" local="no">Player.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_player_1acf0355128a99ee20ad9931b760fb2de1" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Player::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>The name. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="248" column="1" bodyfile="Player.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1aacffce30f5380fc06011b4e8381f0370" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::initialMoney</definition>
+        <argsstring></argsstring>
+        <name>initialMoney</name>
+        <briefdescription>
+<para>The initial money. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="250" column="1" bodyfile="Player.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a6252287f2f487871dbd8573f4280fdb3" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Player::currentMoney</definition>
+        <argsstring></argsstring>
+        <name>currentMoney</name>
+        <briefdescription>
+<para>The current money. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="252" column="1" bodyfile="Player.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a3c645b2bb22fe405e677e2879bc7ba90" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_card" kindref="compound">Card</ref> &gt;</type>
+        <definition>vector&lt; Card &gt; Player::hand</definition>
+        <argsstring></argsstring>
+        <name>hand</name>
+        <briefdescription>
+<para>Gets the hand. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The hand. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="262" column="1" bodyfile="Player.h" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a0494b9d0f5d0249b413dca3abf84a9d2" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_card" kindref="compound">Card</ref> &gt;</type>
+        <definition>vector&lt; Card &gt; Player::hand2</definition>
+        <argsstring></argsstring>
+        <name>hand2</name>
+        <briefdescription>
+<para>Gets the second hand. A player only has second hand if he decides to split. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The second hand. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="274" column="1" bodyfile="Player.h" bodystart="274" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1ab0b8da4e0a1c506e3858a730208759a6" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::handScore</definition>
+        <argsstring></argsstring>
+        <name>handScore</name>
+        <briefdescription>
+<para>The hand score. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="276" column="1" bodyfile="Player.h" bodystart="276" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a888973c1a178e58f948889b6dc2f9cc9" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::hand2Score</definition>
+        <argsstring></argsstring>
+        <name>hand2Score</name>
+        <briefdescription>
+<para>The second hand score. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="278" column="1" bodyfile="Player.h" bodystart="278" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a668b7ea676439ac536bbdded069a2487" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::roundsPlayed</definition>
+        <argsstring></argsstring>
+        <name>roundsPlayed</name>
+        <briefdescription>
+<para>The rounds played. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="280" column="1" bodyfile="Player.h" bodystart="280" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1aeae39faeb2dc13f0b5bb4b7db6d76633" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Player::averageProfit</definition>
+        <argsstring></argsstring>
+        <name>averageProfit</name>
+        <briefdescription>
+<para>The average profit. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="282" column="1" bodyfile="Player.h" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1ac7bb28d0c997f8fd7ee84a660670a0be" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::age</definition>
+        <argsstring></argsstring>
+        <name>age</name>
+        <briefdescription>
+<para>The age. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="284" column="1" bodyfile="Player.h" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a27c8117c8739fa341f6952c6bb2de48d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Player::onTable</definition>
+        <argsstring></argsstring>
+        <name>onTable</name>
+        <briefdescription>
+<para>ID of the table that the player is on. -1 if not on any table. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="286" column="1" bodyfile="Player.h" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1ab8623b75c3f668fd37f21ed7be8b4bb9" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Player::actualBet</definition>
+        <argsstring></argsstring>
+        <name>actualBet</name>
+        <briefdescription>
+<para>The actual bet. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="288" column="1" bodyfile="Player.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_player_1af8bb3cd6c6f7840c6cfa864ed78b10af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::hit</definition>
+        <argsstring>(Card newCard)</argsstring>
+        <name>hit</name>
+        <param>
+          <type><ref refid="struct_card" kindref="compound">Card</ref></type>
+          <declname>newCard</declname>
+        </param>
+        <briefdescription>
+<para>Hits the given new card. Saves the card on the hand. Updates the handscore. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newCard</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new card. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="303" column="1" bodyfile="Player.cpp" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a61a4b3a68af4b5ac47437cdb577086f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Player::takeInsurance</definition>
+        <argsstring>(Table &amp;table)</argsstring>
+        <name>takeInsurance</name>
+        <reimplementedby refid="class_bot0_1a0b9441296b3e77f776186758a70b1655">takeInsurance</reimplementedby>
+        <reimplementedby refid="class_bot1_1a0c8591cd8a969f231fd772a1622a9dac">takeInsurance</reimplementedby>
+        <reimplementedby refid="class_bot2_1a7783364c4ebda2e5235b0df78295837e">takeInsurance</reimplementedby>
+        <reimplementedby refid="class_human_1af6cc17fa0b07ceadde23d352c1204719">takeInsurance</reimplementedby>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> &amp;</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Take insurance. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The table that the player is on.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if it succeeds, false if it fails. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="318" column="1" bodyfile="Player.cpp" bodystart="239" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a1b2746dd99d44b728ffeb4dde3ff3e9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Player::surrender</definition>
+        <argsstring>(Table &amp;table)</argsstring>
+        <name>surrender</name>
+        <reimplementedby refid="class_bot1_1a29446be5d3baa8139e4cdf3bebb1d40c">surrender</reimplementedby>
+        <reimplementedby refid="class_bot2_1a53cc77742cc1f7e12f5158e07ffc4c8c">surrender</reimplementedby>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> &amp;</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Surrenders or not. When this method is called, it will check if the player wants to surrender. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The table that the player is on.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if it succeeds, false if it fails. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="334" column="1" bodyfile="Player.cpp" bodystart="243" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a44606c251b5d4cca55ffc680752886ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Player::split</definition>
+        <argsstring>(Dealer *dealerOfTable)</argsstring>
+        <name>split</name>
+        <reimplementedby refid="class_bot1_1a5a6f599a48d7703753df2dcb0f18a904">split</reimplementedby>
+        <reimplementedby refid="class_bot2_1ae6201f99237024624a485acf3dff0956">split</reimplementedby>
+        <reimplementedby refid="class_human_1ac406bdd47735f87dec9965b8a86d32ed">split</reimplementedby>
+        <param>
+          <type><ref refid="class_dealer" kindref="compound">Dealer</ref> *</type>
+          <declname>dealerOfTable</declname>
+        </param>
+        <briefdescription>
+<para>Splits his hand or not. When this method is called it will apply an algorithm depending on the type of player, to check if the player wants to split his hand. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">dealerOfTable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the dealer of the table.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if it succeeds, false if it fails. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="352" column="1" bodyfile="Player.cpp" bodystart="248" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a08a3cae149f0ee66b4fad5cbe60e2a6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::doubleDown</definition>
+        <argsstring>()</argsstring>
+        <name>doubleDown</name>
+        <briefdescription>
+<para>Double down. Doubles down the current bet. When a player doubles down, he will hit a new card, double is bet, and won&apos;t be allowed to play anymore until the end of the round. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="366" column="1" bodyfile="Player.cpp" bodystart="30" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1ad58ea8ebeef513b066f1192af9e1b1f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="struct_card" kindref="compound">Card</ref> &gt; &amp;</type>
+        <definition>vector&lt; Card &gt; &amp; Player::getHand</definition>
+        <argsstring>()</argsstring>
+        <name>getHand</name>
+        <briefdescription>
+<para>Gets the hand. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The hand. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="379" column="1" bodyfile="Player.cpp" bodystart="34" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a608957ce160bff0149ce2a24ea76f29b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="struct_card" kindref="compound">Card</ref> &gt; &amp;</type>
+        <definition>vector&lt; Card &gt; &amp; Player::getHand2</definition>
+        <argsstring>()</argsstring>
+        <name>getHand2</name>
+        <briefdescription>
+<para>Gets the second hand. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The second hand. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="392" column="1" bodyfile="Player.cpp" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a8e81b80fa251db1fe1a482cf4a7a0cf3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::getHandSize</definition>
+        <argsstring>() const</argsstring>
+        <name>getHandSize</name>
+        <briefdescription>
+<para>Gets hand size. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The hand size. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="405" column="1" bodyfile="Player.cpp" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1aa2ad93dbed2f5346d46b6941dee5b113" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::getRoundsPlayed</definition>
+        <argsstring>() const</argsstring>
+        <name>getRoundsPlayed</name>
+        <briefdescription>
+<para>Gets rounds played. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The rounds played. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="418" column="1" bodyfile="Player.cpp" bodystart="125" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a02273e06cbfd6f66b86573aac8ec14fc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::getCurrentMoney</definition>
+        <argsstring>() const</argsstring>
+        <name>getCurrentMoney</name>
+        <briefdescription>
+<para>Gets current money. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The current money. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="431" column="1" bodyfile="Player.cpp" bodystart="113" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1af90c94927657ba8797817d9ee35a9956" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Player::getAverageProfit</definition>
+        <argsstring>() const</argsstring>
+        <name>getAverageProfit</name>
+        <briefdescription>
+<para>Gets average profit. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The average profit. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="444" column="1" bodyfile="Player.cpp" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a5faff6dab0e57406c8e38849a7ac7241" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::getHandScore</definition>
+        <argsstring>() const</argsstring>
+        <name>getHandScore</name>
+        <briefdescription>
+<para>Gets hand score. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The hand score. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="457" column="1" bodyfile="Player.cpp" bodystart="82" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1ad110846192023027c4e9fc6b756bfa4a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::getHand2Score</definition>
+        <argsstring>() const</argsstring>
+        <name>getHand2Score</name>
+        <briefdescription>
+<para>Gets second hand score. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The second hand score. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="470" column="1" bodyfile="Player.cpp" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1ac757c1e58a82d715c47f195e211521f6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::getInitialMoney</definition>
+        <argsstring>() const</argsstring>
+        <name>getInitialMoney</name>
+        <briefdescription>
+<para>Gets initial money. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The initial money. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="483" column="1" bodyfile="Player.cpp" bodystart="118" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a4939193fc637f75bf7a11118334dae7e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Player::getName</definition>
+        <argsstring>() const</argsstring>
+        <name>getName</name>
+        <briefdescription>
+<para>Gets the name. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The name. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="496" column="1" bodyfile="Player.cpp" bodystart="92" bodyend="95"/>
+        <referencedby refid="class_casino_1a54749cf7229b9cf10665660f6edfc4d8" compoundref="_casino_8cpp" startline="56" endline="66">Casino::addPlayerToCasino</referencedby>
+        <referencedby refid="class_human_on_table_exception_1abd859782137a73608aa7ad90656424b6" compoundref="_player_8cpp" startline="746" endline="748">HumanOnTableException::HumanOnTableException</referencedby>
+        <referencedby refid="class_player_already_exist_exception_1a0e35ed0af5e3009762fc0f3c79d857f6" compoundref="_player_8cpp" startline="725" endline="727">PlayerAlreadyExistException::PlayerAlreadyExistException</referencedby>
+        <referencedby refid="class_player_not_logged_exception_1aee0f412b8c985e3a42f51e3c6abbc0ab" compoundref="_casino_8cpp" startline="966" endline="969">PlayerNotLoggedException::PlayerNotLoggedException</referencedby>
+        <referencedby refid="class_player_still_on_table_exception_1a1df43217f05e26b327768df459024fac" compoundref="_player_8cpp" startline="733" endline="736">PlayerStillOnTableException::PlayerStillOnTableException</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a05df581ac0f73a10b6163ca8c03eff7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::setName</definition>
+        <argsstring>(string newName)</argsstring>
+        <name>setName</name>
+        <param>
+          <type>string</type>
+          <declname>newName</declname>
+        </param>
+        <briefdescription>
+<para>Sets a name. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the player. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="509" column="1" bodyfile="Player.cpp" bodystart="97" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a4f795936b834f2d80a725f529c79c781" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::setHandScore</definition>
+        <argsstring>()</argsstring>
+        <name>setHandScore</name>
+        <briefdescription>
+<para>Sets hand score. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The current hand score. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="522" column="1" bodyfile="Player.cpp" bodystart="49" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a62cfec47d7af1fba889dc502c70b8e00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::setHand2Score</definition>
+        <argsstring>()</argsstring>
+        <name>setHand2Score</name>
+        <briefdescription>
+<para>Sets second hand score. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The second hand score. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="535" column="1" bodyfile="Player.cpp" bodystart="65" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a8ec70af0c2cbfeedeae3691a84d228f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::setCurrentMoney</definition>
+        <argsstring>(unsigned int money)</argsstring>
+        <name>setCurrentMoney</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>money</declname>
+        </param>
+        <briefdescription>
+<para>Sets current money. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>money</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The money. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="548" column="1" bodyfile="Player.cpp" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1ae7dcd6039604cd4372c0d93ebc84907c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::setRoundsPlayed</definition>
+        <argsstring>(unsigned int rounds)</argsstring>
+        <name>setRoundsPlayed</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>rounds</declname>
+        </param>
+        <briefdescription>
+<para>Sets rounds played. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rounds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of rounds. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="561" column="1" bodyfile="Player.cpp" bodystart="130" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a7cc1745523751dcea0263c9658e33111" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::setInitialMoney</definition>
+        <argsstring>(unsigned int money)</argsstring>
+        <name>setInitialMoney</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>money</declname>
+        </param>
+        <briefdescription>
+<para>Sets initial money. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>money</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The money. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="574" column="1" bodyfile="Player.cpp" bodystart="135" bodyend="141"/>
+        <referencedby refid="class_casino_1aa8eb27d8aece338ad3603efe1079cc59" compoundref="_casino_8cpp" startline="172" endline="228">Casino::readPlayersFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a93759b95f73ad7ccea760c3eebe79b83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::addMoney</definition>
+        <argsstring>(float value)</argsstring>
+        <name>addMoney</name>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds money to the player. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The amount of money to be added. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="587" column="1" bodyfile="Player.cpp" bodystart="143" bodyend="146"/>
+        <referencedby refid="class_table_1a9f12053cf49da2ea2e45ced3a5f2f0b3" compoundref="_table_8cpp" startline="388" endline="392">Table::payToPlayer</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1abc620380dbb2cd754d4e1427760d9518" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::showStatistics</definition>
+        <argsstring>()</argsstring>
+        <name>showStatistics</name>
+        <briefdescription>
+<para>Shows the statistics. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="598" column="1" bodyfile="Player.cpp" bodystart="148" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1ab836e9e65c439b8434619a8a86de1049" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::bet</definition>
+        <argsstring>(Table &amp;table)</argsstring>
+        <name>bet</name>
+        <reimplementedby refid="class_bot1_1aefb54a94435e8fb418b348f27c5850da">bet</reimplementedby>
+        <reimplementedby refid="class_bot2_1a5b7a80864b09d3f04d165b9257cff2b4">bet</reimplementedby>
+        <reimplementedby refid="class_human_1abbda834a6084c05134b25db5c00ac876">bet</reimplementedby>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> &amp;</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Bets an amount of money. If player is a kind of bot, it will bet accordingly to algorithms that are available on the internet. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The table.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An int. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="615" column="1" bodyfile="Player.cpp" bodystart="169" bodyend="179"/>
+        <references refid="class_table_1ae771baf4201fb1c73198f5c7e7189260" compoundref="_table_8cpp" startline="111" endline="114">Table::getMinBet</references>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a5715b0ace30c905ae79642e76a5437b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::clearHand</definition>
+        <argsstring>()</argsstring>
+        <name>clearHand</name>
+        <briefdescription>
+<para>Clears the hand. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="626" column="1" bodyfile="Player.cpp" bodystart="181" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1aeccd00dda342208ea502c97cadeb44e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::clearHand2</definition>
+        <argsstring>()</argsstring>
+        <name>clearHand2</name>
+        <briefdescription>
+<para>Clears the second hand. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="637" column="1" bodyfile="Player.cpp" bodystart="186" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a532e4e3d79979f5e9e83938d6b1854ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::setActualBet</definition>
+        <argsstring>(unsigned int bet)</argsstring>
+        <name>setActualBet</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>bet</declname>
+        </param>
+        <briefdescription>
+<para>Sets actual bet. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bet</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The money to bet. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="650" column="1" bodyfile="Player.cpp" bodystart="191" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a963a140c376359f956d1c9245bdd4ea5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::getActualBet</definition>
+        <argsstring>()</argsstring>
+        <name>getActualBet</name>
+        <briefdescription>
+<para>Gets actual bet. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The actual bet. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="663" column="1" bodyfile="Player.cpp" bodystart="196" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a633ae716d3226a5701a6d0c9314baad4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>string</type>
+        <definition>string Player::play</definition>
+        <argsstring>(Table &amp;table)=0</argsstring>
+        <name>play</name>
+        <reimplementedby refid="class_bot0_1ad4107238ba36ce4ddf2debd7b10c6a9e">play</reimplementedby>
+        <reimplementedby refid="class_bot1_1a9d132799a74f0956dd3b66a897cf8824">play</reimplementedby>
+        <reimplementedby refid="class_bot2_1ab3fb6a4c1627247f21b43893862148ff">play</reimplementedby>
+        <reimplementedby refid="class_human_1ac2536a8f230ba6dd457b81e406f42a60">play</reimplementedby>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> &amp;</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Play consists of a method that decides what is the best move. All the bots have different implementations of this method. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The table that the player is on.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A string with the option selected, &quot;hit&quot;,&quot;stand&quot; or &quot;double&quot;. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="679" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a4ed9a572b577abaaf164a7341d8b8ae1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>int</type>
+        <definition>int Player::getCurrentCount</definition>
+        <argsstring>() const</argsstring>
+        <name>getCurrentCount</name>
+        <reimplementedby refid="class_bot1_1a4c0a73dd5ac6e40adb4f6ca784804209">getCurrentCount</reimplementedby>
+        <reimplementedby refid="class_bot2_1abdbf18a6c07bd1c71db7655e656643a6">getCurrentCount</reimplementedby>
+        <briefdescription>
+<para>Gets current count. Different kinds of players may hold different counts. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The current count. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="692" column="1" bodyfile="Player.cpp" bodystart="201" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1aaf1f4c6fb5cc531db4d7acd4b8e2a2dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Player::addCount</definition>
+        <argsstring>(Card &amp;card1)</argsstring>
+        <name>addCount</name>
+        <reimplementedby refid="class_bot1_1aaa5fc1e84b013c6f8d70b53658ffc156">addCount</reimplementedby>
+        <reimplementedby refid="class_bot2_1a6b9b7841dcec84a12d365c6c226c2bb1">addCount</reimplementedby>
+        <param>
+          <type><ref refid="struct_card" kindref="compound">Card</ref> &amp;</type>
+          <declname>card1</declname>
+        </param>
+        <briefdescription>
+<para>Updates the current count with a given card. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">card1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The card that will try to update the count. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="705" column="1" bodyfile="Player.cpp" bodystart="206" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a8ff0c7c110fada9bf61df517285e061c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Player::resetCount</definition>
+        <argsstring>()</argsstring>
+        <name>resetCount</name>
+        <reimplementedby refid="class_bot1_1afc6c9e0e4e6926e66a9e595306f82f58">resetCount</reimplementedby>
+        <reimplementedby refid="class_bot2_1a3ea3a6d1513b446f6a6c3cef0aad8e8e">resetCount</reimplementedby>
+        <briefdescription>
+<para>Resets the current count. Should be called when the deck is reshuffled or the table closes. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="717" column="1" bodyfile="Player.cpp" bodystart="211" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1af937581b07b5cb5f2d93c3fcd7bbfd45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::getAge</definition>
+        <argsstring>() const</argsstring>
+        <name>getAge</name>
+        <briefdescription>
+<para>Gets the age. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The player&apos;s age. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="730" column="1" bodyfile="Player.cpp" bodystart="216" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1ae40dd6f0454849bfe0ccb2faa32d5eef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::setAge</definition>
+        <argsstring>(unsigned int age)</argsstring>
+        <name>setAge</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>age</declname>
+        </param>
+        <briefdescription>
+<para>Sets an age. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>age</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The age. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="743" column="1" bodyfile="Player.cpp" bodystart="220" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1acc0e88f7ca8c27d4d06dc87973fafce7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::setOnTable</definition>
+        <argsstring>(int tableID)</argsstring>
+        <name>setOnTable</name>
+        <param>
+          <type>int</type>
+          <declname>tableID</declname>
+        </param>
+        <briefdescription>
+<para>Sits on a table. -1 if the player is not on any table. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tableID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifier for the table. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="756" column="1" bodyfile="Player.cpp" bodystart="224" bodyend="226"/>
+        <referencedby refid="class_table_1a8b9779dcd6f5695e121f75d10f9fe703" compoundref="_table_8cpp" startline="55" endline="58">Table::addPlayer</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a3928c55936faef5fd63b24d94b9a5781" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Player::getOnTable</definition>
+        <argsstring>() const</argsstring>
+        <name>getOnTable</name>
+        <briefdescription>
+<para>Gets if the player is on table or not. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>ID of the table. -1 if the player is not on any table. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="769" column="1" bodyfile="Player.cpp" bodystart="228" bodyend="230"/>
+        <referencedby refid="class_player_still_on_table_exception_1a1df43217f05e26b327768df459024fac" compoundref="_player_8cpp" startline="733" endline="736">PlayerStillOnTableException::PlayerStillOnTableException</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a81cb5e747e4b05b846abe1dab0008ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::removeCardFromFirstHandAndSetItOnSecondHand</definition>
+        <argsstring>()</argsstring>
+        <name>removeCardFromFirstHandAndSetItOnSecondHand</name>
+        <briefdescription>
+<para>Removes the card from first hand sets it on the second hand. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="780" column="1" bodyfile="Player.cpp" bodystart="232" bodyend="237"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A player. Abstract Class. <ref refid="class_player" kindref="compound">Player</ref> is the base class. </para>    </briefdescription>
+    <detaileddescription>
+<para>A player, human or bot.</para><para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>18/11/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="42">
+        <label>Human</label>
+        <link refid="class_human"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>Player</label>
+        <link refid="class_player"/>
+      </node>
+      <node id="39">
+        <label>Bot0</label>
+        <link refid="class_bot0"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>Bot1</label>
+        <link refid="class_bot1"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>Bot2</label>
+        <link refid="class_bot2"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="Player.h" line="245" column="1" bodyfile="Player.h" bodystart="245" bodyend="784"/>
+    <listofallmembers>
+      <member refid="class_player_1ab8623b75c3f668fd37f21ed7be8b4bb9" prot="private" virt="non-virtual"><scope>Player</scope><name>actualBet</name></member>
+      <member refid="class_player_1aaf1f4c6fb5cc531db4d7acd4b8e2a2dc" prot="public" virt="virtual"><scope>Player</scope><name>addCount</name></member>
+      <member refid="class_player_1a93759b95f73ad7ccea760c3eebe79b83" prot="public" virt="non-virtual"><scope>Player</scope><name>addMoney</name></member>
+      <member refid="class_player_1ac7bb28d0c997f8fd7ee84a660670a0be" prot="private" virt="non-virtual"><scope>Player</scope><name>age</name></member>
+      <member refid="class_player_1aeae39faeb2dc13f0b5bb4b7db6d76633" prot="private" virt="non-virtual"><scope>Player</scope><name>averageProfit</name></member>
+      <member refid="class_player_1ab836e9e65c439b8434619a8a86de1049" prot="public" virt="virtual"><scope>Player</scope><name>bet</name></member>
+      <member refid="class_player_1a5715b0ace30c905ae79642e76a5437b4" prot="public" virt="non-virtual"><scope>Player</scope><name>clearHand</name></member>
+      <member refid="class_player_1aeccd00dda342208ea502c97cadeb44e8" prot="public" virt="non-virtual"><scope>Player</scope><name>clearHand2</name></member>
+      <member refid="class_player_1a6252287f2f487871dbd8573f4280fdb3" prot="private" virt="non-virtual"><scope>Player</scope><name>currentMoney</name></member>
+      <member refid="class_player_1a08a3cae149f0ee66b4fad5cbe60e2a6d" prot="public" virt="non-virtual"><scope>Player</scope><name>doubleDown</name></member>
+      <member refid="class_player_1a963a140c376359f956d1c9245bdd4ea5" prot="public" virt="non-virtual"><scope>Player</scope><name>getActualBet</name></member>
+      <member refid="class_player_1af937581b07b5cb5f2d93c3fcd7bbfd45" prot="public" virt="non-virtual"><scope>Player</scope><name>getAge</name></member>
+      <member refid="class_player_1af90c94927657ba8797817d9ee35a9956" prot="public" virt="non-virtual"><scope>Player</scope><name>getAverageProfit</name></member>
+      <member refid="class_player_1a4ed9a572b577abaaf164a7341d8b8ae1" prot="public" virt="virtual"><scope>Player</scope><name>getCurrentCount</name></member>
+      <member refid="class_player_1a02273e06cbfd6f66b86573aac8ec14fc" prot="public" virt="non-virtual"><scope>Player</scope><name>getCurrentMoney</name></member>
+      <member refid="class_player_1ad58ea8ebeef513b066f1192af9e1b1f5" prot="public" virt="non-virtual"><scope>Player</scope><name>getHand</name></member>
+      <member refid="class_player_1a608957ce160bff0149ce2a24ea76f29b" prot="public" virt="non-virtual"><scope>Player</scope><name>getHand2</name></member>
+      <member refid="class_player_1ad110846192023027c4e9fc6b756bfa4a" prot="public" virt="non-virtual"><scope>Player</scope><name>getHand2Score</name></member>
+      <member refid="class_player_1a5faff6dab0e57406c8e38849a7ac7241" prot="public" virt="non-virtual"><scope>Player</scope><name>getHandScore</name></member>
+      <member refid="class_player_1a8e81b80fa251db1fe1a482cf4a7a0cf3" prot="public" virt="non-virtual"><scope>Player</scope><name>getHandSize</name></member>
+      <member refid="class_player_1ac757c1e58a82d715c47f195e211521f6" prot="public" virt="non-virtual"><scope>Player</scope><name>getInitialMoney</name></member>
+      <member refid="class_player_1a4939193fc637f75bf7a11118334dae7e" prot="public" virt="non-virtual"><scope>Player</scope><name>getName</name></member>
+      <member refid="class_player_1a3928c55936faef5fd63b24d94b9a5781" prot="public" virt="non-virtual"><scope>Player</scope><name>getOnTable</name></member>
+      <member refid="class_player_1aa2ad93dbed2f5346d46b6941dee5b113" prot="public" virt="non-virtual"><scope>Player</scope><name>getRoundsPlayed</name></member>
+      <member refid="class_player_1a3c645b2bb22fe405e677e2879bc7ba90" prot="private" virt="non-virtual"><scope>Player</scope><name>hand</name></member>
+      <member refid="class_player_1a0494b9d0f5d0249b413dca3abf84a9d2" prot="private" virt="non-virtual"><scope>Player</scope><name>hand2</name></member>
+      <member refid="class_player_1a888973c1a178e58f948889b6dc2f9cc9" prot="private" virt="non-virtual"><scope>Player</scope><name>hand2Score</name></member>
+      <member refid="class_player_1ab0b8da4e0a1c506e3858a730208759a6" prot="private" virt="non-virtual"><scope>Player</scope><name>handScore</name></member>
+      <member refid="class_player_1af8bb3cd6c6f7840c6cfa864ed78b10af" prot="public" virt="non-virtual"><scope>Player</scope><name>hit</name></member>
+      <member refid="class_player_1aacffce30f5380fc06011b4e8381f0370" prot="private" virt="non-virtual"><scope>Player</scope><name>initialMoney</name></member>
+      <member refid="class_player_1acf0355128a99ee20ad9931b760fb2de1" prot="private" virt="non-virtual"><scope>Player</scope><name>name</name></member>
+      <member refid="class_player_1a27c8117c8739fa341f6952c6bb2de48d" prot="private" virt="non-virtual"><scope>Player</scope><name>onTable</name></member>
+      <member refid="class_player_1a633ae716d3226a5701a6d0c9314baad4" prot="public" virt="pure-virtual"><scope>Player</scope><name>play</name></member>
+      <member refid="class_player_1a81cb5e747e4b05b846abe1dab0008ddf" prot="public" virt="non-virtual"><scope>Player</scope><name>removeCardFromFirstHandAndSetItOnSecondHand</name></member>
+      <member refid="class_player_1a8ff0c7c110fada9bf61df517285e061c" prot="public" virt="virtual"><scope>Player</scope><name>resetCount</name></member>
+      <member refid="class_player_1a668b7ea676439ac536bbdded069a2487" prot="private" virt="non-virtual"><scope>Player</scope><name>roundsPlayed</name></member>
+      <member refid="class_player_1a532e4e3d79979f5e9e83938d6b1854ad" prot="public" virt="non-virtual"><scope>Player</scope><name>setActualBet</name></member>
+      <member refid="class_player_1ae40dd6f0454849bfe0ccb2faa32d5eef" prot="public" virt="non-virtual"><scope>Player</scope><name>setAge</name></member>
+      <member refid="class_player_1a8ec70af0c2cbfeedeae3691a84d228f8" prot="public" virt="non-virtual"><scope>Player</scope><name>setCurrentMoney</name></member>
+      <member refid="class_player_1a62cfec47d7af1fba889dc502c70b8e00" prot="public" virt="non-virtual"><scope>Player</scope><name>setHand2Score</name></member>
+      <member refid="class_player_1a4f795936b834f2d80a725f529c79c781" prot="public" virt="non-virtual"><scope>Player</scope><name>setHandScore</name></member>
+      <member refid="class_player_1a7cc1745523751dcea0263c9658e33111" prot="public" virt="non-virtual"><scope>Player</scope><name>setInitialMoney</name></member>
+      <member refid="class_player_1a05df581ac0f73a10b6163ca8c03eff7b" prot="public" virt="non-virtual"><scope>Player</scope><name>setName</name></member>
+      <member refid="class_player_1acc0e88f7ca8c27d4d06dc87973fafce7" prot="public" virt="non-virtual"><scope>Player</scope><name>setOnTable</name></member>
+      <member refid="class_player_1ae7dcd6039604cd4372c0d93ebc84907c" prot="public" virt="non-virtual"><scope>Player</scope><name>setRoundsPlayed</name></member>
+      <member refid="class_player_1abc620380dbb2cd754d4e1427760d9518" prot="public" virt="non-virtual"><scope>Player</scope><name>showStatistics</name></member>
+      <member refid="class_player_1a44606c251b5d4cca55ffc680752886ba" prot="public" virt="virtual"><scope>Player</scope><name>split</name></member>
+      <member refid="class_player_1a1b2746dd99d44b728ffeb4dde3ff3e9e" prot="public" virt="virtual"><scope>Player</scope><name>surrender</name></member>
+      <member refid="class_player_1a61a4b3a68af4b5ac47437cdb577086f7" prot="public" virt="virtual"><scope>Player</scope><name>takeInsurance</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

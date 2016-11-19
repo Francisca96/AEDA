@@ -1,0 +1,200 @@
+.TH "main.cpp" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+main.cpp \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <string>\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include <iostream>\fP
+.br
+\fC#include <iomanip>\fP
+.br
+\fC#include <exception>\fP
+.br
+\fC#include 'Casino\&.h'\fP
+.br
+\fC#include 'cmdUI\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmain\fP ()"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int main ()"
+
+.PP
+Definition at line 13 of file main\&.cpp\&.
+.PP
+References Casino::addPlayersToCasino(), Casino::addPlayersToTable(), Casino::addTableToCasino(), centerWindow(), NoPlayersOnTableException::getID(), Casino::getTableToPlay(), Casino::manage(), Table::play(), Casino::readDealersFile(), Casino::readPlayersFile(), Casino::readTablesFile(), readUnsignedInt(), saveChanges(), Casino::saveDealersFile(), Casino::savePlayersFile(), Casino::saveTablesFile(), Casino::selectTable(), Casino::setDealersFile(), Casino::setPlayersFile(), Casino::setTablesFile(), Casino::setTableToPlay(), Casino::showStatistics(), Table::simulation(), start_menu(), and Users()\&.
+.PP
+.nf
+13           {
+14     //Center window
+15     pair <int, int> xy;
+16     xy = centerWindow();
+17 
+18     //users
+19     vector <int> usersVEC;
+20     int user = 0;
+21     Users(usersVEC, user);
+22 
+23     //do the code just here
+24     //creat a casino
+25     string playersFileName = "players\&.txt", dealersFileName = "dealers\&.txt", tablesFileName = "tables\&.txt";
+26     Casino casino(100000);
+27 
+28     //read files names
+29     /*cout << "Write file name of players" << endl;
+30     readNameOfFile(playersFileName);
+31     cout << "Write file name of dealers" << endl;
+32     readNameOfFile(dealersFileName);
+33     cout << "Write file name of tables" << endl;
+34     readNameOfFile(tablesFileName);*/
+35 
+36     //set files name on casino
+37     casino\&.setPlayersFile(playersFileName);
+38     casino\&.setDealersFile(dealersFileName);
+39     casino\&.setTablesFile(tablesFileName);
+40 
+41     casino\&.readPlayersFile();
+42     casino\&.readDealersFile();
+43     casino\&.readTablesFile();
+44     /*DEGUB*/
+45     /*cout << "Players: " << endl;
+46     casino\&.showPlayers();
+47     cout << "Dealers: " << endl;
+48     casino\&.showDealers();
+49     cout << "Tables: " << endl;
+50     casino\&.showTables();
+51     system("pause");*/
+52 
+53     unsigned int minBet = 2;
+54     unsigned int maxBet = 1000;
+55     unsigned int moneyOfTable = 30000;
+56     unsigned int maxNumberOfPlayers = 6;
+57     Dealer *pro = new Dealer;
+58     Table * table1 = new Table(minBet, maxBet, moneyOfTable, maxNumberOfPlayers, pro);
+59     vector<Player *> playersVector;
+60     playersVector\&.push_back(new Bot0("Kika", 1000));
+61     playersVector\&.push_back(new Bot1("Renato", 1000));
+62     playersVector\&.push_back(new Bot1("Joao", 1000));
+63     playersVector\&.push_back(new Bot0("Rui", 1000));
+64     casino\&.addTableToCasino(table1);
+65     casino\&.addPlayersToCasino(playersVector);
+66     casino\&.addPlayersToTable(playersVector, table1);
+67     casino\&.setTableToPlay(-1);
+68 
+69     /*END OF DEBUG*/
+70     int choice, exit = 0;
+71     unsigned int roundsToPlay;
+72     bool found = false;
+73     while (!exit)
+74     {
+75         start_menu(xy, choice);
+76         switch (choice)
+77         {
+78         case 1:
+79             system("CLS");
+80             //TODO: play (game run in normal mode with a human player)
+81             cout << "Please insert you name: " << endl;
+82             try
+83             {
+84                 casino\&.getTableToPlay()->play();
+85                 system("pause");
+86             }
+87             catch (TableNotInCasinoException)
+88             {
+89                 cout << "Please select a table first" << endl;
+90                 system("pause");
+91             }
+92             catch (NoPlayersOnTableException NoPlayersOnTableException)
+93             {
+94                 cout << "The table: " << NoPlayersOnTableException\&.getID() << " dont have players" << endl;
+95                 cout << "Please select a table with players first" << endl;
+96                 system("pause");
+97             }
+98             catch (TooManyPlayersException)
+99             {
+100                 cout << "You can't play on table selected" << endl;
+101                 cout << "The table is full" << endl;
+102                 system("pause");
+103             }
+104             break;
+105         case 2:
+106             //TODO: simulation (game run all alone for n cycles)
+107             cout << "How many rounds do you want to simulate?" << endl;
+108             roundsToPlay = readUnsignedInt();
+109             try
+110             {
+111                 casino\&.getTableToPlay()->simulation(roundsToPlay);
+112                 casino\&.showStatistics();
+113                 system("pause");
+114             }
+115             catch (TableNotInCasinoException)
+116             {
+117                 cout << "Please select a table first" << endl;
+118                 system("pause");
+119             }
+120             catch (NoPlayersOnTableException noPlayerOnTable)
+121             {
+122                 cout << "The table: " << noPlayerOnTable\&.getID() << " dont have players" << endl;
+123                 cout << "Please select a table with players first" << endl;
+124                 system("pause");
+125             }
+126             catch (HumanOnTableException)
+127             {
+128                 cout << "The table has a human" << endl;
+129                 cout << "Please select a table with no humans" << endl;
+130                 system("pause");
+131             }
+132             break;
+133         case 3:
+134             //TODO: choose table (selection one table to play on simulation or normal mode)
+135             try
+136             {
+137                 casino\&.selectTable(xy);
+138             }
+139             catch (TableNotInCasinoException)
+140             {
+141                 cout << "This table not exist" << endl;
+142             }
+143             system("pause");
+144             break;
+145         case 4:
+146             //TODO: menu to creat table, define employee of table, and bots to tables, choose files\&.\&.\&.
+147             casino\&.manage(xy);
+148             break;
+149         case 0:
+150             exit = 1;
+151             break;
+152         default:
+153             break;
+154         }
+155     }
+156 
+157     //save changes of files
+158     int save;
+159     saveChanges(usersVEC, user, xy, save);
+160     if (save)
+161     {
+162         casino\&.savePlayersFile();
+163         casino\&.saveDealersFile();
+164         casino\&.saveTablesFile();
+165     }
+166 
+167     return 0;
+168 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

@@ -1,0 +1,112 @@
+.TH "TooManyPlayersException" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TooManyPlayersException \- Exception for signalling too many players in a table errors\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Table\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTooManyPlayersException\fP (unsigned int maxNumberOfPlayers, unsigned int actualNumOfPlayers)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "void \fBwhat\fP ()"
+.br
+.RI "Displays information about this exception\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Exception for signalling too many players in a table errors\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 58 of file Table\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "TooManyPlayersException::TooManyPlayersException (unsigned int maxNumberOfPlayers, unsigned int actualNumOfPlayers)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fImaxNumberOfPlayers\fP The maximum number of players\&. 
+.br
+\fIactualNumOfPlayers\fP The actual number of players\&. 
+.RE
+.PP
+
+.PP
+Definition at line 414 of file Table\&.cpp\&.
+.PP
+Referenced by Table::addPlayers(), and Table::play()\&.
+.PP
+.nf
+415 {
+416     this->maxNumberOfPlayers = maxNumberOfPlayers;
+417     this->actualNumOfPlayers = actualNumOfPlayers;
+418 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void TooManyPlayersException::what ()"
+
+.PP
+Displays information about this exception\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 8 of file Table\&.cpp\&.
+.PP
+Referenced by Casino::addPlayerToTable()\&.
+.PP
+.nf
+9 {
+10     cout << "Error while loading players to table\n";
+11     cout << "The table already has " << actualNumOfPlayers << "out of " << maxNumberOfPlayers << " players\n";
+12 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

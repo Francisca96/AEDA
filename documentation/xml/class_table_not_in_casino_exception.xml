@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_table_not_in_casino_exception" kind="class" language="C++" prot="public">
+    <compoundname>TableNotInCasinoException</compoundname>
+    <includes refid="_casino_8h" local="no">Casino.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_table_not_in_casino_exception_1a4925069a29370b04a04172532d2043a3" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int TableNotInCasinoException::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+<para>The identifier. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="111" column="1" bodyfile="Casino.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_table_not_in_casino_exception_1afe9b9fc1326abb4ccd6438d25e724c31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TableNotInCasinoException::TableNotInCasinoException</definition>
+        <argsstring>(Table *table)</argsstring>
+        <name>TableNotInCasinoException</name>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the table. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="125" column="1" bodyfile="Casino.cpp" bodystart="986" bodyend="989"/>
+        <references refid="class_table_1aa4db39c76365882991132d3c07a85a81" compoundref="_table_8cpp" startline="256" endline="259">Table::getTableID</references>
+      </memberdef>
+      <memberdef kind="function" id="class_table_not_in_casino_exception_1ab03e9b8f2742946c92ee97473738ea04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TableNotInCasinoException::what</definition>
+        <argsstring>()</argsstring>
+        <name>what</name>
+        <briefdescription>
+<para>Displays in terminal what caused this exception to be thrown. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="136" column="1" bodyfile="Casino.cpp" bodystart="991" bodyend="994"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Exception for signalling that the table is not in the casino. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Casino.h" line="108" column="1" bodyfile="Casino.h" bodystart="108" bodyend="137"/>
+    <listofallmembers>
+      <member refid="class_table_not_in_casino_exception_1a4925069a29370b04a04172532d2043a3" prot="private" virt="non-virtual"><scope>TableNotInCasinoException</scope><name>id</name></member>
+      <member refid="class_table_not_in_casino_exception_1afe9b9fc1326abb4ccd6438d25e724c31" prot="public" virt="non-virtual"><scope>TableNotInCasinoException</scope><name>TableNotInCasinoException</name></member>
+      <member refid="class_table_not_in_casino_exception_1ab03e9b8f2742946c92ee97473738ea04" prot="public" virt="non-virtual"><scope>TableNotInCasinoException</scope><name>what</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

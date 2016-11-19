@@ -1,0 +1,755 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="utils_8h" kind="file" language="C++">
+    <compoundname>utils.h</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">cstdlib</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">iomanip</includes>
+    <includedby refid="_player_8h" local="yes">Player.h</includedby>
+    <includedby refid="cmd_u_i_8h" local="yes">cmdUI.h</includedby>
+    <includedby refid="_casino_8h" local="yes">Casino.h</includedby>
+    <includedby refid="utils_8cpp" local="yes">utils.cpp</includedby>
+    <incdepgraph>
+      <node id="193">
+        <label>iomanip</label>
+      </node>
+      <node id="187">
+        <label>utils.h</label>
+        <link refid="utils_8h"/>
+        <childnode refid="188" relation="include">
+        </childnode>
+        <childnode refid="189" relation="include">
+        </childnode>
+        <childnode refid="190" relation="include">
+        </childnode>
+        <childnode refid="191" relation="include">
+        </childnode>
+        <childnode refid="192" relation="include">
+        </childnode>
+        <childnode refid="193" relation="include">
+        </childnode>
+      </node>
+      <node id="189">
+        <label>string</label>
+      </node>
+      <node id="192">
+        <label>fstream</label>
+      </node>
+      <node id="190">
+        <label>vector</label>
+      </node>
+      <node id="191">
+        <label>cstdlib</label>
+      </node>
+      <node id="188">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="196">
+        <label>Dealer.h</label>
+        <link refid="_dealer_8h"/>
+        <childnode refid="197" relation="include">
+        </childnode>
+        <childnode refid="202" relation="include">
+        </childnode>
+      </node>
+      <node id="195">
+        <label>Player.h</label>
+        <link refid="_player_8h"/>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="203" relation="include">
+        </childnode>
+      </node>
+      <node id="194">
+        <label>utils.h</label>
+        <link refid="utils_8h"/>
+        <childnode refid="195" relation="include">
+        </childnode>
+        <childnode refid="204" relation="include">
+        </childnode>
+        <childnode refid="198" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+      </node>
+      <node id="202">
+        <label>Dealer.cpp</label>
+        <link refid="_dealer_8cpp"/>
+      </node>
+      <node id="198">
+        <label>Casino.h</label>
+        <link refid="_casino_8h"/>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+      </node>
+      <node id="201">
+        <label>Table.cpp</label>
+        <link refid="_table_8cpp"/>
+      </node>
+      <node id="205">
+        <label>cmdUI.cpp</label>
+        <link refid="cmd_u_i_8cpp"/>
+      </node>
+      <node id="204">
+        <label>cmdUI.h</label>
+        <link refid="cmd_u_i_8h"/>
+        <childnode refid="197" relation="include">
+        </childnode>
+        <childnode refid="205" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+      </node>
+      <node id="199">
+        <label>Casino.cpp</label>
+        <link refid="_casino_8cpp"/>
+      </node>
+      <node id="203">
+        <label>Player.cpp</label>
+        <link refid="_player_8cpp"/>
+      </node>
+      <node id="206">
+        <label>utils.cpp</label>
+        <link refid="utils_8cpp"/>
+      </node>
+      <node id="197">
+        <label>Table.h</label>
+        <link refid="_table_8h"/>
+        <childnode refid="198" relation="include">
+        </childnode>
+        <childnode refid="195" relation="include">
+        </childnode>
+        <childnode refid="201" relation="include">
+        </childnode>
+      </node>
+      <node id="200">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_card" prot="public">Card</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="utils_8h_1a972bfcad488ad7738c01df1d1c24de6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;out, const Card &amp;c)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_card" kindref="compound">Card</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Stream insertion operator. Makes the display of a card on the terminal. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The outstream. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_card" kindref="compound">Card</ref> to process.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The ostream produced. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="87" column="1" bodyfile="utils.cpp" bodystart="6" bodyend="8"/>
+        <references refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" compoundref="utils_8h" startline="29">Card::rank</references>
+        <references refid="struct_card_1a7fb7aca081009665a828df85f8778a91" compoundref="utils_8h" startline="31">Card::suits</references>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1a994a59f31545d6cd0ca004b1ad668a87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;out, const vector&lt; Card &gt; &amp;v)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const vector&lt; <ref refid="struct_card" kindref="compound">Card</ref> &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Stream insertion operator. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The outstream. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The vector of cards to process.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The ostream produced. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="103" column="1" bodyfile="utils.cpp" bodystart="9" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1a099be8692473d7f3fbde4e56a6b580a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="struct_card" kindref="compound">Card</ref> &gt;</type>
+        <definition>vector&lt;Card&gt; createDeck</definition>
+        <argsstring>()</argsstring>
+        <name>createDeck</name>
+        <briefdescription>
+<para>Creates the deck. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The new deck. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="116" column="1" bodyfile="utils.cpp" bodystart="15" bodyend="53"/>
+        <references refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" compoundref="utils_8h" startline="29">Card::rank</references>
+        <references refid="struct_card_1a93a6c9c8f00ffb249244dc3171cd3e5d" compoundref="utils_8h" startline="33">Card::score</references>
+        <references refid="struct_card_1a7fb7aca081009665a828df85f8778a91" compoundref="utils_8h" startline="31">Card::suits</references>
+        <referencedby refid="class_dealer_1a518fd02cf57eaf55e06b7754c4649a3f" compoundref="_dealer_8cpp" startline="8" endline="15">Dealer::Dealer</referencedby>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1a012b4131b66a528fc555765be1f76dad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string getHumanPlay</definition>
+        <argsstring>()</argsstring>
+        <name>getHumanPlay</name>
+        <briefdescription>
+<para>Gets human play. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The human play. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="129" column="1" bodyfile="utils.cpp" bodystart="55" bodyend="70"/>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <referencedby refid="class_human_1ac2536a8f230ba6dd457b81e406f42a60" compoundref="_player_8cpp" startline="704" endline="723">Human::play</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1a685ffa2d206caa9be692206e68284cb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned short int</type>
+        <definition>unsigned short int readUnsignedIntBetween</definition>
+        <argsstring>(unsigned int minValue, unsigned int maxValue)</argsstring>
+        <name>readUnsignedIntBetween</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>minValue</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>maxValue</declname>
+        </param>
+        <briefdescription>
+<para>Reads unsigned int between a minimum and a maximum values. Ask for user input. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>minValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minimum value. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum value.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A unsigned int between the parameters set. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="145" column="1" bodyfile="utils.cpp" bodystart="72" bodyend="84"/>
+        <referencedby refid="class_human_1abbda834a6084c05134b25db5c00ac876" compoundref="_player_8cpp" startline="686" endline="702">Human::bet</referencedby>
+        <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">Casino::create</referencedby>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <referencedby refid="class_table_1a7a83e0ed662f82198797b1a8aa8cc4ea" compoundref="_table_8cpp" startline="84" endline="105">Table::play</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int readIntBetween</definition>
+        <argsstring>(int min, int max)</argsstring>
+        <name>readIntBetween</name>
+        <param>
+          <type>int</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+<para>Reads int between a minimum and a maximum values. Ask for user input. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minimum. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The int between the parameters set. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="161" column="1" bodyfile="utils.cpp" bodystart="87" bodyend="99"/>
+        <referencedby refid="cmd_u_i_8h_1a6b96de8bf548d42406d7e77b2ed24d82" compoundref="cmd_u_i_8cpp" startline="135" endline="140">createMenu</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a2451dbf01b864018c05fe791e91d32d1" compoundref="cmd_u_i_8cpp" startline="142" endline="147">deleteMenu</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a2aa92df8c5017fd8386360c516dd21f7" compoundref="cmd_u_i_8cpp" startline="128" endline="133">manageCasino</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a071e1dea251b139583ae532689698d87" compoundref="cmd_u_i_8cpp" startline="149" endline="154">manageTableMenu</referencedby>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a4c6d8a30cfef3b6adeff15978a5cf917" compoundref="cmd_u_i_8cpp" startline="84" endline="126">start_menu</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1a55b3de51bc5631fb67d6681f33e52228" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int readUnsignedInt</definition>
+        <argsstring>()</argsstring>
+        <name>readUnsignedInt</name>
+        <briefdescription>
+<para>Reads unsigned int. Asks for user input. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The unsigned int. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="174" column="1" bodyfile="utils.cpp" bodystart="101" bodyend="114"/>
+        <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">Casino::create</referencedby>
+        <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">Casino::eliminate</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" compoundref="_casino_8cpp" startline="429" endline="468">Casino::manage</referencedby>
+        <referencedby refid="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" compoundref="_casino_8cpp" startline="665" endline="803">Casino::manageTables</referencedby>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1ac4dc9964d286ddbbd2a108991190d39d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int readInt</definition>
+        <argsstring>()</argsstring>
+        <name>readInt</name>
+        <briefdescription>
+<para>Reads a int value. Asks for user input. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The int inserted by the user. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="188" column="1" bodyfile="utils.cpp" bodystart="115" bodyend="127"/>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <referencedby refid="class_casino_1a437b52a25414c25c250c52df98db027a" compoundref="_casino_8cpp" startline="395" endline="409">Casino::selectTable</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1a7b2049483feeea98ff61c00d763b4fb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int readBinary</definition>
+        <argsstring>()</argsstring>
+        <name>readBinary</name>
+        <briefdescription>
+<para>Reads a 0 or a 1 from user input. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The user input. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="201" column="1" bodyfile="utils.cpp" bodystart="129" bodyend="142"/>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <referencedby refid="class_human_1ac406bdd47735f87dec9965b8a86d32ed" compoundref="_player_8cpp" startline="645" endline="660">Human::split</referencedby>
+        <referencedby refid="class_human_1af6cc17fa0b07ceadde23d352c1204719" compoundref="_player_8cpp" startline="631" endline="643">Human::takeInsurance</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1aa5de12b8cd82d61b545a85ea991944a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float readFloat</definition>
+        <argsstring>()</argsstring>
+        <name>readFloat</name>
+        <briefdescription>
+<para>Reads a float from user input. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The float inputed by the user. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="214" column="1" bodyfile="utils.cpp" bodystart="144" bodyend="156"/>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1ada25d6610efd2d1c473deb3289e0809d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char readCharYorN</definition>
+        <argsstring>()</argsstring>
+        <name>readCharYorN</name>
+        <briefdescription>
+<para>Reads character &quot;y&quot; or &quot;n&quot;. Case insensitive. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The character inserted by the user: &quot;y&quot; or &quot;n&quot;. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="228" column="1" bodyfile="utils.cpp" bodystart="157" bodyend="169"/>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1a11166113d21454c8d054735425e5d496" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Users</definition>
+        <argsstring>(vector&lt; int &gt; &amp;usersVEC, int &amp;user)</argsstring>
+        <name>Users</name>
+        <param>
+          <type>vector&lt; int &gt; &amp;</type>
+          <declname>usersVEC</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+<para>Reads and parses the users file to usersVec. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">usersVEC</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The users vector. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The user id. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="242" column="1" bodyfile="utils.cpp" bodystart="173" bodyend="221"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <referencedby refid="utils_8h_1a59ba61591a389ad07561671807e5b3cf" compoundref="utils_8cpp" startline="274" endline="332">saveChanges</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1aa224290174d6cbc5ab1691cb6aa3c92b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FileCopy</definition>
+        <argsstring>(string filetxt, string filetxt_temp)</argsstring>
+        <name>FileCopy</name>
+        <param>
+          <type>string</type>
+          <declname>filetxt</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>filetxt_temp</declname>
+        </param>
+        <briefdescription>
+<para>Copies text between files. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filetxt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file name; </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filetxt_temp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The temporary file name; </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="256" column="1" bodyfile="utils.cpp" bodystart="223" bodyend="236"/>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1a778f88815f581f9e2eeca1f197b0d7bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FileExist</definition>
+        <argsstring>(string filetxt_temp)</argsstring>
+        <name>FileExist</name>
+        <param>
+          <type>string</type>
+          <declname>filetxt_temp</declname>
+        </param>
+        <briefdescription>
+<para>Checks if the file with name filetxt_temp exists. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filetxt_temp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The temporary file name;</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if it exists, false otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="271" column="1" bodyfile="utils.cpp" bodystart="238" bodyend="249"/>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1a9e6ae0faec755ce8693bfc0d4692e15c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BinaryInt</definition>
+        <argsstring>(int id, vector&lt; int &gt; VEC)</argsstring>
+        <name>BinaryInt</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt;</type>
+          <declname>VEC</declname>
+        </param>
+        <briefdescription>
+<para>Performs a binary search of id in VEC. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The identifier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>VEC</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The vector.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The index of id in Vec, or -1 if id was not found. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="287" column="1" bodyfile="utils.cpp" bodystart="251" bodyend="272"/>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <referencedby refid="utils_8h_1a59ba61591a389ad07561671807e5b3cf" compoundref="utils_8cpp" startline="274" endline="332">saveChanges</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1a59ba61591a389ad07561671807e5b3cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int saveChanges</definition>
+        <argsstring>(vector&lt; int &gt; &amp;usersVEC, int &amp;user, pair&lt; int, int &gt; xy, int &amp;save)</argsstring>
+        <name>saveChanges</name>
+        <param>
+          <type>vector&lt; int &gt; &amp;</type>
+          <declname>usersVEC</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>pair&lt; int, int &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>save</declname>
+        </param>
+        <briefdescription>
+<para>Asks user to save the current status when exiting. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">usersVEC</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The users vector. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The user id. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pair with horizontal and vertical lengths of the terminal. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">save</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Boolean that holds user option to save or not the changes made.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 in case of operation success. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="305" column="1" bodyfile="utils.cpp" bodystart="274" bodyend="332"/>
+        <references refid="utils_8cpp_1a9e6ae0faec755ce8693bfc0d4692e15c" compoundref="utils_8cpp" startline="251" endline="272">BinaryInt</references>
+        <references refid="utils_8cpp_1a11166113d21454c8d054735425e5d496" compoundref="utils_8cpp" startline="173" endline="221">Users</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1acefd5a7062e81e56767fbfa11f6065e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int readNameOfFile</definition>
+        <argsstring>(string &amp;fileName)</argsstring>
+        <name>readNameOfFile</name>
+        <param>
+          <type>string &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+<para>Ask user to input a file name. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">fileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A string that will be updated with the user input.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 in case of success. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="320" column="1" bodyfile="utils.cpp" bodystart="334" bodyend="343"/>
+        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Declares the utilities. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="7"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdlib&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iomanip&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacestd" kindref="compound">std</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="struct_card" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_card" kindref="compound">Card</ref><sp/>{</highlight></codeline>
+<codeline lineno="29" refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" kindref="member">rank</ref>;</highlight></codeline>
+<codeline lineno="31" refid="struct_card_1a7fb7aca081009665a828df85f8778a91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="struct_card_1a7fb7aca081009665a828df85f8778a91" kindref="member">suits</ref>;</highlight></codeline>
+<codeline lineno="33" refid="struct_card_1a93a6c9c8f00ffb249244dc3171cd3e5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_card_1a93a6c9c8f00ffb249244dc3171cd3e5d" kindref="member">score</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="struct_card_1aca435a7f87f91bc1008328c272ac0e8c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_card_1aca435a7f87f91bc1008328c272ac0e8c" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_card" kindref="compound">Card</ref><sp/>&amp;a)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="49"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(this-&gt;rank<sp/>==<sp/>a.<ref refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" kindref="member">rank</ref>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>&amp;a)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="67"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(this-&gt;rank<sp/>==<sp/>a);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">std::ostream&amp;<sp/><ref refid="utils_8h_1a972bfcad488ad7738c01df1d1c24de6b" kindref="member">operator&lt;&lt;</ref>(std::ostream&amp;<sp/>out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_card" kindref="compound">Card</ref>&amp;<sp/>c);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal">std::ostream&amp;<sp/>operator&lt;&lt;(std::ostream&amp;<sp/>out,<sp/>const<sp/>vector&lt;Card&gt;&amp;<sp/>v);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal">vector<sp/>&lt;Card&gt;<sp/><ref refid="utils_8h_1a099be8692473d7f3fbde4e56a6b580a0" kindref="member">createDeck</ref>();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a012b4131b66a528fc555765be1f76dad" kindref="member">getHumanPlay</ref>();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a685ffa2d206caa9be692206e68284cb4" kindref="member">readUnsignedIntBetween</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minValue,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxValue);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" kindref="member">readIntBetween</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a55b3de51bc5631fb67d6681f33e52228" kindref="member">readUnsignedInt</ref>();</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1ac4dc9964d286ddbbd2a108991190d39d" kindref="member">readInt</ref>();</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a7b2049483feeea98ff61c00d763b4fb5" kindref="member">readBinary</ref>();</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1aa5de12b8cd82d61b545a85ea991944a3" kindref="member">readFloat</ref>();</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1ada25d6610efd2d1c473deb3289e0809d" kindref="member">readCharYorN</ref>();</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a11166113d21454c8d054735425e5d496" kindref="member">Users</ref>(vector<sp/>&lt;int&gt;<sp/>&amp;usersVEC,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;user);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1aa224290174d6cbc5ab1691cb6aa3c92b" kindref="member">FileCopy</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>filetxt,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>filetxt_temp);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a778f88815f581f9e2eeca1f197b0d7bf" kindref="member">FileExist</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>filetxt_temp);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a9e6ae0faec755ce8693bfc0d4692e15c" kindref="member">BinaryInt</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>vector<sp/>&lt;int&gt;<sp/>VEC);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a59ba61591a389ad07561671807e5b3cf" kindref="member">saveChanges</ref>(vector<sp/>&lt;int&gt;<sp/>&amp;usersVEC,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;user,<sp/>pair<sp/>&lt;int,<sp/>int&gt;<sp/>xy,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;save);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1acefd5a7062e81e56767fbfa11f6065e4" kindref="member">readNameOfFile</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>&amp;fileName);</highlight></codeline>
+    </programlisting>
+    <location file="utils.h"/>
+  </compounddef>
+</doxygen>

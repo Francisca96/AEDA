@@ -1,0 +1,601 @@
+.TH "Bot1" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Bot1 \- Bot of type 1\&. This bot plays using the hi-lo counting system\&. His decisions are based on the illustrious18 and the fab4 surrender guides\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Player\&.h>\fP
+.PP
+Inherits \fBPlayer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "unsigned int \fBbet\fP (\fBTable\fP &table)"
+.br
+.RI "Places an initial bet that depends on the current count\&. "
+.ti -1c
+.RI "\fBBot1\fP (string name, unsigned int initialMoney)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "string \fBplay\fP (\fBTable\fP &table)"
+.br
+.RI "Plays using the illustrious18 guides\&. "
+.ti -1c
+.RI "bool \fBtakeInsurance\fP (\fBTable\fP &table)"
+.br
+.RI "Take insurance if current count >= 3;\&. "
+.ti -1c
+.RI "int \fBgetCurrentCount\fP () const"
+.br
+.RI "Gets current count\&. "
+.ti -1c
+.RI "void \fBaddCount\fP (\fBCard\fP &card1)"
+.br
+.RI "Updates the current counter with a new card\&. "
+.ti -1c
+.RI "void \fBresetCount\fP ()"
+.br
+.RI "Resets the current counter\&. "
+.ti -1c
+.RI "bool \fBsplit\fP (\fBDealer\fP *dealerOfTable)"
+.br
+.RI "Splits the hand or not\&. "
+.ti -1c
+.RI "virtual bool \fBsurrender\fP (\fBTable\fP &table)"
+.br
+.RI "Surrenders or not\&. Surrender algorithm is based on the fab4 surrender guides\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Bot of type 1\&. This bot plays using the hi-lo counting system\&. His decisions are based on the illustrious18 and the fab4 surrender guides\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 868 of file Player\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Bot1::Bot1 (string name, unsigned int initialMoney)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name\&. 
+.br
+\fIinitialMoney\fP The initial money\&. 
+.RE
+.PP
+
+.PP
+Definition at line 386 of file Player\&.cpp\&.
+.PP
+.nf
+387 {
+388     this->setOnTable(-1);
+389     this->setName(name);
+390     this->setInitialMoney(initialMoney);
+391 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void Bot1::addCount (\fBCard\fP & card1)\fC [virtual]\fP"
+
+.PP
+Updates the current counter with a new card\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcard1\fP The card to update the counter\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 514 of file Player\&.cpp\&.
+.PP
+References Card::score\&.
+.PP
+.nf
+515 {
+516     int score = card1\&.score;
+517     if (card1\&.score <= 6) {
+518         currentCount++;
+519     }
+520     else if (card1\&.score >= 10) {
+521         currentCount--;
+522     }
+523 }
+.fi
+.SS "unsigned int Bot1::bet (\fBTable\fP & table)\fC [virtual]\fP"
+
+.PP
+Places an initial bet that depends on the current count\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The amount bet\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 328 of file Player\&.cpp\&.
+.PP
+References Table::getMaxBet(), and Table::getMinBet()\&.
+.PP
+.nf
+328                                    {
+329     unsigned int currentMoney = getCurrentMoney();
+330     if (currentMoney < table\&.getMinBet()){
+331         return 0; //0 means kick the player from the table;
+332     }
+333     int trueCount = currentCount;
+334     cout << "Current running count =" << trueCount << "\&.\n";
+335     unsigned int betValue;
+336     if (trueCount <= 0) {
+337         betValue = table\&.getMinBet();
+338     }
+339     else if (trueCount == 1) {
+340         if (2 * table\&.getMinBet() > table\&.getMaxBet()) {
+341             betValue = table\&.getMaxBet();
+342         }
+343         else {
+344             betValue = 2 * table\&.getMinBet();
+345         }
+346     }
+347     else if (trueCount == 2) {
+348         if (3 * table\&.getMinBet() > table\&.getMaxBet()) {
+349             betValue = table\&.getMaxBet();
+350         }
+351         else { betValue = 3 * table\&.getMinBet(); }
+352     }
+353     else if (trueCount == 3) {
+354         if (4 * table\&.getMinBet() > table\&.getMaxBet()) {
+355             betValue = table\&.getMaxBet();
+356         }
+357         else {
+358             betValue = 4 * table\&.getMinBet();
+359         }
+360     }
+361     else if (trueCount == 4) {
+362         if (5 * table\&.getMinBet() > table\&.getMaxBet()) {
+363             betValue = table\&.getMaxBet();
+364         }
+365         else {
+366             betValue = 5 * table\&.getMinBet();
+367         }
+368     }
+369     else if (trueCount >= 5) {
+370         if (6 * table\&.getMinBet() > table\&.getMaxBet()) {
+371             betValue = table\&.getMaxBet();
+372         }
+373         else {
+374             betValue = 6 * table\&.getMinBet();
+375         }
+376     }
+377     if (betValue > currentMoney) {
+378         betValue = currentMoney;
+379     }
+380     setCurrentMoney(currentMoney - betValue);
+381     cout << getName() << " bets " << betValue << "$\n";
+382     setActualBet(betValue);
+383     return betValue;
+384 }
+.fi
+.SS "int Bot1::getCurrentCount () const\fC [virtual]\fP"
+
+.PP
+Gets current count\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current count\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 509 of file Player\&.cpp\&.
+.PP
+.nf
+510 {
+511     return currentCount;
+512 }
+.fi
+.SS "string Bot1::play (\fBTable\fP & table)\fC [virtual]\fP"
+
+.PP
+Plays using the illustrious18 guides\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A string: 'hit','stand' or 'double' 
+.RE
+.PP
+
+.PP
+Implements \fBPlayer\fP\&.
+.PP
+Definition at line 393 of file Player\&.cpp\&.
+.PP
+References Table::addMoneyToTable(), Dealer::discard(), Table::getDealer(), Dealer::getHand(), Table::getPlayers(), and Card::score\&.
+.PP
+.nf
+394 {
+395     string options[] = {"hit", "stand","double"};
+396     string option;
+397     Dealer * dealerOfTable = table\&.getDealer();
+398     unsigned int botHandScore = getHandScore();
+399     Card dealerCard1 = dealerOfTable->getHand()\&.at(0);
+400 
+401     int runningCount = currentCount;
+402     if (botHandScore == 16 && dealerCard1\&.score == 10) {
+403         if (runningCount < 0) {
+404             option = options[0];
+405         }else option = options[1];
+406     }
+407     else if (botHandScore == 15 && dealerCard1\&.score == 10) {
+408         if (runningCount < 4) {
+409             option =  options[0];
+410         } else option = options[1];
+411             
+412     }
+413     else if (botHandScore == 10 && dealerCard1\&.score == 10) {
+414         if (runningCount < 4) {
+415             option = options[0];
+416         }
+417         else option = options[2];
+418 
+419     }
+420     else if (botHandScore == 12 && dealerCard1\&.score == 3) {
+421         if (runningCount < 2) {
+422             option =  options[0];
+423         }else
+424         option =  options[1];
+425     }
+426     else if (botHandScore == 12 && dealerCard1\&.score == 2) {
+427         if (runningCount < 3) {
+428             option =  options[0];
+429         }else
+430         option =  options[1];
+431     }
+432     else if (botHandScore == 11 && dealerCard1\&.score == 11) {
+433         if (runningCount < 1) {
+434             option = options[0];
+435         }
+436         else
+437             option = options[2];
+438     }
+439     else if (botHandScore == 9 && dealerCard1\&.score==2) {
+440         if (runningCount < 1) {
+441             option = options[0];
+442         }
+443         else
+444             option = options[2];
+445     }
+446     else if (botHandScore == 10 && dealerCard1\&.score == 11){
+447         if (runningCount < 4) {
+448             option = options[0];
+449         }
+450         else
+451             option = options[2];
+452     }
+453     else if (botHandScore == 9 && dealerCard1\&.score == 7) {
+454         if (runningCount < 3) {
+455             option = options[0];
+456         }
+457         else
+458             option = options[2];
+459     }
+460     else if (botHandScore == 13 && dealerCard1\&.score == 2) {
+461         if (runningCount < -1) {
+462             option =  options[0];
+463         }else
+464         option =  options[1];
+465     }
+466     else if (botHandScore == 12 && dealerCard1\&.score == 4) {
+467             if (runningCount < 0) {
+468                 option =  options[0];
+469             }else
+470             option =  options[1];
+471         }
+472     else if (botHandScore == 12 && dealerCard1\&.score == 5) {
+473             if (runningCount < -2) {
+474                 option =  options[0];
+475             }else
+476             option =  options[1];
+477         }
+478     else if (botHandScore == 12 && dealerCard1\&.score == 6) {
+479             if (runningCount < -1) {
+480                 option =  options[0];
+481             }else
+482             option =  options[1];
+483     }
+484     else if (botHandScore == 13 && dealerCard1\&.score == 3){
+485         if (runningCount < -2){
+486             option =  options[0];
+487         }else
+488         option =  options[1];
+489     }
+490     else if (botHandScore < 17) {
+491         option =  options[0];
+492     }
+493     else {
+494         option = options[1];
+495     }
+496     if (option == options[0]) {
+497         hit(dealerOfTable->discard(table\&.getPlayers()));
+498     }
+499     if (option == options[2]) {
+500         hit(dealerOfTable->discard(table\&.getPlayers()));
+501         setCurrentMoney(getCurrentMoney() - getActualBet());
+502         table\&.addMoneyToTable(getActualBet());
+503         setActualBet(2 * getActualBet());
+504         
+505     }
+506     return option; // means stand
+507 }
+.fi
+.SS "void Bot1::resetCount ()\fC [virtual]\fP"
+
+.PP
+Resets the current counter\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 525 of file Player\&.cpp\&.
+.PP
+.nf
+526 {
+527     currentCount = 0;
+528 }
+.fi
+.SS "bool Bot1::split (\fBDealer\fP * dealerOfTable)\fC [virtual]\fP"
+
+.PP
+Splits the hand or not\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdealerOfTable\fP Poiner to the dealer of the table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if it splits, false if it does not\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 286 of file Player\&.cpp\&.
+.PP
+References Dealer::getHand(), and Card::score\&.
+.PP
+.nf
+286                                       {
+287     vector<Card> hand1 = getHand();
+288     Card dealerFirstCard = dealerOfTable->getHand()\&.at(0);
+289     if (hand1\&.at(0) == hand1\&.at(1)) {
+290         if (hand1\&.at(0)\&.score == 10) {
+291             if (currentCount >= 5 && dealerFirstCard\&.score == 5) {
+292                 removeCardFromFirstHandAndSetItOnSecondHand();
+293                 setHand2Score();
+294                 setHandScore();
+295                 return true;
+296             }
+297             else if (currentCount >= 4 && dealerFirstCard\&.score == 6) {
+298                 removeCardFromFirstHandAndSetItOnSecondHand();
+299                 setHand2Score();
+300                 setHandScore();
+301                 return true;
+302             }
+303         }
+304 
+305     }
+306     return false;
+307 }
+.fi
+.SS "bool Bot1::surrender (\fBTable\fP & table)\fC [virtual]\fP"
+
+.PP
+Surrenders or not\&. Surrender algorithm is based on the fab4 surrender guides\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if it surrenders, false if it does not\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 309 of file Player\&.cpp\&.
+.PP
+References Table::getDealer(), and Dealer::getHandScore()\&.
+.PP
+.nf
+310 {    //based on fab4 surrender guides
+311     unsigned int dealerHandScore = table\&.getDealer()->getHandScore();
+312     unsigned int personalScore = getHandScore();
+313     if (personalScore == 14 && dealerHandScore == 10 && currentCount >= 3) {
+314         return true;
+315     }
+316     else if (personalScore == 15 && dealerHandScore == 10 && currentCount >= 0) {
+317         return true;
+318     }
+319     else if (personalScore == 15 && dealerHandScore == 9 && currentCount >= 2) {
+320         return true;
+321     }
+322     else if (personalScore == 15 && dealerHandScore == 11 && currentCount >= 1) {
+323         return true;
+324     }
+325     return false;
+326 }
+.fi
+.SS "bool Bot1::takeInsurance (\fBTable\fP & table)\fC [virtual]\fP"
+
+.PP
+Take insurance if current count >= 3;\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if it takes insurance, false if it does not\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 277 of file Player\&.cpp\&.
+.PP
+.nf
+277                                      {
+278     unsigned int insurance = getActualBet() / 2;
+279     if (currentCount >= 3) {
+280         setCurrentMoney(getCurrentMoney() - insurance);
+281         return true;
+282     }
+283     return false;;
+284 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

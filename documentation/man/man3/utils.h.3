@@ -1,0 +1,976 @@
+.TH "utils.h" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+utils.h \- Declares the utilities\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <iostream>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include <cstdlib>\fP
+.br
+\fC#include <fstream>\fP
+.br
+\fC#include <iomanip>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBCard\fP"
+.br
+.RI "A card\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &out, const \fBCard\fP &c)"
+.br
+.RI "Stream insertion operator\&. Makes the display of a card on the terminal\&. "
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &out, const vector< \fBCard\fP > &v)"
+.br
+.RI "Stream insertion operator\&. "
+.ti -1c
+.RI "vector< \fBCard\fP > \fBcreateDeck\fP ()"
+.br
+.RI "Creates the deck\&. "
+.ti -1c
+.RI "string \fBgetHumanPlay\fP ()"
+.br
+.RI "Gets human play\&. "
+.ti -1c
+.RI "unsigned short int \fBreadUnsignedIntBetween\fP (unsigned int minValue, unsigned int maxValue)"
+.br
+.RI "Reads unsigned int between a minimum and a maximum values\&. Ask for user input\&. "
+.ti -1c
+.RI "int \fBreadIntBetween\fP (int min, int max)"
+.br
+.RI "Reads int between a minimum and a maximum values\&. Ask for user input\&. "
+.ti -1c
+.RI "unsigned int \fBreadUnsignedInt\fP ()"
+.br
+.RI "Reads unsigned int\&. Asks for user input\&. "
+.ti -1c
+.RI "int \fBreadInt\fP ()"
+.br
+.RI "Reads a int value\&. Asks for user input\&. "
+.ti -1c
+.RI "int \fBreadBinary\fP ()"
+.br
+.RI "Reads a 0 or a 1 from user input\&. "
+.ti -1c
+.RI "float \fBreadFloat\fP ()"
+.br
+.RI "Reads a float from user input\&. "
+.ti -1c
+.RI "char \fBreadCharYorN\fP ()"
+.br
+.RI "Reads character 'y' or 'n'\&. Case insensitive\&. "
+.ti -1c
+.RI "void \fBUsers\fP (vector< int > &usersVEC, int &user)"
+.br
+.RI "Reads and parses the users file to usersVec\&. "
+.ti -1c
+.RI "void \fBFileCopy\fP (string filetxt, string filetxt_temp)"
+.br
+.RI "Copies text between files\&. "
+.ti -1c
+.RI "bool \fBFileExist\fP (string filetxt_temp)"
+.br
+.RI "Checks if the file with name filetxt_temp exists\&. "
+.ti -1c
+.RI "int \fBBinaryInt\fP (int id, vector< int > VEC)"
+.br
+.RI "Performs a binary search of id in VEC\&. "
+.ti -1c
+.RI "int \fBsaveChanges\fP (vector< int > &usersVEC, int &user, pair< int, int > xy, int &save)"
+.br
+.RI "Asks user to save the current status when exiting\&. "
+.ti -1c
+.RI "int \fBreadNameOfFile\fP (string &fileName)"
+.br
+.RI "Ask user to input a file name\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Declares the utilities\&. 
+
+
+.PP
+Definition in file \fButils\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "int BinaryInt (int id, vector< int > VEC)"
+
+.PP
+Performs a binary search of id in VEC\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP The identifier\&. 
+.br
+\fIVEC\fP The vector\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The index of id in Vec, or -1 if id was not found\&. 
+.RE
+.PP
+
+.PP
+Definition at line 251 of file utils\&.cpp\&.
+.PP
+Referenced by Card::operator==(), and saveChanges()\&.
+.PP
+.nf
+251                                         {
+252     int lowindex = 0;
+253     int highindex = VEC\&.size() - 1;
+254     int i = -1;
+255     while (lowindex <= highindex)
+256     {
+257         i = (highindex + lowindex) / 2;
+258         if (id == VEC\&.at(i))
+259         {
+260             return i;
+261         }
+262         else if (id < VEC\&.at(i))
+263         {
+264             highindex = i - 1;
+265         }
+266         else if (id > VEC\&.at(i))
+267         {
+268             lowindex = i + 1;
+269         }
+270     }
+271     return -1;
+272 }
+.fi
+.SS "vector<\fBCard\fP> createDeck ()"
+
+.PP
+Creates the deck\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The new deck\&. 
+.RE
+.PP
+
+.PP
+Definition at line 15 of file utils\&.cpp\&.
+.PP
+References Card::rank, Card::score, and Card::suits\&.
+.PP
+Referenced by Dealer::Dealer(), and Card::operator==()\&.
+.PP
+.nf
+15                           {
+16     vector <string> suits = {"Heart" ,"Diamond" ,"Club" ,"Spade"};
+17     string ranks = "A234567890JQK";
+18     Card newCard;
+19     vector <Card> deck;
+20 
+21     for (unsigned int i = 0; i < ranks\&.length(); i++)
+22     {
+23         for (size_t j = 0; j < suits\&.size(); j++)
+24         {
+25             if (i == 0)
+26             {
+27                 newCard\&.suits = suits\&.at(j);
+28                 newCard\&.rank = ranks\&.at(i);
+29                 newCard\&.score = 11;
+30             }
+31             else if (i < 9)
+32             {
+33                 newCard\&.suits = suits\&.at(j);
+34                 newCard\&.rank = ranks\&.at(i);
+35                 newCard\&.score = i + 1;
+36             }
+37             else if (i == 9)
+38             {
+39                 newCard\&.suits = suits\&.at(j);
+40                 newCard\&.rank = "10";
+41                 newCard\&.score = i + 1;
+42             }
+43             else if (i >= 1)
+44             {
+45                 newCard\&.suits = suits\&.at(j);
+46                 newCard\&.rank = ranks\&.at(i);
+47                 newCard\&.score = 10;
+48             }
+49             deck\&.push_back(newCard);
+50         }
+51     }
+52     return deck;
+53 }
+.fi
+.SS "void FileCopy (string filetxt, string filetxt_temp)"
+
+.PP
+Copies text between files\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfiletxt\fP The file name; 
+.br
+\fIfiletxt_temp\fP The temporary file name; 
+.RE
+.PP
+
+.PP
+Definition at line 223 of file utils\&.cpp\&.
+.PP
+Referenced by Card::operator==()\&.
+.PP
+.nf
+223                                                    {
+224     ofstream File(filetxt);
+225     ifstream File_temp(filetxt_temp);
+226     string line;
+227     if (File\&.is_open() && File_temp\&.is_open())
+228     {
+229         while (getline(File_temp, line))
+230         {
+231             File << line << endl;
+232         }
+233         File\&.close();
+234         File_temp\&.close();
+235     }
+236 }
+.fi
+.SS "bool FileExist (string filetxt_temp)"
+
+.PP
+Checks if the file with name filetxt_temp exists\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfiletxt_temp\fP The temporary file name;
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if it exists, false otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line 238 of file utils\&.cpp\&.
+.PP
+Referenced by Card::operator==()\&.
+.PP
+.nf
+238                                     {
+239     ifstream file(filetxt_temp);
+240     if (file\&.is_open())
+241     {
+242         file\&.close();
+243         return true;
+244     }
+245     else
+246     {
+247         return false;
+248     }
+249 }
+.fi
+.SS "string getHumanPlay ()"
+
+.PP
+Gets human play\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The human play\&. 
+.RE
+.PP
+
+.PP
+Definition at line 55 of file utils\&.cpp\&.
+.PP
+Referenced by Card::operator==(), and Human::play()\&.
+.PP
+.nf
+56 {
+57     string option;
+58     getline(cin, option);
+59     while (option != "hit" && option != "stand" && option != "HIT" && option != "STAND" && option != "Hit" && option != "Stand") {
+60         cout << "Please insert a valid entry: ";
+61         getline(cin, option);
+62     }
+63     if (option == "HIT" || option == "Hit") {
+64         option = "hit";
+65     }
+66     else if (option == "Stand" || option == "STAND") {
+67         option = "stand";
+68     }
+69     return option;
+70 }
+.fi
+.SS "std::ostream& operator<< (std::ostream & out, const \fBCard\fP & c)"
+
+.PP
+Stream insertion operator\&. Makes the display of a card on the terminal\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIout\fP The outstream\&. 
+.br
+\fIc\fP The \fBCard\fP to process\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The ostream produced\&. 
+.RE
+.PP
+
+.PP
+Definition at line 6 of file utils\&.cpp\&.
+.PP
+References Card::rank, and Card::suits\&.
+.PP
+Referenced by Card::operator==()\&.
+.PP
+.nf
+6                                                        {
+7     return out << c\&.rank << c\&.suits;
+8 }
+.fi
+.SS "std::ostream& operator<< (std::ostream & out, const vector< \fBCard\fP > & v)"
+
+.PP
+Stream insertion operator\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIout\fP The outstream\&. 
+.br
+\fIv\fP The vector of cards to process\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The ostream produced\&. 
+.RE
+.PP
+
+.PP
+Definition at line 9 of file utils\&.cpp\&.
+.PP
+.nf
+9                                                                {
+10     for (size_t i = 0; i < v\&.size(); i++) {
+11         out << v\&.at(i) << " ; ";
+12     }
+13     return out << "\n";
+14 }
+.fi
+.SS "int readBinary ()"
+
+.PP
+Reads a 0 or a 1 from user input\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user input\&. 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file utils\&.cpp\&.
+.PP
+Referenced by Card::operator==(), Human::split(), and Human::takeInsurance()\&.
+.PP
+.nf
+129                 {
+130     int value;
+131     cin >> value;
+132 
+133     while (value != 0 || value != 1){
+134         cout << endl;
+135         cin\&.clear();
+136         cin\&.ignore();
+137         cout << "Valor inválido, insira 0 ou 1: ";
+138     }
+139     cin\&.ignore();
+140     cout << endl;
+141     return value;
+142 }
+.fi
+.SS "char readCharYorN ()"
+
+.PP
+Reads character 'y' or 'n'\&. Case insensitive\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The character inserted by the user: 'y' or 'n'\&. 
+.RE
+.PP
+
+.PP
+Definition at line 157 of file utils\&.cpp\&.
+.PP
+Referenced by Card::operator==()\&.
+.PP
+.nf
+157                     {
+158     char newChar;
+159     cout << "Insira o caracter: ";
+160     while (!(cin >> newChar) || (newChar != 'n' && newChar != 'N' && newChar != 'Y' && newChar != 'y')) {
+161         cout << endl;
+162         cin\&.clear();
+163         cin\&.ignore();
+164         cout << "Caracter invalido, insira um novo caracter: ";
+165     }
+166     cin\&.ignore();
+167     cout << endl;
+168     return newChar;
+169 }
+.fi
+.SS "float readFloat ()"
+
+.PP
+Reads a float from user input\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The float inputed by the user\&. 
+.RE
+.PP
+
+.PP
+Definition at line 144 of file utils\&.cpp\&.
+.PP
+Referenced by Card::operator==()\&.
+.PP
+.nf
+144                   {
+145     float newFloat;
+146     cout << "Insira um novo valor: ";
+147     while (!(cin >> newFloat)) {
+148         cout << endl;
+149         cin\&.clear();
+150         cin\&.ignore();
+151         cout << "Valor invalido, insira um novo valor: ";
+152     }
+153     cin\&.ignore();
+154     cout << endl;
+155     return newFloat;
+156 }
+.fi
+.SS "int readInt ()"
+
+.PP
+Reads a int value\&. Asks for user input\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The int inserted by the user\&. 
+.RE
+.PP
+
+.PP
+Definition at line 115 of file utils\&.cpp\&.
+.PP
+Referenced by Card::operator==(), and Casino::selectTable()\&.
+.PP
+.nf
+115               {
+116     int newInt;
+117     cout << "Insira um valor: ";
+118     while (!(cin >> newInt)) {
+119         cout << endl;
+120         cin\&.clear();
+121         cin\&.ignore();
+122         cout << "Valor inválido, insira um novo valor unsigned int: ";
+123     }
+124     cin\&.ignore();
+125     cout << endl;
+126     return newInt;
+127 }
+.fi
+.SS "int readIntBetween (int min, int max)"
+
+.PP
+Reads int between a minimum and a maximum values\&. Ask for user input\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fImin\fP The minimum\&. 
+.br
+\fImax\fP The maximum\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The int between the parameters set\&. 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file utils\&.cpp\&.
+.PP
+Referenced by createMenu(), deleteMenu(), manageCasino(), manageTableMenu(), Card::operator==(), and start_menu()\&.
+.PP
+.nf
+87                                     {
+88     int newInt;
+89     cout << "Insert a value: ";
+90     while(!(cin >> newInt) || newInt > max || newInt < min) {
+91         cout << endl;
+92         cin\&.clear();
+93         cin\&.ignore();
+94         cout << "Wrong value, value between " << min << " - " << max;
+95     }
+96     cin\&.ignore();
+97     cout << endl;
+98     return newInt;
+99 }
+.fi
+.SS "int readNameOfFile (string & fileName)"
+
+.PP
+Ask user to input a file name\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfileName\fP A string that will be updated with the user input\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 in case of success\&. 
+.RE
+.PP
+
+.PP
+Definition at line 334 of file utils\&.cpp\&.
+.PP
+Referenced by Card::operator==()\&.
+.PP
+.nf
+334                                       {
+335     cout << "Name of File?" << endl;
+336     cin >> fileName;
+337     while (fileName\&.find("\&.txt") != fileName\&.length() - 4)
+338     {
+339         cout << "Write name of file again" << endl;
+340         cin >> fileName;
+341     }
+342     return 0;
+343 }
+.fi
+.SS "unsigned int readUnsignedInt ()"
+
+.PP
+Reads unsigned int\&. Asks for user input\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The unsigned int\&. 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file utils\&.cpp\&.
+.PP
+Referenced by Casino::create(), Casino::eliminate(), main(), Casino::manage(), Casino::manageTables(), and Card::operator==()\&.
+.PP
+.nf
+101                                {
+102     unsigned int newUnsignedInt;
+103     cout << "Insira um valor: ";
+104     while (!(cin >> newUnsignedInt)) {
+105         cout << endl;
+106         cin\&.clear();
+107         cin\&.ignore();
+108 
+109         cout << "Valor inválido, insira um novo valor unsigned int: ";
+110     }
+111     cin\&.ignore();
+112     cout << endl;
+113     return newUnsignedInt;
+114 }
+.fi
+.SS "unsigned short int readUnsignedIntBetween (unsigned int minValue, unsigned int maxValue)"
+
+.PP
+Reads unsigned int between a minimum and a maximum values\&. Ask for user input\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIminValue\fP The minimum value\&. 
+.br
+\fImaxValue\fP The maximum value\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A unsigned int between the parameters set\&. 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file utils\&.cpp\&.
+.PP
+Referenced by Human::bet(), Casino::create(), Card::operator==(), and Table::play()\&.
+.PP
+.nf
+72                                                                                         {
+73     unsigned int short newInt;
+74     cout << "Insert Value ( " << minValue << " - " << maxValue << " ) : ";
+75     while (!(cin >> newInt) || newInt > maxValue || newInt < minValue) {
+76         cout << endl;
+77         cin\&.clear();
+78         cin\&.ignore();
+79         cout << "Invalid Value: Insert a new one: ";
+80     }
+81     cin\&.ignore();
+82     cout << endl;
+83     return newInt;
+84 }
+.fi
+.SS "int saveChanges (vector< int > & usersVEC, int & user, pair< int, int > xy, int & save)"
+
+.PP
+Asks user to save the current status when exiting\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIusersVEC\fP The users vector\&. 
+.br
+\fIuser\fP The user id\&. 
+.br
+\fIxy\fP Pair with horizontal and vertical lengths of the terminal\&. 
+.br
+\fIsave\fP Boolean that holds user option to save or not the changes made\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 in case of operation success\&. 
+.RE
+.PP
+
+.PP
+Definition at line 274 of file utils\&.cpp\&.
+.PP
+References BinaryInt(), and Users()\&.
+.PP
+Referenced by main(), and Card::operator==()\&.
+.PP
+.nf
+274                                                                                   {
+275     char decision;
+276     Users(usersVEC, user);
+277     if (usersVEC\&.size() == 1)
+278     {
+279         system("cls");
+280         cout << setw((xy\&.first - 50) / 2) << (char)201;
+281         for (int i = 0; i < 50; i++)
+282         {
+283             cout << (char)205;
+284         }
+285         cout << (char)187 << endl;
+286         cout << setw((xy\&.first - 50) / 2) << (char)186 << setw(51) << (char)186 << endl;
+287         string text = "Do you want save all changes?";
+288         cout << setw((xy\&.first - 50) / 2) << (char)186 << setw((50 + text\&.length()) / 2) << text << setw(51 - (50 + text\&.length()) / 2) << (char)186 << endl;
+289         cout << setw((xy\&.first - 50) / 2) << (char)186 << setw(51) << (char)186 << endl;
+290         cout << setw((xy\&.first - 50) / 2) << (char)200;
+291         for (int i = 0; i < 50; i++)
+292         {
+293             cout << (char)205;
+294         }
+295         cout << (char)188 << endl;
+296         cout << endl << "Yes 'Y' or No 'N': ";
+297         cin >> decision;
+298         while (!(decision == 'Y' || decision == 'y' || decision == 'N' || decision == 'n'))
+299         {
+300             cout << endl << "Yes 'Y' or No 'N': ";
+301             cin >> decision;
+302         }
+303 
+304         //alteracao
+305         if (decision == 'Y' || decision == 'y')
+306         {
+307             remove("users_temp\&.txt");
+308             save = 1;
+309         }
+310         else if (decision == 'N' || decision == 'n')
+311         {
+312             remove("users_temp\&.txt");//delete file temp
+313             save = 0;
+314         }
+315     }
+316     else
+317     {
+318         //elimina usuario no vetor
+319         usersVEC\&.erase(usersVEC\&.begin() + BinaryInt(user, usersVEC));
+320 
+321         ofstream UserFileO("users_temp\&.txt");
+322         if (UserFileO\&.is_open())
+323         {
+324             for (unsigned int i = 0; i < usersVEC\&.size(); i++)
+325             {
+326                 UserFileO << usersVEC\&.at(i) << endl;
+327             }
+328             UserFileO\&.close();
+329         }
+330     }
+331     return 0;
+332 }
+.fi
+.SS "void Users (vector< int > & usersVEC, int & user)"
+
+.PP
+Reads and parses the users file to usersVec\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIusersVEC\fP The users vector\&. 
+.br
+\fIuser\fP The user id\&. 
+.RE
+.PP
+
+.PP
+Definition at line 173 of file utils\&.cpp\&.
+.PP
+Referenced by main(), Card::operator==(), and saveChanges()\&.
+.PP
+.nf
+173                                               {
+174     string line;
+175     ifstream UserFileI("users_temp\&.txt");
+176     int find = 0;
+177     if (UserFileI\&.is_open())
+178     {
+179         usersVEC\&.clear();
+180         while (getline(UserFileI, line)) //enquanto houver linhas no ficheiro
+181         {
+182             usersVEC\&.push_back(stoi(line, nullptr, 10));
+183         }
+184         UserFileI\&.close();
+185         for (unsigned int i = 0; i < usersVEC\&.size(); i++)
+186         {
+187             if (user == usersVEC\&.at(i))
+188             {
+189                 find = 1;
+190             }
+191         }
+192         if (find == 0)
+193         {
+194             if (usersVEC\&.size() != 0)
+195             {
+196                 usersVEC\&.push_back(usersVEC\&.back() + 1);
+197                 user = usersVEC\&.back();
+198             }
+199             else
+200             {
+201                 usersVEC\&.push_back(1);
+202                 user = usersVEC\&.back();
+203             }
+204         }
+205     }
+206     else
+207     {
+208         usersVEC\&.push_back(1);
+209         user = usersVEC\&.back();
+210     }
+211 
+212     ofstream UserFileO("users_temp\&.txt");
+213     if (UserFileO\&.is_open())
+214     {
+215         for (unsigned int i = 0; i < usersVEC\&.size(); i++)
+216         {
+217             UserFileO << usersVEC\&.at(i) << endl;
+218         }
+219         UserFileO\&.close();
+220     }
+221 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

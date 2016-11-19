@@ -1,0 +1,196 @@
+.TH "Bot0" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Bot0 \- Bot of type 0\&. The most basic bot, always bets the minimum allowed, stands on 17 (or more)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Player\&.h>\fP
+.PP
+Inherits \fBPlayer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBot0\fP ()"
+.br
+.RI "Default constructor\&. "
+.ti -1c
+.RI "\fBBot0\fP (string name, unsigned int initialMoney)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "string \fBplay\fP (\fBTable\fP &table)"
+.br
+.RI "Plays accordingly to an algorithm\&. Never doubles, always stands on 17 or higher, always hits if less than 17\&. "
+.ti -1c
+.RI "bool \fBtakeInsurance\fP (\fBTable\fP &table)"
+.br
+.RI "Take insurance always returns false on \fBBot0\fP\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Bot of type 0\&. The most basic bot, always bets the minimum allowed, stands on 17 (or more)\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 796 of file Player\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Bot0::Bot0 ()\fC [inline]\fP"
+
+.PP
+Default constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 808 of file Player\&.h\&.
+.PP
+.nf
+808 {};
+.fi
+.SS "Bot0::Bot0 (string name, unsigned int initialMoney)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name\&. 
+.br
+\fIinitialMoney\fP The initial money\&. 
+.RE
+.PP
+
+.PP
+Definition at line 254 of file Player\&.cpp\&.
+.PP
+.nf
+255 {
+256     this->setOnTable(-1);
+257     this->setName(name);
+258     this->setInitialMoney(initialMoney);
+259 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "string Bot0::play (\fBTable\fP & table)\fC [virtual]\fP"
+
+.PP
+Plays accordingly to an algorithm\&. Never doubles, always stands on 17 or higher, always hits if less than 17\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A string, 'hit' or 'stand'\&. 
+.RE
+.PP
+
+.PP
+Implements \fBPlayer\fP\&.
+.PP
+Definition at line 265 of file Player\&.cpp\&.
+.PP
+References Dealer::discard(), Table::getDealer(), and Table::getPlayers()\&.
+.PP
+.nf
+266 {
+267     string options[] = { "hit","stand" };
+268     unsigned int handScore = getHandScore();
+269     if (handScore < 17) {
+270         hit(table\&.getDealer()->discard(table\&.getPlayers()));
+271         return options[0]; // 0 means hit
+272     }
+273     return options[1]; // means stand
+274 }
+.fi
+.SS "bool Bot0::takeInsurance (\fBTable\fP & table)\fC [virtual]\fP"
+
+.PP
+Take insurance always returns false on \fBBot0\fP\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+False\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 261 of file Player\&.cpp\&.
+.PP
+.nf
+261                                      {
+262     return false;
+263 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

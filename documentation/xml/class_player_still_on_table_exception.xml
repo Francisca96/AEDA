@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_player_still_on_table_exception" kind="class" language="C++" prot="public">
+    <compoundname>PlayerStillOnTableException</compoundname>
+    <includes refid="_player_8h" local="no">Player.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_player_still_on_table_exception_1aff58c65c448022e702d78bed75fd3c2e" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string PlayerStillOnTableException::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>The name. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="145" column="1" bodyfile="Player.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_still_on_table_exception_1a75eb3132eb03947b98390ee83212292e" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int PlayerStillOnTableException::tableID</definition>
+        <argsstring></argsstring>
+        <name>tableID</name>
+        <briefdescription>
+<para>Identifier for the table. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="147" column="1" bodyfile="Player.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_player_still_on_table_exception_1a1df43217f05e26b327768df459024fac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PlayerStillOnTableException::PlayerStillOnTableException</definition>
+        <argsstring>(Player *player)</argsstring>
+        <name>PlayerStillOnTableException</name>
+        <param>
+          <type><ref refid="class_player" kindref="compound">Player</ref> *</type>
+          <declname>player</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">player</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the player. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="161" column="1" bodyfile="Player.cpp" bodystart="733" bodyend="736"/>
+        <references refid="class_player_1a4939193fc637f75bf7a11118334dae7e" compoundref="_player_8cpp" startline="92" endline="95">Player::getName</references>
+        <references refid="class_player_1a3928c55936faef5fd63b24d94b9a5781" compoundref="_player_8cpp" startline="228" endline="230">Player::getOnTable</references>
+      </memberdef>
+      <memberdef kind="function" id="class_player_still_on_table_exception_1a173aa6dec8b33b0b3fa1aa65a03848ad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int PlayerStillOnTableException::getTableId</definition>
+        <argsstring>() const</argsstring>
+        <name>getTableId</name>
+        <briefdescription>
+<para>Gets table identifier. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>The table identifier. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="174" column="1" bodyfile="Player.cpp" bodystart="738" bodyend="740"/>
+        <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">Casino::eliminate</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Exception for signalling that the player is still on table. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Player.h" line="142" column="1" bodyfile="Player.h" bodystart="142" bodyend="175"/>
+    <listofallmembers>
+      <member refid="class_player_still_on_table_exception_1a173aa6dec8b33b0b3fa1aa65a03848ad" prot="public" virt="non-virtual"><scope>PlayerStillOnTableException</scope><name>getTableId</name></member>
+      <member refid="class_player_still_on_table_exception_1aff58c65c448022e702d78bed75fd3c2e" prot="private" virt="non-virtual"><scope>PlayerStillOnTableException</scope><name>name</name></member>
+      <member refid="class_player_still_on_table_exception_1a1df43217f05e26b327768df459024fac" prot="public" virt="non-virtual"><scope>PlayerStillOnTableException</scope><name>PlayerStillOnTableException</name></member>
+      <member refid="class_player_still_on_table_exception_1a75eb3132eb03947b98390ee83212292e" prot="private" virt="non-virtual"><scope>PlayerStillOnTableException</scope><name>tableID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
