@@ -89,13 +89,13 @@ int main(){
 				cout << "Please select a table first" << endl;
 				system("pause");
 			}
-			catch (NoPlayersOnTable noPlayersOnTable)
+			catch (NoPlayersOnTableException NoPlayersOnTableException)
 			{
-				cout << "The table: " << noPlayersOnTable.getID() << " dont have players" << endl;
+				cout << "The table: " << NoPlayersOnTableException.getID() << " dont have players" << endl;
 				cout << "Please select a table with players first" << endl;
 				system("pause");
 			}
-			catch (TooManyPlayers)
+			catch (TooManyPlayersException)
 			{
 				cout << "You can't play on table selected" << endl;
 				cout << "The table is full" << endl;
@@ -117,13 +117,13 @@ int main(){
 				cout << "Please select a table first" << endl;
 				system("pause");
 			}
-			catch (NoPlayersOnTable noPlayerOnTable)
+			catch (NoPlayersOnTableException noPlayerOnTable)
 			{
 				cout << "The table: " << noPlayerOnTable.getID() << " dont have players" << endl;
 				cout << "Please select a table with players first" << endl;
 				system("pause");
 			}
-			catch (HumanOnTable)
+			catch (HumanOnTableException)
 			{
 				cout << "The table has a human" << endl;
 				cout << "Please select a table with no humans" << endl;
