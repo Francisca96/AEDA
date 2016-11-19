@@ -39,7 +39,7 @@ public:
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @param [in,out]	Pointer to the player.
+	 * @param [in,out]	player1 Pointer to the player.
 	 */
 
 	PlayerNotLoggedException(Player * player1);

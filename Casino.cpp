@@ -428,11 +428,11 @@ Table * Casino::getTableToPlay() const {
 
 void Casino::manage(pair<short, short> xy) {
 	unsigned int exit = 0;
-	unsigned int choise, tableID;
+	unsigned int choice, tableID;
 	while (!exit)
 	{
-		manageCasino(xy, choise);
-		switch (choise)
+		manageCasino(xy, choice);
+		switch (choice)
 		{
 		case 0:
 			exit = 1;
@@ -469,11 +469,11 @@ void Casino::manage(pair<short, short> xy) {
 
 void Casino::create(pair<short, short> xy) {
 	unsigned int exit = 0;
-	unsigned int choise;
+	unsigned int choice;
 	while (!exit)
 	{
-		createMenu(xy, choise);
-		switch (choise)
+		createMenu(xy, choice);
+		switch (choice)
 		{
 		case 0:
 			exit = 1;
@@ -580,11 +580,11 @@ void Casino::create(pair<short, short> xy) {
 
 void Casino::eliminate(pair<short, short> xy) {
 	unsigned int exit = 0;
-	unsigned int choise;
+	unsigned int choice;
 	while (!exit)
 	{
-		deleteMenu(xy, choise);
-		switch (choise)
+		deleteMenu(xy, choice);
+		switch (choice)
 		{
 		case 0:
 			exit = 1;
@@ -664,12 +664,12 @@ void Casino::eliminate(pair<short, short> xy) {
 
 void Casino::manageTables(pair<short, short> xy, unsigned int tableID) {
 	unsigned int exit = 0;
-	unsigned int choise, dealerID;
+	unsigned int choice, dealerID;
 	string playerName;
 	while (!exit)
 	{
-		manageTableMenu(xy, choise);
-		switch (choise)
+		manageTableMenu(xy, choice);
+		switch (choice)
 		{
 		case 0:
 			exit = 1;

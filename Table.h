@@ -457,7 +457,7 @@ public:
 	 * @author	Renato Campos
 	 * @date	18/11/2016
 	 *
-	 * @return	0 - deck restarted sucessfully; 1 - deck not ready to be restarted.  
+	 * @return	0 - deck restarted successfully; 1 - deck not ready to be restarted.  
 	 */
 
 	unsigned int restartDeck();
