@@ -8,11 +8,10 @@ void clearScreen() {
 }
 
 void cursorxy(short x, short y) {
-	if (OS_Windows == 0)
-	{
+#ifdef _WIN32
 		COORD p = { x, y };
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), p);
-	}
+#endif
 }
 
 void displayMenu0(pair<int, int> xy, string title, vector <string> menuOptions) {
@@ -47,8 +46,7 @@ void displayMenu0(pair<int, int> xy, string title, vector <string> menuOptions) 
 }
 
 pair <int,int> centerWindow() {
-	if (OS_Windows == 0)
-	{
+#ifdef _WIN32
 		HWND hwnd = GetConsoleWindow();
 		RECT desktop;
 		const HWND hDesktop = GetDesktopWindow();
@@ -77,7 +75,7 @@ pair <int,int> centerWindow() {
 
 		pair <int, int> xy = { console_x,console_y };
 		return xy;
-	}
+#endif
 	pair <int, int> xy = {-1,-1};
 	return xy;
 }
