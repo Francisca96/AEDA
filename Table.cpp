@@ -108,7 +108,7 @@ void Table::play(unsigned int userID) {
 	tableFILE += "_temp.txt";
 	if (FileExist(tableFILE))
 	{
-		//TODO: read table file
+		this->readTableFile();
 	}
 	else
 	{
@@ -119,7 +119,7 @@ void Table::play(unsigned int userID) {
 		throw TooManyPlayers(maxNumberOfPlayers, maxNumberOfPlayers + 1);
 	}
 	this->addPlayer(humanPlayer);
-	//TODO: write table file
+	this->writeTableFile();
 
 	//realplay
 	system("cls");
@@ -129,7 +129,7 @@ void Table::play(unsigned int userID) {
 		while (bossUserID != userID)
 		{
 			waitXTime(1);
-			//read table file
+			this->readTableFile();
 		}
 		if (nextPlayerIndex == 0 && phaseOfPlaying == 0)
 		{
@@ -140,11 +140,13 @@ void Table::play(unsigned int userID) {
 		if (nextPlayerIndex == 0 && phaseOfPlaying == 1)
 		{
 			dealOneCardToAllPlayers();
+			this->writeTableFile();
 			restartDeck();
 			dealerOfTable->hit(players);
 			dealOneCardToAllPlayers();
 			restartDeck();
 			phaseOfPlaying = 2;
+			this->writeTableFile();
 		}
 
 		//TODO:implement take insurance
@@ -160,7 +162,7 @@ void Table::play(unsigned int userID) {
 						while (bossUserID != userID)
 						{
 							waitXTime(1);
-							//read table file
+							this->readTableFile();
 						}
 					}
 					else
@@ -172,17 +174,19 @@ void Table::play(unsigned int userID) {
 							if (betValue == 0)
 							{
 								actualPlayers.erase(actualPlayers.begin() + i);
+								//TODO: change exit method
+								exit = 1;
 							}
 							//TODO: change for playerID after
 							nextPlayerIndex = i + 1;
-							//TODO: write table file
+							this->writeTableFile();
 						}
 						else
 						{
-							actualPlayers.at(i)->play(*this);
+							actualPlayers.at(i)->play2(*this);
 							//TODO: change for playerID after
 							nextPlayerIndex = i + 1;
-							//TODO: write table file
+							this->writeTableFile();
 						}
 					}
 				}
@@ -198,22 +202,37 @@ void Table::play(unsigned int userID) {
 						}
 						//TODO: change for playerID after
 						nextPlayerIndex = i + 1;
-						//TODO: write table file
+						this->writeTableFile();
 					}
 					else
 					{
-						actualPlayers.at(i)->play(*this);
+						actualPlayers.at(i)->play2(*this);
 						//TODO: change for playerID after
 						nextPlayerIndex = i + 1;
-						//TODO: write table file
+						this->writeTableFile();
 					}
 				}
+			}
+			if (nextPlayerIndex == actualPlayers.size() && phaseOfPlaying == 0)
+			{
+				nextPlayerIndex = 0;
+				phaseOfPlaying = 1;
+			}
+			if (nextPlayerIndex == actualPlayers.size() && phaseOfPlaying == 2)
+			{
+				nextPlayerIndex = 0;
+			}
+			if (actualPlayers.size() == 0)
+			{
+				dealerOfTable->play2(*this);
+
+				phaseOfPlaying = 0;
 			}
 		}
 	}
 
 	//sair da mesa
-	//TODO: read table file
+	this->readTableFile();
 	bool HumanStillOnTable = false;
 	for (size_t i = 0; i < players.size(); i++)
 	{
@@ -231,7 +250,7 @@ void Table::play(unsigned int userID) {
 			}
 		}
 	}
-	//TODO: write table file
+	this->writeTableFile();
 	if (!HumanStillOnTable)
 	{
 		remove(tableFILE.c_str());
@@ -624,6 +643,7 @@ void Table::readTableFile() {
 			this->bossUserID = stoi(line);
 			getline(inFile, line);
 			this->phaseOfPlaying = stoi(line);
+			inFile.close();
 		}
 		else
 		{
@@ -650,17 +670,21 @@ void Table::writeTableFile() {
 			outFile << this->moneyOfTable << endl << "{" << endl;
 			for (size_t i = 0; i < players.size(); i++)
 			{
-				outFile << players.at(i) << endl;
+				players.at(i)->saveInfo(outFile);
+				outFile << endl;
 			}
-			cout << "}" << endl << "{" << endl;
+			outFile << "}" << endl << "{" << endl;
 			for (size_t i = 0; i < actualPlayers.size(); i++)
 			{
-				outFile << actualPlayers.at(i) << endl;
+				players.at(i)->saveInfo(outFile);
+				outFile << endl;
 			}
-			cout << "}" << endl;
+			outFile << "}" << endl;
 			outFile << this->nextPlayerIndex << endl
 				<< bossUserID << endl
 				<< phaseOfPlaying << endl;
+			outFile.close();
+			return;
 		}
 		else
 		{

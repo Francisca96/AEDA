@@ -22,6 +22,11 @@ void Player::hit(Card newCard) {
 	setHandScore();
 }
 
+void Player::hit2(Card newCard) {
+	hand2.push_back(newCard);
+	setHand2Score();
+}
+
 bool surrender(Table &table) {
 	return false;
 }
@@ -236,25 +241,33 @@ void Player::removeCardFromFirstHandAndSetItOnSecondHand()
 	hand2.push_back(secondCard);
 }
 
-ostream & Player::operator<<(ostream & out) {
+ostream & Player::saveInfo(ostream & out) {
 	out << name << "; " << initialMoney << "; " << setprecision(2) << fixed << currentMoney << "; ";
+	if (hand.size() != 0)
+	{
+		out << "{";
+	}
 	for (size_t i = 0; i < hand.size(); i++)
 	{
-		out << "{" << hand.at(i).rank << "/" << hand.at(i).suits << "; ";
+		out << hand.at(i).rank << "/" << hand.at(i).suits << "/" << hand.at(i).score << "; ";
 	}
 	if (hand.size() != 0)
 	{
 		out << "}; ";
 	}
+	if (hand.size() != 0)
+	{
+		out << "{";
+	}
 	for (size_t i = 0; i < hand2.size(); i++)
 	{
-		out << "{" << hand2.at(i).rank << "/" << hand2.at(i).suits << "; ";
+		out << hand2.at(i).rank << "/" << hand2.at(i).suits << "/" << hand2.at(i).score << "; ";
 	}
 	if (hand2.size() != 0)
 	{
 		out << "}; ";
 	}
-	out << roundsPlayed << "; " << setprecision(2) << fixed << averageProfit << "; " << age << "; " << onTable << "; " << actualBet << "; ";
+	out << roundsPlayed << "; " << age << "; " << onTable << "; " << actualBet << "; ";
 	return out;
 }
 
@@ -272,6 +285,56 @@ bool Player::split(Dealer *dealerOfTable){
 }
 
 
+Bot0::Bot0(string & line) {
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setName(line.substr(0, line.find_first_of("; ")));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setInitialMoney(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setCurrentMoney(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->clearHand();
+	if (line.at(0) == '{')
+	{
+		line.erase(0, 1);
+		Card newCard;
+		while (line.at(0) != '}')
+		{
+			newCard.rank = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.suits = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
+			line.erase(0, line.find_first_of("; ") + 2);
+			this->hit(newCard);
+		}
+	}
+	this->clearHand2();
+	if (line.at(0) == '{')
+	{
+		line.erase(0, 1);
+		Card newCard;
+		while (line.at(0) != '}')
+		{
+			newCard.rank = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.suits = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
+			line.erase(0, line.find_first_of("; ") + 2);
+			this->hit2(newCard);
+		}
+	}
+	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setAge(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setOnTable(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setActualBet(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+}
+
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 Bot0::Bot0(string name, unsigned int initialMoney)
 {
@@ -284,9 +347,9 @@ bool Bot0::takeInsurance(Table &table) {
     return false;
 }
 
-ostream & Bot0::operator<<(ostream & out) {
+ostream & Bot0::saveInfo(ostream & out) {
 	out << "0; ";
-	Player::operator<<(out);
+	Player::saveInfo(out);
 	return out;
 }
 
@@ -353,9 +416,9 @@ bool Bot1::surrender(Table & table)
 	return false;
 }
 
-ostream & Bot1::operator<<(ostream & out) {
+ostream & Bot1::saveInfo(ostream & out) {
 	out << "1; ";
-	Player::operator<<(out);
+	Player::saveInfo(out);
 	out << currentCount << "; ";
 	return out;
 }
@@ -423,6 +486,58 @@ Bot1::Bot1(string name, unsigned int initialMoney)
 	this->setOnTable(-1);
 	this->setName(name);
 	this->setInitialMoney(initialMoney);
+}
+
+Bot1::Bot1(string & line) {
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setName(line.substr(0, line.find_first_of("; ")));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setInitialMoney(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setCurrentMoney(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->clearHand();
+	if (line.at(0) == '{')
+	{
+		line.erase(0, 1);
+		Card newCard;
+		while (line.at(0) != '}')
+		{
+			newCard.rank = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.suits = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
+			line.erase(0, line.find_first_of("; ") + 2);
+			this->hit(newCard);
+		}
+	}
+	this->clearHand2();
+	if (line.at(0) == '{')
+	{
+		line.erase(0, 1);
+		Card newCard;
+		while (line.at(0) != '}')
+		{
+			newCard.rank = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.suits = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
+			line.erase(0, line.find_first_of("; ") + 2);
+			this->hit2(newCard);
+		}
+	}
+	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setAge(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setOnTable(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setActualBet(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->currentCount = stoi(line.substr(0, line.find_first_of("; ")));
+	line.erase(0, line.find_first_of("; ") + 2);
 }
 
 string Bot1::play(Table &table)
@@ -572,6 +687,60 @@ Bot2::Bot2(string name, unsigned int initialMoney)
 	currentCount = 0;
 }
 
+Bot2::Bot2(string & line) {
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setName(line.substr(0, line.find_first_of("; ")));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setInitialMoney(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setCurrentMoney(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->clearHand();
+	if (line.at(0) == '{')
+	{
+		line.erase(0, 1);
+		Card newCard;
+		while (line.at(0) != '}')
+		{
+			newCard.rank = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.suits = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
+			line.erase(0, line.find_first_of("; ") + 2);
+			this->hit(newCard);
+		}
+	}
+	this->clearHand2();
+	if (line.at(0) == '{')
+	{
+		line.erase(0, 1);
+		Card newCard;
+		while (line.at(0) != '}')
+		{
+			newCard.rank = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.suits = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
+			line.erase(0, line.find_first_of("; ") + 2);
+			this->hit2(newCard);
+		}
+	}
+	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setAge(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setOnTable(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setActualBet(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->currentCount = stoi(line.substr(0, line.find_first_of("; ")));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->lastBetValue = stoi(line.substr(0, line.find_first_of("; ")));
+	line.erase(0, line.find_first_of("; ") + 2);
+}
+
 unsigned int Bot2::bet(Table & table)
 {
 	unsigned int betValue;
@@ -662,9 +831,9 @@ void Bot2::setLastBetValue(unsigned int lastBet)
 	lastBetValue = lastBet;
 }
 
-ostream & Bot2::operator<<(ostream & out) {
+ostream & Bot2::saveInfo(ostream & out) {
 	out << "2; ";
-	Player::operator<<(out);
+	Player::saveInfo(out);
 	out << currentCount << "; " << lastBetValue << "; ";
 	return out;
 }
@@ -709,13 +878,12 @@ unsigned int Human::getUserID() const {
 	return this->userID;
 }
 
-ostream & Human::operator<<(ostream & out) {
+ostream & Human::saveInfo(ostream & out) {
 	out << "3; ";
-	Player::operator<<(out);
+	Player::saveInfo(out);
 	out << userID << "; ";
 	return out;
 }
-
 
 Human::Human(string name, unsigned int age, int userID)
 {
@@ -738,6 +906,58 @@ Human::Human(string name, unsigned int age, int userID)
 	catch (TooYoung &y) {
 		y.what();
 	}
+}
+
+Human::Human(string & line) {
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setName(line.substr(0, line.find_first_of("; ")));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setInitialMoney(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setCurrentMoney(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->clearHand();
+	if (line.at(0) == '{')
+	{
+		line.erase(0, 1);
+		Card newCard;
+		while (line.at(0) != '}')
+		{
+			newCard.rank = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.suits = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
+			line.erase(0, line.find_first_of("; ") + 2);
+			this->hit(newCard);
+		}
+	}
+	this->clearHand2();
+	if (line.at(0) == '{')
+	{
+		line.erase(0, 1);
+		Card newCard;
+		while (line.at(0) != '}')
+		{
+			newCard.rank = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.suits = line.substr(0, line.find_first_of("/"));
+			line.erase(0, line.find_first_of("/") + 1);
+			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
+			line.erase(0, line.find_first_of("; ") + 2);
+			this->hit2(newCard);
+		}
+	}
+	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setAge(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setOnTable(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->setActualBet(stoi(line.substr(0, line.find_first_of("; "))));
+	line.erase(0, line.find_first_of("; ") + 2);
+	this->userID = stoi(line.substr(0, line.find_first_of("; ")));
+	line.erase(0, line.find_first_of("; ") + 2);
 }
 
 
@@ -766,18 +986,27 @@ string Human::play(Table &table)
 		return "stand";
 	}
 	string option;
-	cout << "Your Turn -> In your hand you have the following:\n";
-	for (size_t i = 0; i < getHandSize(); i++) {
-		cout << getHand().at(i).rank << " of " << getHand().at(i).suits << "\n";
-	}
-	cout << "Current hand score-> " << getHandScore() << "\n";
-	cout << "Current money-> " << getCurrentMoney() << "\n";
-	cout << "To hit write 'hit' to stand write 'stand' : ";
-	option = getHumanPlay();
-	if (option == "hit") {
-		hit(table.getDealer()->discard(table.getPlayers()));
+	while (getHandScore() < 21 && option != "stand")
+	{
+		cout << "Your Turn -> In your hand you have the following:\n";
+		for (size_t i = 0; i < getHandSize(); i++)
+		{
+			cout << getHand().at(i).rank << " of " << getHand().at(i).suits << "\n";
+		}
+		cout << "Current hand score-> " << getHandScore() << "\n";
+		cout << "Current money-> " << getCurrentMoney() << "\n";
+		cout << "To hit write 'hit' to stand write 'stand' : ";
+		option = getHumanPlay();
+		if (option == "hit")
+		{
+			hit(table.getDealer()->discard(table.getPlayers()));
+		}
 	}
 	return option;
+}
+
+void Human::play2(Table & table) {
+
 }
 
 PlayerAlreadyExist::PlayerAlreadyExist(Player * player) {

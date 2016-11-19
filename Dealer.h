@@ -44,6 +44,7 @@ public:
 	void clearHand();
 	bool hasCardInHand(Card& c);
 	string play(Table &table);
+	void play2(Table &table);
 	unsigned int getID() const;
 	void setTable(int tableID);
 	int getTableOn() const;

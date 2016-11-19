@@ -75,6 +75,7 @@ private:
 	int actualBet;
 public:
 	void hit(Card newCard);
+	void hit2(Card newCard);
 	virtual bool takeInsurance(Table &table);
 	virtual bool surrender(Table &table);
 	virtual bool split(Dealer *dealerOfTable);
@@ -104,6 +105,7 @@ public:
 	void setActualBet(unsigned int bet);
 	unsigned int getActualBet();
 	virtual string play(Table &table) = 0;
+	virtual void play2(Table &table) = 0;
 	virtual int getCurrentCount() const;
 	virtual void addCount(Card &card1);
 	virtual void resetCount();
@@ -114,7 +116,7 @@ public:
 	void removeCardFromFirstHandAndSetItOnSecondHand();
 	virtual void setUserID(unsigned int userID) {}
 	virtual unsigned int getUserID() const { return 0; }
-	virtual ostream& operator<<(ostream& out);
+	virtual ostream& saveInfo(ostream& out);
 };
 
 //////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
@@ -125,8 +127,9 @@ public:
 	Bot0(string name, unsigned int initialMoney);
 	//play method
 	string play(Table &table);
+	void play2(Table &table);
 	bool takeInsurance(Table &table);
-	virtual ostream& operator<<(ostream& out);
+	virtual ostream& saveInfo(ostream& out);
 };
 
 //////////////////////////////////////////////////// BOT 1 ////////////////////////////////////////////////////
@@ -139,13 +142,14 @@ public:
 	Bot1(string &line);
 	//play method
 	string play(Table &table);
+	void play2(Table &table);
 	bool takeInsurance(Table &table);
 	int getCurrentCount() const;
 	void addCount(Card &card1);
 	void resetCount();
 	bool split( Dealer *dealerOfTable);
 	virtual bool surrender(Table &table);
-	virtual ostream& operator<<(ostream& out);
+	virtual ostream& saveInfo(ostream& out);
 };
 
 //////////////////////////////////////////////////// BOT 2 ////////////////////////////////////////////////////
@@ -159,6 +163,7 @@ public:
 	unsigned int bet(Table &table);
 	//play method
 	string play(Table &table);
+	void play2(Table &table);
 	bool takeInsurance(Table &table);
 	bool split(Dealer *dealerOfTable);
 	virtual bool surrender(Table &table);
@@ -166,7 +171,7 @@ public:
 	void addCount(Card &card1);
 	void resetCount();
 	void setLastBetValue(unsigned int lastBet);
-	virtual ostream& operator<<(ostream& out);
+	virtual ostream& saveInfo(ostream& out);
 };
 
 //////////////////////////////////////////////////// HUMAN ////////////////////////////////////////////////////
@@ -178,11 +183,12 @@ public:
 	Human(string &line);
 	unsigned int bet(Table &table);
 	string play(Table &table);
+	void play2(Table &table);
 	bool takeInsurance(Table &table);
 	bool split( Dealer *dealerOfTable);
 	void setUserID(unsigned int userID);
 	unsigned int getUserID() const;
-	virtual ostream& operator<<(ostream& out);
+	virtual ostream& saveInfo(ostream& out);
 };
 
 
