@@ -12,46 +12,54 @@ class Table;
 class Dealer;
 class Player;
 
-
-class NameTooShort {
+/**
+NameTooShortException is thrown when you try to create a player with a name smaller than 3 chars.
+*/
+class NameTooShortException {
 public:
 	void what();
 };
-class TooYoung {
+class TooYoungException {
 public:
 	void what();
 };
 
-class PlayerAlreadyExist {
+class PlayerAlreadyExistException {
 private:
 	string name;
 public:
-	PlayerAlreadyExist(Player *player);
+	PlayerAlreadyExistException(Player *player);
 };
 
-class PlayerNotExist {
+class PlayerNotExistException {
 private:
 	string name;
 public:
-	PlayerNotExist(string name);
+	PlayerNotExistException(string name);
 };
 
-class PlayerStillOnTable {
+class PlayerStillOnTableException {
 private:
 	string name;
 	unsigned int tableID;
 public:
-	PlayerStillOnTable(Player *player);
+	PlayerStillOnTableException(Player *player);
 	unsigned int getTableId() const;
 };
-class PlayerIsntOnTable {
+
+class PlayerIsntOnTableException {
 private:
 	string name;
 public:
-	PlayerIsntOnTable(string &name);
+	PlayerIsntOnTableException(string &name);
 };
 
-
+class HumanOnTableException {
+private:
+	string name;
+public:
+	HumanOnTableException(Player *player);
+};
 
 class Player {
 private:

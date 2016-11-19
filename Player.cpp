@@ -5,12 +5,12 @@
 
 
 //Exceptions
-void NameTooShort::what()
+void NameTooShortException::what()
 {
 	cout << "Error - A name shoud have no less than 3 characters\n";
 }
 
-void TooYoung::what()
+void TooYoungException::what()
 {
 	cout << "Error - In order to play you should be at least 18 years old\n";
 }
@@ -499,7 +499,9 @@ string Bot1::play(Table &table)
 	if (option == options[2]) {
 		hit(dealerOfTable->discard(table.getPlayers()));
 		setCurrentMoney(getCurrentMoney() - getActualBet());
+		table.addMoneyToTable(getActualBet());
 		setActualBet(2 * getActualBet());
+		
 	}
 	return option; // means stand
 }
@@ -572,13 +574,11 @@ string Bot2::play(Table & table)
 }
 
 bool Bot2::takeInsurance(Table &table) {
-	//TODO: fazer algoritmo
 	return false;
 }
 
 bool Bot2::split(Dealer *dealerOfTable) {
-	//TODO: fazer algoritmo
-	return true;
+	return false;
 }
 
 bool Bot2::surrender(Table & table)
@@ -664,20 +664,20 @@ Human::Human(string name, unsigned int age)
 {
 	try {
 		if (name.length() < 3) {
-			throw NameTooShort();
+			throw NameTooShortException();
 		}
 		setName(name);
 		if (age < 18) {
-			throw TooYoung();
+			throw TooYoungException();
 		}
 		this->setAge(age);
 		setInitialMoney(1000);
 		this->setOnTable(-1);
 	}
-	catch (NameTooShort &n) {
+	catch (NameTooShortException &n) {
 		n.what();
 	}
-	catch (TooYoung &y) {
+	catch (TooYoungException &y) {
 		y.what();
 	}
 }
@@ -722,23 +722,27 @@ string Human::play(Table &table)
 	return option;
 }
 
-PlayerAlreadyExist::PlayerAlreadyExist(Player * player) {
+PlayerAlreadyExistException::PlayerAlreadyExistException(Player * player) {
 	this->name = player->getName();
 }
 
-PlayerNotExist::PlayerNotExist(string name) {
+PlayerNotExistException::PlayerNotExistException(string name) {
 	this->name = name;
 }
 
-PlayerStillOnTable::PlayerStillOnTable(Player * player) {
+PlayerStillOnTableException::PlayerStillOnTableException(Player * player) {
 	this->name = player->getName();
 	this->tableID = player->getOnTable();
 }
 
-unsigned int PlayerStillOnTable::getTableId() const {
+unsigned int PlayerStillOnTableException::getTableId() const {
 	return this->tableID;
 }
 
-PlayerIsntOnTable::PlayerIsntOnTable(string & name) {
+PlayerIsntOnTableException::PlayerIsntOnTableException(string & name) {
 	this->name = name;
+}
+
+HumanOnTableException::HumanOnTableException(Player * player) {
+	this->name = player->getName();
 }
