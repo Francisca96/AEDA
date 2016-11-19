@@ -27,7 +27,7 @@ class Player;
  * @brief	Exception for signalling too short names errors.
  *			The name is considered to be too short if it has
  *			less than 3 characters.
- * @author	Ineeve
+ * @author	Joao Carvalho
  * @date	19/11/2016
  */
 
@@ -39,7 +39,7 @@ public:
 	 *
 	 * @brief	Displays on terminal what throwed this exception.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 */
 
@@ -53,7 +53,7 @@ public:
  * 			A player is considered to be too young
  * 			if he is less than 18 years old.
  *
- * @author	Ineeve
+ * @author	Joao Carvalho
  * @date	19/11/2016
  */
 
@@ -65,7 +65,7 @@ public:
 	 *
 	 * @brief	Displays on terminal what throwed this exception.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 */
 
@@ -77,7 +77,7 @@ public:
  *
  * @brief	Exception for signalling that the player already exists.
  *
- * @author	Ineeve
+ * @author	Joao Carvalho
  * @date	19/11/2016
  */
 
@@ -92,7 +92,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	player	Pointer to the player.
@@ -106,7 +106,7 @@ public:
  *
  * @brief	Exception for signalling that the player does not exist.
  *
- * @author	Ineeve
+ * @author	Joao Carvalho
  * @date	19/11/2016
  */
 
@@ -121,7 +121,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	name	The player's name.
@@ -135,7 +135,7 @@ public:
  *
  * @brief	Exception for signalling that the player is still on table.
  *
- * @author	Ineeve
+ * @author	Joao Carvalho
  * @date	19/11/2016
  */
 
@@ -152,7 +152,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	player	Pointer to the player.
@@ -165,7 +165,7 @@ public:
 	 *
 	 * @brief	Gets table identifier.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The table identifier.
@@ -179,7 +179,7 @@ public:
  *
  * @brief	Exception for signalling that the player is not on the table.
  *
- * @author	Ineeve
+ * @author	Joao Carvalho
  * @date	19/11/2016
  */
 
@@ -194,7 +194,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	name	The player's name.
@@ -208,7 +208,7 @@ public:
  *
  * @brief	Exception for signalling that there is a human on the table.
  *
- * @author	Ineeve
+ * @author	Joao Carvalho
  * @date	19/11/2016
  */
 
@@ -223,7 +223,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	player	Pointer to the player.
@@ -238,7 +238,7 @@ public:
  * @brief	A player.
  *			Abstract Class.
  *			Player is the base class.
- * @author	Ineeve
+ * @author	Joao Carvalho
  * @date	19/11/2016
  */
 
@@ -294,7 +294,7 @@ public:
 	 * @brief	Hits the given new card.
 	 *			Saves the card on the hand.
 	 *			Updates the handscore.
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	newCard	The new card.
@@ -307,7 +307,7 @@ public:
 	 *
 	 * @brief	Take insurance.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table that the player is on.
@@ -323,7 +323,7 @@ public:
 	 * @brief	Surrenders or not.
 	 *			When this method is called, it will check
 	 *			if the player wants to surrender.
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table that the player is on.
@@ -341,7 +341,7 @@ public:
 	 * 			depending on the type of player, to check if the player
 	 * 			wants to split his hand.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	dealerOfTable	Pointer to the dealer of the table.
@@ -359,7 +359,7 @@ public:
 	 *			When a player doubles down, he will hit a new card, double is bet,
 	 *			and won't be allowed to play anymore until the end of the round.
 	 *			
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 */
 
@@ -370,7 +370,7 @@ public:
 	 *
 	 * @brief	Gets the hand.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The hand.
@@ -383,7 +383,7 @@ public:
 	 *
 	 * @brief	Gets the second hand.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The second hand.
@@ -396,7 +396,7 @@ public:
 	 *
 	 * @brief	Gets hand size.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The hand size.
@@ -409,7 +409,7 @@ public:
 	 *
 	 * @brief	Gets rounds played.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The rounds played.
@@ -422,7 +422,7 @@ public:
 	 *
 	 * @brief	Gets current money.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The current money.
@@ -435,7 +435,7 @@ public:
 	 *
 	 * @brief	Gets average profit.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The average profit.
@@ -448,7 +448,7 @@ public:
 	 *
 	 * @brief	Gets hand score.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The hand score.
@@ -461,7 +461,7 @@ public:
 	 *
 	 * @brief	Gets second hand score.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The second hand score.
@@ -474,7 +474,7 @@ public:
 	 *
 	 * @brief	Gets initial money.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The initial money.
@@ -487,7 +487,7 @@ public:
 	 *
 	 * @brief	Gets the name.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The name.
@@ -500,7 +500,7 @@ public:
 	 *
 	 * @brief	Sets a name.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	newName	Name of the player.
@@ -513,7 +513,7 @@ public:
 	 *
 	 * @brief	Sets hand score.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The current hand score.
@@ -526,7 +526,7 @@ public:
 	 *
 	 * @brief	Sets second hand score.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The second hand score.
@@ -539,7 +539,7 @@ public:
 	 *
 	 * @brief	Sets current money.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	money	The money.
@@ -552,7 +552,7 @@ public:
 	 *
 	 * @brief	Sets rounds played.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	rounds	The number of rounds.
@@ -565,7 +565,7 @@ public:
 	 *
 	 * @brief	Sets initial money.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	money	The money.
@@ -578,7 +578,7 @@ public:
 	 *
 	 * @brief	Adds money to the player.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	value	The amount of money to be added.
@@ -591,7 +591,7 @@ public:
 	 *
 	 * @brief	Shows the statistics.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 */
 
@@ -604,7 +604,7 @@ public:
 	 * 			If player is a kind of bot, it will bet accordingly to algorithms that are available on the internet
 	 * 
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -619,7 +619,7 @@ public:
 	 *
 	 * @brief	Clears the hand.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 */
 
@@ -630,7 +630,7 @@ public:
 	 *
 	 * @brief	Clears the second hand.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 */
 
@@ -641,7 +641,7 @@ public:
 	 *
 	 * @brief	Sets actual bet.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	bet	The money to bet.
@@ -654,7 +654,7 @@ public:
 	 *
 	 * @brief	Gets actual bet.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The actual bet.
@@ -668,7 +668,7 @@ public:
 	 * @brief	Play consists of a method that decides what is the best move.
 	 * 			All the bots have different implementations of this method.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table that the player is on.
@@ -683,7 +683,7 @@ public:
 	 *
 	 * @brief	Gets current count.
 	 *			Different kinds of players may hold different counts.
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The current count.
@@ -696,7 +696,7 @@ public:
 	 *
 	 * @brief	Updates the current count with a given card.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	card1	The card that will try to update the count.
@@ -710,7 +710,7 @@ public:
 	 * @brief	Resets the current count.
 	 * 			Should be called when the deck is reshuffled or the table closes.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 */
 
@@ -721,7 +721,7 @@ public:
 	 *
 	 * @brief	Gets the age.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The player's age.
@@ -734,7 +734,7 @@ public:
 	 *
 	 * @brief	Sets an age.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	age	The age.
@@ -747,7 +747,7 @@ public:
 	 *
 	 * @brief	Sits on a table.
 	 *			-1 if the player is not on any table.
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	tableID	Identifier for the table.
@@ -760,7 +760,7 @@ public:
 	 *
 	 * @brief	Gets if the player is on table or not.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	ID of the table. -1 if the player is not on any table.
@@ -773,7 +773,7 @@ public:
 	 *
 	 * @brief	Removes the card from first hand sets it on the second hand.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 */
 
@@ -789,7 +789,7 @@ public:
  * @brief	Bot of type 0.
  * 			The most basic bot, always bets the minimum allowed, stands on 17 (or more).
  *
- * @author	Ineeve
+ * @author	Joao Carvalho
  * @date	19/11/2016
  */
 
@@ -801,7 +801,7 @@ public:
 	 *
 	 * @brief	Default constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 */
 
@@ -812,7 +812,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	name			The name.
@@ -828,7 +828,7 @@ public:
 	 * @brief	Plays accordingly to an algorithm.
 	 * 			Never doubles, always stands on 17 or higher, always hits if less than 17.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -843,7 +843,7 @@ public:
 	 *
 	 * @brief	Take insurance always returns false on Bot0.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -861,7 +861,7 @@ public:
  * 			This bot plays using the hi-lo counting system. His decisions are based on the illustrious18 and the fab4 surrender guides.
  * 			
  *
- * @author	Ineeve
+ * @author	Joao Carvalho
  * @date	19/11/2016
  */
 
@@ -876,7 +876,7 @@ public:
 	 *
 	 * @brief	Places an initial bet that depends on the current count.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -891,7 +891,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	name			The name.
@@ -906,7 +906,7 @@ public:
 	 *
 	 * @brief	Plays using the illustrious18 guides.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -921,7 +921,7 @@ public:
 	 *
 	 * @brief	Take insurance if current count >= 3;
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -936,7 +936,7 @@ public:
 	 *
 	 * @brief	Gets current count.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The current count.
@@ -949,7 +949,7 @@ public:
 	 *
 	 * @brief	Updates the current counter with a new card.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	card1	The card to update the counter.
@@ -962,7 +962,7 @@ public:
 	 *
 	 * @brief	Resets the current counter.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 */
 
@@ -973,7 +973,7 @@ public:
 	 *
 	 * @brief	Splits the hand or not.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	dealerOfTable	Poiner to the dealer of the table.
@@ -989,7 +989,7 @@ public:
 	 * @brief	Surrenders or not.
 	 * 			Surrender algorithm is based on the fab4 surrender guides. 
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -1006,7 +1006,7 @@ public:
  * @brief	Bot of type 2.
  * 			This bot plays using the Ace/Five Count strategy guide.
  *
- * @author	Ineeve
+ * @author	Joao Carvalho
  * @date	19/11/2016
  */
 
@@ -1023,7 +1023,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	name			The name.
@@ -1037,7 +1037,7 @@ public:
 	 *
 	 * @brief	Bets according to the Ace/Five guidelines.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -1053,7 +1053,7 @@ public:
 	 *
 	 * @brief	Plays according to the Ace/Five rules.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -1068,7 +1068,7 @@ public:
 	 *
 	 * @brief	Ckeck if bot2 wants to take insurance.
 	 *			Bot2 never takes insurance.
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -1083,7 +1083,7 @@ public:
 	 *
 	 * @brief	Checks if the bot wants to split.
 	 *			Bot2 never splits.
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	dealerOfTable	Pointer to the dealer of the table.
@@ -1098,7 +1098,7 @@ public:
 	 *
 	 * @brief	Surrenders or not.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -1113,7 +1113,7 @@ public:
 	 *
 	 * @brief	Gets the current count.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @return	The current count.
@@ -1126,7 +1126,7 @@ public:
 	 *
 	 * @brief	Updates the counter with a given card.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	card1	The card to update the counter.
@@ -1139,7 +1139,7 @@ public:
 	 *
 	 * @brief	Resets the counter.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 */
 
@@ -1150,7 +1150,7 @@ public:
 	 *
 	 * @brief	Sets last bet value.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	lastBet	The last bet.
@@ -1165,7 +1165,7 @@ public:
  * @brief	A Human player.
  * 			
  *
- * @author	Ineeve
+ * @author	Joao Carvalho
  * @date	19/11/2016
  */
 
@@ -1177,7 +1177,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param	name	The name.
@@ -1191,7 +1191,7 @@ public:
 	 *
 	 * @brief	Asks the human player to place his bet.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -1206,7 +1206,7 @@ public:
 	 *
 	 * @brief	Ask the human player to hit or stand.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -1221,7 +1221,7 @@ public:
 	 *
 	 * @brief	Ask the human player for insurance.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
@@ -1236,7 +1236,7 @@ public:
 	 *
 	 * @brief	Ask human if he want to split his hand.
 	 *
-	 * @author	Ineeve
+	 * @author	Joao Carvalho
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	dealerOfTable	Pointer to the dealer of the table.

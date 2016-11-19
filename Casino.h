@@ -457,7 +457,7 @@ public:
 	/**
 	 * @fn	void Casino::showDealers(pair <short, short> xy) const;
 	 *
-	 * @brief	Dispalys casino's dealers in a user friendly way on the terminal.
+	 * @brief	Displays casino's dealers in a user friendly way on the terminal.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
@@ -488,7 +488,7 @@ public:
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @return	
+	 * @return	A vector of pointers to the casino's tables.
 	 */
 
 	vector<Table*> getTables() const;
@@ -496,12 +496,12 @@ public:
 	/**
 	 * @fn	void Casino::selectTable(pair <short, short> xy);
 	 *
-	 * @brief	Select table.
+	 * @brief	Select table using the given <x,y> coordinates.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @param	xy	The xy.
+	 * @param	xy	The <x,y> coordinates.
 	 */
 
 	void selectTable(pair <short, short> xy);
@@ -527,7 +527,7 @@ public:
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @return	Null if it fails, else the table to play.
+	 * @return	Pointer to the table to play.
 	 */
 
 	Table * getTableToPlay() const;
@@ -535,12 +535,13 @@ public:
 	/**
 	 * @fn	void Casino::manage(pair <short, short> xy);
 	 *
-	 * @brief	Manages the given xy.
+	 * @brief	Manages casino.
+	 * 			Enables the user to select between menus.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @param	xy	The xy.
+	 * @param	xy	The <x,y> coordinates.
 	 */
 
 	void manage(pair <short, short> xy);
@@ -548,12 +549,12 @@ public:
 	/**
 	 * @fn	void Casino::create(pair <short, short> xy);
 	 *
-	 * @brief	Creates this object.
+	 * @brief	Creates a menu for casino.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @param	xy	The xy.
+	 * @param	xy	The <x,y> coordinates.
 	 */
 
 	void create(pair <short, short> xy);
@@ -561,12 +562,12 @@ public:
 	/**
 	 * @fn	void Casino::eliminate(pair <short, short> xy);
 	 *
-	 * @brief	Eliminates the given xy.
+	 * @brief	Open a delete menu.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @param	xy	The xy.
+	 * @param	xy	The <x,y> coordinates.
 	 */
 
 	void eliminate(pair <short, short> xy);
@@ -579,7 +580,7 @@ public:
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @param	xy	   	The xy.
+	 * @param	xy	   	The <x,y> coordinates.
 	 * @param	tableID	Identifier for the table.
 	 */
 
@@ -588,14 +589,14 @@ public:
 	/**
 	 * @fn	unsigned int Casino::findTable(unsigned int tableID);
 	 *
-	 * @brief	Searches for the first table.
+	 * @brief	Searches for a table (sequential search).
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param	tableID	Identifier for the table.
 	 *
-	 * @return	The found table.
+	 * @return	The index of the table on the tables vector.
 	 */
 
 	unsigned int findTable(unsigned int tableID);
@@ -603,14 +604,14 @@ public:
 	/**
 	 * @fn	unsigned int Casino::findDealer(unsigned int dealerID);
 	 *
-	 * @brief	Searches for the first dealer.
+	 * @brief	Searches for a dealer (sequential search).
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param	dealerID	Identifier for the dealer.
 	 *
-	 * @return	The found dealer.
+	 * @return	The index of the dealer on the dealers vector.
 	 */
 
 	unsigned int findDealer(unsigned int dealerID);
@@ -618,14 +619,14 @@ public:
 	/**
 	 * @fn	unsigned int Casino::findPlayer(string name);
 	 *
-	 * @brief	Searches for the first player.
+	 * @brief	Searches for a player (sequential search).
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @param	name	The name.
+	 * @param	name	The name of the player.
 	 *
-	 * @return	The found player.
+	 * @return	The index of the player in the players vector.
 	 */
 
 	unsigned int findPlayer(string name);

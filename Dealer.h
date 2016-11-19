@@ -23,7 +23,7 @@ class Table;
  * 			The dealer is responsible to deal cards to the players and to himself.
  * 			He is the one that holds that deck and reshufles it. 
  *
- * @author	Ineeve
+ * @author	M. Francisca Paupério
  * @date	19/11/2016
  */
 
@@ -54,7 +54,7 @@ public:
 	 * @brief	Default constructor.
 	 * 			Creates a default deck of 52 cards
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 */
 
@@ -66,7 +66,7 @@ public:
 	 * @brief	Constructor.
 	 * 			Creates a default deck of 52 cards.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param	ID	The identifier.
@@ -80,7 +80,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param	newDeck	The new deck.
@@ -94,7 +94,7 @@ public:
 	 *
 	 * @brief	Shuffle deck.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 */
 
@@ -105,7 +105,7 @@ public:
 	 *
 	 * @brief	Removes a Card from the end of the deck and returns it.
 	 *			Additionaly pushes the Card to the deckDiscarded vector.
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	players A vector of pointers to the players.
@@ -120,7 +120,7 @@ public:
 	 *
 	 * @brief	Places a Card in the Dealer hand and updates the handscore
 	 *			
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	players A vector of pointers to the players.
@@ -138,7 +138,7 @@ public:
 	 *
 	 * @brief	Updates dealer's handscore.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @return	The updated handscore.
@@ -151,7 +151,7 @@ public:
 	 *
 	 * @brief	Gets the deck.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @return	The deck.
@@ -164,7 +164,7 @@ public:
 	 *
 	 * @brief	Gets the hand.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @return	The hand.
@@ -177,7 +177,7 @@ public:
 	 *
 	 * @brief	Adds cards to the deck.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	cards	Vector of cards to be added to the deck.
@@ -190,7 +190,7 @@ public:
 	 *
 	 * @brief	Gets discarded deck.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @return	The discarded deck.
@@ -203,7 +203,7 @@ public:
 	 *
 	 * @brief	Gets handscore.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @return	The handscore.
@@ -216,7 +216,7 @@ public:
 	 *
 	 * @brief	Clears the discarded deck.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 */
 
@@ -227,7 +227,7 @@ public:
 	 *
 	 * @brief	Clears the hand.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 */
 
@@ -238,7 +238,7 @@ public:
 	 *
 	 * @brief	Query if dealer has card in hand.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	c	The Card to process.
@@ -254,7 +254,7 @@ public:
 	 * @brief	Calculates dealer next move.
 	 * 			Dealer will stand if handscore >= 17.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table that the dealer is on.
@@ -269,7 +269,7 @@ public:
 	 *
 	 * @brief	Gets the Dealer's identifier.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @return	The identifier.
@@ -282,7 +282,7 @@ public:
 	 *
 	 * @brief	Associates a table to this dealer.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param	tableID	Identifier for the table.
@@ -296,7 +296,7 @@ public:
 	 * @brief	Gets identifier of the table that the dealer is on.
 	 * 			
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @return	The table that the dealer is on. -1 if Dealer is not on any table.
@@ -309,7 +309,7 @@ public:
 	 *
 	 * @brief	Sets next identifier.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param	ID	The identifier.
@@ -322,7 +322,7 @@ public:
 	 *
 	 * @brief	Gets the next identifier.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @return	The next identifier.
@@ -336,7 +336,7 @@ public:
  *
  * @brief	Exception for signalling that the dealer doest not exist.
  *
- * @author	Ineeve
+ * @author	M. Francisca Paupério
  * @date	19/11/2016
  */
 
@@ -351,7 +351,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	dealer	Pointer to the dealer.
@@ -365,7 +365,7 @@ public:
  *
  * @brief	Exception for signalling that the dealer already exists.
  *
- * @author	Ineeve
+ * @author	M. Francisca Paupério
  * @date	19/11/2016
  */
 
@@ -380,7 +380,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	dealer	A pointer to the dealer.
@@ -393,7 +393,7 @@ public:
 	 *
 	 * @brief	Gets the identifier.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @return	The identifier.
@@ -407,7 +407,7 @@ public:
  *
  * @brief	Exception for signalling that the dealer is already on a table.
  *
- * @author	Ineeve
+ * @author	M. Francisca Paupério
  * @date	19/11/2016
  */
 
@@ -422,7 +422,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	dealer	Pointer to the dealer.
@@ -436,7 +436,7 @@ public:
  *
  * @brief	Exception for signalling that dealer is still on a table.
  *
- * @author	Ineeve
+ * @author	M. Francisca Paupério
  * @date	19/11/2016
  */
 
@@ -453,7 +453,7 @@ public:
 	 *
 	 * @brief	Constructor.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	dealer	Pointer to the dealer.
@@ -466,7 +466,7 @@ public:
 	 *
 	 * @brief	Gets table identifier.
 	 *
-	 * @author	Ineeve
+	 * @author	M. Francisca Paupério
 	 * @date	19/11/2016
 	 *
 	 * @return	The table identifier.
