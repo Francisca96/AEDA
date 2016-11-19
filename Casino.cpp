@@ -40,8 +40,6 @@ void Casino::addTableToCasino(Table * table)
 	}
 }
 
-
-
 void Casino::removeTableFromCasino(Table * table) {
 	for (size_t i = 0; i < tables.size(); i++)
 	{
