@@ -282,7 +282,7 @@ private:
 	float averageProfit;
 	/** @brief	The age. */
 	unsigned int age;
-	/** @brief	Like a boolean that tells us if the player is on a table. */
+	/** @brief	ID of the table that the player is on. -1 if not on any table. */
 	int onTable;
 	/** @brief	The actual bet. */
 	int actualBet;
@@ -763,7 +763,7 @@ public:
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
-	 * @return	.
+	 * @return	ID of the table. -1 if the player is not on any table.
 	 */
 
 	int getOnTable() const;
@@ -771,7 +771,7 @@ public:
 	/**
 	 * @fn	void Player::removeCardFromFirstHandAndSetItOnSecondHand();
 	 *
-	 * @brief	Removes the card from first hand set iterator on second hand.
+	 * @brief	Removes the card from first hand sets it on the second hand.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
@@ -786,8 +786,8 @@ public:
 /**
  * @class	Bot0
  *
- * @brief	///////////////////////////////////////////////// BOT 0
- * 			////////////////////////////////////////////////////.
+ * @brief	Bot of type 0
+ * 			The most basic bot, always bets the minimum allowed, stands on 17 (or more).
  *
  * @author	Ineeve
  * @date	19/11/2016
@@ -825,14 +825,15 @@ public:
 	/**
 	 * @fn	string Bot0::play(Table &table);
 	 *
-	 * @brief	Plays the given table.
+	 * @brief	Plays accordingly to an algorithm.
+	 * 			Never doubles, always stands on 17 or higher, always hits if less than 17.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
 	 *
-	 * @return	A string.
+	 * @return	A string, "hit" or "stand".
 	 */
 
 	string play(Table &table);
@@ -840,14 +841,14 @@ public:
 	/**
 	 * @fn	bool Bot0::takeInsurance(Table &table);
 	 *
-	 * @brief	Take insurance.
+	 * @brief	Take insurance always returns false on Bot0.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
 	 *
-	 * @return	True if it succeeds, false if it fails.
+	 * @return	False.
 	 */
 
 	bool takeInsurance(Table &table);
@@ -856,8 +857,9 @@ public:
 /**
  * @class	Bot1
  *
- * @brief	///////////////////////////////////////////////// BOT 1
- * 			////////////////////////////////////////////////////.
+ * @brief	Bot of type 1.
+ * 			This bot plays using the hi-lo counting system. His decisions are based on the illustrious18 and the fab4 surrender guides.
+ * 			
  *
  * @author	Ineeve
  * @date	19/11/2016
@@ -865,21 +867,21 @@ public:
 
 class Bot1: public Player {
 private:
-	/** @brief	Number of currents. */
+	/** @brief	The current count. */
 	int currentCount;
 public:
 
 	/**
 	 * @fn	unsigned int Bot1::bet(Table &table);
 	 *
-	 * @brief	Bets the given table.
+	 * @brief	Places an initial bet that depends on the current count.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
 	 *
-	 * @return	An int.
+	 * @return	The amount bet.
 	 */
 
 	unsigned int bet(Table &table);
@@ -902,14 +904,14 @@ public:
 	/**
 	 * @fn	string Bot1::play(Table &table);
 	 *
-	 * @brief	Plays the given table.
+	 * @brief	Plays using the illustrious18 guides.
 	 *
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 *
 	 * @param [in,out]	table	The table.
 	 *
-	 * @return	A string.
+	 * @return	A string: "hit","stand" or "double"
 	 */
 
 	string play(Table &table);
