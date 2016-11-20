@@ -104,6 +104,10 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 	}
 	cout << "What is your age?" << endl;
 	ageOfPlayer = readUnsignedIntBetween(0, 100);
+	if (ageOfPlayer < 18)
+	{
+		throw TooYoungException();
+	}
 	Human *humanPlayer = new Human(nameOfPlayer, ageOfPlayer, userID);
 
 	//verify if file exist, if not create a file for table
@@ -146,8 +150,20 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 		if (nextPlayerIndex == 0 && phaseOfPlaying == 0)
 		{
 			//TODO: prepare round to play
-			dealerBlackJack = false;
-			actualPlayers = players;
+			actualPlayers.clear();
+			for (size_t i = 0; i < players.size(); i++)
+			{
+				if (players.at(i)->getCurrentMoney() >= minBet)
+				{
+					actualPlayers.push_back(players.at(i));
+				}
+				else if (players.at(i)->getUserID == userID)
+				{
+					cout << players.at(i)->getCurrentMoney() << "don't have money to play" << endl;
+					waitXTime(2);
+					exit = true;
+				}
+			}
 			phaseOfPlaying = 1;
 			this->writeTableFile();
 			this->showPlay(xy);
@@ -315,7 +331,6 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 						players.at(i) = actualPlayers.at(i);
 					}
 					players = actualPlayers;
-					actualPlayers.clear();
 					this->writeTableFile();
 				}
 			}
