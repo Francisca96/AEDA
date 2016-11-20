@@ -114,7 +114,6 @@ int main(){
 			try
 			{
 				casino.getTableToPlay()->simulation(roundsToPlay);
-				casino.showStatistics();
 				system("pause");
 			}
 			catch (TableNotInCasinoException)

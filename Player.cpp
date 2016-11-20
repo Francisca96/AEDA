@@ -152,22 +152,29 @@ void Player::addMoney(float value)
 
 void Player::showStatistics()
 {
-	averageProfit = (float)((currentMoney - initialMoney) / float(roundsPlayed));
+	if (roundsPlayed == 0)
+	{
+		averageProfit = 0;
+	}
+	else
+	{
+		averageProfit = (float)((currentMoney - initialMoney) / float(roundsPlayed));
+	}
 	
 	Bot0 *bot0 = dynamic_cast<Bot0*> (this);
 	Bot1 *bot1 = dynamic_cast<Bot1*> (this);
 	Bot2 *bot2 = dynamic_cast<Bot2*> (this);
 	cout << setw(15) << "Bot " << name;
 	if (bot0 != nullptr) {
-		cout << setw(15) << "0";
+		cout << setw(25-name.length()) << "0";
 	}
 	else if (bot1 != nullptr){
-		cout << setw(15) << "1";
+		cout << setw(25 - name.length()) << "1";
 	}
 	else if (bot2 != nullptr) {
-		cout << setw(15) << "2";
+		cout << setw(25 - name.length()) << "2";
 	}
-	cout << setw(15) << roundsPlayed << setw(30) << setprecision(2) <<averageProfit << " $/round\n";
+	cout << setw(15) << roundsPlayed << setw(10) << setprecision(2) <<averageProfit << " $/round\n";
 
 }
 

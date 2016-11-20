@@ -510,7 +510,9 @@ void Casino::manage(pair<short, short> xy) {
 			}
 			break;
 		case 4:
-			//TODO: this->stats(xy);
+			system("cls");
+			this->showStatistics();
+			system("pause");
 			break;
 		default:
 			break;
@@ -888,7 +890,7 @@ unsigned int Casino::findPlayer(string name) {
 
 void Casino::showStatistics() const {
 	cout << "Statistics\n\n\n\n";
-	cout << setw(15) << "NAME" << setw(15) << "BRAIN LEVEL" << setw(15) << "ROUNDS PLAYED" << setw(30) << "AVG. PROFIT" << endl;
+	cout << setw(15) << "NAME" << setw(25) << "BRAIN LEVEL" << setw(15) << "ROUNDS PLAYED" << setw(18) << "AVG. PROFIT" << endl;
 	for (size_t i = 0; i < players.size(); i++) {
 		players.at(i)->showStatistics();
 	}
@@ -1007,7 +1009,7 @@ void Casino::showTables(pair <short, short> xy) {
 		coordXY.first += 32;
 		if (coordXY.first + 32 > xy.first)
 		{
-			coordXY.first = (xy.first % 32) / 2;
+			coordXY.first = (xy.first % 32) / 2 - 1;
 			coordXY.second += 14;
 		}
 	}

@@ -243,7 +243,7 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 						}
 						//TODO: change for playerID after
 						nextPlayerIndex = i + 1;
-						this->writeTableFile();
+						this->writeTableFile();	
 						waitXTime(1);
 						this->showPlay(xy);
 					}
