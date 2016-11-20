@@ -312,6 +312,7 @@ public:
 	 * @date	18/11/2016
 	 */
 
+	void play(pair <short, short> xy, unsigned int userID);
 
 	/**
 	 * @fn	void Table::simulation(unsigned int roundsLeft);
@@ -324,7 +325,6 @@ public:
 	 * @param	roundsLeft	The rounds to be played.
 	 */
 
-	void play(pair <short, short> xy, unsigned int userID);
 	void simulation(unsigned int roundsLeft);
 
 	/**

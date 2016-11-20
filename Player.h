@@ -303,6 +303,20 @@ public:
 	void hit(Card newCard);
 
 	/**
+	* @fn	void Player::hit2(Card newCard);
+	*
+	* @brief	Hits the given new card.
+	*			Saves the card on the hand2.
+	*			Updates the hand2score.
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	newCard	The new card.
+	*/
+
+	void hit2(Card newCard);
+
+	/**
 	 * @fn	virtual bool Player::takeInsurance(Table &table);
 	 *
 	 * @brief	Take insurance.
@@ -315,7 +329,6 @@ public:
 	 * @return	True if it succeeds, false if it fails.
 	 */
 
-	void hit2(Card newCard);
 	virtual bool takeInsurance(Table &table);
 
 	/**
@@ -417,10 +430,9 @@ public:
 	 */
 
 	unsigned int getRoundsPlayed() const;
-	float getCurrentMoney() const;
 
 	/**
-	 * @fn	unsigned int Player::getCurrentMoney() const;
+	 * @fn	float Player::getCurrentMoney() const;
 	 *
 	 * @brief	Gets current money.
 	 *
@@ -430,6 +442,7 @@ public:
 	 * @return	The current money.
 	 */
 
+	float getCurrentMoney() const;
 
 	/**
 	 * @fn	float Player::getAverageProfit() const;
@@ -534,10 +547,9 @@ public:
 	 */
 
 	unsigned int setHand2Score();
-	void setCurrentMoney(float money);
 
 	/**
-	 * @fn	void Player::setCurrentMoney(unsigned int money);
+	 * @fn	void Player::setCurrentMoney(float money);
 	 *
 	 * @brief	Sets current money.
 	 *
@@ -547,6 +559,7 @@ public:
 	 * @param	money	The money.
 	 */
 
+	void setCurrentMoney(float money);
 
 	/**
 	 * @fn	void Player::setRoundsPlayed(unsigned int rounds);
@@ -809,20 +822,31 @@ public:
 	Bot0() {};
 
 	/**
-	 * @fn	Bot0::Bot0(string name, unsigned int initialMoney);
-	 *
-	 * @brief	Constructor.
-	 *
-	 * @author	Joao Carvalho
-	 * @date	19/11/2016
-	 *
-	 * @param	name			The name.
-	 * @param	initialMoney	The initial money.
-	 */
+	* @fn	Bot0::Bot0(string name, unsigned int initialMoney);
+	*
+	* @brief	Constructor.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	name			The name.
+	* @param	initialMoney	The initial money.
+	*/
+
+	Bot0(string name, unsigned int initialMoney);
+
+	/**
+	* @fn	Bot0::Bot0(string &line);
+	*
+	* @brief	Constructor.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	line		Line containes all information.
+	*/
 
 	Bot0(string &line);
-	Bot0(string name, unsigned int initialMoney);
-	//play method
 
 	/**
 	 * @fn	string Bot0::play(Table &table);
@@ -902,8 +926,19 @@ public:
 	 */
 
 	Bot1(string name, unsigned int initialMoney);
+
+	/**
+	* @fn	Bot1::Bot1(string &line);
+	*
+	* @brief	Constructor.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	line		Line containes all information.
+	*/
+
 	Bot1(string &line);
-	//play method
 
 	/**
 	 * @fn	string Bot1::play(Table &table);
@@ -1002,6 +1037,7 @@ public:
 	 */
 
 	virtual bool surrender(Table &table);
+
 	virtual ostream& saveInfo(ostream& out);
 };
 
@@ -1038,6 +1074,19 @@ public:
 	Bot2(string name, unsigned int initialMoney);
 
 	/**
+	* @fn	Bot2::Bot2(string &line);
+	*
+	* @brief	Constructor.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	line			Line contains all information.
+	*/
+
+	Bot2(string &line);
+
+	/**
 	 * @fn	unsigned int Bot2::bet(Table &table);
 	 *
 	 * @brief	Bets according to the Ace/Five guidelines.
@@ -1050,7 +1099,6 @@ public:
 	 * @return	The initial bet value.
 	 */
 
-	Bot2(string &line);
 	unsigned int bet(Table &table);
 	//play method
 
@@ -1163,6 +1211,7 @@ public:
 	 */
 
 	void setLastBetValue(unsigned int lastBet);
+
 	virtual ostream& saveInfo(ostream& out);
 };
 
@@ -1193,6 +1242,20 @@ public:
 	 * @param	age 	The age.
 	 */
 
+	Human(string name, unsigned int age, int userID);
+
+	/**
+	* @fn	Human::Human(string &line);
+	*
+	* @brief	Constructor.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	line	Line contains all information.
+	*/
+
+	Human(string &line);
 
 	/**
 	 * @fn	unsigned int Human::bet(Table &table);
@@ -1207,8 +1270,6 @@ public:
 	 * @return	The human bet.
 	 */
 
-	Human(string name, unsigned int age, int userID);
-	Human(string &line);
 	unsigned int bet(Table &table);
 
 	/**
