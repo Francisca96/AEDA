@@ -232,10 +232,10 @@
         </inbodydescription>
         <location file="Dealer.h" line="116" column="1" bodyfile="Dealer.cpp" bodystart="36" bodyend="45"/>
         <referencedby refid="class_dealer_1a7d9ccd145c1bdaf2aea4c28b08d9866d" compoundref="_dealer_8cpp" startline="47" endline="51">hit</referencedby>
-        <referencedby refid="class_bot0_1ad4107238ba36ce4ddf2debd7b10c6a9e" compoundref="_player_8cpp" startline="265" endline="274">Bot0::play</referencedby>
-        <referencedby refid="class_bot1_1a9d132799a74f0956dd3b66a897cf8824" compoundref="_player_8cpp" startline="393" endline="507">Bot1::play</referencedby>
-        <referencedby refid="class_bot2_1ab3fb6a4c1627247f21b43893862148ff" compoundref="_player_8cpp" startline="565" endline="574">Bot2::play</referencedby>
-        <referencedby refid="class_human_1ac2536a8f230ba6dd457b81e406f42a60" compoundref="_player_8cpp" startline="704" endline="723">Human::play</referencedby>
+        <referencedby refid="class_bot0_1ad4107238ba36ce4ddf2debd7b10c6a9e" compoundref="_player_8cpp" startline="360" endline="369">Bot0::play</referencedby>
+        <referencedby refid="class_bot1_1a9d132799a74f0956dd3b66a897cf8824" compoundref="_player_8cpp" startline="549" endline="663">Bot1::play</referencedby>
+        <referencedby refid="class_bot2_1ab3fb6a4c1627247f21b43893862148ff" compoundref="_player_8cpp" startline="777" endline="786">Bot2::play</referencedby>
+        <referencedby refid="class_human_1ac2536a8f230ba6dd457b81e406f42a60" compoundref="_player_8cpp" startline="992" endline="1013">Human::play</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_dealer_1a7d9ccd145c1bdaf2aea4c28b08d9866d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_card" kindref="compound">Card</ref> &amp;</type>
@@ -266,7 +266,7 @@
         <location file="Dealer.h" line="131" column="1" bodyfile="Dealer.cpp" bodystart="47" bodyend="51"/>
         <references refid="class_dealer_1aa830a4e0a67d50f84c391972ea2a3d57" compoundref="_dealer_8cpp" startline="36" endline="45">discard</references>
         <references refid="class_dealer_1af81f980fe797b87efc5c3cef2cc4c909" compoundref="_dealer_8cpp" startline="57" endline="71">setHandScore</references>
-        <referencedby refid="class_dealer_1a77983c83dc250bf5a3a9fb365fbcdbdb" compoundref="_dealer_8cpp" startline="121" endline="128">play</referencedby>
+        <referencedby refid="class_dealer_1a77983c83dc250bf5a3a9fb365fbcdbdb" compoundref="_dealer_8cpp" startline="122" endline="129">play</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_dealer_1af81f980fe797b87efc5c3cef2cc4c909" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -283,6 +283,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Dealer.h" line="147" column="1" bodyfile="Dealer.cpp" bodystart="57" bodyend="71"/>
+        <referencedby refid="class_dealer_1ab901e82f15d06a0eba37df9286c227e1" compoundref="_dealer_8cpp" startline="105" endline="109">clearHand</referencedby>
         <referencedby refid="class_dealer_1a7d9ccd145c1bdaf2aea4c28b08d9866d" compoundref="_dealer_8cpp" startline="47" endline="51">hit</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_dealer_1a3e47299eeff86b20db81ac062659a5dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -316,8 +317,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Dealer.h" line="173" column="1" bodyfile="Dealer.cpp" bodystart="79" bodyend="82"/>
-        <referencedby refid="class_bot1_1a9d132799a74f0956dd3b66a897cf8824" compoundref="_player_8cpp" startline="393" endline="507">Bot1::play</referencedby>
-        <referencedby refid="class_bot1_1a5a6f599a48d7703753df2dcb0f18a904" compoundref="_player_8cpp" startline="286" endline="307">Bot1::split</referencedby>
+        <referencedby refid="class_bot1_1a9d132799a74f0956dd3b66a897cf8824" compoundref="_player_8cpp" startline="549" endline="663">Bot1::play</referencedby>
+        <referencedby refid="class_bot1_1a5a6f599a48d7703753df2dcb0f18a904" compoundref="_player_8cpp" startline="381" endline="402">Bot1::split</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_dealer_1aab8779425d7113d6167a6bcd59dc6e55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -378,8 +379,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Dealer.h" line="212" column="1" bodyfile="Dealer.cpp" bodystart="95" bodyend="98"/>
-        <referencedby refid="class_bot1_1a29446be5d3baa8139e4cdf3bebb1d40c" compoundref="_player_8cpp" startline="309" endline="326">Bot1::surrender</referencedby>
-        <referencedby refid="class_bot2_1a53cc77742cc1f7e12f5158e07ffc4c8c" compoundref="_player_8cpp" startline="584" endline="603">Bot2::surrender</referencedby>
+        <referencedby refid="class_bot1_1a29446be5d3baa8139e4cdf3bebb1d40c" compoundref="_player_8cpp" startline="404" endline="421">Bot1::surrender</referencedby>
+        <referencedby refid="class_bot2_1a53cc77742cc1f7e12f5158e07ffc4c8c" compoundref="_player_8cpp" startline="796" endline="815">Bot2::surrender</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_dealer_1a6f499114631d7a3bd9955c7350c6ff5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -409,7 +410,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="234" column="1" bodyfile="Dealer.cpp" bodystart="105" bodyend="108"/>
+        <location file="Dealer.h" line="234" column="1" bodyfile="Dealer.cpp" bodystart="105" bodyend="109"/>
+        <references refid="class_dealer_1af81f980fe797b87efc5c3cef2cc4c909" compoundref="_dealer_8cpp" startline="57" endline="71">setHandScore</references>
       </memberdef>
       <memberdef kind="function" id="class_dealer_1a859c16c03295b75e0a469ec897afeff7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -437,7 +439,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="249" column="1" bodyfile="Dealer.cpp" bodystart="110" bodyend="118"/>
+        <location file="Dealer.h" line="249" column="1" bodyfile="Dealer.cpp" bodystart="111" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="class_dealer_1a77983c83dc250bf5a3a9fb365fbcdbdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>string</type>
@@ -465,8 +467,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="265" column="1" bodyfile="Dealer.cpp" bodystart="121" bodyend="128"/>
-        <references refid="class_table_1a65097ec2fe98d83c44538132e4fc2047" compoundref="_table_8cpp" startline="281" endline="284">Table::getPlayers</references>
+        <location file="Dealer.h" line="265" column="1" bodyfile="Dealer.cpp" bodystart="122" bodyend="129"/>
+        <references refid="class_table_1a65097ec2fe98d83c44538132e4fc2047" compoundref="_table_8cpp" startline="534" endline="537">Table::getPlayers</references>
         <references refid="class_dealer_1a7d9ccd145c1bdaf2aea4c28b08d9866d" compoundref="_dealer_8cpp" startline="47" endline="51">hit</references>
       </memberdef>
       <memberdef kind="function" id="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
@@ -483,12 +485,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="278" column="1" bodyfile="Dealer.cpp" bodystart="130" bodyend="132"/>
+        <location file="Dealer.h" line="278" column="1" bodyfile="Dealer.cpp" bodystart="131" bodyend="133"/>
         <referencedby refid="class_casino_1a93780bfce351b004f0ac5602a8b593a2" compoundref="_casino_8cpp" startline="132" endline="141">Casino::addDealerToCasino</referencedby>
-        <referencedby refid="class_dealer_already_exist_exception_1add77c4940bd7faeb6d9de01f12a7688d" compoundref="_dealer_8cpp" startline="158" endline="160">DealerAlreadyExistException::DealerAlreadyExistException</referencedby>
-        <referencedby refid="class_dealer_is_on_table_already_exception_1a5214a0d63f75d500466af9feac15b0a9" compoundref="_dealer_8cpp" startline="154" endline="156">DealerIsOnTableAlreadyException::DealerIsOnTableAlreadyException</referencedby>
-        <referencedby refid="class_dealer_not_exist_exception_1a200ebb1e837e430ffc61674bad87f88b" compoundref="_dealer_8cpp" startline="150" endline="152">DealerNotExistException::DealerNotExistException</referencedby>
-        <referencedby refid="class_dealer_still_on_table_exception_1a0e73b06e76710c6f66c355248e4a5efa" compoundref="_dealer_8cpp" startline="166" endline="169">DealerStillOnTableException::DealerStillOnTableException</referencedby>
+        <referencedby refid="class_dealer_already_exist_exception_1add77c4940bd7faeb6d9de01f12a7688d" compoundref="_dealer_8cpp" startline="159" endline="161">DealerAlreadyExistException::DealerAlreadyExistException</referencedby>
+        <referencedby refid="class_dealer_is_on_table_already_exception_1a5214a0d63f75d500466af9feac15b0a9" compoundref="_dealer_8cpp" startline="155" endline="157">DealerIsOnTableAlreadyException::DealerIsOnTableAlreadyException</referencedby>
+        <referencedby refid="class_dealer_not_exist_exception_1a200ebb1e837e430ffc61674bad87f88b" compoundref="_dealer_8cpp" startline="151" endline="153">DealerNotExistException::DealerNotExistException</referencedby>
+        <referencedby refid="class_dealer_still_on_table_exception_1a0e73b06e76710c6f66c355248e4a5efa" compoundref="_dealer_8cpp" startline="167" endline="170">DealerStillOnTableException::DealerStillOnTableException</referencedby>
         <referencedby refid="class_casino_1a00554a09b9bb5d9e7bdaaad2fe8fbbbd" compoundref="_casino_8cpp" startline="143" endline="158">Casino::removeDealerFromCasino</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_dealer_1af1065f11bc62bb7d46f50530eb3125d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -516,9 +518,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="291" column="1" bodyfile="Dealer.cpp" bodystart="134" bodyend="136"/>
-        <referencedby refid="class_table_1a1bab94bb3b3d9fe73b4d3c4163f3774a" compoundref="_table_8cpp" startline="44" endline="48">Table::setDealer</referencedby>
-        <referencedby refid="class_table_1a82acab6c5df4498e480e4f9c18a16463" compoundref="_table_8cpp" startline="19" endline="29">Table::Table</referencedby>
+        <location file="Dealer.h" line="291" column="1" bodyfile="Dealer.cpp" bodystart="135" bodyend="137"/>
+        <referencedby refid="class_table_1a1bab94bb3b3d9fe73b4d3c4163f3774a" compoundref="_table_8cpp" startline="46" endline="50">Table::setDealer</referencedby>
+        <referencedby refid="class_table_1a82acab6c5df4498e480e4f9c18a16463" compoundref="_table_8cpp" startline="19" endline="31">Table::Table</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_dealer_1a33483233d2bdc17351d3d57fee448184" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -534,9 +536,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="305" column="1" bodyfile="Dealer.cpp" bodystart="138" bodyend="140"/>
+        <location file="Dealer.h" line="305" column="1" bodyfile="Dealer.cpp" bodystart="139" bodyend="141"/>
         <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">Casino::create</referencedby>
-        <referencedby refid="class_dealer_still_on_table_exception_1a0e73b06e76710c6f66c355248e4a5efa" compoundref="_dealer_8cpp" startline="166" endline="169">DealerStillOnTableException::DealerStillOnTableException</referencedby>
+        <referencedby refid="class_dealer_still_on_table_exception_1a0e73b06e76710c6f66c355248e4a5efa" compoundref="_dealer_8cpp" startline="167" endline="170">DealerStillOnTableException::DealerStillOnTableException</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -565,7 +567,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="318" column="1" bodyfile="Dealer.cpp" bodystart="142" bodyend="144"/>
+        <location file="Dealer.h" line="318" column="1" bodyfile="Dealer.cpp" bodystart="143" bodyend="145"/>
         <referencedby refid="class_casino_1a8a90d8525d1052a5ab1367508603ec96" compoundref="_casino_8cpp" startline="230" endline="267">Casino::readDealersFile</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_dealer_1a3af257ebe799a924bbfc2e5898672f3e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -582,17 +584,15 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="331" column="1" bodyfile="Dealer.cpp" bodystart="146" bodyend="148"/>
+        <location file="Dealer.h" line="331" column="1" bodyfile="Dealer.cpp" bodystart="147" bodyend="149"/>
         <referencedby refid="class_casino_1aa5f99a588052b451514a65735449964a" compoundref="_casino_8cpp" startline="357" endline="372">Casino::saveDealersFile</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>A dealer. The dealer is responsible to deal cards to the players and to himself. He is the one that holds that deck and reshufles it. </para>    </briefdescription>
     <detaileddescription>
-<para>A <ref refid="class_casino" kindref="compound">Casino</ref>&apos;s dealer.</para><para><simplesect kind="author"><para>M. Francisca Pauperio </para></simplesect>
-<simplesect kind="date"><para>19/11/2016</para></simplesect>
-<simplesect kind="author"><para>Renato Campos </para></simplesect>
-<simplesect kind="date"><para>18/11/2016 </para></simplesect>
+<para><simplesect kind="author"><para>M. Francisca Pauperio </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
 </para>    </detaileddescription>
     <location file="Dealer.h" line="30" column="1" bodyfile="Dealer.h" bodystart="30" bodyend="332"/>
     <listofallmembers>

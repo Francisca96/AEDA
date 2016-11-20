@@ -44,8 +44,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="431" column="1" bodyfile="Dealer.cpp" bodystart="154" bodyend="156"/>
-        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="130" endline="132">Dealer::getID</references>
+        <location file="Dealer.h" line="431" column="1" bodyfile="Dealer.cpp" bodystart="155" bodyend="157"/>
+        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="131" endline="133">Dealer::getID</references>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -1,4 +1,4 @@
-.TH "Human" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.TH "Human" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,7 +15,11 @@ Inherits \fBPlayer\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBHuman\fP (string name, unsigned int age)"
+.RI "\fBHuman\fP (string name, unsigned int age, int userID)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBHuman\fP (string &line)"
 .br
 .RI "Constructor\&. "
 .ti -1c
@@ -34,6 +38,18 @@ Inherits \fBPlayer\fP\&.
 .RI "bool \fBsplit\fP (\fBDealer\fP *dealerOfTable)"
 .br
 .RI "Ask human if he want to split his hand\&. "
+.ti -1c
+.RI "void \fBsetUserID\fP (unsigned int userID)"
+.br
+.RI "Sets user identifier\&. "
+.ti -1c
+.RI "unsigned int \fBgetUserID\fP () const"
+.br
+.RI "Gets user identifier\&. "
+.ti -1c
+.RI "virtual ostream & \fBsaveInfo\fP (ostream &out)"
+.br
+.RI "Writes \fBHuman\fP info to stream\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -53,10 +69,10 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 1172 of file Player\&.h\&.
+Definition at line 1295 of file Player\&.h\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "Human::Human (string name, unsigned int age)"
+.SS "Human::Human (string name, unsigned int age, int userID)"
 
 .PP
 Constructor\&. 
@@ -76,35 +92,119 @@ Joao Carvalho
 \fIname\fP The name\&. 
 .br
 \fIage\fP The age\&. 
+.br
+\fIuserID\fP The user identifier\&. 
 .RE
 .PP
 
 .PP
-Definition at line 663 of file Player\&.cpp\&.
+Definition at line 896 of file Player\&.cpp\&.
 .PP
 References NameTooShortException::what(), and TooYoungException::what()\&.
 .PP
 .nf
-664 {
-665     try {
-666         if (name\&.length() < 3) {
-667             throw NameTooShortException();
-668         }
-669         setName(name);
-670         if (age < 18) {
-671             throw TooYoungException();
-672         }
-673         this->setAge(age);
-674         setInitialMoney(1000);
-675         this->setOnTable(-1);
-676     }
-677     catch (NameTooShortException &n) {
-678         n\&.what();
-679     }
-680     catch (TooYoungException &y) {
-681         y\&.what();
-682     }
-683 }
+897 {
+898     try {
+899         if (name\&.length() < 3) {
+900             throw NameTooShortException();
+901         }
+902         setName(name);
+903         if (age < 18) {
+904             throw TooYoungException();
+905         }
+906         this->setAge(age);
+907         setInitialMoney(1000);
+908         this->setOnTable(-1);
+909         this->userID = userID;
+910     }
+911     catch (NameTooShortException &n) {
+912         n\&.what();
+913     }
+914     catch (TooYoungException &y) {
+915         y\&.what();
+916     }
+917 }
+.fi
+.SS "Human::Human (string & line)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIline\fP Line that contains all information\&. 
+.RE
+.PP
+
+.PP
+Definition at line 919 of file Player\&.cpp\&.
+.PP
+References Card::rank, Card::score, and Card::suits\&.
+.PP
+.nf
+919                           {
+920     line\&.erase(0, line\&.find_first_of("; ") + 2);
+921     this->setName(line\&.substr(0, line\&.find_first_of("; ")));
+922     line\&.erase(0, line\&.find_first_of("; ") + 2);
+923     this->setInitialMoney(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+924     line\&.erase(0, line\&.find_first_of("; ") + 2);
+925     this->setCurrentMoney(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+926     line\&.erase(0, line\&.find_first_of("; ") + 2);
+927     this->clearHand();
+928     if (line\&.at(0) == '{')
+929     {
+930         line\&.erase(0, 1);
+931         Card newCard;
+932         while (line\&.at(0) != '}')
+933         {
+934             newCard\&.rank = line\&.substr(0, line\&.find_first_of("/"));
+935             line\&.erase(0, line\&.find_first_of("/") + 1);
+936             newCard\&.suits = line\&.substr(0, line\&.find_first_of("/"));
+937             line\&.erase(0, line\&.find_first_of("/") + 1);
+938             newCard\&.score = stoi(line\&.substr(0, line\&.find_first_of("; ")));
+939             line\&.erase(0, line\&.find_first_of("; ") + 2);
+940             this->hit(newCard);
+941         }
+942         line\&.erase(0, line\&.find_first_of("; ") + 2);
+943     }
+944     this->clearHand2();
+945     if (line\&.at(0) == '{')
+946     {
+947         line\&.erase(0, 1);
+948         Card newCard;
+949         while (line\&.at(0) != '}')
+950         {
+951             newCard\&.rank = line\&.substr(0, line\&.find_first_of("/"));
+952             line\&.erase(0, line\&.find_first_of("/") + 1);
+953             newCard\&.suits = line\&.substr(0, line\&.find_first_of("/"));
+954             line\&.erase(0, line\&.find_first_of("/") + 1);
+955             newCard\&.score = stoi(line\&.substr(0, line\&.find_first_of("; ")));
+956             line\&.erase(0, line\&.find_first_of("; ") + 2);
+957             this->hit2(newCard);
+958         }
+959         line\&.erase(0, line\&.find_first_of("; ") + 2);
+960     }
+961     this->setRoundsPlayed(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+962     line\&.erase(0, line\&.find_first_of("; ") + 2);
+963     this->setAge(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+964     line\&.erase(0, line\&.find_first_of("; ") + 2);
+965     this->setOnTable(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+966     line\&.erase(0, line\&.find_first_of("; ") + 2);
+967     this->setActualBet(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+968     line\&.erase(0, line\&.find_first_of("; ") + 2);
+969     this->userID = stoi(line\&.substr(0, line\&.find_first_of("; ")));
+970     line\&.erase(0, line\&.find_first_of("; ") + 2);
+971 }
 .fi
 .SH "Member Function Documentation"
 .PP 
@@ -137,27 +237,60 @@ The human bet\&.
 .PP
 Reimplemented from \fBPlayer\fP\&.
 .PP
-Definition at line 686 of file Player\&.cpp\&.
+Definition at line 974 of file Player\&.cpp\&.
 .PP
 References Table::getMaxBet(), Table::getMinBet(), and readUnsignedIntBetween()\&.
 .PP
 .nf
-687 {
-688     unsigned int maxbet = getCurrentMoney();
-689     if (maxbet < table\&.getMinBet()) {
-690         return 0; //0 means kick the player from the table;
-691     }
-692     unsigned int betValue;
-693     cout << "Your Turn " << getName() << "\n";
-694     if (maxbet > table\&.getMaxBet())
-695     {
-696         maxbet = table\&.getMaxBet();
-697     }
-698     betValue = readUnsignedIntBetween(table\&.getMinBet(), maxbet);
-699     setCurrentMoney(getCurrentMoney() - betValue);
-700     setActualBet(betValue);
-701     return betValue;
-702 }
+975 {
+976     float maxbet = getCurrentMoney();
+977     if (maxbet < table\&.getMinBet()) {
+978         return 0; //0 means kick the player from the table;
+979     }
+980     unsigned int betValue;
+981     cout << "Your Turn " << getName() << "\n";
+982     if (maxbet > table\&.getMaxBet())
+983     {
+984         maxbet = table\&.getMaxBet();
+985     }
+986     betValue = readUnsignedIntBetween(table\&.getMinBet(), maxbet);
+987     this->setActualBet(betValue);
+988     this->setCurrentMoney(this->getCurrentMoney() - betValue);
+989     return betValue;
+990 }
+.fi
+.SS "unsigned int Human::getUserID () const\fC [virtual]\fP"
+
+.PP
+Gets user identifier\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+User identifier\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 885 of file Player\&.cpp\&.
+.PP
+Referenced by Table::play()\&.
+.PP
+.nf
+885                                     {
+886     return this->userID;
+887 }
 .fi
 .SS "string Human::play (\fBTable\fP & table)\fC [virtual]\fP"
 
@@ -188,30 +321,104 @@ A string: 'hit' or 'stand';
 .PP
 Implements \fBPlayer\fP\&.
 .PP
-Definition at line 704 of file Player\&.cpp\&.
+Definition at line 992 of file Player\&.cpp\&.
 .PP
 References Dealer::discard(), Table::getDealer(), getHumanPlay(), and Table::getPlayers()\&.
 .PP
 .nf
-705 {
-706     if (getHandScore() >= 21)
-707     {
-708         return "stand";
-709     }
-710     string option;
-711     cout << "Your Turn -> In your hand you have the following:\n";
-712     for (size_t i = 0; i < getHandSize(); i++) {
-713         cout << getHand()\&.at(i)\&.rank << " of " << getHand()\&.at(i)\&.suits << "\n";
-714     }
-715     cout << "Current hand score-> " << getHandScore() << "\n";
-716     cout << "Current money-> " << getCurrentMoney() << "\n";
-717     cout << "To hit write 'hit' to stand write 'stand' : ";
-718     option = getHumanPlay();
-719     if (option == "hit") {
-720         hit(table\&.getDealer()->discard(table\&.getPlayers()));
-721     }
-722     return option;
-723 }
+993 {
+994     if (getHandScore() >= 21)
+995     {
+996         return "stand";
+997     }
+998     string option;
+999     cout << "Your Turn -> In your hand you have the following:\n";
+1000     for (size_t i = 0; i < getHandSize(); i++)
+1001     {
+1002         cout << getHand()\&.at(i)\&.rank << " of " << getHand()\&.at(i)\&.suits << "\n";
+1003     }
+1004     cout << "Current hand score-> " << getHandScore() << "\n";
+1005     cout << "Current money-> " << getCurrentMoney() << "\n";
+1006     cout << "To hit write 'hit' to stand write 'stand' : ";
+1007     option = getHumanPlay();
+1008     if (option == "hit")
+1009     {
+1010         hit(table\&.getDealer()->discard(table\&.getPlayers()));
+1011     }
+1012     return option;
+1013 }
+.fi
+.SS "ostream & Human::saveInfo (ostream & out)\fC [virtual]\fP"
+
+.PP
+Writes \fBHuman\fP info to stream\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIout\fP ostream in which \fBHuman\fP info will be saved\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBHuman\fP info in a ostream\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 889 of file Player\&.cpp\&.
+.PP
+References Player::saveInfo()\&.
+.PP
+.nf
+889                                        {
+890     out << "3; ";
+891     Player::saveInfo(out);
+892     out << userID << "; ";
+893     return out;
+894 }
+.fi
+.SS "void Human::setUserID (unsigned int userID)\fC [virtual]\fP"
+
+.PP
+Sets user identifier\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIuserID\fP New user identifier\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 881 of file Player\&.cpp\&.
+.PP
+.nf
+881                                          {
+882     this->userID = userID;
+883 }
 .fi
 .SS "bool Human::split (\fBDealer\fP * dealerOfTable)\fC [virtual]\fP"
 
@@ -242,27 +449,27 @@ True if human splits, false otherwise\&.
 .PP
 Reimplemented from \fBPlayer\fP\&.
 .PP
-Definition at line 645 of file Player\&.cpp\&.
+Definition at line 864 of file Player\&.cpp\&.
 .PP
 References readBinary()\&.
 .PP
 .nf
-645                                        {
-646     unsigned int split;
-647     vector<Card> hand = getHand();
-648     if (hand\&.at(0) == hand\&.at(1)) {
-649         cout << "Do you want split?\n 0 - No    1 - Yes\n";
-650         split = readBinary();
-651         vector<Card> hand = getHand();
-652 
-653         if (split == 1) {
-654             removeCardFromFirstHandAndSetItOnSecondHand();
-655             return true;
-656         }
-657     }
-658     return false;
-659     
-660 }
+864                                        {
+865     unsigned int split;
+866     vector<Card> hand = getHand();
+867     if (hand\&.at(0) == hand\&.at(1)) {
+868         cout << "Do you want split?\n 0 - No    1 - Yes\n";
+869         split = readBinary();
+870         vector<Card> hand = getHand();
+871 
+872         if (split == 1) {
+873             removeCardFromFirstHandAndSetItOnSecondHand();
+874             return true;
+875         }
+876     }
+877     return false;
+878     
+879 }
 .fi
 .SS "bool Human::takeInsurance (\fBTable\fP & table)\fC [virtual]\fP"
 
@@ -293,24 +500,24 @@ True if human takes insurance, false if it does not\&.
 .PP
 Reimplemented from \fBPlayer\fP\&.
 .PP
-Definition at line 631 of file Player\&.cpp\&.
+Definition at line 850 of file Player\&.cpp\&.
 .PP
 References readBinary()\&.
 .PP
 .nf
-631                                       {
-632     unsigned int insurance;
-633     cout << "Do you want insurance?\n 0 - No    1 - Yes\n";
-634     insurance=readBinary();
-635 
-636     if(insurance == 1){
-637         insurance = bet(table)/2;
-638         setCurrentMoney(getCurrentMoney() - insurance);
-639         return true;
-640     }
-641 
-642     return false;
-643 }
+850                                       {
+851     unsigned int insurance;
+852     cout << "Do you want insurance?\n 0 - No    1 - Yes\n";
+853     insurance=readBinary();
+854 
+855     if(insurance == 1){
+856         insurance = bet(table)/2;
+857         setCurrentMoney(getCurrentMoney() - insurance);
+858         return true;
+859     }
+860 
+861     return false;
+862 }
 .fi
 
 

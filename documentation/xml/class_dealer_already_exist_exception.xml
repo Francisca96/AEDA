@@ -44,8 +44,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="389" column="1" bodyfile="Dealer.cpp" bodystart="158" bodyend="160"/>
-        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="130" endline="132">Dealer::getID</references>
+        <location file="Dealer.h" line="389" column="1" bodyfile="Dealer.cpp" bodystart="159" bodyend="161"/>
+        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="131" endline="133">Dealer::getID</references>
       </memberdef>
       <memberdef kind="function" id="class_dealer_already_exist_exception_1a61aee4db55399ffd2e06ceedd04136be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -61,7 +61,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="402" column="1" bodyfile="Dealer.cpp" bodystart="162" bodyend="164"/>
+        <location file="Dealer.h" line="402" column="1" bodyfile="Dealer.cpp" bodystart="163" bodyend="165"/>
         <referencedby refid="class_casino_1a8a90d8525d1052a5ab1367508603ec96" compoundref="_casino_8cpp" startline="230" endline="267">Casino::readDealersFile</referencedby>
       </memberdef>
       </sectiondef>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['paytoplayer',['payToPlayer',['../class_table.html#a9f12053cf49da2ea2e45ced3a5f2f0b3',1,'Table']]],
-  ['play',['play',['../class_dealer.html#a77983c83dc250bf5a3a9fb365fbcdbdb',1,'Dealer::play()'],['../class_player.html#a633ae716d3226a5701a6d0c9314baad4',1,'Player::play()'],['../class_bot0.html#ad4107238ba36ce4ddf2debd7b10c6a9e',1,'Bot0::play()'],['../class_bot1.html#a9d132799a74f0956dd3b66a897cf8824',1,'Bot1::play()'],['../class_bot2.html#ab3fb6a4c1627247f21b43893862148ff',1,'Bot2::play()'],['../class_human.html#ac2536a8f230ba6dd457b81e406f42a60',1,'Human::play()'],['../class_table.html#a7a83e0ed662f82198797b1a8aa8cc4ea',1,'Table::play()']]],
+  ['play',['play',['../class_dealer.html#a77983c83dc250bf5a3a9fb365fbcdbdb',1,'Dealer::play()'],['../class_player.html#a633ae716d3226a5701a6d0c9314baad4',1,'Player::play()'],['../class_bot0.html#ad4107238ba36ce4ddf2debd7b10c6a9e',1,'Bot0::play()'],['../class_bot1.html#a9d132799a74f0956dd3b66a897cf8824',1,'Bot1::play()'],['../class_bot2.html#ab3fb6a4c1627247f21b43893862148ff',1,'Bot2::play()'],['../class_human.html#ac2536a8f230ba6dd457b81e406f42a60',1,'Human::play()'],['../class_table.html#a00a1f21ddd1664b9305ab08ee48e5c3c',1,'Table::play()']]],
   ['player',['Player',['../class_player.html',1,'']]],
   ['player_2ecpp',['Player.cpp',['../_player_8cpp.html',1,'']]],
   ['player_2eh',['Player.h',['../_player_8h.html',1,'']]],

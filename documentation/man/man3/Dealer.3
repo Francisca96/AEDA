@@ -1,4 +1,4 @@
-.TH "Dealer" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.TH "Dealer" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -105,7 +105,7 @@ Dealer \- A dealer\&. The dealer is responsible to deal cards to the players and
 .PP 
 A dealer\&. The dealer is responsible to deal cards to the players and to himself\&. He is the one that holds that deck and reshufles it\&. 
 
-A \fBCasino\fP's dealer\&.
+
 .PP
 \fBAuthor:\fP
 .RS 4
@@ -114,17 +114,7 @@ M\&. Francisca Pauperio
 .PP
 \fBDate:\fP
 .RS 4
-19/11/2016
-.RE
-.PP
-\fBAuthor:\fP
-.RS 4
-Renato Campos 
-.RE
-.PP
-\fBDate:\fP
-.RS 4
-18/11/2016 
+19/11/2016 
 .RE
 .PP
 
@@ -308,10 +298,13 @@ M\&. Francisca Pauperio
 .PP
 Definition at line 105 of file Dealer\&.cpp\&.
 .PP
+References setHandScore()\&.
+.PP
 .nf
 106 {
 107     hand\&.clear();
-108 }
+108     this->setHandScore();
+109 }
 .fi
 .SS "\fBCard\fP Dealer::discard (vector< \fBPlayer\fP *> players)"
 
@@ -498,14 +491,14 @@ The identifier\&.
 .PP
 
 .PP
-Definition at line 130 of file Dealer\&.cpp\&.
+Definition at line 131 of file Dealer\&.cpp\&.
 .PP
 Referenced by Casino::addDealerToCasino(), DealerAlreadyExistException::DealerAlreadyExistException(), DealerIsOnTableAlreadyException::DealerIsOnTableAlreadyException(), DealerNotExistException::DealerNotExistException(), DealerStillOnTableException::DealerStillOnTableException(), and Casino::removeDealerFromCasino()\&.
 .PP
 .nf
-130                                  {
-131     return this->ID;
-132 }
+131                                  {
+132     return this->ID;
+133 }
 .fi
 .SS "static unsigned int Dealer::getNextID ()\fC [static]\fP"
 
@@ -529,14 +522,14 @@ The next identifier\&.
 .PP
 
 .PP
-Definition at line 146 of file Dealer\&.cpp\&.
+Definition at line 147 of file Dealer\&.cpp\&.
 .PP
 Referenced by Casino::saveDealersFile()\&.
 .PP
 .nf
-146                                {
-147     return nextID;
-148 }
+147                                {
+148     return nextID;
+149 }
 .fi
 .SS "int Dealer::getTableOn () const"
 
@@ -560,14 +553,14 @@ The table that the dealer is on\&. -1 if \fBDealer\fP is not on any table\&.
 .PP
 
 .PP
-Definition at line 138 of file Dealer\&.cpp\&.
+Definition at line 139 of file Dealer\&.cpp\&.
 .PP
 Referenced by Casino::create(), and DealerStillOnTableException::DealerStillOnTableException()\&.
 .PP
 .nf
-138                              {
-139     return this->TableID;
-140 }
+139                              {
+140     return this->TableID;
+141 }
 .fi
 .SS "bool Dealer::hasCardInHand (\fBCard\fP & c)"
 
@@ -596,17 +589,17 @@ True if the card is in the dealer's hand, false if not\&.
 .PP
 
 .PP
-Definition at line 110 of file Dealer\&.cpp\&.
+Definition at line 111 of file Dealer\&.cpp\&.
 .PP
 .nf
-111 {
-112     for (size_t i = 0; i < hand\&.size(); i++) {
-113         if (hand\&.at(i) == c) {
-114             return true;
-115         }
-116     }
-117     return false;
-118 }
+112 {
+113     for (size_t i = 0; i < hand\&.size(); i++) {
+114         if (hand\&.at(i) == c) {
+115             return true;
+116         }
+117     }
+118     return false;
+119 }
 .fi
 .SS "\fBCard\fP & Dealer::hit (vector< \fBPlayer\fP *> players)"
 
@@ -675,18 +668,18 @@ A string: 'hit' or 'stand'
 .PP
 
 .PP
-Definition at line 121 of file Dealer\&.cpp\&.
+Definition at line 122 of file Dealer\&.cpp\&.
 .PP
 References Table::getPlayers(), and hit()\&.
 .PP
 .nf
-122 {
-123     if (handScore < 17) {
-124         hit(table\&.getPlayers());
-125         return "hit"; //means hit
-126     }
-127     else return "stand"; //means stand
-128 }
+123 {
+124     if (handScore < 17) {
+125         hit(table\&.getPlayers());
+126         return "hit"; //means hit
+127     }
+128     else return "stand"; //means stand
+129 }
 .fi
 .SS "unsigned int Dealer::setHandScore ()"
 
@@ -712,7 +705,7 @@ The updated handscore\&.
 .PP
 Definition at line 57 of file Dealer\&.cpp\&.
 .PP
-Referenced by hit()\&.
+Referenced by clearHand(), and hit()\&.
 .PP
 .nf
 57                                  {
@@ -753,14 +746,14 @@ M\&. Francisca Pauperio
 .PP
 
 .PP
-Definition at line 142 of file Dealer\&.cpp\&.
+Definition at line 143 of file Dealer\&.cpp\&.
 .PP
 Referenced by Casino::readDealersFile()\&.
 .PP
 .nf
-142                                       {
-143     nextID = ID;
-144 }
+143                                       {
+144     nextID = ID;
+145 }
 .fi
 .SS "void Dealer::setTable (int tableID)"
 
@@ -784,14 +777,14 @@ M\&. Francisca Pauperio
 .PP
 
 .PP
-Definition at line 134 of file Dealer\&.cpp\&.
+Definition at line 135 of file Dealer\&.cpp\&.
 .PP
 Referenced by Table::setDealer(), and Table::Table()\&.
 .PP
 .nf
-134                                  {
-135     this->TableID = tableID;
-136 }
+135                                  {
+136     this->TableID = tableID;
+137 }
 .fi
 .SS "void Dealer::shuffleDeck ()"
 

@@ -57,9 +57,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="462" column="1" bodyfile="Dealer.cpp" bodystart="166" bodyend="169"/>
-        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="130" endline="132">Dealer::getID</references>
-        <references refid="class_dealer_1a33483233d2bdc17351d3d57fee448184" compoundref="_dealer_8cpp" startline="138" endline="140">Dealer::getTableOn</references>
+        <location file="Dealer.h" line="462" column="1" bodyfile="Dealer.cpp" bodystart="167" bodyend="170"/>
+        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="131" endline="133">Dealer::getID</references>
+        <references refid="class_dealer_1a33483233d2bdc17351d3d57fee448184" compoundref="_dealer_8cpp" startline="139" endline="141">Dealer::getTableOn</references>
       </memberdef>
       <memberdef kind="function" id="class_dealer_still_on_table_exception_1a44ceb65d9728c8090515aeac00bed5ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -75,7 +75,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Dealer.h" line="475" column="1" bodyfile="Dealer.cpp" bodystart="171" bodyend="173"/>
+        <location file="Dealer.h" line="475" column="1" bodyfile="Dealer.cpp" bodystart="172" bodyend="174"/>
         <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">Casino::eliminate</referencedby>
       </memberdef>
       </sectiondef>

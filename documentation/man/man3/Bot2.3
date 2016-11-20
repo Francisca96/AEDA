@@ -1,4 +1,4 @@
-.TH "Bot2" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.TH "Bot2" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -16,6 +16,10 @@ Inherits \fBPlayer\fP\&.
 .in +1c
 .ti -1c
 .RI "\fBBot2\fP (string name, unsigned int initialMoney)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBBot2\fP (string &line)"
 .br
 .RI "Constructor\&. "
 .ti -1c
@@ -54,6 +58,10 @@ Inherits \fBPlayer\fP\&.
 .RI "void \fBsetLastBetValue\fP (unsigned int lastBet)"
 .br
 .RI "Sets last bet value\&. "
+.ti -1c
+.RI "virtual ostream & \fBsaveInfo\fP (ostream &out)"
+.br
+.RI "Writes \fBBot2\fP info to stream\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -73,7 +81,7 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 1013 of file Player\&.h\&.
+Definition at line 1108 of file Player\&.h\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Bot2::Bot2 (string name, unsigned int initialMoney)"
@@ -100,15 +108,98 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 532 of file Player\&.cpp\&.
+Definition at line 688 of file Player\&.cpp\&.
 .PP
 .nf
-533 {
-534     this->setOnTable(-1);
-535     setName(name);
-536     setInitialMoney(initialMoney);
-537     currentCount = 0;
-538 }
+689 {
+690     this->setOnTable(-1);
+691     setName(name);
+692     setInitialMoney(initialMoney);
+693     currentCount = 0;
+694 }
+.fi
+.SS "Bot2::Bot2 (string & line)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIline\fP Line contains all information\&. 
+.RE
+.PP
+
+.PP
+Definition at line 696 of file Player\&.cpp\&.
+.PP
+References Card::rank, Card::score, and Card::suits\&.
+.PP
+.nf
+696                         {
+697     line\&.erase(0, line\&.find_first_of("; ") + 2);
+698     this->setName(line\&.substr(0, line\&.find_first_of("; ")));
+699     line\&.erase(0, line\&.find_first_of("; ") + 2);
+700     this->setInitialMoney(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+701     line\&.erase(0, line\&.find_first_of("; ") + 2);
+702     this->setCurrentMoney(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+703     line\&.erase(0, line\&.find_first_of("; ") + 2);
+704     this->clearHand();
+705     if (line\&.at(0) == '{')
+706     {
+707         line\&.erase(0, 1);
+708         Card newCard;
+709         while (line\&.at(0) != '}')
+710         {
+711             newCard\&.rank = line\&.substr(0, line\&.find_first_of("/"));
+712             line\&.erase(0, line\&.find_first_of("/") + 1);
+713             newCard\&.suits = line\&.substr(0, line\&.find_first_of("/"));
+714             line\&.erase(0, line\&.find_first_of("/") + 1);
+715             newCard\&.score = stoi(line\&.substr(0, line\&.find_first_of("; ")));
+716             line\&.erase(0, line\&.find_first_of("; ") + 2);
+717             this->hit(newCard);
+718         }
+719         line\&.erase(0, line\&.find_first_of("; ") + 2);
+720     }
+721     this->clearHand2();
+722     if (line\&.at(0) == '{')
+723     {
+724         line\&.erase(0, 1);
+725         Card newCard;
+726         while (line\&.at(0) != '}')
+727         {
+728             newCard\&.rank = line\&.substr(0, line\&.find_first_of("/"));
+729             line\&.erase(0, line\&.find_first_of("/") + 1);
+730             newCard\&.suits = line\&.substr(0, line\&.find_first_of("/"));
+731             line\&.erase(0, line\&.find_first_of("/") + 1);
+732             newCard\&.score = stoi(line\&.substr(0, line\&.find_first_of("; ")));
+733             line\&.erase(0, line\&.find_first_of("; ") + 2);
+734             this->hit2(newCard);
+735         }
+736         line\&.erase(0, line\&.find_first_of("; ") + 2);
+737     }
+738     this->setRoundsPlayed(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+739     line\&.erase(0, line\&.find_first_of("; ") + 2);
+740     this->setAge(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+741     line\&.erase(0, line\&.find_first_of("; ") + 2);
+742     this->setOnTable(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+743     line\&.erase(0, line\&.find_first_of("; ") + 2);
+744     this->setActualBet(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+745     line\&.erase(0, line\&.find_first_of("; ") + 2);
+746     this->currentCount = stoi(line\&.substr(0, line\&.find_first_of("; ")));
+747     line\&.erase(0, line\&.find_first_of("; ") + 2);
+748     this->lastBetValue = stoi(line\&.substr(0, line\&.find_first_of("; ")));
+749     line\&.erase(0, line\&.find_first_of("; ") + 2);
+750 }
 .fi
 .SH "Member Function Documentation"
 .PP 
@@ -136,19 +227,19 @@ Joao Carvalho
 .PP
 Reimplemented from \fBPlayer\fP\&.
 .PP
-Definition at line 610 of file Player\&.cpp\&.
+Definition at line 822 of file Player\&.cpp\&.
 .PP
 References Card::score\&.
 .PP
 .nf
-611 {
-612     if (card1\&.score == 5) {
-613         currentCount++;
-614     }
-615     else if (card1\&.score == 11) {
-616         currentCount--;
-617     }
-618 }
+823 {
+824     if (card1\&.score == 5) {
+825         currentCount++;
+826     }
+827     else if (card1\&.score == 11) {
+828         currentCount--;
+829     }
+830 }
 .fi
 .SS "unsigned int Bot2::bet (\fBTable\fP & table)\fC [virtual]\fP"
 
@@ -179,34 +270,34 @@ The initial bet value\&.
 .PP
 Reimplemented from \fBPlayer\fP\&.
 .PP
-Definition at line 540 of file Player\&.cpp\&.
+Definition at line 752 of file Player\&.cpp\&.
 .PP
 References Table::getMaxBet(), and Table::getMinBet()\&.
 .PP
 .nf
-541 {
-542     unsigned int betValue;
-543     if (getCurrentMoney() < table\&.getMinBet()) {
-544         return 0; //0 means kick the player from the table;
-545     }
-546     if (currentCount < 2) {
-547         betValue = table\&.getMinBet();
-548     }
-549     else
-550     {
-551         betValue = 2 * lastBetValue;
-552         if (betValue > table\&.getMaxBet()) {
-553             betValue = table\&.getMaxBet();
-554         }
-555     }
-556     if (betValue > getCurrentMoney()) {
-557         betValue = getCurrentMoney();
-558     }
-559     lastBetValue = betValue;
-560     setCurrentMoney(getCurrentMoney() - betValue);
-561     setActualBet(betValue);
-562     return betValue;
-563 }
+753 {
+754     unsigned int betValue;
+755     if (getCurrentMoney() < table\&.getMinBet()) {
+756         return 0; //0 means kick the player from the table;
+757     }
+758     if (currentCount < 2) {
+759         betValue = table\&.getMinBet();
+760     }
+761     else
+762     {
+763         betValue = 2 * lastBetValue;
+764         if (betValue > table\&.getMaxBet()) {
+765             betValue = table\&.getMaxBet();
+766         }
+767     }
+768     if (betValue > getCurrentMoney()) {
+769         betValue = getCurrentMoney();
+770     }
+771     lastBetValue = betValue;
+772     setCurrentMoney(getCurrentMoney() - betValue);
+773     setActualBet(betValue);
+774     return betValue;
+775 }
 .fi
 .SS "int Bot2::getCurrentCount () const\fC [virtual]\fP"
 
@@ -232,12 +323,12 @@ The current count\&.
 .PP
 Reimplemented from \fBPlayer\fP\&.
 .PP
-Definition at line 605 of file Player\&.cpp\&.
+Definition at line 817 of file Player\&.cpp\&.
 .PP
 .nf
-606 {
-607     return currentCount;
-608 }
+818 {
+819     return currentCount;
+820 }
 .fi
 .SS "string Bot2::play (\fBTable\fP & table)\fC [virtual]\fP"
 
@@ -268,20 +359,20 @@ A string\&.
 .PP
 Implements \fBPlayer\fP\&.
 .PP
-Definition at line 565 of file Player\&.cpp\&.
+Definition at line 777 of file Player\&.cpp\&.
 .PP
 References Dealer::discard(), Table::getDealer(), and Table::getPlayers()\&.
 .PP
 .nf
-566 {
-567     string options[] = { "hit","stand" };
-568     unsigned int handScore = getHandScore();
-569     if (handScore < 17) {
-570         hit(table\&.getDealer()->discard(table\&.getPlayers()));
-571         return options[0]; // 0 means hit
-572     }
-573     return options[1]; // means stand
-574 }
+778 {
+779     string options[] = { "hit","stand" };
+780     unsigned int handScore = getHandScore();
+781     if (handScore < 17) {
+782         hit(table\&.getDealer()->discard(table\&.getPlayers()));
+783         return options[0]; // 0 means hit
+784     }
+785     return options[1]; // means stand
+786 }
 .fi
 .SS "void Bot2::resetCount ()\fC [virtual]\fP"
 
@@ -302,12 +393,53 @@ Joao Carvalho
 .PP
 Reimplemented from \fBPlayer\fP\&.
 .PP
-Definition at line 620 of file Player\&.cpp\&.
+Definition at line 832 of file Player\&.cpp\&.
 .PP
 .nf
-621 {
-622     currentCount = 0;
-623 }
+833 {
+834     currentCount = 0;
+835 }
+.fi
+.SS "ostream & Bot2::saveInfo (ostream & out)\fC [virtual]\fP"
+
+.PP
+Writes \fBBot2\fP info to stream\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIout\fP ostream in which \fBBot2\fP info will be saved\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBBot2\fP info in a ostream\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 842 of file Player\&.cpp\&.
+.PP
+References Player::saveInfo()\&.
+.PP
+.nf
+842                                       {
+843     out << "2; ";
+844     Player::saveInfo(out);
+845     out << currentCount << "; " << lastBetValue << "; ";
+846     return out;
+847 }
 .fi
 .SS "void Bot2::setLastBetValue (unsigned int lastBet)"
 
@@ -331,12 +463,12 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 625 of file Player\&.cpp\&.
+Definition at line 837 of file Player\&.cpp\&.
 .PP
 .nf
-626 {
-627     lastBetValue = lastBet;
-628 }
+838 {
+839     lastBetValue = lastBet;
+840 }
 .fi
 .SS "bool Bot2::split (\fBDealer\fP * dealerOfTable)\fC [virtual]\fP"
 
@@ -367,12 +499,12 @@ False\&.
 .PP
 Reimplemented from \fBPlayer\fP\&.
 .PP
-Definition at line 580 of file Player\&.cpp\&.
+Definition at line 792 of file Player\&.cpp\&.
 .PP
 .nf
-580                                       {
-581     return false;
-582 }
+792                                       {
+793     return false;
+794 }
 .fi
 .SS "bool Bot2::surrender (\fBTable\fP & table)\fC [virtual]\fP"
 
@@ -403,30 +535,30 @@ True if it surrenders, false if it does not\&.
 .PP
 Reimplemented from \fBPlayer\fP\&.
 .PP
-Definition at line 584 of file Player\&.cpp\&.
+Definition at line 796 of file Player\&.cpp\&.
 .PP
 References Table::getDealer(), and Dealer::getHandScore()\&.
 .PP
 .nf
-585 {
-586     //based on fab4 surrender guides
-587     unsigned int dealerHandScore = table\&.getDealer()->getHandScore();
-588     unsigned int personalScore = getHandScore();
-589     if (personalScore == 14 && dealerHandScore == 10 && currentCount >= 3) {
-590         return true;
-591     }
-592     else if (personalScore == 15 && dealerHandScore == 10 && currentCount >= 0) {
-593         return true;
-594     }
-595     else if (personalScore == 15 && dealerHandScore == 9 && currentCount >= 2) {
-596         return true;
-597     }
-598     else if (personalScore == 15 && dealerHandScore == 11 && currentCount >= 1) {
-599         return true;
-600     }
-601     return false;
-602     
-603 }
+797 {
+798     //based on fab4 surrender guides
+799     unsigned int dealerHandScore = table\&.getDealer()->getHandScore();
+800     unsigned int personalScore = getHandScore();
+801     if (personalScore == 14 && dealerHandScore == 10 && currentCount >= 3) {
+802         return true;
+803     }
+804     else if (personalScore == 15 && dealerHandScore == 10 && currentCount >= 0) {
+805         return true;
+806     }
+807     else if (personalScore == 15 && dealerHandScore == 9 && currentCount >= 2) {
+808         return true;
+809     }
+810     else if (personalScore == 15 && dealerHandScore == 11 && currentCount >= 1) {
+811         return true;
+812     }
+813     return false;
+814     
+815 }
 .fi
 .SS "bool Bot2::takeInsurance (\fBTable\fP & table)\fC [virtual]\fP"
 
@@ -457,12 +589,12 @@ False\&.
 .PP
 Reimplemented from \fBPlayer\fP\&.
 .PP
-Definition at line 576 of file Player\&.cpp\&.
+Definition at line 788 of file Player\&.cpp\&.
 .PP
 .nf
-576                                      {
-577     return false;
-578 }
+788                                      {
+789     return false;
+790 }
 .fi
 
 

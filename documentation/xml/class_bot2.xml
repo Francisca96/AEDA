@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="1016" column="1" bodyfile="Player.h" bodystart="1016" bodyend="-1"/>
+        <location file="Player.h" line="1111" column="1" bodyfile="Player.h" bodystart="1111" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_bot2_1abf10634b4d479a9c3fd06558982d5a4d" prot="private" static="no" mutable="no">
         <type>unsigned int</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="1018" column="1" bodyfile="Player.h" bodystart="1018" bodyend="-1"/>
+        <location file="Player.h" line="1113" column="1" bodyfile="Player.h" bodystart="1113" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -69,7 +69,37 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="1033" column="1" bodyfile="Player.cpp" bodystart="532" bodyend="538"/>
+        <location file="Player.h" line="1128" column="1" bodyfile="Player.cpp" bodystart="688" bodyend="694"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bot2_1a4c3dc7d64d72681c49b7957c67d9db2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Bot2::Bot2</definition>
+        <argsstring>(string &amp;line)</argsstring>
+        <name>Bot2</name>
+        <param>
+          <type>string &amp;</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>line</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Line contains all information. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="1141" column="1" bodyfile="Player.cpp" bodystart="696" bodyend="750"/>
+        <references refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" compoundref="utils_8h" startline="30">Card::rank</references>
+        <references refid="struct_card_1a93a6c9c8f00ffb249244dc3171cd3e5d" compoundref="utils_8h" startline="34">Card::score</references>
+        <references refid="struct_card_1a7fb7aca081009665a828df85f8778a91" compoundref="utils_8h" startline="32">Card::suits</references>
       </memberdef>
       <memberdef kind="function" id="class_bot2_1a5b7a80864b09d3f04d165b9257cff2b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>unsigned int</type>
@@ -98,9 +128,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="1048" column="1" bodyfile="Player.cpp" bodystart="540" bodyend="563"/>
-        <references refid="class_table_1acd5423db5e5ed6a22a846708a47f36eb" compoundref="_table_8cpp" startline="116" endline="119">Table::getMaxBet</references>
-        <references refid="class_table_1ae771baf4201fb1c73198f5c7e7189260" compoundref="_table_8cpp" startline="111" endline="114">Table::getMinBet</references>
+        <location file="Player.h" line="1156" column="1" bodyfile="Player.cpp" bodystart="752" bodyend="775"/>
+        <references refid="class_table_1acd5423db5e5ed6a22a846708a47f36eb" compoundref="_table_8cpp" startline="369" endline="372">Table::getMaxBet</references>
+        <references refid="class_table_1ae771baf4201fb1c73198f5c7e7189260" compoundref="_table_8cpp" startline="364" endline="367">Table::getMinBet</references>
       </memberdef>
       <memberdef kind="function" id="class_bot2_1ab3fb6a4c1627247f21b43893862148ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>string</type>
@@ -129,10 +159,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="1064" column="1" bodyfile="Player.cpp" bodystart="565" bodyend="574"/>
+        <location file="Player.h" line="1172" column="1" bodyfile="Player.cpp" bodystart="777" bodyend="786"/>
         <references refid="class_dealer_1aa830a4e0a67d50f84c391972ea2a3d57" compoundref="_dealer_8cpp" startline="36" endline="45">Dealer::discard</references>
-        <references refid="class_table_1af8f247155b520fe226c3014b3ca94477" compoundref="_table_8cpp" startline="276" endline="279">Table::getDealer</references>
-        <references refid="class_table_1a65097ec2fe98d83c44538132e4fc2047" compoundref="_table_8cpp" startline="281" endline="284">Table::getPlayers</references>
+        <references refid="class_table_1af8f247155b520fe226c3014b3ca94477" compoundref="_table_8cpp" startline="529" endline="532">Table::getDealer</references>
+        <references refid="class_table_1a65097ec2fe98d83c44538132e4fc2047" compoundref="_table_8cpp" startline="534" endline="537">Table::getPlayers</references>
       </memberdef>
       <memberdef kind="function" id="class_bot2_1a7783364c4ebda2e5235b0df78295837e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -161,7 +191,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="1079" column="1" bodyfile="Player.cpp" bodystart="576" bodyend="578"/>
+        <location file="Player.h" line="1187" column="1" bodyfile="Player.cpp" bodystart="788" bodyend="790"/>
       </memberdef>
       <memberdef kind="function" id="class_bot2_1ae6201f99237024624a485acf3dff0956" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -190,7 +220,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="1094" column="1" bodyfile="Player.cpp" bodystart="580" bodyend="582"/>
+        <location file="Player.h" line="1202" column="1" bodyfile="Player.cpp" bodystart="792" bodyend="794"/>
       </memberdef>
       <memberdef kind="function" id="class_bot2_1a53cc77742cc1f7e12f5158e07ffc4c8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -219,8 +249,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="1109" column="1" bodyfile="Player.cpp" bodystart="584" bodyend="603"/>
-        <references refid="class_table_1af8f247155b520fe226c3014b3ca94477" compoundref="_table_8cpp" startline="276" endline="279">Table::getDealer</references>
+        <location file="Player.h" line="1217" column="1" bodyfile="Player.cpp" bodystart="796" bodyend="815"/>
+        <references refid="class_table_1af8f247155b520fe226c3014b3ca94477" compoundref="_table_8cpp" startline="529" endline="532">Table::getDealer</references>
         <references refid="class_dealer_1a80922ef482150027656ef0a6a82bc773" compoundref="_dealer_8cpp" startline="95" endline="98">Dealer::getHandScore</references>
       </memberdef>
       <memberdef kind="function" id="class_bot2_1abdbf18a6c07bd1c71db7655e656643a6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
@@ -238,7 +268,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="1122" column="1" bodyfile="Player.cpp" bodystart="605" bodyend="608"/>
+        <location file="Player.h" line="1230" column="1" bodyfile="Player.cpp" bodystart="817" bodyend="820"/>
       </memberdef>
       <memberdef kind="function" id="class_bot2_1a6b9b7841dcec84a12d365c6c226c2bb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -266,8 +296,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="1135" column="1" bodyfile="Player.cpp" bodystart="610" bodyend="618"/>
-        <references refid="struct_card_1a93a6c9c8f00ffb249244dc3171cd3e5d" compoundref="utils_8h" startline="33">Card::score</references>
+        <location file="Player.h" line="1243" column="1" bodyfile="Player.cpp" bodystart="822" bodyend="830"/>
+        <references refid="struct_card_1a93a6c9c8f00ffb249244dc3171cd3e5d" compoundref="utils_8h" startline="34">Card::score</references>
       </memberdef>
       <memberdef kind="function" id="class_bot2_1a3ea3a6d1513b446f6a6c3cef0aad8e8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -283,7 +313,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="1146" column="1" bodyfile="Player.cpp" bodystart="620" bodyend="623"/>
+        <location file="Player.h" line="1254" column="1" bodyfile="Player.cpp" bodystart="832" bodyend="835"/>
       </memberdef>
       <memberdef kind="function" id="class_bot2_1a80476f21747f64db05a0d1081700d459" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -310,7 +340,37 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="1159" column="1" bodyfile="Player.cpp" bodystart="625" bodyend="628"/>
+        <location file="Player.h" line="1267" column="1" bodyfile="Player.cpp" bodystart="837" bodyend="840"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bot2_1ab840f33b2ed02995afe0a24d4d3d77d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ostream &amp;</type>
+        <definition>ostream &amp; Bot2::saveInfo</definition>
+        <argsstring>(ostream &amp;out)</argsstring>
+        <name>saveInfo</name>
+        <reimplements refid="class_player_1aade769a50507ec98b76354c94174b5a3">saveInfo</reimplements>
+        <param>
+          <type>ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Writes <ref refid="class_bot2" kindref="compound">Bot2</ref> info to stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ostream in which <ref refid="class_bot2" kindref="compound">Bot2</ref> info will be saved. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="class_bot2" kindref="compound">Bot2</ref> info in a ostream. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="1282" column="1" bodyfile="Player.cpp" bodystart="842" bodyend="847"/>
+        <references refid="class_player_1aade769a50507ec98b76354c94174b5a3" compoundref="_player_8cpp" startline="246" endline="274">Player::saveInfo</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -343,12 +403,13 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="Player.h" line="1013" column="1" bodyfile="Player.h" bodystart="1013" bodyend="1160"/>
+    <location file="Player.h" line="1108" column="1" bodyfile="Player.h" bodystart="1108" bodyend="1283"/>
     <listofallmembers>
       <member refid="class_bot2_1a6b9b7841dcec84a12d365c6c226c2bb1" prot="public" virt="virtual"><scope>Bot2</scope><name>addCount</name></member>
       <member refid="class_player_1a93759b95f73ad7ccea760c3eebe79b83" prot="public" virt="non-virtual"><scope>Bot2</scope><name>addMoney</name></member>
       <member refid="class_bot2_1a5b7a80864b09d3f04d165b9257cff2b4" prot="public" virt="virtual"><scope>Bot2</scope><name>bet</name></member>
       <member refid="class_bot2_1a07df2d85527ca966dbc73014cd447d4f" prot="public" virt="non-virtual"><scope>Bot2</scope><name>Bot2</name></member>
+      <member refid="class_bot2_1a4c3dc7d64d72681c49b7957c67d9db2f" prot="public" virt="non-virtual"><scope>Bot2</scope><name>Bot2</name></member>
       <member refid="class_player_1a5715b0ace30c905ae79642e76a5437b4" prot="public" virt="non-virtual"><scope>Bot2</scope><name>clearHand</name></member>
       <member refid="class_player_1aeccd00dda342208ea502c97cadeb44e8" prot="public" virt="non-virtual"><scope>Bot2</scope><name>clearHand2</name></member>
       <member refid="class_bot2_1a98b0819ee51009fb28cc7e37ba44ff8e" prot="private" virt="non-virtual"><scope>Bot2</scope><name>currentCount</name></member>
@@ -357,7 +418,7 @@
       <member refid="class_player_1af937581b07b5cb5f2d93c3fcd7bbfd45" prot="public" virt="non-virtual"><scope>Bot2</scope><name>getAge</name></member>
       <member refid="class_player_1af90c94927657ba8797817d9ee35a9956" prot="public" virt="non-virtual"><scope>Bot2</scope><name>getAverageProfit</name></member>
       <member refid="class_bot2_1abdbf18a6c07bd1c71db7655e656643a6" prot="public" virt="virtual"><scope>Bot2</scope><name>getCurrentCount</name></member>
-      <member refid="class_player_1a02273e06cbfd6f66b86573aac8ec14fc" prot="public" virt="non-virtual"><scope>Bot2</scope><name>getCurrentMoney</name></member>
+      <member refid="class_player_1a5c7b58b7d8c392a7af3ad637e1751f1b" prot="public" virt="non-virtual"><scope>Bot2</scope><name>getCurrentMoney</name></member>
       <member refid="class_player_1ad58ea8ebeef513b066f1192af9e1b1f5" prot="public" virt="non-virtual"><scope>Bot2</scope><name>getHand</name></member>
       <member refid="class_player_1a608957ce160bff0149ce2a24ea76f29b" prot="public" virt="non-virtual"><scope>Bot2</scope><name>getHand2</name></member>
       <member refid="class_player_1ad110846192023027c4e9fc6b756bfa4a" prot="public" virt="non-virtual"><scope>Bot2</scope><name>getHand2Score</name></member>
@@ -367,14 +428,17 @@
       <member refid="class_player_1a4939193fc637f75bf7a11118334dae7e" prot="public" virt="non-virtual"><scope>Bot2</scope><name>getName</name></member>
       <member refid="class_player_1a3928c55936faef5fd63b24d94b9a5781" prot="public" virt="non-virtual"><scope>Bot2</scope><name>getOnTable</name></member>
       <member refid="class_player_1aa2ad93dbed2f5346d46b6941dee5b113" prot="public" virt="non-virtual"><scope>Bot2</scope><name>getRoundsPlayed</name></member>
+      <member refid="class_player_1a0bb5b47696cebd816394429e821ba4f0" prot="public" virt="virtual"><scope>Bot2</scope><name>getUserID</name></member>
       <member refid="class_player_1af8bb3cd6c6f7840c6cfa864ed78b10af" prot="public" virt="non-virtual"><scope>Bot2</scope><name>hit</name></member>
+      <member refid="class_player_1a3d119ccb9be9b9f03f9745507c6d3b74" prot="public" virt="non-virtual"><scope>Bot2</scope><name>hit2</name></member>
       <member refid="class_bot2_1abf10634b4d479a9c3fd06558982d5a4d" prot="private" virt="non-virtual"><scope>Bot2</scope><name>lastBetValue</name></member>
       <member refid="class_bot2_1ab3fb6a4c1627247f21b43893862148ff" prot="public" virt="virtual"><scope>Bot2</scope><name>play</name></member>
       <member refid="class_player_1a81cb5e747e4b05b846abe1dab0008ddf" prot="public" virt="non-virtual"><scope>Bot2</scope><name>removeCardFromFirstHandAndSetItOnSecondHand</name></member>
       <member refid="class_bot2_1a3ea3a6d1513b446f6a6c3cef0aad8e8e" prot="public" virt="virtual"><scope>Bot2</scope><name>resetCount</name></member>
+      <member refid="class_bot2_1ab840f33b2ed02995afe0a24d4d3d77d1" prot="public" virt="virtual"><scope>Bot2</scope><name>saveInfo</name></member>
       <member refid="class_player_1a532e4e3d79979f5e9e83938d6b1854ad" prot="public" virt="non-virtual"><scope>Bot2</scope><name>setActualBet</name></member>
       <member refid="class_player_1ae40dd6f0454849bfe0ccb2faa32d5eef" prot="public" virt="non-virtual"><scope>Bot2</scope><name>setAge</name></member>
-      <member refid="class_player_1a8ec70af0c2cbfeedeae3691a84d228f8" prot="public" virt="non-virtual"><scope>Bot2</scope><name>setCurrentMoney</name></member>
+      <member refid="class_player_1a58cd48e60ab8b69e47776359c77df8c1" prot="public" virt="non-virtual"><scope>Bot2</scope><name>setCurrentMoney</name></member>
       <member refid="class_player_1a62cfec47d7af1fba889dc502c70b8e00" prot="public" virt="non-virtual"><scope>Bot2</scope><name>setHand2Score</name></member>
       <member refid="class_player_1a4f795936b834f2d80a725f529c79c781" prot="public" virt="non-virtual"><scope>Bot2</scope><name>setHandScore</name></member>
       <member refid="class_player_1a7cc1745523751dcea0263c9658e33111" prot="public" virt="non-virtual"><scope>Bot2</scope><name>setInitialMoney</name></member>
@@ -382,6 +446,7 @@
       <member refid="class_player_1a05df581ac0f73a10b6163ca8c03eff7b" prot="public" virt="non-virtual"><scope>Bot2</scope><name>setName</name></member>
       <member refid="class_player_1acc0e88f7ca8c27d4d06dc87973fafce7" prot="public" virt="non-virtual"><scope>Bot2</scope><name>setOnTable</name></member>
       <member refid="class_player_1ae7dcd6039604cd4372c0d93ebc84907c" prot="public" virt="non-virtual"><scope>Bot2</scope><name>setRoundsPlayed</name></member>
+      <member refid="class_player_1a3b233a3b0444fd0ef9f2c43f86001ac4" prot="public" virt="virtual"><scope>Bot2</scope><name>setUserID</name></member>
       <member refid="class_player_1abc620380dbb2cd754d4e1427760d9518" prot="public" virt="non-virtual"><scope>Bot2</scope><name>showStatistics</name></member>
       <member refid="class_bot2_1ae6201f99237024624a485acf3dff0956" prot="public" virt="virtual"><scope>Bot2</scope><name>split</name></member>
       <member refid="class_bot2_1a53cc77742cc1f7e12f5158e07ffc4c8c" prot="public" virt="virtual"><scope>Bot2</scope><name>surrender</name></member>

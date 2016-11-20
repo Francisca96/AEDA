@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Table.h" line="61" column="1" bodyfile="Table.h" bodystart="61" bodyend="-1"/>
+        <location file="Table.h" line="35" column="1" bodyfile="Table.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_too_many_players_exception_1a7514ce61765122f007c18c3f0794edd1" prot="private" static="no" mutable="no">
         <type>unsigned int</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Table.h" line="63" column="1" bodyfile="Table.h" bodystart="63" bodyend="-1"/>
+        <location file="Table.h" line="37" column="1" bodyfile="Table.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -68,9 +68,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Table.h" line="78" column="1" bodyfile="Table.cpp" bodystart="414" bodyend="418"/>
-        <referencedby refid="class_table_1a1fed19e875672e23c19657eefd8ce3ef" compoundref="_table_8cpp" startline="60" endline="69">Table::addPlayers</referencedby>
-        <referencedby refid="class_table_1a7a83e0ed662f82198797b1a8aa8cc4ea" compoundref="_table_8cpp" startline="84" endline="105">Table::play</referencedby>
+        <location file="Table.h" line="52" column="1" bodyfile="Table.cpp" bodystart="1057" bodyend="1061"/>
+        <referencedby refid="class_table_1a1fed19e875672e23c19657eefd8ce3ef" compoundref="_table_8cpp" startline="62" endline="71">Table::addPlayers</referencedby>
+        <referencedby refid="class_table_1a00a1f21ddd1664b9305ab08ee48e5c3c" compoundref="_table_8cpp" startline="86" endline="358">Table::play</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_too_many_players_exception_1aaaf4d3518d044df6bec5478d5729b7e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -85,7 +85,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Table.h" line="89" column="1" bodyfile="Table.cpp" bodystart="8" bodyend="12"/>
+        <location file="Table.h" line="63" column="1" bodyfile="Table.cpp" bodystart="8" bodyend="12"/>
         <referencedby refid="class_casino_1afa089e95581b451abf4adf4afb1b1ccd" compoundref="_casino_8cpp" startline="98" endline="130">Casino::addPlayerToTable</referencedby>
       </memberdef>
       </sectiondef>
@@ -95,7 +95,7 @@
 <para><simplesect kind="author"><para>Renato Campos </para></simplesect>
 <simplesect kind="date"><para>18/11/2016 </para></simplesect>
 </para>    </detaileddescription>
-    <location file="Table.h" line="58" column="1" bodyfile="Table.h" bodystart="58" bodyend="90"/>
+    <location file="Table.h" line="32" column="1" bodyfile="Table.h" bodystart="32" bodyend="64"/>
     <listofallmembers>
       <member refid="class_too_many_players_exception_1a7514ce61765122f007c18c3f0794edd1" prot="private" virt="non-virtual"><scope>TooManyPlayersException</scope><name>actualNumOfPlayers</name></member>
       <member refid="class_too_many_players_exception_1a67299626935e7bb0075abd74f11055d1" prot="private" virt="non-virtual"><scope>TooManyPlayersException</scope><name>maxNumberOfPlayers</name></member>

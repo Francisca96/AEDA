@@ -7,135 +7,145 @@
     <includedby refid="_table_8h" local="yes">Table.h</includedby>
     <includedby refid="_dealer_8cpp" local="yes">Dealer.cpp</includedby>
     <incdepgraph>
-      <node id="74">
+      <node id="80">
         <label>Dealer.h</label>
         <link refid="_dealer_8h"/>
-        <childnode refid="75" relation="include">
-        </childnode>
-        <childnode refid="76" relation="include">
-        </childnode>
-      </node>
-      <node id="78">
-        <label>iomanip</label>
-      </node>
-      <node id="76">
-        <label>Player.h</label>
-        <link refid="_player_8h"/>
-        <childnode refid="77" relation="include">
-        </childnode>
-        <childnode refid="78" relation="include">
-        </childnode>
-        <childnode refid="75" relation="include">
-        </childnode>
-        <childnode refid="79" relation="include">
-        </childnode>
-        <childnode refid="83" relation="include">
-        </childnode>
-      </node>
-      <node id="79">
-        <label>utils.h</label>
-        <link refid="utils_8h"/>
-        <childnode refid="80" relation="include">
-        </childnode>
-        <childnode refid="77" relation="include">
-        </childnode>
-        <childnode refid="75" relation="include">
-        </childnode>
         <childnode refid="81" relation="include">
         </childnode>
         <childnode refid="82" relation="include">
         </childnode>
-        <childnode refid="78" relation="include">
-        </childnode>
-      </node>
-      <node id="77">
-        <label>string</label>
-      </node>
-      <node id="82">
-        <label>fstream</label>
       </node>
       <node id="84">
-        <label>cmdUI.h</label>
-        <link refid="cmd_u_i_8h"/>
-        <childnode refid="80" relation="include">
+        <label>iomanip</label>
+      </node>
+      <node id="82">
+        <label>Player.h</label>
+        <link refid="_player_8h"/>
+        <childnode refid="83" relation="include">
         </childnode>
-        <childnode refid="79" relation="include">
+        <childnode refid="84" relation="include">
         </childnode>
-        <childnode refid="78" relation="include">
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
         </childnode>
       </node>
-      <node id="75">
-        <label>vector</label>
+      <node id="85">
+        <label>utils.h</label>
+        <link refid="utils_8h"/>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
       </node>
       <node id="83">
-        <label>Table.h</label>
-        <link refid="_table_8h"/>
-        <childnode refid="75" relation="include">
+        <label>string</label>
+      </node>
+      <node id="88">
+        <label>fstream</label>
+      </node>
+      <node id="92">
+        <label>cmdUI.h</label>
+        <link refid="cmd_u_i_8h"/>
+        <childnode refid="86" relation="include">
         </childnode>
-        <childnode refid="74" relation="include">
+        <childnode refid="85" relation="include">
         </childnode>
         <childnode refid="84" relation="include">
         </childnode>
       </node>
       <node id="81">
-        <label>cstdlib</label>
+        <label>vector</label>
       </node>
-      <node id="80">
-        <label>iostream</label>
-      </node>
-    </incdepgraph>
-    <invincdepgraph>
-      <node id="85">
-        <label>Dealer.h</label>
-        <link refid="_dealer_8h"/>
-        <childnode refid="86" relation="include">
-        </childnode>
-        <childnode refid="93" relation="include">
-        </childnode>
+      <node id="91">
+        <label>sstream</label>
       </node>
       <node id="90">
-        <label>Player.h</label>
-        <link refid="_player_8h"/>
-        <childnode refid="85" relation="include">
+        <label>Table.h</label>
+        <link refid="_table_8h"/>
+        <childnode refid="81" relation="include">
         </childnode>
         <childnode refid="91" relation="include">
         </childnode>
-      </node>
-      <node id="93">
-        <label>Dealer.cpp</label>
-        <link refid="_dealer_8cpp"/>
-      </node>
-      <node id="87">
-        <label>Casino.h</label>
-        <link refid="_casino_8h"/>
-        <childnode refid="88" relation="include">
-        </childnode>
-        <childnode refid="89" relation="include">
-        </childnode>
-      </node>
-      <node id="92">
-        <label>Table.cpp</label>
-        <link refid="_table_8cpp"/>
-      </node>
-      <node id="88">
-        <label>Casino.cpp</label>
-        <link refid="_casino_8cpp"/>
-      </node>
-      <node id="91">
-        <label>Player.cpp</label>
-        <link refid="_player_8cpp"/>
-      </node>
-      <node id="86">
-        <label>Table.h</label>
-        <link refid="_table_8h"/>
-        <childnode refid="87" relation="include">
-        </childnode>
-        <childnode refid="90" relation="include">
+        <childnode refid="80" relation="include">
         </childnode>
         <childnode refid="92" relation="include">
         </childnode>
       </node>
       <node id="89">
+        <label>time.h</label>
+      </node>
+      <node id="87">
+        <label>cstdlib</label>
+      </node>
+      <node id="86">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="93">
+        <label>Dealer.h</label>
+        <link refid="_dealer_8h"/>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>Player.h</label>
+        <link refid="_player_8h"/>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+      </node>
+      <node id="101">
+        <label>Dealer.cpp</label>
+        <link refid="_dealer_8cpp"/>
+      </node>
+      <node id="95">
+        <label>Casino.h</label>
+        <link refid="_casino_8h"/>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+      </node>
+      <node id="100">
+        <label>Table.cpp</label>
+        <link refid="_table_8cpp"/>
+      </node>
+      <node id="96">
+        <label>Casino.cpp</label>
+        <link refid="_casino_8cpp"/>
+      </node>
+      <node id="99">
+        <label>Player.cpp</label>
+        <link refid="_player_8cpp"/>
+      </node>
+      <node id="94">
+        <label>Table.h</label>
+        <link refid="_table_8h"/>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+      </node>
+      <node id="97">
         <label>main.cpp</label>
         <link refid="main_8cpp"/>
       </node>

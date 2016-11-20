@@ -1,4 +1,4 @@
-.TH "Bot0" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.TH "Bot0" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -23,6 +23,10 @@ Inherits \fBPlayer\fP\&.
 .br
 .RI "Constructor\&. "
 .ti -1c
+.RI "\fBBot0\fP (string &line)"
+.br
+.RI "Constructor\&. "
+.ti -1c
 .RI "string \fBplay\fP (\fBTable\fP &table)"
 .br
 .RI "Plays accordingly to an algorithm\&. Never doubles, always stands on 17 or higher, always hits if less than 17\&. "
@@ -30,6 +34,10 @@ Inherits \fBPlayer\fP\&.
 .RI "bool \fBtakeInsurance\fP (\fBTable\fP &table)"
 .br
 .RI "Take insurance always returns false on \fBBot0\fP\&. "
+.ti -1c
+.RI "virtual ostream & \fBsaveInfo\fP (ostream &out)"
+.br
+.RI "Writes \fBBot0\fP info to stream\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -49,7 +57,7 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 796 of file Player\&.h\&.
+Definition at line 841 of file Player\&.h\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Bot0::Bot0 ()\fC [inline]\fP"
@@ -69,10 +77,10 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 808 of file Player\&.h\&.
+Definition at line 853 of file Player\&.h\&.
 .PP
 .nf
-808 {};
+853 {};
 .fi
 .SS "Bot0::Bot0 (string name, unsigned int initialMoney)"
 
@@ -98,14 +106,93 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 254 of file Player\&.cpp\&.
+Definition at line 343 of file Player\&.cpp\&.
 .PP
 .nf
-255 {
-256     this->setOnTable(-1);
-257     this->setName(name);
-258     this->setInitialMoney(initialMoney);
-259 }
+344 {
+345     this->setOnTable(-1);
+346     this->setName(name);
+347     this->setInitialMoney(initialMoney);
+348 }
+.fi
+.SS "Bot0::Bot0 (string & line)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIline\fP Line containes all information\&. 
+.RE
+.PP
+
+.PP
+Definition at line 290 of file Player\&.cpp\&.
+.PP
+References Card::rank, Card::score, and Card::suits\&.
+.PP
+.nf
+290                         {
+291     line\&.erase(0, line\&.find_first_of("; ") + 2);
+292     this->setName(line\&.substr(0, line\&.find_first_of("; ")));
+293     line\&.erase(0, line\&.find_first_of("; ") + 2);
+294     this->setInitialMoney(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+295     line\&.erase(0, line\&.find_first_of("; ") + 2);
+296     this->setCurrentMoney(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+297     line\&.erase(0, line\&.find_first_of("; ") + 2);
+298     this->clearHand();
+299     if (line\&.at(0) == '{')
+300     {
+301         line\&.erase(0, 1);
+302         Card newCard;
+303         while (line\&.at(0) != '}')
+304         {
+305             newCard\&.rank = line\&.substr(0, line\&.find_first_of("/"));
+306             line\&.erase(0, line\&.find_first_of("/") + 1);
+307             newCard\&.suits = line\&.substr(0, line\&.find_first_of("/"));
+308             line\&.erase(0, line\&.find_first_of("/") + 1);
+309             newCard\&.score = stoi(line\&.substr(0, line\&.find_first_of("; ")));
+310             line\&.erase(0, line\&.find_first_of("; ") + 2);
+311             this->hit(newCard);
+312         }
+313         line\&.erase(0, line\&.find_first_of("; ") + 2);
+314     }
+315     this->clearHand2();
+316     if (line\&.at(0) == '{')
+317     {
+318         line\&.erase(0, 1);
+319         Card newCard;
+320         while (line\&.at(0) != '}')
+321         {
+322             newCard\&.rank = line\&.substr(0, line\&.find_first_of("/"));
+323             line\&.erase(0, line\&.find_first_of("/") + 1);
+324             newCard\&.suits = line\&.substr(0, line\&.find_first_of("/"));
+325             line\&.erase(0, line\&.find_first_of("/") + 1);
+326             newCard\&.score = stoi(line\&.substr(0, line\&.find_first_of("; ")));
+327             line\&.erase(0, line\&.find_first_of("; ") + 2);
+328             this->hit2(newCard);
+329         }
+330         line\&.erase(0, line\&.find_first_of("; ") + 2);
+331     }
+332     this->setRoundsPlayed(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+333     line\&.erase(0, line\&.find_first_of("; ") + 2);
+334     this->setAge(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+335     line\&.erase(0, line\&.find_first_of("; ") + 2);
+336     this->setOnTable(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+337     line\&.erase(0, line\&.find_first_of("; ") + 2);
+338     this->setActualBet(stoi(line\&.substr(0, line\&.find_first_of("; "))));
+339     line\&.erase(0, line\&.find_first_of("; ") + 2);
+340 }
 .fi
 .SH "Member Function Documentation"
 .PP 
@@ -138,20 +225,60 @@ A string, 'hit' or 'stand'\&.
 .PP
 Implements \fBPlayer\fP\&.
 .PP
-Definition at line 265 of file Player\&.cpp\&.
+Definition at line 360 of file Player\&.cpp\&.
 .PP
 References Dealer::discard(), Table::getDealer(), and Table::getPlayers()\&.
 .PP
 .nf
-266 {
-267     string options[] = { "hit","stand" };
-268     unsigned int handScore = getHandScore();
-269     if (handScore < 17) {
-270         hit(table\&.getDealer()->discard(table\&.getPlayers()));
-271         return options[0]; // 0 means hit
-272     }
-273     return options[1]; // means stand
-274 }
+361 {
+362     string options[] = { "hit","stand" };
+363     unsigned int handScore = getHandScore();
+364     if (handScore < 17) {
+365         hit(table\&.getDealer()->discard(table\&.getPlayers()));
+366         return options[0]; // 0 means hit
+367     }
+368     return options[1]; // means stand
+369 }
+.fi
+.SS "ostream & Bot0::saveInfo (ostream & out)\fC [virtual]\fP"
+
+.PP
+Writes \fBBot0\fP info to stream\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIout\fP ostream in which \fBBot0\fP info will be saved\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBBot0\fP info in a ostream\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 354 of file Player\&.cpp\&.
+.PP
+References Player::saveInfo()\&.
+.PP
+.nf
+354                                       {
+355     out << "0; ";
+356     Player::saveInfo(out);
+357     return out;
+358 }
 .fi
 .SS "bool Bot0::takeInsurance (\fBTable\fP & table)\fC [virtual]\fP"
 
@@ -182,12 +309,12 @@ False\&.
 .PP
 Reimplemented from \fBPlayer\fP\&.
 .PP
-Definition at line 261 of file Player\&.cpp\&.
+Definition at line 350 of file Player\&.cpp\&.
 .PP
 .nf
-261                                      {
-262     return false;
-263 }
+350                                      {
+351     return false;
+352 }
 .fi
 
 

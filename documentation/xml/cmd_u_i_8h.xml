@@ -9,117 +9,122 @@
     <includedby refid="cmd_u_i_8cpp" local="yes">cmdUI.cpp</includedby>
     <includedby refid="main_8cpp" local="yes">main.cpp</includedby>
     <incdepgraph>
-      <node id="48">
+      <node id="51">
         <label>iomanip</label>
       </node>
-      <node id="43">
+      <node id="46">
         <label>utils.h</label>
         <link refid="utils_8h"/>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
         <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="46" relation="include">
         </childnode>
         <childnode refid="47" relation="include">
         </childnode>
         <childnode refid="48" relation="include">
         </childnode>
-      </node>
-      <node id="44">
-        <label>string</label>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
       </node>
       <node id="47">
+        <label>string</label>
+      </node>
+      <node id="50">
         <label>fstream</label>
       </node>
-      <node id="41">
+      <node id="44">
         <label>cmdUI.h</label>
         <link refid="cmd_u_i_8h"/>
-        <childnode refid="42" relation="include">
+        <childnode refid="45" relation="include">
         </childnode>
-        <childnode refid="43" relation="include">
+        <childnode refid="46" relation="include">
         </childnode>
-        <childnode refid="48" relation="include">
+        <childnode refid="51" relation="include">
         </childnode>
       </node>
-      <node id="45">
+      <node id="48">
         <label>vector</label>
       </node>
-      <node id="46">
+      <node id="52">
+        <label>time.h</label>
+      </node>
+      <node id="49">
         <label>cstdlib</label>
       </node>
-      <node id="42">
+      <node id="45">
         <label>iostream</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="55">
+      <node id="59">
         <label>Dealer.h</label>
         <link refid="_dealer_8h"/>
-        <childnode refid="50" relation="include">
+        <childnode refid="54" relation="include">
         </childnode>
-        <childnode refid="56" relation="include">
+        <childnode refid="60" relation="include">
         </childnode>
       </node>
-      <node id="54">
+      <node id="58">
         <label>Player.h</label>
         <link refid="_player_8h"/>
-        <childnode refid="55" relation="include">
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>Dealer.cpp</label>
+        <link refid="_dealer_8cpp"/>
+      </node>
+      <node id="55">
+        <label>Casino.h</label>
+        <link refid="_casino_8h"/>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>Table.cpp</label>
+        <link refid="_table_8cpp"/>
+      </node>
+      <node id="63">
+        <label>cmdUI.cpp</label>
+        <link refid="cmd_u_i_8cpp"/>
+      </node>
+      <node id="53">
+        <label>cmdUI.h</label>
+        <link refid="cmd_u_i_8h"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
         </childnode>
         <childnode refid="57" relation="include">
         </childnode>
       </node>
       <node id="56">
-        <label>Dealer.cpp</label>
-        <link refid="_dealer_8cpp"/>
-      </node>
-      <node id="51">
-        <label>Casino.h</label>
-        <link refid="_casino_8h"/>
-        <childnode refid="52" relation="include">
-        </childnode>
-        <childnode refid="53" relation="include">
-        </childnode>
-      </node>
-      <node id="58">
-        <label>Table.cpp</label>
-        <link refid="_table_8cpp"/>
-      </node>
-      <node id="59">
-        <label>cmdUI.cpp</label>
-        <link refid="cmd_u_i_8cpp"/>
-      </node>
-      <node id="49">
-        <label>cmdUI.h</label>
-        <link refid="cmd_u_i_8h"/>
-        <childnode refid="50" relation="include">
-        </childnode>
-        <childnode refid="59" relation="include">
-        </childnode>
-        <childnode refid="53" relation="include">
-        </childnode>
-      </node>
-      <node id="52">
         <label>Casino.cpp</label>
         <link refid="_casino_8cpp"/>
       </node>
-      <node id="57">
+      <node id="61">
         <label>Player.cpp</label>
         <link refid="_player_8cpp"/>
       </node>
-      <node id="50">
+      <node id="54">
         <label>Table.h</label>
         <link refid="_table_8h"/>
-        <childnode refid="51" relation="include">
-        </childnode>
-        <childnode refid="54" relation="include">
+        <childnode refid="55" relation="include">
         </childnode>
         <childnode refid="58" relation="include">
         </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
       </node>
-      <node id="53">
+      <node id="57">
         <label>main.cpp</label>
         <link refid="main_8cpp"/>
       </node>
@@ -139,6 +144,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="cmdUI.h" line="44" column="1" bodyfile="cmdUI.cpp" bodystart="6" bodyend="8"/>
+        <referencedby refid="class_table_1aea60338879d2079d5ba15fc97b108afe" compoundref="_table_8cpp" startline="799" endline="1055">Table::showPlay</referencedby>
       </memberdef>
       <memberdef kind="function" id="cmd_u_i_8h_1a7dcf4a3c31b79f53e2ffdb455b5e84b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -177,8 +183,9 @@
         <inbodydescription>
         </inbodydescription>
         <location file="cmdUI.h" line="58" column="1" bodyfile="cmdUI.cpp" bodystart="10" bodyend="15"/>
-        <referencedby refid="class_table_1a9ce9960e49700fe7420059feb0088187" compoundref="_table_8cpp" startline="308" endline="368">Table::showTableInfo</referencedby>
-        <referencedby refid="cmd_u_i_8h_1a4c6d8a30cfef3b6adeff15978a5cf917" compoundref="cmd_u_i_8cpp" startline="84" endline="126">start_menu</referencedby>
+        <referencedby refid="class_table_1aea60338879d2079d5ba15fc97b108afe" compoundref="_table_8cpp" startline="799" endline="1055">Table::showPlay</referencedby>
+        <referencedby refid="class_table_1a9ce9960e49700fe7420059feb0088187" compoundref="_table_8cpp" startline="561" endline="621">Table::showTableInfo</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a4c6d8a30cfef3b6adeff15978a5cf917" compoundref="cmd_u_i_8cpp" startline="85" endline="127">start_menu</referencedby>
       </memberdef>
       <memberdef kind="function" id="cmd_u_i_8h_1acfbea6861671969a9a9f62c1b8dc0c35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>pair&lt; int, int &gt;</type>
@@ -194,8 +201,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="cmdUI.h" line="71" column="1" bodyfile="cmdUI.cpp" bodystart="48" bodyend="82"/>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <location file="cmdUI.h" line="71" column="1" bodyfile="cmdUI.cpp" bodystart="48" bodyend="83"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="cmd_u_i_8h_1a4c6d8a30cfef3b6adeff15978a5cf917" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -233,11 +240,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="cmdUI.h" line="85" column="1" bodyfile="cmdUI.cpp" bodystart="84" bodyend="126"/>
+        <location file="cmdUI.h" line="85" column="1" bodyfile="cmdUI.cpp" bodystart="85" bodyend="127"/>
         <references refid="cmd_u_i_8cpp_1a7dcf4a3c31b79f53e2ffdb455b5e84b9" compoundref="cmd_u_i_8cpp" startline="10" endline="15">cursorxy</references>
         <references refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" compoundref="cmd_u_i_8cpp" startline="17" endline="46">displayMenu0</references>
-        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="87" endline="99">readIntBetween</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="91" endline="103">readIntBetween</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="cmd_u_i_8h_1a2aa92df8c5017fd8386360c516dd21f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -275,9 +282,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="cmdUI.h" line="99" column="1" bodyfile="cmdUI.cpp" bodystart="128" bodyend="133"/>
+        <location file="cmdUI.h" line="99" column="1" bodyfile="cmdUI.cpp" bodystart="129" bodyend="134"/>
         <references refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" compoundref="cmd_u_i_8cpp" startline="17" endline="46">displayMenu0</references>
-        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="87" endline="99">readIntBetween</references>
+        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="91" endline="103">readIntBetween</references>
         <referencedby refid="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" compoundref="_casino_8cpp" startline="429" endline="468">Casino::manage</referencedby>
       </memberdef>
       <memberdef kind="function" id="cmd_u_i_8h_1a6b96de8bf548d42406d7e77b2ed24d82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -316,9 +323,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="cmdUI.h" line="113" column="1" bodyfile="cmdUI.cpp" bodystart="135" bodyend="140"/>
+        <location file="cmdUI.h" line="113" column="1" bodyfile="cmdUI.cpp" bodystart="136" bodyend="141"/>
         <references refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" compoundref="cmd_u_i_8cpp" startline="17" endline="46">displayMenu0</references>
-        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="87" endline="99">readIntBetween</references>
+        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="91" endline="103">readIntBetween</references>
         <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">Casino::create</referencedby>
       </memberdef>
       <memberdef kind="function" id="cmd_u_i_8h_1a2451dbf01b864018c05fe791e91d32d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -357,9 +364,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="cmdUI.h" line="127" column="1" bodyfile="cmdUI.cpp" bodystart="142" bodyend="147"/>
+        <location file="cmdUI.h" line="127" column="1" bodyfile="cmdUI.cpp" bodystart="143" bodyend="148"/>
         <references refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" compoundref="cmd_u_i_8cpp" startline="17" endline="46">displayMenu0</references>
-        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="87" endline="99">readIntBetween</references>
+        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="91" endline="103">readIntBetween</references>
         <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">Casino::eliminate</referencedby>
       </memberdef>
       <memberdef kind="function" id="cmd_u_i_8h_1a071e1dea251b139583ae532689698d87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -398,9 +405,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="cmdUI.h" line="141" column="1" bodyfile="cmdUI.cpp" bodystart="149" bodyend="154"/>
+        <location file="cmdUI.h" line="141" column="1" bodyfile="cmdUI.cpp" bodystart="150" bodyend="155"/>
         <references refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" compoundref="cmd_u_i_8cpp" startline="17" endline="46">displayMenu0</references>
-        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="87" endline="99">readIntBetween</references>
+        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="91" endline="103">readIntBetween</references>
         <referencedby refid="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" compoundref="_casino_8cpp" startline="665" endline="803">Casino::manageTables</referencedby>
       </memberdef>
       </sectiondef>

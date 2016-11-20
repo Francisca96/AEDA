@@ -243,11 +243,11 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="220" column="1" bodyfile="Casino.cpp" bodystart="27" bodyend="41"/>
-        <references refid="class_table_1aafb202407f082dbe38b154db463ef0b1" compoundref="_table_8cpp" startline="251" endline="254">Table::getInitialMoney</references>
+        <references refid="class_table_1aafb202407f082dbe38b154db463ef0b1" compoundref="_table_8cpp" startline="504" endline="507">Table::getInitialMoney</references>
         <references refid="class_existing_table_exception_1a8024c517b64a950dedf37fd38ee6f738" compoundref="_casino_8cpp" startline="981" endline="984">ExistingTableException::what</references>
         <referencedby refid="class_casino_1a2d01e3d373c98e5a7ecaeeea19cbc99f" compoundref="_casino_8cpp" startline="20" endline="25">addTablesToCasino</referencedby>
         <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">create</referencedby>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
         <referencedby refid="class_casino_1a7ef9174a3aa71e490b4d00a4b4826f10" compoundref="_casino_8cpp" startline="269" endline="320">readTablesFile</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1af39418a2571c8411954dc74089882bb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -276,7 +276,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="233" column="1" bodyfile="Casino.cpp" bodystart="43" bodyend="54"/>
-        <references refid="class_table_1aa4db39c76365882991132d3c07a85a81" compoundref="_table_8cpp" startline="256" endline="259">Table::getTableID</references>
+        <references refid="class_table_1aa4db39c76365882991132d3c07a85a81" compoundref="_table_8cpp" startline="509" endline="512">Table::getTableID</references>
         <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">eliminate</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1a54749cf7229b9cf10665660f6edfc4d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -305,7 +305,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="246" column="1" bodyfile="Casino.cpp" bodystart="56" bodyend="66"/>
-        <references refid="class_player_1a4939193fc637f75bf7a11118334dae7e" compoundref="_player_8cpp" startline="92" endline="95">Player::getName</references>
+        <references refid="class_player_1a4939193fc637f75bf7a11118334dae7e" compoundref="_player_8cpp" startline="97" endline="100">Player::getName</references>
         <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">create</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1a23122b72fe0f0e14e5c98acd6d324562" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -363,7 +363,7 @@
         </inbodydescription>
         <location file="Casino.h" line="272" column="1" bodyfile="Casino.cpp" bodystart="85" bodyend="88"/>
         <referencedby refid="class_casino_1a00f47d52f766b215ecc46e777c5696ca" compoundref="_casino_8cpp" startline="10" endline="18">Casino</referencedby>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1aa724170771a456ad99c6ad4315d9af27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -403,7 +403,7 @@
         </inbodydescription>
         <location file="Casino.h" line="286" column="1" bodyfile="Casino.cpp" bodystart="91" bodyend="96"/>
         <references refid="class_casino_1afa089e95581b451abf4adf4afb1b1ccd" compoundref="_casino_8cpp" startline="98" endline="130">addPlayerToTable</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1afa089e95581b451abf4adf4afb1b1ccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -442,7 +442,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="300" column="1" bodyfile="Casino.cpp" bodystart="98" bodyend="130"/>
-        <references refid="class_table_1a8b9779dcd6f5695e121f75d10f9fe703" compoundref="_table_8cpp" startline="55" endline="58">Table::addPlayer</references>
+        <references refid="class_table_1a8b9779dcd6f5695e121f75d10f9fe703" compoundref="_table_8cpp" startline="57" endline="60">Table::addPlayer</references>
         <references refid="class_player_not_logged_exception_1ad224c777831b13df0b2a48e5a0e333ae" compoundref="_casino_8cpp" startline="971" endline="974">PlayerNotLoggedException::what</references>
         <references refid="class_too_many_players_exception_1aaaf4d3518d044df6bec5478d5729b7e3" compoundref="_table_8cpp" startline="8" endline="12">TooManyPlayersException::what</references>
         <referencedby refid="class_casino_1aa724170771a456ad99c6ad4315d9af27" compoundref="_casino_8cpp" startline="91" endline="96">addPlayersToTable</referencedby>
@@ -473,7 +473,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="313" column="1" bodyfile="Casino.cpp" bodystart="132" bodyend="141"/>
-        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="130" endline="132">Dealer::getID</references>
+        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="131" endline="133">Dealer::getID</references>
         <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">create</referencedby>
         <referencedby refid="class_casino_1a8a90d8525d1052a5ab1367508603ec96" compoundref="_casino_8cpp" startline="230" endline="267">readDealersFile</referencedby>
       </memberdef>
@@ -503,7 +503,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="326" column="1" bodyfile="Casino.cpp" bodystart="143" bodyend="158"/>
-        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="130" endline="132">Dealer::getID</references>
+        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="131" endline="133">Dealer::getID</references>
         <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">eliminate</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1ae75fc8b1e56e1b9c9c8e4f3e0a9ed668" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -532,7 +532,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="339" column="1" bodyfile="Casino.cpp" bodystart="160" bodyend="162"/>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1ab6af7e25d850cc4f3e38ae910849ac85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -560,7 +560,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="352" column="1" bodyfile="Casino.cpp" bodystart="164" bodyend="166"/>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1a16476391b68864965e90e7764d20c2d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -588,7 +588,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="365" column="1" bodyfile="Casino.cpp" bodystart="168" bodyend="170"/>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1aa8eb27d8aece338ad3603efe1079cc59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -604,8 +604,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="376" column="1" bodyfile="Casino.cpp" bodystart="172" bodyend="228"/>
-        <references refid="class_player_1a7cc1745523751dcea0263c9658e33111" compoundref="_player_8cpp" startline="135" endline="141">Player::setInitialMoney</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <references refid="class_player_1a7cc1745523751dcea0263c9658e33111" compoundref="_player_8cpp" startline="140" endline="146">Player::setInitialMoney</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1a8a90d8525d1052a5ab1367508603ec96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -622,9 +622,9 @@
         </inbodydescription>
         <location file="Casino.h" line="387" column="1" bodyfile="Casino.cpp" bodystart="230" bodyend="267"/>
         <references refid="class_casino_1a93780bfce351b004f0ac5602a8b593a2" compoundref="_casino_8cpp" startline="132" endline="141">addDealerToCasino</references>
-        <references refid="class_dealer_already_exist_exception_1a61aee4db55399ffd2e06ceedd04136be" compoundref="_dealer_8cpp" startline="162" endline="164">DealerAlreadyExistException::getID</references>
-        <references refid="class_dealer_1a65ef0e688aab06970d20110e29f6b5af" compoundref="_dealer_8cpp" startline="142" endline="144">Dealer::setNextID</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <references refid="class_dealer_already_exist_exception_1a61aee4db55399ffd2e06ceedd04136be" compoundref="_dealer_8cpp" startline="163" endline="165">DealerAlreadyExistException::getID</references>
+        <references refid="class_dealer_1a65ef0e688aab06970d20110e29f6b5af" compoundref="_dealer_8cpp" startline="143" endline="145">Dealer::setNextID</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1a7ef9174a3aa71e490b4d00a4b4826f10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -641,9 +641,9 @@
         </inbodydescription>
         <location file="Casino.h" line="398" column="1" bodyfile="Casino.cpp" bodystart="269" bodyend="320"/>
         <references refid="class_casino_1a0c6e77e20add9d90b286b7e2be59a1a8" compoundref="_casino_8cpp" startline="27" endline="41">addTableToCasino</references>
-        <references refid="class_table_1afa6f99eb44c137304837fbc46ef5599c" compoundref="_table_8cpp" startline="50" endline="52">Table::setID</references>
-        <references refid="class_table_1aa5953efa5c4e38b0f211f3523b378273" compoundref="_table_8cpp" startline="406" endline="408">Table::setNextID</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <references refid="class_table_1afa6f99eb44c137304837fbc46ef5599c" compoundref="_table_8cpp" startline="52" endline="54">Table::setID</references>
+        <references refid="class_table_1aa5953efa5c4e38b0f211f3523b378273" compoundref="_table_8cpp" startline="659" endline="661">Table::setNextID</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1a58badd6bd812dbc68bfe6d9610c7c0c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -659,7 +659,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="409" column="1" bodyfile="Casino.cpp" bodystart="322" bodyend="355"/>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1aa5f99a588052b451514a65735449964a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -675,8 +675,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="420" column="1" bodyfile="Casino.cpp" bodystart="357" bodyend="372"/>
-        <references refid="class_dealer_1a3af257ebe799a924bbfc2e5898672f3e" compoundref="_dealer_8cpp" startline="146" endline="148">Dealer::getNextID</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <references refid="class_dealer_1a3af257ebe799a924bbfc2e5898672f3e" compoundref="_dealer_8cpp" startline="147" endline="149">Dealer::getNextID</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1a3ab5d11c2a99d525672f459e18b6b540" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -692,8 +692,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="431" column="1" bodyfile="Casino.cpp" bodystart="374" bodyend="389"/>
-        <references refid="class_table_1a1667c54b587f1718e9360d2e24a37fc3" compoundref="_table_8cpp" startline="410" endline="412">Table::getNextId</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <references refid="class_table_1a1667c54b587f1718e9360d2e24a37fc3" compoundref="_table_8cpp" startline="663" endline="665">Table::getNextId</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1a6622d967761466d86cb4c1059123dcbd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -709,7 +709,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="442" column="1" bodyfile="Casino.cpp" bodystart="838" bodyend="845"/>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1aa75a4d63a4ba052eb6f7fb86130091b9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -842,10 +842,10 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="507" column="1" bodyfile="Casino.cpp" bodystart="395" bodyend="409"/>
-        <references refid="utils_8cpp_1ac4dc9964d286ddbbd2a108991190d39d" compoundref="utils_8cpp" startline="115" endline="127">readInt</references>
+        <references refid="utils_8cpp_1ac4dc9964d286ddbbd2a108991190d39d" compoundref="utils_8cpp" startline="119" endline="131">readInt</references>
         <references refid="class_casino_1a2208d1e4acbc255091c4904609d3b5a8" compoundref="_casino_8cpp" startline="411" endline="413">setTableToPlay</references>
         <references refid="class_casino_1a33ac92a701d94a758177cea078aa7bfb" compoundref="_casino_8cpp" startline="947" endline="964">showTables</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1a2208d1e4acbc255091c4904609d3b5a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -873,7 +873,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="520" column="1" bodyfile="Casino.cpp" bodystart="411" bodyend="413"/>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
         <referencedby refid="class_casino_1a437b52a25414c25c250c52df98db027a" compoundref="_casino_8cpp" startline="395" endline="409">selectTable</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1abc474c7425555e4ac8e030495cb7a8e3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
@@ -891,7 +891,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="533" column="1" bodyfile="Casino.cpp" bodystart="415" bodyend="427"/>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -922,11 +922,11 @@
         <references refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">create</references>
         <references refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">eliminate</references>
         <references refid="class_casino_1acf5876dc73948dbdafdad888b2ef50d4" compoundref="_casino_8cpp" startline="805" endline="814">findTable</references>
-        <references refid="cmd_u_i_8cpp_1a2aa92df8c5017fd8386360c516dd21f7" compoundref="cmd_u_i_8cpp" startline="128" endline="133">manageCasino</references>
+        <references refid="cmd_u_i_8cpp_1a2aa92df8c5017fd8386360c516dd21f7" compoundref="cmd_u_i_8cpp" startline="129" endline="134">manageCasino</references>
         <references refid="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" compoundref="_casino_8cpp" startline="665" endline="803">manageTables</references>
-        <references refid="utils_8cpp_1a55b3de51bc5631fb67d6681f33e52228" compoundref="utils_8cpp" startline="101" endline="114">readUnsignedInt</references>
+        <references refid="utils_8cpp_1a55b3de51bc5631fb67d6681f33e52228" compoundref="utils_8cpp" startline="105" endline="118">readUnsignedInt</references>
         <references refid="class_casino_1a33ac92a701d94a758177cea078aa7bfb" compoundref="_casino_8cpp" startline="947" endline="964">showTables</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -957,11 +957,11 @@
         <references refid="class_casino_1a93780bfce351b004f0ac5602a8b593a2" compoundref="_casino_8cpp" startline="132" endline="141">addDealerToCasino</references>
         <references refid="class_casino_1a54749cf7229b9cf10665660f6edfc4d8" compoundref="_casino_8cpp" startline="56" endline="66">addPlayerToCasino</references>
         <references refid="class_casino_1a0c6e77e20add9d90b286b7e2be59a1a8" compoundref="_casino_8cpp" startline="27" endline="41">addTableToCasino</references>
-        <references refid="cmd_u_i_8cpp_1a6b96de8bf548d42406d7e77b2ed24d82" compoundref="cmd_u_i_8cpp" startline="135" endline="140">createMenu</references>
+        <references refid="cmd_u_i_8cpp_1a6b96de8bf548d42406d7e77b2ed24d82" compoundref="cmd_u_i_8cpp" startline="136" endline="141">createMenu</references>
         <references refid="class_casino_1aaf0f71167edbeb284baf3f35339411a4" compoundref="_casino_8cpp" startline="816" endline="825">findDealer</references>
-        <references refid="class_dealer_1a33483233d2bdc17351d3d57fee448184" compoundref="_dealer_8cpp" startline="138" endline="140">Dealer::getTableOn</references>
-        <references refid="utils_8cpp_1a55b3de51bc5631fb67d6681f33e52228" compoundref="utils_8cpp" startline="101" endline="114">readUnsignedInt</references>
-        <references refid="utils_8cpp_1a685ffa2d206caa9be692206e68284cb4" compoundref="utils_8cpp" startline="72" endline="84">readUnsignedIntBetween</references>
+        <references refid="class_dealer_1a33483233d2bdc17351d3d57fee448184" compoundref="_dealer_8cpp" startline="139" endline="141">Dealer::getTableOn</references>
+        <references refid="utils_8cpp_1a55b3de51bc5631fb67d6681f33e52228" compoundref="utils_8cpp" startline="105" endline="118">readUnsignedInt</references>
+        <references refid="utils_8cpp_1a685ffa2d206caa9be692206e68284cb4" compoundref="utils_8cpp" startline="76" endline="88">readUnsignedIntBetween</references>
         <references refid="class_casino_1acaf0b66e12eab500cfb7706f0e62f60c" compoundref="_casino_8cpp" startline="898" endline="945">showDealers</references>
         <referencedby refid="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" compoundref="_casino_8cpp" startline="429" endline="468">manage</referencedby>
       </memberdef>
@@ -991,10 +991,10 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="573" column="1" bodyfile="Casino.cpp" bodystart="581" bodyend="663"/>
-        <references refid="cmd_u_i_8cpp_1a2451dbf01b864018c05fe791e91d32d1" compoundref="cmd_u_i_8cpp" startline="142" endline="147">deleteMenu</references>
-        <references refid="class_player_still_on_table_exception_1a173aa6dec8b33b0b3fa1aa65a03848ad" compoundref="_player_8cpp" startline="738" endline="740">PlayerStillOnTableException::getTableId</references>
-        <references refid="class_dealer_still_on_table_exception_1a44ceb65d9728c8090515aeac00bed5ce" compoundref="_dealer_8cpp" startline="171" endline="173">DealerStillOnTableException::getTableID</references>
-        <references refid="utils_8cpp_1a55b3de51bc5631fb67d6681f33e52228" compoundref="utils_8cpp" startline="101" endline="114">readUnsignedInt</references>
+        <references refid="cmd_u_i_8cpp_1a2451dbf01b864018c05fe791e91d32d1" compoundref="cmd_u_i_8cpp" startline="143" endline="148">deleteMenu</references>
+        <references refid="class_player_still_on_table_exception_1a173aa6dec8b33b0b3fa1aa65a03848ad" compoundref="_player_8cpp" startline="1028" endline="1030">PlayerStillOnTableException::getTableId</references>
+        <references refid="class_dealer_still_on_table_exception_1a44ceb65d9728c8090515aeac00bed5ce" compoundref="_dealer_8cpp" startline="172" endline="174">DealerStillOnTableException::getTableID</references>
+        <references refid="utils_8cpp_1a55b3de51bc5631fb67d6681f33e52228" compoundref="utils_8cpp" startline="105" endline="118">readUnsignedInt</references>
         <references refid="class_casino_1a00554a09b9bb5d9e7bdaaad2fe8fbbbd" compoundref="_casino_8cpp" startline="143" endline="158">removeDealerFromCasino</references>
         <references refid="class_casino_1a23122b72fe0f0e14e5c98acd6d324562" compoundref="_casino_8cpp" startline="68" endline="83">removePlayerFromCasino</references>
         <references refid="class_casino_1af39418a2571c8411954dc74089882bb4" compoundref="_casino_8cpp" startline="43" endline="54">removeTableFromCasino</references>
@@ -1043,10 +1043,10 @@
         <references refid="class_casino_1aaf0f71167edbeb284baf3f35339411a4" compoundref="_casino_8cpp" startline="816" endline="825">findDealer</references>
         <references refid="class_casino_1a566f659a6920e2ccec53d0e231f6524c" compoundref="_casino_8cpp" startline="827" endline="836">findPlayer</references>
         <references refid="class_casino_1acf5876dc73948dbdafdad888b2ef50d4" compoundref="_casino_8cpp" startline="805" endline="814">findTable</references>
-        <references refid="class_table_1a65097ec2fe98d83c44538132e4fc2047" compoundref="_table_8cpp" startline="281" endline="284">Table::getPlayers</references>
-        <references refid="cmd_u_i_8cpp_1a071e1dea251b139583ae532689698d87" compoundref="cmd_u_i_8cpp" startline="149" endline="154">manageTableMenu</references>
-        <references refid="utils_8cpp_1a55b3de51bc5631fb67d6681f33e52228" compoundref="utils_8cpp" startline="101" endline="114">readUnsignedInt</references>
-        <references refid="class_table_1a003724a8c2586a29969620dc81d7e447" compoundref="_table_8cpp" startline="71" endline="82">Table::removePlayer</references>
+        <references refid="class_table_1a65097ec2fe98d83c44538132e4fc2047" compoundref="_table_8cpp" startline="534" endline="537">Table::getPlayers</references>
+        <references refid="cmd_u_i_8cpp_1a071e1dea251b139583ae532689698d87" compoundref="cmd_u_i_8cpp" startline="150" endline="155">manageTableMenu</references>
+        <references refid="utils_8cpp_1a55b3de51bc5631fb67d6681f33e52228" compoundref="utils_8cpp" startline="105" endline="118">readUnsignedInt</references>
+        <references refid="class_table_1a003724a8c2586a29969620dc81d7e447" compoundref="_table_8cpp" startline="73" endline="84">Table::removePlayer</references>
         <references refid="class_casino_1acaf0b66e12eab500cfb7706f0e62f60c" compoundref="_casino_8cpp" startline="898" endline="945">showDealers</references>
         <references refid="class_casino_1aa75a4d63a4ba052eb6f7fb86130091b9" compoundref="_casino_8cpp" startline="847" endline="896">showPlayers</references>
         <referencedby refid="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" compoundref="_casino_8cpp" startline="429" endline="468">manage</referencedby>

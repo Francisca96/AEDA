@@ -18,7 +18,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Player.h" line="46" column="1" bodyfile="Player.cpp" bodystart="8" bodyend="11"/>
-        <referencedby refid="class_human_1ada014298369cb124b62ad64d0cb2d454" compoundref="_player_8cpp" startline="663" endline="683">Human::Human</referencedby>
+        <referencedby refid="class_human_1a4891fa9a4ad2582a7e1e8b72fc89371c" compoundref="_player_8cpp" startline="896" endline="917">Human::Human</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>

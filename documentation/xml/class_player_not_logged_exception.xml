@@ -45,7 +45,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Casino.h" line="45" column="1" bodyfile="Casino.cpp" bodystart="966" bodyend="969"/>
-        <references refid="class_player_1a4939193fc637f75bf7a11118334dae7e" compoundref="_player_8cpp" startline="92" endline="95">Player::getName</references>
+        <references refid="class_player_1a4939193fc637f75bf7a11118334dae7e" compoundref="_player_8cpp" startline="97" endline="100">Player::getName</references>
       </memberdef>
       <memberdef kind="function" id="class_player_not_logged_exception_1ad224c777831b13df0b2a48e5a0e333ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

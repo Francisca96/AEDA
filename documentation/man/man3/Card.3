@@ -1,4 +1,4 @@
-.TH "Card" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.TH "Card" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -20,6 +20,9 @@ Card \- A card\&.
 .RI "bool \fBoperator==\fP (const string &a) const"
 .br
 .RI "Equality operator\&. "
+.ti -1c
+.RI "ostream & \fBoperator<<\fP (ostream &out)"
+.br
 .in -1c
 .SS "Public Attributes"
 
@@ -55,9 +58,39 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 27 of file utils\&.h\&.
+Definition at line 28 of file utils\&.h\&.
 .SH "Member Function Documentation"
 .PP 
+.SS "ostream& Card::operator<< (ostream & out)\fC [inline]\fP"
+
+.PP
+Definition at line 71 of file utils\&.h\&.
+.PP
+References BinaryInt(), createDeck(), FileCopy(), FileExist(), getHumanPlay(), operator<<(), readBinary(), readCharYorN(), readFloat(), readInt(), readIntBetween(), readNameOfFile(), readUnsignedInt(), readUnsignedIntBetween(), saveChanges(), Users(), and waitXTime()\&.
+.PP
+.nf
+71                                       {
+72         out << this->rank;
+73         if (this->suits == "Heart")
+74         {
+75             out << (char)3;
+76         }
+77         if (this->suits == "Diamond")
+78         {
+79             out << (char)4;
+80         }
+81         if (this->suits == "Club")
+82         {
+83             out << (char)5;
+84         }
+85         if (this->suits == "Spade")
+86         {
+87             out << (char)6;
+88         }
+89 
+90         return out;
+91     }
+.fi
 .SS "bool Card::operator== (const \fBCard\fP & a) const\fC [inline]\fP"
 
 .PP
@@ -85,14 +118,14 @@ True if the parameters are considered equivalent\&.
 .PP
 
 .PP
-Definition at line 48 of file utils\&.h\&.
+Definition at line 49 of file utils\&.h\&.
 .PP
 References rank\&.
 .PP
 .nf
-49     {
-50         return (this->rank == a\&.rank);
-51     }
+50     {
+51         return (this->rank == a\&.rank);
+52     }
 .fi
 .SS "bool Card::operator== (const string & a) const\fC [inline]\fP"
 
@@ -121,14 +154,12 @@ True if the parameters are considered equivalent\&.
 .PP
 
 .PP
-Definition at line 66 of file utils\&.h\&.
-.PP
-References BinaryInt(), createDeck(), FileCopy(), FileExist(), getHumanPlay(), operator<<(), readBinary(), readCharYorN(), readFloat(), readInt(), readIntBetween(), readNameOfFile(), readUnsignedInt(), readUnsignedIntBetween(), saveChanges(), and Users()\&.
+Definition at line 67 of file utils\&.h\&.
 .PP
 .nf
-67     {
-68         return (this->rank == a);
-69     }
+68     {
+69         return (this->rank == a);
+70     }
 .fi
 .SH "Member Data Documentation"
 .PP 
@@ -137,25 +168,25 @@ References BinaryInt(), createDeck(), FileCopy(), FileExist(), getHumanPlay(), o
 .PP
 The rank\&. 
 .PP
-Definition at line 29 of file utils\&.h\&.
+Definition at line 30 of file utils\&.h\&.
 .PP
-Referenced by createDeck(), operator<<(), and operator==()\&.
+Referenced by Bot0::Bot0(), Bot1::Bot1(), Bot2::Bot2(), createDeck(), Human::Human(), operator<<(), and operator==()\&.
 .SS "unsigned int Card::score"
 
 .PP
 The score\&. 
 .PP
-Definition at line 33 of file utils\&.h\&.
+Definition at line 34 of file utils\&.h\&.
 .PP
-Referenced by Bot1::addCount(), Bot2::addCount(), createDeck(), Bot1::play(), and Bot1::split()\&.
+Referenced by Bot1::addCount(), Bot2::addCount(), Bot0::Bot0(), Bot1::Bot1(), Bot2::Bot2(), createDeck(), Human::Human(), Bot1::play(), and Bot1::split()\&.
 .SS "string Card::suits"
 
 .PP
 The suits\&. 
 .PP
-Definition at line 31 of file utils\&.h\&.
+Definition at line 32 of file utils\&.h\&.
 .PP
-Referenced by createDeck(), and operator<<()\&.
+Referenced by Bot0::Bot0(), Bot1::Bot1(), Bot2::Bot2(), createDeck(), Human::Human(), and operator<<()\&.
 
 .SH "Author"
 .PP 

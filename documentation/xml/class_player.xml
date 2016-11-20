@@ -195,6 +195,33 @@
         </inbodydescription>
         <location file="Player.h" line="303" column="1" bodyfile="Player.cpp" bodystart="20" bodyend="23"/>
       </memberdef>
+      <memberdef kind="function" id="class_player_1a3d119ccb9be9b9f03f9745507c6d3b74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::hit2</definition>
+        <argsstring>(Card newCard)</argsstring>
+        <name>hit2</name>
+        <param>
+          <type><ref refid="struct_card" kindref="compound">Card</ref></type>
+          <declname>newCard</declname>
+        </param>
+        <briefdescription>
+<para>Hits the given new card. Saves the card on the hand2. Updates the hand2score. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newCard</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new card. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="317" column="1" bodyfile="Player.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
       <memberdef kind="function" id="class_player_1a61a4b3a68af4b5ac47437cdb577086f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
         <definition>bool Player::takeInsurance</definition>
@@ -225,7 +252,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="318" column="1" bodyfile="Player.cpp" bodystart="239" bodyend="241"/>
+        <location file="Player.h" line="332" column="1" bodyfile="Player.cpp" bodystart="276" bodyend="278"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a1b2746dd99d44b728ffeb4dde3ff3e9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -255,7 +282,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="334" column="1" bodyfile="Player.cpp" bodystart="243" bodyend="246"/>
+        <location file="Player.h" line="348" column="1" bodyfile="Player.cpp" bodystart="280" bodyend="283"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a44606c251b5d4cca55ffc680752886ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -286,7 +313,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="352" column="1" bodyfile="Player.cpp" bodystart="248" bodyend="250"/>
+        <location file="Player.h" line="366" column="1" bodyfile="Player.cpp" bodystart="285" bodyend="287"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a08a3cae149f0ee66b4fad5cbe60e2a6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -301,7 +328,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="366" column="1" bodyfile="Player.cpp" bodystart="30" bodyend="32"/>
+        <location file="Player.h" line="380" column="1" bodyfile="Player.cpp" bodystart="35" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1ad58ea8ebeef513b066f1192af9e1b1f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>vector&lt; <ref refid="struct_card" kindref="compound">Card</ref> &gt; &amp;</type>
@@ -317,7 +344,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="379" column="1" bodyfile="Player.cpp" bodystart="34" bodyend="37"/>
+        <location file="Player.h" line="393" column="1" bodyfile="Player.cpp" bodystart="39" bodyend="42"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a608957ce160bff0149ce2a24ea76f29b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>vector&lt; <ref refid="struct_card" kindref="compound">Card</ref> &gt; &amp;</type>
@@ -333,7 +360,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="392" column="1" bodyfile="Player.cpp" bodystart="39" bodyend="42"/>
+        <location file="Player.h" line="406" column="1" bodyfile="Player.cpp" bodystart="44" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a8e81b80fa251db1fe1a482cf4a7a0cf3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -349,7 +376,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="405" column="1" bodyfile="Player.cpp" bodystart="44" bodyend="47"/>
+        <location file="Player.h" line="419" column="1" bodyfile="Player.cpp" bodystart="49" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1aa2ad93dbed2f5346d46b6941dee5b113" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -365,11 +392,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="418" column="1" bodyfile="Player.cpp" bodystart="125" bodyend="128"/>
+        <location file="Player.h" line="432" column="1" bodyfile="Player.cpp" bodystart="130" bodyend="133"/>
       </memberdef>
-      <memberdef kind="function" id="class_player_1a02273e06cbfd6f66b86573aac8ec14fc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>unsigned int</type>
-        <definition>unsigned int Player::getCurrentMoney</definition>
+      <memberdef kind="function" id="class_player_1a5c7b58b7d8c392a7af3ad637e1751f1b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Player::getCurrentMoney</definition>
         <argsstring>() const</argsstring>
         <name>getCurrentMoney</name>
         <briefdescription>
@@ -381,7 +408,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="431" column="1" bodyfile="Player.cpp" bodystart="113" bodyend="116"/>
+        <location file="Player.h" line="445" column="1" bodyfile="Player.cpp" bodystart="118" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1af90c94927657ba8797817d9ee35a9956" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -397,7 +424,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="444" column="1" bodyfile="Player.cpp" bodystart="102" bodyend="105"/>
+        <location file="Player.h" line="458" column="1" bodyfile="Player.cpp" bodystart="107" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a5faff6dab0e57406c8e38849a7ac7241" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -413,7 +440,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="457" column="1" bodyfile="Player.cpp" bodystart="82" bodyend="85"/>
+        <location file="Player.h" line="471" column="1" bodyfile="Player.cpp" bodystart="87" bodyend="90"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1ad110846192023027c4e9fc6b756bfa4a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -429,7 +456,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="470" column="1" bodyfile="Player.cpp" bodystart="87" bodyend="90"/>
+        <location file="Player.h" line="484" column="1" bodyfile="Player.cpp" bodystart="92" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1ac757c1e58a82d715c47f195e211521f6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -445,7 +472,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="483" column="1" bodyfile="Player.cpp" bodystart="118" bodyend="121"/>
+        <location file="Player.h" line="497" column="1" bodyfile="Player.cpp" bodystart="123" bodyend="126"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a4939193fc637f75bf7a11118334dae7e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>string</type>
@@ -461,12 +488,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="496" column="1" bodyfile="Player.cpp" bodystart="92" bodyend="95"/>
+        <location file="Player.h" line="510" column="1" bodyfile="Player.cpp" bodystart="97" bodyend="100"/>
         <referencedby refid="class_casino_1a54749cf7229b9cf10665660f6edfc4d8" compoundref="_casino_8cpp" startline="56" endline="66">Casino::addPlayerToCasino</referencedby>
-        <referencedby refid="class_human_on_table_exception_1abd859782137a73608aa7ad90656424b6" compoundref="_player_8cpp" startline="746" endline="748">HumanOnTableException::HumanOnTableException</referencedby>
-        <referencedby refid="class_player_already_exist_exception_1a0e35ed0af5e3009762fc0f3c79d857f6" compoundref="_player_8cpp" startline="725" endline="727">PlayerAlreadyExistException::PlayerAlreadyExistException</referencedby>
+        <referencedby refid="class_human_on_table_exception_1abd859782137a73608aa7ad90656424b6" compoundref="_player_8cpp" startline="1036" endline="1038">HumanOnTableException::HumanOnTableException</referencedby>
+        <referencedby refid="class_player_already_exist_exception_1a0e35ed0af5e3009762fc0f3c79d857f6" compoundref="_player_8cpp" startline="1015" endline="1017">PlayerAlreadyExistException::PlayerAlreadyExistException</referencedby>
         <referencedby refid="class_player_not_logged_exception_1aee0f412b8c985e3a42f51e3c6abbc0ab" compoundref="_casino_8cpp" startline="966" endline="969">PlayerNotLoggedException::PlayerNotLoggedException</referencedby>
-        <referencedby refid="class_player_still_on_table_exception_1a1df43217f05e26b327768df459024fac" compoundref="_player_8cpp" startline="733" endline="736">PlayerStillOnTableException::PlayerStillOnTableException</referencedby>
+        <referencedby refid="class_player_still_on_table_exception_1a1df43217f05e26b327768df459024fac" compoundref="_player_8cpp" startline="1023" endline="1026">PlayerStillOnTableException::PlayerStillOnTableException</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_player_1a05df581ac0f73a10b6163ca8c03eff7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -493,7 +520,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="509" column="1" bodyfile="Player.cpp" bodystart="97" bodyend="100"/>
+        <location file="Player.h" line="523" column="1" bodyfile="Player.cpp" bodystart="102" bodyend="105"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a4f795936b834f2d80a725f529c79c781" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -509,7 +536,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="522" column="1" bodyfile="Player.cpp" bodystart="49" bodyend="63"/>
+        <location file="Player.h" line="536" column="1" bodyfile="Player.cpp" bodystart="54" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a62cfec47d7af1fba889dc502c70b8e00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -525,15 +552,15 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="535" column="1" bodyfile="Player.cpp" bodystart="65" bodyend="80"/>
+        <location file="Player.h" line="549" column="1" bodyfile="Player.cpp" bodystart="70" bodyend="85"/>
       </memberdef>
-      <memberdef kind="function" id="class_player_1a8ec70af0c2cbfeedeae3691a84d228f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_player_1a58cd48e60ab8b69e47776359c77df8c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void Player::setCurrentMoney</definition>
-        <argsstring>(unsigned int money)</argsstring>
+        <argsstring>(float money)</argsstring>
         <name>setCurrentMoney</name>
         <param>
-          <type>unsigned int</type>
+          <type>float</type>
           <declname>money</declname>
         </param>
         <briefdescription>
@@ -552,7 +579,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="548" column="1" bodyfile="Player.cpp" bodystart="107" bodyend="110"/>
+        <location file="Player.h" line="562" column="1" bodyfile="Player.cpp" bodystart="112" bodyend="115"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1ae7dcd6039604cd4372c0d93ebc84907c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -579,7 +606,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="561" column="1" bodyfile="Player.cpp" bodystart="130" bodyend="133"/>
+        <location file="Player.h" line="575" column="1" bodyfile="Player.cpp" bodystart="135" bodyend="138"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a7cc1745523751dcea0263c9658e33111" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -606,7 +633,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="574" column="1" bodyfile="Player.cpp" bodystart="135" bodyend="141"/>
+        <location file="Player.h" line="588" column="1" bodyfile="Player.cpp" bodystart="140" bodyend="146"/>
         <referencedby refid="class_casino_1aa8eb27d8aece338ad3603efe1079cc59" compoundref="_casino_8cpp" startline="172" endline="228">Casino::readPlayersFile</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_player_1a93759b95f73ad7ccea760c3eebe79b83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -634,8 +661,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="587" column="1" bodyfile="Player.cpp" bodystart="143" bodyend="146"/>
-        <referencedby refid="class_table_1a9f12053cf49da2ea2e45ced3a5f2f0b3" compoundref="_table_8cpp" startline="388" endline="392">Table::payToPlayer</referencedby>
+        <location file="Player.h" line="601" column="1" bodyfile="Player.cpp" bodystart="148" bodyend="151"/>
+        <referencedby refid="class_table_1a9f12053cf49da2ea2e45ced3a5f2f0b3" compoundref="_table_8cpp" startline="641" endline="645">Table::payToPlayer</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_player_1abc620380dbb2cd754d4e1427760d9518" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -650,7 +677,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="598" column="1" bodyfile="Player.cpp" bodystart="148" bodyend="167"/>
+        <location file="Player.h" line="612" column="1" bodyfile="Player.cpp" bodystart="153" bodyend="172"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1ab836e9e65c439b8434619a8a86de1049" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>unsigned int</type>
@@ -681,8 +708,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="615" column="1" bodyfile="Player.cpp" bodystart="169" bodyend="179"/>
-        <references refid="class_table_1ae771baf4201fb1c73198f5c7e7189260" compoundref="_table_8cpp" startline="111" endline="114">Table::getMinBet</references>
+        <location file="Player.h" line="629" column="1" bodyfile="Player.cpp" bodystart="174" bodyend="184"/>
+        <references refid="class_table_1ae771baf4201fb1c73198f5c7e7189260" compoundref="_table_8cpp" startline="364" endline="367">Table::getMinBet</references>
       </memberdef>
       <memberdef kind="function" id="class_player_1a5715b0ace30c905ae79642e76a5437b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -697,7 +724,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="626" column="1" bodyfile="Player.cpp" bodystart="181" bodyend="184"/>
+        <location file="Player.h" line="640" column="1" bodyfile="Player.cpp" bodystart="186" bodyend="190"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1aeccd00dda342208ea502c97cadeb44e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -712,7 +739,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="637" column="1" bodyfile="Player.cpp" bodystart="186" bodyend="189"/>
+        <location file="Player.h" line="651" column="1" bodyfile="Player.cpp" bodystart="192" bodyend="196"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a532e4e3d79979f5e9e83938d6b1854ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -739,7 +766,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="650" column="1" bodyfile="Player.cpp" bodystart="191" bodyend="194"/>
+        <location file="Player.h" line="664" column="1" bodyfile="Player.cpp" bodystart="198" bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a963a140c376359f956d1c9245bdd4ea5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -755,7 +782,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="663" column="1" bodyfile="Player.cpp" bodystart="196" bodyend="199"/>
+        <location file="Player.h" line="677" column="1" bodyfile="Player.cpp" bodystart="203" bodyend="206"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a633ae716d3226a5701a6d0c9314baad4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>string</type>
@@ -787,7 +814,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="679" column="1"/>
+        <location file="Player.h" line="693" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a4ed9a572b577abaaf164a7341d8b8ae1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>int</type>
@@ -805,7 +832,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="692" column="1" bodyfile="Player.cpp" bodystart="201" bodyend="204"/>
+        <location file="Player.h" line="706" column="1" bodyfile="Player.cpp" bodystart="208" bodyend="211"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1aaf1f4c6fb5cc531db4d7acd4b8e2a2dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -834,7 +861,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="705" column="1" bodyfile="Player.cpp" bodystart="206" bodyend="209"/>
+        <location file="Player.h" line="719" column="1" bodyfile="Player.cpp" bodystart="213" bodyend="216"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1a8ff0c7c110fada9bf61df517285e061c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -851,7 +878,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="717" column="1" bodyfile="Player.cpp" bodystart="211" bodyend="213"/>
+        <location file="Player.h" line="731" column="1" bodyfile="Player.cpp" bodystart="218" bodyend="220"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1af937581b07b5cb5f2d93c3fcd7bbfd45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -867,7 +894,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="730" column="1" bodyfile="Player.cpp" bodystart="216" bodyend="218"/>
+        <location file="Player.h" line="744" column="1" bodyfile="Player.cpp" bodystart="223" bodyend="225"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1ae40dd6f0454849bfe0ccb2faa32d5eef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -894,7 +921,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="743" column="1" bodyfile="Player.cpp" bodystart="220" bodyend="222"/>
+        <location file="Player.h" line="757" column="1" bodyfile="Player.cpp" bodystart="227" bodyend="229"/>
       </memberdef>
       <memberdef kind="function" id="class_player_1acc0e88f7ca8c27d4d06dc87973fafce7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -921,8 +948,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="756" column="1" bodyfile="Player.cpp" bodystart="224" bodyend="226"/>
-        <referencedby refid="class_table_1a8b9779dcd6f5695e121f75d10f9fe703" compoundref="_table_8cpp" startline="55" endline="58">Table::addPlayer</referencedby>
+        <location file="Player.h" line="770" column="1" bodyfile="Player.cpp" bodystart="231" bodyend="233"/>
+        <referencedby refid="class_table_1a8b9779dcd6f5695e121f75d10f9fe703" compoundref="_table_8cpp" startline="57" endline="60">Table::addPlayer</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_player_1a3928c55936faef5fd63b24d94b9a5781" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -938,8 +965,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="769" column="1" bodyfile="Player.cpp" bodystart="228" bodyend="230"/>
-        <referencedby refid="class_player_still_on_table_exception_1a1df43217f05e26b327768df459024fac" compoundref="_player_8cpp" startline="733" endline="736">PlayerStillOnTableException::PlayerStillOnTableException</referencedby>
+        <location file="Player.h" line="783" column="1" bodyfile="Player.cpp" bodystart="235" bodyend="237"/>
+        <referencedby refid="class_player_still_on_table_exception_1a1df43217f05e26b327768df459024fac" compoundref="_player_8cpp" startline="1023" endline="1026">PlayerStillOnTableException::PlayerStillOnTableException</referencedby>
       </memberdef>
       <memberdef kind="function" id="class_player_1a81cb5e747e4b05b846abe1dab0008ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -954,16 +981,87 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="780" column="1" bodyfile="Player.cpp" bodystart="232" bodyend="237"/>
+        <location file="Player.h" line="794" column="1" bodyfile="Player.cpp" bodystart="239" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a3b233a3b0444fd0ef9f2c43f86001ac4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void Player::setUserID</definition>
+        <argsstring>(unsigned int userID)</argsstring>
+        <name>setUserID</name>
+        <reimplementedby refid="class_human_1a2a9efdb2f886ef6619af6b5c45044372">setUserID</reimplementedby>
+        <param>
+          <type>unsigned int</type>
+          <declname>userID</declname>
+        </param>
+        <briefdescription>
+<para>Does nothing in class <ref refid="class_player" kindref="compound">Player</ref>. But it is necessary for the human class. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="805" column="1" bodyfile="Player.h" bodystart="805" bodyend="805"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a0bb5b47696cebd816394429e821ba4f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Player::getUserID</definition>
+        <argsstring>() const</argsstring>
+        <name>getUserID</name>
+        <reimplementedby refid="class_human_1a4c63103f213ad473cc9b60b1d1856b26">getUserID</reimplementedby>
+        <briefdescription>
+<para>Returns 0;. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0. </para></simplesect>
+<simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="816" column="1" bodyfile="Player.h" bodystart="816" bodyend="816"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1aade769a50507ec98b76354c94174b5a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ostream &amp;</type>
+        <definition>ostream &amp; Player::saveInfo</definition>
+        <argsstring>(ostream &amp;out)</argsstring>
+        <name>saveInfo</name>
+        <reimplementedby refid="class_bot0_1a14558b064763186b3d9701a2fed490fb">saveInfo</reimplementedby>
+        <reimplementedby refid="class_bot1_1a6a592534214c25fb4845abe4b45fda54">saveInfo</reimplementedby>
+        <reimplementedby refid="class_bot2_1ab840f33b2ed02995afe0a24d4d3d77d1">saveInfo</reimplementedby>
+        <reimplementedby refid="class_human_1a0afaa0af47dd435b599b17aaecb8fae6">saveInfo</reimplementedby>
+        <param>
+          <type>ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Writes player info to stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ostream in which player info will be saved. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="class_player" kindref="compound">Player</ref> info in a ostream </para></simplesect>
+<simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="828" column="1" bodyfile="Player.cpp" bodystart="246" bodyend="274"/>
+        <referencedby refid="class_bot0_1a14558b064763186b3d9701a2fed490fb" compoundref="_player_8cpp" startline="354" endline="358">Bot0::saveInfo</referencedby>
+        <referencedby refid="class_bot1_1a6a592534214c25fb4845abe4b45fda54" compoundref="_player_8cpp" startline="423" endline="428">Bot1::saveInfo</referencedby>
+        <referencedby refid="class_bot2_1ab840f33b2ed02995afe0a24d4d3d77d1" compoundref="_player_8cpp" startline="842" endline="847">Bot2::saveInfo</referencedby>
+        <referencedby refid="class_human_1a0afaa0af47dd435b599b17aaecb8fae6" compoundref="_player_8cpp" startline="889" endline="894">Human::saveInfo</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>A player. Abstract Class. <ref refid="class_player" kindref="compound">Player</ref> is the base class. </para>    </briefdescription>
     <detaileddescription>
-<para>A player, human or bot.</para><para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
-<simplesect kind="date"><para>19/11/2016</para></simplesect>
-<simplesect kind="author"><para>Renato Campos </para></simplesect>
-<simplesect kind="date"><para>18/11/2016 </para></simplesect>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
 </para>    </detaileddescription>
     <inheritancegraph>
       <node id="42">
@@ -995,7 +1093,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="Player.h" line="245" column="1" bodyfile="Player.h" bodystart="245" bodyend="784"/>
+    <location file="Player.h" line="245" column="1" bodyfile="Player.h" bodystart="245" bodyend="829"/>
     <listofallmembers>
       <member refid="class_player_1ab8623b75c3f668fd37f21ed7be8b4bb9" prot="private" virt="non-virtual"><scope>Player</scope><name>actualBet</name></member>
       <member refid="class_player_1aaf1f4c6fb5cc531db4d7acd4b8e2a2dc" prot="public" virt="virtual"><scope>Player</scope><name>addCount</name></member>
@@ -1011,7 +1109,7 @@
       <member refid="class_player_1af937581b07b5cb5f2d93c3fcd7bbfd45" prot="public" virt="non-virtual"><scope>Player</scope><name>getAge</name></member>
       <member refid="class_player_1af90c94927657ba8797817d9ee35a9956" prot="public" virt="non-virtual"><scope>Player</scope><name>getAverageProfit</name></member>
       <member refid="class_player_1a4ed9a572b577abaaf164a7341d8b8ae1" prot="public" virt="virtual"><scope>Player</scope><name>getCurrentCount</name></member>
-      <member refid="class_player_1a02273e06cbfd6f66b86573aac8ec14fc" prot="public" virt="non-virtual"><scope>Player</scope><name>getCurrentMoney</name></member>
+      <member refid="class_player_1a5c7b58b7d8c392a7af3ad637e1751f1b" prot="public" virt="non-virtual"><scope>Player</scope><name>getCurrentMoney</name></member>
       <member refid="class_player_1ad58ea8ebeef513b066f1192af9e1b1f5" prot="public" virt="non-virtual"><scope>Player</scope><name>getHand</name></member>
       <member refid="class_player_1a608957ce160bff0149ce2a24ea76f29b" prot="public" virt="non-virtual"><scope>Player</scope><name>getHand2</name></member>
       <member refid="class_player_1ad110846192023027c4e9fc6b756bfa4a" prot="public" virt="non-virtual"><scope>Player</scope><name>getHand2Score</name></member>
@@ -1021,11 +1119,13 @@
       <member refid="class_player_1a4939193fc637f75bf7a11118334dae7e" prot="public" virt="non-virtual"><scope>Player</scope><name>getName</name></member>
       <member refid="class_player_1a3928c55936faef5fd63b24d94b9a5781" prot="public" virt="non-virtual"><scope>Player</scope><name>getOnTable</name></member>
       <member refid="class_player_1aa2ad93dbed2f5346d46b6941dee5b113" prot="public" virt="non-virtual"><scope>Player</scope><name>getRoundsPlayed</name></member>
+      <member refid="class_player_1a0bb5b47696cebd816394429e821ba4f0" prot="public" virt="virtual"><scope>Player</scope><name>getUserID</name></member>
       <member refid="class_player_1a3c645b2bb22fe405e677e2879bc7ba90" prot="private" virt="non-virtual"><scope>Player</scope><name>hand</name></member>
       <member refid="class_player_1a0494b9d0f5d0249b413dca3abf84a9d2" prot="private" virt="non-virtual"><scope>Player</scope><name>hand2</name></member>
       <member refid="class_player_1a888973c1a178e58f948889b6dc2f9cc9" prot="private" virt="non-virtual"><scope>Player</scope><name>hand2Score</name></member>
       <member refid="class_player_1ab0b8da4e0a1c506e3858a730208759a6" prot="private" virt="non-virtual"><scope>Player</scope><name>handScore</name></member>
       <member refid="class_player_1af8bb3cd6c6f7840c6cfa864ed78b10af" prot="public" virt="non-virtual"><scope>Player</scope><name>hit</name></member>
+      <member refid="class_player_1a3d119ccb9be9b9f03f9745507c6d3b74" prot="public" virt="non-virtual"><scope>Player</scope><name>hit2</name></member>
       <member refid="class_player_1aacffce30f5380fc06011b4e8381f0370" prot="private" virt="non-virtual"><scope>Player</scope><name>initialMoney</name></member>
       <member refid="class_player_1acf0355128a99ee20ad9931b760fb2de1" prot="private" virt="non-virtual"><scope>Player</scope><name>name</name></member>
       <member refid="class_player_1a27c8117c8739fa341f6952c6bb2de48d" prot="private" virt="non-virtual"><scope>Player</scope><name>onTable</name></member>
@@ -1033,15 +1133,17 @@
       <member refid="class_player_1a81cb5e747e4b05b846abe1dab0008ddf" prot="public" virt="non-virtual"><scope>Player</scope><name>removeCardFromFirstHandAndSetItOnSecondHand</name></member>
       <member refid="class_player_1a8ff0c7c110fada9bf61df517285e061c" prot="public" virt="virtual"><scope>Player</scope><name>resetCount</name></member>
       <member refid="class_player_1a668b7ea676439ac536bbdded069a2487" prot="private" virt="non-virtual"><scope>Player</scope><name>roundsPlayed</name></member>
+      <member refid="class_player_1aade769a50507ec98b76354c94174b5a3" prot="public" virt="virtual"><scope>Player</scope><name>saveInfo</name></member>
       <member refid="class_player_1a532e4e3d79979f5e9e83938d6b1854ad" prot="public" virt="non-virtual"><scope>Player</scope><name>setActualBet</name></member>
       <member refid="class_player_1ae40dd6f0454849bfe0ccb2faa32d5eef" prot="public" virt="non-virtual"><scope>Player</scope><name>setAge</name></member>
-      <member refid="class_player_1a8ec70af0c2cbfeedeae3691a84d228f8" prot="public" virt="non-virtual"><scope>Player</scope><name>setCurrentMoney</name></member>
+      <member refid="class_player_1a58cd48e60ab8b69e47776359c77df8c1" prot="public" virt="non-virtual"><scope>Player</scope><name>setCurrentMoney</name></member>
       <member refid="class_player_1a62cfec47d7af1fba889dc502c70b8e00" prot="public" virt="non-virtual"><scope>Player</scope><name>setHand2Score</name></member>
       <member refid="class_player_1a4f795936b834f2d80a725f529c79c781" prot="public" virt="non-virtual"><scope>Player</scope><name>setHandScore</name></member>
       <member refid="class_player_1a7cc1745523751dcea0263c9658e33111" prot="public" virt="non-virtual"><scope>Player</scope><name>setInitialMoney</name></member>
       <member refid="class_player_1a05df581ac0f73a10b6163ca8c03eff7b" prot="public" virt="non-virtual"><scope>Player</scope><name>setName</name></member>
       <member refid="class_player_1acc0e88f7ca8c27d4d06dc87973fafce7" prot="public" virt="non-virtual"><scope>Player</scope><name>setOnTable</name></member>
       <member refid="class_player_1ae7dcd6039604cd4372c0d93ebc84907c" prot="public" virt="non-virtual"><scope>Player</scope><name>setRoundsPlayed</name></member>
+      <member refid="class_player_1a3b233a3b0444fd0ef9f2c43f86001ac4" prot="public" virt="virtual"><scope>Player</scope><name>setUserID</name></member>
       <member refid="class_player_1abc620380dbb2cd754d4e1427760d9518" prot="public" virt="non-virtual"><scope>Player</scope><name>showStatistics</name></member>
       <member refid="class_player_1a44606c251b5d4cca55ffc680752886ba" prot="public" virt="virtual"><scope>Player</scope><name>split</name></member>
       <member refid="class_player_1a1b2746dd99d44b728ffeb4dde3ff3e9e" prot="public" virt="virtual"><scope>Player</scope><name>surrender</name></member>

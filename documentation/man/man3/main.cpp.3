@@ -1,4 +1,4 @@
-.TH "main.cpp" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.TH "main.cpp" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -106,94 +106,93 @@ References Casino::addPlayersToCasino(), Casino::addPlayersToTable(), Casino::ad
 78         case 1:
 79             system("CLS");
 80             //TODO: play (game run in normal mode with a human player)
-81             cout << "Please insert you name: " << endl;
-82             try
-83             {
-84                 casino\&.getTableToPlay()->play();
-85                 system("pause");
-86             }
-87             catch (TableNotInCasinoException)
-88             {
-89                 cout << "Please select a table first" << endl;
-90                 system("pause");
-91             }
-92             catch (NoPlayersOnTableException NoPlayersOnTableException)
-93             {
-94                 cout << "The table: " << NoPlayersOnTableException\&.getID() << " dont have players" << endl;
-95                 cout << "Please select a table with players first" << endl;
-96                 system("pause");
-97             }
-98             catch (TooManyPlayersException)
-99             {
-100                 cout << "You can't play on table selected" << endl;
-101                 cout << "The table is full" << endl;
-102                 system("pause");
-103             }
-104             break;
-105         case 2:
-106             //TODO: simulation (game run all alone for n cycles)
-107             cout << "How many rounds do you want to simulate?" << endl;
-108             roundsToPlay = readUnsignedInt();
-109             try
-110             {
-111                 casino\&.getTableToPlay()->simulation(roundsToPlay);
-112                 casino\&.showStatistics();
-113                 system("pause");
-114             }
-115             catch (TableNotInCasinoException)
-116             {
-117                 cout << "Please select a table first" << endl;
-118                 system("pause");
-119             }
-120             catch (NoPlayersOnTableException noPlayerOnTable)
-121             {
-122                 cout << "The table: " << noPlayerOnTable\&.getID() << " dont have players" << endl;
-123                 cout << "Please select a table with players first" << endl;
-124                 system("pause");
-125             }
-126             catch (HumanOnTableException)
-127             {
-128                 cout << "The table has a human" << endl;
-129                 cout << "Please select a table with no humans" << endl;
-130                 system("pause");
-131             }
-132             break;
-133         case 3:
-134             //TODO: choose table (selection one table to play on simulation or normal mode)
-135             try
-136             {
-137                 casino\&.selectTable(xy);
-138             }
-139             catch (TableNotInCasinoException)
-140             {
-141                 cout << "This table not exist" << endl;
-142             }
-143             system("pause");
-144             break;
-145         case 4:
-146             //TODO: menu to creat table, define employee of table, and bots to tables, choose files\&.\&.\&.
-147             casino\&.manage(xy);
-148             break;
-149         case 0:
-150             exit = 1;
-151             break;
-152         default:
-153             break;
-154         }
-155     }
-156 
-157     //save changes of files
-158     int save;
-159     saveChanges(usersVEC, user, xy, save);
-160     if (save)
-161     {
-162         casino\&.savePlayersFile();
-163         casino\&.saveDealersFile();
-164         casino\&.saveTablesFile();
-165     }
-166 
-167     return 0;
-168 }
+81             try
+82             {
+83                 casino\&.getTableToPlay()->play(xy, user);
+84                 system("pause");
+85             }
+86             catch (TableNotInCasinoException)
+87             {
+88                 cout << "Please select a table first" << endl;
+89                 system("pause");
+90             }
+91             catch (NoPlayersOnTableException NoPlayersOnTableException)
+92             {
+93                 cout << "The table: " << NoPlayersOnTableException\&.getID() << " dont have players" << endl;
+94                 cout << "Please select a table with players first" << endl;
+95                 system("pause");
+96             }
+97             catch (TooManyPlayersException)
+98             {
+99                 cout << "You can't play on table selected" << endl;
+100                 cout << "The table is full" << endl;
+101                 system("pause");
+102             }
+103             break;
+104         case 2:
+105             //TODO: simulation (game run all alone for n cycles)
+106             cout << "How many rounds do you want to simulate?" << endl;
+107             roundsToPlay = readUnsignedInt();
+108             try
+109             {
+110                 casino\&.getTableToPlay()->simulation(roundsToPlay);
+111                 casino\&.showStatistics();
+112                 system("pause");
+113             }
+114             catch (TableNotInCasinoException)
+115             {
+116                 cout << "Please select a table first" << endl;
+117                 system("pause");
+118             }
+119             catch (NoPlayersOnTableException noPlayerOnTable)
+120             {
+121                 cout << "The table: " << noPlayerOnTable\&.getID() << " dont have players" << endl;
+122                 cout << "Please select a table with players first" << endl;
+123                 system("pause");
+124             }
+125             catch (HumanOnTableException)
+126             {
+127                 cout << "The table has a human" << endl;
+128                 cout << "Please select a table with no humans" << endl;
+129                 system("pause");
+130             }
+131             break;
+132         case 3:
+133             //TODO: choose table (selection one table to play on simulation or normal mode)
+134             try
+135             {
+136                 casino\&.selectTable(xy);
+137             }
+138             catch (TableNotInCasinoException)
+139             {
+140                 cout << "This table not exist" << endl;
+141             }
+142             system("pause");
+143             break;
+144         case 4:
+145             //TODO: menu to creat table, define employee of table, and bots to tables, choose files\&.\&.\&.
+146             casino\&.manage(xy);
+147             break;
+148         case 0:
+149             exit = 1;
+150             break;
+151         default:
+152             break;
+153         }
+154     }
+155 
+156     //save changes of files
+157     int save;
+158     saveChanges(usersVEC, user, xy, save);
+159     if (save)
+160     {
+161         casino\&.savePlayersFile();
+162         casino\&.saveDealersFile();
+163         casino\&.saveTablesFile();
+164     }
+165 
+166     return 0;
+167 }
 .fi
 .SH "Author"
 .PP 

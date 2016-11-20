@@ -1,4 +1,4 @@
-.TH "Casino" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.TH "Casino" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -1346,7 +1346,7 @@ Referenced by main()\&.
 195                 {
 196                     ssLine << line;
 197                     ssLine >> age;
-198                     Human *newHuman = new Human(name, age);
+198                     Human *newHuman = new Human(name, age, -1);
 199                     newHuman->setInitialMoney(initialMoney);
 200                     players\&.push_back(newHuman);
 201                 }
@@ -1652,7 +1652,7 @@ Referenced by main()\&.
 .nf
 322                              {
 323     ofstream outFile(playersFile);
-324     for (int i = 0; i < 3; i++)
+324     for (int j = 0; j < 3; j++)
 325     {
 326         if (outFile\&.is_open())
 327         {

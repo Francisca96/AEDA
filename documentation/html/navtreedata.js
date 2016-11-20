@@ -25,7 +25,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_casino_8cpp.html",
-"struct_card.html#a0b7554519cc029294c1c7e42b591d995"
+"cmd_u_i_8h.html#a9d7e8af417b6d543da691e9c0e2f6f9f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
