@@ -50,7 +50,7 @@ int main(){
 	casino.showTables();
 	system("pause");*/
 
-	unsigned int minBet = 2;
+	/*unsigned int minBet = 2;
 	unsigned int maxBet = 1000;
 	unsigned int moneyOfTable = 30000;
 	unsigned int maxNumberOfPlayers = 6;
@@ -64,7 +64,7 @@ int main(){
 	casino.addTableToCasino(table1);
 	casino.addPlayersToCasino(playersVector);
 	casino.addPlayersToTable(playersVector, table1);
-	casino.setTableToPlay(-1);
+	casino.setTableToPlay(-1);*/
 
 	/*END OF DEBUG*/
 	int choice, exit = 0;
