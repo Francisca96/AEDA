@@ -100,6 +100,12 @@ int main(){
 				cout << "The table is full" << endl;
 				system("pause");
 			}
+			catch (TooYoungException)
+			{
+				cout << "You can't play on table selected" << endl;
+				cout << "You are too young for play this game" << endl;
+				system("pause");
+			}
 			break;
 		case 2:
 			//TODO: simulation (game run all alone for n cycles)
@@ -108,7 +114,6 @@ int main(){
 			try
 			{
 				casino.getTableToPlay()->simulation(roundsToPlay);
-				casino.showStatistics();
 				system("pause");
 			}
 			catch (TableNotInCasinoException)
