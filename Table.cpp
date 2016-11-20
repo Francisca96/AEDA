@@ -159,7 +159,7 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 				}
 				else if (players.at(i)->getUserID() == userID)
 				{
-					cout << players.at(i)->getCurrentMoney() << "don't have money to play" << endl;
+					cout << "The" << players.at(i)->getName() << "don't have money to play" << endl;
 					waitXTime(2);
 					exit = true;
 				}
@@ -168,7 +168,7 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 			this->writeTableFile();
 			this->showPlay(xy);
 		}
-		if (nextPlayerIndex == 0 && phaseOfPlaying == 2)
+		if ((nextPlayerIndex == 0 && phaseOfPlaying == 2) && !exit)
 		{
 			restartDeck();
 			dealOneCardToAllPlayers();
@@ -182,7 +182,7 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 		}
 
 		//TODO:implement take insurance
-		if (phaseOfPlaying == 1 || phaseOfPlaying == 3)
+		if ((phaseOfPlaying == 1 || phaseOfPlaying == 3) && !exit)
 		{
 			for (size_t i = nextPlayerIndex; i < actualPlayers.size(); i++)
 			{
