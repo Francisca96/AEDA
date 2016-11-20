@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Table.h" line="104" column="1" bodyfile="Table.h" bodystart="104" bodyend="-1"/>
+        <location file="Table.h" line="78" column="1" bodyfile="Table.h" bodystart="78" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -44,8 +44,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Table.h" line="118" column="1" bodyfile="Table.cpp" bodystart="420" bodyend="422"/>
-        <references refid="class_table_1aa4db39c76365882991132d3c07a85a81" compoundref="_table_8cpp" startline="256" endline="259">Table::getTableID</references>
+        <location file="Table.h" line="92" column="1" bodyfile="Table.cpp" bodystart="1063" bodyend="1065"/>
+        <references refid="class_table_1aa4db39c76365882991132d3c07a85a81" compoundref="_table_8cpp" startline="509" endline="512">Table::getTableID</references>
       </memberdef>
       <memberdef kind="function" id="class_no_players_on_table_exception_1a59983e4b1309c92ee096c263fa5fcd85" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -61,8 +61,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Table.h" line="131" column="1" bodyfile="Table.cpp" bodystart="424" bodyend="426"/>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <location file="Table.h" line="105" column="1" bodyfile="Table.cpp" bodystart="1067" bodyend="1069"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -71,7 +71,7 @@
 <para><simplesect kind="author"><para>Renato Campos </para></simplesect>
 <simplesect kind="date"><para>18/11/2016 </para></simplesect>
 </para>    </detaileddescription>
-    <location file="Table.h" line="101" column="1" bodyfile="Table.h" bodystart="101" bodyend="132"/>
+    <location file="Table.h" line="75" column="1" bodyfile="Table.h" bodystart="75" bodyend="106"/>
     <listofallmembers>
       <member refid="class_no_players_on_table_exception_1a59983e4b1309c92ee096c263fa5fcd85" prot="public" virt="non-virtual"><scope>NoPlayersOnTableException</scope><name>getID</name></member>
       <member refid="class_no_players_on_table_exception_1abe7ebe8452fefaf885ca49e0b0583890" prot="public" virt="non-virtual"><scope>NoPlayersOnTableException</scope><name>NoPlayersOnTableException</name></member>

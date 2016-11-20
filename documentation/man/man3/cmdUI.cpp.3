@@ -1,4 +1,4 @@
-.TH "cmdUI.cpp" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.TH "cmdUI.cpp" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -83,35 +83,36 @@ Referenced by main()\&.
 51         RECT desktop;
 52         const HWND hDesktop = GetDesktopWindow();
 53         GetWindowRect(hDesktop, &desktop);
-54         MoveWindow(hwnd, desktop\&.right * 0\&.175, desktop\&.bottom * 0\&.2, desktop\&.right * 0\&.65, desktop\&.bottom * 0\&.6, TRUE);
-55         HANDLE screen = GetStdHandle(STD_OUTPUT_HANDLE);
-56         COORD max_size = GetLargestConsoleWindowSize(screen);
-57         int console_x = max_size\&.X*desktop\&.right*0\&.65 / desktop\&.right - 1;
-58         int console_y = max_size\&.Y*desktop\&.bottom*0\&.6 / desktop\&.bottom - 1;
-59         if (console_x < 56)
-60         {
-61             console_x = max_size\&.X*desktop\&.right*0\&.9 / desktop\&.right + 3;
-62             console_y = max_size\&.Y*desktop\&.bottom*0\&.9 / desktop\&.bottom - 1;
-63             MoveWindow(hwnd, desktop\&.right * 0\&.025, desktop\&.bottom * 0\&.025, desktop\&.right * 0\&.95, desktop\&.bottom * 0\&.9, TRUE);
-64         }
-65         else if (console_y <= 15)
-66         {
-67             console_y = max_size\&.Y*desktop\&.bottom*0\&.9 / desktop\&.bottom - 1;
-68             MoveWindow(hwnd, desktop\&.right * 0\&.2, desktop\&.bottom * 0\&.1, desktop\&.right * 0\&.6, desktop\&.bottom * 0\&.8, TRUE);
-69         }
-70 
-71         /*PCONSOLE_FONT_INFOEX cmd_font;
-72         GetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), false, cmd_font);
-73         cout << cmd_font->FaceName << endl;
-74         system("pause");*/
-75 
-76         pair <int, int> xy = { console_x,console_y };
-77         return xy;
-78 #else
-79     pair <int, int> xy = {-1,-1};
-80     return xy;
-81 #endif
-82 }
+54 
+55         MoveWindow(hwnd, desktop\&.right * 0\&.175, desktop\&.bottom * 0\&.2, desktop\&.right * 0\&.65, desktop\&.bottom * 0\&.6, TRUE);
+56         HANDLE screen = GetStdHandle(STD_OUTPUT_HANDLE);
+57         COORD max_size = GetLargestConsoleWindowSize(screen);
+58         int console_x = max_size\&.X*desktop\&.right*0\&.65 / desktop\&.right - 1;
+59         int console_y = max_size\&.Y*desktop\&.bottom*0\&.6 / desktop\&.bottom - 1;
+60         if (console_x < 56)
+61         {
+62             console_x = max_size\&.X*desktop\&.right*0\&.9 / desktop\&.right + 3;
+63             console_y = max_size\&.Y*desktop\&.bottom*0\&.9 / desktop\&.bottom - 1;
+64             MoveWindow(hwnd, desktop\&.right * 0\&.025, desktop\&.bottom * 0\&.025, desktop\&.right * 0\&.95, desktop\&.bottom * 0\&.9, TRUE);
+65         }
+66         else if (console_y <= 15)
+67         {
+68             console_y = max_size\&.Y*desktop\&.bottom*0\&.9 / desktop\&.bottom - 1;
+69             MoveWindow(hwnd, desktop\&.right * 0\&.2, desktop\&.bottom * 0\&.1, desktop\&.right * 0\&.6, desktop\&.bottom * 0\&.8, TRUE);
+70         }
+71 
+72         /*PCONSOLE_FONT_INFOEX cmd_font;
+73         GetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), false, cmd_font);
+74         cout << cmd_font->FaceName << endl;
+75         system("pause");*/
+76 
+77         pair <int, int> xy = { console_x,console_y };
+78         return xy;
+79 #else
+80     pair <int, int> xy = {-1,-1};
+81     return xy;
+82 #endif
+83 }
 .fi
 .SS "void clearScreen ()"
 
@@ -131,6 +132,8 @@ Ineeve
 
 .PP
 Definition at line 6 of file cmdUI\&.cpp\&.
+.PP
+Referenced by Table::showPlay()\&.
 .PP
 .nf
 6                    {
@@ -161,19 +164,19 @@ Ineeve
 .PP
 
 .PP
-Definition at line 135 of file cmdUI\&.cpp\&.
+Definition at line 136 of file cmdUI\&.cpp\&.
 .PP
 References displayMenu0(), and readIntBetween()\&.
 .PP
 Referenced by Casino::create()\&.
 .PP
 .nf
-135                                                              {
-136     vector <string> options = { "-\&. Create \&.\&.\&." ,"  1\&. Table" ,"  2\&. Dealer", "  3\&. Player (BOT)", "-\&. Delete\&.\&.\&.", "-\&. Manage Tables", "-\&. Stats" , "" ,"0\&. Back" };
-137     system("CLS");
-138     displayMenu0(xy, "1\&. Create \&.\&.\&.", options);
-139     choice = readIntBetween(0, 3);
-140 }
+136                                                              {
+137     vector <string> options = { "-\&. Create \&.\&.\&." ,"  1\&. Table" ,"  2\&. Dealer", "  3\&. Player (BOT)", "-\&. Delete\&.\&.\&.", "-\&. Manage Tables", "-\&. Stats" , "" ,"0\&. Back" };
+138     system("CLS");
+139     displayMenu0(xy, "1\&. Create \&.\&.\&.", options);
+140     choice = readIntBetween(0, 3);
+141 }
 .fi
 .SS "void cursorxy (short x, short y)"
 
@@ -201,7 +204,7 @@ Ineeve
 .PP
 Definition at line 10 of file cmdUI\&.cpp\&.
 .PP
-Referenced by Table::showTableInfo(), and start_menu()\&.
+Referenced by Table::showPlay(), Table::showTableInfo(), and start_menu()\&.
 .PP
 .nf
 10                                 {
@@ -235,19 +238,19 @@ Ineeve
 .PP
 
 .PP
-Definition at line 142 of file cmdUI\&.cpp\&.
+Definition at line 143 of file cmdUI\&.cpp\&.
 .PP
 References displayMenu0(), and readIntBetween()\&.
 .PP
 Referenced by Casino::eliminate()\&.
 .PP
 .nf
-142                                                              {
-143     vector <string> options = { "-\&. Create \&.\&.\&." , "-\&. Delete\&.\&.\&.", "  1\&. Table" ,"  2\&. Dealer", "  3\&. Player (BOT)", "-\&. Manage Tables", "-\&. Stats" ,"" , "0\&. Back" };
-144     system("CLS");
-145     displayMenu0(xy, "2\&. Delete \&.\&.\&.", options);
-146     choice = readIntBetween(0, 3);
-147 }
+143                                                              {
+144     vector <string> options = { "-\&. Create \&.\&.\&." , "-\&. Delete\&.\&.\&.", "  1\&. Table" ,"  2\&. Dealer", "  3\&. Player (BOT)", "-\&. Manage Tables", "-\&. Stats" ,"" , "0\&. Back" };
+145     system("CLS");
+146     displayMenu0(xy, "2\&. Delete \&.\&.\&.", options);
+147     choice = readIntBetween(0, 3);
+148 }
 .fi
 .SS "void displayMenu0 (pair< int, int > xy, string title, vector< string > menuOptions)"
 
@@ -312,19 +315,19 @@ Ineeve
 .PP
 
 .PP
-Definition at line 128 of file cmdUI\&.cpp\&.
+Definition at line 129 of file cmdUI\&.cpp\&.
 .PP
 References displayMenu0(), and readIntBetween()\&.
 .PP
 Referenced by Casino::manage()\&.
 .PP
 .nf
-128                                                                {
-129     vector <string> options = {"1\&. Create \&.\&.\&." ,"2\&. Delete\&.\&.\&.", "3\&. Manage Tables", "4\&. Stats" , "" , "0\&. Return to MENU" };
-130     system("CLS");
-131     displayMenu0(xy, "MANAGE CASINO", options);
-132     choice = readIntBetween(0, 4);
-133 }
+129                                                                {
+130     vector <string> options = {"1\&. Create \&.\&.\&." ,"2\&. Delete\&.\&.\&.", "3\&. Manage Tables", "4\&. Stats" , "" , "0\&. Return to MENU" };
+131     system("CLS");
+132     displayMenu0(xy, "MANAGE CASINO", options);
+133     choice = readIntBetween(0, 4);
+134 }
 .fi
 .SS "void manageTableMenu (pair< short, short > xy, unsigned int & choice)"
 
@@ -350,19 +353,19 @@ Ineeve
 .PP
 
 .PP
-Definition at line 149 of file cmdUI\&.cpp\&.
+Definition at line 150 of file cmdUI\&.cpp\&.
 .PP
 References displayMenu0(), and readIntBetween()\&.
 .PP
 Referenced by Casino::manageTables()\&.
 .PP
 .nf
-149                                                                    {
-150     vector <string> options = { "-\&. Create \&.\&.\&." , "-\&. Delete\&.\&.\&.", "-\&. Manage Tables","  1\&. Set dealer", "  2\&. Add Player", "  3\&. Remove Player" , "-\&. Stats" ,"" , "0\&. Back" };
-151     system("CLS");
-152     displayMenu0(xy, "3\&. Manage Tables \&.\&.\&.", options);
-153     choice = readIntBetween(0, 3);
-154 }
+150                                                                    {
+151     vector <string> options = { "-\&. Create \&.\&.\&." , "-\&. Delete\&.\&.\&.", "-\&. Manage Tables","  1\&. Set dealer", "  2\&. Add Player", "  3\&. Remove Player" , "-\&. Stats" ,"" , "0\&. Back" };
+152     system("CLS");
+153     displayMenu0(xy, "3\&. Manage Tables \&.\&.\&.", options);
+154     choice = readIntBetween(0, 3);
+155 }
 .fi
 .SS "void start_menu (pair< short, short > xy, int & choice)"
 
@@ -388,56 +391,56 @@ Ineeve
 .PP
 
 .PP
-Definition at line 84 of file cmdUI\&.cpp\&.
+Definition at line 85 of file cmdUI\&.cpp\&.
 .PP
 References cursorxy(), displayMenu0(), and readIntBetween()\&.
 .PP
 Referenced by main()\&.
 .PP
 .nf
-84                                                      {
-85     //display author rights
-86     system("CLS");
-87     cursorxy((xy\&.first - 50) / 2 - 2, xy\&.second - 2);
-88     cout << (char)201; //╔
-89     for (unsigned int i = 0; i <= 50; i++)
-90     {
-91         cout << (char)205; //═
-92     }
-93     cout << (char)187 << endl; //╗
-94     cout << setw((xy\&.first - 50) / 2 - 1) << (char)186 /*║*/ << setw((50 - 31) / 2) << " " << "BlackJack " << (char)184 << " Console Application" << setw(12) << (char)186 /*║*/ << endl;
-95     cout << setw((xy\&.first - 50) / 2 - 1) << (char)186 /*║*/ << setw((50 + 43) / 2) << "AEDA 2016/2017 Grupo D, All Rights Reserved" << setw(6) << (char)186 /*║*/ << endl;
-96     cursorxy(0, 0);
-97 
-98     //draw of title (different draw if screen is small)
-99     cout << endl << endl;
-100     if (xy\&.first >= 78)
-101     {
-102         cout << setw((xy\&.first - 78) / 2 - 1) << " " << " _______    _        __      _____  _    _    _____     __     _____  _    _  " << endl
-103             << setw((xy\&.first - 78) / 2 - 1) << " "  << "/_____  |  | |      /  \\    /  __/ | \\  / /  |___  |   /  \\   /  __/ | \\  / / " << endl
-104             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  | | | |  | |     /    \\   | |    | | / /       | |  /    \\  | |    | | / /  " << endl
-105             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  | |_| |  | |    |  /\\  |  | |    | |/ /        | | |  /\\  | | |    | |/ /   " << endl
-106             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  |  __  | | |    | |__| |  | |    |    |    _   | | | |__| | | |    |    |   " << endl
-107             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  | |  | | | |    |  __  |  | |    | |\\ \\   | |  | | |  __  | | |    | |\\ \\   " << endl
-108             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  | |__| | | \\__  | |  | |  | |__  | | \\ \\  | |__| | | |  | | | |__  | | \\ \\  " << endl
-109             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  |______|  \\___/ |_|  |_|  \\____\\ |_/  \\_\\ |______| |_|  |_| \\____\\ |_/  \\_\\ " << endl;
-110     }
-111     else
-112     {
-113         cout << setw((xy\&.first - 44) / 2) << (char)218 << (char)196 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)191 << " " << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)191 << "     " << (char)218 << (char)191 << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)191 << endl
-114             << setw((xy\&.first - 44) / 2) << (char)192 << (char)191 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)218 << (char)196 << (char)196 << (char)217 << (char)179 << (char)179 << (char)218 << (char)191 << "   " << (char)179 << (char)179 << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)218 << (char)196 << (char)196 << (char)217 << (char)179 << (char)179 << (char)218 << (char)191 << endl
-115             << setw((xy\&.first - 44) / 2) << " " << (char)179 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)179 << "   " << (char)179 << (char)192 << (char)217 << (char)192 << (char)191 << "  " << (char)179 << (char)179 << (char)179 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)179 << "   " << (char)179 << (char)192 << (char)217 << (char)192 << (char)191 << endl
-116             << setw((xy\&.first - 44) / 2) << " " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)179 << "   " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)218 << (char)191 << (char)179 << (char)179 << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)179 << "   " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << endl
-117             << setw((xy\&.first - 44) / 2) << (char)218 << (char)217 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)192 << (char)191 << (char)179 << (char)179 << " " << (char)179 << (char)179 << (char)179 << (char)192 << (char)196 << (char)196 << (char)191 << (char)179 << (char)179 << " " << (char)179 << (char)179 << (char)179 << (char)192 << (char)217 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)179 << (char)179 << (char)192 << (char)196 << (char)196 << (char)191 << (char)179 << (char)179 << " " << (char)179 << (char)179 << endl
-118             << setw((xy\&.first - 44) / 2) << (char)192 << (char)196 << (char)196 << (char)196 << (char)196 << (char)217 << (char)192 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << (char)192 << (char)196 << (char)196 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << (char)192 << (char)196 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << (char)192 << (char)196 << (char)196 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << endl;
-119     }
-120     cout << endl << endl;
-121 
-122     //display menu
-123     vector <string> options = {"1\&. Play" ,"2\&. Simulation", "3\&. Choose Table", "4\&. Manage Casino", "" ,"0\&. EXIT"};
-124     displayMenu0(xy, "MENU", options);
-125     choice = readIntBetween(0, 4);
-126 }
+85                                                      {
+86     //display author rights
+87     system("CLS");
+88     cursorxy((xy\&.first - 50) / 2 - 2, xy\&.second - 2);
+89     cout << (char)201; //╔
+90     for (unsigned int i = 0; i <= 50; i++)
+91     {
+92         cout << (char)205; //═
+93     }
+94     cout << (char)187 << endl; //╗
+95     cout << setw((xy\&.first - 50) / 2 - 1) << (char)186 /*║*/ << setw((50 - 31) / 2) << " " << "BlackJack " << (char)184 << " Console Application" << setw(12) << (char)186 /*║*/ << endl;
+96     cout << setw((xy\&.first - 50) / 2 - 1) << (char)186 /*║*/ << setw((50 + 43) / 2) << "AEDA 2016/2017 Grupo D, All Rights Reserved" << setw(6) << (char)186 /*║*/ << endl;
+97     cursorxy(0, 0);
+98 
+99     //draw of title (different draw if screen is small)
+100     cout << endl << endl;
+101     if (xy\&.first >= 78)
+102     {
+103         cout << setw((xy\&.first - 78) / 2 - 1) << " " << " _______    _        __      _____  _    _    _____     __     _____  _    _  " << endl
+104             << setw((xy\&.first - 78) / 2 - 1) << " "  << "/_____  |  | |      /  \\    /  __/ | \\  / /  |___  |   /  \\   /  __/ | \\  / / " << endl
+105             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  | | | |  | |     /    \\   | |    | | / /       | |  /    \\  | |    | | / /  " << endl
+106             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  | |_| |  | |    |  /\\  |  | |    | |/ /        | | |  /\\  | | |    | |/ /   " << endl
+107             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  |  __  | | |    | |__| |  | |    |    |    _   | | | |__| | | |    |    |   " << endl
+108             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  | |  | | | |    |  __  |  | |    | |\\ \\   | |  | | |  __  | | |    | |\\ \\   " << endl
+109             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  | |__| | | \\__  | |  | |  | |__  | | \\ \\  | |__| | | |  | | | |__  | | \\ \\  " << endl
+110             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  |______|  \\___/ |_|  |_|  \\____\\ |_/  \\_\\ |______| |_|  |_| \\____\\ |_/  \\_\\ " << endl;
+111     }
+112     else
+113     {
+114         cout << setw((xy\&.first - 44) / 2) << (char)218 << (char)196 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)191 << " " << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)191 << "     " << (char)218 << (char)191 << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)191 << endl
+115             << setw((xy\&.first - 44) / 2) << (char)192 << (char)191 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)218 << (char)196 << (char)196 << (char)217 << (char)179 << (char)179 << (char)218 << (char)191 << "   " << (char)179 << (char)179 << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)218 << (char)196 << (char)196 << (char)217 << (char)179 << (char)179 << (char)218 << (char)191 << endl
+116             << setw((xy\&.first - 44) / 2) << " " << (char)179 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)179 << "   " << (char)179 << (char)192 << (char)217 << (char)192 << (char)191 << "  " << (char)179 << (char)179 << (char)179 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)179 << "   " << (char)179 << (char)192 << (char)217 << (char)192 << (char)191 << endl
+117             << setw((xy\&.first - 44) / 2) << " " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)179 << "   " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)218 << (char)191 << (char)179 << (char)179 << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)179 << "   " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << endl
+118             << setw((xy\&.first - 44) / 2) << (char)218 << (char)217 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)192 << (char)191 << (char)179 << (char)179 << " " << (char)179 << (char)179 << (char)179 << (char)192 << (char)196 << (char)196 << (char)191 << (char)179 << (char)179 << " " << (char)179 << (char)179 << (char)179 << (char)192 << (char)217 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)179 << (char)179 << (char)192 << (char)196 << (char)196 << (char)191 << (char)179 << (char)179 << " " << (char)179 << (char)179 << endl
+119             << setw((xy\&.first - 44) / 2) << (char)192 << (char)196 << (char)196 << (char)196 << (char)196 << (char)217 << (char)192 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << (char)192 << (char)196 << (char)196 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << (char)192 << (char)196 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << (char)192 << (char)196 << (char)196 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << endl;
+120     }
+121     cout << endl << endl;
+122 
+123     //display menu
+124     vector <string> options = {"1\&. Play" ,"2\&. Simulation", "3\&. Choose Table", "4\&. Manage Casino", "" ,"0\&. EXIT"};
+125     displayMenu0(xy, "MENU", options);
+126     choice = readIntBetween(0, 4);
+127 }
 .fi
 .SH "Author"
 .PP 

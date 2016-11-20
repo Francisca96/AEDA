@@ -341,4 +341,16 @@ int saveChanges(vector <int> &usersVEC, int &user, pair <int, int> xy, int &save
 
 int readNameOfFile(string &fileName);
 
+/**
+* @fn	void waitXTime(unsigned int time);
+*
+* @brief	Sleeps for a given time.
+*
+* @author	Renato Campos
+* @date	20/11/2016
+*
+* @param	time	The time in seconds.
+*
+*/
+
 void waitXTime(unsigned int time);

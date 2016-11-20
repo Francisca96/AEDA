@@ -1,4 +1,4 @@
-.TH "Player" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.TH "Player" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -18,6 +18,10 @@ Inherited by \fBBot0\fP, \fBBot1\fP, \fBBot2\fP, and \fBHuman\fP\&.
 .RI "void \fBhit\fP (\fBCard\fP newCard)"
 .br
 .RI "Hits the given new card\&. Saves the card on the hand\&. Updates the handscore\&. "
+.ti -1c
+.RI "void \fBhit2\fP (\fBCard\fP newCard)"
+.br
+.RI "Hits the given new card\&. Saves the card on the hand2\&. Updates the hand2score\&. "
 .ti -1c
 .RI "virtual bool \fBtakeInsurance\fP (\fBTable\fP &table)"
 .br
@@ -51,7 +55,7 @@ Inherited by \fBBot0\fP, \fBBot1\fP, \fBBot2\fP, and \fBHuman\fP\&.
 .br
 .RI "Gets rounds played\&. "
 .ti -1c
-.RI "unsigned int \fBgetCurrentMoney\fP () const"
+.RI "float \fBgetCurrentMoney\fP () const"
 .br
 .RI "Gets current money\&. "
 .ti -1c
@@ -87,7 +91,7 @@ Inherited by \fBBot0\fP, \fBBot1\fP, \fBBot2\fP, and \fBHuman\fP\&.
 .br
 .RI "Sets second hand score\&. "
 .ti -1c
-.RI "void \fBsetCurrentMoney\fP (unsigned int money)"
+.RI "void \fBsetCurrentMoney\fP (float money)"
 .br
 .RI "Sets current money\&. "
 .ti -1c
@@ -162,12 +166,24 @@ Inherited by \fBBot0\fP, \fBBot1\fP, \fBBot2\fP, and \fBHuman\fP\&.
 .RI "void \fBremoveCardFromFirstHandAndSetItOnSecondHand\fP ()"
 .br
 .RI "Removes the card from first hand sets it on the second hand\&. "
+.ti -1c
+.RI "virtual void \fBsetUserID\fP (unsigned int userID)"
+.br
+.RI "Does nothing in class \fBPlayer\fP\&. But it is necessary for the human class\&. "
+.ti -1c
+.RI "virtual unsigned int \fBgetUserID\fP () const"
+.br
+.RI "Returns 0;\&. "
+.ti -1c
+.RI "virtual ostream & \fBsaveInfo\fP (ostream &out)"
+.br
+.RI "Writes player info to stream\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 A player\&. Abstract Class\&. \fBPlayer\fP is the base class\&. 
 
-A player, human or bot\&.
+
 .PP
 \fBAuthor:\fP
 .RS 4
@@ -176,17 +192,7 @@ Joao Carvalho
 .PP
 \fBDate:\fP
 .RS 4
-19/11/2016
-.RE
-.PP
-\fBAuthor:\fP
-.RS 4
-Renato Campos 
-.RE
-.PP
-\fBDate:\fP
-.RS 4
-18/11/2016 
+19/11/2016 
 .RE
 .PP
 
@@ -218,12 +224,12 @@ Joao Carvalho
 .PP
 Reimplemented in \fBBot2\fP, and \fBBot1\fP\&.
 .PP
-Definition at line 206 of file Player\&.cpp\&.
+Definition at line 213 of file Player\&.cpp\&.
 .PP
 .nf
-207 {
-208 
-209 }
+214 {
+215 
+216 }
 .fi
 .SS "void Player::addMoney (float value)"
 
@@ -247,14 +253,14 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 143 of file Player\&.cpp\&.
+Definition at line 148 of file Player\&.cpp\&.
 .PP
 Referenced by Table::payToPlayer()\&.
 .PP
 .nf
-144 {
-145     currentMoney += value;
-146 }
+149 {
+150     currentMoney += value;
+151 }
 .fi
 .SS "unsigned int Player::bet (\fBTable\fP & table)\fC [virtual]\fP"
 
@@ -285,21 +291,21 @@ An int\&.
 .PP
 Reimplemented in \fBHuman\fP, \fBBot2\fP, and \fBBot1\fP\&.
 .PP
-Definition at line 169 of file Player\&.cpp\&.
+Definition at line 174 of file Player\&.cpp\&.
 .PP
 References Table::getMinBet()\&.
 .PP
 .nf
-170 {
-171     if (getCurrentMoney() < table\&.getMinBet()) {
-172         return 0; //0 means kick the player from the table;
-173     }
-174     unsigned int betValue = table\&.getMinBet();
-175     setCurrentMoney(getCurrentMoney() - betValue);
-176     cout << name << " bets " << betValue << "$\n";
-177     setActualBet(betValue);
-178     return betValue;
-179 }
+175 {
+176     if (getCurrentMoney() < table\&.getMinBet()) {
+177         return 0; //0 means kick the player from the table;
+178     }
+179     unsigned int betValue = table\&.getMinBet();
+180     setCurrentMoney(getCurrentMoney() - betValue);
+181     cout << name << " bets " << betValue << "$\n";
+182     setActualBet(betValue);
+183     return betValue;
+184 }
 .fi
 .SS "void Player::clearHand ()"
 
@@ -318,12 +324,13 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 181 of file Player\&.cpp\&.
+Definition at line 186 of file Player\&.cpp\&.
 .PP
 .nf
-182 {
-183     hand\&.clear();
-184 }
+187 {
+188     hand\&.clear();
+189     this->setHandScore();
+190 }
 .fi
 .SS "void Player::clearHand2 ()"
 
@@ -342,12 +349,13 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 186 of file Player\&.cpp\&.
+Definition at line 192 of file Player\&.cpp\&.
 .PP
 .nf
-187 {
-188     hand2\&.clear();
-189 }
+193 {
+194     hand2\&.clear();
+195     this->setHand2Score();
+196 }
 .fi
 .SS "void Player::doubleDown ()"
 
@@ -366,12 +374,12 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 30 of file Player\&.cpp\&.
+Definition at line 35 of file Player\&.cpp\&.
 .PP
 .nf
-30                         {
-31     throw "Not yet implemented";
-32 }
+35                         {
+36     throw "Not yet implemented";
+37 }
 .fi
 .SS "unsigned int Player::getActualBet ()"
 
@@ -395,12 +403,12 @@ The actual bet\&.
 .PP
 
 .PP
-Definition at line 196 of file Player\&.cpp\&.
+Definition at line 203 of file Player\&.cpp\&.
 .PP
 .nf
-197 {
-198     return actualBet;
-199 }
+204 {
+205     return actualBet;
+206 }
 .fi
 .SS "unsigned int Player::getAge () const"
 
@@ -424,12 +432,12 @@ The player's age\&.
 .PP
 
 .PP
-Definition at line 216 of file Player\&.cpp\&.
+Definition at line 223 of file Player\&.cpp\&.
 .PP
 .nf
-216                                   {
-217     return this->age;
-218 }
+223                                   {
+224     return this->age;
+225 }
 .fi
 .SS "float Player::getAverageProfit () const"
 
@@ -453,12 +461,12 @@ The average profit\&.
 .PP
 
 .PP
-Definition at line 102 of file Player\&.cpp\&.
+Definition at line 107 of file Player\&.cpp\&.
 .PP
 .nf
-103 {
-104     return averageProfit;
-105 }
+108 {
+109     return averageProfit;
+110 }
 .fi
 .SS "int Player::getCurrentCount () const\fC [virtual]\fP"
 
@@ -484,14 +492,14 @@ The current count\&.
 .PP
 Reimplemented in \fBBot2\fP, and \fBBot1\fP\&.
 .PP
-Definition at line 201 of file Player\&.cpp\&.
+Definition at line 208 of file Player\&.cpp\&.
 .PP
 .nf
-202 {
-203     return 0;
-204 }
+209 {
+210     return 0;
+211 }
 .fi
-.SS "unsigned int Player::getCurrentMoney () const"
+.SS "float Player::getCurrentMoney () const"
 
 .PP
 Gets current money\&. 
@@ -513,12 +521,12 @@ The current money\&.
 .PP
 
 .PP
-Definition at line 113 of file Player\&.cpp\&.
+Definition at line 118 of file Player\&.cpp\&.
 .PP
 .nf
-114 {
-115     return currentMoney;
-116 }
+119 {
+120     return currentMoney;
+121 }
 .fi
 .SS "vector< \fBCard\fP > & Player::getHand ()"
 
@@ -542,12 +550,12 @@ The hand\&.
 .PP
 
 .PP
-Definition at line 34 of file Player\&.cpp\&.
+Definition at line 39 of file Player\&.cpp\&.
 .PP
 .nf
-35 {
-36     return hand;
-37 }
+40 {
+41     return hand;
+42 }
 .fi
 .SS "vector< \fBCard\fP > & Player::getHand2 ()"
 
@@ -571,12 +579,12 @@ The second hand\&.
 .PP
 
 .PP
-Definition at line 39 of file Player\&.cpp\&.
+Definition at line 44 of file Player\&.cpp\&.
 .PP
 .nf
-40 {
-41     return hand2;
-42 }
+45 {
+46     return hand2;
+47 }
 .fi
 .SS "unsigned int Player::getHand2Score () const"
 
@@ -600,12 +608,12 @@ The second hand score\&.
 .PP
 
 .PP
-Definition at line 87 of file Player\&.cpp\&.
+Definition at line 92 of file Player\&.cpp\&.
 .PP
 .nf
-88 {
-89     return hand2Score;
-90 }
+93 {
+94     return hand2Score;
+95 }
 .fi
 .SS "unsigned int Player::getHandScore () const"
 
@@ -629,12 +637,12 @@ The hand score\&.
 .PP
 
 .PP
-Definition at line 82 of file Player\&.cpp\&.
+Definition at line 87 of file Player\&.cpp\&.
 .PP
 .nf
-83 {
-84     return handScore;
-85 }
+88 {
+89     return handScore;
+90 }
 .fi
 .SS "unsigned int Player::getHandSize () const"
 
@@ -658,12 +666,12 @@ The hand size\&.
 .PP
 
 .PP
-Definition at line 44 of file Player\&.cpp\&.
+Definition at line 49 of file Player\&.cpp\&.
 .PP
 .nf
-45 {
-46     return hand\&.size();
-47 }
+50 {
+51     return hand\&.size();
+52 }
 .fi
 .SS "unsigned int Player::getInitialMoney () const"
 
@@ -687,12 +695,12 @@ The initial money\&.
 .PP
 
 .PP
-Definition at line 118 of file Player\&.cpp\&.
+Definition at line 123 of file Player\&.cpp\&.
 .PP
 .nf
-119 {
-120     return initialMoney;
-121 }
+124 {
+125     return initialMoney;
+126 }
 .fi
 .SS "string Player::getName () const"
 
@@ -716,14 +724,14 @@ The name\&.
 .PP
 
 .PP
-Definition at line 92 of file Player\&.cpp\&.
+Definition at line 97 of file Player\&.cpp\&.
 .PP
 Referenced by Casino::addPlayerToCasino(), HumanOnTableException::HumanOnTableException(), PlayerAlreadyExistException::PlayerAlreadyExistException(), PlayerNotLoggedException::PlayerNotLoggedException(), and PlayerStillOnTableException::PlayerStillOnTableException()\&.
 .PP
 .nf
-93 {
-94     return name;
-95 }
+98 {
+99     return name;
+100 }
 .fi
 .SS "int Player::getOnTable () const"
 
@@ -747,14 +755,14 @@ ID of the table\&. -1 if the player is not on any table\&.
 .PP
 
 .PP
-Definition at line 228 of file Player\&.cpp\&.
+Definition at line 235 of file Player\&.cpp\&.
 .PP
 Referenced by PlayerStillOnTableException::PlayerStillOnTableException()\&.
 .PP
 .nf
-228                              {
-229     return this->onTable;
-230 }
+235                              {
+236     return this->onTable;
+237 }
 .fi
 .SS "unsigned int Player::getRoundsPlayed () const"
 
@@ -778,12 +786,41 @@ The rounds played\&.
 .PP
 
 .PP
-Definition at line 125 of file Player\&.cpp\&.
+Definition at line 130 of file Player\&.cpp\&.
 .PP
 .nf
-126 {
-127     return roundsPlayed;
-128 }
+131 {
+132     return roundsPlayed;
+133 }
+.fi
+.SS "unsigned int Player::getUserID () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Returns 0;\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+0\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBHuman\fP\&.
+.PP
+Definition at line 816 of file Player\&.h\&.
+.PP
+.nf
+816 { return 0; }
 .fi
 .SS "void Player::hit (\fBCard\fP newCard)"
 
@@ -814,6 +851,36 @@ Definition at line 20 of file Player\&.cpp\&.
 21     hand\&.push_back(newCard);
 22     setHandScore();
 23 }
+.fi
+.SS "void Player::hit2 (\fBCard\fP newCard)"
+
+.PP
+Hits the given new card\&. Saves the card on the hand2\&. Updates the hand2score\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewCard\fP The new card\&. 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file Player\&.cpp\&.
+.PP
+.nf
+25                               {
+26     hand2\&.push_back(newCard);
+27     setHand2Score();
+28 }
 .fi
 .SS "string Player::play (\fBTable\fP & table)\fC [pure virtual]\fP"
 
@@ -860,14 +927,14 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 232 of file Player\&.cpp\&.
+Definition at line 239 of file Player\&.cpp\&.
 .PP
 .nf
-233 {
-234     Card secondCard = hand\&.at(1);
-235     hand\&.pop_back();
-236     hand2\&.push_back(secondCard);
-237 }
+240 {
+241     Card secondCard = hand\&.at(1);
+242     hand\&.pop_back();
+243     hand2\&.push_back(secondCard);
+244 }
 .fi
 .SS "void Player::resetCount ()\fC [virtual]\fP"
 
@@ -888,11 +955,75 @@ Joao Carvalho
 .PP
 Reimplemented in \fBBot2\fP, and \fBBot1\fP\&.
 .PP
-Definition at line 211 of file Player\&.cpp\&.
+Definition at line 218 of file Player\&.cpp\&.
 .PP
 .nf
-212 {
-213 }
+219 {
+220 }
+.fi
+.SS "ostream & Player::saveInfo (ostream & out)\fC [virtual]\fP"
+
+.PP
+Writes player info to stream\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIout\fP ostream in which player info will be saved\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBPlayer\fP info in a ostream 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBHuman\fP, \fBBot2\fP, \fBBot1\fP, and \fBBot0\fP\&.
+.PP
+Definition at line 246 of file Player\&.cpp\&.
+.PP
+Referenced by Bot0::saveInfo(), Bot1::saveInfo(), Bot2::saveInfo(), and Human::saveInfo()\&.
+.PP
+.nf
+246                                         {
+247     out << name << "; " << initialMoney << "; " << setprecision(2) << fixed << currentMoney << "; ";
+248     if (hand\&.size() != 0)
+249     {
+250         out << "{";
+251     }
+252     for (size_t i = 0; i < hand\&.size(); i++)
+253     {
+254         out << hand\&.at(i)\&.rank << "/" << hand\&.at(i)\&.suits << "/" << hand\&.at(i)\&.score << "; ";
+255     }
+256     if (hand\&.size() != 0)
+257     {
+258         out << "}; ";
+259     }
+260     if (hand2\&.size() != 0)
+261     {
+262         out << "{";
+263     }
+264     for (size_t i = 0; i < hand2\&.size(); i++)
+265     {
+266         out << hand2\&.at(i)\&.rank << "/" << hand2\&.at(i)\&.suits << "/" << hand2\&.at(i)\&.score << "; ";
+267     }
+268     if (hand2\&.size() != 0)
+269     {
+270         out << "}; ";
+271     }
+272     out << roundsPlayed << "; " << age << "; " << onTable << "; " << actualBet << "; ";
+273     return out;
+274 }
 .fi
 .SS "void Player::setActualBet (unsigned int bet)"
 
@@ -916,12 +1047,12 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 191 of file Player\&.cpp\&.
+Definition at line 198 of file Player\&.cpp\&.
 .PP
 .nf
-192 {
-193     actualBet = bet;
-194 }
+199 {
+200     actualBet = bet;
+201 }
 .fi
 .SS "void Player::setAge (unsigned int age)"
 
@@ -945,14 +1076,14 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 220 of file Player\&.cpp\&.
+Definition at line 227 of file Player\&.cpp\&.
 .PP
 .nf
-220                                     {
-221     this->age = age;
-222 }
+227                                     {
+228     this->age = age;
+229 }
 .fi
-.SS "void Player::setCurrentMoney (unsigned int money)"
+.SS "void Player::setCurrentMoney (float money)"
 
 .PP
 Sets current money\&. 
@@ -974,12 +1105,12 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 107 of file Player\&.cpp\&.
+Definition at line 112 of file Player\&.cpp\&.
 .PP
 .nf
-108 {
-109     currentMoney = money;
-110 }
+113 {
+114     currentMoney = money;
+115 }
 .fi
 .SS "unsigned int Player::setHand2Score ()"
 
@@ -1003,24 +1134,24 @@ The second hand score\&.
 .PP
 
 .PP
-Definition at line 65 of file Player\&.cpp\&.
+Definition at line 70 of file Player\&.cpp\&.
 .PP
 .nf
-66 {
-67     this->hand2Score = 0;
-68     for (size_t i = 0; i < hand2\&.size(); i++)
-69     {
-70         this->hand2Score += hand2\&.at(i)\&.score;
-71     }
-72     if (hand2Score > 21) {
-73         for (size_t i = 0; i < hand2\&.size(); i++) {
-74             if (hand2\&.at(i)\&.score == 11 && hand2Score > 21) {
-75                 this->hand2Score -= 10;
-76             }
-77         }
-78     }
-79     return this->hand2Score;
-80 }
+71 {
+72     this->hand2Score = 0;
+73     for (size_t i = 0; i < hand2\&.size(); i++)
+74     {
+75         this->hand2Score += hand2\&.at(i)\&.score;
+76     }
+77     if (hand2Score > 21) {
+78         for (size_t i = 0; i < hand2\&.size(); i++) {
+79             if (hand2\&.at(i)\&.score == 11 && hand2Score > 21) {
+80                 this->hand2Score -= 10;
+81             }
+82         }
+83     }
+84     return this->hand2Score;
+85 }
 .fi
 .SS "unsigned int Player::setHandScore ()"
 
@@ -1044,24 +1175,24 @@ The current hand score\&.
 .PP
 
 .PP
-Definition at line 49 of file Player\&.cpp\&.
+Definition at line 54 of file Player\&.cpp\&.
 .PP
 .nf
-49                                   {
-50     this->handScore = 0;
-51     for (size_t i = 0; i < hand\&.size(); i++)
-52     {
-53         this->handScore += hand\&.at(i)\&.score;
-54     }
-55     if (handScore > 21) {
-56         for (size_t i = 0; i < hand\&.size(); i++) {
-57             if (hand\&.at(i)\&.score == 11 && handScore > 21) {
-58                 this->handScore -= 10;
-59             }
-60         }
-61     }
-62     return this->handScore;
-63 }
+54                                   {
+55     this->handScore = 0;
+56     for (size_t i = 0; i < hand\&.size(); i++)
+57     {
+58         this->handScore += hand\&.at(i)\&.score;
+59     }
+60     if (handScore > 21) {
+61         for (size_t i = 0; i < hand\&.size(); i++) {
+62             if (hand\&.at(i)\&.score == 11 && handScore > 21) {
+63                 this->handScore -= 10;
+64             }
+65         }
+66     }
+67     return this->handScore;
+68 }
 .fi
 .SS "void Player::setInitialMoney (unsigned int money)"
 
@@ -1085,17 +1216,17 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 135 of file Player\&.cpp\&.
+Definition at line 140 of file Player\&.cpp\&.
 .PP
 Referenced by Casino::readPlayersFile()\&.
 .PP
 .nf
-136 {
-137     initialMoney = money;
-138     currentMoney = initialMoney;
-139     averageProfit = 0;
-140     roundsPlayed = 0;
-141 }
+141 {
+142     initialMoney = money;
+143     currentMoney = initialMoney;
+144     averageProfit = 0;
+145     roundsPlayed = 0;
+146 }
 .fi
 .SS "void Player::setName (string newName)"
 
@@ -1119,12 +1250,12 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 97 of file Player\&.cpp\&.
+Definition at line 102 of file Player\&.cpp\&.
 .PP
 .nf
-98 {
-99     name = newName;
-100 }
+103 {
+104     name = newName;
+105 }
 .fi
 .SS "void Player::setOnTable (int tableID)"
 
@@ -1148,14 +1279,14 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 224 of file Player\&.cpp\&.
+Definition at line 231 of file Player\&.cpp\&.
 .PP
 Referenced by Table::addPlayer()\&.
 .PP
 .nf
-224                                    {
-225     this->onTable = tableID;
-226 }
+231                                    {
+232     this->onTable = tableID;
+233 }
 .fi
 .SS "void Player::setRoundsPlayed (unsigned int rounds)"
 
@@ -1179,12 +1310,36 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 130 of file Player\&.cpp\&.
+Definition at line 135 of file Player\&.cpp\&.
 .PP
 .nf
-131 {
-132     roundsPlayed = rounds;
-133 }
+136 {
+137     roundsPlayed = rounds;
+138 }
+.fi
+.SS "void Player::setUserID (unsigned int userID)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Does nothing in class \fBPlayer\fP\&. But it is necessary for the human class\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Reimplemented in \fBHuman\fP\&.
+.PP
+Definition at line 805 of file Player\&.h\&.
+.PP
+.nf
+805 {}
 .fi
 .SS "void Player::showStatistics ()"
 
@@ -1203,28 +1358,28 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 148 of file Player\&.cpp\&.
+Definition at line 153 of file Player\&.cpp\&.
 .PP
 .nf
-149 {
-150     averageProfit = (float)((currentMoney - initialMoney) / float(roundsPlayed));
-151     
-152     Bot0 *bot0 = dynamic_cast<Bot0*> (this);
-153     Bot1 *bot1 = dynamic_cast<Bot1*> (this);
-154     Bot2 *bot2 = dynamic_cast<Bot2*> (this);
-155     cout << setw(15) << "Bot " << name;
-156     if (bot0 != nullptr) {
-157         cout << setw(15) << "0";
-158     }
-159     else if (bot1 != nullptr){
-160         cout << setw(15) << "1";
-161     }
-162     else if (bot2 != nullptr) {
-163         cout << setw(15) << "2";
-164     }
-165     cout << setw(15) << roundsPlayed << setw(30) << setprecision(2) <<averageProfit << " $/round\n";
-166 
-167 }
+154 {
+155     averageProfit = (float)((currentMoney - initialMoney) / float(roundsPlayed));
+156     
+157     Bot0 *bot0 = dynamic_cast<Bot0*> (this);
+158     Bot1 *bot1 = dynamic_cast<Bot1*> (this);
+159     Bot2 *bot2 = dynamic_cast<Bot2*> (this);
+160     cout << setw(15) << "Bot " << name;
+161     if (bot0 != nullptr) {
+162         cout << setw(15) << "0";
+163     }
+164     else if (bot1 != nullptr){
+165         cout << setw(15) << "1";
+166     }
+167     else if (bot2 != nullptr) {
+168         cout << setw(15) << "2";
+169     }
+170     cout << setw(15) << roundsPlayed << setw(30) << setprecision(2) <<averageProfit << " $/round\n";
+171 
+172 }
 .fi
 .SS "bool Player::split (\fBDealer\fP * dealerOfTable)\fC [virtual]\fP"
 
@@ -1255,12 +1410,12 @@ True if it succeeds, false if it fails\&.
 .PP
 Reimplemented in \fBHuman\fP, \fBBot2\fP, and \fBBot1\fP\&.
 .PP
-Definition at line 248 of file Player\&.cpp\&.
+Definition at line 285 of file Player\&.cpp\&.
 .PP
 .nf
-248                                        {
-249     return false;
-250 }
+285                                        {
+286     return false;
+287 }
 .fi
 .SS "bool Player::surrender (\fBTable\fP & table)\fC [virtual]\fP"
 
@@ -1291,12 +1446,12 @@ True if it succeeds, false if it fails\&.
 .PP
 Reimplemented in \fBBot2\fP, and \fBBot1\fP\&.
 .PP
-Definition at line 243 of file Player\&.cpp\&.
+Definition at line 280 of file Player\&.cpp\&.
 .PP
 .nf
-244 {
-245     return false;
-246 }
+281 {
+282     return false;
+283 }
 .fi
 .SS "bool Player::takeInsurance (\fBTable\fP & table)\fC [virtual]\fP"
 
@@ -1327,12 +1482,12 @@ True if it succeeds, false if it fails\&.
 .PP
 Reimplemented in \fBHuman\fP, \fBBot2\fP, \fBBot1\fP, and \fBBot0\fP\&.
 .PP
-Definition at line 239 of file Player\&.cpp\&.
+Definition at line 276 of file Player\&.cpp\&.
 .PP
 .nf
-239                                       {
-240     return false;
-241 }
+276                                       {
+277     return false;
+278 }
 .fi
 
 

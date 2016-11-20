@@ -1,8 +1,8 @@
-.TH "Table" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.TH "Table" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-Table \- A table\&.  
+Table \- A \fBCasino\fP's table\&.  
 
 .SH SYNOPSIS
 .br
@@ -53,7 +53,7 @@ Table \- A table\&.
 .br
 .RI "Removes the player described by his name\&. "
 .ti -1c
-.RI "void \fBplay\fP ()"
+.RI "void \fBplay\fP (pair< short, short > xy, unsigned int userID)"
 .br
 .RI "Plays Blackjack allowing humans to play against bots and other humans too\&. "
 .ti -1c
@@ -124,6 +124,18 @@ Table \- A table\&.
 .RI "float \fBcloseTable\fP ()"
 .br
 .RI "Closes the table\&. Resets all bot counters\&. "
+.ti -1c
+.RI "void \fBreadTableFile\fP ()"
+.br
+.RI "Reads the table file\&. "
+.ti -1c
+.RI "void \fBwriteTableFile\fP ()"
+.br
+.RI "Writes the table file\&. "
+.ti -1c
+.RI "void \fBshowPlay\fP (pair< short, short > xy)"
+.br
+.RI "Plays and Displays in terminal the blackjack game\&. "
 .in -1c
 .SS "Static Public Member Functions"
 
@@ -139,7 +151,7 @@ Table \- A table\&.
 .in -1c
 .SH "Detailed Description"
 .PP 
-A table\&. 
+A \fBCasino\fP's table\&. 
 
 
 .PP
@@ -155,7 +167,7 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 143 of file Table\&.h\&.
+Definition at line 117 of file Table\&.h\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Table::Table (int ID)"
@@ -228,11 +240,13 @@ References Dealer::setTable()\&.
 22     this->moneyOfTable = moneyOfTable;
 23     this->maxNumberOfPlayers = numberOfMaxPlayers;
 24     this->dealerOfTable = newDealer;
-25     initialMoney = moneyOfTable;
-26     tableID = nextID;
-27     nextID++;
-28     newDealer->setTable(tableID);
-29 }
+25     this->nextPlayerIndex = 0;
+26     this->phaseOfPlaying = 0;
+27     initialMoney = moneyOfTable;
+28     tableID = nextID;
+29     nextID++;
+30     newDealer->setTable(tableID);
+31 }
 .fi
 .SS "Table::~Table ()"
 
@@ -251,17 +265,17 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 31 of file Table\&.cpp\&.
+Definition at line 33 of file Table\&.cpp\&.
 .PP
 .nf
-31               {
-32     this->closeTable();
-33     for (size_t i = 0; i < players\&.size(); i++)
-34     {
-35         players\&.at(i)->setOnTable(-1);
-36     }
-37     dealerOfTable->setTable(-1);
-38 }
+33               {
+34     this->closeTable();
+35     for (size_t i = 0; i < players\&.size(); i++)
+36     {
+37         players\&.at(i)->setOnTable(-1);
+38     }
+39     dealerOfTable->setTable(-1);
+40 }
 .fi
 .SH "Member Function Documentation"
 .PP 
@@ -287,14 +301,14 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 383 of file Table\&.cpp\&.
+Definition at line 636 of file Table\&.cpp\&.
 .PP
 Referenced by Bot1::play()\&.
 .PP
 .nf
-384 {
-385     moneyOfTable += money;
-386 }
+637 {
+638     moneyOfTable += money;
+639 }
 .fi
 .SS "void Table::addPlayer (\fBPlayer\fP * newPlayer)"
 
@@ -318,17 +332,17 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 55 of file Table\&.cpp\&.
+Definition at line 57 of file Table\&.cpp\&.
 .PP
 References Player::setOnTable()\&.
 .PP
 Referenced by Casino::addPlayerToTable()\&.
 .PP
 .nf
-55                                         {
-56     this->players\&.push_back(newPlayer);
-57     newPlayer->setOnTable(this->getTableID());
-58 }
+57                                         {
+58     this->players\&.push_back(newPlayer);
+59     newPlayer->setOnTable(this->getTableID());
+60 }
 .fi
 .SS "void Table::addPlayers (vector< \fBPlayer\fP *> newPlayers)"
 
@@ -352,21 +366,21 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 60 of file Table\&.cpp\&.
+Definition at line 62 of file Table\&.cpp\&.
 .PP
 References TooManyPlayersException::TooManyPlayersException()\&.
 .PP
 .nf
-60                                                   {
-61     if (newPlayers\&.size() + players\&.size() > maxNumberOfPlayers) {
-62         throw TooManyPlayersException (maxNumberOfPlayers,players\&.size());
-63     }
-64     players\&.insert(players\&.end(), newPlayers\&.begin(), newPlayers\&.end());
-65     for (size_t i = 0; i < newPlayers\&.size(); i++)
-66     {
-67         newPlayers\&.at(i)->setOnTable(this->getTableID());
-68     }
-69 }
+62                                                   {
+63     if (newPlayers\&.size() + players\&.size() > maxNumberOfPlayers) {
+64         throw TooManyPlayersException (maxNumberOfPlayers,players\&.size());
+65     }
+66     players\&.insert(players\&.end(), newPlayers\&.begin(), newPlayers\&.end());
+67     for (size_t i = 0; i < newPlayers\&.size(); i++)
+68     {
+69         newPlayers\&.at(i)->setOnTable(this->getTableID());
+70     }
+71 }
 .fi
 .SS "float Table::closeTable ()"
 
@@ -390,17 +404,17 @@ moneyOfTable The final money of the table that should be added to the casino\&.
 .PP
 
 .PP
-Definition at line 396 of file Table\&.cpp\&.
+Definition at line 649 of file Table\&.cpp\&.
 .PP
 .nf
-397 {
-398     for (size_t i = 0; i < players\&.size(); i++) {
-399         players\&.at(i)->resetCount();
-400     }
-401     cout << "Table ID\&." << tableID << " has been CLOSED\n";
-402     cout << "Profit of table " << tableID << " : " << setprecision(2) <<moneyOfTable - initialMoney << "$\n";
-403     return moneyOfTable;
-404 }
+650 {
+651     for (size_t i = 0; i < players\&.size(); i++) {
+652         players\&.at(i)->resetCount();
+653     }
+654     cout << "Table ID\&." << tableID << " has been CLOSED\n";
+655     cout << "Profit of table " << tableID << " : " << setprecision(2) <<moneyOfTable - initialMoney << "$\n";
+656     return moneyOfTable;
+657 }
 .fi
 .SS "void Table::dealOneCardToAllPlayers ()"
 
@@ -419,15 +433,15 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 286 of file Table\&.cpp\&.
+Definition at line 539 of file Table\&.cpp\&.
 .PP
 .nf
-286                                     {
-287     for (size_t i = 0; i < players\&.size(); i++) {
-288         Card discarded = dealerOfTable->discard(players);
-289         players\&.at(i)->hit(discarded);
-290     }
-291 }
+539                                     {
+540     for (size_t i = 0; i < actualPlayers\&.size(); i++) {
+541         Card discarded = dealerOfTable->discard(players);
+542         actualPlayers\&.at(i)->hit(discarded);
+543     }
+544 }
 .fi
 .SS "\fBDealer\fP * Table::getDealer ()"
 
@@ -451,14 +465,14 @@ A pointer to the dealer\&.
 .PP
 
 .PP
-Definition at line 276 of file Table\&.cpp\&.
+Definition at line 529 of file Table\&.cpp\&.
 .PP
 Referenced by Bot0::play(), Bot1::play(), Bot2::play(), Human::play(), Bot1::surrender(), and Bot2::surrender()\&.
 .PP
 .nf
-277 {
-278     return dealerOfTable;
-279 }
+530 {
+531     return dealerOfTable;
+532 }
 .fi
 .SS "void Table::getInitialBets ()"
 
@@ -477,22 +491,22 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 261 of file Table\&.cpp\&.
+Definition at line 514 of file Table\&.cpp\&.
 .PP
 .nf
-262 {
-263     unsigned int actualBet;
-264     for (size_t i = 0; i < players\&.size(); i++) {
-265         actualBet = players\&.at(i)->bet(*this);
-266         if (actualBet == 0) { //kick the player
-267             cout << players\&.at(i)->getName() << " we enjoyed your money ! Come back when you have some more\&.\&.\&.\n";
-268             kickPlayer(i);
-269             cout << players\&.at(i)->getName() << " has been kicked from table " << tableID << "\&.\n";
-270             i--;
-271         }
-272         moneyOfTable += actualBet;
-273     }
-274 }
+515 {
+516     unsigned int actualBet;
+517     for (size_t i = 0; i < players\&.size(); i++) {
+518         actualBet = players\&.at(i)->bet(*this);
+519         if (actualBet == 0) { //kick the player
+520             cout << players\&.at(i)->getName() << " we enjoyed your money ! Come back when you have some more\&.\&.\&.\n";
+521             kickPlayer(i);
+522             cout << players\&.at(i)->getName() << " has been kicked from table " << tableID << "\&.\n";
+523             i--;
+524         }
+525         moneyOfTable += actualBet;
+526     }
+527 }
 .fi
 .SS "unsigned int Table::getInitialMoney () const"
 
@@ -516,14 +530,14 @@ The initial money\&.
 .PP
 
 .PP
-Definition at line 251 of file Table\&.cpp\&.
+Definition at line 504 of file Table\&.cpp\&.
 .PP
 Referenced by Casino::addTableToCasino()\&.
 .PP
 .nf
-252 {
-253     return initialMoney;
-254 }
+505 {
+506     return initialMoney;
+507 }
 .fi
 .SS "unsigned int Table::getMaxBet () const"
 
@@ -547,14 +561,14 @@ The maximum bet\&.
 .PP
 
 .PP
-Definition at line 116 of file Table\&.cpp\&.
+Definition at line 369 of file Table\&.cpp\&.
 .PP
 Referenced by Bot1::bet(), Bot2::bet(), and Human::bet()\&.
 .PP
 .nf
-117 {
-118     return maxBet;
-119 }
+370 {
+371     return maxBet;
+372 }
 .fi
 .SS "unsigned int Table::getMinBet () const"
 
@@ -578,14 +592,14 @@ The minimum bet\&.
 .PP
 
 .PP
-Definition at line 111 of file Table\&.cpp\&.
+Definition at line 364 of file Table\&.cpp\&.
 .PP
 Referenced by Player::bet(), Bot1::bet(), Bot2::bet(), and Human::bet()\&.
 .PP
 .nf
-112 {
-113     return minBet;
-114 }
+365 {
+366     return minBet;
+367 }
 .fi
 .SS "static unsigned int Table::getNextId ()\fC [static]\fP"
 
@@ -609,14 +623,14 @@ The next identifier\&.
 .PP
 
 .PP
-Definition at line 410 of file Table\&.cpp\&.
+Definition at line 663 of file Table\&.cpp\&.
 .PP
 Referenced by Casino::saveTablesFile()\&.
 .PP
 .nf
-410                               {
-411     return nextID;
-412 }
+663                               {
+664     return nextID;
+665 }
 .fi
 .SS "unsigned int Table::getNumberMaxOfPlayers () const"
 
@@ -640,12 +654,12 @@ The maximum number of players\&.
 .PP
 
 .PP
-Definition at line 121 of file Table\&.cpp\&.
+Definition at line 374 of file Table\&.cpp\&.
 .PP
 .nf
-121                                                 {
-122     return this->maxNumberOfPlayers;
-123 }
+374                                                 {
+375     return this->maxNumberOfPlayers;
+376 }
 .fi
 .SS "vector< \fBPlayer\fP * > Table::getPlayers () const"
 
@@ -669,14 +683,14 @@ A vector of pointers to the players in the table\&.
 .PP
 
 .PP
-Definition at line 281 of file Table\&.cpp\&.
+Definition at line 534 of file Table\&.cpp\&.
 .PP
 Referenced by Casino::manageTables(), Dealer::play(), Bot0::play(), Bot1::play(), Bot2::play(), and Human::play()\&.
 .PP
 .nf
-282 {
-283     return players;
-284 }
+535 {
+536     return players;
+537 }
 .fi
 .SS "int Table::getTableID () const"
 
@@ -700,14 +714,14 @@ The table identifier\&.
 .PP
 
 .PP
-Definition at line 256 of file Table\&.cpp\&.
+Definition at line 509 of file Table\&.cpp\&.
 .PP
 Referenced by ExistingTableException::ExistingTableException(), NoPlayersOnTableException::NoPlayersOnTableException(), Casino::removeTableFromCasino(), and TableNotInCasinoException::TableNotInCasinoException()\&.
 .PP
 .nf
-257 {
-258     return tableID;
-259 }
+510 {
+511     return tableID;
+512 }
 .fi
 .SS "void Table::kickPlayer (unsigned int index)"
 
@@ -731,13 +745,13 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 370 of file Table\&.cpp\&.
+Definition at line 623 of file Table\&.cpp\&.
 .PP
 .nf
-371 {
-372     players\&.at(index)->setOnTable(-1);
-373     players\&.erase(players\&.begin() + index);
-374 }
+624 {
+625     players\&.at(index)->setOnTable(-1);
+626     players\&.erase(players\&.begin() + index);
+627 }
 .fi
 .SS "void Table::payToPlayer (\fBPlayer\fP * player1, float value)"
 
@@ -763,17 +777,17 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 388 of file Table\&.cpp\&.
+Definition at line 641 of file Table\&.cpp\&.
 .PP
 References Player::addMoney()\&.
 .PP
 .nf
-389 {
-390     player1->addMoney(value);
-391     moneyOfTable -= value;
-392 }
+642 {
+643     player1->addMoney(value);
+644     moneyOfTable -= value;
+645 }
 .fi
-.SS "void Table::play ()"
+.SS "void Table::play (pair< short, short > xy, unsigned int userID)"
 
 .PP
 Plays Blackjack allowing humans to play against bots and other humans too\&. 
@@ -790,35 +804,399 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 84 of file Table\&.cpp\&.
+Definition at line 86 of file Table\&.cpp\&.
 .PP
-References readUnsignedIntBetween(), and TooManyPlayersException::TooManyPlayersException()\&.
+References FileExist(), Human::getUserID(), readCharYorN(), readUnsignedIntBetween(), TooManyPlayersException::TooManyPlayersException(), and waitXTime()\&.
 .PP
 Referenced by main()\&.
 .PP
 .nf
-84                  {
-85     system("cls");
-86     if (this->maxNumberOfPlayers == this->getPlayers()\&.size())
-87     {
-88         throw TooManyPlayersException(maxNumberOfPlayers, maxNumberOfPlayers + 1);
-89     }
-90     string nameOfPlayer = "";
-91     unsigned int ageOfPlayer;
-92     cout << "What is your name?" << endl;
-93     while (nameOfPlayer\&.length() == 0)
-94     {
-95         getline(cin, nameOfPlayer);
-96     }
-97     cout << "What is your age?" << endl;
-98     ageOfPlayer = readUnsignedIntBetween(0, 100);
-99     Human *humanPlayer = new Human(nameOfPlayer, ageOfPlayer);
-100     this->addPlayer(humanPlayer);
-101     while (!exit)
+86                                                             {
+87     system("cls");
+88     stringstream sstream;
+89     string tableFILE;
+90     bool dealerBlackJack = false;
+91 
+92     if (this->maxNumberOfPlayers == this->getPlayers()\&.size())
+93     {
+94         throw TooManyPlayersException(maxNumberOfPlayers, maxNumberOfPlayers + 1);
+95     }
+96 
+97     //create human player
+98     string nameOfPlayer = "";
+99     unsigned int ageOfPlayer;
+100     cout << "What is your name?" << endl;
+101     while (nameOfPlayer\&.length() == 0)
 102     {
-103 
+103         getline(cin, nameOfPlayer);
 104     }
-105 }
+105     cout << "What is your age?" << endl;
+106     ageOfPlayer = readUnsignedIntBetween(0, 100);
+107     Human *humanPlayer = new Human(nameOfPlayer, ageOfPlayer, userID);
+108 
+109     //verify if file exist, if not create a file for table
+110     sstream << this->tableID;
+111     sstream >> tableFILE;
+112     tableFILE\&.insert(0, "table");
+113     tableFILE += "_temp\&.txt";
+114     if (FileExist(tableFILE))
+115     {
+116         this->readTableFile();
+117         while (phaseOfPlaying != 0)
+118         {
+119             waitXTime(1);
+120             this->readTableFile();
+121             this->showPlay(xy);
+122             cout << "Waiting end of round";
+123         }
+124     }
+125     else
+126     {
+127         bossUserID = userID;
+128     }
+129     this->addPlayer(humanPlayer);
+130     this->writeTableFile();
+131 
+132     //realplay
+133     system("cls");
+134     bool exit = false;
+135     while (!exit)
+136     {
+137         this->readTableFile();
+138         while (bossUserID != userID)
+139         {
+140             waitXTime(1);
+141             this->readTableFile();
+142             this->showPlay(xy);
+143             cout << "Waiting for other players\&.\&.\&." << endl;
+144         }
+145         if (nextPlayerIndex == 0 && phaseOfPlaying == 0)
+146         {
+147             //TODO: prepare round to play
+148             dealerBlackJack = false;
+149             actualPlayers = players;
+150             phaseOfPlaying = 1;
+151             this->writeTableFile();
+152             this->showPlay(xy);
+153         }
+154         if (nextPlayerIndex == 0 && phaseOfPlaying == 2)
+155         {
+156             restartDeck();
+157             dealOneCardToAllPlayers();
+158             restartDeck();
+159             dealerOfTable->hit(players);
+160             dealOneCardToAllPlayers();
+161             restartDeck();
+162             phaseOfPlaying = 3;
+163             this->writeTableFile();
+164             this->showPlay(xy);
+165         }
+166 
+167         //TODO:implement take insurance
+168         if (phaseOfPlaying == 1 || phaseOfPlaying == 3)
+169         {
+170             for (size_t i = nextPlayerIndex; i < actualPlayers\&.size(); i++)
+171             {
+172                 Human *h = dynamic_cast<Human *>(actualPlayers\&.at(i));
+173                 if (h != NULL)
+174                 {
+175                     if (actualPlayers\&.at(i)->getUserID() != userID)
+176                     {
+177                         bossUserID = actualPlayers\&.at(i)->getUserID();
+178                         this->writeTableFile();
+179                         while (bossUserID != userID)
+180                         {
+181                             waitXTime(1);
+182                             this->readTableFile();
+183                             this->showPlay(xy);
+184                             cout << "Waiting for other players\&.\&.\&." << endl;
+185                         }
+186                     }
+187                     else
+188                     {
+189                         if (phaseOfPlaying == 1)
+190                         {
+191                             unsigned int betValue;
+192                             betValue = actualPlayers\&.at(i)->bet(*this);
+193                             this->readTableFile();
+194                             actualPlayers\&.at(i)->setCurrentMoney(actualPlayers\&.at(i)->getCurrentMoney() - betValue);
+195                             actualPlayers\&.at(i)->setActualBet(betValue);
+196                             //TODO: change for playerID after
+197                             nextPlayerIndex = i + 1;
+198                             this->writeTableFile();
+199                             this->showPlay(xy);
+200                         }
+201                         else
+202                         {
+203                             while (actualPlayers\&.at(i)->getHandScore() < 21 && actualPlayers\&.at(i)->play(*this) != "stand")
+204                             {
+205                                 this->showPlay(xy);
+206                                 restartDeck();
+207                             }
+208                             if (actualPlayers\&.at(i)->getHandScore() <= 21)
+209                                 cout << "You stand with: " << actualPlayers\&.at(i)->getHandScore() << endl;
+210                             else
+211                             {
+212                                 cout << "You lose this round\&.\&.\&." << endl;
+213                             }
+214                             //TODO: change for playerID after
+215                             nextPlayerIndex = i + 1;
+216                             this->writeTableFile();
+217                             system("pause");
+218                         }
+219                     }
+220                 }
+221                 else
+222                 {
+223                     if (phaseOfPlaying == 1)
+224                     {
+225                         unsigned int betValue;
+226                         betValue = actualPlayers\&.at(i)->bet(*this);
+227                         if (betValue == 0)
+228                         {
+229                             actualPlayers\&.erase(actualPlayers\&.begin() + i);
+230                         }
+231                         //TODO: change for playerID after
+232                         nextPlayerIndex = i + 1;
+233                         this->writeTableFile();
+234                         waitXTime(1);
+235                         this->showPlay(xy);
+236                     }
+237                     else
+238                     {
+239                         while (actualPlayers\&.at(i)->getHandScore() < 21 && actualPlayers\&.at(i)->play(*this) != "stand")
+240                         {
+241                             waitXTime(1);
+242                             this->showPlay(xy);
+243                             restartDeck();
+244                         }
+245                         //TODO: change for playerID after
+246                         nextPlayerIndex = i + 1;
+247                         this->writeTableFile();
+248                     }
+249                 }
+250             }
+251             if (nextPlayerIndex == actualPlayers\&.size() && phaseOfPlaying == 1)
+252             {
+253                 nextPlayerIndex = 0;
+254                 phaseOfPlaying = 2;
+255                 this->writeTableFile();
+256             }
+257             if (nextPlayerIndex == actualPlayers\&.size() && phaseOfPlaying == 3)
+258             {
+259                 while (dealerOfTable->getHandScore() < 21 && dealerOfTable->play(*this) != "stand")
+260                 {
+261                     waitXTime(2);
+262                     this->showPlay(xy);
+263                     restartDeck();
+264                 }
+265                 nextPlayerIndex = 0;
+266                 phaseOfPlaying = 0;
+267                 this->writeTableFile();
+268                 unsigned int actualBet;
+269                 for (size_t j = 0; j < actualPlayers\&.size(); j++)
+270                 {
+271                     actualBet = actualPlayers\&.at(j)->getActualBet();
+272                     this->readTableFile();
+273                     if (actualPlayers\&.at(j)->getHandScore() > 21)
+274                     {
+275                         //cout  << players\&.at(j)->getName() << " has " << players\&.at(j)->getHandScore() << " points, so he got busted!\n";
+276                     }
+277                     else
+278                     {
+279                         if (actualPlayers\&.at(j)->getHandScore() == 21 && actualPlayers\&.at(j)->getHandSize() == 2 && dealerOfTable->getHandScore() < 21)
+280                         {
+281                             payToPlayer(actualPlayers\&.at(j), actualBet * 2\&.5);
+282                             //cout << players\&.at(j)->getName() << " has " << players\&.at(j)->getHandScore() << " so he did a blackjack!\n";
+283                         }
+284                         else if (actualPlayers\&.at(j)->getHandScore() <= 21 && actualPlayers\&.at(j)->getHandScore() == dealerOfTable->getHandScore())
+285                         {
+286                             payToPlayer(actualPlayers\&.at(j), actualBet);
+287                             //cout << actualPlayers\&.at(j)->getName() << " has " << actualPlayers\&.at(j)->getHandScore() << " points, which is equal to the Dealer!\n";
+288                         }
+289                         else if (actualPlayers\&.at(j)->getHandScore() > dealerOfTable->getHandScore() && actualPlayers\&.at(j)->getHandScore() < 21)
+290                         {
+291                             payToPlayer(actualPlayers\&.at(j), actualBet * 2);
+292                             //cout << actualPlayers\&.at(j)->getName() << " has " << actualPlayers\&.at(j)->getHandScore() << " points, so he won the bet!\n";
+293                         }
+294                         else if (dealerOfTable->getHandScore() > 21 && actualPlayers\&.at(j)->getHandScore() <= 21)
+295                         {
+296                             payToPlayer(actualPlayers\&.at(j), actualBet * 2);
+297                             //cout << "Dealer got busted! Player " << actualPlayers\&.at(j)->getName() << " will receive 2 times his original bet!\n";
+298                         }
+299                         else if (actualPlayers\&.at(j)->getHandScore() != 21 && dealerOfTable->getHandScore() == 21)
+300                         {
+301                             //cout << "Dealer has blackjack! " << actualPlayers\&.at(j)->getName() << " lost his bet!\n";
+302                         }
+303                     }
+304                     actualPlayers\&.at(j)->clearHand();
+305                     actualPlayers\&.at(j)->clearHand2();
+306                     actualPlayers\&.at(j)->setActualBet(0);
+307                     actualPlayers\&.at(j)->setRoundsPlayed(players\&.at(j)->getRoundsPlayed() + 1);
+308                     this->writeTableFile();
+309                 }
+310                 this->showPlay(xy);
+311                 dealerOfTable->clearHand();
+312                 for (size_t i = 0; i < actualPlayers\&.size(); i++)
+313                 {
+314                     players\&.at(i) = actualPlayers\&.at(i);
+315                 }
+316                 players = actualPlayers;
+317                 actualPlayers\&.clear();
+318                 this->writeTableFile();
+319             }
+320             if (phaseOfPlaying == 0)
+321             {
+322                 cout << "Do you want play another round? (y/n)" << endl;
+323                 char option = readCharYorN();
+324                 if (option == 'n')
+325                 {
+326                     exit = true;
+327                 }
+328             }
+329         }
+330     }
+331 
+332     //sair da mesa
+333     this->readTableFile();
+334     bool HumanStillOnTable = false;
+335     for (size_t i = 0; i < players\&.size(); i++)
+336     {
+337         Human *h = dynamic_cast<Human *>(players\&.at(i));
+338         if (h != NULL)
+339         {
+340             if (players\&.at(i)->getUserID() == userID)
+341             {
+342                 delete humanPlayer;
+343                 players\&.erase(players\&.begin() + i);
+344                 i--;
+345             }
+346             else
+347             {
+348                 HumanStillOnTable = true;
+349                 bossUserID = players\&.at(i)->getUserID();
+350             }
+351         }
+352     }
+353     this->writeTableFile();
+354     if (!HumanStillOnTable)
+355     {
+356         remove(tableFILE\&.c_str());
+357     }
+358 }
+.fi
+.SS "void Table::readTableFile ()"
+
+.PP
+Reads the table file\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 667 of file Table\&.cpp\&.
+.PP
+References waitXTime()\&.
+.PP
+.nf
+667                           {
+668     stringstream sstream;
+669     string tableFILE, line;
+670     sstream << this->tableID;
+671     sstream >> tableFILE;
+672     tableFILE\&.insert(0, "table");
+673     tableFILE += "_temp\&.txt";
+674 
+675     ifstream inFile(tableFILE);
+676     for (int j = 0; j < 3; j++)
+677     {
+678         if (inFile\&.is_open())
+679         {
+680             getline(inFile, line);
+681             this->moneyOfTable = stoi(line);
+682             this->players\&.clear();
+683             getline(inFile, line);
+684             if (line == "{")
+685             {
+686                 while (line != "}")
+687                 {
+688                     getline(inFile, line);
+689                     if (line\&.substr(0,1) == "0")
+690                     {
+691                         Player *playerReaded = new Bot0(line);
+692                         players\&.push_back(playerReaded);
+693                     }
+694                     else if (line\&.substr(0, 1) == "1")
+695                     {
+696                         Player *playerReaded = new Bot1(line);
+697                         players\&.push_back(playerReaded);
+698                     }
+699                     else if (line\&.substr(0, 1) == "2")
+700                     {
+701                         Player *playerReaded = new Bot2(line);
+702                         players\&.push_back(playerReaded);
+703                     }
+704                     else if (line\&.substr(0, 1) == "3")
+705                     {
+706                         Player *playerReaded = new Human(line);
+707                         players\&.push_back(playerReaded);
+708                     }
+709                 }
+710             }
+711             this->actualPlayers\&.clear();
+712             getline(inFile, line);
+713             if (line == "{")
+714             {
+715                 while (line != "}")
+716                 {
+717                     getline(inFile, line);
+718                     if (line\&.substr(0, 1) == "0")
+719                     {
+720                         Player *playerReaded = new Bot0(line);
+721                         actualPlayers\&.push_back(playerReaded);
+722                     }
+723                     else if (line\&.substr(0, 1) == "1")
+724                     {
+725                         Player *playerReaded = new Bot1(line);
+726                         actualPlayers\&.push_back(playerReaded);
+727                     }
+728                     else if (line\&.substr(0, 1) == "2")
+729                     {
+730                         Player *playerReaded = new Bot2(line);
+731                         actualPlayers\&.push_back(playerReaded);
+732                     }
+733                     else if (line\&.substr(0, 1) == "3")
+734                     {
+735                         Player *playerReaded = new Human(line);
+736                         actualPlayers\&.push_back(playerReaded);
+737                     }
+738                 }
+739             }
+740             getline(inFile, line);
+741             this->nextPlayerIndex = stoi(line);
+742             getline(inFile, line);
+743             this->bossUserID = stoi(line);
+744             getline(inFile, line);
+745             this->phaseOfPlaying = stoi(line);
+746             inFile\&.close();
+747             return;
+748         }
+749         else
+750         {
+751             waitXTime(1);
+752         }
+753     }
+754     //TODO: throw exception
+755     cout << "Fail to read table file" << endl;
+756 }
 .fi
 .SS "void Table::removePlayer (string & name)"
 
@@ -842,23 +1220,23 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 71 of file Table\&.cpp\&.
+Definition at line 73 of file Table\&.cpp\&.
 .PP
 Referenced by Casino::manageTables()\&.
 .PP
 .nf
-71                                      {
-72     for (size_t i = 0; i < players\&.size(); i++)
-73     {
-74         if (players\&.at(i)->getName() == name)
-75         {
-76             players\&.at(i)->setOnTable(-1);
-77             players\&.erase(players\&.begin() + i);
-78             return;
-79         }
-80     }
-81     throw PlayerIsntOnTableException(name);
-82 }
+73                                      {
+74     for (size_t i = 0; i < players\&.size(); i++)
+75     {
+76         if (players\&.at(i)->getName() == name)
+77         {
+78             players\&.at(i)->setOnTable(-1);
+79             players\&.erase(players\&.begin() + i);
+80             return;
+81         }
+82     }
+83     throw PlayerIsntOnTableException(name);
+84 }
 .fi
 .SS "void Table::resetBot1Counters ()"
 
@@ -877,14 +1255,14 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 376 of file Table\&.cpp\&.
+Definition at line 629 of file Table\&.cpp\&.
 .PP
 .nf
-377 {
-378     for (size_t i = 0; i < players\&.size(); i++) {
-379         players\&.at(i)->resetCount();
-380     }
-381 }
+630 {
+631     for (size_t i = 0; i < players\&.size(); i++) {
+632         players\&.at(i)->resetCount();
+633     }
+634 }
 .fi
 .SS "unsigned int Table::restartDeck ()"
 
@@ -908,20 +1286,20 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 295 of file Table\&.cpp\&.
+Definition at line 548 of file Table\&.cpp\&.
 .PP
 .nf
-296 {
-297     if (dealerOfTable->getDiscardedDeck()\&.size() >= 3 * dealerOfTable->getDeck()\&.size()) {
-298         dealerOfTable->addCardsToDeck(dealerOfTable->getDiscardedDeck()); //already shuffles the deck
-299         for (size_t i = 0; i < players\&.size(); i++) {
-300             players\&.at(i)->resetCount();
-301         }
-302         dealerOfTable->clearDiscardedDeck();
-303         return 0;
-304     }
-305     return 1;
-306 }
+549 {
+550     if (dealerOfTable->getDiscardedDeck()\&.size() >= 3 * dealerOfTable->getDeck()\&.size()) {
+551         dealerOfTable->addCardsToDeck(dealerOfTable->getDiscardedDeck()); //already shuffles the deck
+552         for (size_t i = 0; i < players\&.size(); i++) {
+553             players\&.at(i)->resetCount();
+554         }
+555         dealerOfTable->clearDiscardedDeck();
+556         return 0;
+557     }
+558     return 1;
+559 }
 .fi
 .SS "void Table::setDealer (\fBDealer\fP * dealerOfTable)"
 
@@ -945,16 +1323,16 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 44 of file Table\&.cpp\&.
+Definition at line 46 of file Table\&.cpp\&.
 .PP
 References Dealer::setTable()\&.
 .PP
 .nf
-44                                            {
-45     this->dealerOfTable->setTable(-1);
-46     this->dealerOfTable = dealerOfTable;
-47     dealerOfTable->setTable(tableID);
-48 }
+46                                            {
+47     this->dealerOfTable->setTable(-1);
+48     this->dealerOfTable = dealerOfTable;
+49     dealerOfTable->setTable(tableID);
+50 }
 .fi
 .SS "void Table::setID (int ID)"
 
@@ -978,14 +1356,14 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 50 of file Table\&.cpp\&.
+Definition at line 52 of file Table\&.cpp\&.
 .PP
 Referenced by Casino::readTablesFile()\&.
 .PP
 .nf
-50                         {
-51     this->tableID = ID;
-52 }
+52                         {
+53     this->tableID = ID;
+54 }
 .fi
 .SS "void Table::setMaxBet (unsigned int maxBet)"
 
@@ -1009,12 +1387,12 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 40 of file Table\&.cpp\&.
+Definition at line 42 of file Table\&.cpp\&.
 .PP
 .nf
-40                                           {
-41     this->maxBet = aMaxBet;
-42 }
+42                                           {
+43     this->maxBet = aMaxBet;
+44 }
 .fi
 .SS "void Table::setMinBet (unsigned int minBet)"
 
@@ -1038,12 +1416,12 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 107 of file Table\&.cpp\&.
+Definition at line 360 of file Table\&.cpp\&.
 .PP
 .nf
-107                                           {
-108     this->minBet = aMinBet;
-109 }
+360                                           {
+361     this->minBet = aMinBet;
+362 }
 .fi
 .SS "static void Table::setNextID (unsigned int tableNextID)\fC [static]\fP"
 
@@ -1067,14 +1445,294 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 406 of file Table\&.cpp\&.
+Definition at line 659 of file Table\&.cpp\&.
 .PP
 Referenced by Casino::readTablesFile()\&.
 .PP
 .nf
-406                                               {
-407     nextID = tableNextID;
-408 }
+659                                               {
+660     nextID = tableNextID;
+661 }
+.fi
+.SS "void Table::showPlay (pair< short, short > xy)"
+
+.PP
+Plays and Displays in terminal the blackjack game\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 799 of file Table\&.cpp\&.
+.PP
+References clearScreen(), and cursorxy()\&.
+.PP
+.nf
+799                                           {
+800     //system("cls");
+801     string text = "TableID: ";
+802     cursorxy(6, 0);
+803     cout << text << this->getTableID() << endl;
+804     text = "Dealer";
+805     cursorxy((xy\&.first - text\&.length()) / 2,1);
+806     cout << text << endl;
+807     cursorxy((xy\&.first - 72) / 2, 2);
+808     cout << (char)218;
+809     for (int i = 0; i < 70; i++)
+810     {
+811         cout << (char)196;
+812     }
+813     cout << (char)191 << endl;
+814     cursorxy((xy\&.first - 72) / 2, 3);
+815     cout << (char)179;
+816 
+817 
+818     for (int i = 0; i < 13; i++)
+819     {
+820         cursorxy((xy\&.first - 72) / 2, 3+i);
+821         cout << (char)179 << setw(71) << (char)179 << endl;
+822     }
+823     cursorxy((xy\&.first - 72) / 2, 16);
+824     cout << (char)192;
+825     for (int i = 0; i < 70; i++)
+826     {
+827         cout << (char)196;
+828     }
+829     cout << (char)217 << endl;
+830 
+831     //draw cards of dealer
+832     if (dealerOfTable->getHand()\&.size() != 0)
+833     {
+834         cursorxy((xy\&.first - text\&.length()) / 2, 3);
+835         cout << (char)201 << (char)205;
+836         for (size_t i = 1; i < dealerOfTable->getHand()\&.size(); i++)
+837         {
+838             cout << (char)201 << (char)205;
+839         }
+840         cout << (char)205 << (char)205 << (char)187;
+841         cursorxy((xy\&.first - text\&.length()) / 2, 4);
+842         cout << (char)186;
+843         if (dealerOfTable->getHand()\&.at(0)\&.rank == "10" && dealerOfTable->getHand()\&.size() != 1)
+844         {
+845             cout << "1";
+846         }
+847         else if (dealerOfTable->getHand()\&.at(0)\&.rank != "10" && dealerOfTable->getHand()\&.size() == 1)
+848         {
+849             cout << dealerOfTable->getHand()\&.at(0)\&.rank << " ";
+850         }
+851         else if (dealerOfTable->getHand()\&.at(0)\&.rank == "10" && dealerOfTable->getHand()\&.size() == 1)
+852         {
+853             cout << "10";
+854         }
+855         else if (dealerOfTable->getHand()\&.at(0)\&.rank != "10" && dealerOfTable->getHand()\&.size() != 1)
+856         {
+857             cout << dealerOfTable->getHand()\&.at(0)\&.rank;
+858         }
+859         for (size_t i = 1; i < dealerOfTable->getHand()\&.size(); i++)
+860         {
+861             cout << (char)186;
+862             if (dealerOfTable->getHand()\&.at(i)\&.rank == "10" && i != dealerOfTable->getHand()\&.size()-1)
+863             {
+864                 cout << "1";
+865             }
+866             else if (dealerOfTable->getHand()\&.at(i)\&.rank != "10" && i == dealerOfTable->getHand()\&.size()-1)
+867             {
+868                 cout << dealerOfTable->getHand()\&.at(i)\&.rank << " ";
+869             }
+870             else
+871             {
+872                 cout << dealerOfTable->getHand()\&.at(i)\&.rank;
+873             }
+874         }
+875         if (dealerOfTable->getHand()\&.back()\&.suits == "Heart")
+876         {
+877             cout << (char)3;
+878         }
+879         else if (dealerOfTable->getHand()\&.back()\&.suits == "Diamond")
+880         {
+881             cout << (char)4;
+882         }
+883         else if (dealerOfTable->getHand()\&.back()\&.suits == "Club")
+884         {
+885             cout << (char)5;
+886         }
+887         else if (dealerOfTable->getHand()\&.back()\&.suits == "Spade")
+888         {
+889             cout << (char)6;
+890         }
+891         cout << (char)186;
+892         cursorxy((xy\&.first - text\&.length()) / 2, 5);
+893         cout << (char)200 << (char)205;
+894         for (size_t i = 1; i < dealerOfTable->getHand()\&.size(); i++)
+895         {
+896             cout << (char)200 << (char)205;
+897         }
+898         cout << (char)205 << (char)205 << (char)188;
+899     }
+900 
+901     //draw players
+902     short x, y;
+903     string rank;
+904     for (size_t i = 0; i < maxNumberOfPlayers; i++)
+905     {
+906         //draw info about players
+907         if (i == 0)
+908         {
+909             x = (xy\&.first - 72) / 2 - 16;
+910             y = 8;
+911         }
+912         else if (i == 1)
+913         {
+914             x = (xy\&.first - 72) / 2 + 1;
+915             y = 17;
+916         }
+917         else if (i == 2)
+918         {
+919             x = (xy\&.first - 72) / 2 + 18;
+920             y = 17;
+921         }
+922         else if (i == 3)
+923         {
+924             x = (xy\&.first - 72) / 2 + 36;
+925             y = 17;
+926         }
+927         else if (i == 4)
+928         {
+929             x = (xy\&.first - 72) / 2 + 53;
+930             y = 17;
+931         }
+932         else if (i == 5)
+933         {
+934             x = (xy\&.first + 72) / 2 + 2;
+935             y = 8;
+936         }
+937         cursorxy(x, y);
+938         if (i < actualPlayers\&.size())
+939         {
+940             cout << "Name:" << setw(11) << actualPlayers\&.at(i)->getName();
+941             cursorxy(x, y + 1);
+942             cout << "Money:" << setw(10) << actualPlayers\&.at(i)->getCurrentMoney();
+943             cursorxy(x, y + 2);
+944             cout << "Bet:" << setw(12) << actualPlayers\&.at(i)->getActualBet();
+945             cursorxy(x, y + 3);
+946             cout << "Score:" << setw(10) << actualPlayers\&.at(i)->getHandScore();
+947         }
+948         else
+949         {
+950             cout << "Name:" << setw(11) << " ";
+951             cursorxy(x, y + 1);
+952             cout << "Money:" << setw(10) << " ";
+953             cursorxy(x, y + 2);
+954             cout << "Bet:" << setw(12) << " ";
+955             cursorxy(x, y + 3);
+956             cout << "Score:" << setw(10) << " ";
+957         }
+958 
+959         if (i < actualPlayers\&.size())
+960         {
+961             //draw cards
+962             if (i == 0)
+963             {
+964                 x = (xy\&.first - 72) / 2 + 1;
+965                 y = 8;
+966             }
+967             else if (i == 1)
+968             {
+969                 x = (xy\&.first - 72) / 2 + 1;
+970                 y = 13;
+971             }
+972             else if (i == 2)
+973             {
+974                 x = (xy\&.first - 72) / 2 + 18;
+975                 y = 13;
+976             }
+977             else if (i == 3)
+978             {
+979                 x = (xy\&.first - 72) / 2 + 36;
+980                 y = 13;
+981             }
+982             else if (i == 4)
+983             {
+984                 x = (xy\&.first - 72) / 2 + 53;
+985                 y = 13;
+986             }
+987             else if (i == 5)
+988             {
+989                 x = (xy\&.first - 72) / 2 + 53;
+990                 y = 8;
+991             }
+992             cursorxy(x, y);
+993             if (actualPlayers\&.at(i)->getHand()\&.size() != 0)
+994             {
+995                 cout << (char)201 << (char)205;
+996                 for (size_t k = 1; k < actualPlayers\&.at(i)->getHand()\&.size(); k++)
+997                 {
+998                     cout << (char)201 << (char)205;
+999                 }
+1000                 cout << (char)205 << (char)205 << (char)187;
+1001                 cursorxy(x, y + 1);
+1002                 rank = actualPlayers\&.at(i)->getHand()\&.at(0)\&.rank;
+1003                 if (rank == "10")
+1004                 {
+1005                     rank = "1";
+1006                 }
+1007                 cout << (char)186 << rank;
+1008                 for (size_t j = 1; j < actualPlayers\&.at(i)->getHand()\&.size(); j++)
+1009                 {
+1010                     rank = actualPlayers\&.at(i)->getHand()\&.at(j)\&.rank;
+1011                     if (rank == "10" && j != actualPlayers\&.at(i)->getHand()\&.size() - 1)
+1012                     {
+1013                         rank = "1";
+1014                     }
+1015                     else if (rank != "10" && j == actualPlayers\&.at(i)->getHand()\&.size() - 1)
+1016                     {
+1017                         rank += " ";
+1018                     }
+1019                     cout << (char)186 << rank;
+1020                 }
+1021                 if (actualPlayers\&.at(i)->getHand()\&.back()\&.suits == "Heart")
+1022                 {
+1023                     cout << (char)3;
+1024                 }
+1025                 else if (actualPlayers\&.at(i)->getHand()\&.back()\&.suits == "Diamond")
+1026                 {
+1027                     cout << (char)4;
+1028                 }
+1029                 else if (actualPlayers\&.at(i)->getHand()\&.back()\&.suits == "Club")
+1030                 {
+1031                     cout << (char)5;
+1032                 }
+1033                 else if (actualPlayers\&.at(i)->getHand()\&.back()\&.suits == "Spade")
+1034                 {
+1035                     cout << (char)6;
+1036                 }
+1037                 cout << (char)186;
+1038                 cursorxy(x, y + 2);
+1039                 cout << (char)200 << (char)205;
+1040                 for (size_t k = 1; k < actualPlayers\&.at(i)->getHand()\&.size(); k++)
+1041                 {
+1042                     cout << (char)200 << (char)205;
+1043                 }
+1044                 cout << (char)205 << (char)205 << (char)188;
+1045             }
+1046         }
+1047     }
+1048     cursorxy(0, 23);
+1049     string clearScreen(xy\&.first - 10, ' ');
+1050     for (int i = 0; i < 9; i++)
+1051     {
+1052         cout << clearScreen << endl;
+1053     }
+1054     cursorxy(0, 23);
+1055 }
 .fi
 .SS "void Table::showTableInfo (pair< short, short > xy)"
 
@@ -1098,72 +1756,72 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 308 of file Table\&.cpp\&.
+Definition at line 561 of file Table\&.cpp\&.
 .PP
 References cursorxy()\&.
 .PP
 .nf
-308                                                {
-309     string text;
-310     cursorxy(xy\&.first, xy\&.second);
-311     cout << (char)201; //╔
-312     for (unsigned int i = 0; i <= 28; i++)
-313     {
-314         cout << (char)205; //═
-315     }
-316     cout << (char)187; //╗
-317     xy\&.second++;
-318     cursorxy(xy\&.first, xy\&.second);
-319     text = "  TableID: ";
-320     cout << (char)186 //║
-321         << text << setw(30 - text\&.length()) << (char)186; //║
-322     cursorxy(xy\&.first + text\&.length() + 1, xy\&.second);
-323     cout << this->getTableID();
-324     xy\&.second++;
-325     cursorxy(xy\&.first + 30, xy\&.second);
-326     cout << (char)186; //║
-327     cursorxy(xy\&.first, xy\&.second);
-328     cout << (char)186; //║
-329     cout << "  minBet:" << this->getMinBet();
-330     cursorxy(xy\&.first + 16, xy\&.second);
-331     cout << "maxBet:" << this->getMaxBet();
-332     xy\&.second++;
-333     cursorxy(xy\&.first, xy\&.second);
-334     cout << (char)204; //╠
-335     for (unsigned int i = 0; i <= 28; i++)
-336     {
-337         cout << (char)205; //═
-338     }
-339     cout << (char)185 /*╣*/;
-340     xy\&.second++;
-341     cursorxy(xy\&.first, xy\&.second);
-342     text = "  Players:";
-343     cout << (char)186  << text << setw(30 - text\&.length()) << (char)186;
-344     xy\&.second++;
-345     cursorxy(xy\&.first, xy\&.second);
-346     for (size_t i = 0; i < this->getPlayers()\&.size(); i++)
-347     {
-348         text = this->getPlayers()\&.at(i)->getName();
-349         cout << (char)186  << "   " << text << setw(30 - (3 + text\&.length())) << (char)186;
-350         xy\&.second++;
-351         cursorxy(xy\&.first, xy\&.second);
-352     }
-353     cout << (char)186 << setw(30) << (char)186;
-354     xy\&.second++;
-355     cursorxy(xy\&.first, xy\&.second);
-356     text = "  Money of Table: ";
-357     cout << (char)186 << text << setw(30 - text\&.length()) << (char)186;
-358     cursorxy(xy\&.first+ text\&.length()+1, xy\&.second);
-359     cout << this->getInitialMoney();
-360     xy\&.second++;
-361     cursorxy(xy\&.first, xy\&.second);
-362     cout << (char)200;
-363     for (unsigned int i = 0; i <= 28; i++)
-364     {
-365         cout << (char)205;
-366     }
-367     cout << (char)188;
-368 }
+561                                                {
+562     string text;
+563     cursorxy(xy\&.first, xy\&.second);
+564     cout << (char)201; //╔
+565     for (unsigned int i = 0; i <= 28; i++)
+566     {
+567         cout << (char)205; //═
+568     }
+569     cout << (char)187; //╗
+570     xy\&.second++;
+571     cursorxy(xy\&.first, xy\&.second);
+572     text = "  TableID: ";
+573     cout << (char)186 //║
+574         << text << setw(30 - text\&.length()) << (char)186; //║
+575     cursorxy(xy\&.first + text\&.length() + 1, xy\&.second);
+576     cout << this->getTableID();
+577     xy\&.second++;
+578     cursorxy(xy\&.first + 30, xy\&.second);
+579     cout << (char)186; //║
+580     cursorxy(xy\&.first, xy\&.second);
+581     cout << (char)186; //║
+582     cout << "  minBet:" << this->getMinBet();
+583     cursorxy(xy\&.first + 16, xy\&.second);
+584     cout << "maxBet:" << this->getMaxBet();
+585     xy\&.second++;
+586     cursorxy(xy\&.first, xy\&.second);
+587     cout << (char)204; //╠
+588     for (unsigned int i = 0; i <= 28; i++)
+589     {
+590         cout << (char)205; //═
+591     }
+592     cout << (char)185 /*╣*/;
+593     xy\&.second++;
+594     cursorxy(xy\&.first, xy\&.second);
+595     text = "  Players:";
+596     cout << (char)186  << text << setw(30 - text\&.length()) << (char)186;
+597     xy\&.second++;
+598     cursorxy(xy\&.first, xy\&.second);
+599     for (size_t i = 0; i < this->getPlayers()\&.size(); i++)
+600     {
+601         text = this->getPlayers()\&.at(i)->getName();
+602         cout << (char)186  << "   " << text << setw(30 - (3 + text\&.length())) << (char)186;
+603         xy\&.second++;
+604         cursorxy(xy\&.first, xy\&.second);
+605     }
+606     cout << (char)186 << setw(30) << (char)186;
+607     xy\&.second++;
+608     cursorxy(xy\&.first, xy\&.second);
+609     text = "  Money of Table: ";
+610     cout << (char)186 << text << setw(30 - text\&.length()) << (char)186;
+611     cursorxy(xy\&.first+ text\&.length()+1, xy\&.second);
+612     cout << this->getInitialMoney();
+613     xy\&.second++;
+614     cursorxy(xy\&.first, xy\&.second);
+615     cout << (char)200;
+616     for (unsigned int i = 0; i <= 28; i++)
+617     {
+618         cout << (char)205;
+619     }
+620     cout << (char)188;
+621 }
 .fi
 .SS "void Table::simulation (unsigned int roundsLeft)"
 
@@ -1187,136 +1845,199 @@ Renato Campos
 .PP
 
 .PP
-Definition at line 125 of file Table\&.cpp\&.
+Definition at line 378 of file Table\&.cpp\&.
 .PP
 Referenced by main()\&.
 .PP
 .nf
-125                                               {
-126     //sequence : get Initial Bets then deal one card to each player and to the dealer (2x times) (first Dealer card face down)
-127     //if dealer's card is an Ace, ask players if they want to take insurance()
-128     //If they do, take each player�s insurance (it should be half of their original bet) and flip over dealer's second card to see whether or not dealer has a blackjack\&.
-129     //If dealer has a blackjack, collect bets from anyone that didn�t buy insurance\&.Players that did buy insurance receive their original bets back\&.Players with blackjack will receive their original bet, even if they didn�t purchase insurance\&.
-130     //Ask players with both cards equal if they want to split\&.
-131     bool dealerBlackJack = false;
-132     string lastOptionSelected;
-133     unsigned int actualBet;
-134     if (players\&.size() == 0)
-135     {
-136         throw NoPlayersOnTableException(new Table(this->getTableID()));
-137     }
-138     for (size_t i = 0; i < players\&.size(); i++)
-139     {
-140         Human *h = dynamic_cast<Human *>(players\&.at(i));
-141         if (h != NULL)
-142         {
-143             throw HumanOnTableException(players\&.at(i));
-144         }
-145     }
-146     while (roundsLeft > 0)
-147     {
-148         dealerBlackJack = false;
-149         cout << "Rounds left\&." << roundsLeft << "\n";
-150         actualPlayers = players;
-151         restartDeck();
-152         getInitialBets();
-153         dealOneCardToAllPlayers();
-154         restartDeck();
-155         dealerOfTable->hit(players);
-156         dealOneCardToAllPlayers();
-157         restartDeck();
-158         if (dealerOfTable->hit(players) == "A") {
-159             for(size_t i = 0; i < actualPlayers\&.size(); i++){
-160                 if(actualPlayers\&.at(i)->takeInsurance(*this)){
-161                     moneyOfTable += actualPlayers\&.at(i)->getActualBet() / 2;
-162                     if ((dealerOfTable->getHandScore() == 21) && (actualPlayers\&.at(i)->getHandScore() == 21)) {
-163                         dealerBlackJack = true;
-164                         payToPlayer(actualPlayers\&.at(i), actualPlayers\&.at(i)->getActualBet());
-165                         actualPlayers\&.erase(actualPlayers\&.begin(), actualPlayers\&.begin() + i); i--;
-166                     }
-167                 }
-168             }
-169             
-170         }
-171         if (dealerBlackJack == true) {
-172             actualPlayers\&.clear();
-173         }
-174         for (size_t i = 0; i < actualPlayers\&.size(); i++) {
-175             if (actualPlayers\&.at(i)->surrender(*this)) {
-176                 actualPlayers\&.at(i)->clearHand();
-177                 actualPlayers\&.at(i)->clearHand2();
-178                 actualPlayers\&.at(i)->setRoundsPlayed(players\&.at(i)->getRoundsPlayed() + 1);
-179                 actualPlayers\&.erase(actualPlayers\&.begin() + i);
-180                 i--;
-181                 
-182             }
-183         }
-184 
-185         for(size_t j=0; j < actualPlayers\&.size(); j++) {
-186             actualPlayers\&.at(j)->split(dealerOfTable); //carefull, when splitting you have to bet again
-187         }
-188         for (size_t i = 0; i < actualPlayers\&.size(); i++) {
-189             do {
-190                 restartDeck(); 
-191                 if (lastOptionSelected == "double" || actualPlayers\&.at(i)->getHandScore() == 21) {
-192                     break; //break of do while
-193                 }
-194             }
-195                 while (lastOptionSelected == actualPlayers\&.at(i)->play(*this) && lastOptionSelected != "stand");
-196             cout << "Name: " << actualPlayers\&.at(i)->getName() << "; Money:" << actualPlayers\&.at(i)->getCurrentMoney() << "; Handscore: " << actualPlayers\&.at(i)->getHandScore() << "\n";
-197             cout << "In " << actualPlayers\&.at(i)->getName() << "'s hand: ";
-198             cout << actualPlayers\&.at(i)->getHand();
-199             cout << "\n";
-200         }
-201         if (dealerBlackJack == false) {
-202             do {
-203                 restartDeck();
-204                 cout << "Dealer handscore\&. " << dealerOfTable->getHandScore() << "\n";
-205                 if (dealerOfTable->getHandScore() >= 21) {
-206                     break;
-207                 }
-208             } while (dealerOfTable->play(*this) != "stand");
-209         }
-210         
-211         cout << "Dealer stands, with " << dealerOfTable->getHandScore() << " points\&. In his hand:\n";
-212         cout << dealerOfTable->getHand();
-213         for (size_t i = 0; i < actualPlayers\&.size(); i++) {
-214             actualBet = actualPlayers\&.at(i)->getActualBet();
-215             if (actualPlayers\&.at(i)->getHandScore() > 21) {
-216                 //cout  << players\&.at(i)->getName() << " has " << players\&.at(i)->getHandScore() << " points, so he got busted!\n";
-217             }
-218             if (actualPlayers\&.at(i)->getHandScore() == 21 && actualPlayers\&.at(i)->getHandSize() == 2 && dealerOfTable->getHandScore() < 21) {
-219                 payToPlayer(players\&.at(i), actualBet * 2\&.5);
-220                 //cout << players\&.at(i)->getName() << " has " << players\&.at(i)->getHandScore() << " so he did a blackjack!\n";
-221             }
-222             else if (actualPlayers\&.at(i)->getHandScore() <= 21 && actualPlayers\&.at(i)->getHandScore() == dealerOfTable->getHandScore() ) {
-223                 payToPlayer(actualPlayers\&.at(i), actualBet);
-224                 //cout << actualPlayers\&.at(i)->getName() << " has " << actualPlayers\&.at(i)->getHandScore() << " points, which is equal to the Dealer!\n";
-225             }
-226             else if (actualPlayers\&.at(i)->getHandScore() > dealerOfTable->getHandScore() && actualPlayers\&.at(i)->getHandScore() < 21) {
-227                 payToPlayer(actualPlayers\&.at(i), actualBet * 2);
-228                 //cout << actualPlayers\&.at(i)->getName() << " has " << actualPlayers\&.at(i)->getHandScore() << " points, so he won the bet!\n";
-229             }
-230             else if (dealerOfTable->getHandScore() > 21 && actualPlayers\&.at(i)->getHandScore() <= 21) {
-231                 payToPlayer(actualPlayers\&.at(i), actualBet * 2);
-232                 //cout << "Dealer got busted! Player " << actualPlayers\&.at(i)->getName() << " will receive 2 times his original bet!\n";
-233             }
-234             else if (actualPlayers\&.at(i)->getHandScore() != 21 && dealerOfTable->getHandScore() == 21) {
-235                 //cout << "Dealer has blackjack! " << actualPlayers\&.at(i)->getName() << " lost his bet!\n";
-236             }
-237             actualPlayers\&.at(i)->clearHand();
-238             actualPlayers\&.at(i)->clearHand2();
-239             actualPlayers\&.at(i)->setRoundsPlayed(players\&.at(i)->getRoundsPlayed() + 1);
-240             dealerOfTable->clearHand();
-241         }
-242         
-243         roundsLeft--;
-244     }
-245     for (size_t i = 0; i < players\&.size(); i++) {
-246         cout << players\&.at(i)->getName() << " has finished with " << players\&.at(i)->getCurrentMoney() << "$ in his hand!\n";
-247     }
-248     this->closeTable();
-249 }
+378                                               {
+379     //sequence : get Initial Bets then deal one card to each player and to the dealer (2x times) (first Dealer card face down)
+380     //if dealer's card is an Ace, ask players if they want to take insurance()
+381     //If they do, take each player�s insurance (it should be half of their original bet) and flip over dealer's second card to see whether or not dealer has a blackjack\&.
+382     //If dealer has a blackjack, collect bets from anyone that didn�t buy insurance\&.Players that did buy insurance receive their original bets back\&.Players with blackjack will receive their original bet, even if they didn�t purchase insurance\&.
+383     //Ask players with both cards equal if they want to split\&.
+384     bool dealerBlackJack = false;
+385     string lastOptionSelected;
+386     unsigned int actualBet;
+387     if (players\&.size() == 0)
+388     {
+389         throw NoPlayersOnTableException(new Table(this->getTableID()));
+390     }
+391     for (size_t i = 0; i < players\&.size(); i++)
+392     {
+393         Human *h = dynamic_cast<Human *>(players\&.at(i));
+394         if (h != NULL)
+395         {
+396             throw HumanOnTableException(players\&.at(i));
+397         }
+398     }
+399     while (roundsLeft > 0)
+400     {
+401         dealerBlackJack = false;
+402         cout << "Rounds left\&." << roundsLeft << "\n";
+403         actualPlayers = players;
+404         restartDeck();
+405         getInitialBets();
+406         dealOneCardToAllPlayers();
+407         restartDeck();
+408         dealerOfTable->hit(players);
+409         dealOneCardToAllPlayers();
+410         restartDeck();
+411         if (dealerOfTable->hit(players) == "A") {
+412             for(size_t i = 0; i < actualPlayers\&.size(); i++){
+413                 if(actualPlayers\&.at(i)->takeInsurance(*this)){
+414                     moneyOfTable += actualPlayers\&.at(i)->getActualBet() / 2;
+415                     if ((dealerOfTable->getHandScore() == 21) && (actualPlayers\&.at(i)->getHandScore() == 21)) {
+416                         dealerBlackJack = true;
+417                         payToPlayer(actualPlayers\&.at(i), actualPlayers\&.at(i)->getActualBet());
+418                         actualPlayers\&.erase(actualPlayers\&.begin(), actualPlayers\&.begin() + i); i--;
+419                     }
+420                 }
+421             }
+422             
+423         }
+424         if (dealerBlackJack == true) {
+425             actualPlayers\&.clear();
+426         }
+427         for (size_t i = 0; i < actualPlayers\&.size(); i++) {
+428             if (actualPlayers\&.at(i)->surrender(*this)) {
+429                 actualPlayers\&.at(i)->clearHand();
+430                 actualPlayers\&.at(i)->clearHand2();
+431                 actualPlayers\&.at(i)->setRoundsPlayed(players\&.at(i)->getRoundsPlayed() + 1);
+432                 actualPlayers\&.erase(actualPlayers\&.begin() + i);
+433                 i--;
+434                 
+435             }
+436         }
+437 
+438         for(size_t j=0; j < actualPlayers\&.size(); j++) {
+439             actualPlayers\&.at(j)->split(dealerOfTable); //carefull, when splitting you have to bet again
+440         }
+441         for (size_t i = 0; i < actualPlayers\&.size(); i++) {
+442             do {
+443                 restartDeck(); 
+444                 if (lastOptionSelected == "double" || actualPlayers\&.at(i)->getHandScore() == 21) {
+445                     break; //break of do while
+446                 }
+447             }
+448                 while (lastOptionSelected == actualPlayers\&.at(i)->play(*this) && lastOptionSelected != "stand");
+449             cout << "Name: " << actualPlayers\&.at(i)->getName() << "; Money:" << actualPlayers\&.at(i)->getCurrentMoney() << "; Handscore: " << actualPlayers\&.at(i)->getHandScore() << "\n";
+450             cout << "In " << actualPlayers\&.at(i)->getName() << "'s hand: ";
+451             cout << actualPlayers\&.at(i)->getHand();
+452             cout << "\n";
+453         }
+454         if (dealerBlackJack == false) {
+455             do {
+456                 restartDeck();
+457                 cout << "Dealer handscore\&. " << dealerOfTable->getHandScore() << "\n";
+458                 if (dealerOfTable->getHandScore() >= 21) {
+459                     break;
+460                 }
+461             } while (dealerOfTable->play(*this) != "stand");
+462         }
+463         
+464         cout << "Dealer stands, with " << dealerOfTable->getHandScore() << " points\&. In his hand:\n";
+465         cout << dealerOfTable->getHand();
+466         for (size_t i = 0; i < actualPlayers\&.size(); i++) {
+467             actualBet = actualPlayers\&.at(i)->getActualBet();
+468             if (actualPlayers\&.at(i)->getHandScore() > 21) {
+469                 //cout  << players\&.at(i)->getName() << " has " << players\&.at(i)->getHandScore() << " points, so he got busted!\n";
+470             }
+471             if (actualPlayers\&.at(i)->getHandScore() == 21 && actualPlayers\&.at(i)->getHandSize() == 2 && dealerOfTable->getHandScore() < 21) {
+472                 payToPlayer(players\&.at(i), actualBet * 2\&.5);
+473                 //cout << players\&.at(i)->getName() << " has " << players\&.at(i)->getHandScore() << " so he did a blackjack!\n";
+474             }
+475             else if (actualPlayers\&.at(i)->getHandScore() <= 21 && actualPlayers\&.at(i)->getHandScore() == dealerOfTable->getHandScore() ) {
+476                 payToPlayer(actualPlayers\&.at(i), actualBet);
+477                 //cout << actualPlayers\&.at(i)->getName() << " has " << actualPlayers\&.at(i)->getHandScore() << " points, which is equal to the Dealer!\n";
+478             }
+479             else if (actualPlayers\&.at(i)->getHandScore() > dealerOfTable->getHandScore() && actualPlayers\&.at(i)->getHandScore() < 21) {
+480                 payToPlayer(actualPlayers\&.at(i), actualBet * 2);
+481                 //cout << actualPlayers\&.at(i)->getName() << " has " << actualPlayers\&.at(i)->getHandScore() << " points, so he won the bet!\n";
+482             }
+483             else if (dealerOfTable->getHandScore() > 21 && actualPlayers\&.at(i)->getHandScore() <= 21) {
+484                 payToPlayer(actualPlayers\&.at(i), actualBet * 2);
+485                 //cout << "Dealer got busted! Player " << actualPlayers\&.at(i)->getName() << " will receive 2 times his original bet!\n";
+486             }
+487             else if (actualPlayers\&.at(i)->getHandScore() != 21 && dealerOfTable->getHandScore() == 21) {
+488                 //cout << "Dealer has blackjack! " << actualPlayers\&.at(i)->getName() << " lost his bet!\n";
+489             }
+490             actualPlayers\&.at(i)->clearHand();
+491             actualPlayers\&.at(i)->clearHand2();
+492             actualPlayers\&.at(i)->setRoundsPlayed(players\&.at(i)->getRoundsPlayed() + 1);
+493             dealerOfTable->clearHand();
+494         }
+495         
+496         roundsLeft--;
+497     }
+498     for (size_t i = 0; i < players\&.size(); i++) {
+499         cout << players\&.at(i)->getName() << " has finished with " << players\&.at(i)->getCurrentMoney() << "$ in his hand!\n";
+500     }
+501     this->closeTable();
+502 }
+.fi
+.SS "void Table::writeTableFile ()"
+
+.PP
+Writes the table file\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 758 of file Table\&.cpp\&.
+.PP
+References waitXTime()\&.
+.PP
+.nf
+758                            {
+759     stringstream sstream;
+760     string tableFILE;
+761     sstream << this->tableID;
+762     sstream >> tableFILE;
+763     tableFILE\&.insert(0, "table");
+764     tableFILE += "_temp\&.txt";
+765     ofstream outFile(tableFILE);
+766 
+767     for (int j = 0; j < 3; j++)
+768     {
+769         if (outFile\&.is_open())
+770         {
+771             outFile << this->moneyOfTable << endl << "{" << endl;
+772             for (size_t i = 0; i < players\&.size(); i++)
+773             {
+774                 players\&.at(i)->saveInfo(outFile);
+775                 outFile << endl;
+776             }
+777             outFile << "}" << endl << "{" << endl;
+778             for (size_t i = 0; i < actualPlayers\&.size(); i++)
+779             {
+780                 actualPlayers\&.at(i)->saveInfo(outFile);
+781                 outFile << endl;
+782             }
+783             outFile << "}" << endl;
+784             outFile << this->nextPlayerIndex << endl
+785                 << bossUserID << endl
+786                 << phaseOfPlaying << endl;
+787             outFile\&.close();
+788             return;
+789         }
+790         else
+791         {
+792             waitXTime(1);
+793         }
+794     }
+795     //TODO: throw exception
+796     cout << "Fail to save table file" << endl;
+797 }
 .fi
 
 

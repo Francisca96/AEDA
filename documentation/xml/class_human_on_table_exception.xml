@@ -44,8 +44,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="232" column="1" bodyfile="Player.cpp" bodystart="746" bodyend="748"/>
-        <references refid="class_player_1a4939193fc637f75bf7a11118334dae7e" compoundref="_player_8cpp" startline="92" endline="95">Player::getName</references>
+        <location file="Player.h" line="232" column="1" bodyfile="Player.cpp" bodystart="1036" bodyend="1038"/>
+        <references refid="class_player_1a4939193fc637f75bf7a11118334dae7e" compoundref="_player_8cpp" startline="97" endline="100">Player::getName</references>
       </memberdef>
       </sectiondef>
     <briefdescription>

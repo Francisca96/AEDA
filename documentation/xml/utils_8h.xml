@@ -8,128 +8,134 @@
     <includes local="no">cstdlib</includes>
     <includes local="no">fstream</includes>
     <includes local="no">iomanip</includes>
+    <includes local="no">time.h</includes>
     <includedby refid="_player_8h" local="yes">Player.h</includedby>
     <includedby refid="cmd_u_i_8h" local="yes">cmdUI.h</includedby>
     <includedby refid="_casino_8h" local="yes">Casino.h</includedby>
     <includedby refid="utils_8cpp" local="yes">utils.cpp</includedby>
     <incdepgraph>
-      <node id="193">
+      <node id="211">
         <label>iomanip</label>
       </node>
-      <node id="187">
+      <node id="205">
         <label>utils.h</label>
         <link refid="utils_8h"/>
-        <childnode refid="188" relation="include">
+        <childnode refid="206" relation="include">
         </childnode>
-        <childnode refid="189" relation="include">
+        <childnode refid="207" relation="include">
         </childnode>
-        <childnode refid="190" relation="include">
+        <childnode refid="208" relation="include">
         </childnode>
-        <childnode refid="191" relation="include">
+        <childnode refid="209" relation="include">
         </childnode>
-        <childnode refid="192" relation="include">
+        <childnode refid="210" relation="include">
         </childnode>
-        <childnode refid="193" relation="include">
+        <childnode refid="211" relation="include">
+        </childnode>
+        <childnode refid="212" relation="include">
         </childnode>
       </node>
-      <node id="189">
+      <node id="207">
         <label>string</label>
       </node>
-      <node id="192">
+      <node id="210">
         <label>fstream</label>
       </node>
-      <node id="190">
+      <node id="208">
         <label>vector</label>
       </node>
-      <node id="191">
+      <node id="212">
+        <label>time.h</label>
+      </node>
+      <node id="209">
         <label>cstdlib</label>
       </node>
-      <node id="188">
+      <node id="206">
         <label>iostream</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="196">
+      <node id="215">
         <label>Dealer.h</label>
         <link refid="_dealer_8h"/>
-        <childnode refid="197" relation="include">
+        <childnode refid="216" relation="include">
         </childnode>
-        <childnode refid="202" relation="include">
+        <childnode refid="221" relation="include">
         </childnode>
       </node>
-      <node id="195">
+      <node id="214">
         <label>Player.h</label>
         <link refid="_player_8h"/>
-        <childnode refid="196" relation="include">
+        <childnode refid="215" relation="include">
         </childnode>
-        <childnode refid="203" relation="include">
+        <childnode refid="222" relation="include">
         </childnode>
       </node>
-      <node id="194">
+      <node id="213">
         <label>utils.h</label>
         <link refid="utils_8h"/>
-        <childnode refid="195" relation="include">
+        <childnode refid="214" relation="include">
         </childnode>
-        <childnode refid="204" relation="include">
+        <childnode refid="223" relation="include">
         </childnode>
-        <childnode refid="198" relation="include">
+        <childnode refid="217" relation="include">
         </childnode>
-        <childnode refid="206" relation="include">
+        <childnode refid="225" relation="include">
         </childnode>
       </node>
-      <node id="202">
+      <node id="221">
         <label>Dealer.cpp</label>
         <link refid="_dealer_8cpp"/>
       </node>
-      <node id="198">
+      <node id="217">
         <label>Casino.h</label>
         <link refid="_casino_8h"/>
-        <childnode refid="199" relation="include">
+        <childnode refid="218" relation="include">
         </childnode>
-        <childnode refid="200" relation="include">
+        <childnode refid="219" relation="include">
         </childnode>
       </node>
-      <node id="201">
+      <node id="220">
         <label>Table.cpp</label>
         <link refid="_table_8cpp"/>
       </node>
-      <node id="205">
+      <node id="224">
         <label>cmdUI.cpp</label>
         <link refid="cmd_u_i_8cpp"/>
       </node>
-      <node id="204">
+      <node id="223">
         <label>cmdUI.h</label>
         <link refid="cmd_u_i_8h"/>
-        <childnode refid="197" relation="include">
+        <childnode refid="216" relation="include">
         </childnode>
-        <childnode refid="205" relation="include">
+        <childnode refid="224" relation="include">
         </childnode>
-        <childnode refid="200" relation="include">
+        <childnode refid="219" relation="include">
         </childnode>
       </node>
-      <node id="199">
+      <node id="218">
         <label>Casino.cpp</label>
         <link refid="_casino_8cpp"/>
       </node>
-      <node id="203">
+      <node id="222">
         <label>Player.cpp</label>
         <link refid="_player_8cpp"/>
       </node>
-      <node id="206">
+      <node id="225">
         <label>utils.cpp</label>
         <link refid="utils_8cpp"/>
       </node>
-      <node id="197">
+      <node id="216">
         <label>Table.h</label>
         <link refid="_table_8h"/>
-        <childnode refid="198" relation="include">
+        <childnode refid="217" relation="include">
         </childnode>
-        <childnode refid="195" relation="include">
+        <childnode refid="214" relation="include">
         </childnode>
-        <childnode refid="201" relation="include">
+        <childnode refid="220" relation="include">
         </childnode>
       </node>
-      <node id="200">
+      <node id="219">
         <label>main.cpp</label>
         <link refid="main_8cpp"/>
       </node>
@@ -173,10 +179,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="87" column="1" bodyfile="utils.cpp" bodystart="6" bodyend="8"/>
-        <references refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" compoundref="utils_8h" startline="29">Card::rank</references>
-        <references refid="struct_card_1a7fb7aca081009665a828df85f8778a91" compoundref="utils_8h" startline="31">Card::suits</references>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <location file="utils.h" line="109" column="1" bodyfile="utils.cpp" bodystart="6" bodyend="8"/>
+        <references refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" compoundref="utils_8h" startline="30">Card::rank</references>
+        <references refid="struct_card_1a7fb7aca081009665a828df85f8778a91" compoundref="utils_8h" startline="32">Card::suits</references>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1a994a59f31545d6cd0ca004b1ad668a87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -215,7 +221,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="103" column="1" bodyfile="utils.cpp" bodystart="9" bodyend="14"/>
+        <location file="utils.h" line="125" column="1" bodyfile="utils.cpp" bodystart="9" bodyend="14"/>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1a099be8692473d7f3fbde4e56a6b580a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>vector&lt; <ref refid="struct_card" kindref="compound">Card</ref> &gt;</type>
@@ -231,12 +237,12 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="116" column="1" bodyfile="utils.cpp" bodystart="15" bodyend="53"/>
-        <references refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" compoundref="utils_8h" startline="29">Card::rank</references>
-        <references refid="struct_card_1a93a6c9c8f00ffb249244dc3171cd3e5d" compoundref="utils_8h" startline="33">Card::score</references>
-        <references refid="struct_card_1a7fb7aca081009665a828df85f8778a91" compoundref="utils_8h" startline="31">Card::suits</references>
+        <location file="utils.h" line="138" column="1" bodyfile="utils.cpp" bodystart="15" bodyend="53"/>
+        <references refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" compoundref="utils_8h" startline="30">Card::rank</references>
+        <references refid="struct_card_1a93a6c9c8f00ffb249244dc3171cd3e5d" compoundref="utils_8h" startline="34">Card::score</references>
+        <references refid="struct_card_1a7fb7aca081009665a828df85f8778a91" compoundref="utils_8h" startline="32">Card::suits</references>
         <referencedby refid="class_dealer_1a518fd02cf57eaf55e06b7754c4649a3f" compoundref="_dealer_8cpp" startline="8" endline="15">Dealer::Dealer</referencedby>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1a012b4131b66a528fc555765be1f76dad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>string</type>
@@ -252,9 +258,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="129" column="1" bodyfile="utils.cpp" bodystart="55" bodyend="70"/>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
-        <referencedby refid="class_human_1ac2536a8f230ba6dd457b81e406f42a60" compoundref="_player_8cpp" startline="704" endline="723">Human::play</referencedby>
+        <location file="utils.h" line="151" column="1" bodyfile="utils.cpp" bodystart="55" bodyend="74"/>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
+        <referencedby refid="class_human_1ac2536a8f230ba6dd457b81e406f42a60" compoundref="_player_8cpp" startline="992" endline="1013">Human::play</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1a685ffa2d206caa9be692206e68284cb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned short int</type>
@@ -293,11 +299,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="145" column="1" bodyfile="utils.cpp" bodystart="72" bodyend="84"/>
-        <referencedby refid="class_human_1abbda834a6084c05134b25db5c00ac876" compoundref="_player_8cpp" startline="686" endline="702">Human::bet</referencedby>
+        <location file="utils.h" line="167" column="1" bodyfile="utils.cpp" bodystart="76" bodyend="88"/>
+        <referencedby refid="class_human_1abbda834a6084c05134b25db5c00ac876" compoundref="_player_8cpp" startline="974" endline="990">Human::bet</referencedby>
         <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">Casino::create</referencedby>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
-        <referencedby refid="class_table_1a7a83e0ed662f82198797b1a8aa8cc4ea" compoundref="_table_8cpp" startline="84" endline="105">Table::play</referencedby>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
+        <referencedby refid="class_table_1a00a1f21ddd1664b9305ab08ee48e5c3c" compoundref="_table_8cpp" startline="86" endline="358">Table::play</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -336,13 +342,13 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="161" column="1" bodyfile="utils.cpp" bodystart="87" bodyend="99"/>
-        <referencedby refid="cmd_u_i_8h_1a6b96de8bf548d42406d7e77b2ed24d82" compoundref="cmd_u_i_8cpp" startline="135" endline="140">createMenu</referencedby>
-        <referencedby refid="cmd_u_i_8h_1a2451dbf01b864018c05fe791e91d32d1" compoundref="cmd_u_i_8cpp" startline="142" endline="147">deleteMenu</referencedby>
-        <referencedby refid="cmd_u_i_8h_1a2aa92df8c5017fd8386360c516dd21f7" compoundref="cmd_u_i_8cpp" startline="128" endline="133">manageCasino</referencedby>
-        <referencedby refid="cmd_u_i_8h_1a071e1dea251b139583ae532689698d87" compoundref="cmd_u_i_8cpp" startline="149" endline="154">manageTableMenu</referencedby>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
-        <referencedby refid="cmd_u_i_8h_1a4c6d8a30cfef3b6adeff15978a5cf917" compoundref="cmd_u_i_8cpp" startline="84" endline="126">start_menu</referencedby>
+        <location file="utils.h" line="183" column="1" bodyfile="utils.cpp" bodystart="91" bodyend="103"/>
+        <referencedby refid="cmd_u_i_8h_1a6b96de8bf548d42406d7e77b2ed24d82" compoundref="cmd_u_i_8cpp" startline="136" endline="141">createMenu</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a2451dbf01b864018c05fe791e91d32d1" compoundref="cmd_u_i_8cpp" startline="143" endline="148">deleteMenu</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a2aa92df8c5017fd8386360c516dd21f7" compoundref="cmd_u_i_8cpp" startline="129" endline="134">manageCasino</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a071e1dea251b139583ae532689698d87" compoundref="cmd_u_i_8cpp" startline="150" endline="155">manageTableMenu</referencedby>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a4c6d8a30cfef3b6adeff15978a5cf917" compoundref="cmd_u_i_8cpp" startline="85" endline="127">start_menu</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1a55b3de51bc5631fb67d6681f33e52228" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -358,13 +364,13 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="174" column="1" bodyfile="utils.cpp" bodystart="101" bodyend="114"/>
+        <location file="utils.h" line="196" column="1" bodyfile="utils.cpp" bodystart="105" bodyend="118"/>
         <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">Casino::create</referencedby>
         <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">Casino::eliminate</referencedby>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
         <referencedby refid="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" compoundref="_casino_8cpp" startline="429" endline="468">Casino::manage</referencedby>
         <referencedby refid="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" compoundref="_casino_8cpp" startline="665" endline="803">Casino::manageTables</referencedby>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1ac4dc9964d286ddbbd2a108991190d39d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -380,8 +386,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="188" column="1" bodyfile="utils.cpp" bodystart="115" bodyend="127"/>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <location file="utils.h" line="210" column="1" bodyfile="utils.cpp" bodystart="119" bodyend="131"/>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
         <referencedby refid="class_casino_1a437b52a25414c25c250c52df98db027a" compoundref="_casino_8cpp" startline="395" endline="409">Casino::selectTable</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1a7b2049483feeea98ff61c00d763b4fb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -398,10 +404,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="201" column="1" bodyfile="utils.cpp" bodystart="129" bodyend="142"/>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
-        <referencedby refid="class_human_1ac406bdd47735f87dec9965b8a86d32ed" compoundref="_player_8cpp" startline="645" endline="660">Human::split</referencedby>
-        <referencedby refid="class_human_1af6cc17fa0b07ceadde23d352c1204719" compoundref="_player_8cpp" startline="631" endline="643">Human::takeInsurance</referencedby>
+        <location file="utils.h" line="223" column="1" bodyfile="utils.cpp" bodystart="133" bodyend="146"/>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
+        <referencedby refid="class_human_1ac406bdd47735f87dec9965b8a86d32ed" compoundref="_player_8cpp" startline="864" endline="879">Human::split</referencedby>
+        <referencedby refid="class_human_1af6cc17fa0b07ceadde23d352c1204719" compoundref="_player_8cpp" startline="850" endline="862">Human::takeInsurance</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1aa5de12b8cd82d61b545a85ea991944a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -417,8 +423,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="214" column="1" bodyfile="utils.cpp" bodystart="144" bodyend="156"/>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <location file="utils.h" line="236" column="1" bodyfile="utils.cpp" bodystart="148" bodyend="160"/>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1ada25d6610efd2d1c473deb3289e0809d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char</type>
@@ -434,8 +440,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="228" column="1" bodyfile="utils.cpp" bodystart="157" bodyend="169"/>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <location file="utils.h" line="250" column="1" bodyfile="utils.cpp" bodystart="161" bodyend="173"/>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
+        <referencedby refid="class_table_1a00a1f21ddd1664b9305ab08ee48e5c3c" compoundref="_table_8cpp" startline="86" endline="358">Table::play</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1a11166113d21454c8d054735425e5d496" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -473,10 +480,10 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="242" column="1" bodyfile="utils.cpp" bodystart="173" bodyend="221"/>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
-        <referencedby refid="utils_8h_1a59ba61591a389ad07561671807e5b3cf" compoundref="utils_8cpp" startline="274" endline="332">saveChanges</referencedby>
+        <location file="utils.h" line="264" column="1" bodyfile="utils.cpp" bodystart="177" bodyend="225"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
+        <referencedby refid="utils_8h_1a59ba61591a389ad07561671807e5b3cf" compoundref="utils_8cpp" startline="278" endline="336">saveChanges</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1aa224290174d6cbc5ab1691cb6aa3c92b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -514,8 +521,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="256" column="1" bodyfile="utils.cpp" bodystart="223" bodyend="236"/>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <location file="utils.h" line="278" column="1" bodyfile="utils.cpp" bodystart="227" bodyend="240"/>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1a778f88815f581f9e2eeca1f197b0d7bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -543,8 +550,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="271" column="1" bodyfile="utils.cpp" bodystart="238" bodyend="249"/>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <location file="utils.h" line="293" column="1" bodyfile="utils.cpp" bodystart="242" bodyend="253"/>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
+        <referencedby refid="class_table_1a00a1f21ddd1664b9305ab08ee48e5c3c" compoundref="_table_8cpp" startline="86" endline="358">Table::play</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1a9e6ae0faec755ce8693bfc0d4692e15c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -583,9 +591,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="287" column="1" bodyfile="utils.cpp" bodystart="251" bodyend="272"/>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
-        <referencedby refid="utils_8h_1a59ba61591a389ad07561671807e5b3cf" compoundref="utils_8cpp" startline="274" endline="332">saveChanges</referencedby>
+        <location file="utils.h" line="309" column="1" bodyfile="utils.cpp" bodystart="255" bodyend="276"/>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
+        <referencedby refid="utils_8h_1a59ba61591a389ad07561671807e5b3cf" compoundref="utils_8cpp" startline="278" endline="336">saveChanges</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1a59ba61591a389ad07561671807e5b3cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -646,11 +654,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="305" column="1" bodyfile="utils.cpp" bodystart="274" bodyend="332"/>
-        <references refid="utils_8cpp_1a9e6ae0faec755ce8693bfc0d4692e15c" compoundref="utils_8cpp" startline="251" endline="272">BinaryInt</references>
-        <references refid="utils_8cpp_1a11166113d21454c8d054735425e5d496" compoundref="utils_8cpp" startline="173" endline="221">Users</references>
-        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <location file="utils.h" line="327" column="1" bodyfile="utils.cpp" bodystart="278" bodyend="336"/>
+        <references refid="utils_8cpp_1a9e6ae0faec755ce8693bfc0d4692e15c" compoundref="utils_8cpp" startline="255" endline="276">BinaryInt</references>
+        <references refid="utils_8cpp_1a11166113d21454c8d054735425e5d496" compoundref="utils_8cpp" startline="177" endline="225">Users</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
       </memberdef>
       <memberdef kind="function" id="utils_8h_1acefd5a7062e81e56767fbfa11f6065e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -678,8 +686,39 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utils.h" line="320" column="1" bodyfile="utils.cpp" bodystart="334" bodyend="343"/>
-        <referencedby refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" compoundref="utils_8h" startline="66" endline="69">Card::operator==</referencedby>
+        <location file="utils.h" line="342" column="1" bodyfile="utils.cpp" bodystart="338" bodyend="347"/>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="utils_8h_1a436341e0fbeaefa986ca6d17c4a475b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void waitXTime</definition>
+        <argsstring>(unsigned int time)</argsstring>
+        <name>waitXTime</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+<para>Sleeps for a given time. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>20/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time in seconds. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="utils.h" line="356" column="1" bodyfile="utils.cpp" bodystart="349" bodyend="357"/>
+        <referencedby refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" compoundref="utils_8h" startline="71" endline="91">Card::operator&lt;&lt;</referencedby>
+        <referencedby refid="class_table_1a00a1f21ddd1664b9305ab08ee48e5c3c" compoundref="_table_8cpp" startline="86" endline="358">Table::play</referencedby>
+        <referencedby refid="class_table_1a5edf6fe1ff4f7286530e19e1621886dd" compoundref="_table_8cpp" startline="667" endline="756">Table::readTableFile</referencedby>
+        <referencedby refid="class_table_1a47b596e12ec40db62a56fb88b27537da" compoundref="_table_8cpp" startline="758" endline="797">Table::writeTableFile</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -696,59 +735,83 @@
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdlib&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iomanip&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacestd" kindref="compound">std</ref>;</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27" refid="struct_card" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_card" kindref="compound">Card</ref><sp/>{</highlight></codeline>
-<codeline lineno="29" refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" kindref="member">rank</ref>;</highlight></codeline>
-<codeline lineno="31" refid="struct_card_1a7fb7aca081009665a828df85f8778a91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="struct_card_1a7fb7aca081009665a828df85f8778a91" kindref="member">suits</ref>;</highlight></codeline>
-<codeline lineno="33" refid="struct_card_1a93a6c9c8f00ffb249244dc3171cd3e5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_card_1a93a6c9c8f00ffb249244dc3171cd3e5d" kindref="member">score</ref>;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48" refid="struct_card_1aca435a7f87f91bc1008328c272ac0e8c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_card_1aca435a7f87f91bc1008328c272ac0e8c" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_card" kindref="compound">Card</ref><sp/>&amp;a)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="49"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(this-&gt;rank<sp/>==<sp/>a.<ref refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" kindref="member">rank</ref>);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66" refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>&amp;a)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="67"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(this-&gt;rank<sp/>==<sp/>a);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="71"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal">std::ostream&amp;<sp/><ref refid="utils_8h_1a972bfcad488ad7738c01df1d1c24de6b" kindref="member">operator&lt;&lt;</ref>(std::ostream&amp;<sp/>out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_card" kindref="compound">Card</ref>&amp;<sp/>c);</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal">std::ostream&amp;<sp/>operator&lt;&lt;(std::ostream&amp;<sp/>out,<sp/>const<sp/>vector&lt;Card&gt;&amp;<sp/>v);</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal">vector<sp/>&lt;Card&gt;<sp/><ref refid="utils_8h_1a099be8692473d7f3fbde4e56a6b580a0" kindref="member">createDeck</ref>();</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a012b4131b66a528fc555765be1f76dad" kindref="member">getHumanPlay</ref>();</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight></codeline>
-<codeline lineno="145"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a685ffa2d206caa9be692206e68284cb4" kindref="member">readUnsignedIntBetween</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minValue,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxValue);</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" kindref="member">readIntBetween</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max);</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"></highlight></codeline>
-<codeline lineno="174"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a55b3de51bc5631fb67d6681f33e52228" kindref="member">readUnsignedInt</ref>();</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight></codeline>
-<codeline lineno="188"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1ac4dc9964d286ddbbd2a108991190d39d" kindref="member">readInt</ref>();</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"></highlight></codeline>
-<codeline lineno="201"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a7b2049483feeea98ff61c00d763b4fb5" kindref="member">readBinary</ref>();</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"></highlight></codeline>
-<codeline lineno="214"><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1aa5de12b8cd82d61b545a85ea991944a3" kindref="member">readFloat</ref>();</highlight></codeline>
-<codeline lineno="215"><highlight class="normal"></highlight></codeline>
-<codeline lineno="228"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1ada25d6610efd2d1c473deb3289e0809d" kindref="member">readCharYorN</ref>();</highlight></codeline>
-<codeline lineno="229"><highlight class="normal"></highlight></codeline>
-<codeline lineno="242"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a11166113d21454c8d054735425e5d496" kindref="member">Users</ref>(vector<sp/>&lt;int&gt;<sp/>&amp;usersVEC,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;user);</highlight></codeline>
-<codeline lineno="243"><highlight class="normal"></highlight></codeline>
-<codeline lineno="256"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1aa224290174d6cbc5ab1691cb6aa3c92b" kindref="member">FileCopy</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>filetxt,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>filetxt_temp);</highlight></codeline>
-<codeline lineno="257"><highlight class="normal"></highlight></codeline>
-<codeline lineno="271"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a778f88815f581f9e2eeca1f197b0d7bf" kindref="member">FileExist</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>filetxt_temp);</highlight></codeline>
-<codeline lineno="272"><highlight class="normal"></highlight></codeline>
-<codeline lineno="287"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a9e6ae0faec755ce8693bfc0d4692e15c" kindref="member">BinaryInt</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>vector<sp/>&lt;int&gt;<sp/>VEC);</highlight></codeline>
-<codeline lineno="288"><highlight class="normal"></highlight></codeline>
-<codeline lineno="305"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a59ba61591a389ad07561671807e5b3cf" kindref="member">saveChanges</ref>(vector<sp/>&lt;int&gt;<sp/>&amp;usersVEC,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;user,<sp/>pair<sp/>&lt;int,<sp/>int&gt;<sp/>xy,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;save);</highlight></codeline>
-<codeline lineno="306"><highlight class="normal"></highlight></codeline>
-<codeline lineno="320"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1acefd5a7062e81e56767fbfa11f6065e4" kindref="member">readNameOfFile</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>&amp;fileName);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacestd" kindref="compound">std</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="struct_card" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_card" kindref="compound">Card</ref><sp/>{</highlight></codeline>
+<codeline lineno="30" refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" kindref="member">rank</ref>;</highlight></codeline>
+<codeline lineno="32" refid="struct_card_1a7fb7aca081009665a828df85f8778a91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="struct_card_1a7fb7aca081009665a828df85f8778a91" kindref="member">suits</ref>;</highlight></codeline>
+<codeline lineno="34" refid="struct_card_1a93a6c9c8f00ffb249244dc3171cd3e5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_card_1a93a6c9c8f00ffb249244dc3171cd3e5d" kindref="member">score</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="struct_card_1aca435a7f87f91bc1008328c272ac0e8c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_card_1aca435a7f87f91bc1008328c272ac0e8c" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_card" kindref="compound">Card</ref><sp/>&amp;a)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="50"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(this-&gt;rank<sp/>==<sp/>a.<ref refid="struct_card_1a8e524627138cbbd914b5ab90e05b3c41" kindref="member">rank</ref>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_card_1a0b7554519cc029294c1c7e42b591d995" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>&amp;a)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="68"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(this-&gt;rank<sp/>==<sp/>a);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71" refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ostream&amp;<sp/><ref refid="struct_card_1a49ad8f46a6afbe2edd535039681ac004" kindref="member">operator&lt;&lt;</ref>(ostream&amp;<sp/>out)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/>this-&gt;rank;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;suits<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;Heart&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/>(char)3;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;suits<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;Diamond&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/>(char)4;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;suits<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;Club&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/>(char)5;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;suits<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;Spade&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/>(char)6;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>out;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal">std::ostream&amp;<sp/><ref refid="utils_8h_1a972bfcad488ad7738c01df1d1c24de6b" kindref="member">operator&lt;&lt;</ref>(std::ostream&amp;<sp/>out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_card" kindref="compound">Card</ref>&amp;<sp/>c);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal">std::ostream&amp;<sp/>operator&lt;&lt;(std::ostream&amp;<sp/>out,<sp/>const<sp/>vector&lt;Card&gt;&amp;<sp/>v);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal">vector<sp/>&lt;Card&gt;<sp/><ref refid="utils_8h_1a099be8692473d7f3fbde4e56a6b580a0" kindref="member">createDeck</ref>();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a012b4131b66a528fc555765be1f76dad" kindref="member">getHumanPlay</ref>();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a685ffa2d206caa9be692206e68284cb4" kindref="member">readUnsignedIntBetween</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minValue,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxValue);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" kindref="member">readIntBetween</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a55b3de51bc5631fb67d6681f33e52228" kindref="member">readUnsignedInt</ref>();</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1ac4dc9964d286ddbbd2a108991190d39d" kindref="member">readInt</ref>();</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a7b2049483feeea98ff61c00d763b4fb5" kindref="member">readBinary</ref>();</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1aa5de12b8cd82d61b545a85ea991944a3" kindref="member">readFloat</ref>();</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1ada25d6610efd2d1c473deb3289e0809d" kindref="member">readCharYorN</ref>();</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a11166113d21454c8d054735425e5d496" kindref="member">Users</ref>(vector<sp/>&lt;int&gt;<sp/>&amp;usersVEC,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;user);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1aa224290174d6cbc5ab1691cb6aa3c92b" kindref="member">FileCopy</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>filetxt,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>filetxt_temp);</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a778f88815f581f9e2eeca1f197b0d7bf" kindref="member">FileExist</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>filetxt_temp);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a9e6ae0faec755ce8693bfc0d4692e15c" kindref="member">BinaryInt</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>vector<sp/>&lt;int&gt;<sp/>VEC);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a59ba61591a389ad07561671807e5b3cf" kindref="member">saveChanges</ref>(vector<sp/>&lt;int&gt;<sp/>&amp;usersVEC,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;user,<sp/>pair<sp/>&lt;int,<sp/>int&gt;<sp/>xy,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;save);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1acefd5a7062e81e56767fbfa11f6065e4" kindref="member">readNameOfFile</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>&amp;fileName);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight></codeline>
+<codeline lineno="356"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="utils_8h_1a436341e0fbeaefa986ca6d17c4a475b9" kindref="member">waitXTime</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>time);</highlight></codeline>
     </programlisting>
     <location file="utils.h"/>
   </compounddef>

@@ -1,4 +1,4 @@
-.TH "PlayerStillOnTableException" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.TH "PlayerStillOnTableException" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -64,15 +64,15 @@ Joao Carvalho
 .PP
 
 .PP
-Definition at line 733 of file Player\&.cpp\&.
+Definition at line 1023 of file Player\&.cpp\&.
 .PP
 References Player::getName(), and Player::getOnTable()\&.
 .PP
 .nf
-733                                                                         {
-734     this->name = player->getName();
-735     this->tableID = player->getOnTable();
-736 }
+1023                                                                         {
+1024     this->name = player->getName();
+1025     this->tableID = player->getOnTable();
+1026 }
 .fi
 .SH "Member Function Documentation"
 .PP 
@@ -98,14 +98,14 @@ The table identifier\&.
 .PP
 
 .PP
-Definition at line 738 of file Player\&.cpp\&.
+Definition at line 1028 of file Player\&.cpp\&.
 .PP
 Referenced by Casino::eliminate()\&.
 .PP
 .nf
-738                                                            {
-739     return this->tableID;
-740 }
+1028                                                            {
+1029     return this->tableID;
+1030 }
 .fi
 
 

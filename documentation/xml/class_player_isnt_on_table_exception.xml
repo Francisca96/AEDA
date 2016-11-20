@@ -44,7 +44,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="203" column="1" bodyfile="Player.cpp" bodystart="742" bodyend="744"/>
+        <location file="Player.h" line="203" column="1" bodyfile="Player.cpp" bodystart="1032" bodyend="1034"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

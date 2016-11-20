@@ -57,9 +57,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="161" column="1" bodyfile="Player.cpp" bodystart="733" bodyend="736"/>
-        <references refid="class_player_1a4939193fc637f75bf7a11118334dae7e" compoundref="_player_8cpp" startline="92" endline="95">Player::getName</references>
-        <references refid="class_player_1a3928c55936faef5fd63b24d94b9a5781" compoundref="_player_8cpp" startline="228" endline="230">Player::getOnTable</references>
+        <location file="Player.h" line="161" column="1" bodyfile="Player.cpp" bodystart="1023" bodyend="1026"/>
+        <references refid="class_player_1a4939193fc637f75bf7a11118334dae7e" compoundref="_player_8cpp" startline="97" endline="100">Player::getName</references>
+        <references refid="class_player_1a3928c55936faef5fd63b24d94b9a5781" compoundref="_player_8cpp" startline="235" endline="237">Player::getOnTable</references>
       </memberdef>
       <memberdef kind="function" id="class_player_still_on_table_exception_1a173aa6dec8b33b0b3fa1aa65a03848ad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -75,7 +75,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Player.h" line="174" column="1" bodyfile="Player.cpp" bodystart="738" bodyend="740"/>
+        <location file="Player.h" line="174" column="1" bodyfile="Player.cpp" bodystart="1028" bodyend="1030"/>
         <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">Casino::eliminate</referencedby>
       </memberdef>
       </sectiondef>
