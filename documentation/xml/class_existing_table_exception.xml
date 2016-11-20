@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_existing_table_exception" kind="class" language="C++" prot="public">
+    <compoundname>ExistingTableException</compoundname>
+    <includes refid="_casino_8h" local="no">Casino.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_existing_table_exception_1a5e59fe489591f7a646aa94913de93af4" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ExistingTableException::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+<para>The identifier. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="71" column="1" bodyfile="Casino.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_existing_table_exception_1a2a05bc445d1cfaf1ba1020510e3f4e80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ExistingTableException::ExistingTableException</definition>
+        <argsstring>(Table *table)</argsstring>
+        <name>ExistingTableException</name>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the table. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="85" column="1" bodyfile="Casino.cpp" bodystart="976" bodyend="979"/>
+        <references refid="class_table_1aa4db39c76365882991132d3c07a85a81" compoundref="_table_8cpp" startline="256" endline="259">Table::getTableID</references>
+      </memberdef>
+      <memberdef kind="function" id="class_existing_table_exception_1a8024c517b64a950dedf37fd38ee6f738" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExistingTableException::what</definition>
+        <argsstring>()</argsstring>
+        <name>what</name>
+        <briefdescription>
+<para>Displays in terminal what caused this exception to be thrown. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="96" column="1" bodyfile="Casino.cpp" bodystart="981" bodyend="984"/>
+        <referencedby refid="class_casino_1a0c6e77e20add9d90b286b7e2be59a1a8" compoundref="_casino_8cpp" startline="27" endline="41">Casino::addTableToCasino</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Exception for signalling that a table with the specified ID already exists. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Casino.h" line="68" column="1" bodyfile="Casino.h" bodystart="68" bodyend="97"/>
+    <listofallmembers>
+      <member refid="class_existing_table_exception_1a2a05bc445d1cfaf1ba1020510e3f4e80" prot="public" virt="non-virtual"><scope>ExistingTableException</scope><name>ExistingTableException</name></member>
+      <member refid="class_existing_table_exception_1a5e59fe489591f7a646aa94913de93af4" prot="private" virt="non-virtual"><scope>ExistingTableException</scope><name>id</name></member>
+      <member refid="class_existing_table_exception_1a8024c517b64a950dedf37fd38ee6f738" prot="public" virt="non-virtual"><scope>ExistingTableException</scope><name>what</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

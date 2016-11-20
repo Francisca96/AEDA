@@ -1,0 +1,1198 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_casino" kind="class" language="C++" prot="public">
+    <compoundname>Casino</compoundname>
+    <includes refid="_casino_8h" local="no">Casino.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_casino_1a3abb9f0c8f14feaf35567e57610f9336" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Casino::playersFile</definition>
+        <argsstring></argsstring>
+        <name>playersFile</name>
+        <briefdescription>
+<para>The players file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="151" column="1" bodyfile="Casino.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_casino_1a140181c91092fe88904ff784db4db343" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Casino::dealersFile</definition>
+        <argsstring></argsstring>
+        <name>dealersFile</name>
+        <briefdescription>
+<para>The dealers file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="153" column="1" bodyfile="Casino.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_casino_1ade28e4d68c0754d29a8dd40ce8b3163e" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Casino::tablesFile</definition>
+        <argsstring></argsstring>
+        <name>tablesFile</name>
+        <briefdescription>
+<para>The tables file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="155" column="1" bodyfile="Casino.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_casino_1a47894c126c42dfd1bad04324fe1eba9f" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Casino::totalMoney</definition>
+        <argsstring></argsstring>
+        <name>totalMoney</name>
+        <briefdescription>
+<para>The total money. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="157" column="1" bodyfile="Casino.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_casino_1a2e40cd584221ed7a978e664404c6b97b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Casino::tableToPlay</definition>
+        <argsstring></argsstring>
+        <name>tableToPlay</name>
+        <briefdescription>
+<para>The table to play. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="159" column="1" bodyfile="Casino.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_casino_1a48961f640bb1ce3b30244d18def37f5e" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="class_dealer" kindref="compound">Dealer</ref> * &gt;</type>
+        <definition>vector&lt;Dealer*&gt; Casino::dealers</definition>
+        <argsstring></argsstring>
+        <name>dealers</name>
+        <briefdescription>
+<para>The dealers. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="161" column="1" bodyfile="Casino.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_casino_1a87f8314bf594c42688657d194c9e2309" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="class_table" kindref="compound">Table</ref> * &gt;</type>
+        <definition>vector&lt;Table *&gt; Casino::tables</definition>
+        <argsstring></argsstring>
+        <name>tables</name>
+        <briefdescription>
+<para>The tables. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="163" column="1" bodyfile="Casino.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_casino_1ac980914f2a80f946a144a7b866d0b0e7" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="class_player" kindref="compound">Player</ref> * &gt;</type>
+        <definition>vector&lt;Player*&gt; Casino::players</definition>
+        <argsstring></argsstring>
+        <name>players</name>
+        <briefdescription>
+<para>The players. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="165" column="1" bodyfile="Casino.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_casino_1ab762fad1458bda649ac3d44d5af7f8cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Casino::Casino</definition>
+        <argsstring>(unsigned int totalMoney)</argsstring>
+        <name>Casino</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>totalMoney</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>totalMoney</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The total money. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="179" column="1" bodyfile="Casino.cpp" bodystart="5" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a00f47d52f766b215ecc46e777c5696ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Casino::Casino</definition>
+        <argsstring>(unsigned int totalMoney, vector&lt; Table *&gt; &amp;tables, vector&lt; Player *&gt; &amp;players)</argsstring>
+        <name>Casino</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>totalMoney</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="class_table" kindref="compound">Table</ref> *&gt; &amp;</type>
+          <declname>tables</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="class_player" kindref="compound">Player</ref> *&gt; &amp;</type>
+          <declname>players</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>totalMoney</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The total money. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">tables</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of pointers to tables. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">players</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of pointers to players. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="194" column="1" bodyfile="Casino.cpp" bodystart="10" bodyend="18"/>
+        <references refid="class_casino_1ae9b15b1626b63e1d5f9e5130173b7e01" compoundref="_casino_8cpp" startline="85" endline="88">addPlayersToCasino</references>
+        <references refid="class_casino_1a2d01e3d373c98e5a7ecaeeea19cbc99f" compoundref="_casino_8cpp" startline="20" endline="25">addTablesToCasino</references>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a2d01e3d373c98e5a7ecaeeea19cbc99f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::addTablesToCasino</definition>
+        <argsstring>(vector&lt; Table *&gt; tables)</argsstring>
+        <name>addTablesToCasino</name>
+        <param>
+          <type>vector&lt; <ref refid="class_table" kindref="compound">Table</ref> *&gt;</type>
+          <declname>tables</declname>
+        </param>
+        <briefdescription>
+<para>Adds the tables to casino. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">tables</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of pointers to tables. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="207" column="1" bodyfile="Casino.cpp" bodystart="20" bodyend="25"/>
+        <references refid="class_casino_1a0c6e77e20add9d90b286b7e2be59a1a8" compoundref="_casino_8cpp" startline="27" endline="41">addTableToCasino</references>
+        <referencedby refid="class_casino_1a00f47d52f766b215ecc46e777c5696ca" compoundref="_casino_8cpp" startline="10" endline="18">Casino</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a0c6e77e20add9d90b286b7e2be59a1a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::addTableToCasino</definition>
+        <argsstring>(Table *table)</argsstring>
+        <name>addTableToCasino</name>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Adds a table to casino. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer of the table to be added. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="220" column="1" bodyfile="Casino.cpp" bodystart="27" bodyend="41"/>
+        <references refid="class_table_1aafb202407f082dbe38b154db463ef0b1" compoundref="_table_8cpp" startline="251" endline="254">Table::getInitialMoney</references>
+        <references refid="class_existing_table_exception_1a8024c517b64a950dedf37fd38ee6f738" compoundref="_casino_8cpp" startline="981" endline="984">ExistingTableException::what</references>
+        <referencedby refid="class_casino_1a2d01e3d373c98e5a7ecaeeea19cbc99f" compoundref="_casino_8cpp" startline="20" endline="25">addTablesToCasino</referencedby>
+        <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">create</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="class_casino_1a7ef9174a3aa71e490b4d00a4b4826f10" compoundref="_casino_8cpp" startline="269" endline="320">readTablesFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1af39418a2571c8411954dc74089882bb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::removeTableFromCasino</definition>
+        <argsstring>(Table *table)</argsstring>
+        <name>removeTableFromCasino</name>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Removes the table from casino. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer of the table to be removed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="233" column="1" bodyfile="Casino.cpp" bodystart="43" bodyend="54"/>
+        <references refid="class_table_1aa4db39c76365882991132d3c07a85a81" compoundref="_table_8cpp" startline="256" endline="259">Table::getTableID</references>
+        <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">eliminate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a54749cf7229b9cf10665660f6edfc4d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::addPlayerToCasino</definition>
+        <argsstring>(Player *player1)</argsstring>
+        <name>addPlayerToCasino</name>
+        <param>
+          <type><ref refid="class_player" kindref="compound">Player</ref> *</type>
+          <declname>player1</declname>
+        </param>
+        <briefdescription>
+<para>Adds a player to casino. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">player1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the player to be logged in the casino. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="246" column="1" bodyfile="Casino.cpp" bodystart="56" bodyend="66"/>
+        <references refid="class_player_1a4939193fc637f75bf7a11118334dae7e" compoundref="_player_8cpp" startline="92" endline="95">Player::getName</references>
+        <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">create</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a23122b72fe0f0e14e5c98acd6d324562" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::removePlayerFromCasino</definition>
+        <argsstring>(string name)</argsstring>
+        <name>removePlayerFromCasino</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Removes the player from casino. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the player to be removed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="259" column="1" bodyfile="Casino.cpp" bodystart="68" bodyend="83"/>
+        <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">eliminate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1ae9b15b1626b63e1d5f9e5130173b7e01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::addPlayersToCasino</definition>
+        <argsstring>(vector&lt; Player *&gt; &amp;playersVector)</argsstring>
+        <name>addPlayersToCasino</name>
+        <param>
+          <type>vector&lt; <ref refid="class_player" kindref="compound">Player</ref> *&gt; &amp;</type>
+          <declname>playersVector</declname>
+        </param>
+        <briefdescription>
+<para>Adds the players to casino. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">playersVector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of pointers to the players that should be added. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="272" column="1" bodyfile="Casino.cpp" bodystart="85" bodyend="88"/>
+        <referencedby refid="class_casino_1a00f47d52f766b215ecc46e777c5696ca" compoundref="_casino_8cpp" startline="10" endline="18">Casino</referencedby>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1aa724170771a456ad99c6ad4315d9af27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::addPlayersToTable</definition>
+        <argsstring>(vector&lt; Player *&gt; &amp;playersVector, Table *table)</argsstring>
+        <name>addPlayersToTable</name>
+        <param>
+          <type>vector&lt; <ref refid="class_player" kindref="compound">Player</ref> *&gt; &amp;</type>
+          <declname>playersVector</declname>
+        </param>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Adds the players to a <ref refid="class_table" kindref="compound">Table</ref> of the casino. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">playersVector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of pointers to players. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the table in which the players will be added. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="286" column="1" bodyfile="Casino.cpp" bodystart="91" bodyend="96"/>
+        <references refid="class_casino_1afa089e95581b451abf4adf4afb1b1ccd" compoundref="_casino_8cpp" startline="98" endline="130">addPlayerToTable</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1afa089e95581b451abf4adf4afb1b1ccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::addPlayerToTable</definition>
+        <argsstring>(Player *player1, Table *table)</argsstring>
+        <name>addPlayerToTable</name>
+        <param>
+          <type><ref refid="class_player" kindref="compound">Player</ref> *</type>
+          <declname>player1</declname>
+        </param>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> *</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Adds a player to a table of the casino. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">player1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the player that should be added to the table. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the table. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="300" column="1" bodyfile="Casino.cpp" bodystart="98" bodyend="130"/>
+        <references refid="class_table_1a8b9779dcd6f5695e121f75d10f9fe703" compoundref="_table_8cpp" startline="55" endline="58">Table::addPlayer</references>
+        <references refid="class_player_not_logged_exception_1ad224c777831b13df0b2a48e5a0e333ae" compoundref="_casino_8cpp" startline="971" endline="974">PlayerNotLoggedException::what</references>
+        <references refid="class_too_many_players_exception_1aaaf4d3518d044df6bec5478d5729b7e3" compoundref="_table_8cpp" startline="8" endline="12">TooManyPlayersException::what</references>
+        <referencedby refid="class_casino_1aa724170771a456ad99c6ad4315d9af27" compoundref="_casino_8cpp" startline="91" endline="96">addPlayersToTable</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a93780bfce351b004f0ac5602a8b593a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::addDealerToCasino</definition>
+        <argsstring>(Dealer *newDealer)</argsstring>
+        <name>addDealerToCasino</name>
+        <param>
+          <type><ref refid="class_dealer" kindref="compound">Dealer</ref> *</type>
+          <declname>newDealer</declname>
+        </param>
+        <briefdescription>
+<para>Adds a dealer to the casino. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">newDealer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the dealer that should be added to the casino. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="313" column="1" bodyfile="Casino.cpp" bodystart="132" bodyend="141"/>
+        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="130" endline="132">Dealer::getID</references>
+        <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">create</referencedby>
+        <referencedby refid="class_casino_1a8a90d8525d1052a5ab1367508603ec96" compoundref="_casino_8cpp" startline="230" endline="267">readDealersFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a00554a09b9bb5d9e7bdaaad2fe8fbbbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::removeDealerFromCasino</definition>
+        <argsstring>(Dealer *dealer)</argsstring>
+        <name>removeDealerFromCasino</name>
+        <param>
+          <type><ref refid="class_dealer" kindref="compound">Dealer</ref> *</type>
+          <declname>dealer</declname>
+        </param>
+        <briefdescription>
+<para>Removes a dealer from the casino. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">dealer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the dealer that should be removed from the casino. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="326" column="1" bodyfile="Casino.cpp" bodystart="143" bodyend="158"/>
+        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="130" endline="132">Dealer::getID</references>
+        <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">eliminate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1ae75fc8b1e56e1b9c9c8e4f3e0a9ed668" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::setPlayersFile</definition>
+        <argsstring>(string playerFile)</argsstring>
+        <name>setPlayersFile</name>
+        <param>
+          <type>string</type>
+          <declname>playerFile</declname>
+        </param>
+        <briefdescription>
+<para>Sets players file. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>playerFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A string already formatted to save the players in a file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="339" column="1" bodyfile="Casino.cpp" bodystart="160" bodyend="162"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1ab6af7e25d850cc4f3e38ae910849ac85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::setDealersFile</definition>
+        <argsstring>(string dealersFile)</argsstring>
+        <name>setDealersFile</name>
+        <param>
+          <type>string</type>
+          <declname>dealersFile</declname>
+        </param>
+        <briefdescription>
+<para>Sets dealers file. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dealersFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A string already formatted to save the dealers in a file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="352" column="1" bodyfile="Casino.cpp" bodystart="164" bodyend="166"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a16476391b68864965e90e7764d20c2d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::setTablesFile</definition>
+        <argsstring>(string tablesFile)</argsstring>
+        <name>setTablesFile</name>
+        <param>
+          <type>string</type>
+          <declname>tablesFile</declname>
+        </param>
+        <briefdescription>
+<para>Sets tables file. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tablesFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A string already formatted to save the tables in a file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="365" column="1" bodyfile="Casino.cpp" bodystart="168" bodyend="170"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1aa8eb27d8aece338ad3603efe1079cc59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::readPlayersFile</definition>
+        <argsstring>()</argsstring>
+        <name>readPlayersFile</name>
+        <briefdescription>
+<para>Reads players .txt file. The players file should be placed in the project directory. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="376" column="1" bodyfile="Casino.cpp" bodystart="172" bodyend="228"/>
+        <references refid="class_player_1a7cc1745523751dcea0263c9658e33111" compoundref="_player_8cpp" startline="135" endline="141">Player::setInitialMoney</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a8a90d8525d1052a5ab1367508603ec96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::readDealersFile</definition>
+        <argsstring>()</argsstring>
+        <name>readDealersFile</name>
+        <briefdescription>
+<para>Reads dealers .txt file. The dealers file should be placed in the project directory. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="387" column="1" bodyfile="Casino.cpp" bodystart="230" bodyend="267"/>
+        <references refid="class_casino_1a93780bfce351b004f0ac5602a8b593a2" compoundref="_casino_8cpp" startline="132" endline="141">addDealerToCasino</references>
+        <references refid="class_dealer_already_exist_exception_1a61aee4db55399ffd2e06ceedd04136be" compoundref="_dealer_8cpp" startline="162" endline="164">DealerAlreadyExistException::getID</references>
+        <references refid="class_dealer_1a65ef0e688aab06970d20110e29f6b5af" compoundref="_dealer_8cpp" startline="142" endline="144">Dealer::setNextID</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a7ef9174a3aa71e490b4d00a4b4826f10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::readTablesFile</definition>
+        <argsstring>()</argsstring>
+        <name>readTablesFile</name>
+        <briefdescription>
+<para>Reads tables .txt file. The tables file should be placed in the project directory. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="398" column="1" bodyfile="Casino.cpp" bodystart="269" bodyend="320"/>
+        <references refid="class_casino_1a0c6e77e20add9d90b286b7e2be59a1a8" compoundref="_casino_8cpp" startline="27" endline="41">addTableToCasino</references>
+        <references refid="class_table_1afa6f99eb44c137304837fbc46ef5599c" compoundref="_table_8cpp" startline="50" endline="52">Table::setID</references>
+        <references refid="class_table_1aa5953efa5c4e38b0f211f3523b378273" compoundref="_table_8cpp" startline="406" endline="408">Table::setNextID</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a58badd6bd812dbc68bfe6d9610c7c0c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::savePlayersFile</definition>
+        <argsstring>()</argsstring>
+        <name>savePlayersFile</name>
+        <briefdescription>
+<para>Saves the players in a txt file. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="409" column="1" bodyfile="Casino.cpp" bodystart="322" bodyend="355"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1aa5f99a588052b451514a65735449964a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::saveDealersFile</definition>
+        <argsstring>()</argsstring>
+        <name>saveDealersFile</name>
+        <briefdescription>
+<para>Saves the dealers in a txt file. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="420" column="1" bodyfile="Casino.cpp" bodystart="357" bodyend="372"/>
+        <references refid="class_dealer_1a3af257ebe799a924bbfc2e5898672f3e" compoundref="_dealer_8cpp" startline="146" endline="148">Dealer::getNextID</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a3ab5d11c2a99d525672f459e18b6b540" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::saveTablesFile</definition>
+        <argsstring>()</argsstring>
+        <name>saveTablesFile</name>
+        <briefdescription>
+<para>Saves the tables in a txt file. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="431" column="1" bodyfile="Casino.cpp" bodystart="374" bodyend="389"/>
+        <references refid="class_table_1a1667c54b587f1718e9360d2e24a37fc3" compoundref="_table_8cpp" startline="410" endline="412">Table::getNextId</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a6622d967761466d86cb4c1059123dcbd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::showStatistics</definition>
+        <argsstring>() const</argsstring>
+        <name>showStatistics</name>
+        <briefdescription>
+<para>Displays casino&apos;s statistics in a user friendly way on the terminal. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="442" column="1" bodyfile="Casino.cpp" bodystart="838" bodyend="845"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1aa75a4d63a4ba052eb6f7fb86130091b9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::showPlayers</definition>
+        <argsstring>(pair&lt; short, short &gt; xy) const</argsstring>
+        <name>showPlayers</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <briefdescription>
+<para>Displays the players that are logged in a user friendly way on the terminal. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cursor coordinates. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="455" column="1" bodyfile="Casino.cpp" bodystart="847" bodyend="896"/>
+        <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">eliminate</referencedby>
+        <referencedby refid="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" compoundref="_casino_8cpp" startline="665" endline="803">manageTables</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1acaf0b66e12eab500cfb7706f0e62f60c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::showDealers</definition>
+        <argsstring>(pair&lt; short, short &gt; xy) const</argsstring>
+        <name>showDealers</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <briefdescription>
+<para>Displays casino&apos;s dealers in a user friendly way on the terminal. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cursor coordinates. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="468" column="1" bodyfile="Casino.cpp" bodystart="898" bodyend="945"/>
+        <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">create</referencedby>
+        <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">eliminate</referencedby>
+        <referencedby refid="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" compoundref="_casino_8cpp" startline="665" endline="803">manageTables</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a33ac92a701d94a758177cea078aa7bfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::showTables</definition>
+        <argsstring>(pair&lt; short, short &gt; xy)</argsstring>
+        <name>showTables</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <briefdescription>
+<para>Displays casino&apos;s tables in a user friendly way on the terminal. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cursor coordinates. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="481" column="1" bodyfile="Casino.cpp" bodystart="947" bodyend="964"/>
+        <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">eliminate</referencedby>
+        <referencedby refid="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" compoundref="_casino_8cpp" startline="429" endline="468">manage</referencedby>
+        <referencedby refid="class_casino_1a437b52a25414c25c250c52df98db027a" compoundref="_casino_8cpp" startline="395" endline="409">selectTable</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a205d3a479c8bb19a2259f170c6ab5f27" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="class_table" kindref="compound">Table</ref> * &gt;</type>
+        <definition>vector&lt; Table * &gt; Casino::getTables</definition>
+        <argsstring>() const</argsstring>
+        <name>getTables</name>
+        <briefdescription>
+<para>Gets the tables. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>A vector of pointers to the casino&apos;s tables. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="494" column="1" bodyfile="Casino.cpp" bodystart="391" bodyend="393"/>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a437b52a25414c25c250c52df98db027a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::selectTable</definition>
+        <argsstring>(pair&lt; short, short &gt; xy)</argsstring>
+        <name>selectTable</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <briefdescription>
+<para>Select table using the given &lt;x,y&gt; coordinates. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &lt;x,y&gt; coordinates. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="507" column="1" bodyfile="Casino.cpp" bodystart="395" bodyend="409"/>
+        <references refid="utils_8cpp_1ac4dc9964d286ddbbd2a108991190d39d" compoundref="utils_8cpp" startline="115" endline="127">readInt</references>
+        <references refid="class_casino_1a2208d1e4acbc255091c4904609d3b5a8" compoundref="_casino_8cpp" startline="411" endline="413">setTableToPlay</references>
+        <references refid="class_casino_1a33ac92a701d94a758177cea078aa7bfb" compoundref="_casino_8cpp" startline="947" endline="964">showTables</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a2208d1e4acbc255091c4904609d3b5a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::setTableToPlay</definition>
+        <argsstring>(int tableID)</argsstring>
+        <name>setTableToPlay</name>
+        <param>
+          <type>int</type>
+          <declname>tableID</declname>
+        </param>
+        <briefdescription>
+<para>Sets table to play. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tableID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifier for the table. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="520" column="1" bodyfile="Casino.cpp" bodystart="411" bodyend="413"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+        <referencedby refid="class_casino_1a437b52a25414c25c250c52df98db027a" compoundref="_casino_8cpp" startline="395" endline="409">selectTable</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1abc474c7425555e4ac8e030495cb7a8e3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_table" kindref="compound">Table</ref> *</type>
+        <definition>Table * Casino::getTableToPlay</definition>
+        <argsstring>() const</argsstring>
+        <name>getTableToPlay</name>
+        <briefdescription>
+<para>Gets table to play. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>Pointer to the table to play. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="533" column="1" bodyfile="Casino.cpp" bodystart="415" bodyend="427"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::manage</definition>
+        <argsstring>(pair&lt; short, short &gt; xy)</argsstring>
+        <name>manage</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <briefdescription>
+<para>Manages casino. Enables the user to select between menus. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &lt;x,y&gt; coordinates. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="547" column="1" bodyfile="Casino.cpp" bodystart="429" bodyend="468"/>
+        <references refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">create</references>
+        <references refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">eliminate</references>
+        <references refid="class_casino_1acf5876dc73948dbdafdad888b2ef50d4" compoundref="_casino_8cpp" startline="805" endline="814">findTable</references>
+        <references refid="cmd_u_i_8cpp_1a2aa92df8c5017fd8386360c516dd21f7" compoundref="cmd_u_i_8cpp" startline="128" endline="133">manageCasino</references>
+        <references refid="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" compoundref="_casino_8cpp" startline="665" endline="803">manageTables</references>
+        <references refid="utils_8cpp_1a55b3de51bc5631fb67d6681f33e52228" compoundref="utils_8cpp" startline="101" endline="114">readUnsignedInt</references>
+        <references refid="class_casino_1a33ac92a701d94a758177cea078aa7bfb" compoundref="_casino_8cpp" startline="947" endline="964">showTables</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="168">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::create</definition>
+        <argsstring>(pair&lt; short, short &gt; xy)</argsstring>
+        <name>create</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <briefdescription>
+<para>Creates a menu for casino. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &lt;x,y&gt; coordinates. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="560" column="1" bodyfile="Casino.cpp" bodystart="470" bodyend="579"/>
+        <references refid="class_casino_1a93780bfce351b004f0ac5602a8b593a2" compoundref="_casino_8cpp" startline="132" endline="141">addDealerToCasino</references>
+        <references refid="class_casino_1a54749cf7229b9cf10665660f6edfc4d8" compoundref="_casino_8cpp" startline="56" endline="66">addPlayerToCasino</references>
+        <references refid="class_casino_1a0c6e77e20add9d90b286b7e2be59a1a8" compoundref="_casino_8cpp" startline="27" endline="41">addTableToCasino</references>
+        <references refid="cmd_u_i_8cpp_1a6b96de8bf548d42406d7e77b2ed24d82" compoundref="cmd_u_i_8cpp" startline="135" endline="140">createMenu</references>
+        <references refid="class_casino_1aaf0f71167edbeb284baf3f35339411a4" compoundref="_casino_8cpp" startline="816" endline="825">findDealer</references>
+        <references refid="class_dealer_1a33483233d2bdc17351d3d57fee448184" compoundref="_dealer_8cpp" startline="138" endline="140">Dealer::getTableOn</references>
+        <references refid="utils_8cpp_1a55b3de51bc5631fb67d6681f33e52228" compoundref="utils_8cpp" startline="101" endline="114">readUnsignedInt</references>
+        <references refid="utils_8cpp_1a685ffa2d206caa9be692206e68284cb4" compoundref="utils_8cpp" startline="72" endline="84">readUnsignedIntBetween</references>
+        <references refid="class_casino_1acaf0b66e12eab500cfb7706f0e62f60c" compoundref="_casino_8cpp" startline="898" endline="945">showDealers</references>
+        <referencedby refid="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" compoundref="_casino_8cpp" startline="429" endline="468">manage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::eliminate</definition>
+        <argsstring>(pair&lt; short, short &gt; xy)</argsstring>
+        <name>eliminate</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <briefdescription>
+<para>Open a delete menu. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &lt;x,y&gt; coordinates. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="573" column="1" bodyfile="Casino.cpp" bodystart="581" bodyend="663"/>
+        <references refid="cmd_u_i_8cpp_1a2451dbf01b864018c05fe791e91d32d1" compoundref="cmd_u_i_8cpp" startline="142" endline="147">deleteMenu</references>
+        <references refid="class_player_still_on_table_exception_1a173aa6dec8b33b0b3fa1aa65a03848ad" compoundref="_player_8cpp" startline="738" endline="740">PlayerStillOnTableException::getTableId</references>
+        <references refid="class_dealer_still_on_table_exception_1a44ceb65d9728c8090515aeac00bed5ce" compoundref="_dealer_8cpp" startline="171" endline="173">DealerStillOnTableException::getTableID</references>
+        <references refid="utils_8cpp_1a55b3de51bc5631fb67d6681f33e52228" compoundref="utils_8cpp" startline="101" endline="114">readUnsignedInt</references>
+        <references refid="class_casino_1a00554a09b9bb5d9e7bdaaad2fe8fbbbd" compoundref="_casino_8cpp" startline="143" endline="158">removeDealerFromCasino</references>
+        <references refid="class_casino_1a23122b72fe0f0e14e5c98acd6d324562" compoundref="_casino_8cpp" startline="68" endline="83">removePlayerFromCasino</references>
+        <references refid="class_casino_1af39418a2571c8411954dc74089882bb4" compoundref="_casino_8cpp" startline="43" endline="54">removeTableFromCasino</references>
+        <references refid="class_casino_1acaf0b66e12eab500cfb7706f0e62f60c" compoundref="_casino_8cpp" startline="898" endline="945">showDealers</references>
+        <references refid="class_casino_1aa75a4d63a4ba052eb6f7fb86130091b9" compoundref="_casino_8cpp" startline="847" endline="896">showPlayers</references>
+        <references refid="class_casino_1a33ac92a701d94a758177cea078aa7bfb" compoundref="_casino_8cpp" startline="947" endline="964">showTables</references>
+        <referencedby refid="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" compoundref="_casino_8cpp" startline="429" endline="468">manage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Casino::manageTables</definition>
+        <argsstring>(pair&lt; short, short &gt; xy, unsigned int tableID)</argsstring>
+        <name>manageTables</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>tableID</declname>
+        </param>
+        <briefdescription>
+<para>Manage tables. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &lt;x,y&gt; coordinates. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tableID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifier for the table. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="587" column="1" bodyfile="Casino.cpp" bodystart="665" bodyend="803"/>
+        <references refid="class_casino_1aaf0f71167edbeb284baf3f35339411a4" compoundref="_casino_8cpp" startline="816" endline="825">findDealer</references>
+        <references refid="class_casino_1a566f659a6920e2ccec53d0e231f6524c" compoundref="_casino_8cpp" startline="827" endline="836">findPlayer</references>
+        <references refid="class_casino_1acf5876dc73948dbdafdad888b2ef50d4" compoundref="_casino_8cpp" startline="805" endline="814">findTable</references>
+        <references refid="class_table_1a65097ec2fe98d83c44538132e4fc2047" compoundref="_table_8cpp" startline="281" endline="284">Table::getPlayers</references>
+        <references refid="cmd_u_i_8cpp_1a071e1dea251b139583ae532689698d87" compoundref="cmd_u_i_8cpp" startline="149" endline="154">manageTableMenu</references>
+        <references refid="utils_8cpp_1a55b3de51bc5631fb67d6681f33e52228" compoundref="utils_8cpp" startline="101" endline="114">readUnsignedInt</references>
+        <references refid="class_table_1a003724a8c2586a29969620dc81d7e447" compoundref="_table_8cpp" startline="71" endline="82">Table::removePlayer</references>
+        <references refid="class_casino_1acaf0b66e12eab500cfb7706f0e62f60c" compoundref="_casino_8cpp" startline="898" endline="945">showDealers</references>
+        <references refid="class_casino_1aa75a4d63a4ba052eb6f7fb86130091b9" compoundref="_casino_8cpp" startline="847" endline="896">showPlayers</references>
+        <referencedby refid="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" compoundref="_casino_8cpp" startline="429" endline="468">manage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1acf5876dc73948dbdafdad888b2ef50d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Casino::findTable</definition>
+        <argsstring>(unsigned int tableID)</argsstring>
+        <name>findTable</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>tableID</declname>
+        </param>
+        <briefdescription>
+<para>Searches for a table (sequential search). </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tableID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifier for the table.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The index of the table on the tables vector. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="602" column="1" bodyfile="Casino.cpp" bodystart="805" bodyend="814"/>
+        <referencedby refid="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" compoundref="_casino_8cpp" startline="429" endline="468">manage</referencedby>
+        <referencedby refid="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" compoundref="_casino_8cpp" startline="665" endline="803">manageTables</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1aaf0f71167edbeb284baf3f35339411a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Casino::findDealer</definition>
+        <argsstring>(unsigned int dealerID)</argsstring>
+        <name>findDealer</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>dealerID</declname>
+        </param>
+        <briefdescription>
+<para>Searches for a dealer (sequential search). </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dealerID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifier for the dealer.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The index of the dealer on the dealers vector. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="617" column="1" bodyfile="Casino.cpp" bodystart="816" bodyend="825"/>
+        <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">create</referencedby>
+        <referencedby refid="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" compoundref="_casino_8cpp" startline="665" endline="803">manageTables</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_casino_1a566f659a6920e2ccec53d0e231f6524c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Casino::findPlayer</definition>
+        <argsstring>(string name)</argsstring>
+        <name>findPlayer</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Searches for a player (sequential search). </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the player.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The index of the player in the players vector. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Casino.h" line="632" column="1" bodyfile="Casino.cpp" bodystart="827" bodyend="836"/>
+        <referencedby refid="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" compoundref="_casino_8cpp" startline="665" endline="803">manageTables</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A casino. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Casino.h" line="148" column="1" bodyfile="Casino.h" bodystart="148" bodyend="633"/>
+    <listofallmembers>
+      <member refid="class_casino_1a93780bfce351b004f0ac5602a8b593a2" prot="public" virt="non-virtual"><scope>Casino</scope><name>addDealerToCasino</name></member>
+      <member refid="class_casino_1ae9b15b1626b63e1d5f9e5130173b7e01" prot="public" virt="non-virtual"><scope>Casino</scope><name>addPlayersToCasino</name></member>
+      <member refid="class_casino_1aa724170771a456ad99c6ad4315d9af27" prot="public" virt="non-virtual"><scope>Casino</scope><name>addPlayersToTable</name></member>
+      <member refid="class_casino_1a54749cf7229b9cf10665660f6edfc4d8" prot="public" virt="non-virtual"><scope>Casino</scope><name>addPlayerToCasino</name></member>
+      <member refid="class_casino_1afa089e95581b451abf4adf4afb1b1ccd" prot="public" virt="non-virtual"><scope>Casino</scope><name>addPlayerToTable</name></member>
+      <member refid="class_casino_1a2d01e3d373c98e5a7ecaeeea19cbc99f" prot="public" virt="non-virtual"><scope>Casino</scope><name>addTablesToCasino</name></member>
+      <member refid="class_casino_1a0c6e77e20add9d90b286b7e2be59a1a8" prot="public" virt="non-virtual"><scope>Casino</scope><name>addTableToCasino</name></member>
+      <member refid="class_casino_1ab762fad1458bda649ac3d44d5af7f8cf" prot="public" virt="non-virtual"><scope>Casino</scope><name>Casino</name></member>
+      <member refid="class_casino_1a00f47d52f766b215ecc46e777c5696ca" prot="public" virt="non-virtual"><scope>Casino</scope><name>Casino</name></member>
+      <member refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" prot="public" virt="non-virtual"><scope>Casino</scope><name>create</name></member>
+      <member refid="class_casino_1a48961f640bb1ce3b30244d18def37f5e" prot="private" virt="non-virtual"><scope>Casino</scope><name>dealers</name></member>
+      <member refid="class_casino_1a140181c91092fe88904ff784db4db343" prot="private" virt="non-virtual"><scope>Casino</scope><name>dealersFile</name></member>
+      <member refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" prot="public" virt="non-virtual"><scope>Casino</scope><name>eliminate</name></member>
+      <member refid="class_casino_1aaf0f71167edbeb284baf3f35339411a4" prot="public" virt="non-virtual"><scope>Casino</scope><name>findDealer</name></member>
+      <member refid="class_casino_1a566f659a6920e2ccec53d0e231f6524c" prot="public" virt="non-virtual"><scope>Casino</scope><name>findPlayer</name></member>
+      <member refid="class_casino_1acf5876dc73948dbdafdad888b2ef50d4" prot="public" virt="non-virtual"><scope>Casino</scope><name>findTable</name></member>
+      <member refid="class_casino_1a205d3a479c8bb19a2259f170c6ab5f27" prot="public" virt="non-virtual"><scope>Casino</scope><name>getTables</name></member>
+      <member refid="class_casino_1abc474c7425555e4ac8e030495cb7a8e3" prot="public" virt="non-virtual"><scope>Casino</scope><name>getTableToPlay</name></member>
+      <member refid="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" prot="public" virt="non-virtual"><scope>Casino</scope><name>manage</name></member>
+      <member refid="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" prot="public" virt="non-virtual"><scope>Casino</scope><name>manageTables</name></member>
+      <member refid="class_casino_1ac980914f2a80f946a144a7b866d0b0e7" prot="private" virt="non-virtual"><scope>Casino</scope><name>players</name></member>
+      <member refid="class_casino_1a3abb9f0c8f14feaf35567e57610f9336" prot="private" virt="non-virtual"><scope>Casino</scope><name>playersFile</name></member>
+      <member refid="class_casino_1a8a90d8525d1052a5ab1367508603ec96" prot="public" virt="non-virtual"><scope>Casino</scope><name>readDealersFile</name></member>
+      <member refid="class_casino_1aa8eb27d8aece338ad3603efe1079cc59" prot="public" virt="non-virtual"><scope>Casino</scope><name>readPlayersFile</name></member>
+      <member refid="class_casino_1a7ef9174a3aa71e490b4d00a4b4826f10" prot="public" virt="non-virtual"><scope>Casino</scope><name>readTablesFile</name></member>
+      <member refid="class_casino_1a00554a09b9bb5d9e7bdaaad2fe8fbbbd" prot="public" virt="non-virtual"><scope>Casino</scope><name>removeDealerFromCasino</name></member>
+      <member refid="class_casino_1a23122b72fe0f0e14e5c98acd6d324562" prot="public" virt="non-virtual"><scope>Casino</scope><name>removePlayerFromCasino</name></member>
+      <member refid="class_casino_1af39418a2571c8411954dc74089882bb4" prot="public" virt="non-virtual"><scope>Casino</scope><name>removeTableFromCasino</name></member>
+      <member refid="class_casino_1aa5f99a588052b451514a65735449964a" prot="public" virt="non-virtual"><scope>Casino</scope><name>saveDealersFile</name></member>
+      <member refid="class_casino_1a58badd6bd812dbc68bfe6d9610c7c0c8" prot="public" virt="non-virtual"><scope>Casino</scope><name>savePlayersFile</name></member>
+      <member refid="class_casino_1a3ab5d11c2a99d525672f459e18b6b540" prot="public" virt="non-virtual"><scope>Casino</scope><name>saveTablesFile</name></member>
+      <member refid="class_casino_1a437b52a25414c25c250c52df98db027a" prot="public" virt="non-virtual"><scope>Casino</scope><name>selectTable</name></member>
+      <member refid="class_casino_1ab6af7e25d850cc4f3e38ae910849ac85" prot="public" virt="non-virtual"><scope>Casino</scope><name>setDealersFile</name></member>
+      <member refid="class_casino_1ae75fc8b1e56e1b9c9c8e4f3e0a9ed668" prot="public" virt="non-virtual"><scope>Casino</scope><name>setPlayersFile</name></member>
+      <member refid="class_casino_1a16476391b68864965e90e7764d20c2d4" prot="public" virt="non-virtual"><scope>Casino</scope><name>setTablesFile</name></member>
+      <member refid="class_casino_1a2208d1e4acbc255091c4904609d3b5a8" prot="public" virt="non-virtual"><scope>Casino</scope><name>setTableToPlay</name></member>
+      <member refid="class_casino_1acaf0b66e12eab500cfb7706f0e62f60c" prot="public" virt="non-virtual"><scope>Casino</scope><name>showDealers</name></member>
+      <member refid="class_casino_1aa75a4d63a4ba052eb6f7fb86130091b9" prot="public" virt="non-virtual"><scope>Casino</scope><name>showPlayers</name></member>
+      <member refid="class_casino_1a6622d967761466d86cb4c1059123dcbd" prot="public" virt="non-virtual"><scope>Casino</scope><name>showStatistics</name></member>
+      <member refid="class_casino_1a33ac92a701d94a758177cea078aa7bfb" prot="public" virt="non-virtual"><scope>Casino</scope><name>showTables</name></member>
+      <member refid="class_casino_1a87f8314bf594c42688657d194c9e2309" prot="private" virt="non-virtual"><scope>Casino</scope><name>tables</name></member>
+      <member refid="class_casino_1ade28e4d68c0754d29a8dd40ce8b3163e" prot="private" virt="non-virtual"><scope>Casino</scope><name>tablesFile</name></member>
+      <member refid="class_casino_1a2e40cd584221ed7a978e664404c6b97b" prot="private" virt="non-virtual"><scope>Casino</scope><name>tableToPlay</name></member>
+      <member refid="class_casino_1a47894c126c42dfd1bad04324fe1eba9f" prot="private" virt="non-virtual"><scope>Casino</scope><name>totalMoney</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

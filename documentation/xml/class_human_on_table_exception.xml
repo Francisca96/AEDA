@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_human_on_table_exception" kind="class" language="C++" prot="public">
+    <compoundname>HumanOnTableException</compoundname>
+    <includes refid="_player_8h" local="no">Player.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_human_on_table_exception_1a103b7f6d8efe9f67558a531e706c95cc" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string HumanOnTableException::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>The human name. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="218" column="1" bodyfile="Player.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_human_on_table_exception_1abd859782137a73608aa7ad90656424b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HumanOnTableException::HumanOnTableException</definition>
+        <argsstring>(Player *player)</argsstring>
+        <name>HumanOnTableException</name>
+        <param>
+          <type><ref refid="class_player" kindref="compound">Player</ref> *</type>
+          <declname>player</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">player</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the player. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="232" column="1" bodyfile="Player.cpp" bodystart="746" bodyend="748"/>
+        <references refid="class_player_1a4939193fc637f75bf7a11118334dae7e" compoundref="_player_8cpp" startline="92" endline="95">Player::getName</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Exception for signalling that there is a human on the table. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Player.h" line="215" column="1" bodyfile="Player.h" bodystart="215" bodyend="233"/>
+    <listofallmembers>
+      <member refid="class_human_on_table_exception_1abd859782137a73608aa7ad90656424b6" prot="public" virt="non-virtual"><scope>HumanOnTableException</scope><name>HumanOnTableException</name></member>
+      <member refid="class_human_on_table_exception_1a103b7f6d8efe9f67558a531e706c95cc" prot="private" virt="non-virtual"><scope>HumanOnTableException</scope><name>name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

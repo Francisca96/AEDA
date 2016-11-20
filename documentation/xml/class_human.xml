@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_human" kind="class" language="C++" prot="public">
+    <compoundname>Human</compoundname>
+    <basecompoundref refid="class_player" prot="public" virt="non-virtual">Player</basecompoundref>
+    <includes refid="_player_8h" local="no">Player.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_human_1ada014298369cb124b62ad64d0cb2d454" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Human::Human</definition>
+        <argsstring>(string name, unsigned int age)</argsstring>
+        <name>Human</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>age</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>age</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The age. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="1187" column="1" bodyfile="Player.cpp" bodystart="663" bodyend="683"/>
+        <references refid="class_name_too_short_exception_1a9098584cb208e3ddfeebe75212862420" compoundref="_player_8cpp" startline="8" endline="11">NameTooShortException::what</references>
+        <references refid="class_too_young_exception_1a5530805a6d87f82d6bf332fd4b324c86" compoundref="_player_8cpp" startline="13" endline="16">TooYoungException::what</references>
+      </memberdef>
+      <memberdef kind="function" id="class_human_1abbda834a6084c05134b25db5c00ac876" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Human::bet</definition>
+        <argsstring>(Table &amp;table)</argsstring>
+        <name>bet</name>
+        <reimplements refid="class_player_1ab836e9e65c439b8434619a8a86de1049">bet</reimplements>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> &amp;</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Asks the human player to place his bet. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The table.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The human bet. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="1202" column="1" bodyfile="Player.cpp" bodystart="686" bodyend="702"/>
+        <references refid="class_table_1acd5423db5e5ed6a22a846708a47f36eb" compoundref="_table_8cpp" startline="116" endline="119">Table::getMaxBet</references>
+        <references refid="class_table_1ae771baf4201fb1c73198f5c7e7189260" compoundref="_table_8cpp" startline="111" endline="114">Table::getMinBet</references>
+        <references refid="utils_8cpp_1a685ffa2d206caa9be692206e68284cb4" compoundref="utils_8cpp" startline="72" endline="84">readUnsignedIntBetween</references>
+      </memberdef>
+      <memberdef kind="function" id="class_human_1ac2536a8f230ba6dd457b81e406f42a60" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string Human::play</definition>
+        <argsstring>(Table &amp;table)</argsstring>
+        <name>play</name>
+        <reimplements refid="class_player_1a633ae716d3226a5701a6d0c9314baad4">play</reimplements>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> &amp;</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Ask the human player to hit or stand. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The table.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A string: &quot;hit&quot; or &quot;stand&quot;; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="1217" column="1" bodyfile="Player.cpp" bodystart="704" bodyend="723"/>
+        <references refid="class_dealer_1aa830a4e0a67d50f84c391972ea2a3d57" compoundref="_dealer_8cpp" startline="36" endline="45">Dealer::discard</references>
+        <references refid="class_table_1af8f247155b520fe226c3014b3ca94477" compoundref="_table_8cpp" startline="276" endline="279">Table::getDealer</references>
+        <references refid="utils_8cpp_1a012b4131b66a528fc555765be1f76dad" compoundref="utils_8cpp" startline="55" endline="70">getHumanPlay</references>
+        <references refid="class_table_1a65097ec2fe98d83c44538132e4fc2047" compoundref="_table_8cpp" startline="281" endline="284">Table::getPlayers</references>
+      </memberdef>
+      <memberdef kind="function" id="class_human_1af6cc17fa0b07ceadde23d352c1204719" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Human::takeInsurance</definition>
+        <argsstring>(Table &amp;table)</argsstring>
+        <name>takeInsurance</name>
+        <reimplements refid="class_player_1a61a4b3a68af4b5ac47437cdb577086f7">takeInsurance</reimplements>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> &amp;</type>
+          <declname>table</declname>
+        </param>
+        <briefdescription>
+<para>Ask the human player for insurance. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The table.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if human takes insurance, false if it does not. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="1232" column="1" bodyfile="Player.cpp" bodystart="631" bodyend="643"/>
+        <references refid="utils_8cpp_1a7b2049483feeea98ff61c00d763b4fb5" compoundref="utils_8cpp" startline="129" endline="142">readBinary</references>
+      </memberdef>
+      <memberdef kind="function" id="class_human_1ac406bdd47735f87dec9965b8a86d32ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Human::split</definition>
+        <argsstring>(Dealer *dealerOfTable)</argsstring>
+        <name>split</name>
+        <reimplements refid="class_player_1a44606c251b5d4cca55ffc680752886ba">split</reimplements>
+        <param>
+          <type><ref refid="class_dealer" kindref="compound">Dealer</ref> *</type>
+          <declname>dealerOfTable</declname>
+        </param>
+        <briefdescription>
+<para>Ask human if he want to split his hand. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">dealerOfTable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the dealer of the table.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if human splits, false otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="1247" column="1" bodyfile="Player.cpp" bodystart="645" bodyend="660"/>
+        <references refid="utils_8cpp_1a7b2049483feeea98ff61c00d763b4fb5" compoundref="utils_8cpp" startline="129" endline="142">readBinary</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A <ref refid="class_human" kindref="compound">Human</ref> player. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="28">
+        <label>Human</label>
+        <link refid="class_human"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>Player</label>
+        <link refid="class_player"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="30">
+        <label>Human</label>
+        <link refid="class_human"/>
+        <childnode refid="31" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>Player</label>
+        <link refid="class_player"/>
+      </node>
+    </collaborationgraph>
+    <location file="Player.h" line="1172" column="1" bodyfile="Player.h" bodystart="1172" bodyend="1248"/>
+    <listofallmembers>
+      <member refid="class_player_1aaf1f4c6fb5cc531db4d7acd4b8e2a2dc" prot="public" virt="virtual"><scope>Human</scope><name>addCount</name></member>
+      <member refid="class_player_1a93759b95f73ad7ccea760c3eebe79b83" prot="public" virt="non-virtual"><scope>Human</scope><name>addMoney</name></member>
+      <member refid="class_human_1abbda834a6084c05134b25db5c00ac876" prot="public" virt="virtual"><scope>Human</scope><name>bet</name></member>
+      <member refid="class_player_1a5715b0ace30c905ae79642e76a5437b4" prot="public" virt="non-virtual"><scope>Human</scope><name>clearHand</name></member>
+      <member refid="class_player_1aeccd00dda342208ea502c97cadeb44e8" prot="public" virt="non-virtual"><scope>Human</scope><name>clearHand2</name></member>
+      <member refid="class_player_1a08a3cae149f0ee66b4fad5cbe60e2a6d" prot="public" virt="non-virtual"><scope>Human</scope><name>doubleDown</name></member>
+      <member refid="class_player_1a963a140c376359f956d1c9245bdd4ea5" prot="public" virt="non-virtual"><scope>Human</scope><name>getActualBet</name></member>
+      <member refid="class_player_1af937581b07b5cb5f2d93c3fcd7bbfd45" prot="public" virt="non-virtual"><scope>Human</scope><name>getAge</name></member>
+      <member refid="class_player_1af90c94927657ba8797817d9ee35a9956" prot="public" virt="non-virtual"><scope>Human</scope><name>getAverageProfit</name></member>
+      <member refid="class_player_1a4ed9a572b577abaaf164a7341d8b8ae1" prot="public" virt="virtual"><scope>Human</scope><name>getCurrentCount</name></member>
+      <member refid="class_player_1a02273e06cbfd6f66b86573aac8ec14fc" prot="public" virt="non-virtual"><scope>Human</scope><name>getCurrentMoney</name></member>
+      <member refid="class_player_1ad58ea8ebeef513b066f1192af9e1b1f5" prot="public" virt="non-virtual"><scope>Human</scope><name>getHand</name></member>
+      <member refid="class_player_1a608957ce160bff0149ce2a24ea76f29b" prot="public" virt="non-virtual"><scope>Human</scope><name>getHand2</name></member>
+      <member refid="class_player_1ad110846192023027c4e9fc6b756bfa4a" prot="public" virt="non-virtual"><scope>Human</scope><name>getHand2Score</name></member>
+      <member refid="class_player_1a5faff6dab0e57406c8e38849a7ac7241" prot="public" virt="non-virtual"><scope>Human</scope><name>getHandScore</name></member>
+      <member refid="class_player_1a8e81b80fa251db1fe1a482cf4a7a0cf3" prot="public" virt="non-virtual"><scope>Human</scope><name>getHandSize</name></member>
+      <member refid="class_player_1ac757c1e58a82d715c47f195e211521f6" prot="public" virt="non-virtual"><scope>Human</scope><name>getInitialMoney</name></member>
+      <member refid="class_player_1a4939193fc637f75bf7a11118334dae7e" prot="public" virt="non-virtual"><scope>Human</scope><name>getName</name></member>
+      <member refid="class_player_1a3928c55936faef5fd63b24d94b9a5781" prot="public" virt="non-virtual"><scope>Human</scope><name>getOnTable</name></member>
+      <member refid="class_player_1aa2ad93dbed2f5346d46b6941dee5b113" prot="public" virt="non-virtual"><scope>Human</scope><name>getRoundsPlayed</name></member>
+      <member refid="class_player_1af8bb3cd6c6f7840c6cfa864ed78b10af" prot="public" virt="non-virtual"><scope>Human</scope><name>hit</name></member>
+      <member refid="class_human_1ada014298369cb124b62ad64d0cb2d454" prot="public" virt="non-virtual"><scope>Human</scope><name>Human</name></member>
+      <member refid="class_human_1ac2536a8f230ba6dd457b81e406f42a60" prot="public" virt="virtual"><scope>Human</scope><name>play</name></member>
+      <member refid="class_player_1a81cb5e747e4b05b846abe1dab0008ddf" prot="public" virt="non-virtual"><scope>Human</scope><name>removeCardFromFirstHandAndSetItOnSecondHand</name></member>
+      <member refid="class_player_1a8ff0c7c110fada9bf61df517285e061c" prot="public" virt="virtual"><scope>Human</scope><name>resetCount</name></member>
+      <member refid="class_player_1a532e4e3d79979f5e9e83938d6b1854ad" prot="public" virt="non-virtual"><scope>Human</scope><name>setActualBet</name></member>
+      <member refid="class_player_1ae40dd6f0454849bfe0ccb2faa32d5eef" prot="public" virt="non-virtual"><scope>Human</scope><name>setAge</name></member>
+      <member refid="class_player_1a8ec70af0c2cbfeedeae3691a84d228f8" prot="public" virt="non-virtual"><scope>Human</scope><name>setCurrentMoney</name></member>
+      <member refid="class_player_1a62cfec47d7af1fba889dc502c70b8e00" prot="public" virt="non-virtual"><scope>Human</scope><name>setHand2Score</name></member>
+      <member refid="class_player_1a4f795936b834f2d80a725f529c79c781" prot="public" virt="non-virtual"><scope>Human</scope><name>setHandScore</name></member>
+      <member refid="class_player_1a7cc1745523751dcea0263c9658e33111" prot="public" virt="non-virtual"><scope>Human</scope><name>setInitialMoney</name></member>
+      <member refid="class_player_1a05df581ac0f73a10b6163ca8c03eff7b" prot="public" virt="non-virtual"><scope>Human</scope><name>setName</name></member>
+      <member refid="class_player_1acc0e88f7ca8c27d4d06dc87973fafce7" prot="public" virt="non-virtual"><scope>Human</scope><name>setOnTable</name></member>
+      <member refid="class_player_1ae7dcd6039604cd4372c0d93ebc84907c" prot="public" virt="non-virtual"><scope>Human</scope><name>setRoundsPlayed</name></member>
+      <member refid="class_player_1abc620380dbb2cd754d4e1427760d9518" prot="public" virt="non-virtual"><scope>Human</scope><name>showStatistics</name></member>
+      <member refid="class_human_1ac406bdd47735f87dec9965b8a86d32ed" prot="public" virt="virtual"><scope>Human</scope><name>split</name></member>
+      <member refid="class_player_1a1b2746dd99d44b728ffeb4dde3ff3e9e" prot="public" virt="virtual"><scope>Human</scope><name>surrender</name></member>
+      <member refid="class_human_1af6cc17fa0b07ceadde23d352c1204719" prot="public" virt="virtual"><scope>Human</scope><name>takeInsurance</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

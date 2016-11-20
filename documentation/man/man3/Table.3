@@ -1,0 +1,1325 @@
+.TH "Table" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Table \- A table\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Table\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTable\fP (int ID)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBTable\fP (unsigned int, unsigned int, unsigned int, unsigned int, \fBDealer\fP *)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fB~Table\fP ()"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "void \fBsetMinBet\fP (unsigned int minBet)"
+.br
+.RI "Sets minimum bet\&. "
+.ti -1c
+.RI "void \fBsetMaxBet\fP (unsigned int maxBet)"
+.br
+.RI "Sets maximum bet\&. "
+.ti -1c
+.RI "void \fBsetDealer\fP (\fBDealer\fP *dealerOfTable)"
+.br
+.RI "Sets a dealer\&. "
+.ti -1c
+.RI "void \fBsetID\fP (int ID)"
+.br
+.RI "Sets an identifier\&. "
+.ti -1c
+.RI "void \fBaddPlayer\fP (\fBPlayer\fP *newPlayer)"
+.br
+.RI "Adds a player to this table\&. "
+.ti -1c
+.RI "void \fBaddPlayers\fP (vector< \fBPlayer\fP *> newPlayers)"
+.br
+.RI "Adds the players to this table\&. "
+.ti -1c
+.RI "void \fBremovePlayer\fP (string &name)"
+.br
+.RI "Removes the player described by his name\&. "
+.ti -1c
+.RI "void \fBplay\fP ()"
+.br
+.RI "Plays Blackjack allowing humans to play against bots and other humans too\&. "
+.ti -1c
+.RI "void \fBsimulation\fP (unsigned int roundsLeft)"
+.br
+.RI "Simulates a blackjack game for the given rounds\&. "
+.ti -1c
+.RI "unsigned int \fBgetInitialMoney\fP () const"
+.br
+.RI "Gets initial money of this table\&. "
+.ti -1c
+.RI "int \fBgetTableID\fP () const"
+.br
+.RI "Gets table identifier\&. "
+.ti -1c
+.RI "unsigned int \fBgetMinBet\fP () const"
+.br
+.RI "Gets minimum bet\&. "
+.ti -1c
+.RI "unsigned int \fBgetMaxBet\fP () const"
+.br
+.RI "Gets maximum bet\&. "
+.ti -1c
+.RI "unsigned int \fBgetNumberMaxOfPlayers\fP () const"
+.br
+.RI "Gets maximum number of players\&. "
+.ti -1c
+.RI "void \fBgetInitialBets\fP ()"
+.br
+.RI "Ask players for their initial bets\&. "
+.ti -1c
+.RI "\fBDealer\fP * \fBgetDealer\fP ()"
+.br
+.RI "Gets the dealer\&. "
+.ti -1c
+.RI "vector< \fBPlayer\fP * > \fBgetPlayers\fP () const"
+.br
+.RI "Gets the players\&. "
+.ti -1c
+.RI "void \fBdealOneCardToAllPlayers\fP ()"
+.br
+.RI "Deal one card to all players\&. "
+.ti -1c
+.RI "void \fBpayToPlayer\fP (\fBPlayer\fP *player1, float value)"
+.br
+.RI "Pay to player a given amount\&. "
+.ti -1c
+.RI "unsigned int \fBrestartDeck\fP ()"
+.br
+.RI "Restart deck\&. "
+.ti -1c
+.RI "void \fBshowTableInfo\fP (pair< short, short > xy)"
+.br
+.RI "Shows the table information\&. "
+.ti -1c
+.RI "void \fBkickPlayer\fP (unsigned int index)"
+.br
+.RI "Kicks a player\&. "
+.ti -1c
+.RI "void \fBresetBot1Counters\fP ()"
+.br
+.RI "Resets All bots of type 1 counters\&. "
+.ti -1c
+.RI "void \fBaddMoneyToTable\fP (unsigned int money)"
+.br
+.RI "Adds money to this table\&. "
+.ti -1c
+.RI "float \fBcloseTable\fP ()"
+.br
+.RI "Closes the table\&. Resets all bot counters\&. "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBsetNextID\fP (unsigned int tableNextID)"
+.br
+.RI "Sets next identifier\&. "
+.ti -1c
+.RI "static unsigned int \fBgetNextId\fP ()"
+.br
+.RI "Gets the next identifier of the tables\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A table\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 143 of file Table\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Table::Table (int ID)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIID\fP The identifier\&. 
+.RE
+.PP
+
+.PP
+Definition at line 15 of file Table\&.cpp\&.
+.PP
+.nf
+15                    {
+16     this->tableID = ID;
+17 }
+.fi
+.SS "Table::Table (unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable, unsigned int numberOfMaxPlayers, \fBDealer\fP * newDealer)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIminBet\fP The minimum bet\&. 
+.br
+\fImaxBet\fP The maximum bet\&. 
+.br
+\fImoneyOfTable\fP Initial money of the table\&. 
+.br
+\fInumberOfMaxPlayers\fP The maximum number of players allowed to join the table\&. 
+.br
+\fInewDealer\fP Pointer to the \fBDealer\fP to be assigned to this table\&. 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file Table\&.cpp\&.
+.PP
+References Dealer::setTable()\&.
+.PP
+.nf
+19                                                                                                                                      {
+20     this->minBet = minBet;
+21     this->maxBet = maxBet;
+22     this->moneyOfTable = moneyOfTable;
+23     this->maxNumberOfPlayers = numberOfMaxPlayers;
+24     this->dealerOfTable = newDealer;
+25     initialMoney = moneyOfTable;
+26     tableID = nextID;
+27     nextID++;
+28     newDealer->setTable(tableID);
+29 }
+.fi
+.SS "Table::~Table ()"
+
+.PP
+Destructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 31 of file Table\&.cpp\&.
+.PP
+.nf
+31               {
+32     this->closeTable();
+33     for (size_t i = 0; i < players\&.size(); i++)
+34     {
+35         players\&.at(i)->setOnTable(-1);
+36     }
+37     dealerOfTable->setTable(-1);
+38 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void Table::addMoneyToTable (unsigned int money)"
+
+.PP
+Adds money to this table\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fImoney\fP The amount of money to be added\&. 
+.RE
+.PP
+
+.PP
+Definition at line 383 of file Table\&.cpp\&.
+.PP
+Referenced by Bot1::play()\&.
+.PP
+.nf
+384 {
+385     moneyOfTable += money;
+386 }
+.fi
+.SS "void Table::addPlayer (\fBPlayer\fP * newPlayer)"
+
+.PP
+Adds a player to this table\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPlayer\fP Pointer to the new player\&. 
+.RE
+.PP
+
+.PP
+Definition at line 55 of file Table\&.cpp\&.
+.PP
+References Player::setOnTable()\&.
+.PP
+Referenced by Casino::addPlayerToTable()\&.
+.PP
+.nf
+55                                         {
+56     this->players\&.push_back(newPlayer);
+57     newPlayer->setOnTable(this->getTableID());
+58 }
+.fi
+.SS "void Table::addPlayers (vector< \fBPlayer\fP *> newPlayers)"
+
+.PP
+Adds the players to this table\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPlayers\fP Vector of pointers to the new players\&. 
+.RE
+.PP
+
+.PP
+Definition at line 60 of file Table\&.cpp\&.
+.PP
+References TooManyPlayersException::TooManyPlayersException()\&.
+.PP
+.nf
+60                                                   {
+61     if (newPlayers\&.size() + players\&.size() > maxNumberOfPlayers) {
+62         throw TooManyPlayersException (maxNumberOfPlayers,players\&.size());
+63     }
+64     players\&.insert(players\&.end(), newPlayers\&.begin(), newPlayers\&.end());
+65     for (size_t i = 0; i < newPlayers\&.size(); i++)
+66     {
+67         newPlayers\&.at(i)->setOnTable(this->getTableID());
+68     }
+69 }
+.fi
+.SS "float Table::closeTable ()"
+
+.PP
+Closes the table\&. Resets all bot counters\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+moneyOfTable The final money of the table that should be added to the casino\&. 
+.RE
+.PP
+
+.PP
+Definition at line 396 of file Table\&.cpp\&.
+.PP
+.nf
+397 {
+398     for (size_t i = 0; i < players\&.size(); i++) {
+399         players\&.at(i)->resetCount();
+400     }
+401     cout << "Table ID\&." << tableID << " has been CLOSED\n";
+402     cout << "Profit of table " << tableID << " : " << setprecision(2) <<moneyOfTable - initialMoney << "$\n";
+403     return moneyOfTable;
+404 }
+.fi
+.SS "void Table::dealOneCardToAllPlayers ()"
+
+.PP
+Deal one card to all players\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 286 of file Table\&.cpp\&.
+.PP
+.nf
+286                                     {
+287     for (size_t i = 0; i < players\&.size(); i++) {
+288         Card discarded = dealerOfTable->discard(players);
+289         players\&.at(i)->hit(discarded);
+290     }
+291 }
+.fi
+.SS "\fBDealer\fP * Table::getDealer ()"
+
+.PP
+Gets the dealer\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the dealer\&. 
+.RE
+.PP
+
+.PP
+Definition at line 276 of file Table\&.cpp\&.
+.PP
+Referenced by Bot0::play(), Bot1::play(), Bot2::play(), Human::play(), Bot1::surrender(), and Bot2::surrender()\&.
+.PP
+.nf
+277 {
+278     return dealerOfTable;
+279 }
+.fi
+.SS "void Table::getInitialBets ()"
+
+.PP
+Ask players for their initial bets\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 261 of file Table\&.cpp\&.
+.PP
+.nf
+262 {
+263     unsigned int actualBet;
+264     for (size_t i = 0; i < players\&.size(); i++) {
+265         actualBet = players\&.at(i)->bet(*this);
+266         if (actualBet == 0) { //kick the player
+267             cout << players\&.at(i)->getName() << " we enjoyed your money ! Come back when you have some more\&.\&.\&.\n";
+268             kickPlayer(i);
+269             cout << players\&.at(i)->getName() << " has been kicked from table " << tableID << "\&.\n";
+270             i--;
+271         }
+272         moneyOfTable += actualBet;
+273     }
+274 }
+.fi
+.SS "unsigned int Table::getInitialMoney () const"
+
+.PP
+Gets initial money of this table\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The initial money\&. 
+.RE
+.PP
+
+.PP
+Definition at line 251 of file Table\&.cpp\&.
+.PP
+Referenced by Casino::addTableToCasino()\&.
+.PP
+.nf
+252 {
+253     return initialMoney;
+254 }
+.fi
+.SS "unsigned int Table::getMaxBet () const"
+
+.PP
+Gets maximum bet\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The maximum bet\&. 
+.RE
+.PP
+
+.PP
+Definition at line 116 of file Table\&.cpp\&.
+.PP
+Referenced by Bot1::bet(), Bot2::bet(), and Human::bet()\&.
+.PP
+.nf
+117 {
+118     return maxBet;
+119 }
+.fi
+.SS "unsigned int Table::getMinBet () const"
+
+.PP
+Gets minimum bet\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The minimum bet\&. 
+.RE
+.PP
+
+.PP
+Definition at line 111 of file Table\&.cpp\&.
+.PP
+Referenced by Player::bet(), Bot1::bet(), Bot2::bet(), and Human::bet()\&.
+.PP
+.nf
+112 {
+113     return minBet;
+114 }
+.fi
+.SS "static unsigned int Table::getNextId ()\fC [static]\fP"
+
+.PP
+Gets the next identifier of the tables\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The next identifier\&. 
+.RE
+.PP
+
+.PP
+Definition at line 410 of file Table\&.cpp\&.
+.PP
+Referenced by Casino::saveTablesFile()\&.
+.PP
+.nf
+410                               {
+411     return nextID;
+412 }
+.fi
+.SS "unsigned int Table::getNumberMaxOfPlayers () const"
+
+.PP
+Gets maximum number of players\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The maximum number of players\&. 
+.RE
+.PP
+
+.PP
+Definition at line 121 of file Table\&.cpp\&.
+.PP
+.nf
+121                                                 {
+122     return this->maxNumberOfPlayers;
+123 }
+.fi
+.SS "vector< \fBPlayer\fP * > Table::getPlayers () const"
+
+.PP
+Gets the players\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A vector of pointers to the players in the table\&. 
+.RE
+.PP
+
+.PP
+Definition at line 281 of file Table\&.cpp\&.
+.PP
+Referenced by Casino::manageTables(), Dealer::play(), Bot0::play(), Bot1::play(), Bot2::play(), and Human::play()\&.
+.PP
+.nf
+282 {
+283     return players;
+284 }
+.fi
+.SS "int Table::getTableID () const"
+
+.PP
+Gets table identifier\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The table identifier\&. 
+.RE
+.PP
+
+.PP
+Definition at line 256 of file Table\&.cpp\&.
+.PP
+Referenced by ExistingTableException::ExistingTableException(), NoPlayersOnTableException::NoPlayersOnTableException(), Casino::removeTableFromCasino(), and TableNotInCasinoException::TableNotInCasinoException()\&.
+.PP
+.nf
+257 {
+258     return tableID;
+259 }
+.fi
+.SS "void Table::kickPlayer (unsigned int index)"
+
+.PP
+Kicks a player\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP Zero-based index of the player to kick\&. 
+.RE
+.PP
+
+.PP
+Definition at line 370 of file Table\&.cpp\&.
+.PP
+.nf
+371 {
+372     players\&.at(index)->setOnTable(-1);
+373     players\&.erase(players\&.begin() + index);
+374 }
+.fi
+.SS "void Table::payToPlayer (\fBPlayer\fP * player1, float value)"
+
+.PP
+Pay to player a given amount\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIplayer1\fP A pointer to a player\&. 
+.br
+\fIvalue\fP The value to pay to the player\&. 
+.RE
+.PP
+
+.PP
+Definition at line 388 of file Table\&.cpp\&.
+.PP
+References Player::addMoney()\&.
+.PP
+.nf
+389 {
+390     player1->addMoney(value);
+391     moneyOfTable -= value;
+392 }
+.fi
+.SS "void Table::play ()"
+
+.PP
+Plays Blackjack allowing humans to play against bots and other humans too\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file Table\&.cpp\&.
+.PP
+References readUnsignedIntBetween(), and TooManyPlayersException::TooManyPlayersException()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+84                  {
+85     system("cls");
+86     if (this->maxNumberOfPlayers == this->getPlayers()\&.size())
+87     {
+88         throw TooManyPlayersException(maxNumberOfPlayers, maxNumberOfPlayers + 1);
+89     }
+90     string nameOfPlayer = "";
+91     unsigned int ageOfPlayer;
+92     cout << "What is your name?" << endl;
+93     while (nameOfPlayer\&.length() == 0)
+94     {
+95         getline(cin, nameOfPlayer);
+96     }
+97     cout << "What is your age?" << endl;
+98     ageOfPlayer = readUnsignedIntBetween(0, 100);
+99     Human *humanPlayer = new Human(nameOfPlayer, ageOfPlayer);
+100     this->addPlayer(humanPlayer);
+101     while (!exit)
+102     {
+103 
+104     }
+105 }
+.fi
+.SS "void Table::removePlayer (string & name)"
+
+.PP
+Removes the player described by his name\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The player's name\&. 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file Table\&.cpp\&.
+.PP
+Referenced by Casino::manageTables()\&.
+.PP
+.nf
+71                                      {
+72     for (size_t i = 0; i < players\&.size(); i++)
+73     {
+74         if (players\&.at(i)->getName() == name)
+75         {
+76             players\&.at(i)->setOnTable(-1);
+77             players\&.erase(players\&.begin() + i);
+78             return;
+79         }
+80     }
+81     throw PlayerIsntOnTableException(name);
+82 }
+.fi
+.SS "void Table::resetBot1Counters ()"
+
+.PP
+Resets All bots of type 1 counters\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 376 of file Table\&.cpp\&.
+.PP
+.nf
+377 {
+378     for (size_t i = 0; i < players\&.size(); i++) {
+379         players\&.at(i)->resetCount();
+380     }
+381 }
+.fi
+.SS "unsigned int Table::restartDeck ()"
+
+.PP
+Restart deck\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 - deck restarted successfully; 1 - deck not ready to be restarted\&. 
+.RE
+.PP
+
+.PP
+Definition at line 295 of file Table\&.cpp\&.
+.PP
+.nf
+296 {
+297     if (dealerOfTable->getDiscardedDeck()\&.size() >= 3 * dealerOfTable->getDeck()\&.size()) {
+298         dealerOfTable->addCardsToDeck(dealerOfTable->getDiscardedDeck()); //already shuffles the deck
+299         for (size_t i = 0; i < players\&.size(); i++) {
+300             players\&.at(i)->resetCount();
+301         }
+302         dealerOfTable->clearDiscardedDeck();
+303         return 0;
+304     }
+305     return 1;
+306 }
+.fi
+.SS "void Table::setDealer (\fBDealer\fP * dealerOfTable)"
+
+.PP
+Sets a dealer\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdealerOfTable\fP Pointer to the dealer of table\&. 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file Table\&.cpp\&.
+.PP
+References Dealer::setTable()\&.
+.PP
+.nf
+44                                            {
+45     this->dealerOfTable->setTable(-1);
+46     this->dealerOfTable = dealerOfTable;
+47     dealerOfTable->setTable(tableID);
+48 }
+.fi
+.SS "void Table::setID (int ID)"
+
+.PP
+Sets an identifier\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIID\fP The identifier\&. 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file Table\&.cpp\&.
+.PP
+Referenced by Casino::readTablesFile()\&.
+.PP
+.nf
+50                         {
+51     this->tableID = ID;
+52 }
+.fi
+.SS "void Table::setMaxBet (unsigned int maxBet)"
+
+.PP
+Sets maximum bet\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fImaxBet\fP The maximum bet\&. 
+.RE
+.PP
+
+.PP
+Definition at line 40 of file Table\&.cpp\&.
+.PP
+.nf
+40                                           {
+41     this->maxBet = aMaxBet;
+42 }
+.fi
+.SS "void Table::setMinBet (unsigned int minBet)"
+
+.PP
+Sets minimum bet\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIminBet\fP The minimum bet\&. 
+.RE
+.PP
+
+.PP
+Definition at line 107 of file Table\&.cpp\&.
+.PP
+.nf
+107                                           {
+108     this->minBet = aMinBet;
+109 }
+.fi
+.SS "static void Table::setNextID (unsigned int tableNextID)\fC [static]\fP"
+
+.PP
+Sets next identifier\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItableNextID\fP Identifier for the next table\&. 
+.RE
+.PP
+
+.PP
+Definition at line 406 of file Table\&.cpp\&.
+.PP
+Referenced by Casino::readTablesFile()\&.
+.PP
+.nf
+406                                               {
+407     nextID = tableNextID;
+408 }
+.fi
+.SS "void Table::showTableInfo (pair< short, short > xy)"
+
+.PP
+Shows the table information\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP - the coordinates to set the cursor\&. 
+.RE
+.PP
+
+.PP
+Definition at line 308 of file Table\&.cpp\&.
+.PP
+References cursorxy()\&.
+.PP
+.nf
+308                                                {
+309     string text;
+310     cursorxy(xy\&.first, xy\&.second);
+311     cout << (char)201; //╔
+312     for (unsigned int i = 0; i <= 28; i++)
+313     {
+314         cout << (char)205; //═
+315     }
+316     cout << (char)187; //╗
+317     xy\&.second++;
+318     cursorxy(xy\&.first, xy\&.second);
+319     text = "  TableID: ";
+320     cout << (char)186 //║
+321         << text << setw(30 - text\&.length()) << (char)186; //║
+322     cursorxy(xy\&.first + text\&.length() + 1, xy\&.second);
+323     cout << this->getTableID();
+324     xy\&.second++;
+325     cursorxy(xy\&.first + 30, xy\&.second);
+326     cout << (char)186; //║
+327     cursorxy(xy\&.first, xy\&.second);
+328     cout << (char)186; //║
+329     cout << "  minBet:" << this->getMinBet();
+330     cursorxy(xy\&.first + 16, xy\&.second);
+331     cout << "maxBet:" << this->getMaxBet();
+332     xy\&.second++;
+333     cursorxy(xy\&.first, xy\&.second);
+334     cout << (char)204; //╠
+335     for (unsigned int i = 0; i <= 28; i++)
+336     {
+337         cout << (char)205; //═
+338     }
+339     cout << (char)185 /*╣*/;
+340     xy\&.second++;
+341     cursorxy(xy\&.first, xy\&.second);
+342     text = "  Players:";
+343     cout << (char)186  << text << setw(30 - text\&.length()) << (char)186;
+344     xy\&.second++;
+345     cursorxy(xy\&.first, xy\&.second);
+346     for (size_t i = 0; i < this->getPlayers()\&.size(); i++)
+347     {
+348         text = this->getPlayers()\&.at(i)->getName();
+349         cout << (char)186  << "   " << text << setw(30 - (3 + text\&.length())) << (char)186;
+350         xy\&.second++;
+351         cursorxy(xy\&.first, xy\&.second);
+352     }
+353     cout << (char)186 << setw(30) << (char)186;
+354     xy\&.second++;
+355     cursorxy(xy\&.first, xy\&.second);
+356     text = "  Money of Table: ";
+357     cout << (char)186 << text << setw(30 - text\&.length()) << (char)186;
+358     cursorxy(xy\&.first+ text\&.length()+1, xy\&.second);
+359     cout << this->getInitialMoney();
+360     xy\&.second++;
+361     cursorxy(xy\&.first, xy\&.second);
+362     cout << (char)200;
+363     for (unsigned int i = 0; i <= 28; i++)
+364     {
+365         cout << (char)205;
+366     }
+367     cout << (char)188;
+368 }
+.fi
+.SS "void Table::simulation (unsigned int roundsLeft)"
+
+.PP
+Simulates a blackjack game for the given rounds\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIroundsLeft\fP The rounds to be played\&. 
+.RE
+.PP
+
+.PP
+Definition at line 125 of file Table\&.cpp\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+125                                               {
+126     //sequence : get Initial Bets then deal one card to each player and to the dealer (2x times) (first Dealer card face down)
+127     //if dealer's card is an Ace, ask players if they want to take insurance()
+128     //If they do, take each player�s insurance (it should be half of their original bet) and flip over dealer's second card to see whether or not dealer has a blackjack\&.
+129     //If dealer has a blackjack, collect bets from anyone that didn�t buy insurance\&.Players that did buy insurance receive their original bets back\&.Players with blackjack will receive their original bet, even if they didn�t purchase insurance\&.
+130     //Ask players with both cards equal if they want to split\&.
+131     bool dealerBlackJack = false;
+132     string lastOptionSelected;
+133     unsigned int actualBet;
+134     if (players\&.size() == 0)
+135     {
+136         throw NoPlayersOnTableException(new Table(this->getTableID()));
+137     }
+138     for (size_t i = 0; i < players\&.size(); i++)
+139     {
+140         Human *h = dynamic_cast<Human *>(players\&.at(i));
+141         if (h != NULL)
+142         {
+143             throw HumanOnTableException(players\&.at(i));
+144         }
+145     }
+146     while (roundsLeft > 0)
+147     {
+148         dealerBlackJack = false;
+149         cout << "Rounds left\&." << roundsLeft << "\n";
+150         actualPlayers = players;
+151         restartDeck();
+152         getInitialBets();
+153         dealOneCardToAllPlayers();
+154         restartDeck();
+155         dealerOfTable->hit(players);
+156         dealOneCardToAllPlayers();
+157         restartDeck();
+158         if (dealerOfTable->hit(players) == "A") {
+159             for(size_t i = 0; i < actualPlayers\&.size(); i++){
+160                 if(actualPlayers\&.at(i)->takeInsurance(*this)){
+161                     moneyOfTable += actualPlayers\&.at(i)->getActualBet() / 2;
+162                     if ((dealerOfTable->getHandScore() == 21) && (actualPlayers\&.at(i)->getHandScore() == 21)) {
+163                         dealerBlackJack = true;
+164                         payToPlayer(actualPlayers\&.at(i), actualPlayers\&.at(i)->getActualBet());
+165                         actualPlayers\&.erase(actualPlayers\&.begin(), actualPlayers\&.begin() + i); i--;
+166                     }
+167                 }
+168             }
+169             
+170         }
+171         if (dealerBlackJack == true) {
+172             actualPlayers\&.clear();
+173         }
+174         for (size_t i = 0; i < actualPlayers\&.size(); i++) {
+175             if (actualPlayers\&.at(i)->surrender(*this)) {
+176                 actualPlayers\&.at(i)->clearHand();
+177                 actualPlayers\&.at(i)->clearHand2();
+178                 actualPlayers\&.at(i)->setRoundsPlayed(players\&.at(i)->getRoundsPlayed() + 1);
+179                 actualPlayers\&.erase(actualPlayers\&.begin() + i);
+180                 i--;
+181                 
+182             }
+183         }
+184 
+185         for(size_t j=0; j < actualPlayers\&.size(); j++) {
+186             actualPlayers\&.at(j)->split(dealerOfTable); //carefull, when splitting you have to bet again
+187         }
+188         for (size_t i = 0; i < actualPlayers\&.size(); i++) {
+189             do {
+190                 restartDeck(); 
+191                 if (lastOptionSelected == "double" || actualPlayers\&.at(i)->getHandScore() == 21) {
+192                     break; //break of do while
+193                 }
+194             }
+195                 while (lastOptionSelected == actualPlayers\&.at(i)->play(*this) && lastOptionSelected != "stand");
+196             cout << "Name: " << actualPlayers\&.at(i)->getName() << "; Money:" << actualPlayers\&.at(i)->getCurrentMoney() << "; Handscore: " << actualPlayers\&.at(i)->getHandScore() << "\n";
+197             cout << "In " << actualPlayers\&.at(i)->getName() << "'s hand: ";
+198             cout << actualPlayers\&.at(i)->getHand();
+199             cout << "\n";
+200         }
+201         if (dealerBlackJack == false) {
+202             do {
+203                 restartDeck();
+204                 cout << "Dealer handscore\&. " << dealerOfTable->getHandScore() << "\n";
+205                 if (dealerOfTable->getHandScore() >= 21) {
+206                     break;
+207                 }
+208             } while (dealerOfTable->play(*this) != "stand");
+209         }
+210         
+211         cout << "Dealer stands, with " << dealerOfTable->getHandScore() << " points\&. In his hand:\n";
+212         cout << dealerOfTable->getHand();
+213         for (size_t i = 0; i < actualPlayers\&.size(); i++) {
+214             actualBet = actualPlayers\&.at(i)->getActualBet();
+215             if (actualPlayers\&.at(i)->getHandScore() > 21) {
+216                 //cout  << players\&.at(i)->getName() << " has " << players\&.at(i)->getHandScore() << " points, so he got busted!\n";
+217             }
+218             if (actualPlayers\&.at(i)->getHandScore() == 21 && actualPlayers\&.at(i)->getHandSize() == 2 && dealerOfTable->getHandScore() < 21) {
+219                 payToPlayer(players\&.at(i), actualBet * 2\&.5);
+220                 //cout << players\&.at(i)->getName() << " has " << players\&.at(i)->getHandScore() << " so he did a blackjack!\n";
+221             }
+222             else if (actualPlayers\&.at(i)->getHandScore() <= 21 && actualPlayers\&.at(i)->getHandScore() == dealerOfTable->getHandScore() ) {
+223                 payToPlayer(actualPlayers\&.at(i), actualBet);
+224                 //cout << actualPlayers\&.at(i)->getName() << " has " << actualPlayers\&.at(i)->getHandScore() << " points, which is equal to the Dealer!\n";
+225             }
+226             else if (actualPlayers\&.at(i)->getHandScore() > dealerOfTable->getHandScore() && actualPlayers\&.at(i)->getHandScore() < 21) {
+227                 payToPlayer(actualPlayers\&.at(i), actualBet * 2);
+228                 //cout << actualPlayers\&.at(i)->getName() << " has " << actualPlayers\&.at(i)->getHandScore() << " points, so he won the bet!\n";
+229             }
+230             else if (dealerOfTable->getHandScore() > 21 && actualPlayers\&.at(i)->getHandScore() <= 21) {
+231                 payToPlayer(actualPlayers\&.at(i), actualBet * 2);
+232                 //cout << "Dealer got busted! Player " << actualPlayers\&.at(i)->getName() << " will receive 2 times his original bet!\n";
+233             }
+234             else if (actualPlayers\&.at(i)->getHandScore() != 21 && dealerOfTable->getHandScore() == 21) {
+235                 //cout << "Dealer has blackjack! " << actualPlayers\&.at(i)->getName() << " lost his bet!\n";
+236             }
+237             actualPlayers\&.at(i)->clearHand();
+238             actualPlayers\&.at(i)->clearHand2();
+239             actualPlayers\&.at(i)->setRoundsPlayed(players\&.at(i)->getRoundsPlayed() + 1);
+240             dealerOfTable->clearHand();
+241         }
+242         
+243         roundsLeft--;
+244     }
+245     for (size_t i = 0; i < players\&.size(); i++) {
+246         cout << players\&.at(i)->getName() << " has finished with " << players\&.at(i)->getCurrentMoney() << "$ in his hand!\n";
+247     }
+248     this->closeTable();
+249 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

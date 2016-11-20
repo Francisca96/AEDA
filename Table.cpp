@@ -5,10 +5,10 @@
 unsigned int Table::nextID = 0;
 
 
-void TooManyPlayers::what()
+void TooManyPlayersException::what()
 {
 	cout << "Error while loading players to table\n";
-	cout << "The table already has " << actualNumOfPlayers << "out of " << maxNumberOfPlayers << "\n";
+	cout << "The table already has " << actualNumOfPlayers << "out of " << maxNumberOfPlayers << " players\n";
 }
 
 
@@ -61,7 +61,7 @@ void Table::addPlayer(Player * newPlayer) {
 
 void Table::addPlayers(vector<Player *> newPlayers) {
 	if (newPlayers.size() + players.size() > maxNumberOfPlayers) {
-		throw TooManyPlayers (maxNumberOfPlayers,players.size());
+		throw TooManyPlayersException (maxNumberOfPlayers,players.size());
 	}
 	players.insert(players.end(), newPlayers.begin(), newPlayers.end());
 	for (size_t i = 0; i < newPlayers.size(); i++)
@@ -80,7 +80,7 @@ void Table::removePlayer(string &name) {
 			return;
 		}
 	}
-	throw PlayerIsntOnTable(name);
+	throw PlayerIsntOnTableException(name);
 }
 
 void Table::play(pair <short, short> xy, unsigned int userID) {
@@ -91,7 +91,7 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 
 	if (this->maxNumberOfPlayers == this->getPlayers().size())
 	{
-		throw TooManyPlayers(maxNumberOfPlayers, maxNumberOfPlayers + 1);
+		throw TooManyPlayersException(maxNumberOfPlayers, maxNumberOfPlayers + 1);
 	}
 
 	//create human player
@@ -386,14 +386,14 @@ void Table::simulation(unsigned int roundsLeft) {
 	unsigned int actualBet;
 	if (players.size() == 0)
 	{
-		throw NoPlayersOnTable(new Table(this->getTableID()));
+		throw NoPlayersOnTableException(new Table(this->getTableID()));
 	}
 	for (size_t i = 0; i < players.size(); i++)
 	{
 		Human *h = dynamic_cast<Human *>(players.at(i));
 		if (h != NULL)
 		{
-			throw HumanOnTable(players.at(i));
+			throw HumanOnTableException(players.at(i));
 		}
 	}
 	while (roundsLeft > 0)
@@ -1054,16 +1054,16 @@ void Table::showPlay(pair<short, short> xy) {
 	cursorxy(0, 23);
 }
 
-TooManyPlayers::TooManyPlayers(unsigned int maxNumberOfPlayers, unsigned int actualNumOfPlayers)
+TooManyPlayersException::TooManyPlayersException(unsigned int maxNumberOfPlayers, unsigned int actualNumOfPlayers)
 {
 	this->maxNumberOfPlayers = maxNumberOfPlayers;
 	this->actualNumOfPlayers = actualNumOfPlayers;
 }
 
-NoPlayersOnTable::NoPlayersOnTable(Table *table) {
+NoPlayersOnTableException::NoPlayersOnTableException(Table *table) {
 	this->tableID = table->getTableID();
 }
 
-unsigned int NoPlayersOnTable::getID() const {
+unsigned int NoPlayersOnTableException::getID() const {
 	return this->tableID;
 }

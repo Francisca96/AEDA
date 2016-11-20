@@ -1,0 +1,414 @@
+.TH "cmdUI.h" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cmdUI.h \- Declares the command user interface\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <iostream>\fP
+.br
+\fC#include 'utils\&.h'\fP
+.br
+\fC#include <iomanip>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBclearScreen\fP ()"
+.br
+.RI "Clears the terminal\&. "
+.ti -1c
+.RI "void \fBcursorxy\fP (short x, short y)"
+.br
+.RI "Set cursor on <x,y> coordinates\&. "
+.ti -1c
+.RI "pair< int, int > \fBcenterWindow\fP ()"
+.br
+.RI "Center the terminal window\&. The returned length is measured in characters\&. "
+.ti -1c
+.RI "void \fBstart_menu\fP (pair< short, short > xy, int &choice)"
+.br
+.RI "Displays the main menu\&. "
+.ti -1c
+.RI "void \fBmanageCasino\fP (pair< short, short > xy, unsigned int &choice)"
+.br
+.RI "Displays the manage casino menu and reads user choice\&. "
+.ti -1c
+.RI "void \fBcreateMenu\fP (pair< short, short > xy, unsigned int &choice)"
+.br
+.RI "Creates a menu\&. "
+.ti -1c
+.RI "void \fBdeleteMenu\fP (pair< short, short > xy, unsigned int &choice)"
+.br
+.RI "Displays a delete menu and reads user choice\&. "
+.ti -1c
+.RI "void \fBmanageTableMenu\fP (pair< short, short > xy, unsigned int &choice)"
+.br
+.RI "Displays the manage table menu and reads user choice\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Declares the command user interface\&. 
+
+
+.PP
+Definition in file \fBcmdUI\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "pair<int, int> centerWindow ()"
+
+.PP
+Center the terminal window\&. The returned length is measured in characters\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pair <x,y>\&. x= terminal horizontal length, y = terminal vertical length\&. 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file cmdUI\&.cpp\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+48                               {
+49 #ifdef _WIN32
+50         HWND hwnd = GetConsoleWindow();
+51         RECT desktop;
+52         const HWND hDesktop = GetDesktopWindow();
+53         GetWindowRect(hDesktop, &desktop);
+54         MoveWindow(hwnd, desktop\&.right * 0\&.175, desktop\&.bottom * 0\&.2, desktop\&.right * 0\&.65, desktop\&.bottom * 0\&.6, TRUE);
+55         HANDLE screen = GetStdHandle(STD_OUTPUT_HANDLE);
+56         COORD max_size = GetLargestConsoleWindowSize(screen);
+57         int console_x = max_size\&.X*desktop\&.right*0\&.65 / desktop\&.right - 1;
+58         int console_y = max_size\&.Y*desktop\&.bottom*0\&.6 / desktop\&.bottom - 1;
+59         if (console_x < 56)
+60         {
+61             console_x = max_size\&.X*desktop\&.right*0\&.9 / desktop\&.right + 3;
+62             console_y = max_size\&.Y*desktop\&.bottom*0\&.9 / desktop\&.bottom - 1;
+63             MoveWindow(hwnd, desktop\&.right * 0\&.025, desktop\&.bottom * 0\&.025, desktop\&.right * 0\&.95, desktop\&.bottom * 0\&.9, TRUE);
+64         }
+65         else if (console_y <= 15)
+66         {
+67             console_y = max_size\&.Y*desktop\&.bottom*0\&.9 / desktop\&.bottom - 1;
+68             MoveWindow(hwnd, desktop\&.right * 0\&.2, desktop\&.bottom * 0\&.1, desktop\&.right * 0\&.6, desktop\&.bottom * 0\&.8, TRUE);
+69         }
+70 
+71         /*PCONSOLE_FONT_INFOEX cmd_font;
+72         GetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), false, cmd_font);
+73         cout << cmd_font->FaceName << endl;
+74         system("pause");*/
+75 
+76         pair <int, int> xy = { console_x,console_y };
+77         return xy;
+78 #else
+79     pair <int, int> xy = {-1,-1};
+80     return xy;
+81 #endif
+82 }
+.fi
+.SS "void clearScreen ()"
+
+.PP
+Clears the terminal\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 6 of file cmdUI\&.cpp\&.
+.PP
+.nf
+6                    {
+7     system("CLS");
+8 }
+.fi
+.SS "void createMenu (pair< short, short > xy, unsigned int & choice)"
+
+.PP
+Creates a menu\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP A pair containing the horizontal and vertical lengths of the terminal\&. 
+.br
+\fIchoice\fP The user choice\&. 
+.RE
+.PP
+
+.PP
+Definition at line 135 of file cmdUI\&.cpp\&.
+.PP
+References displayMenu0(), and readIntBetween()\&.
+.PP
+Referenced by Casino::create()\&.
+.PP
+.nf
+135                                                              {
+136     vector <string> options = { "-\&. Create \&.\&.\&." ,"  1\&. Table" ,"  2\&. Dealer", "  3\&. Player (BOT)", "-\&. Delete\&.\&.\&.", "-\&. Manage Tables", "-\&. Stats" , "" ,"0\&. Back" };
+137     system("CLS");
+138     displayMenu0(xy, "1\&. Create \&.\&.\&.", options);
+139     choice = readIntBetween(0, 3);
+140 }
+.fi
+.SS "void cursorxy (short x, short y)"
+
+.PP
+Set cursor on <x,y> coordinates\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP The x coordinate\&. 
+.br
+\fIy\fP The y coordinate\&. 
+.RE
+.PP
+
+.PP
+Definition at line 10 of file cmdUI\&.cpp\&.
+.PP
+Referenced by Table::showTableInfo(), and start_menu()\&.
+.PP
+.nf
+10                                 {
+11 #ifdef _WIN32
+12         COORD p = { x, y };
+13         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), p);
+14 #endif
+15 }
+.fi
+.SS "void deleteMenu (pair< short, short > xy, unsigned int & choice)"
+
+.PP
+Displays a delete menu and reads user choice\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP A pair containing the horizontal and vertical lengths of the terminal\&. 
+.br
+\fIchoice\fP The user choice\&. 
+.RE
+.PP
+
+.PP
+Definition at line 142 of file cmdUI\&.cpp\&.
+.PP
+References displayMenu0(), and readIntBetween()\&.
+.PP
+Referenced by Casino::eliminate()\&.
+.PP
+.nf
+142                                                              {
+143     vector <string> options = { "-\&. Create \&.\&.\&." , "-\&. Delete\&.\&.\&.", "  1\&. Table" ,"  2\&. Dealer", "  3\&. Player (BOT)", "-\&. Manage Tables", "-\&. Stats" ,"" , "0\&. Back" };
+144     system("CLS");
+145     displayMenu0(xy, "2\&. Delete \&.\&.\&.", options);
+146     choice = readIntBetween(0, 3);
+147 }
+.fi
+.SS "void manageCasino (pair< short, short > xy, unsigned int & choice)"
+
+.PP
+Displays the manage casino menu and reads user choice\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP A pair containing the horizontal and vertical lengths of the terminal\&. 
+.br
+\fIchoice\fP The user choice\&. 
+.RE
+.PP
+
+.PP
+Definition at line 128 of file cmdUI\&.cpp\&.
+.PP
+References displayMenu0(), and readIntBetween()\&.
+.PP
+Referenced by Casino::manage()\&.
+.PP
+.nf
+128                                                                {
+129     vector <string> options = {"1\&. Create \&.\&.\&." ,"2\&. Delete\&.\&.\&.", "3\&. Manage Tables", "4\&. Stats" , "" , "0\&. Return to MENU" };
+130     system("CLS");
+131     displayMenu0(xy, "MANAGE CASINO", options);
+132     choice = readIntBetween(0, 4);
+133 }
+.fi
+.SS "void manageTableMenu (pair< short, short > xy, unsigned int & choice)"
+
+.PP
+Displays the manage table menu and reads user choice\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP A pair containing the horizontal and vertical lengths of the terminal\&. 
+.br
+\fIchoice\fP The user choice\&. 
+.RE
+.PP
+
+.PP
+Definition at line 149 of file cmdUI\&.cpp\&.
+.PP
+References displayMenu0(), and readIntBetween()\&.
+.PP
+Referenced by Casino::manageTables()\&.
+.PP
+.nf
+149                                                                    {
+150     vector <string> options = { "-\&. Create \&.\&.\&." , "-\&. Delete\&.\&.\&.", "-\&. Manage Tables","  1\&. Set dealer", "  2\&. Add Player", "  3\&. Remove Player" , "-\&. Stats" ,"" , "0\&. Back" };
+151     system("CLS");
+152     displayMenu0(xy, "3\&. Manage Tables \&.\&.\&.", options);
+153     choice = readIntBetween(0, 3);
+154 }
+.fi
+.SS "void start_menu (pair< short, short > xy, int & choice)"
+
+.PP
+Displays the main menu\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP A pair containing the horizontal and vertical lengths of the terminal\&. 
+.br
+\fIchoice\fP The user choice\&. 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file cmdUI\&.cpp\&.
+.PP
+References cursorxy(), displayMenu0(), and readIntBetween()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+84                                                      {
+85     //display author rights
+86     system("CLS");
+87     cursorxy((xy\&.first - 50) / 2 - 2, xy\&.second - 2);
+88     cout << (char)201; //╔
+89     for (unsigned int i = 0; i <= 50; i++)
+90     {
+91         cout << (char)205; //═
+92     }
+93     cout << (char)187 << endl; //╗
+94     cout << setw((xy\&.first - 50) / 2 - 1) << (char)186 /*║*/ << setw((50 - 31) / 2) << " " << "BlackJack " << (char)184 << " Console Application" << setw(12) << (char)186 /*║*/ << endl;
+95     cout << setw((xy\&.first - 50) / 2 - 1) << (char)186 /*║*/ << setw((50 + 43) / 2) << "AEDA 2016/2017 Grupo D, All Rights Reserved" << setw(6) << (char)186 /*║*/ << endl;
+96     cursorxy(0, 0);
+97 
+98     //draw of title (different draw if screen is small)
+99     cout << endl << endl;
+100     if (xy\&.first >= 78)
+101     {
+102         cout << setw((xy\&.first - 78) / 2 - 1) << " " << " _______    _        __      _____  _    _    _____     __     _____  _    _  " << endl
+103             << setw((xy\&.first - 78) / 2 - 1) << " "  << "/_____  |  | |      /  \\    /  __/ | \\  / /  |___  |   /  \\   /  __/ | \\  / / " << endl
+104             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  | | | |  | |     /    \\   | |    | | / /       | |  /    \\  | |    | | / /  " << endl
+105             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  | |_| |  | |    |  /\\  |  | |    | |/ /        | | |  /\\  | | |    | |/ /   " << endl
+106             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  |  __  | | |    | |__| |  | |    |    |    _   | | | |__| | | |    |    |   " << endl
+107             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  | |  | | | |    |  __  |  | |    | |\\ \\   | |  | | |  __  | | |    | |\\ \\   " << endl
+108             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  | |__| | | \\__  | |  | |  | |__  | | \\ \\  | |__| | | |  | | | |__  | | \\ \\  " << endl
+109             << setw((xy\&.first - 78) / 2 - 1) << " "  << "  |______|  \\___/ |_|  |_|  \\____\\ |_/  \\_\\ |______| |_|  |_| \\____\\ |_/  \\_\\ " << endl;
+110     }
+111     else
+112     {
+113         cout << setw((xy\&.first - 44) / 2) << (char)218 << (char)196 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)191 << " " << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)191 << "     " << (char)218 << (char)191 << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << (char)218 << (char)191 << endl
+114             << setw((xy\&.first - 44) / 2) << (char)192 << (char)191 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)218 << (char)196 << (char)196 << (char)217 << (char)179 << (char)179 << (char)218 << (char)191 << "   " << (char)179 << (char)179 << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)218 << (char)196 << (char)196 << (char)217 << (char)179 << (char)179 << (char)218 << (char)191 << endl
+115             << setw((xy\&.first - 44) / 2) << " " << (char)179 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)179 << "   " << (char)179 << (char)192 << (char)217 << (char)192 << (char)191 << "  " << (char)179 << (char)179 << (char)179 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)179 << "   " << (char)179 << (char)192 << (char)217 << (char)192 << (char)191 << endl
+116             << setw((xy\&.first - 44) / 2) << " " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)179 << "   " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)218 << (char)191 << (char)179 << (char)179 << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << (char)179 << (char)179 << "   " << (char)179 << (char)218 << (char)196 << (char)191 << (char)179 << endl
+117             << setw((xy\&.first - 44) / 2) << (char)218 << (char)217 << (char)192 << (char)196 << (char)217 << (char)179 << (char)179 << (char)192 << (char)191 << (char)179 << (char)179 << " " << (char)179 << (char)179 << (char)179 << (char)192 << (char)196 << (char)196 << (char)191 << (char)179 << (char)179 << " " << (char)179 << (char)179 << (char)179 << (char)192 << (char)217 << (char)179 << (char)179 << (char)179 << " " << (char)179 << (char)179 << (char)179 << (char)192 << (char)196 << (char)196 << (char)191 << (char)179 << (char)179 << " " << (char)179 << (char)179 << endl
+118             << setw((xy\&.first - 44) / 2) << (char)192 << (char)196 << (char)196 << (char)196 << (char)196 << (char)217 << (char)192 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << (char)192 << (char)196 << (char)196 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << (char)192 << (char)196 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << (char)192 << (char)196 << (char)196 << (char)196 << (char)217 << (char)192 << (char)217 << " " << (char)192 << (char)217 << endl;
+119     }
+120     cout << endl << endl;
+121 
+122     //display menu
+123     vector <string> options = {"1\&. Play" ,"2\&. Simulation", "3\&. Choose Table", "4\&. Manage Casino", "" ,"0\&. EXIT"};
+124     displayMenu0(xy, "MENU", options);
+125     choice = readIntBetween(0, 4);
+126 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

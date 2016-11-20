@@ -1,0 +1,106 @@
+.TH "TableNotInCasinoException" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TableNotInCasinoException \- Exception for signalling that the table is not in the casino\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Casino\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTableNotInCasinoException\fP (\fBTable\fP *table)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "void \fBwhat\fP ()"
+.br
+.RI "Displays in terminal what caused this exception to be thrown\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Exception for signalling that the table is not in the casino\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file Casino\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "TableNotInCasinoException::TableNotInCasinoException (\fBTable\fP * table)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP Pointer to the table\&. 
+.RE
+.PP
+
+.PP
+Definition at line 986 of file Casino\&.cpp\&.
+.PP
+References Table::getTableID()\&.
+.PP
+.nf
+987 {
+988     id = table->getTableID();
+989 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void TableNotInCasinoException::what ()"
+
+.PP
+Displays in terminal what caused this exception to be thrown\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 991 of file Casino\&.cpp\&.
+.PP
+.nf
+992 {
+993     cout << "Table Id\&." << id << " is not registered in this casino\n";
+994 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

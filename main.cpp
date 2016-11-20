@@ -67,13 +67,13 @@ int main(){
 	casino.setTableToPlay(-1);
 
 	/*END OF DEBUG*/
-	int choise, exit = 0;
+	int choice, exit = 0;
 	unsigned int roundsToPlay;
 	bool found = false;
 	while (!exit)
 	{
-		start_menu(xy, choise);
-		switch (choise)
+		start_menu(xy, choice);
+		switch (choice)
 		{
 		case 1:
 			system("CLS");
@@ -83,18 +83,18 @@ int main(){
 				casino.getTableToPlay()->play(xy, user);
 				system("pause");
 			}
-			catch (TableNotInCasino)
+			catch (TableNotInCasinoException)
 			{
 				cout << "Please select a table first" << endl;
 				system("pause");
 			}
-			catch (NoPlayersOnTable noPlayersOnTable)
+			catch (NoPlayersOnTableException NoPlayersOnTableException)
 			{
-				cout << "The table: " << noPlayersOnTable.getID() << " dont have players" << endl;
+				cout << "The table: " << NoPlayersOnTableException.getID() << " dont have players" << endl;
 				cout << "Please select a table with players first" << endl;
 				system("pause");
 			}
-			catch (TooManyPlayers)
+			catch (TooManyPlayersException)
 			{
 				cout << "You can't play on table selected" << endl;
 				cout << "The table is full" << endl;
@@ -111,18 +111,18 @@ int main(){
 				casino.showStatistics();
 				system("pause");
 			}
-			catch (TableNotInCasino)
+			catch (TableNotInCasinoException)
 			{
 				cout << "Please select a table first" << endl;
 				system("pause");
 			}
-			catch (NoPlayersOnTable noPlayerOnTable)
+			catch (NoPlayersOnTableException noPlayerOnTable)
 			{
 				cout << "The table: " << noPlayerOnTable.getID() << " dont have players" << endl;
 				cout << "Please select a table with players first" << endl;
 				system("pause");
 			}
-			catch (HumanOnTable)
+			catch (HumanOnTableException)
 			{
 				cout << "The table has a human" << endl;
 				cout << "Please select a table with no humans" << endl;
@@ -135,7 +135,7 @@ int main(){
 			{
 				casino.selectTable(xy);
 			}
-			catch (TableNotInCasino)
+			catch (TableNotInCasinoException)
 			{
 				cout << "This table not exist" << endl;
 			}

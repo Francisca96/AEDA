@@ -8,11 +8,10 @@ void clearScreen() {
 }
 
 void cursorxy(short x, short y) {
-	if (OS_Windows == 0)
-	{
+#ifdef _WIN32
 		COORD p = { x, y };
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), p);
-	}
+#endif
 }
 
 void displayMenu0(pair<int, int> xy, string title, vector <string> menuOptions) {
@@ -47,8 +46,7 @@ void displayMenu0(pair<int, int> xy, string title, vector <string> menuOptions) 
 }
 
 pair <int,int> centerWindow() {
-	if (OS_Windows == 0)
-	{
+#ifdef _WIN32
 		HWND hwnd = GetConsoleWindow();
 		RECT desktop;
 		const HWND hDesktop = GetDesktopWindow();
@@ -77,12 +75,13 @@ pair <int,int> centerWindow() {
 
 		pair <int, int> xy = { console_x,console_y };
 		return xy;
-	}
+#else
 	pair <int, int> xy = {-1,-1};
 	return xy;
+#endif
 }
 
-void start_menu(pair <short, short> xy, int &choise) {
+void start_menu(pair <short, short> xy, int &choice) {
 	//display author rights
 	system("CLS");
 	cursorxy((xy.first - 50) / 2 - 2, xy.second - 2);
@@ -123,33 +122,33 @@ void start_menu(pair <short, short> xy, int &choise) {
 	//display menu
 	vector <string> options = {"1. Play" ,"2. Simulation", "3. Choose Table", "4. Manage Casino", "" ,"0. EXIT"};
 	displayMenu0(xy, "MENU", options);
-	choise = readIntBetween(0, 4);
+	choice = readIntBetween(0, 4);
 }
 
-void manageCasino(pair<short, short> xy, unsigned int &choise) {
+void manageCasino(pair<short, short> xy, unsigned int &choice) {
 	vector <string> options = {"1. Create ..." ,"2. Delete...", "3. Manage Tables", "4. Stats" , "" , "0. Return to MENU" };
 	system("CLS");
 	displayMenu0(xy, "MANAGE CASINO", options);
-	choise = readIntBetween(0, 4);
+	choice = readIntBetween(0, 4);
 }
 
-void createMenu(pair<short, short> xy, unsigned int &choise) {
+void createMenu(pair<short, short> xy, unsigned int &choice) {
 	vector <string> options = { "-. Create ..." ,"  1. Table" ,"  2. Dealer", "  3. Player (BOT)", "-. Delete...", "-. Manage Tables", "-. Stats" , "" ,"0. Back" };
 	system("CLS");
 	displayMenu0(xy, "1. Create ...", options);
-	choise = readIntBetween(0, 3);
+	choice = readIntBetween(0, 3);
 }
 
-void deleteMenu(pair<short, short> xy, unsigned int &choise) {
+void deleteMenu(pair<short, short> xy, unsigned int &choice) {
 	vector <string> options = { "-. Create ..." , "-. Delete...", "  1. Table" ,"  2. Dealer", "  3. Player (BOT)", "-. Manage Tables", "-. Stats" ,"" , "0. Back" };
 	system("CLS");
 	displayMenu0(xy, "2. Delete ...", options);
-	choise = readIntBetween(0, 3);
+	choice = readIntBetween(0, 3);
 }
 
-void manageTableMenu(pair<short, short> xy, unsigned int & choise) {
+void manageTableMenu(pair<short, short> xy, unsigned int & choice) {
 	vector <string> options = { "-. Create ..." , "-. Delete...", "-. Manage Tables","  1. Set dealer", "  2. Add Player", "  3. Remove Player" , "-. Stats" ,"" , "0. Back" };
 	system("CLS");
 	displayMenu0(xy, "3. Manage Tables ...", options);
-	choise = readIntBetween(0, 3);
+	choice = readIntBetween(0, 3);
 }

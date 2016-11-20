@@ -1,0 +1,319 @@
+.TH "Human" 3 "Sat Nov 19 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Human \- A \fBHuman\fP player\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Player\&.h>\fP
+.PP
+Inherits \fBPlayer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHuman\fP (string name, unsigned int age)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "unsigned int \fBbet\fP (\fBTable\fP &table)"
+.br
+.RI "Asks the human player to place his bet\&. "
+.ti -1c
+.RI "string \fBplay\fP (\fBTable\fP &table)"
+.br
+.RI "Ask the human player to hit or stand\&. "
+.ti -1c
+.RI "bool \fBtakeInsurance\fP (\fBTable\fP &table)"
+.br
+.RI "Ask the human player for insurance\&. "
+.ti -1c
+.RI "bool \fBsplit\fP (\fBDealer\fP *dealerOfTable)"
+.br
+.RI "Ask human if he want to split his hand\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A \fBHuman\fP player\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 1172 of file Player\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Human::Human (string name, unsigned int age)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name\&. 
+.br
+\fIage\fP The age\&. 
+.RE
+.PP
+
+.PP
+Definition at line 663 of file Player\&.cpp\&.
+.PP
+References NameTooShortException::what(), and TooYoungException::what()\&.
+.PP
+.nf
+664 {
+665     try {
+666         if (name\&.length() < 3) {
+667             throw NameTooShortException();
+668         }
+669         setName(name);
+670         if (age < 18) {
+671             throw TooYoungException();
+672         }
+673         this->setAge(age);
+674         setInitialMoney(1000);
+675         this->setOnTable(-1);
+676     }
+677     catch (NameTooShortException &n) {
+678         n\&.what();
+679     }
+680     catch (TooYoungException &y) {
+681         y\&.what();
+682     }
+683 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "unsigned int Human::bet (\fBTable\fP & table)\fC [virtual]\fP"
+
+.PP
+Asks the human player to place his bet\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The human bet\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 686 of file Player\&.cpp\&.
+.PP
+References Table::getMaxBet(), Table::getMinBet(), and readUnsignedIntBetween()\&.
+.PP
+.nf
+687 {
+688     unsigned int maxbet = getCurrentMoney();
+689     if (maxbet < table\&.getMinBet()) {
+690         return 0; //0 means kick the player from the table;
+691     }
+692     unsigned int betValue;
+693     cout << "Your Turn " << getName() << "\n";
+694     if (maxbet > table\&.getMaxBet())
+695     {
+696         maxbet = table\&.getMaxBet();
+697     }
+698     betValue = readUnsignedIntBetween(table\&.getMinBet(), maxbet);
+699     setCurrentMoney(getCurrentMoney() - betValue);
+700     setActualBet(betValue);
+701     return betValue;
+702 }
+.fi
+.SS "string Human::play (\fBTable\fP & table)\fC [virtual]\fP"
+
+.PP
+Ask the human player to hit or stand\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A string: 'hit' or 'stand'; 
+.RE
+.PP
+
+.PP
+Implements \fBPlayer\fP\&.
+.PP
+Definition at line 704 of file Player\&.cpp\&.
+.PP
+References Dealer::discard(), Table::getDealer(), getHumanPlay(), and Table::getPlayers()\&.
+.PP
+.nf
+705 {
+706     if (getHandScore() >= 21)
+707     {
+708         return "stand";
+709     }
+710     string option;
+711     cout << "Your Turn -> In your hand you have the following:\n";
+712     for (size_t i = 0; i < getHandSize(); i++) {
+713         cout << getHand()\&.at(i)\&.rank << " of " << getHand()\&.at(i)\&.suits << "\n";
+714     }
+715     cout << "Current hand score-> " << getHandScore() << "\n";
+716     cout << "Current money-> " << getCurrentMoney() << "\n";
+717     cout << "To hit write 'hit' to stand write 'stand' : ";
+718     option = getHumanPlay();
+719     if (option == "hit") {
+720         hit(table\&.getDealer()->discard(table\&.getPlayers()));
+721     }
+722     return option;
+723 }
+.fi
+.SS "bool Human::split (\fBDealer\fP * dealerOfTable)\fC [virtual]\fP"
+
+.PP
+Ask human if he want to split his hand\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdealerOfTable\fP Pointer to the dealer of the table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if human splits, false otherwise\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 645 of file Player\&.cpp\&.
+.PP
+References readBinary()\&.
+.PP
+.nf
+645                                        {
+646     unsigned int split;
+647     vector<Card> hand = getHand();
+648     if (hand\&.at(0) == hand\&.at(1)) {
+649         cout << "Do you want split?\n 0 - No    1 - Yes\n";
+650         split = readBinary();
+651         vector<Card> hand = getHand();
+652 
+653         if (split == 1) {
+654             removeCardFromFirstHandAndSetItOnSecondHand();
+655             return true;
+656         }
+657     }
+658     return false;
+659     
+660 }
+.fi
+.SS "bool Human::takeInsurance (\fBTable\fP & table)\fC [virtual]\fP"
+
+.PP
+Ask the human player for insurance\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP The table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if human takes insurance, false if it does not\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBPlayer\fP\&.
+.PP
+Definition at line 631 of file Player\&.cpp\&.
+.PP
+References readBinary()\&.
+.PP
+.nf
+631                                       {
+632     unsigned int insurance;
+633     cout << "Do you want insurance?\n 0 - No    1 - Yes\n";
+634     insurance=readBinary();
+635 
+636     if(insurance == 1){
+637         insurance = bet(table)/2;
+638         setCurrentMoney(getCurrentMoney() - insurance);
+639         return true;
+640     }
+641 
+642     return false;
+643 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.
