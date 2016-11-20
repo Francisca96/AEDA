@@ -7,6 +7,7 @@
 #pragma once
 
 #include <vector>
+#include <sstream>
 #include "Dealer.h"
 #include "cmdUI.h"
 
@@ -164,6 +165,10 @@ private:
 	/** @brief	The actual players. */
 	vector<Player*> actualPlayers;
 
+	unsigned int nextPlayerIndex;
+	unsigned int bossUserID;
+	unsigned int phaseOfPlaying;
+
 public:
 
 	/**
@@ -307,7 +312,7 @@ public:
 	 * @date	18/11/2016
 	 */
 
-	void play();
+	void play(pair <short, short> xy, unsigned int userID);
 
 	/**
 	 * @fn	void Table::simulation(unsigned int roundsLeft);
@@ -550,5 +555,9 @@ public:
 	 */
 
 	static unsigned int getNextId();
+
+	void readTableFile();
+	void writeTableFile();
+	void showPlay(pair <short, short> xy);
 	
 };

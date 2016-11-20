@@ -195,7 +195,7 @@ void Casino::readPlayersFile() {
 				{
 					ssLine << line;
 					ssLine >> age;
-					Human *newHuman = new Human(name, age);
+					Human *newHuman = new Human(name, age, -1);
 					newHuman->setInitialMoney(initialMoney);
 					players.push_back(newHuman);
 				}
@@ -321,7 +321,7 @@ void Casino::readTablesFile() {
 
 void Casino::savePlayersFile() {
 	ofstream outFile(playersFile);
-	for (int i = 0; i < 3; i++)
+	for (int j = 0; j < 3; j++)
 	{
 		if (outFile.is_open())
 		{
