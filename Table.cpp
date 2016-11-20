@@ -157,7 +157,7 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 				{
 					actualPlayers.push_back(players.at(i));
 				}
-				else if (players.at(i)->getUserID == userID)
+				else if (players.at(i)->getUserID() == userID)
 				{
 					cout << players.at(i)->getCurrentMoney() << "don't have money to play" << endl;
 					waitXTime(2);
