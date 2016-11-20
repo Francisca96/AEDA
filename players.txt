@@ -1,6 +1,14 @@
-3 ; Joao Carvalho ; 1000 ; 19
-3 ; Joao Caralho ; 1000 ; 19
-3 ; Joao Carvalho ; 1000 ; 19
-3 ; Joao Carvlho ; 1000 ; 19
-3 ; Joao Carvalo ; 1000 ; 19
-3 ; Joao Crvalho ; 1000 ; 19
+1 ; Manuel ; 1000 ; 1
+2 ; Daniel ; 1000 ; 1
+0 ; Fernando ; 1000 ; 1
+2 ; Otavio ; 2000 ; 2
+1 ; Linda ; 1000 ; 2
+0 ; Deolinda ; 1900 ; 3
+1 ; Renata ; 1000 ; 4
+0 ; Anabela ; 1000 ; 5
+1 ; Sofia ; 1000 ; 5
+0 ; Kika ; 1000 ; 6
+1 ; Renato ; 1000 ; 6
+1 ; Joao ; 1000 ; 6
+0 ; Rui ; 1000 ; 6
+1 ; Maria ; 2000 ; -1

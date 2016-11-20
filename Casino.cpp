@@ -175,7 +175,7 @@ void Casino::readPlayersFile() {
 	stringstream ssLine;
 	string player;
 	string name;
-	unsigned int initialMoney, age;
+	unsigned int initialMoney, age, tableOnID;
 
 	for (int i = 0; i < 3; i++)
 	{
@@ -195,6 +195,7 @@ void Casino::readPlayersFile() {
 				{
 					ssLine << line;
 					ssLine >> age;
+					ssLine.clear();
 					Human *newHuman = new Human(name, age, -1);
 					newHuman->setInitialMoney(initialMoney);
 					players.push_back(newHuman);
@@ -202,24 +203,30 @@ void Casino::readPlayersFile() {
 				if (player == "0")
 				{
 					ssLine << line;
-					ssLine >> age;
+					ssLine >> tableOnID;
+					ssLine.clear();
 					Bot0 *newBot0 = new Bot0(name, initialMoney);
+					newBot0->setOnTable(tableOnID);
 					players.push_back(newBot0);
 				}
 				if (player == "1")
 				{
 					ssLine << line;
-					ssLine >> age;
+					ssLine >> tableOnID;
+					ssLine.clear();
 					Bot1 *newBot1 = new Bot1(name, initialMoney);
+					newBot1->setOnTable(tableOnID);
 					players.push_back(newBot1);
 				}
-				/*if (player == "2")
+				if (player == "2")
 				{
 					ssLine << line;
-					ssLine >> age;
-					Bot2 *newBot2 = new Bot2();
+					ssLine >> tableOnID;
+					ssLine.clear();
+					Bot2 *newBot2 = new Bot2(name, initialMoney);
+					newBot2->setOnTable(tableOnID);
 					players.push_back(newBot2);
-				}*/
+				}
 			}
 			return;
 		}
@@ -310,6 +317,33 @@ void Casino::readTablesFile() {
 				}
 				Table *newTable = new Table(minBet, maxBet, initialMoney, maxNumberOfPlayers, dealerOfTable);
 				newTable->setID(tableID);
+				if (line == "{")
+				{
+					while (line != "}")
+					{
+						getline(inFile, line);
+						if (line.substr(0, 1) == "0")
+						{
+							Player *playerReaded = new Bot0(line);
+							newTable->addPlayer(playerReaded);
+						}
+						else if (line.substr(0, 1) == "1")
+						{
+							Player *playerReaded = new Bot1(line);
+							newTable->addPlayer(playerReaded);
+						}
+						else if (line.substr(0, 1) == "2")
+						{
+							Player *playerReaded = new Bot2(line);
+							newTable->addPlayer(playerReaded);
+						}
+						else if (line.substr(0, 1) == "3")
+						{
+							Player *playerReaded = new Human(line);
+							newTable->addPlayer(playerReaded);
+						}
+					}
+				}
 				this->addTableToCasino(newTable);
 			}
 			Table::setNextID(nextID);
@@ -337,15 +371,15 @@ void Casino::savePlayersFile() {
 				}
 				if (b0 != NULL)
 				{
-					outFile << "0 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
+					outFile << "0 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getOnTable() << endl;
 				}
 				if (b1 != NULL)
 				{
-					outFile << "1 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
+					outFile << "1 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getOnTable() << endl;
 				}
 				if (b2 != NULL)
 				{
-					outFile << "2 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getAge() << endl;
+					outFile << "2 ; " << players.at(i)->getName() << " ; " << players.at(i)->getInitialMoney() << " ; " << players.at(i)->getOnTable() << endl;
 				}
 			}
 			return;
@@ -378,9 +412,26 @@ void Casino::saveTablesFile() {
 		if (outFile.is_open())
 		{
 			outFile << Table::getNextId() << endl;
-			for (size_t i = 0; i < dealers.size(); i++)
+			for (size_t i = 0; i < tables.size(); i++)
 			{
-				outFile << tables.at(i)->getTableID() << " ; " << tables.at(i)->getMinBet() << " ; " << tables.at(i)->getMaxBet() << " ; " << tables.at(i)->getInitialMoney() << " ; " << tables.at(i)->getNumberMaxOfPlayers() << " ; " << tables.at(i)->getDealer()->getID() << " ; " << endl;
+				outFile << tables.at(i)->getTableID() << " ; " << tables.at(i)->getMinBet() << " ; " << tables.at(i)->getMaxBet() << " ; " << tables.at(i)->getInitialMoney() << " ; " << tables.at(i)->getNumberMaxOfPlayers() << " ; " << tables.at(i)->getDealer()->getID() << " ; ";
+				if (tables.at(i)->getPlayers().size() != 0)
+				{
+					outFile << "{" << endl;
+				}
+				else
+				{
+					outFile << endl;
+				}
+				for (size_t j = 0; j < tables.at(i)->getPlayers().size(); j++)
+				{
+					tables.at(i)->getPlayers().at(j)->saveInfo(outFile);
+					outFile << endl;
+				}
+				if (tables.at(i)->getPlayers().size() != 0)
+				{
+					outFile << "}" << endl;
+				}
 			}
 			return;
 		}
