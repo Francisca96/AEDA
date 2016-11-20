@@ -326,21 +326,53 @@ void Casino::readTablesFile() {
 						{
 							Player *playerReaded = new Bot0(line);
 							newTable->addPlayer(playerReaded);
+							try
+							{
+								players.at(findPlayer(playerReaded->getName())) = playerReaded;
+							}
+							catch (PlayerNotExistException)
+							{
+								addPlayerToCasino(playerReaded);
+							}
 						}
 						else if (line.substr(0, 1) == "1")
 						{
 							Player *playerReaded = new Bot1(line);
 							newTable->addPlayer(playerReaded);
+							try
+							{
+								players.at(findPlayer(playerReaded->getName())) = playerReaded;
+							}
+							catch (PlayerNotExistException)
+							{
+								addPlayerToCasino(playerReaded);
+							}
 						}
 						else if (line.substr(0, 1) == "2")
 						{
 							Player *playerReaded = new Bot2(line);
 							newTable->addPlayer(playerReaded);
+							try
+							{
+								players.at(findPlayer(playerReaded->getName())) = playerReaded;
+							}
+							catch (PlayerNotExistException)
+							{
+								addPlayerToCasino(playerReaded);
+							}
 						}
 						else if (line.substr(0, 1) == "3")
 						{
 							Player *playerReaded = new Human(line);
 							newTable->addPlayer(playerReaded);
+							try
+							{
+								players.at(findPlayer(playerReaded->getName())) = playerReaded;
+							}
+							catch (PlayerNotExistException)
+							{
+								addPlayerToCasino(playerReaded);
+							}
 						}
 					}
 				}
