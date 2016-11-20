@@ -140,7 +140,8 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 			waitXTime(1);
 			this->readTableFile();
 			this->showPlay(xy);
-			cout << "Waiting for other players..." << endl;
+			cout << "Waiting for other players...";
+			cursorxy(0, 23);
 		}
 		if (nextPlayerIndex == 0 && phaseOfPlaying == 0)
 		{
@@ -176,12 +177,13 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 					{
 						bossUserID = actualPlayers.at(i)->getUserID();
 						this->writeTableFile();
-						while (bossUserID != userID)
+						while (bossUserID != userID && phaseOfPlaying != 4)
 						{
 							waitXTime(1);
 							this->readTableFile();
 							this->showPlay(xy);
-							cout << "Waiting for other players..." << endl;
+							cout << "Waiting for other players...";
+							cursorxy(0, 23);
 						}
 					}
 					else
@@ -205,16 +207,11 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 								this->showPlay(xy);
 								restartDeck();
 							}
-							if (actualPlayers.at(i)->getHandScore() <= 21)
-								cout << "You stand with: " << actualPlayers.at(i)->getHandScore() << endl;
-							else
-							{
-								cout << "You lose this round..." << endl;
-							}
+							cout << "You stand with: " << actualPlayers.at(i)->getHandScore() << endl;
 							//TODO: change for playerID after
 							nextPlayerIndex = i + 1;
 							this->writeTableFile();
-							system("pause");
+							waitXTime(2);
 						}
 					}
 				}
@@ -254,68 +251,73 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 				phaseOfPlaying = 2;
 				this->writeTableFile();
 			}
-			if (nextPlayerIndex == actualPlayers.size() && phaseOfPlaying == 3)
+			if ((nextPlayerIndex == actualPlayers.size() && phaseOfPlaying == 3) || phaseOfPlaying == 4)
 			{
-				while (dealerOfTable->getHandScore() < 21 && dealerOfTable->play(*this) != "stand")
+				if (nextPlayerIndex == actualPlayers.size() && phaseOfPlaying == 3)
 				{
-					waitXTime(2);
-					this->showPlay(xy);
-					restartDeck();
+					while (dealerOfTable->getHandScore() < 21 && dealerOfTable->play(*this) != "stand")
+					{
+						waitXTime(1);
+						this->showPlay(xy);
+						restartDeck();
+					}
+					nextPlayerIndex = 0;
+					phaseOfPlaying = 4;
+					this->writeTableFile();
 				}
-				nextPlayerIndex = 0;
-				phaseOfPlaying = 0;
-				this->writeTableFile();
 				unsigned int actualBet;
-				for (size_t j = 0; j < actualPlayers.size(); j++)
+				for (size_t j = nextPlayerIndex; j < actualPlayers.size(); j++)
 				{
 					actualBet = actualPlayers.at(j)->getActualBet();
-					this->readTableFile();
-					if (actualPlayers.at(j)->getHandScore() > 21)
+					if (actualPlayers.at(j)->getHandScore() == 21 && actualPlayers.at(j)->getHandSize() == 2 && dealerOfTable->getHandScore() < 21)
 					{
-						//cout  << players.at(j)->getName() << " has " << players.at(j)->getHandScore() << " points, so he got busted!\n";
+						payToPlayer(actualPlayers.at(j), actualBet * 2.5);
+						cout << players.at(j)->getName() << " win: " << actualBet * 2.5 << "$\n";
+					}
+					else if (actualPlayers.at(j)->getHandScore() <= 21 && actualPlayers.at(j)->getHandScore() == dealerOfTable->getHandScore())
+					{
+						payToPlayer(actualPlayers.at(j), actualBet);
+						cout << players.at(j)->getName() << " win: " << actualBet << "$\n";
+					}
+					else if (actualPlayers.at(j)->getHandScore() > dealerOfTable->getHandScore() && actualPlayers.at(j)->getHandScore() < 21)
+					{
+						payToPlayer(actualPlayers.at(j), actualBet * 2);
+						cout << players.at(j)->getName() << " win: " << actualBet * 2 << "$\n";
+					}
+					else if (dealerOfTable->getHandScore() > 21 && actualPlayers.at(j)->getHandScore() <= 21)
+					{
+						payToPlayer(actualPlayers.at(j), actualBet * 2);
+						cout << players.at(j)->getName() << " win: " << actualBet * 2 << "$\n";
 					}
 					else
 					{
-						if (actualPlayers.at(j)->getHandScore() == 21 && actualPlayers.at(j)->getHandSize() == 2 && dealerOfTable->getHandScore() < 21)
-						{
-							payToPlayer(actualPlayers.at(j), actualBet * 2.5);
-							//cout << players.at(j)->getName() << " has " << players.at(j)->getHandScore() << " so he did a blackjack!\n";
-						}
-						else if (actualPlayers.at(j)->getHandScore() <= 21 && actualPlayers.at(j)->getHandScore() == dealerOfTable->getHandScore())
-						{
-							payToPlayer(actualPlayers.at(j), actualBet);
-							//cout << actualPlayers.at(j)->getName() << " has " << actualPlayers.at(j)->getHandScore() << " points, which is equal to the Dealer!\n";
-						}
-						else if (actualPlayers.at(j)->getHandScore() > dealerOfTable->getHandScore() && actualPlayers.at(j)->getHandScore() < 21)
-						{
-							payToPlayer(actualPlayers.at(j), actualBet * 2);
-							//cout << actualPlayers.at(j)->getName() << " has " << actualPlayers.at(j)->getHandScore() << " points, so he won the bet!\n";
-						}
-						else if (dealerOfTable->getHandScore() > 21 && actualPlayers.at(j)->getHandScore() <= 21)
-						{
-							payToPlayer(actualPlayers.at(j), actualBet * 2);
-							//cout << "Dealer got busted! Player " << actualPlayers.at(j)->getName() << " will receive 2 times his original bet!\n";
-						}
-						else if (actualPlayers.at(j)->getHandScore() != 21 && dealerOfTable->getHandScore() == 21)
-						{
-							//cout << "Dealer has blackjack! " << actualPlayers.at(j)->getName() << " lost his bet!\n";
-						}
+						cout << players.at(j)->getName() << " lose!\n";
 					}
-					actualPlayers.at(j)->clearHand();
-					actualPlayers.at(j)->clearHand2();
-					actualPlayers.at(j)->setActualBet(0);
-					actualPlayers.at(j)->setRoundsPlayed(players.at(j)->getRoundsPlayed() + 1);
+					if (phaseOfPlaying == 4)
+					{
+						actualPlayers.at(j)->clearHand();
+						actualPlayers.at(j)->clearHand2();
+						actualPlayers.at(j)->setActualBet(0);
+						actualPlayers.at(j)->setRoundsPlayed(players.at(j)->getRoundsPlayed() + 1);
+						nextPlayerIndex = j + 1;
+						waitXTime(2);
+						this->showPlay(xy);
+					}
+				}
+				if (nextPlayerIndex == actualPlayers.size() && phaseOfPlaying == 4)
+				{
+					dealerOfTable->clearHand();
+					this->showPlay(xy);
+					phaseOfPlaying = 0;
+					nextPlayerIndex = 0;
+					for (size_t i = 0; i < actualPlayers.size(); i++)
+					{
+						players.at(i) = actualPlayers.at(i);
+					}
+					players = actualPlayers;
+					actualPlayers.clear();
 					this->writeTableFile();
 				}
-				this->showPlay(xy);
-				dealerOfTable->clearHand();
-				for (size_t i = 0; i < actualPlayers.size(); i++)
-				{
-					players.at(i) = actualPlayers.at(i);
-				}
-				players = actualPlayers;
-				actualPlayers.clear();
-				this->writeTableFile();
 			}
 			if (phaseOfPlaying == 0)
 			{
@@ -801,9 +803,9 @@ void Table::showPlay(pair<short, short> xy) {
 	string text = "TableID: ";
 	cursorxy(6, 0);
 	cout << text << this->getTableID() << endl;
-	text = "Dealer";
-	cursorxy((xy.first - text.length()) / 2,1);
-	cout << text << endl;
+	text = "Dealer  Score:";
+	cursorxy((xy.first - text.length() - 6) / 2,1);
+	cout << text << setw(3) << dealerOfTable->getHandScore() << endl;;
 	cursorxy((xy.first - 72) / 2, 2);
 	cout << (char)218;
 	for (int i = 0; i < 70; i++)
