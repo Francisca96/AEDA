@@ -51,6 +51,7 @@ pair <int,int> centerWindow() {
 		RECT desktop;
 		const HWND hDesktop = GetDesktopWindow();
 		GetWindowRect(hDesktop, &desktop);
+
 		MoveWindow(hwnd, desktop.right * 0.175, desktop.bottom * 0.2, desktop.right * 0.65, desktop.bottom * 0.6, TRUE);
 		HANDLE screen = GetStdHandle(STD_OUTPUT_HANDLE);
 		COORD max_size = GetLargestConsoleWindowSize(screen);
