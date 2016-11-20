@@ -80,7 +80,7 @@ int main(){
 			//TODO: play (game run in normal mode with a human player)
 			try
 			{
-				casino.getTableToPlay()->play(user);
+				casino.getTableToPlay()->play(xy, user);
 				system("pause");
 			}
 			catch (TableNotInCasino)
