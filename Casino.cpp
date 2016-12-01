@@ -570,9 +570,9 @@ void Casino::create(pair<short, short> xy) {
 				Dealer *dealerOfTable;
 				system("CLS");
 				cout << "Initial Money?" << endl;
-				initialMoney = readUnsignedIntBetween(1000, this->totalMoney);
+				initialMoney = readUnsignedIntBetween(10000, 50000);
 				cout << "Min Bet?" << endl;
-				minBet = readUnsignedIntBetween(1, initialMoney/100);
+				minBet = readUnsignedIntBetween(1, initialMoney/1000);
 				cout << "Max Bet?" << endl;
 				maxBet = readUnsignedIntBetween(minBet, 32*minBet);
 				cout << "Number Max Of Players?" << endl;

@@ -66,6 +66,8 @@ int main(){
 	casino.addPlayersToTable(playersVector, table1);
 	casino.setTableToPlay(-1);*/
 
+	srand(time(0));
+
 	/*END OF DEBUG*/
 	int choice, exit = 0;
 	unsigned int roundsToPlay;
@@ -138,6 +140,7 @@ int main(){
 			//TODO: choose table (selection one table to play on simulation or normal mode)
 			try
 			{
+				casino.readTablesFile();
 				casino.selectTable(xy);
 			}
 			catch (TableNotInCasinoException)
