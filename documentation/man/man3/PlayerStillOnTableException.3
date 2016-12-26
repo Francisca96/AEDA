@@ -1,0 +1,114 @@
+.TH "PlayerStillOnTableException" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PlayerStillOnTableException \- Exception for signalling that the player is still on table\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Player\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlayerStillOnTableException\fP (\fBPlayer\fP *player)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "unsigned int \fBgetTableId\fP () const"
+.br
+.RI "Gets table identifier\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Exception for signalling that the player is still on table\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 142 of file Player\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "PlayerStillOnTableException::PlayerStillOnTableException (\fBPlayer\fP * player)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIplayer\fP Pointer to the player\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1023 of file Player\&.cpp\&.
+.PP
+References Player::getName(), and Player::getOnTable()\&.
+.PP
+.nf
+1023                                                                         {
+1024     this->name = player->getName();
+1025     this->tableID = player->getOnTable();
+1026 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "unsigned int PlayerStillOnTableException::getTableId () const"
+
+.PP
+Gets table identifier\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Joao Carvalho 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The table identifier\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1028 of file Player\&.cpp\&.
+.PP
+Referenced by Casino::eliminate()\&.
+.PP
+.nf
+1028                                                            {
+1029     return this->tableID;
+1030 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

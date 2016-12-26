@@ -17,5 +17,6 @@ var utils_8h =
     [ "readUnsignedInt", "utils_8h.html#a55b3de51bc5631fb67d6681f33e52228", null ],
     [ "readUnsignedIntBetween", "utils_8h.html#a685ffa2d206caa9be692206e68284cb4", null ],
     [ "saveChanges", "utils_8h.html#a59ba61591a389ad07561671807e5b3cf", null ],
-    [ "Users", "utils_8h.html#a11166113d21454c8d054735425e5d496", null ]
+    [ "Users", "utils_8h.html#a11166113d21454c8d054735425e5d496", null ],
+    [ "waitXTime", "utils_8h.html#a436341e0fbeaefa986ca6d17c4a475b9", null ]
 ];

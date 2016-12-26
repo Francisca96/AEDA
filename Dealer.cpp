@@ -105,6 +105,7 @@ void Dealer::clearDiscardedDeck()
 void Dealer::clearHand()
 {
 	hand.clear();
+	this->setHandScore();
 }
 
 bool Dealer::hasCardInHand(Card & c)

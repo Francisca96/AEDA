@@ -4,7 +4,7 @@ var searchData=
   ['getage',['getAge',['../class_player.html#af937581b07b5cb5f2d93c3fcd7bbfd45',1,'Player']]],
   ['getaverageprofit',['getAverageProfit',['../class_player.html#af90c94927657ba8797817d9ee35a9956',1,'Player']]],
   ['getcurrentcount',['getCurrentCount',['../class_player.html#a4ed9a572b577abaaf164a7341d8b8ae1',1,'Player::getCurrentCount()'],['../class_bot1.html#a4c0a73dd5ac6e40adb4f6ca784804209',1,'Bot1::getCurrentCount()'],['../class_bot2.html#abdbf18a6c07bd1c71db7655e656643a6',1,'Bot2::getCurrentCount()']]],
-  ['getcurrentmoney',['getCurrentMoney',['../class_player.html#a02273e06cbfd6f66b86573aac8ec14fc',1,'Player']]],
+  ['getcurrentmoney',['getCurrentMoney',['../class_player.html#a5c7b58b7d8c392a7af3ad637e1751f1b',1,'Player']]],
   ['getdealer',['getDealer',['../class_table.html#af8f247155b520fe226c3014b3ca94477',1,'Table']]],
   ['getdeck',['getDeck',['../class_dealer.html#a3e47299eeff86b20db81ac062659a5dd',1,'Dealer']]],
   ['getdiscardeddeck',['getDiscardedDeck',['../class_dealer.html#a20af0c4e9ecd85f87629cdc18ce49296',1,'Dealer']]],
@@ -28,5 +28,6 @@ var searchData=
   ['gettableid',['getTableID',['../class_dealer_still_on_table_exception.html#a44ceb65d9728c8090515aeac00bed5ce',1,'DealerStillOnTableException::getTableID()'],['../class_table.html#aa4db39c76365882991132d3c07a85a81',1,'Table::getTableID()'],['../class_player_still_on_table_exception.html#a173aa6dec8b33b0b3fa1aa65a03848ad',1,'PlayerStillOnTableException::getTableId()']]],
   ['gettableon',['getTableOn',['../class_dealer.html#a33483233d2bdc17351d3d57fee448184',1,'Dealer']]],
   ['gettables',['getTables',['../class_casino.html#a205d3a479c8bb19a2259f170c6ab5f27',1,'Casino']]],
-  ['gettabletoplay',['getTableToPlay',['../class_casino.html#abc474c7425555e4ac8e030495cb7a8e3',1,'Casino']]]
+  ['gettabletoplay',['getTableToPlay',['../class_casino.html#abc474c7425555e4ac8e030495cb7a8e3',1,'Casino']]],
+  ['getuserid',['getUserID',['../class_player.html#a0bb5b47696cebd816394429e821ba4f0',1,'Player::getUserID()'],['../class_human.html#a4c63103f213ad473cc9b60b1d1856b26',1,'Human::getUserID()']]]
 ];

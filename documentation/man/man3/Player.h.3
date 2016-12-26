@@ -1,0 +1,82 @@
+.TH "Player.h" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Player.h \- Declares the player class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <string>\fP
+.br
+\fC#include <iomanip>\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include 'utils\&.h'\fP
+.br
+\fC#include 'Table\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBNameTooShortException\fP"
+.br
+.RI "Exception for signalling too short names errors\&. The name is considered to be too short if it has less than 3 characters\&. "
+.ti -1c
+.RI "class \fBTooYoungException\fP"
+.br
+.RI "Exception for signalling age errors\&. A player is considered to be too young if he is less than 18 years old\&. "
+.ti -1c
+.RI "class \fBPlayerAlreadyExistException\fP"
+.br
+.RI "Exception for signalling that the player already exists\&. "
+.ti -1c
+.RI "class \fBPlayerNotExistException\fP"
+.br
+.RI "Exception for signalling that the player does not exist\&. "
+.ti -1c
+.RI "class \fBPlayerStillOnTableException\fP"
+.br
+.RI "Exception for signalling that the player is still on table\&. "
+.ti -1c
+.RI "class \fBPlayerIsntOnTableException\fP"
+.br
+.RI "Exception for signalling that the player is not on the table\&. "
+.ti -1c
+.RI "class \fBHumanOnTableException\fP"
+.br
+.RI "Exception for signalling that there is a human on the table\&. "
+.ti -1c
+.RI "class \fBPlayer\fP"
+.br
+.RI "A player\&. Abstract Class\&. \fBPlayer\fP is the base class\&. "
+.ti -1c
+.RI "class \fBBot0\fP"
+.br
+.RI "Bot of type 0\&. The most basic bot, always bets the minimum allowed, stands on 17 (or more)\&. "
+.ti -1c
+.RI "class \fBBot1\fP"
+.br
+.RI "Bot of type 1\&. This bot plays using the hi-lo counting system\&. His decisions are based on the illustrious18 and the fab4 surrender guides\&. "
+.ti -1c
+.RI "class \fBBot2\fP"
+.br
+.RI "Bot of type 2\&. This bot plays using the Ace/Five Count strategy guide\&. "
+.ti -1c
+.RI "class \fBHuman\fP"
+.br
+.RI "A \fBHuman\fP player\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Declares the player class\&. 
+
+
+.PP
+Definition in file \fBPlayer\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

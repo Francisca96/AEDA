@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_too_many_players_exception" kind="class" language="C++" prot="public">
+    <compoundname>TooManyPlayersException</compoundname>
+    <includes refid="_table_8h" local="no">Table.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_too_many_players_exception_1a67299626935e7bb0075abd74f11055d1" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int TooManyPlayersException::maxNumberOfPlayers</definition>
+        <argsstring></argsstring>
+        <name>maxNumberOfPlayers</name>
+        <briefdescription>
+<para>The maximum number of players. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Table.h" line="35" column="1" bodyfile="Table.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_too_many_players_exception_1a7514ce61765122f007c18c3f0794edd1" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int TooManyPlayersException::actualNumOfPlayers</definition>
+        <argsstring></argsstring>
+        <name>actualNumOfPlayers</name>
+        <briefdescription>
+<para>The actual number of players. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Table.h" line="37" column="1" bodyfile="Table.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_too_many_players_exception_1a3ff13b4afc3b7b930bb211a8217ec429" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TooManyPlayersException::TooManyPlayersException</definition>
+        <argsstring>(unsigned int maxNumberOfPlayers, unsigned int actualNumOfPlayers)</argsstring>
+        <name>TooManyPlayersException</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>maxNumberOfPlayers</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>actualNumOfPlayers</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>18/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maxNumberOfPlayers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum number of players. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>actualNumOfPlayers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The actual number of players. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Table.h" line="52" column="1" bodyfile="Table.cpp" bodystart="1057" bodyend="1061"/>
+        <referencedby refid="class_table_1a1fed19e875672e23c19657eefd8ce3ef" compoundref="_table_8cpp" startline="62" endline="71">Table::addPlayers</referencedby>
+        <referencedby refid="class_table_1a00a1f21ddd1664b9305ab08ee48e5c3c" compoundref="_table_8cpp" startline="86" endline="358">Table::play</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_too_many_players_exception_1aaaf4d3518d044df6bec5478d5729b7e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TooManyPlayersException::what</definition>
+        <argsstring>()</argsstring>
+        <name>what</name>
+        <briefdescription>
+<para>Displays information about this exception. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>18/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Table.h" line="63" column="1" bodyfile="Table.cpp" bodystart="8" bodyend="12"/>
+        <referencedby refid="class_casino_1afa089e95581b451abf4adf4afb1b1ccd" compoundref="_casino_8cpp" startline="98" endline="130">Casino::addPlayerToTable</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Exception for signalling too many players in a table errors. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>18/11/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Table.h" line="32" column="1" bodyfile="Table.h" bodystart="32" bodyend="64"/>
+    <listofallmembers>
+      <member refid="class_too_many_players_exception_1a7514ce61765122f007c18c3f0794edd1" prot="private" virt="non-virtual"><scope>TooManyPlayersException</scope><name>actualNumOfPlayers</name></member>
+      <member refid="class_too_many_players_exception_1a67299626935e7bb0075abd74f11055d1" prot="private" virt="non-virtual"><scope>TooManyPlayersException</scope><name>maxNumberOfPlayers</name></member>
+      <member refid="class_too_many_players_exception_1a3ff13b4afc3b7b930bb211a8217ec429" prot="public" virt="non-virtual"><scope>TooManyPlayersException</scope><name>TooManyPlayersException</name></member>
+      <member refid="class_too_many_players_exception_1aaaf4d3518d044df6bec5478d5729b7e3" prot="public" virt="non-virtual"><scope>TooManyPlayersException</scope><name>what</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

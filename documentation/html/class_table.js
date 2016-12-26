@@ -18,7 +18,8 @@ var class_table =
     [ "getTableID", "class_table.html#aa4db39c76365882991132d3c07a85a81", null ],
     [ "kickPlayer", "class_table.html#a74cfbab73aeb109f98fc76d6c8eb9d53", null ],
     [ "payToPlayer", "class_table.html#a9f12053cf49da2ea2e45ced3a5f2f0b3", null ],
-    [ "play", "class_table.html#a7a83e0ed662f82198797b1a8aa8cc4ea", null ],
+    [ "play", "class_table.html#a00a1f21ddd1664b9305ab08ee48e5c3c", null ],
+    [ "readTableFile", "class_table.html#a5edf6fe1ff4f7286530e19e1621886dd", null ],
     [ "removePlayer", "class_table.html#a003724a8c2586a29969620dc81d7e447", null ],
     [ "resetBot1Counters", "class_table.html#a36fd919f54624162b302dadb4d6c60ce", null ],
     [ "restartDeck", "class_table.html#a023e75d86089f54522cece25586bbfe7", null ],
@@ -26,6 +27,8 @@ var class_table =
     [ "setID", "class_table.html#afa6f99eb44c137304837fbc46ef5599c", null ],
     [ "setMaxBet", "class_table.html#ad1c30d171187c0f141c1ceb94c91ef92", null ],
     [ "setMinBet", "class_table.html#a6aa9729492f2124d9a4174315c8c90fb", null ],
+    [ "showPlay", "class_table.html#aea60338879d2079d5ba15fc97b108afe", null ],
     [ "showTableInfo", "class_table.html#a9ce9960e49700fe7420059feb0088187", null ],
-    [ "simulation", "class_table.html#a6ec84ae60accc92f67e7cf8288a6d1a3", null ]
+    [ "simulation", "class_table.html#a6ec84ae60accc92f67e7cf8288a6d1a3", null ],
+    [ "writeTableFile", "class_table.html#a47b596e12ec40db62a56fb88b27537da", null ]
 ];

@@ -1,0 +1,538 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="cmd_u_i_8cpp" kind="file" language="C++">
+    <compoundname>cmdUI.cpp</compoundname>
+    <includes refid="cmd_u_i_8h" local="yes">cmdUI.h</includes>
+    <incdepgraph>
+      <node id="41">
+        <label>iomanip</label>
+      </node>
+      <node id="36">
+        <label>utils.h</label>
+        <link refid="utils_8h"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>string</label>
+      </node>
+      <node id="40">
+        <label>fstream</label>
+      </node>
+      <node id="33">
+        <label>cmdUI.cpp</label>
+        <link refid="cmd_u_i_8cpp"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>cmdUI.h</label>
+        <link refid="cmd_u_i_8h"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>vector</label>
+      </node>
+      <node id="42">
+        <label>time.h</label>
+      </node>
+      <node id="39">
+        <label>cstdlib</label>
+      </node>
+      <node id="35">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="cmd_u_i_8cpp_1a9d7e8af417b6d543da691e9c0e2f6f9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clearScreen</definition>
+        <argsstring>()</argsstring>
+        <name>clearScreen</name>
+        <briefdescription>
+<para>Clears the terminal. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cmdUI.cpp" line="6" column="1" bodyfile="cmdUI.cpp" bodystart="6" bodyend="8"/>
+        <referencedby refid="class_table_1aea60338879d2079d5ba15fc97b108afe" compoundref="_table_8cpp" startline="799" endline="1055">Table::showPlay</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd_u_i_8cpp_1a7dcf4a3c31b79f53e2ffdb455b5e84b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void cursorxy</definition>
+        <argsstring>(short x, short y)</argsstring>
+        <name>cursorxy</name>
+        <param>
+          <type>short</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>short</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Set cursor on &lt;x,y&gt; coordinates. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x coordinate. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y coordinate. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cmdUI.cpp" line="10" column="1" bodyfile="cmdUI.cpp" bodystart="10" bodyend="15"/>
+        <referencedby refid="class_table_1aea60338879d2079d5ba15fc97b108afe" compoundref="_table_8cpp" startline="799" endline="1055">Table::showPlay</referencedby>
+        <referencedby refid="class_table_1a9ce9960e49700fe7420059feb0088187" compoundref="_table_8cpp" startline="561" endline="621">Table::showTableInfo</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a4c6d8a30cfef3b6adeff15978a5cf917" compoundref="cmd_u_i_8cpp" startline="85" endline="127">start_menu</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void displayMenu0</definition>
+        <argsstring>(pair&lt; int, int &gt; xy, string title, vector&lt; string &gt; menuOptions)</argsstring>
+        <name>displayMenu0</name>
+        <param>
+          <type>pair&lt; int, int &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>vector&lt; string &gt;</type>
+          <declname>menuOptions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cmdUI.cpp" line="17" column="1" bodyfile="cmdUI.cpp" bodystart="17" bodyend="46"/>
+        <referencedby refid="cmd_u_i_8h_1a6b96de8bf548d42406d7e77b2ed24d82" compoundref="cmd_u_i_8cpp" startline="136" endline="141">createMenu</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a2451dbf01b864018c05fe791e91d32d1" compoundref="cmd_u_i_8cpp" startline="143" endline="148">deleteMenu</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a2aa92df8c5017fd8386360c516dd21f7" compoundref="cmd_u_i_8cpp" startline="129" endline="134">manageCasino</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a071e1dea251b139583ae532689698d87" compoundref="cmd_u_i_8cpp" startline="150" endline="155">manageTableMenu</referencedby>
+        <referencedby refid="cmd_u_i_8h_1a4c6d8a30cfef3b6adeff15978a5cf917" compoundref="cmd_u_i_8cpp" startline="85" endline="127">start_menu</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd_u_i_8cpp_1a350bca8c244b72101da3e634ef5695aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>pair&lt; int, int &gt;</type>
+        <definition>pair&lt; int, int &gt; centerWindow</definition>
+        <argsstring>()</argsstring>
+        <name>centerWindow</name>
+        <briefdescription>
+<para>Center the terminal window. The returned length is measured in characters. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<simplesect kind="return"><para>A pair &lt;x,y&gt;. x= terminal horizontal length, y = terminal vertical length. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cmdUI.cpp" line="48" column="1" bodyfile="cmdUI.cpp" bodystart="48" bodyend="83"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd_u_i_8cpp_1a4c6d8a30cfef3b6adeff15978a5cf917" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void start_menu</definition>
+        <argsstring>(pair&lt; short, short &gt; xy, int &amp;choice)</argsstring>
+        <name>start_menu</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>choice</declname>
+        </param>
+        <briefdescription>
+<para>Displays the main menu. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pair containing the horizontal and vertical lengths of the terminal. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">choice</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The user choice. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cmdUI.cpp" line="85" column="1" bodyfile="cmdUI.cpp" bodystart="85" bodyend="127"/>
+        <references refid="cmd_u_i_8cpp_1a7dcf4a3c31b79f53e2ffdb455b5e84b9" compoundref="cmd_u_i_8cpp" startline="10" endline="15">cursorxy</references>
+        <references refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" compoundref="cmd_u_i_8cpp" startline="17" endline="46">displayMenu0</references>
+        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="91" endline="103">readIntBetween</references>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd_u_i_8cpp_1a2aa92df8c5017fd8386360c516dd21f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void manageCasino</definition>
+        <argsstring>(pair&lt; short, short &gt; xy, unsigned int &amp;choice)</argsstring>
+        <name>manageCasino</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <param>
+          <type>unsigned int &amp;</type>
+          <declname>choice</declname>
+        </param>
+        <briefdescription>
+<para>Displays the manage casino menu and reads user choice. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pair containing the horizontal and vertical lengths of the terminal. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">choice</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The user choice. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cmdUI.cpp" line="129" column="1" bodyfile="cmdUI.cpp" bodystart="129" bodyend="134"/>
+        <references refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" compoundref="cmd_u_i_8cpp" startline="17" endline="46">displayMenu0</references>
+        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="91" endline="103">readIntBetween</references>
+        <referencedby refid="class_casino_1acafc79028d02c97ac115c9dad1bce6eb" compoundref="_casino_8cpp" startline="429" endline="468">Casino::manage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd_u_i_8cpp_1a6b96de8bf548d42406d7e77b2ed24d82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void createMenu</definition>
+        <argsstring>(pair&lt; short, short &gt; xy, unsigned int &amp;choice)</argsstring>
+        <name>createMenu</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <param>
+          <type>unsigned int &amp;</type>
+          <declname>choice</declname>
+        </param>
+        <briefdescription>
+<para>Creates a menu. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pair containing the horizontal and vertical lengths of the terminal. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">choice</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The user choice. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cmdUI.cpp" line="136" column="1" bodyfile="cmdUI.cpp" bodystart="136" bodyend="141"/>
+        <references refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" compoundref="cmd_u_i_8cpp" startline="17" endline="46">displayMenu0</references>
+        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="91" endline="103">readIntBetween</references>
+        <referencedby refid="class_casino_1a944f6c61313dd0b23a050c2c07f8d29e" compoundref="_casino_8cpp" startline="470" endline="579">Casino::create</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd_u_i_8cpp_1a2451dbf01b864018c05fe791e91d32d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void deleteMenu</definition>
+        <argsstring>(pair&lt; short, short &gt; xy, unsigned int &amp;choice)</argsstring>
+        <name>deleteMenu</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <param>
+          <type>unsigned int &amp;</type>
+          <declname>choice</declname>
+        </param>
+        <briefdescription>
+<para>Displays a delete menu and reads user choice. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pair containing the horizontal and vertical lengths of the terminal. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">choice</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The user choice. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cmdUI.cpp" line="143" column="1" bodyfile="cmdUI.cpp" bodystart="143" bodyend="148"/>
+        <references refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" compoundref="cmd_u_i_8cpp" startline="17" endline="46">displayMenu0</references>
+        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="91" endline="103">readIntBetween</references>
+        <referencedby refid="class_casino_1a34dc3475e5bdbae7ebee3ab991d4c805" compoundref="_casino_8cpp" startline="581" endline="663">Casino::eliminate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd_u_i_8cpp_1a071e1dea251b139583ae532689698d87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void manageTableMenu</definition>
+        <argsstring>(pair&lt; short, short &gt; xy, unsigned int &amp;choice)</argsstring>
+        <name>manageTableMenu</name>
+        <param>
+          <type>pair&lt; short, short &gt;</type>
+          <declname>xy</declname>
+        </param>
+        <param>
+          <type>unsigned int &amp;</type>
+          <declname>choice</declname>
+        </param>
+        <briefdescription>
+<para>Displays the manage table menu and reads user choice. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Ineeve </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pair containing the horizontal and vertical lengths of the terminal. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">choice</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The user choice. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="cmdUI.cpp" line="150" column="1" bodyfile="cmdUI.cpp" bodystart="150" bodyend="155"/>
+        <references refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" compoundref="cmd_u_i_8cpp" startline="17" endline="46">displayMenu0</references>
+        <references refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" compoundref="utils_8cpp" startline="91" endline="103">readIntBetween</references>
+        <referencedby refid="class_casino_1aeae4b2414f1163d4383afd4a7c57f6ca" compoundref="_casino_8cpp" startline="665" endline="803">Casino::manageTables</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="cmd_u_i_8h" kindref="compound">cmdUI.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="cmd_u_i_8h_1a9d7e8af417b6d543da691e9c0e2f6f9f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd_u_i_8cpp_1a9d7e8af417b6d543da691e9c0e2f6f9f" kindref="member">clearScreen</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>system(</highlight><highlight class="stringliteral">&quot;CLS&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="cmd_u_i_8h_1a7dcf4a3c31b79f53e2ffdb455b5e84b9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd_u_i_8cpp_1a7dcf4a3c31b79f53e2ffdb455b5e84b9" kindref="member">cursorxy</ref>(</highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>y)<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>COORD<sp/>p<sp/>=<sp/>{<sp/>x,<sp/>y<sp/>};</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),<sp/>p);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" kindref="member">displayMenu0</ref>(pair&lt;int,<sp/>int&gt;<sp/>xy,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>title,<sp/>vector<sp/>&lt;string&gt;<sp/>menuOptions)<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>text;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>36)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/>(char)201;<sp/></highlight><highlight class="comment">//╔</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>36;<sp/>i++)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>(char)205;<sp/></highlight><highlight class="comment">//═</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>(char)187<sp/>&lt;&lt;<sp/>endl;<sp/></highlight><highlight class="comment">//╗</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>text<sp/>=<sp/>title;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>36)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/>(char)186<sp/></highlight><highlight class="comment">//║</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((38<sp/>+<sp/>text.length())<sp/>/<sp/>2)<sp/>&lt;&lt;<sp/>text</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw(38<sp/>-<sp/>(38<sp/>+<sp/>text.length())<sp/>/<sp/>2)<sp/>&lt;&lt;<sp/>(char)186<sp/>&lt;&lt;<sp/>endl;<sp/></highlight><highlight class="comment">//║</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>36)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/>(char)204;<sp/></highlight><highlight class="comment">//╠</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>36;<sp/>i++)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>(char)205;<sp/></highlight><highlight class="comment">//═</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>(char)185<sp/></highlight><highlight class="comment">/*╣*/</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>menuOptions.size();<sp/>i++)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>text<sp/>=<sp/>menuOptions.at(i);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>36)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/>(char)186<sp/>&lt;&lt;<sp/>setw(7)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>text<sp/>&lt;&lt;<sp/>setw(38<sp/>-<sp/>(7<sp/>+<sp/>text.length()))<sp/>&lt;&lt;<sp/>(char)186<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>36)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/>(char)200;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>36;<sp/>i++)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>(char)205;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>(char)188<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="cmd_u_i_8h_1acfbea6861671969a9a9f62c1b8dc0c35" refkind="member"><highlight class="normal">pair<sp/>&lt;int,int&gt;<sp/><ref refid="cmd_u_i_8cpp_1a350bca8c244b72101da3e634ef5695aa" kindref="member">centerWindow</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HWND<sp/>hwnd<sp/>=<sp/>GetConsoleWindow();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RECT<sp/>desktop;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>HWND<sp/>hDesktop<sp/>=<sp/>GetDesktopWindow();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetWindowRect(hDesktop,<sp/>&amp;desktop);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MoveWindow(hwnd,<sp/>desktop.right<sp/>*<sp/>0.175,<sp/>desktop.bottom<sp/>*<sp/>0.2,<sp/>desktop.right<sp/>*<sp/>0.65,<sp/>desktop.bottom<sp/>*<sp/>0.6,<sp/>TRUE);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HANDLE<sp/>screen<sp/>=<sp/>GetStdHandle(STD_OUTPUT_HANDLE);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>COORD<sp/>max_size<sp/>=<sp/>GetLargestConsoleWindowSize(screen);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>console_x<sp/>=<sp/>max_size.X*desktop.right*0.65<sp/>/<sp/>desktop.right<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>console_y<sp/>=<sp/>max_size.Y*desktop.bottom*0.6<sp/>/<sp/>desktop.bottom<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(console_x<sp/>&lt;<sp/>56)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>console_x<sp/>=<sp/>max_size.X*desktop.right*0.9<sp/>/<sp/>desktop.right<sp/>+<sp/>3;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>console_y<sp/>=<sp/>max_size.Y*desktop.bottom*0.9<sp/>/<sp/>desktop.bottom<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MoveWindow(hwnd,<sp/>desktop.right<sp/>*<sp/>0.025,<sp/>desktop.bottom<sp/>*<sp/>0.025,<sp/>desktop.right<sp/>*<sp/>0.95,<sp/>desktop.bottom<sp/>*<sp/>0.9,<sp/>TRUE);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(console_y<sp/>&lt;=<sp/>15)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>console_y<sp/>=<sp/>max_size.Y*desktop.bottom*0.9<sp/>/<sp/>desktop.bottom<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MoveWindow(hwnd,<sp/>desktop.right<sp/>*<sp/>0.2,<sp/>desktop.bottom<sp/>*<sp/>0.1,<sp/>desktop.right<sp/>*<sp/>0.6,<sp/>desktop.bottom<sp/>*<sp/>0.8,<sp/>TRUE);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*PCONSOLE_FONT_INFOEX<sp/>cmd_font;</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE),<sp/>false,<sp/>cmd_font);</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>cmd_font-&gt;FaceName<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>system(&quot;pause&quot;);*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pair<sp/>&lt;int,<sp/>int&gt;<sp/>xy<sp/>=<sp/>{<sp/>console_x,console_y<sp/>};</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>xy;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>pair<sp/>&lt;int,<sp/>int&gt;<sp/>xy<sp/>=<sp/>{-1,-1};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>xy;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="cmd_u_i_8h_1a4c6d8a30cfef3b6adeff15978a5cf917" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd_u_i_8cpp_1a4c6d8a30cfef3b6adeff15978a5cf917" kindref="member">start_menu</ref>(pair<sp/>&lt;short,<sp/>short&gt;<sp/>xy,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;choice)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//display<sp/>author<sp/>rights</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>system(</highlight><highlight class="stringliteral">&quot;CLS&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd_u_i_8cpp_1a7dcf4a3c31b79f53e2ffdb455b5e84b9" kindref="member">cursorxy</ref>((xy.first<sp/>-<sp/>50)<sp/>/<sp/>2<sp/>-<sp/>2,<sp/>xy.second<sp/>-<sp/>2);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>(char)201;<sp/></highlight><highlight class="comment">//╔</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>50;<sp/>i++)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>(char)205;<sp/></highlight><highlight class="comment">//═</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>(char)187<sp/>&lt;&lt;<sp/>endl;<sp/></highlight><highlight class="comment">//╗</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>50)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/>(char)186<sp/></highlight><highlight class="comment">/*║*/</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>setw((50<sp/>-<sp/>31)<sp/>/<sp/>2)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;BlackJack<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)184<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>Console<sp/>Application&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>setw(12)<sp/>&lt;&lt;<sp/>(char)186<sp/></highlight><highlight class="comment">/*║*/</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>50)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/>(char)186<sp/></highlight><highlight class="comment">/*║*/</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>setw((50<sp/>+<sp/>43)<sp/>/<sp/>2)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;AEDA<sp/>2016/2017<sp/>Grupo<sp/>D,<sp/>All<sp/>Rights<sp/>Reserved&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>setw(6)<sp/>&lt;&lt;<sp/>(char)186<sp/></highlight><highlight class="comment">/*║*/</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd_u_i_8cpp_1a7dcf4a3c31b79f53e2ffdb455b5e84b9" kindref="member">cursorxy</ref>(0,<sp/>0);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//draw<sp/>of<sp/>title<sp/>(different<sp/>draw<sp/>if<sp/>screen<sp/>is<sp/>small)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(xy.first<sp/>&gt;=<sp/>78)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>78)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>_______<sp/><sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__<sp/><sp/><sp/><sp/><sp/><sp/>_____<sp/><sp/>_<sp/><sp/><sp/><sp/>_<sp/><sp/><sp/><sp/>_____<sp/><sp/><sp/><sp/><sp/>__<sp/><sp/><sp/><sp/><sp/>_____<sp/><sp/>_<sp/><sp/><sp/><sp/>_<sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>78)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;/_____<sp/><sp/>|<sp/><sp/>|<sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>/<sp/><sp/>\\<sp/><sp/><sp/><sp/>/<sp/><sp/>__/<sp/>|<sp/>\\<sp/><sp/>/<sp/>/<sp/><sp/>|___<sp/><sp/>|<sp/><sp/><sp/>/<sp/><sp/>\\<sp/><sp/><sp/>/<sp/><sp/>__/<sp/>|<sp/>\\<sp/><sp/>/<sp/>/<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>78)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>|<sp/>|<sp/>|<sp/>|<sp/><sp/>|<sp/>|<sp/><sp/><sp/><sp/><sp/>/<sp/><sp/><sp/><sp/>\\<sp/><sp/><sp/>|<sp/>|<sp/><sp/><sp/><sp/>|<sp/>|<sp/>/<sp/>/<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>|<sp/><sp/>/<sp/><sp/><sp/><sp/>\\<sp/><sp/>|<sp/>|<sp/><sp/><sp/><sp/>|<sp/>|<sp/>/<sp/>/<sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>78)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>|<sp/>|_|<sp/>|<sp/><sp/>|<sp/>|<sp/><sp/><sp/><sp/>|<sp/><sp/>/\\<sp/><sp/>|<sp/><sp/>|<sp/>|<sp/><sp/><sp/><sp/>|<sp/>|/<sp/>/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>|<sp/>|<sp/><sp/>/\\<sp/><sp/>|<sp/>|<sp/>|<sp/><sp/><sp/><sp/>|<sp/>|/<sp/>/<sp/><sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>78)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>|<sp/><sp/>__<sp/><sp/>|<sp/>|<sp/>|<sp/><sp/><sp/><sp/>|<sp/>|__|<sp/>|<sp/><sp/>|<sp/>|<sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/>_<sp/><sp/><sp/>|<sp/>|<sp/>|<sp/>|__|<sp/>|<sp/>|<sp/>|<sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/>|<sp/><sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>78)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>|<sp/>|<sp/><sp/>|<sp/>|<sp/>|<sp/>|<sp/><sp/><sp/><sp/>|<sp/><sp/>__<sp/><sp/>|<sp/><sp/>|<sp/>|<sp/><sp/><sp/><sp/>|<sp/>|\\<sp/>\\<sp/><sp/><sp/>|<sp/>|<sp/><sp/>|<sp/>|<sp/>|<sp/><sp/>__<sp/><sp/>|<sp/>|<sp/>|<sp/><sp/><sp/><sp/>|<sp/>|\\<sp/>\\<sp/><sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>78)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>|<sp/>|__|<sp/>|<sp/>|<sp/>\\__<sp/><sp/>|<sp/>|<sp/><sp/>|<sp/>|<sp/><sp/>|<sp/>|__<sp/><sp/>|<sp/>|<sp/>\\<sp/>\\<sp/><sp/>|<sp/>|__|<sp/>|<sp/>|<sp/>|<sp/><sp/>|<sp/>|<sp/>|<sp/>|__<sp/><sp/>|<sp/>|<sp/>\\<sp/>\\<sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>78)<sp/>/<sp/>2<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>|______|<sp/><sp/>\\___/<sp/>|_|<sp/><sp/>|_|<sp/><sp/>\\____\\<sp/>|_/<sp/><sp/>\\_\\<sp/>|______|<sp/>|_|<sp/><sp/>|_|<sp/>\\____\\<sp/>|_/<sp/><sp/>\\_\\<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>44)<sp/>/<sp/>2)<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)191<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)218<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)191<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)218<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>44)<sp/>/<sp/>2)<sp/>&lt;&lt;<sp/>(char)192<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)191<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)218<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)217<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)218<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)217<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>44)<sp/>/<sp/>2)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)217<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)192<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)191<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)192<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)191<sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>44)<sp/>/<sp/>2)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)191<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)218<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)191<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)218<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)191<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>44)<sp/>/<sp/>2)<sp/>&lt;&lt;<sp/>(char)218<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)217<sp/>&lt;&lt;<sp/>(char)192<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)191<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)192<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)191<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)191<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)179<sp/>&lt;&lt;<sp/>(char)179<sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>setw((xy.first<sp/>-<sp/>44)<sp/>/<sp/>2)<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)217<sp/>&lt;&lt;<sp/>(char)192<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)217<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(char)192<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)217<sp/>&lt;&lt;<sp/>(char)192<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)217<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)192<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)196<sp/>&lt;&lt;<sp/>(char)196<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)217<sp/>&lt;&lt;<sp/>(char)192<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)217<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(char)192<sp/>&lt;&lt;<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)217<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//display<sp/>menu</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>vector<sp/>&lt;string&gt;<sp/>options<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;1.<sp/>Play&quot;</highlight><highlight class="normal"><sp/>,</highlight><highlight class="stringliteral">&quot;2.<sp/>Simulation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;3.<sp/>Choose<sp/>Table&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;4.<sp/>Manage<sp/>Casino&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>,</highlight><highlight class="stringliteral">&quot;0.<sp/>EXIT&quot;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" kindref="member">displayMenu0</ref>(xy,<sp/></highlight><highlight class="stringliteral">&quot;MENU&quot;</highlight><highlight class="normal">,<sp/>options);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>choice<sp/>=<sp/><ref refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" kindref="member">readIntBetween</ref>(0,<sp/>4);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="cmd_u_i_8h_1a2aa92df8c5017fd8386360c516dd21f7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd_u_i_8cpp_1a2aa92df8c5017fd8386360c516dd21f7" kindref="member">manageCasino</ref>(pair&lt;short,<sp/>short&gt;<sp/>xy,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;choice)<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>vector<sp/>&lt;string&gt;<sp/>options<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;1.<sp/>Create<sp/>...&quot;</highlight><highlight class="normal"><sp/>,</highlight><highlight class="stringliteral">&quot;2.<sp/>Delete...&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;3.<sp/>Manage<sp/>Tables&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;4.<sp/>Stats&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;0.<sp/>Return<sp/>to<sp/>MENU&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>system(</highlight><highlight class="stringliteral">&quot;CLS&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" kindref="member">displayMenu0</ref>(xy,<sp/></highlight><highlight class="stringliteral">&quot;MANAGE<sp/>CASINO&quot;</highlight><highlight class="normal">,<sp/>options);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>choice<sp/>=<sp/><ref refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" kindref="member">readIntBetween</ref>(0,<sp/>4);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="cmd_u_i_8h_1a6b96de8bf548d42406d7e77b2ed24d82" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd_u_i_8cpp_1a6b96de8bf548d42406d7e77b2ed24d82" kindref="member">createMenu</ref>(pair&lt;short,<sp/>short&gt;<sp/>xy,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;choice)<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>vector<sp/>&lt;string&gt;<sp/>options<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-.<sp/>Create<sp/>...&quot;</highlight><highlight class="normal"><sp/>,</highlight><highlight class="stringliteral">&quot;<sp/><sp/>1.<sp/>Table&quot;</highlight><highlight class="normal"><sp/>,</highlight><highlight class="stringliteral">&quot;<sp/><sp/>2.<sp/>Dealer&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>3.<sp/>Player<sp/>(BOT)&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;-.<sp/>Delete...&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;-.<sp/>Manage<sp/>Tables&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;-.<sp/>Stats&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>,</highlight><highlight class="stringliteral">&quot;0.<sp/>Back&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>system(</highlight><highlight class="stringliteral">&quot;CLS&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" kindref="member">displayMenu0</ref>(xy,<sp/></highlight><highlight class="stringliteral">&quot;1.<sp/>Create<sp/>...&quot;</highlight><highlight class="normal">,<sp/>options);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>choice<sp/>=<sp/><ref refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" kindref="member">readIntBetween</ref>(0,<sp/>3);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143" refid="cmd_u_i_8h_1a2451dbf01b864018c05fe791e91d32d1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd_u_i_8cpp_1a2451dbf01b864018c05fe791e91d32d1" kindref="member">deleteMenu</ref>(pair&lt;short,<sp/>short&gt;<sp/>xy,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;choice)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>vector<sp/>&lt;string&gt;<sp/>options<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-.<sp/>Create<sp/>...&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;-.<sp/>Delete...&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>1.<sp/>Table&quot;</highlight><highlight class="normal"><sp/>,</highlight><highlight class="stringliteral">&quot;<sp/><sp/>2.<sp/>Dealer&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>3.<sp/>Player<sp/>(BOT)&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;-.<sp/>Manage<sp/>Tables&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;-.<sp/>Stats&quot;</highlight><highlight class="normal"><sp/>,</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;0.<sp/>Back&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>system(</highlight><highlight class="stringliteral">&quot;CLS&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" kindref="member">displayMenu0</ref>(xy,<sp/></highlight><highlight class="stringliteral">&quot;2.<sp/>Delete<sp/>...&quot;</highlight><highlight class="normal">,<sp/>options);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>choice<sp/>=<sp/><ref refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" kindref="member">readIntBetween</ref>(0,<sp/>3);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="cmd_u_i_8h_1a071e1dea251b139583ae532689698d87" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd_u_i_8cpp_1a071e1dea251b139583ae532689698d87" kindref="member">manageTableMenu</ref>(pair&lt;short,<sp/>short&gt;<sp/>xy,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;<sp/>choice)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>vector<sp/>&lt;string&gt;<sp/>options<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-.<sp/>Create<sp/>...&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;-.<sp/>Delete...&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;-.<sp/>Manage<sp/>Tables&quot;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&quot;<sp/><sp/>1.<sp/>Set<sp/>dealer&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>2.<sp/>Add<sp/>Player&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>3.<sp/>Remove<sp/>Player&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;-.<sp/>Stats&quot;</highlight><highlight class="normal"><sp/>,</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;0.<sp/>Back&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>system(</highlight><highlight class="stringliteral">&quot;CLS&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd_u_i_8cpp_1a3f76e0072f6af377fb5d0669abbb849d" kindref="member">displayMenu0</ref>(xy,<sp/></highlight><highlight class="stringliteral">&quot;3.<sp/>Manage<sp/>Tables<sp/>...&quot;</highlight><highlight class="normal">,<sp/>options);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>choice<sp/>=<sp/><ref refid="utils_8cpp_1a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" kindref="member">readIntBetween</ref>(0,<sp/>3);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="cmdUI.cpp"/>
+  </compounddef>
+</doxygen>

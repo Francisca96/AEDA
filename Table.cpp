@@ -22,6 +22,8 @@ Table::Table(unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable
 	this->moneyOfTable = moneyOfTable;
 	this->maxNumberOfPlayers = numberOfMaxPlayers;
 	this->dealerOfTable = newDealer;
+	this->nextPlayerIndex = 0;
+	this->phaseOfPlaying = 0;
 	initialMoney = moneyOfTable;
 	tableID = nextID;
 	nextID++;
@@ -81,12 +83,18 @@ void Table::removePlayer(string &name) {
 	throw PlayerIsntOnTableException(name);
 }
 
-void Table::play() {
+void Table::play(pair <short, short> xy, unsigned int userID) {
 	system("cls");
+	stringstream sstream;
+	string tableFILE;
+	bool dealerBlackJack = false;
+
 	if (this->maxNumberOfPlayers == this->getPlayers().size())
 	{
 		throw TooManyPlayersException(maxNumberOfPlayers, maxNumberOfPlayers + 1);
 	}
+
+	//create human player
 	string nameOfPlayer = "";
 	unsigned int ageOfPlayer;
 	cout << "What is your name?" << endl;
@@ -96,11 +104,273 @@ void Table::play() {
 	}
 	cout << "What is your age?" << endl;
 	ageOfPlayer = readUnsignedIntBetween(0, 100);
-	Human *humanPlayer = new Human(nameOfPlayer, ageOfPlayer);
+	if (ageOfPlayer < 18)
+	{
+		throw TooYoungException();
+	}
+	Human *humanPlayer = new Human(nameOfPlayer, ageOfPlayer, userID);
+
+	//verify if file exist, if not create a file for table
+	sstream << this->tableID;
+	sstream >> tableFILE;
+	tableFILE.insert(0, "table");
+	tableFILE += "_temp.txt";
+	if (FileExist(tableFILE))
+	{
+		this->readTableFile();
+		while (phaseOfPlaying != 0)
+		{
+			waitXTime(1);
+			this->readTableFile();
+			this->showPlay(xy);
+			cout << "Waiting end of round";
+		}
+	}
+	else
+	{
+		bossUserID = userID;
+	}
 	this->addPlayer(humanPlayer);
+	this->writeTableFile();
+
+	//realplay
+	system("cls");
+	bool exit = false;
 	while (!exit)
 	{
+		this->readTableFile();
+		while (bossUserID != userID)
+		{
+			waitXTime(1);
+			this->readTableFile();
+			this->showPlay(xy);
+			cout << "Waiting for other players...";
+			cursorxy(0, 23);
+		}
+		if (nextPlayerIndex == 0 && phaseOfPlaying == 0)
+		{
+			//TODO: prepare round to play
+			actualPlayers.clear();
+			for (size_t i = 0; i < players.size(); i++)
+			{
+				if (players.at(i)->getCurrentMoney() >= minBet)
+				{
+					actualPlayers.push_back(players.at(i));
+				}
+				else if (players.at(i)->getUserID() == userID)
+				{
+					cout << "The" << players.at(i)->getName() << "don't have money to play" << endl;
+					waitXTime(2);
+					exit = true;
+				}
+			}
+			phaseOfPlaying = 1;
+			this->writeTableFile();
+			this->showPlay(xy);
+		}
+		if ((nextPlayerIndex == 0 && phaseOfPlaying == 2) && !exit)
+		{
+			restartDeck();
+			dealOneCardToAllPlayers();
+			restartDeck();
+			dealerOfTable->hit(players);
+			dealOneCardToAllPlayers();
+			restartDeck();
+			phaseOfPlaying = 3;
+			this->writeTableFile();
+			this->showPlay(xy);
+		}
 
+		//TODO:implement take insurance
+		if ((phaseOfPlaying == 1 || phaseOfPlaying == 3) && !exit)
+		{
+			for (size_t i = nextPlayerIndex; i < actualPlayers.size(); i++)
+			{
+				Human *h = dynamic_cast<Human *>(actualPlayers.at(i));
+				if (h != NULL)
+				{
+					if (actualPlayers.at(i)->getUserID() != userID)
+					{
+						bossUserID = actualPlayers.at(i)->getUserID();
+						this->writeTableFile();
+						while (bossUserID != userID && phaseOfPlaying != 4)
+						{
+							waitXTime(1);
+							this->readTableFile();
+							this->showPlay(xy);
+							cout << "Waiting for other players...";
+							cursorxy(0, 23);
+						}
+					}
+					else
+					{
+						if (phaseOfPlaying == 1)
+						{
+							unsigned int betValue;
+							betValue = actualPlayers.at(i)->bet(*this);
+							this->readTableFile();
+							actualPlayers.at(i)->setCurrentMoney(actualPlayers.at(i)->getCurrentMoney() - betValue);
+							actualPlayers.at(i)->setActualBet(betValue);
+							//TODO: change for playerID after
+							nextPlayerIndex = i + 1;
+							this->writeTableFile();
+							this->showPlay(xy);
+						}
+						else
+						{
+							while (actualPlayers.at(i)->getHandScore() < 21 && actualPlayers.at(i)->play(*this) != "stand")
+							{
+								this->showPlay(xy);
+								restartDeck();
+							}
+							cout << "You stand with: " << actualPlayers.at(i)->getHandScore() << endl;
+							//TODO: change for playerID after
+							nextPlayerIndex = i + 1;
+							this->writeTableFile();
+							waitXTime(2);
+						}
+					}
+				}
+				else
+				{
+					if (phaseOfPlaying == 1)
+					{
+						unsigned int betValue;
+						betValue = actualPlayers.at(i)->bet(*this);
+						if (betValue == 0)
+						{
+							actualPlayers.erase(actualPlayers.begin() + i);
+						}
+						//TODO: change for playerID after
+						nextPlayerIndex = i + 1;
+						this->writeTableFile();	
+						waitXTime(1);
+						this->showPlay(xy);
+					}
+					else
+					{
+						while (actualPlayers.at(i)->getHandScore() < 21 && actualPlayers.at(i)->play(*this) != "stand")
+						{
+							waitXTime(1);
+							this->showPlay(xy);
+							restartDeck();
+						}
+						//TODO: change for playerID after
+						nextPlayerIndex = i + 1;
+						this->writeTableFile();
+					}
+				}
+			}
+			if (nextPlayerIndex == actualPlayers.size() && phaseOfPlaying == 1)
+			{
+				nextPlayerIndex = 0;
+				phaseOfPlaying = 2;
+				this->writeTableFile();
+			}
+			if ((nextPlayerIndex == actualPlayers.size() && phaseOfPlaying == 3) || phaseOfPlaying == 4)
+			{
+				if (nextPlayerIndex == actualPlayers.size() && phaseOfPlaying == 3)
+				{
+					while (dealerOfTable->getHandScore() < 21 && dealerOfTable->play(*this) != "stand")
+					{
+						waitXTime(1);
+						this->showPlay(xy);
+						restartDeck();
+					}
+					nextPlayerIndex = 0;
+					phaseOfPlaying = 4;
+					this->writeTableFile();
+				}
+				unsigned int actualBet;
+				for (size_t j = nextPlayerIndex; j < actualPlayers.size(); j++)
+				{
+					actualBet = actualPlayers.at(j)->getActualBet();
+					if (actualPlayers.at(j)->getHandScore() == 21 && actualPlayers.at(j)->getHandSize() == 2 && dealerOfTable->getHandScore() < 21)
+					{
+						payToPlayer(actualPlayers.at(j), actualBet * 2.5);
+						cout << players.at(j)->getName() << " win: " << actualBet * 2.5 << "$\n";
+					}
+					else if (actualPlayers.at(j)->getHandScore() <= 21 && actualPlayers.at(j)->getHandScore() == dealerOfTable->getHandScore())
+					{
+						payToPlayer(actualPlayers.at(j), actualBet);
+						cout << players.at(j)->getName() << " win: " << actualBet << "$\n";
+					}
+					else if (actualPlayers.at(j)->getHandScore() > dealerOfTable->getHandScore() && actualPlayers.at(j)->getHandScore() < 21)
+					{
+						payToPlayer(actualPlayers.at(j), actualBet * 2);
+						cout << players.at(j)->getName() << " win: " << actualBet * 2 << "$\n";
+					}
+					else if (dealerOfTable->getHandScore() > 21 && actualPlayers.at(j)->getHandScore() <= 21)
+					{
+						payToPlayer(actualPlayers.at(j), actualBet * 2);
+						cout << players.at(j)->getName() << " win: " << actualBet * 2 << "$\n";
+					}
+					else
+					{
+						cout << players.at(j)->getName() << " lose!\n";
+					}
+					if (phaseOfPlaying == 4)
+					{
+						actualPlayers.at(j)->clearHand();
+						actualPlayers.at(j)->clearHand2();
+						actualPlayers.at(j)->setActualBet(0);
+						actualPlayers.at(j)->setRoundsPlayed(players.at(j)->getRoundsPlayed() + 1);
+						nextPlayerIndex = j + 1;
+						waitXTime(2);
+						this->showPlay(xy);
+					}
+				}
+				if (nextPlayerIndex == actualPlayers.size() && phaseOfPlaying == 4)
+				{
+					dealerOfTable->clearHand();
+					this->showPlay(xy);
+					phaseOfPlaying = 0;
+					nextPlayerIndex = 0;
+					for (size_t i = 0; i < actualPlayers.size(); i++)
+					{
+						players.at(i) = actualPlayers.at(i);
+					}
+					players = actualPlayers;
+					this->writeTableFile();
+				}
+			}
+			if (phaseOfPlaying == 0)
+			{
+				cout << "Do you want play another round? (y/n)" << endl;
+				char option = readCharYorN();
+				if (option == 'n')
+				{
+					exit = true;
+				}
+			}
+		}
+	}
+
+	//sair da mesa
+	this->readTableFile();
+	bool HumanStillOnTable = false;
+	for (size_t i = 0; i < players.size(); i++)
+	{
+		Human *h = dynamic_cast<Human *>(players.at(i));
+		if (h != NULL)
+		{
+			if (players.at(i)->getUserID() == userID)
+			{
+				delete humanPlayer;
+				players.erase(players.begin() + i);
+				i--;
+			}
+			else
+			{
+				HumanStillOnTable = true;
+				bossUserID = players.at(i)->getUserID();
+			}
+		}
+	}
+	this->writeTableFile();
+	if (!HumanStillOnTable)
+	{
+		remove(tableFILE.c_str());
 	}
 }
 
@@ -284,9 +554,9 @@ vector<Player*> Table::getPlayers() const
 }
 
 void Table::dealOneCardToAllPlayers() {
-	for (size_t i = 0; i < players.size(); i++) {
+	for (size_t i = 0; i < actualPlayers.size(); i++) {
 		Card discarded = dealerOfTable->discard(players);
-		players.at(i)->hit(discarded);
+		actualPlayers.at(i)->hit(discarded);
 	}
 }
 
@@ -409,6 +679,396 @@ void Table::setNextID(unsigned int tableNextID) {
 
 unsigned int Table::getNextId() {
 	return nextID;
+}
+
+void Table::readTableFile() {
+	stringstream sstream;
+	string tableFILE, line;
+	sstream << this->tableID;
+	sstream >> tableFILE;
+	tableFILE.insert(0, "table");
+	tableFILE += "_temp.txt";
+
+	ifstream inFile(tableFILE);
+	for (int j = 0; j < 3; j++)
+	{
+		if (inFile.is_open())
+		{
+			getline(inFile, line);
+			this->moneyOfTable = stoi(line);
+			this->players.clear();
+			getline(inFile, line);
+			if (line == "{")
+			{
+				while (line != "}")
+				{
+					getline(inFile, line);
+					if (line.substr(0,1) == "0")
+					{
+						Player *playerReaded = new Bot0(line);
+						players.push_back(playerReaded);
+					}
+					else if (line.substr(0, 1) == "1")
+					{
+						Player *playerReaded = new Bot1(line);
+						players.push_back(playerReaded);
+					}
+					else if (line.substr(0, 1) == "2")
+					{
+						Player *playerReaded = new Bot2(line);
+						players.push_back(playerReaded);
+					}
+					else if (line.substr(0, 1) == "3")
+					{
+						Player *playerReaded = new Human(line);
+						players.push_back(playerReaded);
+					}
+				}
+			}
+			this->actualPlayers.clear();
+			getline(inFile, line);
+			if (line == "{")
+			{
+				while (line != "}")
+				{
+					getline(inFile, line);
+					if (line.substr(0, 1) == "0")
+					{
+						Player *playerReaded = new Bot0(line);
+						actualPlayers.push_back(playerReaded);
+					}
+					else if (line.substr(0, 1) == "1")
+					{
+						Player *playerReaded = new Bot1(line);
+						actualPlayers.push_back(playerReaded);
+					}
+					else if (line.substr(0, 1) == "2")
+					{
+						Player *playerReaded = new Bot2(line);
+						actualPlayers.push_back(playerReaded);
+					}
+					else if (line.substr(0, 1) == "3")
+					{
+						Player *playerReaded = new Human(line);
+						actualPlayers.push_back(playerReaded);
+					}
+				}
+			}
+			getline(inFile, line);
+			this->nextPlayerIndex = stoi(line);
+			getline(inFile, line);
+			this->bossUserID = stoi(line);
+			getline(inFile, line);
+			this->phaseOfPlaying = stoi(line);
+			inFile.close();
+			return;
+		}
+		else
+		{
+			waitXTime(1);
+		}
+	}
+	//TODO: throw exception
+	cout << "Fail to read table file" << endl;
+}
+
+void Table::writeTableFile() {
+	stringstream sstream;
+	string tableFILE;
+	sstream << this->tableID;
+	sstream >> tableFILE;
+	tableFILE.insert(0, "table");
+	tableFILE += "_temp.txt";
+	ofstream outFile(tableFILE);
+
+	for (int j = 0; j < 3; j++)
+	{
+		if (outFile.is_open())
+		{
+			outFile << this->moneyOfTable << endl << "{" << endl;
+			for (size_t i = 0; i < players.size(); i++)
+			{
+				players.at(i)->saveInfo(outFile);
+				outFile << endl;
+			}
+			outFile << "}" << endl << "{" << endl;
+			for (size_t i = 0; i < actualPlayers.size(); i++)
+			{
+				actualPlayers.at(i)->saveInfo(outFile);
+				outFile << endl;
+			}
+			outFile << "}" << endl;
+			outFile << this->nextPlayerIndex << endl
+				<< bossUserID << endl
+				<< phaseOfPlaying << endl;
+			outFile.close();
+			return;
+		}
+		else
+		{
+			waitXTime(1);
+		}
+	}
+	//TODO: throw exception
+	cout << "Fail to save table file" << endl;
+}
+
+void Table::showPlay(pair<short, short> xy) {
+	//system("cls");
+	string text = "TableID: ";
+	cursorxy(6, 0);
+	cout << text << this->getTableID() << endl;
+	text = "Dealer  Score:";
+	cursorxy((xy.first - text.length() - 6) / 2,1);
+	cout << text << setw(3) << dealerOfTable->getHandScore() << endl;;
+	cursorxy((xy.first - 72) / 2, 2);
+	cout << (char)218;
+	for (int i = 0; i < 70; i++)
+	{
+		cout << (char)196;
+	}
+	cout << (char)191 << endl;
+	cursorxy((xy.first - 72) / 2, 3);
+	cout << (char)179;
+
+
+	for (int i = 0; i < 13; i++)
+	{
+		cursorxy((xy.first - 72) / 2, 3+i);
+		cout << (char)179 << setw(71) << (char)179 << endl;
+	}
+	cursorxy((xy.first - 72) / 2, 16);
+	cout << (char)192;
+	for (int i = 0; i < 70; i++)
+	{
+		cout << (char)196;
+	}
+	cout << (char)217 << endl;
+
+	//draw cards of dealer
+	if (dealerOfTable->getHand().size() != 0)
+	{
+		cursorxy((xy.first - text.length()) / 2, 3);
+		cout << (char)201 << (char)205;
+		for (size_t i = 1; i < dealerOfTable->getHand().size(); i++)
+		{
+			cout << (char)201 << (char)205;
+		}
+		cout << (char)205 << (char)205 << (char)187;
+		cursorxy((xy.first - text.length()) / 2, 4);
+		cout << (char)186;
+		if (dealerOfTable->getHand().at(0).rank == "10" && dealerOfTable->getHand().size() != 1)
+		{
+			cout << "1";
+		}
+		else if (dealerOfTable->getHand().at(0).rank != "10" && dealerOfTable->getHand().size() == 1)
+		{
+			cout << dealerOfTable->getHand().at(0).rank << " ";
+		}
+		else if (dealerOfTable->getHand().at(0).rank == "10" && dealerOfTable->getHand().size() == 1)
+		{
+			cout << "10";
+		}
+		else if (dealerOfTable->getHand().at(0).rank != "10" && dealerOfTable->getHand().size() != 1)
+		{
+			cout << dealerOfTable->getHand().at(0).rank;
+		}
+		for (size_t i = 1; i < dealerOfTable->getHand().size(); i++)
+		{
+			cout << (char)186;
+			if (dealerOfTable->getHand().at(i).rank == "10" && i != dealerOfTable->getHand().size()-1)
+			{
+				cout << "1";
+			}
+			else if (dealerOfTable->getHand().at(i).rank != "10" && i == dealerOfTable->getHand().size()-1)
+			{
+				cout << dealerOfTable->getHand().at(i).rank << " ";
+			}
+			else
+			{
+				cout << dealerOfTable->getHand().at(i).rank;
+			}
+		}
+		if (dealerOfTable->getHand().back().suits == "Heart")
+		{
+			cout << (char)3;
+		}
+		else if (dealerOfTable->getHand().back().suits == "Diamond")
+		{
+			cout << (char)4;
+		}
+		else if (dealerOfTable->getHand().back().suits == "Club")
+		{
+			cout << (char)5;
+		}
+		else if (dealerOfTable->getHand().back().suits == "Spade")
+		{
+			cout << (char)6;
+		}
+		cout << (char)186;
+		cursorxy((xy.first - text.length()) / 2, 5);
+		cout << (char)200 << (char)205;
+		for (size_t i = 1; i < dealerOfTable->getHand().size(); i++)
+		{
+			cout << (char)200 << (char)205;
+		}
+		cout << (char)205 << (char)205 << (char)188;
+	}
+
+	//draw players
+	short x, y;
+	string rank;
+	for (size_t i = 0; i < maxNumberOfPlayers; i++)
+	{
+		//draw info about players
+		if (i == 0)
+		{
+			x = (xy.first - 72) / 2 - 16;
+			y = 8;
+		}
+		else if (i == 1)
+		{
+			x = (xy.first - 72) / 2 + 1;
+			y = 17;
+		}
+		else if (i == 2)
+		{
+			x = (xy.first - 72) / 2 + 18;
+			y = 17;
+		}
+		else if (i == 3)
+		{
+			x = (xy.first - 72) / 2 + 36;
+			y = 17;
+		}
+		else if (i == 4)
+		{
+			x = (xy.first - 72) / 2 + 53;
+			y = 17;
+		}
+		else if (i == 5)
+		{
+			x = (xy.first + 72) / 2 + 2;
+			y = 8;
+		}
+		cursorxy(x, y);
+		if (i < actualPlayers.size())
+		{
+			cout << "Name:" << setw(11) << actualPlayers.at(i)->getName();
+			cursorxy(x, y + 1);
+			cout << "Money:" << setw(10) << actualPlayers.at(i)->getCurrentMoney();
+			cursorxy(x, y + 2);
+			cout << "Bet:" << setw(12) << actualPlayers.at(i)->getActualBet();
+			cursorxy(x, y + 3);
+			cout << "Score:" << setw(10) << actualPlayers.at(i)->getHandScore();
+		}
+		else
+		{
+			cout << "Name:" << setw(11) << " ";
+			cursorxy(x, y + 1);
+			cout << "Money:" << setw(10) << " ";
+			cursorxy(x, y + 2);
+			cout << "Bet:" << setw(12) << " ";
+			cursorxy(x, y + 3);
+			cout << "Score:" << setw(10) << " ";
+		}
+
+		if (i < actualPlayers.size())
+		{
+			//draw cards
+			if (i == 0)
+			{
+				x = (xy.first - 72) / 2 + 1;
+				y = 8;
+			}
+			else if (i == 1)
+			{
+				x = (xy.first - 72) / 2 + 1;
+				y = 13;
+			}
+			else if (i == 2)
+			{
+				x = (xy.first - 72) / 2 + 18;
+				y = 13;
+			}
+			else if (i == 3)
+			{
+				x = (xy.first - 72) / 2 + 36;
+				y = 13;
+			}
+			else if (i == 4)
+			{
+				x = (xy.first - 72) / 2 + 53;
+				y = 13;
+			}
+			else if (i == 5)
+			{
+				x = (xy.first - 72) / 2 + 53;
+				y = 8;
+			}
+			cursorxy(x, y);
+			if (actualPlayers.at(i)->getHand().size() != 0)
+			{
+				cout << (char)201 << (char)205;
+				for (size_t k = 1; k < actualPlayers.at(i)->getHand().size(); k++)
+				{
+					cout << (char)201 << (char)205;
+				}
+				cout << (char)205 << (char)205 << (char)187;
+				cursorxy(x, y + 1);
+				rank = actualPlayers.at(i)->getHand().at(0).rank;
+				if (rank == "10")
+				{
+					rank = "1";
+				}
+				cout << (char)186 << rank;
+				for (size_t j = 1; j < actualPlayers.at(i)->getHand().size(); j++)
+				{
+					rank = actualPlayers.at(i)->getHand().at(j).rank;
+					if (rank == "10" && j != actualPlayers.at(i)->getHand().size() - 1)
+					{
+						rank = "1";
+					}
+					else if (rank != "10" && j == actualPlayers.at(i)->getHand().size() - 1)
+					{
+						rank += " ";
+					}
+					cout << (char)186 << rank;
+				}
+				if (actualPlayers.at(i)->getHand().back().suits == "Heart")
+				{
+					cout << (char)3;
+				}
+				else if (actualPlayers.at(i)->getHand().back().suits == "Diamond")
+				{
+					cout << (char)4;
+				}
+				else if (actualPlayers.at(i)->getHand().back().suits == "Club")
+				{
+					cout << (char)5;
+				}
+				else if (actualPlayers.at(i)->getHand().back().suits == "Spade")
+				{
+					cout << (char)6;
+				}
+				cout << (char)186;
+				cursorxy(x, y + 2);
+				cout << (char)200 << (char)205;
+				for (size_t k = 1; k < actualPlayers.at(i)->getHand().size(); k++)
+				{
+					cout << (char)200 << (char)205;
+				}
+				cout << (char)205 << (char)205 << (char)188;
+			}
+		}
+	}
+	cursorxy(0, 23);
+	string clearScreen(xy.first - 10, ' ');
+	for (int i = 0; i < 9; i++)
+	{
+		cout << clearScreen << endl;
+	}
+	cursorxy(0, 23);
 }
 
 TooManyPlayersException::TooManyPlayersException(unsigned int maxNumberOfPlayers, unsigned int actualNumOfPlayers)

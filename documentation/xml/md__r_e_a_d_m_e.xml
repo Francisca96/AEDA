@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="md__r_e_a_d_m_e" kind="page">
+    <compoundname>md_README</compoundname>
+    <title>README</title>
+    <detaileddescription>
+<para>AEDA-Casino</para><para>Within the scope of Algorithms and Data Structures course unit we were challenged to analyse, design, develop and test a problem using Object Oriented Programming and C++ language to implement our solution.</para><para>In order do to so, we developed a modular solution for a casino which currently only has the blackjack game, but it was designed to be possible to quickly integrate new games. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

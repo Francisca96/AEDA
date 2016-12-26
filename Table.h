@@ -7,39 +7,13 @@
 #pragma once
 
 #include <vector>
+#include <sstream>
 #include "Dealer.h"
 #include "cmdUI.h"
 
-/**
- * @class	Player
- *
- * @brief	A player, human or bot.
- *
- * @author	Renato Campos
- * @date	18/11/2016
- */
-
 class Player;
 
-/**
- * @class	Dealer
- *
- * @brief	A Casino's dealer.
- *
- * @author	Renato Campos
- * @date	18/11/2016
- */
-
 class Dealer;
-
-/**
- * @class	Table
- *
- * @brief	A table.
- *
- * @author	Renato Campos
- * @date	18/11/2016
- */
 
 class Table;
 
@@ -134,7 +108,7 @@ public:
 /**
  * @class	Table
  *
- * @brief	A table.
+ * @brief	A Casino's table.
  *
  * @author	Renato Campos
  * @date	18/11/2016
@@ -163,6 +137,10 @@ private:
 	vector<Player*> players;
 	/** @brief	The actual players. */
 	vector<Player*> actualPlayers;
+
+	unsigned int nextPlayerIndex;
+	unsigned int bossUserID;
+	unsigned int phaseOfPlaying;
 
 public:
 
@@ -307,7 +285,7 @@ public:
 	 * @date	18/11/2016
 	 */
 
-	void play();
+	void play(pair <short, short> xy, unsigned int userID);
 
 	/**
 	 * @fn	void Table::simulation(unsigned int roundsLeft);
@@ -550,5 +528,41 @@ public:
 	 */
 
 	static unsigned int getNextId();
+	
+	/**
+	* @fn	void readTableFile();
+	*
+	* @brief	Reads the table file.
+	*
+	* @author	Renato Campos
+	* @date	18/11/2016
+	*
+	*/
+
+	void readTableFile();
+	
+	/**
+	* @fn	void writeTableFile();
+	*
+	* @brief	Writes the table file.
+	*
+	* @author	Renato Campos
+	* @date	18/11/2016
+	*
+	*/
+
+	void writeTableFile();
+	
+	/**
+	* @fn	void showPlay(pair <short, short> xy);
+	*
+	* @brief	Plays and Displays in terminal the blackjack game.
+	*
+	* @author	Renato Campos
+	* @date	18/11/2016
+	*
+	*/
+
+	void showPlay(pair <short, short> xy);
 	
 };

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_player_not_exist_exception" kind="class" language="C++" prot="public">
+    <compoundname>PlayerNotExistException</compoundname>
+    <includes refid="_player_8h" local="no">Player.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_player_not_exist_exception_1a4199473c087e6ee50da96deee6b60ded" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string PlayerNotExistException::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>The player&apos;s name. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="116" column="1" bodyfile="Player.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_player_not_exist_exception_1ae3e9a72697c6c59fb3de66e2f6970445" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PlayerNotExistException::PlayerNotExistException</definition>
+        <argsstring>(string name)</argsstring>
+        <name>PlayerNotExistException</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The player&apos;s name. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.h" line="130" column="1" bodyfile="Player.cpp" bodystart="1019" bodyend="1021"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Exception for signalling that the player does not exist. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Joao Carvalho </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Player.h" line="113" column="1" bodyfile="Player.h" bodystart="113" bodyend="131"/>
+    <listofallmembers>
+      <member refid="class_player_not_exist_exception_1a4199473c087e6ee50da96deee6b60ded" prot="private" virt="non-virtual"><scope>PlayerNotExistException</scope><name>name</name></member>
+      <member refid="class_player_not_exist_exception_1ae3e9a72697c6c59fb3de66e2f6970445" prot="public" virt="non-virtual"><scope>PlayerNotExistException</scope><name>PlayerNotExistException</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

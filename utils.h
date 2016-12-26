@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <iomanip>
+#include <time.h>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ using namespace std;
  *
  * @brief	A card.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  */
 
@@ -37,7 +38,7 @@ struct Card {
 	 *
 	 * @brief	Equality operator.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	19/11/2016
 	 *
 	 * @param	a	The Card to process.
@@ -55,7 +56,7 @@ struct Card {
 	 *
 	 * @brief	Equality operator.
 	 *
-	 * @author	Ineeve
+	 * @author	Renato Campos
 	 * @date	19/11/2016
 	 *
 	 * @param	a	The rank to process.
@@ -67,6 +68,27 @@ struct Card {
 	{
 		return (this->rank == a);
 	}
+	ostream& operator<<(ostream& out) {
+		out << this->rank;
+		if (this->suits == "Heart")
+		{
+			out << (char)3;
+		}
+		if (this->suits == "Diamond")
+		{
+			out << (char)4;
+		}
+		if (this->suits == "Club")
+		{
+			out << (char)5;
+		}
+		if (this->suits == "Spade")
+		{
+			out << (char)6;
+		}
+
+		return out;
+	}
 	
 };
 
@@ -75,7 +97,7 @@ struct Card {
  *
  * @brief	Stream insertion operator.
  *			Makes the display of a card on the terminal.
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @param [in,out]	out	The outstream.
@@ -91,7 +113,7 @@ std::ostream& operator<<(std::ostream& out, const Card& c);
  *
  * @brief	Stream insertion operator.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @param [in,out]	out	The outstream.
@@ -107,7 +129,7 @@ std::ostream& operator<<(std::ostream& out, const vector<Card>& v);
  *
  * @brief	Creates the deck.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @return	The new deck.
@@ -120,7 +142,7 @@ vector <Card> createDeck();
  *
  * @brief	Gets human play.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @return	The human play.
@@ -133,7 +155,7 @@ string getHumanPlay();
  *
  * @brief	Reads unsigned int between a minimum and a maximum values.
  *			Ask for user input.
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @param	minValue	The minimum value.
@@ -149,7 +171,7 @@ unsigned short int readUnsignedIntBetween(unsigned int minValue, unsigned int ma
  *
  * @brief	Reads int between a minimum and a maximum values.
  *			Ask for user input.
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @param	min	The minimum.
@@ -165,7 +187,7 @@ int readIntBetween(int min, int max);
  *
  * @brief	Reads unsigned int.
  *			Asks for user input.
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @return	The unsigned int.
@@ -179,7 +201,7 @@ unsigned int readUnsignedInt();
  * @brief	Reads a int value.
  *			Asks for user input.
  *			
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @return	The int inserted by the user.
@@ -192,7 +214,7 @@ int readInt();
  *
  * @brief	Reads a 0 or a 1 from user input.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @return	The user input.
@@ -205,7 +227,7 @@ int readBinary();
  *
  * @brief	Reads a float from user input.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @return	The float inputed by the user.
@@ -219,7 +241,7 @@ float readFloat();
  * @brief	Reads character "y" or "n".
  *			Case insensitive.
  *			
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @return	The character inserted by the user: "y" or "n".
@@ -232,7 +254,7 @@ char readCharYorN();
  *
  * @brief	Reads and parses the users file to usersVec.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @param [in,out]	usersVEC	The users vector.
@@ -246,7 +268,7 @@ void Users(vector <int> &usersVEC, int &user);
  *
  * @brief	Copies text between files.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @param	filetxt			The file name;
@@ -260,7 +282,7 @@ void FileCopy(string filetxt, string filetxt_temp);
  *
  * @brief	Checks if the file with name filetxt_temp exists.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @param	filetxt_temp	The temporary file name;
@@ -275,7 +297,7 @@ bool FileExist(string filetxt_temp);
  *
  * @brief	Performs a binary search of id in VEC.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @param	id 	The identifier.
@@ -291,7 +313,7 @@ int BinaryInt(int id, vector <int> VEC);
  *
  * @brief	Asks user to save the current status when exiting.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @param [in,out]	usersVEC	The users vector.
@@ -309,7 +331,7 @@ int saveChanges(vector <int> &usersVEC, int &user, pair <int, int> xy, int &save
  *
  * @brief	Ask user to input a file name.
  *
- * @author	Ineeve
+ * @author	Renato Campos
  * @date	19/11/2016
  *
  * @param [in,out]	fileName	A string that will be updated with the user input.
@@ -318,3 +340,17 @@ int saveChanges(vector <int> &usersVEC, int &user, pair <int, int> xy, int &save
  */
 
 int readNameOfFile(string &fileName);
+
+/**
+* @fn	void waitXTime(unsigned int time);
+*
+* @brief	Sleeps for a given time.
+*
+* @author	Renato Campos
+* @date	20/11/2016
+*
+* @param	time	The time in seconds.
+*
+*/
+
+void waitXTime(unsigned int time);

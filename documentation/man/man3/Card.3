@@ -1,0 +1,193 @@
+.TH "Card" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Card \- A card\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <utils\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBCard\fP &a) const"
+.br
+.RI "Equality operator\&. "
+.ti -1c
+.RI "bool \fBoperator==\fP (const string &a) const"
+.br
+.RI "Equality operator\&. "
+.ti -1c
+.RI "ostream & \fBoperator<<\fP (ostream &out)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "string \fBrank\fP"
+.br
+.RI "The rank\&. "
+.ti -1c
+.RI "string \fBsuits\fP"
+.br
+.RI "The suits\&. "
+.ti -1c
+.RI "unsigned int \fBscore\fP"
+.br
+.RI "The score\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A card\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file utils\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "ostream& Card::operator<< (ostream & out)\fC [inline]\fP"
+
+.PP
+Definition at line 71 of file utils\&.h\&.
+.PP
+References BinaryInt(), createDeck(), FileCopy(), FileExist(), getHumanPlay(), operator<<(), readBinary(), readCharYorN(), readFloat(), readInt(), readIntBetween(), readNameOfFile(), readUnsignedInt(), readUnsignedIntBetween(), saveChanges(), Users(), and waitXTime()\&.
+.PP
+.nf
+71                                       {
+72         out << this->rank;
+73         if (this->suits == "Heart")
+74         {
+75             out << (char)3;
+76         }
+77         if (this->suits == "Diamond")
+78         {
+79             out << (char)4;
+80         }
+81         if (this->suits == "Club")
+82         {
+83             out << (char)5;
+84         }
+85         if (this->suits == "Spade")
+86         {
+87             out << (char)6;
+88         }
+89 
+90         return out;
+91     }
+.fi
+.SS "bool Card::operator== (const \fBCard\fP & a) const\fC [inline]\fP"
+
+.PP
+Equality operator\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP The \fBCard\fP to process\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if the parameters are considered equivalent\&. 
+.RE
+.PP
+
+.PP
+Definition at line 49 of file utils\&.h\&.
+.PP
+References rank\&.
+.PP
+.nf
+50     {
+51         return (this->rank == a\&.rank);
+52     }
+.fi
+.SS "bool Card::operator== (const string & a) const\fC [inline]\fP"
+
+.PP
+Equality operator\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP The rank to process\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if the parameters are considered equivalent\&. 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file utils\&.h\&.
+.PP
+.nf
+68     {
+69         return (this->rank == a);
+70     }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "string Card::rank"
+
+.PP
+The rank\&. 
+.PP
+Definition at line 30 of file utils\&.h\&.
+.PP
+Referenced by Bot0::Bot0(), Bot1::Bot1(), Bot2::Bot2(), createDeck(), Human::Human(), operator<<(), and operator==()\&.
+.SS "unsigned int Card::score"
+
+.PP
+The score\&. 
+.PP
+Definition at line 34 of file utils\&.h\&.
+.PP
+Referenced by Bot1::addCount(), Bot2::addCount(), Bot0::Bot0(), Bot1::Bot1(), Bot2::Bot2(), createDeck(), Human::Human(), Bot1::play(), and Bot1::split()\&.
+.SS "string Card::suits"
+
+.PP
+The suits\&. 
+.PP
+Definition at line 32 of file utils\&.h\&.
+.PP
+Referenced by Bot0::Bot0(), Bot1::Bot1(), Bot2::Bot2(), createDeck(), Human::Human(), and operator<<()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

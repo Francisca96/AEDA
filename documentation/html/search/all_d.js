@@ -11,6 +11,7 @@ var searchData=
   ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
   ['readnameoffile',['readNameOfFile',['../utils_8cpp.html#acefd5a7062e81e56767fbfa11f6065e4',1,'readNameOfFile(string &amp;fileName):&#160;utils.cpp'],['../utils_8h.html#acefd5a7062e81e56767fbfa11f6065e4',1,'readNameOfFile(string &amp;fileName):&#160;utils.cpp']]],
   ['readplayersfile',['readPlayersFile',['../class_casino.html#aa8eb27d8aece338ad3603efe1079cc59',1,'Casino']]],
+  ['readtablefile',['readTableFile',['../class_table.html#a5edf6fe1ff4f7286530e19e1621886dd',1,'Table']]],
   ['readtablesfile',['readTablesFile',['../class_casino.html#a7ef9174a3aa71e490b4d00a4b4826f10',1,'Casino']]],
   ['readunsignedint',['readUnsignedInt',['../utils_8cpp.html#a55b3de51bc5631fb67d6681f33e52228',1,'readUnsignedInt():&#160;utils.cpp'],['../utils_8h.html#a55b3de51bc5631fb67d6681f33e52228',1,'readUnsignedInt():&#160;utils.cpp']]],
   ['readunsignedintbetween',['readUnsignedIntBetween',['../utils_8cpp.html#a685ffa2d206caa9be692206e68284cb4',1,'readUnsignedIntBetween(unsigned int minValue, unsigned int maxValue):&#160;utils.cpp'],['../utils_8h.html#a685ffa2d206caa9be692206e68284cb4',1,'readUnsignedIntBetween(unsigned int minValue, unsigned int maxValue):&#160;utils.cpp']]],

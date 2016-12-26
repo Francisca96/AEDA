@@ -50,7 +50,7 @@ int main(){
 	casino.showTables();
 	system("pause");*/
 
-	unsigned int minBet = 2;
+	/*unsigned int minBet = 2;
 	unsigned int maxBet = 1000;
 	unsigned int moneyOfTable = 30000;
 	unsigned int maxNumberOfPlayers = 6;
@@ -64,7 +64,7 @@ int main(){
 	casino.addTableToCasino(table1);
 	casino.addPlayersToCasino(playersVector);
 	casino.addPlayersToTable(playersVector, table1);
-	casino.setTableToPlay(-1);
+	casino.setTableToPlay(-1);*/
 
 	/*END OF DEBUG*/
 	int choice, exit = 0;
@@ -78,10 +78,9 @@ int main(){
 		case 1:
 			system("CLS");
 			//TODO: play (game run in normal mode with a human player)
-			cout << "Please insert you name: " << endl;
 			try
 			{
-				casino.getTableToPlay()->play();
+				casino.getTableToPlay()->play(xy, user);
 				system("pause");
 			}
 			catch (TableNotInCasinoException)
@@ -101,6 +100,12 @@ int main(){
 				cout << "The table is full" << endl;
 				system("pause");
 			}
+			catch (TooYoungException)
+			{
+				cout << "You can't play on table selected" << endl;
+				cout << "You are too young for play this game" << endl;
+				system("pause");
+			}
 			break;
 		case 2:
 			//TODO: simulation (game run all alone for n cycles)
@@ -109,7 +114,6 @@ int main(){
 			try
 			{
 				casino.getTableToPlay()->simulation(roundsToPlay);
-				casino.showStatistics();
 				system("pause");
 			}
 			catch (TableNotInCasinoException)

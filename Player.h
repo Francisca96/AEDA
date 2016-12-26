@@ -303,6 +303,20 @@ public:
 	void hit(Card newCard);
 
 	/**
+	* @fn	void Player::hit2(Card newCard);
+	*
+	* @brief	Hits the given new card.
+	*			Saves the card on the hand2.
+	*			Updates the hand2score.
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	newCard	The new card.
+	*/
+
+	void hit2(Card newCard);
+
+	/**
 	 * @fn	virtual bool Player::takeInsurance(Table &table);
 	 *
 	 * @brief	Take insurance.
@@ -418,7 +432,7 @@ public:
 	unsigned int getRoundsPlayed() const;
 
 	/**
-	 * @fn	unsigned int Player::getCurrentMoney() const;
+	 * @fn	float Player::getCurrentMoney() const;
 	 *
 	 * @brief	Gets current money.
 	 *
@@ -428,7 +442,7 @@ public:
 	 * @return	The current money.
 	 */
 
-	unsigned int getCurrentMoney() const;
+	float getCurrentMoney() const;
 
 	/**
 	 * @fn	float Player::getAverageProfit() const;
@@ -535,7 +549,7 @@ public:
 	unsigned int setHand2Score();
 
 	/**
-	 * @fn	void Player::setCurrentMoney(unsigned int money);
+	 * @fn	void Player::setCurrentMoney(float money);
 	 *
 	 * @brief	Sets current money.
 	 *
@@ -545,7 +559,7 @@ public:
 	 * @param	money	The money.
 	 */
 
-	void setCurrentMoney(unsigned int money);
+	void setCurrentMoney(float money);
 
 	/**
 	 * @fn	void Player::setRoundsPlayed(unsigned int rounds);
@@ -778,9 +792,40 @@ public:
 	 */
 
 	void removeCardFromFirstHandAndSetItOnSecondHand();
+	/**
+	* @fn	virtual void setUserID(unsigned int userID) {}
+	*
+	* @brief	Does nothing in class Player.
+	* 			But it is necessary for the human class.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*/
 
+	virtual void setUserID(unsigned int userID) {}
+	/**
+	* @fn	virtual unsigned int getUserID() const
+	*
+	* @brief	Returns 0;
+	*
+	* @return 0.
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*/
 
-	
+	virtual unsigned int getUserID() const { return 0; }
+
+	/**
+	* @fn	virtual ostream& saveInfo(ostream& out);
+	*
+	* @brief	Writes player info to stream.
+	* @param [in,out]	out ostream in which player info will be saved.
+	* @return Player info in a ostream
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*/
+
+	virtual ostream& saveInfo(ostream& out);
 };
 
 /**
@@ -808,19 +853,31 @@ public:
 	Bot0() {};
 
 	/**
-	 * @fn	Bot0::Bot0(string name, unsigned int initialMoney);
-	 *
-	 * @brief	Constructor.
-	 *
-	 * @author	Joao Carvalho
-	 * @date	19/11/2016
-	 *
-	 * @param	name			The name.
-	 * @param	initialMoney	The initial money.
-	 */
+	* @fn	Bot0::Bot0(string name, unsigned int initialMoney);
+	*
+	* @brief	Constructor.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	name			The name.
+	* @param	initialMoney	The initial money.
+	*/
 
 	Bot0(string name, unsigned int initialMoney);
-	//play method
+
+	/**
+	* @fn	Bot0::Bot0(string &line);
+	*
+	* @brief	Constructor.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	line		Line containes all information.
+	*/
+
+	Bot0(string &line);
 
 	/**
 	 * @fn	string Bot0::play(Table &table);
@@ -852,6 +909,19 @@ public:
 	 */
 
 	bool takeInsurance(Table &table);
+
+	/**
+	* @fn	virtual ostream& saveInfo(ostream& out);
+	*
+	* @brief	Writes Bot0 info to stream.
+	* @param [in,out]	out ostream in which Bot0 info will be saved.
+	* @return Bot0 info in a ostream.
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*/
+
+
+	virtual ostream& saveInfo(ostream& out);
 };
 
 /**
@@ -899,7 +969,19 @@ public:
 	 */
 
 	Bot1(string name, unsigned int initialMoney);
-	//play method
+
+	/**
+	* @fn	Bot1::Bot1(string &line);
+	*
+	* @brief	Constructor.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	line		Line containes all information.
+	*/
+
+	Bot1(string &line);
 
 	/**
 	 * @fn	string Bot1::play(Table &table);
@@ -998,6 +1080,19 @@ public:
 	 */
 
 	virtual bool surrender(Table &table);
+
+	/**
+	* @fn	virtual ostream& saveInfo(ostream& out);
+	*
+	* @brief	Writes Bot1 info to stream.
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	* @param	out ostream in which Bot1 info will be saved.
+	* @return [in,out] Bot1 info in a ostream.
+	*/
+
+
+	virtual ostream& saveInfo(ostream& out);
 };
 
 /**
@@ -1031,6 +1126,19 @@ public:
 	 */
 
 	Bot2(string name, unsigned int initialMoney);
+
+	/**
+	* @fn	Bot2::Bot2(string &line);
+	*
+	* @brief	Constructor.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	line			Line contains all information.
+	*/
+
+	Bot2(string &line);
 
 	/**
 	 * @fn	unsigned int Bot2::bet(Table &table);
@@ -1157,6 +1265,21 @@ public:
 	 */
 
 	void setLastBetValue(unsigned int lastBet);
+
+	/**
+	* @fn	virtual ostream& saveInfo(ostream& out);
+	*
+	* @brief	Writes Bot2 info to stream.
+	* 			
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	* 		
+	* @param [in,out]	out ostream in which Bot2 info will be saved.
+	* @return Bot2 info in a ostream.
+	*/
+
+
+	virtual ostream& saveInfo(ostream& out);
 };
 
 /**
@@ -1170,10 +1293,13 @@ public:
  */
 
 class Human: public Player {
+private:
+	/** @brief	User identifier. */
+	unsigned int userID;
 public:
 
 	/**
-	 * @fn	Human::Human(string name, unsigned int age);
+	 * @fn	Human::Human(string name, unsigned int age, int userID);
 	 *
 	 * @brief	Constructor.
 	 *
@@ -1182,9 +1308,23 @@ public:
 	 *
 	 * @param	name	The name.
 	 * @param	age 	The age.
+	 * @param	userID	The user identifier.
 	 */
 
-	Human(string name, unsigned int age);
+	Human(string name, unsigned int age, int userID);
+
+	/**
+	* @fn	Human::Human(string &line);
+	*
+	* @brief	Constructor.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	line	Line that contains all information.
+	*/
+
+	Human(string &line);
 
 	/**
 	 * @fn	unsigned int Human::bet(Table &table);
@@ -1245,6 +1385,46 @@ public:
 	 */
 
 	bool split( Dealer *dealerOfTable);
+
+	/**
+	* @fn	void setUserID(unsigned int userID);
+	*
+	* @brief	Sets user identifier.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param	userID	New user identifier.
+	*/
+
+	void setUserID(unsigned int userID);
+
+	/**
+	* @fn	unsigned int getUserID() const;
+	*
+	* @brief	Gets user identifier.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @return	User identifier.
+	*/
+
+	unsigned int getUserID() const;
+
+	/**
+	* @fn	virtual ostream& saveInfo(ostream& out);
+	*
+	* @brief	Writes Human info to stream.
+	*
+	* @author	Joao Carvalho
+	* @date	19/11/2016
+	*
+	* @param [in,out]	out ostream in which Human info will be saved.
+	* @return Human info in a ostream.
+	*/
+
+	virtual ostream& saveInfo(ostream& out);
 };
 
 

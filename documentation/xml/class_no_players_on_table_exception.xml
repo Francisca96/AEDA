@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_no_players_on_table_exception" kind="class" language="C++" prot="public">
+    <compoundname>NoPlayersOnTableException</compoundname>
+    <includes refid="_table_8h" local="no">Table.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_no_players_on_table_exception_1a2399ad3eb7dd7fba50510961495dbb1b" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int NoPlayersOnTableException::tableID</definition>
+        <argsstring></argsstring>
+        <name>tableID</name>
+        <briefdescription>
+<para>Identifier for the table. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Table.h" line="78" column="1" bodyfile="Table.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_no_players_on_table_exception_1abe7ebe8452fefaf885ca49e0b0583890" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NoPlayersOnTableException::NoPlayersOnTableException</definition>
+        <argsstring>(Table *NoPlayersOnTableException)</argsstring>
+        <name>NoPlayersOnTableException</name>
+        <param>
+          <type><ref refid="class_table" kindref="compound">Table</ref> *</type>
+          <declname>NoPlayersOnTableException</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>18/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in"><ref refid="class_no_players_on_table_exception" kindref="compound">NoPlayersOnTableException</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Table.h" line="92" column="1" bodyfile="Table.cpp" bodystart="1063" bodyend="1065"/>
+        <references refid="class_table_1aa4db39c76365882991132d3c07a85a81" compoundref="_table_8cpp" startline="509" endline="512">Table::getTableID</references>
+      </memberdef>
+      <memberdef kind="function" id="class_no_players_on_table_exception_1a59983e4b1309c92ee096c263fa5fcd85" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int NoPlayersOnTableException::getID</definition>
+        <argsstring>() const</argsstring>
+        <name>getID</name>
+        <briefdescription>
+<para>Gets the identifier. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>18/11/2016</para></simplesect>
+<simplesect kind="return"><para>The identifier. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Table.h" line="105" column="1" bodyfile="Table.cpp" bodystart="1067" bodyend="1069"/>
+        <referencedby refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="main_8cpp" startline="13" endline="167">main</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Exception for signalling no players on table errors. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Renato Campos </para></simplesect>
+<simplesect kind="date"><para>18/11/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Table.h" line="75" column="1" bodyfile="Table.h" bodystart="75" bodyend="106"/>
+    <listofallmembers>
+      <member refid="class_no_players_on_table_exception_1a59983e4b1309c92ee096c263fa5fcd85" prot="public" virt="non-virtual"><scope>NoPlayersOnTableException</scope><name>getID</name></member>
+      <member refid="class_no_players_on_table_exception_1abe7ebe8452fefaf885ca49e0b0583890" prot="public" virt="non-virtual"><scope>NoPlayersOnTableException</scope><name>NoPlayersOnTableException</name></member>
+      <member refid="class_no_players_on_table_exception_1a2399ad3eb7dd7fba50510961495dbb1b" prot="private" virt="non-virtual"><scope>NoPlayersOnTableException</scope><name>tableID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,2133 @@
+.TH "Casino" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Casino \- A casino\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Casino\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCasino\fP (unsigned int totalMoney)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBCasino\fP (unsigned int totalMoney, vector< \fBTable\fP *> &tables, vector< \fBPlayer\fP *> &players)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "void \fBaddTablesToCasino\fP (vector< \fBTable\fP *> tables)"
+.br
+.RI "Adds the tables to casino\&. "
+.ti -1c
+.RI "void \fBaddTableToCasino\fP (\fBTable\fP *table)"
+.br
+.RI "Adds a table to casino\&. "
+.ti -1c
+.RI "void \fBremoveTableFromCasino\fP (\fBTable\fP *table)"
+.br
+.RI "Removes the table from casino\&. "
+.ti -1c
+.RI "void \fBaddPlayerToCasino\fP (\fBPlayer\fP *player1)"
+.br
+.RI "Adds a player to casino\&. "
+.ti -1c
+.RI "void \fBremovePlayerFromCasino\fP (string name)"
+.br
+.RI "Removes the player from casino\&. "
+.ti -1c
+.RI "void \fBaddPlayersToCasino\fP (vector< \fBPlayer\fP *> &playersVector)"
+.br
+.RI "Adds the players to casino\&. "
+.ti -1c
+.RI "void \fBaddPlayersToTable\fP (vector< \fBPlayer\fP *> &playersVector, \fBTable\fP *table)"
+.br
+.RI "Adds the players to a \fBTable\fP of the casino\&. "
+.ti -1c
+.RI "void \fBaddPlayerToTable\fP (\fBPlayer\fP *player1, \fBTable\fP *table)"
+.br
+.RI "Adds a player to a table of the casino\&. "
+.ti -1c
+.RI "void \fBaddDealerToCasino\fP (\fBDealer\fP *newDealer)"
+.br
+.RI "Adds a dealer to the casino\&. "
+.ti -1c
+.RI "void \fBremoveDealerFromCasino\fP (\fBDealer\fP *dealer)"
+.br
+.RI "Removes a dealer from the casino\&. "
+.ti -1c
+.RI "void \fBsetPlayersFile\fP (string playerFile)"
+.br
+.RI "Sets players file\&. "
+.ti -1c
+.RI "void \fBsetDealersFile\fP (string dealersFile)"
+.br
+.RI "Sets dealers file\&. "
+.ti -1c
+.RI "void \fBsetTablesFile\fP (string tablesFile)"
+.br
+.RI "Sets tables file\&. "
+.ti -1c
+.RI "void \fBreadPlayersFile\fP ()"
+.br
+.RI "Reads players \&.txt file\&. The players file should be placed in the project directory\&. "
+.ti -1c
+.RI "void \fBreadDealersFile\fP ()"
+.br
+.RI "Reads dealers \&.txt file\&. The dealers file should be placed in the project directory\&. "
+.ti -1c
+.RI "void \fBreadTablesFile\fP ()"
+.br
+.RI "Reads tables \&.txt file\&. The tables file should be placed in the project directory\&. "
+.ti -1c
+.RI "void \fBsavePlayersFile\fP ()"
+.br
+.RI "Saves the players in a txt file\&. "
+.ti -1c
+.RI "void \fBsaveDealersFile\fP ()"
+.br
+.RI "Saves the dealers in a txt file\&. "
+.ti -1c
+.RI "void \fBsaveTablesFile\fP ()"
+.br
+.RI "Saves the tables in a txt file\&. "
+.ti -1c
+.RI "void \fBshowStatistics\fP () const"
+.br
+.RI "Displays casino's statistics in a user friendly way on the terminal\&. "
+.ti -1c
+.RI "void \fBshowPlayers\fP (pair< short, short > xy) const"
+.br
+.RI "Displays the players that are logged in a user friendly way on the terminal\&. "
+.ti -1c
+.RI "void \fBshowDealers\fP (pair< short, short > xy) const"
+.br
+.RI "Displays casino's dealers in a user friendly way on the terminal\&. "
+.ti -1c
+.RI "void \fBshowTables\fP (pair< short, short > xy)"
+.br
+.RI "Displays casino's tables in a user friendly way on the terminal\&. "
+.ti -1c
+.RI "vector< \fBTable\fP * > \fBgetTables\fP () const"
+.br
+.RI "Gets the tables\&. "
+.ti -1c
+.RI "void \fBselectTable\fP (pair< short, short > xy)"
+.br
+.RI "Select table using the given <x,y> coordinates\&. "
+.ti -1c
+.RI "void \fBsetTableToPlay\fP (int tableID)"
+.br
+.RI "Sets table to play\&. "
+.ti -1c
+.RI "\fBTable\fP * \fBgetTableToPlay\fP () const"
+.br
+.RI "Gets table to play\&. "
+.ti -1c
+.RI "void \fBmanage\fP (pair< short, short > xy)"
+.br
+.RI "Manages casino\&. Enables the user to select between menus\&. "
+.ti -1c
+.RI "void \fBcreate\fP (pair< short, short > xy)"
+.br
+.RI "Creates a menu for casino\&. "
+.ti -1c
+.RI "void \fBeliminate\fP (pair< short, short > xy)"
+.br
+.RI "Open a delete menu\&. "
+.ti -1c
+.RI "void \fBmanageTables\fP (pair< short, short > xy, unsigned int tableID)"
+.br
+.RI "Manage tables\&. "
+.ti -1c
+.RI "unsigned int \fBfindTable\fP (unsigned int tableID)"
+.br
+.RI "Searches for a table (sequential search)\&. "
+.ti -1c
+.RI "unsigned int \fBfindDealer\fP (unsigned int dealerID)"
+.br
+.RI "Searches for a dealer (sequential search)\&. "
+.ti -1c
+.RI "unsigned int \fBfindPlayer\fP (string name)"
+.br
+.RI "Searches for a player (sequential search)\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A casino\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file Casino\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Casino::Casino (unsigned int totalMoney)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItotalMoney\fP The total money\&. 
+.RE
+.PP
+
+.PP
+Definition at line 5 of file Casino\&.cpp\&.
+.PP
+.nf
+6 {
+7     this->totalMoney = totalMoney;
+8 }
+.fi
+.SS "Casino::Casino (unsigned int totalMoney, vector< \fBTable\fP *> & tables, vector< \fBPlayer\fP *> & players)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItotalMoney\fP The total money\&. 
+.br
+\fItables\fP Vector of pointers to tables\&. 
+.br
+\fIplayers\fP Vector of pointers to players\&. 
+.RE
+.PP
+
+.PP
+Definition at line 10 of file Casino\&.cpp\&.
+.PP
+References addPlayersToCasino(), and addTablesToCasino()\&.
+.PP
+.nf
+11 {
+12     addTablesToCasino(tablesVector);
+13     addPlayersToCasino(playersVector);
+14     for (size_t i = 0; i < tables\&.size(); i++) {
+15         dealers\&.push_back(tables\&.at(i)->getDealer());
+16     }
+17     this->totalMoney = totalMoney;
+18 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void Casino::addDealerToCasino (\fBDealer\fP * newDealer)"
+
+.PP
+Adds a dealer to the casino\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewDealer\fP Pointer to the dealer that should be added to the casino\&. 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file Casino\&.cpp\&.
+.PP
+References Dealer::getID()\&.
+.PP
+Referenced by create(), and readDealersFile()\&.
+.PP
+.nf
+132                                                  {
+133     for (size_t i = 0; i < dealers\&.size(); i++)
+134     {
+135         if (newDealer->getID() == dealers\&.at(i)->getID())
+136         {
+137             throw DealerAlreadyExistException(newDealer);
+138         }
+139     }
+140     dealers\&.push_back(newDealer);
+141 }
+.fi
+.SS "void Casino::addPlayersToCasino (vector< \fBPlayer\fP *> & playersVector)"
+
+.PP
+Adds the players to casino\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIplayersVector\fP Vector of pointers to the players that should be added\&. 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file Casino\&.cpp\&.
+.PP
+Referenced by Casino(), and main()\&.
+.PP
+.nf
+86 {
+87     players\&.insert(players\&.end(), newPlayers\&.begin(), newPlayers\&.end());
+88 }
+.fi
+.SS "void Casino::addPlayersToTable (vector< \fBPlayer\fP *> & playersVector, \fBTable\fP * table)"
+
+.PP
+Adds the players to a \fBTable\fP of the casino\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIplayersVector\fP Vector of pointers to players\&. 
+.br
+\fItable\fP Pointer to the table in which the players will be added\&. 
+.RE
+.PP
+
+.PP
+Definition at line 91 of file Casino\&.cpp\&.
+.PP
+References addPlayerToTable()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+92 {
+93     for (size_t i = 0; i < playersVector\&.size(); i++) {
+94         addPlayerToTable(playersVector\&.at(i),table);
+95     }
+96 }
+.fi
+.SS "void Casino::addPlayerToCasino (\fBPlayer\fP * player1)"
+
+.PP
+Adds a player to casino\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIplayer1\fP Pointer to the player to be logged in the casino\&. 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file Casino\&.cpp\&.
+.PP
+References Player::getName()\&.
+.PP
+Referenced by create()\&.
+.PP
+.nf
+57 {
+58     for (size_t i = 0; i < players\&.size(); i++)
+59     {
+60         if (player1->getName() == players\&.at(i)->getName())
+61         {
+62             throw PlayerAlreadyExistException(player1);
+63         }
+64     }
+65     players\&.push_back(player1);
+66 }
+.fi
+.SS "void Casino::addPlayerToTable (\fBPlayer\fP * player1, \fBTable\fP * table)"
+
+.PP
+Adds a player to a table of the casino\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIplayer1\fP Pointer to the player that should be added to the table\&. 
+.br
+\fItable\fP Pointer to the table\&. 
+.RE
+.PP
+
+.PP
+Definition at line 98 of file Casino\&.cpp\&.
+.PP
+References Table::addPlayer(), PlayerNotLoggedException::what(), and TooManyPlayersException::what()\&.
+.PP
+Referenced by addPlayersToTable()\&.
+.PP
+.nf
+99 {
+100     bool foundPlayer = false;
+101     bool foundTable = false;
+102     try {
+103         for (size_t i = 0; i < tables\&.size(); i++) {
+104             if (tables\&.at(i) == table) {
+105                 foundTable = true;
+106             }
+107         }
+108         if (foundTable == false) {
+109             throw TableNotInCasinoException(table);
+110         }
+111 
+112         for (size_t i = 0; i < players\&.size(); i++) {
+113             if (players\&.at(i) == player1) {
+114                 foundPlayer = true;
+115                 table->addPlayer(player1);
+116                 break;
+117             }
+118         }
+119         if (foundPlayer == false) {
+120             throw PlayerNotLoggedException(player1);
+121         }
+122         
+123     }
+124     catch (TooManyPlayersException &e) {
+125         e\&.what();
+126     }
+127     catch (PlayerNotLoggedException &p) {
+128         p\&.what();
+129     }
+130 }
+.fi
+.SS "void Casino::addTablesToCasino (vector< \fBTable\fP *> tables)"
+
+.PP
+Adds the tables to casino\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItables\fP Vector of pointers to tables\&. 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file Casino\&.cpp\&.
+.PP
+References addTableToCasino()\&.
+.PP
+Referenced by Casino()\&.
+.PP
+.nf
+21 {
+22     for (size_t i = 0; i < tables\&.size(); i++) {
+23         addTableToCasino(tables\&.at(i));
+24     }
+25 }
+.fi
+.SS "void Casino::addTableToCasino (\fBTable\fP * table)"
+
+.PP
+Adds a table to casino\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP Pointer of the table to be added\&. 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file Casino\&.cpp\&.
+.PP
+References Table::getInitialMoney(), and ExistingTableException::what()\&.
+.PP
+Referenced by addTablesToCasino(), create(), main(), and readTablesFile()\&.
+.PP
+.nf
+28 {
+29     try {
+30         for (size_t i = 0; i < tables\&.size(); i++) {
+31             if (tables\&.at(i) == table) {
+32                 throw ExistingTableException(table);
+33             }
+34         }
+35         tables\&.push_back(table);
+36         totalMoney -= table->getInitialMoney();
+37     }
+38     catch (ExistingTableException &e) {
+39         e\&.what();
+40     }
+41 }
+.fi
+.SS "void Casino::create (pair< short, short > xy)"
+
+.PP
+Creates a menu for casino\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP The <x,y> coordinates\&. 
+.RE
+.PP
+
+.PP
+Definition at line 470 of file Casino\&.cpp\&.
+.PP
+References addDealerToCasino(), addPlayerToCasino(), addTableToCasino(), createMenu(), findDealer(), Dealer::getTableOn(), readUnsignedInt(), readUnsignedIntBetween(), and showDealers()\&.
+.PP
+Referenced by manage()\&.
+.PP
+.nf
+470                                          {
+471     unsigned int exit = 0;
+472     unsigned int choice;
+473     while (!exit)
+474     {
+475         createMenu(xy, choice);
+476         switch (choice)
+477         {
+478         case 0:
+479             exit = 1;
+480             break;
+481         case 1:
+482             try
+483             {
+484                 unsigned int minBet, maxBet, numberMaxOfPlayer, initialMoney, dealerID, found = 0;
+485                 Dealer *dealerOfTable;
+486                 system("CLS");
+487                 cout << "Initial Money?" << endl;
+488                 initialMoney = readUnsignedIntBetween(1000, this->totalMoney);
+489                 cout << "Min Bet?" << endl;
+490                 minBet = readUnsignedIntBetween(1, initialMoney/100);
+491                 cout << "Max Bet?" << endl;
+492                 maxBet = readUnsignedIntBetween(minBet, 32*minBet);
+493                 cout << "Number Max Of Players?" << endl;
+494                 numberMaxOfPlayer = readUnsignedIntBetween(1, 6);
+495                 this->showDealers(xy);
+496                 dealerID = readUnsignedInt();
+497                 dealerOfTable = dealers\&.at(this->findDealer(dealerID));
+498                 if (dealerOfTable->getTableOn() == -1)
+499                 {
+500                     Table *newTable = new Table(minBet, maxBet, initialMoney, numberMaxOfPlayer, dealerOfTable);
+501                     this->addTableToCasino(newTable);
+502                 }
+503                 else
+504                 {
+505                     throw DealerIsOnTableAlreadyException(new Dealer(dealerID));
+506                 }
+507                 cout << "Tables was created with success" << endl;
+508                 system("pause");
+509             }
+510             catch (DealerNotExistException)
+511             {
+512                 cout << "Tables wasn't created with success" << endl;
+513                 cout << "The Dealer doesn't exist, pls try again" << endl;
+514                 system("pause");
+515             }
+516             catch (DealerIsOnTableAlreadyException)
+517             {
+518                 cout << "Tables wasn't created with success" << endl;
+519                 cout << "The Dealer have one table already, pls try again" << endl;
+520                 system("pause");
+521             }
+522             break;
+523         case 2:
+524             try
+525             {
+526                 Dealer *newDealer = new Dealer();
+527                 this->addDealerToCasino(newDealer);
+528                 cout << "Dealer was created with success" << endl;
+529                 system("pause");
+530             }
+531             catch (DealerAlreadyExistException)
+532             {
+533                 cout << "Dealer wasn't created with success" << endl;
+534                 cout << "This Dealer already Exist" << endl;
+535                 system("pause");
+536             }
+537             break;
+538         case 3:
+539             try
+540             {
+541                 Player *newBot = new Bot0();
+542                 string name;
+543                 while (name\&.length() == 0)
+544                 {
+545                     cout << "What name do you want for bot?" << endl;
+546                     getline(cin, name);
+547                 }
+548                 cout << "How many initial money do you want for bot?" << endl;
+549                 unsigned int money = readUnsignedInt();
+550                 cout << "What Bot do you want create (0 , 1 , 2)?" << endl;
+551                 unsigned int botInteligent = readUnsignedIntBetween(0, 2);
+552                 if (botInteligent == 0)
+553                 {
+554                     newBot = new Bot0(name, money);
+555                 }
+556                 if (botInteligent == 1)
+557                 {
+558                     newBot = new Bot1(name, money);
+559                 }
+560                 if (botInteligent == 2)
+561                 {
+562                     newBot = new Bot2(name, money);
+563                 }
+564                 this->addPlayerToCasino(newBot);
+565                 cout << "Player was created with success" << endl;
+566                 system("pause");
+567             }
+568             catch (PlayerAlreadyExistException)
+569             {
+570                 cout << "Player wasn't created with success" << endl;
+571                 cout << "This Player already Exist" << endl;
+572                 system("pause");
+573             }
+574             break;
+575         default:
+576             break;
+577         }
+578     }
+579 }
+.fi
+.SS "void Casino::eliminate (pair< short, short > xy)"
+
+.PP
+Open a delete menu\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP The <x,y> coordinates\&. 
+.RE
+.PP
+
+.PP
+Definition at line 581 of file Casino\&.cpp\&.
+.PP
+References deleteMenu(), PlayerStillOnTableException::getTableId(), DealerStillOnTableException::getTableID(), readUnsignedInt(), removeDealerFromCasino(), removePlayerFromCasino(), removeTableFromCasino(), showDealers(), showPlayers(), and showTables()\&.
+.PP
+Referenced by manage()\&.
+.PP
+.nf
+581                                             {
+582     unsigned int exit = 0;
+583     unsigned int choice;
+584     while (!exit)
+585     {
+586         deleteMenu(xy, choice);
+587         switch (choice)
+588         {
+589         case 0:
+590             exit = 1;
+591             break;
+592         case 1:
+593             try
+594             {
+595                 this->showTables(xy);
+596                 unsigned int tableID = readUnsignedInt();
+597                 Table *table = new Table(tableID);
+598                 this->removeTableFromCasino(table);
+599                 cout << "The tablet was deleted with success" << endl;
+600                 system("pause");
+601             }
+602             catch (TableNotInCasinoException)
+603             {
+604                 cout << "The tablet wasn´t deleted with success" << endl;
+605                 cout << "The tablet doesn't exist" << endl;
+606                 system("pause");
+607             }
+608             break;
+609         case 2:
+610             try
+611             {
+612                 this->showDealers(xy);
+613                 unsigned int dealerID = readUnsignedInt();
+614                 Dealer *dealer = new Dealer(dealerID);
+615                 this->removeDealerFromCasino(dealer);
+616                 cout << "The dealer was deleted with success" << endl;
+617                 system("pause");
+618             }
+619             catch (DealerNotExistException)
+620             {
+621                 cout << "The dealer wasn´t deleted with success" << endl;
+622                 cout << "The dealer doesn't exist" << endl;
+623                 system("pause");
+624             }
+625             catch (DealerStillOnTableException dealer)
+626             {
+627                 cout << "The dealer wasn´t deleted with success" << endl;
+628                 cout << "The dealer still on table : " << dealer\&.getTableID() << " please remove from table first" << endl;
+629                 system("pause");
+630             }
+631             break;
+632         case 3:
+633             try
+634             {
+635                 this->showPlayers(xy);
+636                 string name;
+637                 while (name\&.length() == 0)
+638                 {
+639                     cout << "What is the name of bot to remove?" << endl;
+640                     getline(cin, name);
+641                 }
+642                 this->removePlayerFromCasino(name);
+643                 cout << "The player was deleted with success" << endl;
+644                 system("pause");
+645             }
+646             catch (PlayerNotExistException)
+647             {
+648                 cout << "The player wasn´t deleted with success" << endl;
+649                 cout << "The player doesn't exist" << endl;
+650                 system("pause");
+651             }
+652             catch (PlayerStillOnTableException player)
+653             {
+654                 cout << "The player wasn´t deleted with success" << endl;
+655                 cout << "The player still on table : " << player\&.getTableId() << " please remove from table first" << endl;
+656                 system("pause");
+657             }
+658             break;
+659         default:
+660             break;
+661         }
+662     }
+663 }
+.fi
+.SS "unsigned int Casino::findDealer (unsigned int dealerID)"
+
+.PP
+Searches for a dealer (sequential search)\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdealerID\fP Identifier for the dealer\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The index of the dealer on the dealers vector\&. 
+.RE
+.PP
+
+.PP
+Definition at line 816 of file Casino\&.cpp\&.
+.PP
+Referenced by create(), and manageTables()\&.
+.PP
+.nf
+816                                                      {
+817     for (size_t i = 0; i < dealers\&.size(); i++)
+818     {
+819         if (dealers\&.at(i)->getID() == dealerID)
+820         {
+821             return i;
+822         }
+823     }
+824     throw DealerNotExistException(new Dealer(dealerID));
+825 }
+.fi
+.SS "unsigned int Casino::findPlayer (string name)"
+
+.PP
+Searches for a player (sequential search)\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of the player\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The index of the player in the players vector\&. 
+.RE
+.PP
+
+.PP
+Definition at line 827 of file Casino\&.cpp\&.
+.PP
+Referenced by manageTables()\&.
+.PP
+.nf
+827                                            {
+828     for (size_t i = 0; i < players\&.size(); i++)
+829     {
+830         if (players\&.at(i)->getName() == name)
+831         {
+832             return i;
+833         }
+834     }
+835     throw PlayerNotExistException(name);
+836 }
+.fi
+.SS "unsigned int Casino::findTable (unsigned int tableID)"
+
+.PP
+Searches for a table (sequential search)\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItableID\fP Identifier for the table\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The index of the table on the tables vector\&. 
+.RE
+.PP
+
+.PP
+Definition at line 805 of file Casino\&.cpp\&.
+.PP
+Referenced by manage(), and manageTables()\&.
+.PP
+.nf
+805                                                    {
+806     for (size_t i = 0; i < tables\&.size(); i++)
+807     {
+808         if (tables\&.at(i)->getTableID() == tableID)
+809         {
+810             return i;
+811         }
+812     }
+813     throw TableNotInCasinoException(new Table(tableID));
+814 }
+.fi
+.SS "vector< \fBTable\fP * > Casino::getTables () const"
+
+.PP
+Gets the tables\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A vector of pointers to the casino's tables\&. 
+.RE
+.PP
+
+.PP
+Definition at line 391 of file Casino\&.cpp\&.
+.PP
+.nf
+391                                        {
+392     return this->tables;
+393 }
+.fi
+.SS "\fBTable\fP * Casino::getTableToPlay () const"
+
+.PP
+Gets table to play\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Pointer to the table to play\&. 
+.RE
+.PP
+
+.PP
+Definition at line 415 of file Casino\&.cpp\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+415                                      {
+416     if (this->tableToPlay != -1)
+417     {
+418         for (size_t i = 0; i < tables\&.size(); i++)
+419         {
+420             if (this->tableToPlay == tables\&.at(i)->getTableID())
+421             {
+422                 return tables\&.at(i);
+423             }
+424         }
+425     }
+426     throw TableNotInCasinoException(new Table(tableToPlay));
+427 }
+.fi
+.SS "void Casino::manage (pair< short, short > xy)"
+
+.PP
+Manages casino\&. Enables the user to select between menus\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP The <x,y> coordinates\&. 
+.RE
+.PP
+
+.PP
+Definition at line 429 of file Casino\&.cpp\&.
+.PP
+References create(), eliminate(), findTable(), manageCasino(), manageTables(), readUnsignedInt(), and showTables()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+429                                          {
+430     unsigned int exit = 0;
+431     unsigned int choice, tableID;
+432     while (!exit)
+433     {
+434         manageCasino(xy, choice);
+435         switch (choice)
+436         {
+437         case 0:
+438             exit = 1;
+439             break;
+440         case 1:
+441             this->create(xy);
+442             break;
+443         case 2:
+444             this->eliminate(xy);
+445             break;
+446         case 3:
+447             this->showTables(xy);
+448             try
+449             {
+450                 cout << "Select table by ID" << endl;
+451                 tableID = readUnsignedInt();
+452                 this->findTable(tableID);
+453                 this->manageTables(xy, tableID);
+454             }
+455             catch (TableNotInCasinoException)
+456             {
+457                 cout << "This table not exist" << endl;
+458                 system("pause");
+459             }
+460             break;
+461         case 4:
+462             //TODO: this->stats(xy);
+463             break;
+464         default:
+465             break;
+466         }
+467     }
+468 }
+.fi
+.SS "void Casino::manageTables (pair< short, short > xy, unsigned int tableID)"
+
+.PP
+Manage tables\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP The <x,y> coordinates\&. 
+.br
+\fItableID\fP Identifier for the table\&. 
+.RE
+.PP
+
+.PP
+Definition at line 665 of file Casino\&.cpp\&.
+.PP
+References findDealer(), findPlayer(), findTable(), Table::getPlayers(), manageTableMenu(), readUnsignedInt(), Table::removePlayer(), showDealers(), and showPlayers()\&.
+.PP
+Referenced by manage()\&.
+.PP
+.nf
+665                                                                      {
+666     unsigned int exit = 0;
+667     unsigned int choice, dealerID;
+668     string playerName;
+669     while (!exit)
+670     {
+671         manageTableMenu(xy, choice);
+672         switch (choice)
+673         {
+674         case 0:
+675             exit = 1;
+676             break;
+677         case 1:
+678             try
+679             {
+680                 showDealers(xy);
+681                 dealerID = readUnsignedInt();
+682                 unsigned int dealerIndex = this->findDealer(dealerID);
+683                 if (dealers\&.at(dealerIndex)->getTableOn() != -1)
+684                 {
+685                     throw DealerIsOnTableAlreadyException(dealers\&.at(dealerIndex));
+686                 }
+687                 tables\&.at(this->findTable(tableID))->setDealer(dealers\&.at(dealerIndex));
+688                 cout << "Dealer was set with success" << endl;
+689                 system("pause");
+690             }
+691             catch (DealerNotExistException)
+692             {
+693                 cout << "Dealer wasn't set with success" << endl;
+694                 cout << "This Dealer not exist" << endl;
+695                 system("pause");
+696             }
+697             catch (DealerIsOnTableAlreadyException)
+698             {
+699                 cout << "Dealer wasn't set with success" << endl;
+700                 cout << "This Dealer have one table for him already" << endl;
+701                 system("pause");
+702             }
+703             catch (TableNotInCasinoException &table)
+704             {
+705                 throw table;
+706             }
+707             break;
+708         case 2:
+709             try
+710             {
+711                 if (tables\&.at(findTable(tableID))->getPlayers()\&.size() == tables\&.at(findTable(tableID))->getNumberMaxOfPlayers())
+712                 {
+713                     throw TooManyPlayersException(tables\&.at(findTable(tableID))->getNumberMaxOfPlayers(), tables\&.at(findTable(tableID))->getNumberMaxOfPlayers() + 1);
+714                 }
+715                 showPlayers(xy);
+716                 cout << "Select the player that you want to add to the table" << endl;
+717                 playerName = "";
+718                 while (playerName\&.length() == 0)
+719                 {
+720                     getline(cin, playerName);
+721                 }
+722                 unsigned int playerIndex = findPlayer(playerName);
+723                 if (players\&.at(playerIndex)->getOnTable() != -1)
+724                 {
+725                     throw PlayerStillOnTableException(players\&.at(playerIndex));
+726                 }
+727                 tables\&.at(findTable(tableID))->addPlayer(players\&.at(playerIndex));
+728                 cout << "Player was added with success to table" << endl;
+729                 system("pause");
+730             }
+731             catch (TableNotInCasinoException &table)
+732             {
+733                 throw table;
+734             }
+735             catch (PlayerNotExistException)
+736             {
+737                 cout << "The player wasn't added to table" << endl;
+738                 cout << "The player does not exist" << endl;
+739                 system("pause");
+740             }
+741             catch (PlayerStillOnTableException)
+742             {
+743                 cout << "The player wasn't added to table" << endl;
+744                 cout << "The player is on other table already" << endl;
+745                 system("pause");
+746             }
+747             catch (TooManyPlayersException)
+748             {
+749                 cout << "The player wasn't added to table" << endl;
+750                 cout << "The table is full" << endl;
+751                 system("pause");
+752             }
+753             break;
+754         case 3:
+755             try
+756             {
+757                 Table *table = tables\&.at(findTable(tableID));
+758                 if (table->getPlayers()\&.size() == 0)
+759                 {
+760                     throw NoPlayersOnTableException(table);
+761                 }
+762                 for (size_t i = 0; i < table->getPlayers()\&.size(); i++)
+763                 {
+764                     cout << table->getPlayers()\&.at(i)->getName() << endl;
+765                 }
+766                 playerName = "";
+767                 while (playerName\&.length() == 0)
+768                 {
+769                     getline(cin, playerName);
+770                 }
+771                 table = tables\&.at(findTable(tableID));
+772                 table->removePlayer(playerName);
+773                 cout << "Player was removed from table with success" << endl;
+774                 system("pause");
+775             }
+776             catch (TableNotInCasinoException &table)
+777             {
+778                 throw table;
+779             }
+780             catch (PlayerNotExistException)
+781             {
+782                 cout << "The player wasn't remove from table" << endl;
+783                 cout << "The player does not exist" << endl;
+784                 system("pause");
+785             }
+786             catch (PlayerIsntOnTableException)
+787             {
+788                 cout << "The player wasn't remove from table" << endl;
+789                 cout << "The player wasn't on table" << endl;
+790                 system("pause");
+791             }
+792             catch (NoPlayersOnTableException)
+793             {
+794                 cout << "The table dont have players to remove" << endl;
+795                 system("pause");
+796             }
+797             break;
+798         default:
+799             break;
+800         }
+801     }
+802 
+803 }
+.fi
+.SS "void Casino::readDealersFile ()"
+
+.PP
+Reads dealers \&.txt file\&. The dealers file should be placed in the project directory\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 230 of file Casino\&.cpp\&.
+.PP
+References addDealerToCasino(), DealerAlreadyExistException::getID(), and Dealer::setNextID()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+230                              {
+231     ifstream inFile(dealersFile);
+232     string line;
+233     unsigned int nextID;
+234     for (int i = 0; i < 3; i++)
+235     {
+236         if (inFile\&.is_open())
+237         {
+238             if (!dealers\&.empty()) dealers\&.clear();
+239             getline(inFile, line);
+240             nextID = stoi(line);
+241             while (getline(inFile, line))
+242             {
+243                 Dealer *newDealer = new Dealer(stoi(line));
+244                 try
+245                 {
+246                     this->addDealerToCasino(newDealer);
+247                 }
+248                 catch (DealerAlreadyExistException dealer)
+249                 {
+250                     cout << "Dealer with ID : " << dealer\&.getID() << " already exist" << endl;
+251                 }
+252             }
+253             Dealer::setNextID(nextID);
+254             return;
+255         }
+256     }
+257     unsigned int maxID = 0;
+258     for (size_t i = 0; i < dealers\&.size(); i++)
+259     {
+260         if (dealers\&.at(i)->getID() >= maxID)
+261         {
+262             maxID = dealers\&.at(i)->getID() + 1;
+263         }
+264     }
+265     Dealer::setNextID(maxID);
+266     cout << "Fail to open dealers file" << endl;
+267 }
+.fi
+.SS "void Casino::readPlayersFile ()"
+
+.PP
+Reads players \&.txt file\&. The players file should be placed in the project directory\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file Casino\&.cpp\&.
+.PP
+References Player::setInitialMoney()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+172                              {
+173     ifstream inFile(playersFile);
+174     string line;
+175     stringstream ssLine;
+176     string player;
+177     string name;
+178     unsigned int initialMoney, age;
+179 
+180     for (int i = 0; i < 3; i++)
+181     {
+182         if (inFile\&.is_open())
+183         {
+184             if (!players\&.empty()) players\&.clear();
+185 
+186             while (getline(inFile, line))
+187             {
+188                 player = line\&.substr(0, line\&.find_first_of(" ; "));
+189                 line\&.erase(0, line\&.find_first_of(" ; ") + 3);
+190                 name = line\&.substr(0, line\&.find_first_of(";")-1);
+191                 line\&.erase(0, line\&.find_first_of(";") + 2);
+192                 initialMoney = stoi(line\&.substr(0, line\&.find_first_of(" ; ")), nullptr, 10);
+193                 line\&.erase(0, line\&.find_first_of(" ; ") + 3);
+194                 if (player == "3")
+195                 {
+196                     ssLine << line;
+197                     ssLine >> age;
+198                     Human *newHuman = new Human(name, age, -1);
+199                     newHuman->setInitialMoney(initialMoney);
+200                     players\&.push_back(newHuman);
+201                 }
+202                 if (player == "0")
+203                 {
+204                     ssLine << line;
+205                     ssLine >> age;
+206                     Bot0 *newBot0 = new Bot0(name, initialMoney);
+207                     players\&.push_back(newBot0);
+208                 }
+209                 if (player == "1")
+210                 {
+211                     ssLine << line;
+212                     ssLine >> age;
+213                     Bot1 *newBot1 = new Bot1(name, initialMoney);
+214                     players\&.push_back(newBot1);
+215                 }
+216                 /*if (player == "2")
+217                 {
+218                     ssLine << line;
+219                     ssLine >> age;
+220                     Bot2 *newBot2 = new Bot2();
+221                     players\&.push_back(newBot2);
+222                 }*/
+223             }
+224             return;
+225         }
+226     }
+227     cout << "Fail to open players file" << endl;
+228 }
+.fi
+.SS "void Casino::readTablesFile ()"
+
+.PP
+Reads tables \&.txt file\&. The tables file should be placed in the project directory\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 269 of file Casino\&.cpp\&.
+.PP
+References addTableToCasino(), Table::setID(), and Table::setNextID()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+269                             {
+270     ifstream inFile(tablesFile);
+271     string line;
+272 
+273     unsigned int tableID;
+274     unsigned int minBet;
+275     unsigned int maxBet;
+276     unsigned int initialMoney;
+277     unsigned int maxNumberOfPlayers;
+278     unsigned int dealerID;
+279     unsigned int nextID;
+280     Dealer *dealerOfTable = new Dealer();
+281 
+282     for (int i = 0; i < 3; i++)
+283     {
+284         if (inFile\&.is_open())
+285         {
+286             if (!tables\&.empty()) tables\&.clear();
+287             getline(inFile, line);
+288             nextID = stoi(line);
+289             while (getline(inFile, line))
+290             {
+291                 tableID = stoi(line\&.substr(0, line\&.find_first_of(" ; ")));
+292                 line\&.erase(0, line\&.find_first_of(" ; ") + 3);
+293                 minBet = stoi(line\&.substr(0, line\&.find_first_of(" ; ")));
+294                 line\&.erase(0, line\&.find_first_of(" ; ") + 3);
+295                 maxBet = stoi(line\&.substr(0, line\&.find_first_of(" ; ")));
+296                 line\&.erase(0, line\&.find_first_of(" ; ") + 3);
+297                 initialMoney = stoi(line\&.substr(0, line\&.find_first_of(" ; ")));
+298                 line\&.erase(0, line\&.find_first_of(" ; ") + 3);
+299                 maxNumberOfPlayers = stoi(line\&.substr(0, line\&.find_first_of(" ; ")));
+300                 line\&.erase(0, line\&.find_first_of(" ; ") + 3);
+301                 dealerID = stoi(line\&.substr(0, line\&.find_first_of(" ; ")));
+302                 line\&.erase(0, line\&.find_first_of(" ; ") + 3);
+303                 for (size_t i = 0; i < dealers\&.size(); i++)
+304                 {
+305                     if (dealers\&.at(i)->getID() == dealerID)
+306                     {
+307                         dealerOfTable = dealers\&.at(i);
+308                         break;
+309                     }
+310                 }
+311                 Table *newTable = new Table(minBet, maxBet, initialMoney, maxNumberOfPlayers, dealerOfTable);
+312                 newTable->setID(tableID);
+313                 this->addTableToCasino(newTable);
+314             }
+315             Table::setNextID(nextID);
+316             return;
+317         }
+318     }
+319     cout << "Fail to read tables file" << endl;
+320 }
+.fi
+.SS "void Casino::removeDealerFromCasino (\fBDealer\fP * dealer)"
+
+.PP
+Removes a dealer from the casino\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdealer\fP Pointer to the dealer that should be removed from the casino\&. 
+.RE
+.PP
+
+.PP
+Definition at line 143 of file Casino\&.cpp\&.
+.PP
+References Dealer::getID()\&.
+.PP
+Referenced by eliminate()\&.
+.PP
+.nf
+143                                                   {
+144     for (size_t i = 0; i < dealers\&.size(); i++)
+145     {
+146         if (dealers\&.at(i)->getID() == dealer->getID())
+147         {
+148             if (dealers\&.at(i)->getTableOn() != -1)
+149             {
+150                 throw DealerStillOnTableException(dealers\&.at(i));
+151             }
+152             delete dealers\&.at(i);
+153             dealers\&.erase(dealers\&.begin() + i);
+154             return;
+155         }
+156     }
+157     throw DealerNotExistException(dealer);
+158 }
+.fi
+.SS "void Casino::removePlayerFromCasino (string name)"
+
+.PP
+Removes the player from casino\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of the player to be removed\&. 
+.RE
+.PP
+
+.PP
+Definition at line 68 of file Casino\&.cpp\&.
+.PP
+Referenced by eliminate()\&.
+.PP
+.nf
+68                                                {
+69     for (size_t i = 0; i < players\&.size(); i++)
+70     {
+71         if (players\&.at(i)->getName() == name)
+72         {
+73             if (players\&.at(i)->getOnTable() != -1)
+74             {
+75                 throw PlayerStillOnTableException(players\&.at(i));
+76             }
+77             delete players\&.at(i);
+78             players\&.erase(players\&.begin() + i);
+79             return;
+80         }
+81     }
+82     throw PlayerNotExistException(name);
+83 }
+.fi
+.SS "void Casino::removeTableFromCasino (\fBTable\fP * table)"
+
+.PP
+Removes the table from casino\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP Pointer of the table to be removed\&. 
+.RE
+.PP
+
+.PP
+Definition at line 43 of file Casino\&.cpp\&.
+.PP
+References Table::getTableID()\&.
+.PP
+Referenced by eliminate()\&.
+.PP
+.nf
+43                                                 {
+44     for (size_t i = 0; i < tables\&.size(); i++)
+45     {
+46         if (tables\&.at(i)->getTableID() == table->getTableID())
+47         {
+48             delete tables\&.at(i);
+49             tables\&.erase(tables\&.begin() + i);
+50             return;
+51         }
+52     }
+53     throw TableNotInCasinoException(table);
+54 }
+.fi
+.SS "void Casino::saveDealersFile ()"
+
+.PP
+Saves the dealers in a txt file\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 357 of file Casino\&.cpp\&.
+.PP
+References Dealer::getNextID()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+357                              {
+358     ofstream outFile(dealersFile);
+359     for (int i = 0; i < 3; i++)
+360     {
+361         if (outFile\&.is_open())
+362         {
+363             outFile << Dealer::getNextID() << endl;
+364             for (size_t i = 0; i < dealers\&.size(); i++)
+365             {
+366                 outFile << dealers\&.at(i)->getID() << endl;
+367             }
+368             return;
+369         }
+370     }
+371     cout << "Fail to open dealers file" << endl;
+372 }
+.fi
+.SS "void Casino::savePlayersFile ()"
+
+.PP
+Saves the players in a txt file\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 322 of file Casino\&.cpp\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+322                              {
+323     ofstream outFile(playersFile);
+324     for (int j = 0; j < 3; j++)
+325     {
+326         if (outFile\&.is_open())
+327         {
+328             for (size_t i = 0; i < players\&.size(); i++)
+329             {
+330                 Human *h = dynamic_cast<Human *>(players\&.at(i));
+331                 Bot0 *b0 = dynamic_cast<Bot0 *>(players\&.at(i));
+332                 Bot1 *b1 = dynamic_cast<Bot1 *>(players\&.at(i));
+333                 Bot2 *b2 = dynamic_cast<Bot2 *>(players\&.at(i));
+334                 if (h != NULL)
+335                 {
+336                     outFile << "3 ; " << players\&.at(i)->getName() << " ; " << players\&.at(i)->getInitialMoney() << " ; " << players\&.at(i)->getAge() << endl;
+337                 }
+338                 if (b0 != NULL)
+339                 {
+340                     outFile << "0 ; " << players\&.at(i)->getName() << " ; " << players\&.at(i)->getInitialMoney() << " ; " << players\&.at(i)->getAge() << endl;
+341                 }
+342                 if (b1 != NULL)
+343                 {
+344                     outFile << "1 ; " << players\&.at(i)->getName() << " ; " << players\&.at(i)->getInitialMoney() << " ; " << players\&.at(i)->getAge() << endl;
+345                 }
+346                 if (b2 != NULL)
+347                 {
+348                     outFile << "2 ; " << players\&.at(i)->getName() << " ; " << players\&.at(i)->getInitialMoney() << " ; " << players\&.at(i)->getAge() << endl;
+349                 }
+350             }
+351             return;
+352         }
+353     }
+354     cout << "Fail to open players file" << endl;
+355 }
+.fi
+.SS "void Casino::saveTablesFile ()"
+
+.PP
+Saves the tables in a txt file\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 374 of file Casino\&.cpp\&.
+.PP
+References Table::getNextId()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+374                             {
+375     ofstream outFile(tablesFile);
+376     for (int i = 0; i < 3; i++)
+377     {
+378         if (outFile\&.is_open())
+379         {
+380             outFile << Table::getNextId() << endl;
+381             for (size_t i = 0; i < dealers\&.size(); i++)
+382             {
+383                 outFile << tables\&.at(i)->getTableID() << " ; " << tables\&.at(i)->getMinBet() << " ; " << tables\&.at(i)->getMaxBet() << " ; " << tables\&.at(i)->getInitialMoney() << " ; " << tables\&.at(i)->getNumberMaxOfPlayers() << " ; " << tables\&.at(i)->getDealer()->getID() << " ; " << endl;
+384             }
+385             return;
+386         }
+387     }
+388     cout << "Fail to open tables file" << endl;
+389 }
+.fi
+.SS "void Casino::selectTable (pair< short, short > xy)"
+
+.PP
+Select table using the given <x,y> coordinates\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP The <x,y> coordinates\&. 
+.RE
+.PP
+
+.PP
+Definition at line 395 of file Casino\&.cpp\&.
+.PP
+References readInt(), setTableToPlay(), and showTables()\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+395                                               {
+396     this->showTables(xy);
+397     cout << "Select table by ID" << endl;
+398     unsigned int tableID = readInt();
+399     for (size_t i = 0; i < tables\&.size(); i++)
+400     {
+401         if (tables\&.at(i)->getTableID() == tableID)
+402         {
+403             this->setTableToPlay(tableID);
+404             cout << "Table select with success" << endl;
+405             return;
+406         }
+407     }
+408     throw TableNotInCasinoException(new Table(tableID));
+409 }
+.fi
+.SS "void Casino::setDealersFile (string dealersFile)"
+
+.PP
+Sets dealers file\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdealersFile\fP A string already formatted to save the dealers in a file\&. 
+.RE
+.PP
+
+.PP
+Definition at line 164 of file Casino\&.cpp\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+164                                               {
+165     this->dealersFile = dealersFile;
+166 }
+.fi
+.SS "void Casino::setPlayersFile (string playerFile)"
+
+.PP
+Sets players file\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIplayerFile\fP A string already formatted to save the players in a file\&. 
+.RE
+.PP
+
+.PP
+Definition at line 160 of file Casino\&.cpp\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+160                                              {
+161     this->playersFile = playerFile;
+162 }
+.fi
+.SS "void Casino::setTablesFile (string tablesFile)"
+
+.PP
+Sets tables file\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItablesFile\fP A string already formatted to save the tables in a file\&. 
+.RE
+.PP
+
+.PP
+Definition at line 168 of file Casino\&.cpp\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+168                                             {
+169     this->tablesFile = tablesFile;
+170 }
+.fi
+.SS "void Casino::setTableToPlay (int tableID)"
+
+.PP
+Sets table to play\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItableID\fP Identifier for the table\&. 
+.RE
+.PP
+
+.PP
+Definition at line 411 of file Casino\&.cpp\&.
+.PP
+Referenced by main(), and selectTable()\&.
+.PP
+.nf
+411                                        {
+412     this->tableToPlay = tableID;
+413 }
+.fi
+.SS "void Casino::showDealers (pair< short, short > xy) const"
+
+.PP
+Displays casino's dealers in a user friendly way on the terminal\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP The cursor coordinates\&. 
+.RE
+.PP
+
+.PP
+Definition at line 898 of file Casino\&.cpp\&.
+.PP
+Referenced by create(), eliminate(), and manageTables()\&.
+.PP
+.nf
+898                                                       {
+899     system("cls");
+900     string text;
+901     stringstream sstext;
+902     cout << setw((xy\&.first - 50) / 2 - 1) << (char)218; //┌
+903     for (unsigned int i = 0; i <= 50; i++)
+904     {
+905         cout << (char)196; //─
+906     }
+907     cout << (char)191 << endl; //┐
+908     cout << setw((xy\&.first - 50) / 2 - 1) << (char)179; //│
+909     cout << setw((50 + 12) / 2 + 1) << "Dealers Info" << setw(50 - (50 + 12) / 2 + 1) << (char)179 << endl;
+910     cout << setw((xy\&.first - 50) / 2 - 1) << (char)195; //├
+911     for (unsigned int i = 0; i <= 50; i++)
+912     {
+913         cout << (char)196; //─
+914     }
+915     cout << (char)180 << endl; //┤
+916     cout << setw((xy\&.first - 50) / 2 - 1) << (char)179; //│
+917     cout << setw(10) << "DealerID" << setw(15) << "On Table" << setw(27) << (char)179 << endl;
+918     cout << setw((xy\&.first - 50) / 2 - 1) << (char)195; //├
+919     for (unsigned int i = 0; i <= 50; i++)
+920     {
+921         cout << (char)196; //─
+922     }
+923     cout << (char)180 << endl; //┤
+924     for (size_t i = 0; i < dealers\&.size(); i++)
+925     {
+926         cout << setw((xy\&.first - 50) / 2 - 1) << (char)179; //│
+927         if (dealers\&.at(i)->getTableOn() != -1)
+928         {
+929             sstext\&.clear();
+930             sstext << dealers\&.at(i)->getTableOn();
+931             sstext >> text;
+932         }
+933         else
+934         {
+935             text = "Dealer isn't allocated";
+936         }
+937         cout << setw(10) << dealers\&.at(i)->getID() << setw(7) << " " << text << setw(35-text\&.length()) << (char)179 << endl;
+938     }
+939     cout << setw((xy\&.first - 50) / 2 - 1) << (char)192; //└
+940     for (unsigned int i = 0; i <= 50; i++)
+941     {
+942         cout << (char)196; //─
+943     }
+944     cout << (char)217 << endl; //┘
+945 }
+.fi
+.SS "void Casino::showPlayers (pair< short, short > xy) const"
+
+.PP
+Displays the players that are logged in a user friendly way on the terminal\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP The cursor coordinates\&. 
+.RE
+.PP
+
+.PP
+Definition at line 847 of file Casino\&.cpp\&.
+.PP
+Referenced by eliminate(), and manageTables()\&.
+.PP
+.nf
+847                                                      {
+848     system("cls");
+849     string text, name;
+850     stringstream sstext;
+851     cout << setw((xy\&.first - 50) / 2 - 1) << (char)218; //┌
+852     for (unsigned int i = 0; i <= 50; i++)
+853     {
+854         cout << (char)196; //─
+855     }
+856     cout << (char)191 << endl; //┐
+857     cout << setw((xy\&.first - 50) / 2 - 1) << (char)179; //│
+858     cout << setw((50 + 12) / 2 + 1) << "Players Info" << setw(50 - (50 + 12) / 2 + 1) << (char)179 << endl;
+859     cout << setw((xy\&.first - 50) / 2 - 1) << (char)195; //├
+860     for (unsigned int i = 0; i <= 50; i++)
+861     {
+862         cout << (char)196; //─
+863     }
+864     cout << (char)180 << endl; //┤
+865     cout << setw((xy\&.first - 50) / 2 - 1) << (char)179; //│
+866     cout << setw(13) << "Player Name" << setw(21) << "On Table" << setw(18) << (char)179 << endl;
+867     cout << setw((xy\&.first - 50) / 2 - 1) << (char)195; //├
+868     for (unsigned int i = 0; i <= 50; i++)
+869     {
+870         cout << (char)196; //─
+871     }
+872     cout << (char)180 << endl; //┤
+873     for (size_t i = 0; i < players\&.size(); i++)
+874     {
+875         cout << setw((xy\&.first - 50) / 2 - 1) << (char)179; //│
+876         name = players\&.at(i)->getName();
+877         cout << setw(2) << " " << name << setw(24 - name\&.length()) << " " ;
+878         if (players\&.at(i)->getOnTable() != -1)
+879         {
+880             sstext\&.clear();
+881             sstext << players\&.at(i)->getOnTable();
+882             sstext >> text;
+883         }
+884         else
+885         {
+886             text = "Player isn't allocated";
+887         }
+888         cout << text << setw(26 - text\&.length()) << (char)179 << endl;
+889     }
+890     cout << setw((xy\&.first - 50) / 2 - 1) << (char)192; //└
+891     for (unsigned int i = 0; i <= 50; i++)
+892     {
+893         cout << (char)196; //─
+894     }
+895     cout << (char)217 << endl; //┘
+896 }
+.fi
+.SS "void Casino::showStatistics () const"
+
+.PP
+Displays casino's statistics in a user friendly way on the terminal\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 838 of file Casino\&.cpp\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+838                                   {
+839     cout << "Statistics\n\n\n\n";
+840     cout << setw(15) << "NAME" << setw(15) << "BRAIN LEVEL" << setw(15) << "ROUNDS PLAYED" << setw(30) << "AVG\&. PROFIT" << endl;
+841     for (size_t i = 0; i < players\&.size(); i++) {
+842         players\&.at(i)->showStatistics();
+843     }
+844 
+845 }
+.fi
+.SS "void Casino::showTables (pair< short, short > xy)"
+
+.PP
+Displays casino's tables in a user friendly way on the terminal\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Ineeve 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxy\fP The cursor coordinates\&. 
+.RE
+.PP
+
+.PP
+Definition at line 947 of file Casino\&.cpp\&.
+.PP
+Referenced by eliminate(), manage(), and selectTable()\&.
+.PP
+.nf
+947                                               {
+948     system("CLS");
+949     bool found = false;
+950     pair <short, short> coordXY;
+951     coordXY\&.first = (xy\&.first % 32) / 2 - 1;
+952 
+953     for (size_t i = 0; i < tables\&.size(); i++)
+954     {
+955         tables\&.at(i)->showTableInfo(coordXY);
+956         coordXY\&.first += 32;
+957         if (coordXY\&.first + 32 > xy\&.first)
+958         {
+959             coordXY\&.first = (xy\&.first % 32) / 2;
+960             coordXY\&.second += 14;
+961         }
+962     }
+963     cout << endl << endl << endl;
+964 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

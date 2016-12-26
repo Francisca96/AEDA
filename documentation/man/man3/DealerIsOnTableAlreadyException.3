@@ -1,0 +1,76 @@
+.TH "DealerIsOnTableAlreadyException" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DealerIsOnTableAlreadyException \- Exception for signalling that the dealer is already on a table\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Dealer\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDealerIsOnTableAlreadyException\fP (\fBDealer\fP *dealer)"
+.br
+.RI "Constructor\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Exception for signalling that the dealer is already on a table\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+M\&. Francisca Pauperio 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 414 of file Dealer\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "DealerIsOnTableAlreadyException::DealerIsOnTableAlreadyException (\fBDealer\fP * dealer)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+M\&. Francisca Pauperio 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+19/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdealer\fP Pointer to the dealer\&. 
+.RE
+.PP
+
+.PP
+Definition at line 155 of file Dealer\&.cpp\&.
+.PP
+References Dealer::getID()\&.
+.PP
+.nf
+155                                                                                 {
+156     this->dealerID = dealer->getID();
+157 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

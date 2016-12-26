@@ -1,0 +1,113 @@
+.TH "NoPlayersOnTableException" 3 "Sun Nov 20 2016" "Version 1.0.0.0" "Aeda-Casino" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NoPlayersOnTableException \- Exception for signalling no players on table errors\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Table\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNoPlayersOnTableException\fP (\fBTable\fP *\fBNoPlayersOnTableException\fP)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "unsigned int \fBgetID\fP () const"
+.br
+.RI "Gets the identifier\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Exception for signalling no players on table errors\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file Table\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "NoPlayersOnTableException::NoPlayersOnTableException (\fBTable\fP * NoPlayersOnTableException)"
+
+.PP
+Constructor\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fBNoPlayersOnTableException\fP\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1063 of file Table\&.cpp\&.
+.PP
+References Table::getTableID()\&.
+.PP
+.nf
+1063                                                                  {
+1064     this->tableID = table->getTableID();
+1065 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "unsigned int NoPlayersOnTableException::getID () const"
+
+.PP
+Gets the identifier\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Renato Campos 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+18/11/2016
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The identifier\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1067 of file Table\&.cpp\&.
+.PP
+Referenced by main()\&.
+.PP
+.nf
+1067                                                     {
+1068     return this->tableID;
+1069 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Aeda-Casino from the source code\&.

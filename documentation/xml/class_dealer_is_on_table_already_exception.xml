@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_dealer_is_on_table_already_exception" kind="class" language="C++" prot="public">
+    <compoundname>DealerIsOnTableAlreadyException</compoundname>
+    <includes refid="_dealer_8h" local="no">Dealer.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_dealer_is_on_table_already_exception_1a5f58604c2774dfe0f451b0a2ebe50745" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int DealerIsOnTableAlreadyException::dealerID</definition>
+        <argsstring></argsstring>
+        <name>dealerID</name>
+        <briefdescription>
+<para>Identifier for the dealer. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Dealer.h" line="417" column="1" bodyfile="Dealer.h" bodystart="417" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_dealer_is_on_table_already_exception_1a5214a0d63f75d500466af9feac15b0a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DealerIsOnTableAlreadyException::DealerIsOnTableAlreadyException</definition>
+        <argsstring>(Dealer *dealer)</argsstring>
+        <name>DealerIsOnTableAlreadyException</name>
+        <param>
+          <type><ref refid="class_dealer" kindref="compound">Dealer</ref> *</type>
+          <declname>dealer</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>M. Francisca Pauperio </para></simplesect>
+<simplesect kind="date"><para>19/11/2016</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">dealer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the dealer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Dealer.h" line="431" column="1" bodyfile="Dealer.cpp" bodystart="155" bodyend="157"/>
+        <references refid="class_dealer_1a8c45fa97cab622ceb350ccf31012b140" compoundref="_dealer_8cpp" startline="131" endline="133">Dealer::getID</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Exception for signalling that the dealer is already on a table. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>M. Francisca Pauperio </para></simplesect>
+<simplesect kind="date"><para>19/11/2016 </para></simplesect>
+</para>    </detaileddescription>
+    <location file="Dealer.h" line="414" column="1" bodyfile="Dealer.h" bodystart="414" bodyend="432"/>
+    <listofallmembers>
+      <member refid="class_dealer_is_on_table_already_exception_1a5f58604c2774dfe0f451b0a2ebe50745" prot="private" virt="non-virtual"><scope>DealerIsOnTableAlreadyException</scope><name>dealerID</name></member>
+      <member refid="class_dealer_is_on_table_already_exception_1a5214a0d63f75d500466af9feac15b0a9" prot="public" virt="non-virtual"><scope>DealerIsOnTableAlreadyException</scope><name>DealerIsOnTableAlreadyException</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
