@@ -10,11 +10,31 @@
 #include <iomanip>
 #include <string>
 #include <sstream>
+#include <unordered_set>
+#include <conio.h>
 #include "Table.h"
 #include "utils.h"
+#include "cmdUI.h"
 
 
 using namespace std;
+
+struct userLoginHash
+{
+	size_t operator() (const pair <string, string>& ur) const {
+		unsigned int hashNumber = 0;
+		for (size_t i = 0; i < ur.second.size(); i++)
+		{
+			hashNumber += ur.second.at(i) % 32 * (i + 1);
+		}
+		return hashNumber % 47;
+	}
+	int operator() (const pair <string, string> &ur1, const pair <string, string> &ur2) const {
+		return ur1.first == ur2.first;
+	}
+};
+
+typedef unordered_set< pair<string, string>, userLoginHash, userLoginHash> loginHash;
 
 /**
  * @class	PlayerNotLoggedException
@@ -153,6 +173,8 @@ private:
 	string dealersFile;
 	/** @brief	The tables file. */
 	string tablesFile;
+	/** @brief	The users file. */
+	string usersFile;
 	/** @brief	The total money. */
 	unsigned int totalMoney;
 	/** @brief	The table to play. */
@@ -163,6 +185,8 @@ private:
 	vector<Table *> tables;
 	/** @brief	The players. */
 	vector<Player*> players;
+	/** @brief	The users. */
+	loginHash userslogin;
 public:
 
 	/**
@@ -192,6 +216,19 @@ public:
 	 */
 
 	Casino(unsigned int totalMoney,vector<Table*> &tables, vector<Player *> &players);
+
+	/**
+	* @fn	bool Casino::login();
+	*
+	* @brief	login system.
+	*
+	* @author	João Carvalho
+	* @date	26/12/2016
+	*
+	 * @param 	xy	A pair containing the horizontal and vertical lengths of the terminal.
+	*/
+
+	bool login(pair<int, int> xy);
 
 	/**
 	 * @fn	void Casino::addTablesToCasino(vector<Table*> tables);
@@ -365,6 +402,19 @@ public:
 	void setTablesFile(string tablesFile);
 
 	/**
+	* @fn	void Casino::setUsersFile(string usersFile);
+	*
+	* @brief	Sets users file.
+	*
+	* @author	Joao Carvalho
+	* @date	26/12/2016
+	*
+	* @param	tablesFile	A string already formatted to save the tables in a file.
+	*/
+
+	void setUsersFile(string usersFile);
+
+	/**
 	 * @fn	void Casino::readPlayersFile();
 	 *
 	 * @brief	Reads players .txt file. The players file should be placed in the project directory.
@@ -398,6 +448,17 @@ public:
 	void readTablesFile();
 
 	/**
+	* @fn	void Casino::readLoginFile();
+	*
+	* @brief	Reads login .txt file. The login file should be placed in the project directory.
+	*
+	* @author	João Carvalho
+	* @date	26/12/2016
+	*/
+
+	void readLoginFile();
+
+	/**
 	 * @fn	void Casino::savePlayersFile();
 	 *
 	 * @brief	Saves the players in a txt file.
@@ -429,6 +490,17 @@ public:
 	 */
 
 	void saveTablesFile();
+
+	/**
+	* @fn	void Casino::saveLoginFile();
+	*
+	* @brief	Saves login .txt file.
+	*
+	* @author	João Carvalho
+	* @date	26/12/2016
+	*/
+
+	void saveLoginFile();
 
 	/**
 	 * @fn	void Casino::showStatistics() const;

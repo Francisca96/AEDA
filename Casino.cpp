@@ -17,6 +17,95 @@ Casino::Casino(unsigned int totalMoney,vector<Table*> &tablesVector, vector<Play
 	this->totalMoney = totalMoney;
 }
 
+bool Casino::login(pair<int, int> xy) {
+	drawTitle(xy);
+	string text, name, pass;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)201; //╔
+	for (unsigned int i = 0; i <= 36; i++)
+	{
+		cout << (char)205; //═
+	}
+	cout << (char)187 << endl; //╗
+	text = "Login";
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 //║
+		<< setw((38 + text.length()) / 2) << text
+		<< setw(38 - (38 + text.length()) / 2) << (char)186 << endl; //║
+	cout << setw((xy.first - 36) / 2 - 1) << (char)204; //╠
+	for (unsigned int i = 0; i <= 36; i++)
+	{
+		cout << (char)205; //═
+	}
+	cout << (char)185 /*╣*/ << endl;
+
+	text = "UserName:";
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << " " << text << setw(38 - (4 + text.length())) << (char)186 << endl;
+
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)218;
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)196;
+	}
+	cout << (char)191 << setw(4) << (char)186 << endl;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)179 << setw(38 - 8) << (char)179 << setw(4) << (char)186 << endl;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)192;
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)196;
+	}
+	cout << (char)217  << setw(4) << (char)186 << endl;
+	text = "Password:";
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << " " << text << setw(38 - (4 + text.length())) << (char)186 << endl;
+
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)218;
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)196;
+	}
+	cout << (char)191 << setw(4) << (char)186 << endl;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)179 << setw(38 - 8) << (char)179 << setw(4) << (char)186 << endl;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)192;
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)196;
+	}
+	cout << (char)217 << setw(4) << (char)186 << endl;
+
+	cout << setw((xy.first - 36) / 2 - 1) << (char)200;
+	for (unsigned int i = 0; i <= 36; i++)
+	{
+		cout << (char)205;
+	}
+	cout << (char)188 << endl << endl;
+	cursorxy((xy.first - 36) / 2 + 4, 17);
+	getline(cin, name);
+
+	cursorxy((xy.first - 36) / 2 + 4, 21);
+	int x = (xy.first - 36) / 2 + 4;
+	char ch = 0;
+	while (ch != 13) //character 13 is enter
+	{
+		ch = _getch();
+		cursorxy(x, 21);
+		cout << '*';
+		pass.push_back(ch);
+		x++;
+	}
+	cursorxy(0, 24);
+	pair <string, string> userL(name, pass);
+	if (userslogin.find(userL) != userslogin.end())
+	{
+		cout << "Login in Sucess" << endl;
+		system("pause");
+		return true;
+	}
+	else
+	{
+		cout << "Login Fail" << endl;
+		system("pause");
+		throw PlayerNotExistException(name);
+	}
+}
+
 void Casino::addTablesToCasino(vector<Table*> tables)
 {
 	for (size_t i = 0; i < tables.size(); i++) {
@@ -167,6 +256,10 @@ void Casino::setDealersFile(string dealersFile) {
 
 void Casino::setTablesFile(string tablesFile) {
 	this->tablesFile = tablesFile;
+}
+
+void Casino::setUsersFile(string usersFile) {
+	this->usersFile = usersFile;
 }
 
 void Casino::readPlayersFile() {
@@ -385,6 +478,27 @@ void Casino::readTablesFile() {
 	cout << "Fail to read tables file" << endl;
 }
 
+void Casino::readLoginFile() {
+	ifstream inFile(usersFile);
+	string line, name, pass;
+	for (int i = 0; i < 3; i++)
+	{
+		if (inFile.is_open())
+		{
+			while (getline(inFile, line))
+			{
+				name = line.substr(0, line.find(";"));
+				line.erase(0, line.find(";") + 1);
+				pass = line.substr(0, line.find(";"));
+				pair <string, string> user(name, pass);
+				userslogin.insert(user);
+			}
+			return;
+		}
+	}
+	cout << "Fail to read tables file" << endl;
+}
+
 void Casino::savePlayersFile() {
 	ofstream outFile(playersFile);
 	for (int j = 0; j < 3; j++)
@@ -464,6 +578,22 @@ void Casino::saveTablesFile() {
 				{
 					outFile << "}" << endl;
 				}
+			}
+			return;
+		}
+	}
+	cout << "Fail to open tables file" << endl;
+}
+
+void Casino::saveLoginFile() {
+	ofstream outFile(usersFile);
+	for (int i = 0; i < 3; i++)
+	{
+		if (outFile.is_open())
+		{
+			for (loginHash::iterator it = userslogin.begin(); it != userslogin.end(); it++)
+			{
+				outFile << it->first << ";" << it->second << ";" << endl;
 			}
 			return;
 		}

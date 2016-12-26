@@ -1296,6 +1296,8 @@ class Human: public Player {
 private:
 	/** @brief	User identifier. */
 	unsigned int userID;
+	/** @brief	The username. */
+	string username;
 public:
 
 	/**

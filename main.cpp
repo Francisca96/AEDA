@@ -15,14 +15,9 @@ int main(){
 	pair <int, int> xy;
 	xy = centerWindow();
 
-	//users
-	vector <int> usersVEC;
-	int user = 0;
-	Users(usersVEC, user);
-
 	//do the code just here
 	//creat a casino
-	string playersFileName = "players.txt", dealersFileName = "dealers.txt", tablesFileName = "tables.txt";
+	string playersFileName = "players.txt", dealersFileName = "dealers.txt", tablesFileName = "tables.txt", usersFileName = "login.txt";
 	Casino casino(100000);
 
 	//read files names
@@ -37,10 +32,12 @@ int main(){
 	casino.setPlayersFile(playersFileName);
 	casino.setDealersFile(dealersFileName);
 	casino.setTablesFile(tablesFileName);
+	casino.setUsersFile(usersFileName);
 
 	casino.readPlayersFile();
 	casino.readDealersFile();
 	casino.readTablesFile();
+	casino.readLoginFile();
 	/*DEGUB*/
 	/*cout << "Players: " << endl;
 	casino.showPlayers();
@@ -67,6 +64,21 @@ int main(){
 	casino.setTableToPlay(-1);*/
 
 	srand(time(0));
+	int tryNumber = 0;
+	try
+	{
+		casino.login(xy);
+	}
+	catch (PlayerNotExistException)
+	{
+		//TODO: creat new user
+		return 1;
+	}
+
+	//users
+	vector <int> usersVEC;
+	int user = 0;
+	Users(usersVEC, user);
 
 	/*END OF DEBUG*/
 	int choice, exit = 0;
