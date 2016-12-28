@@ -844,7 +844,6 @@ public:
 
 	virtual ostream& saveInfo(ostream& out);
 
-	bool operator<(const Player &p1) const;
 };
 
 /**

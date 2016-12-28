@@ -277,11 +277,6 @@ ostream & Player::saveInfo(ostream & out) {
 	return out;
 }
 
-bool Player::operator<(const Player &p1) const
-{
-	return this->averageProfit < p1.getAverageProfit();
-}
-
 bool Player::takeInsurance(Table &table){
 	return false;
 }
