@@ -543,6 +543,7 @@ void Casino::manage(pair<short, short> xy) {
 			break;
 		case 4:
 			system("cls");
+			addBestPlayers();
 			this->showStatistics();
 			system("pause");
 			break;
@@ -920,11 +921,20 @@ unsigned int Casino::findPlayer(string name) {
 	throw PlayerNotExistException(name);
 }
 
+
+void Casino::addBestPlayers() {
+	for (auto i = players.begin(); i != players.end(); i++) {
+		if ((*i)->getAverageProfit() != 0) {
+			bestPlayers.insert(*i);
+		}
+	}
+}
+
 void Casino::showStatistics() const {
 	cout << "Statistics\n\n\n\n";
 	cout << setw(15) << "NAME" << setw(25) << "BRAIN LEVEL" << setw(15) << "ROUNDS PLAYED" << setw(18) << "AVG. PROFIT" << endl;
-	for (size_t i = 0; i < players.size(); i++) {
-		players.at(i)->showStatistics();
+	for (auto i = bestPlayers.begin(); i != bestPlayers.end(); i++) {
+		(*i)->showStatistics();
 	}
 
 }
@@ -1076,4 +1086,9 @@ TableNotInCasinoException::TableNotInCasinoException(Table * table)
 void TableNotInCasinoException::what()
 {
 	cout << "Table Id." << id << " is not registered in this casino\n";
+}
+
+bool cmpPlayerPointers(Player * p1, Player * p2)
+{
+	return p1->getAverageProfit() <= p2->getAverageProfit();
 }

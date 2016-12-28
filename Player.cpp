@@ -99,6 +99,11 @@ string Player::getName() const
 	return name;
 }
 
+void Player::setAverageProfit(float averageProfit)
+{
+	this->averageProfit = averageProfit;
+}
+
 void Player::setName(string newName)
 {
 	name = newName;
@@ -152,14 +157,6 @@ void Player::addMoney(float value)
 
 void Player::showStatistics()
 {
-	if (roundsPlayed == 0)
-	{
-		averageProfit = 0;
-	}
-	else
-	{
-		averageProfit = (float)((currentMoney - initialMoney) / float(roundsPlayed));
-	}
 	
 	Bot0 *bot0 = dynamic_cast<Bot0*> (this);
 	Bot1 *bot1 = dynamic_cast<Bot1*> (this);
@@ -174,7 +171,7 @@ void Player::showStatistics()
 	else if (bot2 != nullptr) {
 		cout << setw(25 - name.length()) << "2";
 	}
-	cout << setw(15) << roundsPlayed << setw(10) << setprecision(2) <<averageProfit << " $/round\n";
+	cout << setw(15) << roundsPlayed << setw(10) << setprecision(2) << averageProfit << " $/round\n";
 
 }
 
@@ -294,6 +291,9 @@ bool Player::split(Dealer *dealerOfTable){
 }
 
 
+
+
+//////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 Bot0::Bot0(string & line) {
 	line.erase(0, line.find_first_of(";") + 2);
 	this->setName(line.substr(0, line.find_first_of(";")));
@@ -346,7 +346,6 @@ Bot0::Bot0(string & line) {
 	line.erase(0, line.find_first_of(";") + 2);
 }
 
-//////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 Bot0::Bot0(string name, unsigned int initialMoney)
 {
 	this->setOnTable(-1);

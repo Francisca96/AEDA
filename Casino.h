@@ -7,6 +7,7 @@
 #pragma once
 
 #include <vector>
+#include <set>
 #include <iomanip>
 #include <string>
 #include <sstream>
@@ -145,6 +146,12 @@ public:
  * @date	19/11/2016
  */
 
+struct CompareByAverageProfit {
+	bool operator()(Player * lhs,Player * rhs) {
+		return lhs->getAverageProfit() < rhs->getAverageProfit();
+	}
+};
+
 class Casino {
 private:
 	/** @brief	The players file. */
@@ -163,7 +170,12 @@ private:
 	vector<Table *> tables;
 	/** @brief	The players. */
 	vector<Player*> players;
+
+	set<Player *, CompareByAverageProfit> bestPlayers;
 public:
+
+	void Casino::addBestPlayers();
+
 
 	/**
 	 * @fn	Casino::Casino(unsigned int totalMoney);
