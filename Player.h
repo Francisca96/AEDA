@@ -286,6 +286,7 @@ private:
 	int onTable;
 	/** @brief	The actual bet. */
 	int actualBet;
+
 public:
 
 	/**
@@ -508,6 +509,22 @@ public:
 	 */
 
 	string getName() const;
+
+
+	/**
+	* @fn	void setAverageProfit(float averageProfit);
+	*
+	* @brief	Sets the average profit of the player.
+	*
+	* @author	Joao Carvalho
+	* @date	27/12/2016
+	*
+	* @param	averageProfit	Average profit of the player.
+	*/
+
+	void setAverageProfit(float averageProfit);
+
+
 
 	/**
 	 * @fn	void Player::setName(string newName);
@@ -826,6 +843,8 @@ public:
 	*/
 
 	virtual ostream& saveInfo(ostream& out);
+
+	bool operator<(const Player &p1) const;
 };
 
 /**

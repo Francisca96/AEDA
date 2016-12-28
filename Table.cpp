@@ -668,6 +668,12 @@ float Table::closeTable()
 	for (size_t i = 0; i < players.size(); i++) {
 		players.at(i)->resetCount();
 	}
+	//update averageProfits
+	for (auto i = players.begin(); i != players.end(); i++) {
+		float avgProfit = ((float)(*i)->getCurrentMoney() - (*i)->getInitialMoney()) /  (*i)->getRoundsPlayed();
+		(*i)->setAverageProfit(avgProfit);
+	}
+
 	cout << "Table ID." << tableID << " has been CLOSED\n";
 	cout << "Profit of table " << tableID << " : " << setprecision(2) <<moneyOfTable - initialMoney << "$\n";
 	return moneyOfTable;
