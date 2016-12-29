@@ -59,6 +59,19 @@ void cursorxy(short x, short y);
 pair <int, int> centerWindow();
 
 /**
+* @fn	void drawTitle(pair <short, short> xy);
+*
+* @brief	Displays the title.
+*
+* @author	João Carvalho
+* @date	26/12/2016
+*
+* @param 		  	xy	  	A pair containing the horizontal and vertical lengths of the terminal.
+*/
+
+void drawTitle(pair <short, short> xy);
+
+/**
  * @fn	void start_menu(pair <short, short> xy, int &choice);
  *
  * @brief	Displays the main menu.

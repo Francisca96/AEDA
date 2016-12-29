@@ -2,6 +2,33 @@
 
 #include "Casino.h"
 
+bool sortFunctionPlayers(Player *p1, Player *p2){
+	return p1->getName() < p2->getName();
+}
+
+bool sortFunctionTables(Table *t1, Table *t2){
+	return t1->getTableID() < t2->getTableID();
+}
+
+bool sortFunctionDealers(Dealer *d1, Dealer *d2){
+	if (d1->getTableOn() == -1 && d2->getTableOn() != -1)
+	{
+		return true;
+	}
+	else if (d1->getTableOn() == -1 && d2->getTableOn() == -1)
+	{
+		return d1->getID() < d2->getID();
+	}
+	else if (d1->getTableOn() != -1 && d2->getTableOn() != -1)
+	{
+		return d1->getID() < d2->getID();
+	}
+	else
+	{
+		return false;
+	}
+}
+
 Casino::Casino(unsigned int totalMoney)
 {
 	this->totalMoney = totalMoney;
@@ -15,6 +42,99 @@ Casino::Casino(unsigned int totalMoney,vector<Table*> &tablesVector, vector<Play
 		dealers.push_back(tables.at(i)->getDealer());
 	}
 	this->totalMoney = totalMoney;
+}
+
+bool Casino::login(pair<int, int> xy) {
+	drawTitle(xy);
+	string text, name, pass;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)201; //╔
+	for (unsigned int i = 0; i <= 36; i++)
+	{
+		cout << (char)205; //═
+	}
+	cout << (char)187 << endl; //╗
+	text = "Login";
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 //║
+		<< setw((38 + text.length()) / 2) << text
+		<< setw(38 - (38 + text.length()) / 2) << (char)186 << endl; //║
+	cout << setw((xy.first - 36) / 2 - 1) << (char)204; //╠
+	for (unsigned int i = 0; i <= 36; i++)
+	{
+		cout << (char)205; //═
+	}
+	cout << (char)185 /*╣*/ << endl;
+
+	text = "UserName:";
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << " " << text << setw(38 - (4 + text.length())) << (char)186 << endl;
+
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)218;
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)196;
+	}
+	cout << (char)191 << setw(4) << (char)186 << endl;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)179 << setw(38 - 8) << (char)179 << setw(4) << (char)186 << endl;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)192;
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)196;
+	}
+	cout << (char)217  << setw(4) << (char)186 << endl;
+	text = "Password:";
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << " " << text << setw(38 - (4 + text.length())) << (char)186 << endl;
+
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)218;
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)196;
+	}
+	cout << (char)191 << setw(4) << (char)186 << endl;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)179 << setw(38 - 8) << (char)179 << setw(4) << (char)186 << endl;
+	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)192;
+	for (unsigned int i = 0; i <= 28; i++)
+	{
+		cout << (char)196;
+	}
+	cout << (char)217 << setw(4) << (char)186 << endl;
+
+	cout << setw((xy.first - 36) / 2 - 1) << (char)200;
+	for (unsigned int i = 0; i <= 36; i++)
+	{
+		cout << (char)205;
+	}
+	cout << (char)188 << endl << endl;
+	cursorxy((xy.first - 36) / 2 + 4, 17);
+	getline(cin, name);
+
+	cursorxy((xy.first - 36) / 2 + 4, 21);
+	int x = (xy.first - 36) / 2 + 4;
+	char ch = 0;
+	while (ch != 13) //character 13 is enter
+	{
+		ch = _getch();
+		cursorxy(x, 21);
+		cout << '*';
+		pass.push_back(ch);
+		x++;
+	}
+	cursorxy(0, 24);
+	this->userLOGIN.first = name;
+	this->userLOGIN.second = pass;
+	if (userslogin.find(this->userLOGIN) != userslogin.end())
+	{
+		cout << "Login in Sucess" << endl;
+		return true;
+	}
+	else
+	{
+		cout << "Login Fail" << endl;
+		userslogin.insert(this->userLOGIN);
+		throw PlayerNotExistException(name);
+	}
+}
+
+string Casino::getUserLoginName() {
+	return userLOGIN.first;
 }
 
 void Casino::addTablesToCasino(vector<Table*> tables)
@@ -34,6 +154,7 @@ void Casino::addTableToCasino(Table * table)
 		}
 		tables.push_back(table);
 		totalMoney -= table->getInitialMoney();
+		sort(tables.begin(), tables.end(), sortFunctionTables);
 	}
 	catch (ExistingTableException &e) {
 		e.what();
@@ -169,6 +290,10 @@ void Casino::setTablesFile(string tablesFile) {
 	this->tablesFile = tablesFile;
 }
 
+void Casino::setUsersFile(string usersFile) {
+	this->usersFile = usersFile;
+}
+
 void Casino::readPlayersFile() {
 	ifstream inFile(playersFile);
 	string line;
@@ -228,6 +353,7 @@ void Casino::readPlayersFile() {
 					players.push_back(newBot2);
 				}
 			}
+			sort(players.begin(), players.end(), sortFunctionPlayers);
 			return;
 		}
 	}
@@ -312,6 +438,7 @@ void Casino::readTablesFile() {
 					if (dealers.at(i)->getID() == dealerID)
 					{
 						dealerOfTable = dealers.at(i);
+						dealers.at(i)->setTable(tableID);
 						break;
 					}
 				}
@@ -379,6 +506,28 @@ void Casino::readTablesFile() {
 				this->addTableToCasino(newTable);
 			}
 			Table::setNextID(nextID);
+			sort(dealers.begin(), dealers.end(), sortFunctionDealers);
+			return;
+		}
+	}
+	cout << "Fail to read tables file" << endl;
+}
+
+void Casino::readLoginFile() {
+	ifstream inFile(usersFile);
+	string line, name, pass;
+	for (int i = 0; i < 3; i++)
+	{
+		if (inFile.is_open())
+		{
+			while (getline(inFile, line))
+			{
+				name = line.substr(0, line.find(";"));
+				line.erase(0, line.find(";") + 1);
+				pass = line.substr(0, line.find(";"));
+				pair <string, string> user(name, pass);
+				userslogin.insert(user);
+			}
 			return;
 		}
 	}
@@ -464,6 +613,22 @@ void Casino::saveTablesFile() {
 				{
 					outFile << "}" << endl;
 				}
+			}
+			return;
+		}
+	}
+	cout << "Fail to open tables file" << endl;
+}
+
+void Casino::saveLoginFile() {
+	ofstream outFile(usersFile);
+	for (int i = 0; i < 3; i++)
+	{
+		if (outFile.is_open())
+		{
+			for (loginHash::iterator it = userslogin.begin(); it != userslogin.end(); it++)
+			{
+				outFile << it->first << ";" << it->second << ";" << endl;
 			}
 			return;
 		}
@@ -571,9 +736,9 @@ void Casino::create(pair<short, short> xy) {
 				Dealer *dealerOfTable;
 				system("CLS");
 				cout << "Initial Money?" << endl;
-				initialMoney = readUnsignedIntBetween(1000, this->totalMoney);
+				initialMoney = readUnsignedIntBetween(10000, 50000);
 				cout << "Min Bet?" << endl;
-				minBet = readUnsignedIntBetween(1, initialMoney/100);
+				minBet = readUnsignedIntBetween(1, initialMoney/1000);
 				cout << "Max Bet?" << endl;
 				maxBet = readUnsignedIntBetween(minBet, 32*minBet);
 				cout << "Number Max Of Players?" << endl;
