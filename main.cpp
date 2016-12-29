@@ -181,6 +181,7 @@ int main(){
 		casino.savePlayersFile();
 		casino.saveDealersFile();
 		casino.saveTablesFile();
+		casino.saveLoginFile();
 	}
 
 	return 0;
