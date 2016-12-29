@@ -27,7 +27,6 @@ Table::Table(unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable
 	initialMoney = moneyOfTable;
 	tableID = nextID;
 	nextID++;
-	newDealer->setTable(tableID);
 }
 
 Table::~Table() {

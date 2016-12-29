@@ -12,6 +12,7 @@
 #include <string>
 #include <sstream>
 #include <unordered_set>
+#include <queue>
 #include <conio.h>
 #include "Table.h"
 #include "utils.h"

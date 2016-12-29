@@ -38,6 +38,7 @@ int main(){
 	casino.readDealersFile();
 	casino.readTablesFile();
 	casino.readLoginFile();
+
 	/*DEGUB*/
 	/*cout << "Players: " << endl;
 	casino.showPlayers();
@@ -152,7 +153,6 @@ int main(){
 			//TODO: choose table (selection one table to play on simulation or normal mode)
 			try
 			{
-				casino.readTablesFile();
 				casino.selectTable(xy);
 			}
 			catch (TableNotInCasinoException)

@@ -2,6 +2,33 @@
 
 #include "Casino.h"
 
+bool sortFunctionPlayers(Player *p1, Player *p2){
+	return p1->getName() < p2->getName();
+}
+
+bool sortFunctionTables(Table *t1, Table *t2){
+	return t1->getTableID() < t2->getTableID();
+}
+
+bool sortFunctionDealers(Dealer *d1, Dealer *d2){
+	if (d1->getTableOn() == -1 && d2->getTableOn() != -1)
+	{
+		return true;
+	}
+	else if (d1->getTableOn() == -1 && d2->getTableOn() == -1)
+	{
+		return d1->getID() < d2->getID();
+	}
+	else if (d1->getTableOn() != -1 && d2->getTableOn() != -1)
+	{
+		return d1->getID() < d2->getID();
+	}
+	else
+	{
+		return false;
+	}
+}
+
 Casino::Casino(unsigned int totalMoney)
 {
 	this->totalMoney = totalMoney;
@@ -127,6 +154,7 @@ void Casino::addTableToCasino(Table * table)
 		}
 		tables.push_back(table);
 		totalMoney -= table->getInitialMoney();
+		sort(tables.begin(), tables.end(), sortFunctionTables);
 	}
 	catch (ExistingTableException &e) {
 		e.what();
@@ -325,6 +353,7 @@ void Casino::readPlayersFile() {
 					players.push_back(newBot2);
 				}
 			}
+			sort(players.begin(), players.end(), sortFunctionPlayers);
 			return;
 		}
 	}
@@ -409,6 +438,7 @@ void Casino::readTablesFile() {
 					if (dealers.at(i)->getID() == dealerID)
 					{
 						dealerOfTable = dealers.at(i);
+						dealers.at(i)->setTable(tableID);
 						break;
 					}
 				}
@@ -476,6 +506,7 @@ void Casino::readTablesFile() {
 				this->addTableToCasino(newTable);
 			}
 			Table::setNextID(nextID);
+			sort(dealers.begin(), dealers.end(), sortFunctionDealers);
 			return;
 		}
 	}
