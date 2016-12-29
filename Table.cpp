@@ -104,6 +104,10 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 	}
 	cout << "What is your age?" << endl;
 	ageOfPlayer = readUnsignedIntBetween(0, 100);
+	if (ageOfPlayer < 18)
+	{
+		throw TooYoungException();
+	}
 	Human *humanPlayer = new Human(nameOfPlayer, ageOfPlayer, userID);
 
 	//verify if file exist, if not create a file for table
@@ -146,13 +150,25 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 		if (nextPlayerIndex == 0 && phaseOfPlaying == 0)
 		{
 			//TODO: prepare round to play
-			dealerBlackJack = false;
-			actualPlayers = players;
+			actualPlayers.clear();
+			for (size_t i = 0; i < players.size(); i++)
+			{
+				if (players.at(i)->getCurrentMoney() >= minBet)
+				{
+					actualPlayers.push_back(players.at(i));
+				}
+				else if (players.at(i)->getUserID() == userID)
+				{
+					cout << "The" << players.at(i)->getName() << "don't have money to play" << endl;
+					waitXTime(2);
+					exit = true;
+				}
+			}
 			phaseOfPlaying = 1;
 			this->writeTableFile();
 			this->showPlay(xy);
 		}
-		if (nextPlayerIndex == 0 && phaseOfPlaying == 2)
+		if ((nextPlayerIndex == 0 && phaseOfPlaying == 2) && !exit)
 		{
 			restartDeck();
 			dealOneCardToAllPlayers();
@@ -166,7 +182,7 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 		}
 
 		//TODO:implement take insurance
-		if (phaseOfPlaying == 1 || phaseOfPlaying == 3)
+		if ((phaseOfPlaying == 1 || phaseOfPlaying == 3) && !exit)
 		{
 			for (size_t i = nextPlayerIndex; i < actualPlayers.size(); i++)
 			{
@@ -227,7 +243,7 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 						}
 						//TODO: change for playerID after
 						nextPlayerIndex = i + 1;
-						this->writeTableFile();
+						this->writeTableFile();	
 						waitXTime(1);
 						this->showPlay(xy);
 					}
@@ -315,7 +331,6 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 						players.at(i) = actualPlayers.at(i);
 					}
 					players = actualPlayers;
-					actualPlayers.clear();
 					this->writeTableFile();
 				}
 			}
@@ -653,6 +668,12 @@ float Table::closeTable()
 	for (size_t i = 0; i < players.size(); i++) {
 		players.at(i)->resetCount();
 	}
+	//update averageProfits
+	for (auto i = players.begin(); i != players.end(); i++) {
+		float avgProfit = ((float)(*i)->getCurrentMoney() - (*i)->getInitialMoney()) /  (*i)->getRoundsPlayed();
+		(*i)->setAverageProfit(avgProfit);
+	}
+
 	cout << "Table ID." << tableID << " has been CLOSED\n";
 	cout << "Profit of table " << tableID << " : " << setprecision(2) <<moneyOfTable - initialMoney << "$\n";
 	return moneyOfTable;

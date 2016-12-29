@@ -99,6 +99,11 @@ string Player::getName() const
 	return name;
 }
 
+void Player::setAverageProfit(float averageProfit)
+{
+	this->averageProfit = averageProfit;
+}
+
 void Player::setName(string newName)
 {
 	name = newName;
@@ -152,22 +157,21 @@ void Player::addMoney(float value)
 
 void Player::showStatistics()
 {
-	averageProfit = (float)((currentMoney - initialMoney) / float(roundsPlayed));
 	
 	Bot0 *bot0 = dynamic_cast<Bot0*> (this);
 	Bot1 *bot1 = dynamic_cast<Bot1*> (this);
 	Bot2 *bot2 = dynamic_cast<Bot2*> (this);
 	cout << setw(15) << "Bot " << name;
 	if (bot0 != nullptr) {
-		cout << setw(15) << "0";
+		cout << setw(25-name.length()) << "0";
 	}
 	else if (bot1 != nullptr){
-		cout << setw(15) << "1";
+		cout << setw(25 - name.length()) << "1";
 	}
 	else if (bot2 != nullptr) {
-		cout << setw(15) << "2";
+		cout << setw(25 - name.length()) << "2";
 	}
-	cout << setw(15) << roundsPlayed << setw(30) << setprecision(2) <<averageProfit << " $/round\n";
+	cout << setw(15) << roundsPlayed << setw(10) << setprecision(2) << averageProfit << " $/round\n";
 
 }
 
@@ -287,14 +291,17 @@ bool Player::split(Dealer *dealerOfTable){
 }
 
 
+
+
+//////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 Bot0::Bot0(string & line) {
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setName(line.substr(0, line.find_first_of("; ")));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setInitialMoney(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setCurrentMoney(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setName(line.substr(0, line.find_first_of(";")));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setInitialMoney(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setCurrentMoney(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
 	this->clearHand();
 	if (line.at(0) == '{')
 	{
@@ -306,11 +313,11 @@ Bot0::Bot0(string & line) {
 			line.erase(0, line.find_first_of("/") + 1);
 			newCard.suits = line.substr(0, line.find_first_of("/"));
 			line.erase(0, line.find_first_of("/") + 1);
-			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
-			line.erase(0, line.find_first_of("; ") + 2);
+			newCard.score = stoi(line.substr(0, line.find_first_of(";")));
+			line.erase(0, line.find_first_of(";") + 2);
 			this->hit(newCard);
 		}
-		line.erase(0, line.find_first_of("; ") + 2);
+		line.erase(0, line.find_first_of(";") + 2);
 	}
 	this->clearHand2();
 	if (line.at(0) == '{')
@@ -323,23 +330,22 @@ Bot0::Bot0(string & line) {
 			line.erase(0, line.find_first_of("/") + 1);
 			newCard.suits = line.substr(0, line.find_first_of("/"));
 			line.erase(0, line.find_first_of("/") + 1);
-			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
-			line.erase(0, line.find_first_of("; ") + 2);
+			newCard.score = stoi(line.substr(0, line.find_first_of(";")));
+			line.erase(0, line.find_first_of(";") + 2);
 			this->hit2(newCard);
 		}
-		line.erase(0, line.find_first_of("; ") + 2);
+		line.erase(0, line.find_first_of(";") + 2);
 	}
-	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setAge(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setOnTable(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setActualBet(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
+	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setAge(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setOnTable(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setActualBet(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
 }
 
-//////////////////////////////////////////////////// BOT 0 ////////////////////////////////////////////////////
 Bot0::Bot0(string name, unsigned int initialMoney)
 {
 	this->setOnTable(-1);
@@ -493,13 +499,13 @@ Bot1::Bot1(string name, unsigned int initialMoney)
 }
 
 Bot1::Bot1(string & line) {
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setName(line.substr(0, line.find_first_of("; ")));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setInitialMoney(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setCurrentMoney(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setName(line.substr(0, line.find_first_of(";")));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setInitialMoney(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setCurrentMoney(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
 	this->clearHand();
 	if (line.at(0) == '{')
 	{
@@ -511,11 +517,11 @@ Bot1::Bot1(string & line) {
 			line.erase(0, line.find_first_of("/") + 1);
 			newCard.suits = line.substr(0, line.find_first_of("/"));
 			line.erase(0, line.find_first_of("/") + 1);
-			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
-			line.erase(0, line.find_first_of("; ") + 2);
+			newCard.score = stoi(line.substr(0, line.find_first_of(";")));
+			line.erase(0, line.find_first_of(";") + 2);
 			this->hit(newCard);
 		}
-		line.erase(0, line.find_first_of("; ") + 2);
+		line.erase(0, line.find_first_of(";") + 2);
 	}
 	this->clearHand2();
 	if (line.at(0) == '{')
@@ -528,22 +534,22 @@ Bot1::Bot1(string & line) {
 			line.erase(0, line.find_first_of("/") + 1);
 			newCard.suits = line.substr(0, line.find_first_of("/"));
 			line.erase(0, line.find_first_of("/") + 1);
-			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
-			line.erase(0, line.find_first_of("; ") + 2);
+			newCard.score = stoi(line.substr(0, line.find_first_of(";")));
+			line.erase(0, line.find_first_of(";") + 2);
 			this->hit2(newCard);
 		}
-		line.erase(0, line.find_first_of("; ") + 2);
+		line.erase(0, line.find_first_of(";") + 2);
 	}
-	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setAge(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setOnTable(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setActualBet(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->currentCount = stoi(line.substr(0, line.find_first_of("; ")));
-	line.erase(0, line.find_first_of("; ") + 2);
+	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setAge(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setOnTable(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setActualBet(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->currentCount = stoi(line.substr(0, line.find_first_of(";")));
+	line.erase(0, line.find_first_of(";") + 2);
 }
 
 string Bot1::play(Table &table)
@@ -694,13 +700,13 @@ Bot2::Bot2(string name, unsigned int initialMoney)
 }
 
 Bot2::Bot2(string & line) {
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setName(line.substr(0, line.find_first_of("; ")));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setInitialMoney(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setCurrentMoney(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setName(line.substr(0, line.find_first_of(";")));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setInitialMoney(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setCurrentMoney(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
 	this->clearHand();
 	if (line.at(0) == '{')
 	{
@@ -712,11 +718,11 @@ Bot2::Bot2(string & line) {
 			line.erase(0, line.find_first_of("/") + 1);
 			newCard.suits = line.substr(0, line.find_first_of("/"));
 			line.erase(0, line.find_first_of("/") + 1);
-			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
-			line.erase(0, line.find_first_of("; ") + 2);
+			newCard.score = stoi(line.substr(0, line.find_first_of(";")));
+			line.erase(0, line.find_first_of(";") + 2);
 			this->hit(newCard);
 		}
-		line.erase(0, line.find_first_of("; ") + 2);
+		line.erase(0, line.find_first_of(";") + 2);
 	}
 	this->clearHand2();
 	if (line.at(0) == '{')
@@ -729,24 +735,24 @@ Bot2::Bot2(string & line) {
 			line.erase(0, line.find_first_of("/") + 1);
 			newCard.suits = line.substr(0, line.find_first_of("/"));
 			line.erase(0, line.find_first_of("/") + 1);
-			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
-			line.erase(0, line.find_first_of("; ") + 2);
+			newCard.score = stoi(line.substr(0, line.find_first_of(";")));
+			line.erase(0, line.find_first_of(";") + 2);
 			this->hit2(newCard);
 		}
-		line.erase(0, line.find_first_of("; ") + 2);
+		line.erase(0, line.find_first_of(";") + 2);
 	}
-	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setAge(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setOnTable(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setActualBet(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->currentCount = stoi(line.substr(0, line.find_first_of("; ")));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->lastBetValue = stoi(line.substr(0, line.find_first_of("; ")));
-	line.erase(0, line.find_first_of("; ") + 2);
+	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setAge(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setOnTable(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setActualBet(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->currentCount = stoi(line.substr(0, line.find_first_of(";")));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->lastBetValue = stoi(line.substr(0, line.find_first_of(";")));
+	line.erase(0, line.find_first_of(";") + 2);
 }
 
 unsigned int Bot2::bet(Table & table)
@@ -917,13 +923,13 @@ Human::Human(string name, unsigned int age, int userID)
 }
 
 Human::Human(string & line) {
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setName(line.substr(0, line.find_first_of("; ")));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setInitialMoney(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setCurrentMoney(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setName(line.substr(0, line.find_first_of(";")));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setInitialMoney(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setCurrentMoney(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
 	this->clearHand();
 	if (line.at(0) == '{')
 	{
@@ -935,11 +941,11 @@ Human::Human(string & line) {
 			line.erase(0, line.find_first_of("/") + 1);
 			newCard.suits = line.substr(0, line.find_first_of("/"));
 			line.erase(0, line.find_first_of("/") + 1);
-			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
-			line.erase(0, line.find_first_of("; ") + 2);
+			newCard.score = stoi(line.substr(0, line.find_first_of(";")));
+			line.erase(0, line.find_first_of(";") + 2);
 			this->hit(newCard);
 		}
-		line.erase(0, line.find_first_of("; ") + 2);
+		line.erase(0, line.find_first_of(";") + 2);
 	}
 	this->clearHand2();
 	if (line.at(0) == '{')
@@ -952,22 +958,22 @@ Human::Human(string & line) {
 			line.erase(0, line.find_first_of("/") + 1);
 			newCard.suits = line.substr(0, line.find_first_of("/"));
 			line.erase(0, line.find_first_of("/") + 1);
-			newCard.score = stoi(line.substr(0, line.find_first_of("; ")));
-			line.erase(0, line.find_first_of("; ") + 2);
+			newCard.score = stoi(line.substr(0, line.find_first_of(";")));
+			line.erase(0, line.find_first_of(";") + 2);
 			this->hit2(newCard);
 		}
-		line.erase(0, line.find_first_of("; ") + 2);
+		line.erase(0, line.find_first_of(";") + 2);
 	}
-	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setAge(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setOnTable(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->setActualBet(stoi(line.substr(0, line.find_first_of("; "))));
-	line.erase(0, line.find_first_of("; ") + 2);
-	this->userID = stoi(line.substr(0, line.find_first_of("; ")));
-	line.erase(0, line.find_first_of("; ") + 2);
+	this->setRoundsPlayed(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setAge(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setOnTable(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->setActualBet(stoi(line.substr(0, line.find_first_of(";"))));
+	line.erase(0, line.find_first_of(";") + 2);
+	this->userID = stoi(line.substr(0, line.find_first_of(";")));
+	line.erase(0, line.find_first_of(";") + 2);
 }
 
 

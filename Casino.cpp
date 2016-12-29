@@ -326,21 +326,53 @@ void Casino::readTablesFile() {
 						{
 							Player *playerReaded = new Bot0(line);
 							newTable->addPlayer(playerReaded);
+							try
+							{
+								players.at(findPlayer(playerReaded->getName())) = playerReaded;
+							}
+							catch (PlayerNotExistException)
+							{
+								addPlayerToCasino(playerReaded);
+							}
 						}
 						else if (line.substr(0, 1) == "1")
 						{
 							Player *playerReaded = new Bot1(line);
 							newTable->addPlayer(playerReaded);
+							try
+							{
+								players.at(findPlayer(playerReaded->getName())) = playerReaded;
+							}
+							catch (PlayerNotExistException)
+							{
+								addPlayerToCasino(playerReaded);
+							}
 						}
 						else if (line.substr(0, 1) == "2")
 						{
 							Player *playerReaded = new Bot2(line);
 							newTable->addPlayer(playerReaded);
+							try
+							{
+								players.at(findPlayer(playerReaded->getName())) = playerReaded;
+							}
+							catch (PlayerNotExistException)
+							{
+								addPlayerToCasino(playerReaded);
+							}
 						}
 						else if (line.substr(0, 1) == "3")
 						{
 							Player *playerReaded = new Human(line);
 							newTable->addPlayer(playerReaded);
+							try
+							{
+								players.at(findPlayer(playerReaded->getName())) = playerReaded;
+							}
+							catch (PlayerNotExistException)
+							{
+								addPlayerToCasino(playerReaded);
+							}
 						}
 					}
 				}
@@ -510,7 +542,10 @@ void Casino::manage(pair<short, short> xy) {
 			}
 			break;
 		case 4:
-			//TODO: this->stats(xy);
+			system("cls");
+			addBestPlayers();
+			this->showStatistics();
+			system("pause");
 			break;
 		default:
 			break;
@@ -886,11 +921,20 @@ unsigned int Casino::findPlayer(string name) {
 	throw PlayerNotExistException(name);
 }
 
+
+void Casino::addBestPlayers() {
+	for (auto i = players.begin(); i != players.end(); i++) {
+		if ((*i)->getAverageProfit() != 0) {
+			bestPlayers.insert(*i);
+		}
+	}
+}
+
 void Casino::showStatistics() const {
 	cout << "Statistics\n\n\n\n";
-	cout << setw(15) << "NAME" << setw(15) << "BRAIN LEVEL" << setw(15) << "ROUNDS PLAYED" << setw(30) << "AVG. PROFIT" << endl;
-	for (size_t i = 0; i < players.size(); i++) {
-		players.at(i)->showStatistics();
+	cout << setw(15) << "NAME" << setw(25) << "BRAIN LEVEL" << setw(15) << "ROUNDS PLAYED" << setw(18) << "AVG. PROFIT" << endl;
+	for (auto i = bestPlayers.begin(); i != bestPlayers.end(); i++) {
+		(*i)->showStatistics();
 	}
 
 }
@@ -1007,7 +1051,7 @@ void Casino::showTables(pair <short, short> xy) {
 		coordXY.first += 32;
 		if (coordXY.first + 32 > xy.first)
 		{
-			coordXY.first = (xy.first % 32) / 2;
+			coordXY.first = (xy.first % 32) / 2 - 1;
 			coordXY.second += 14;
 		}
 	}
@@ -1042,4 +1086,9 @@ TableNotInCasinoException::TableNotInCasinoException(Table * table)
 void TableNotInCasinoException::what()
 {
 	cout << "Table Id." << id << " is not registered in this casino\n";
+}
+
+bool cmpPlayerPointers(Player * p1, Player * p2)
+{
+	return p1->getAverageProfit() <= p2->getAverageProfit();
 }
