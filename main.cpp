@@ -64,17 +64,17 @@ int main(){
 	casino.setTableToPlay(-1);*/
 
 	srand(time(0));
+
 	int tryNumber = 0;
 	try
 	{
-		casino.login(xy);
+			casino.login(xy);
 	}
 	catch (PlayerNotExistException)
 	{
-		//TODO: creat new user
-		return 1;
+		cout << "Created new account" << endl;
+		system("pause");
 	}
-
 	//users
 	vector <int> usersVEC;
 	int user = 0;
@@ -94,7 +94,7 @@ int main(){
 			//TODO: play (game run in normal mode with a human player)
 			try
 			{
-				casino.getTableToPlay()->play(xy, user);
+				casino.getTableToPlay()->play(xy, user, casino.getUserLoginName());
 				system("pause");
 			}
 			catch (TableNotInCasinoException)

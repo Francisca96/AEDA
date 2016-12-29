@@ -187,6 +187,8 @@ private:
 	vector<Player*> players;
 	/** @brief	The users. */
 	loginHash userslogin;
+	/** @brief	The users actual logged */
+	pair <string, string> userLOGIN;
 public:
 
 	/**
@@ -229,6 +231,18 @@ public:
 	*/
 
 	bool login(pair<int, int> xy);
+
+	/**
+	* @fn	string getUserLoginName();
+	*
+	* @brief	login system.
+	*
+	* @author	João Carvalho
+	* @date	26/12/2016
+	*
+	*/
+
+	string getUserLoginName();
 
 	/**
 	 * @fn	void Casino::addTablesToCasino(vector<Table*> tables);

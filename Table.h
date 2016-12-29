@@ -285,7 +285,7 @@ public:
 	 * @date	18/11/2016
 	 */
 
-	void play(pair <short, short> xy, unsigned int userID);
+	void play(pair <short, short> xy, unsigned int userID, string userName);
 
 	/**
 	 * @fn	void Table::simulation(unsigned int roundsLeft);

@@ -91,19 +91,23 @@ bool Casino::login(pair<int, int> xy) {
 		x++;
 	}
 	cursorxy(0, 24);
-	pair <string, string> userL(name, pass);
-	if (userslogin.find(userL) != userslogin.end())
+	this->userLOGIN.first = name;
+	this->userLOGIN.second = pass;
+	if (userslogin.find(this->userLOGIN) != userslogin.end())
 	{
 		cout << "Login in Sucess" << endl;
-		system("pause");
 		return true;
 	}
 	else
 	{
 		cout << "Login Fail" << endl;
-		system("pause");
+		userslogin.insert(this->userLOGIN);
 		throw PlayerNotExistException(name);
 	}
+}
+
+string Casino::getUserLoginName() {
+	return userLOGIN.first;
 }
 
 void Casino::addTablesToCasino(vector<Table*> tables)

@@ -83,7 +83,7 @@ void Table::removePlayer(string &name) {
 	throw PlayerIsntOnTableException(name);
 }
 
-void Table::play(pair <short, short> xy, unsigned int userID) {
+void Table::play(pair <short, short> xy, unsigned int userID, string userName) {
 	system("cls");
 	stringstream sstream;
 	string tableFILE;
@@ -95,20 +95,14 @@ void Table::play(pair <short, short> xy, unsigned int userID) {
 	}
 
 	//create human player
-	string nameOfPlayer = "";
 	unsigned int ageOfPlayer;
-	cout << "What is your name?" << endl;
-	while (nameOfPlayer.length() == 0)
-	{
-		getline(cin, nameOfPlayer);
-	}
 	cout << "What is your age?" << endl;
 	ageOfPlayer = readUnsignedIntBetween(0, 100);
 	if (ageOfPlayer < 18)
 	{
 		throw TooYoungException();
 	}
-	Human *humanPlayer = new Human(nameOfPlayer, ageOfPlayer, userID);
+	Human *humanPlayer = new Human(userName, ageOfPlayer, userID);
 
 	//verify if file exist, if not create a file for table
 	sstream << this->tableID;
