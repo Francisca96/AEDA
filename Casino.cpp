@@ -113,9 +113,23 @@ bool Casino::login(pair<int, int> xy) {
 	{
 		ch = _getch();
 		cursorxy(x, 21);
-		cout << '*';
-		pass.push_back(ch);
-		x++;
+		if (ch == 8)
+		{
+			if (!pass.empty())
+			{
+				x--;
+				cursorxy(x, 21);
+				cout << ' ';
+				cursorxy(x, 21);
+				pass.pop_back();
+			}
+		}
+		else
+		{
+			cout << '*';
+			pass.push_back(ch);
+			x++;
+		}
 	}
 	cursorxy(0, 24);
 	this->userLOGIN.first = name;
@@ -721,6 +735,12 @@ void Casino::manage(pair<short, short> xy) {
 void Casino::create(pair<short, short> xy) {
 	unsigned int exit = 0;
 	unsigned int choice;
+
+	string text, name, pass;
+	int x = (xy.first - 36) / 2 + 4;
+	char ch = 0;
+	pair <string, string> newUser;
+	loginHash::iterator it;
 	while (!exit)
 	{
 		createMenu(xy, choice);
@@ -830,6 +850,100 @@ void Casino::create(pair<short, short> xy) {
 				system("pause");
 			}
 			break;
+		case 4:
+			system("CLS");
+			cout << setw((xy.first - 36) / 2 - 1) << (char)201; //╔
+			for (unsigned int i = 0; i <= 36; i++)
+			{
+				cout << (char)205; //═
+			}
+			cout << (char)187 << endl; //╗
+			text = "Login";
+			cout << setw((xy.first - 36) / 2 - 1) << (char)186 //║
+				<< setw((38 + text.length()) / 2) << text
+				<< setw(38 - (38 + text.length()) / 2) << (char)186 << endl; //║
+			cout << setw((xy.first - 36) / 2 - 1) << (char)204; //╠
+			for (unsigned int i = 0; i <= 36; i++)
+			{
+				cout << (char)205; //═
+			}
+			cout << (char)185 /*╣*/ << endl;
+			text = "UserName:";
+			cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << " " << text << setw(38 - (4 + text.length())) << (char)186 << endl;
+							cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)218;
+			for (unsigned int i = 0; i <= 28; i++)
+			{
+				cout << (char)196;
+			}
+			cout << (char)191 << setw(4) << (char)186 << endl;
+			cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)179 << setw(38 - 8) << (char)179 << setw(4) << (char)186 << endl;
+			cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)192;
+			for (unsigned int i = 0; i <= 28; i++)
+			{
+				cout << (char)196;
+			}
+			cout << (char)217 << setw(4) << (char)186 << endl;
+			text = "Password:";
+			cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << " " << text << setw(38 - (4 + text.length())) << (char)186 << endl;
+							cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)218;
+			for (unsigned int i = 0; i <= 28; i++)
+			{
+				cout << (char)196;
+			}
+			cout << (char)191 << setw(4) << (char)186 << endl;
+			cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)179 << setw(38 - 8) << (char)179 << setw(4) << (char)186 << endl;
+			cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)192;
+			for (unsigned int i = 0; i <= 28; i++)
+			{
+				cout << (char)196;
+			}
+			cout << (char)217 << setw(4) << (char)186 << endl;
+			cout << setw((xy.first - 36) / 2 - 1) << (char)200;
+			for (unsigned int i = 0; i <= 36; i++)
+			{
+				cout << (char)205;
+			}
+			cout << (char)188 << endl << endl;
+			cursorxy((xy.first - 36) / 2 + 4, 5);
+			getline(cin, name);
+			cursorxy((xy.first - 36) / 2 + 4, 9);
+			while (ch != 13) //character 13 is enter
+			{
+				ch = _getch();
+				cursorxy(x, 9);
+				if (ch == 8)
+				{
+					if (!pass.empty())
+					{
+						x--;
+						cursorxy(x, 9);
+						cout << ' ' ;
+						cursorxy(x, 9);
+						pass.pop_back();
+					}
+				}
+				else
+				{
+					cout << '*';
+					pass.push_back(ch);
+					x++;
+				}
+			}
+			cursorxy(0, 24);
+			newUser.first = name;
+			newUser.second = pass;
+			it = userslogin.find(newUser);
+			if (it == userslogin.end())
+			{
+				userslogin.insert(newUser);
+				cout << "Account was created with success!" << endl;
+				system("pause");
+			}
+			else{
+				cout << "Account wasn't created with success!" << endl;
+				system("pause");
+			}
+			break;
 		default:
 			break;
 		}
@@ -912,6 +1026,60 @@ void Casino::eliminate(pair<short, short> xy) {
 				cout << "The player wasn´t deleted with success" << endl;
 				cout << "The player still on table : " << player.getTableId() << " please remove from table first" << endl;
 				system("pause");
+			}
+			break;
+		case 4:
+			try
+			{
+				system("cls");
+				cout << "How many accounts do you want to show?" << endl;
+				int n;
+				stringstream ss;
+				string line;
+				getline(cin, line);
+				ss << line;
+				ss >> n;
+				this->showUsers(n);
+				cout << "What is the username?" << endl;
+				string name;
+				getline(cin, name);
+				cout << "What is the password?" << endl;
+				string pass;
+				getline(cin, pass);
+				pair<string, string> user(name, pass);
+				loginHash::iterator it = userslogin.find(user);
+				if (it != userslogin.end())
+				{
+					cout << "Do you want remove(0)/edit(1)?" << endl;
+					stringstream ss2;
+					string line2;
+					getline(cin, line2);
+					ss2 << line2;
+					ss2 >> n;
+					if (n == 0)
+					{
+						userslogin.erase(it);
+						cout << "Account was removed with success!" << endl;
+						system("pause");
+					}
+					else if(n == 1) {
+						cout << "What is the new password?" << endl;
+						getline(cin, pass);
+						pair<string, string> newUser(name, pass);
+						userslogin.erase(it);
+						userslogin.insert(newUser);
+					}
+				}
+				else
+				{
+					cout << "Account wasn´t removed with success!" << endl;
+					system("pause");
+				}
+
+			}
+			catch (exception& e)
+			{
+				cout << e.what() << endl;
 			}
 			break;
 		default:
@@ -1100,6 +1268,48 @@ void Casino::addBestPlayers() {
 			bestPlayers.insert(*i);
 		}
 	}
+}
+
+void Casino::showUsers(int n) {
+	system("cls");
+	string text, name;
+	stringstream sstext;
+	int i = 0;
+	cout << (char)218; //┌
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)196; //─
+	}
+	cout << (char)191 << endl; //┐
+	cout << (char)179; //│
+	cout << setw((50 + 13) / 2 + 1) << "Accounts Info" << setw(50 - (50 + 13) / 2 + 1) << (char)179 << endl;
+	cout << (char)195; //├
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)196; //─
+	}
+	cout << (char)180 << endl; //┤
+	cout << (char)179; //│
+	cout << setw(13) << "username" << setw(21) << "pass" << setw(18) << (char)179 << endl;
+	cout << (char)195; //├
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)196; //─
+	}
+	cout << (char)180 << endl; //┤
+	for (loginHash::iterator it = userslogin.begin(); it != userslogin.end() && i < n; it++)
+	{
+		i++;
+		name = it->first;
+		text = it->second;
+		cout << setw(5) << " " << name << setw(26-name.length()) << " " << text << endl;
+	}
+	cout << (char)192; //└
+	for (unsigned int i = 0; i <= 50; i++)
+	{
+		cout << (char)196; //─
+	}
+	cout << (char)217 << endl; //┘
 }
 
 void Casino::showStatistics() const {

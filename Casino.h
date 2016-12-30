@@ -226,7 +226,19 @@ private:
 public:
 
 	void Casino::addBestPlayers();
+	
+	/**
+	* @fn	void showUsers(int n);
+	*
+	* @brief	Display accounts infos.
+	*
+	* @author	Joao Carvalho
+	* @date	30/12/2016
+	*
+	* @param	totalMoney	The total money.
+	*/
 
+	void showUsers(int n);
 
 	/**
 	 * @fn	Casino::Casino(unsigned int totalMoney);
