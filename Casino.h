@@ -38,6 +38,30 @@ struct userLoginHash
 
 typedef unordered_set< pair<string, string>, userLoginHash, userLoginHash> loginHash;
 
+struct dealersComparasion
+{
+	bool operator() (const Dealer* d1, const Dealer* d2) const {
+		if (d1->getTableOn() == -1 && d2->getTableOn() != -1)
+		{
+			return false;
+		}
+		else if (d1->getTableOn() == -1 && d2->getTableOn() == -1)
+		{
+			return d1->getID() > d2->getID();
+		}
+		else if (d1->getTableOn() != -1 && d2->getTableOn() != -1)
+		{
+			return d1->getID() > d2->getID();
+		}
+		else
+		{
+			return true;
+		}
+	}
+};
+
+typedef priority_queue< Dealer*, vector<Dealer*>, dealersComparasion> dealersPriority;
+
 /**
  * @class	PlayerNotLoggedException
  *

@@ -734,6 +734,11 @@ void Casino::create(pair<short, short> xy) {
 			{
 				unsigned int minBet, maxBet, numberMaxOfPlayer, initialMoney, dealerID, found = 0;
 				Dealer *dealerOfTable;
+				dealersPriority dq;
+				for (size_t i = 0; i < dealers.size(); i++)
+				{
+					dq.push(dealers.at(i));
+				}
 				system("CLS");
 				cout << "Initial Money?" << endl;
 				initialMoney = readUnsignedIntBetween(10000, 50000);
@@ -744,8 +749,10 @@ void Casino::create(pair<short, short> xy) {
 				cout << "Number Max Of Players?" << endl;
 				numberMaxOfPlayer = readUnsignedIntBetween(1, 6);
 				this->showDealers(xy);
-				dealerID = readUnsignedInt();
-				dealerOfTable = dealers.at(this->findDealer(dealerID));
+				dealerID = dq.top()->getID();
+				cout << "The dealers with ID: " << dealerID << " will be set for this table" << endl;
+				dealerOfTable = dq.top();
+				
 				if (dealerOfTable->getTableOn() == -1)
 				{
 					Table *newTable = new Table(minBet, maxBet, initialMoney, numberMaxOfPlayer, dealerOfTable);
@@ -1157,6 +1164,11 @@ void Casino::showPlayers(pair <short, short> xy) const {
 
 void Casino::showDealers(pair <short, short> xy ) const {
 	system("cls");
+	dealersPriority dq;
+	for (size_t i = 0; i < dealers.size(); i++)
+	{
+		dq.push(dealers.at(i));
+	}
 	string text;
 	stringstream sstext;
 	cout << setw((xy.first - 50) / 2 - 1) << (char)218; //┌
@@ -1181,20 +1193,21 @@ void Casino::showDealers(pair <short, short> xy ) const {
 		cout << (char)196; //─
 	}
 	cout << (char)180 << endl; //┤
-	for (size_t i = 0; i < dealers.size(); i++)
+	while (!dq.empty())
 	{
 		cout << setw((xy.first - 50) / 2 - 1) << (char)179; //│
-		if (dealers.at(i)->getTableOn() != -1)
+		if (dq.top()->getTableOn() != -1)
 		{
 			sstext.clear();
-			sstext << dealers.at(i)->getTableOn();
+			sstext << dq.top()->getTableOn();
 			sstext >> text;
 		}
 		else
 		{
 			text = "Dealer isn't allocated";
 		}
-		cout << setw(10) << dealers.at(i)->getID() << setw(7) << " " << text << setw(35-text.length()) << (char)179 << endl;
+		cout << setw(10) << dq.top()->getID() << setw(7) << " " << text << setw(35-text.length()) << (char)179 << endl;
+		dq.pop();
 	}
 	cout << setw((xy.first - 50) / 2 - 1) << (char)192; //└
 	for (unsigned int i = 0; i <= 50; i++)
