@@ -169,7 +169,7 @@ public:
 
 struct CompareByAverageProfit {
 	bool operator()(Player * lhs,Player * rhs) {
-		return lhs->getAverageProfit() < rhs->getAverageProfit();
+		return lhs->getAverageProfit() > rhs->getAverageProfit();
 	}
 };
 
