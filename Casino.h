@@ -159,19 +159,114 @@ public:
 };
 
 /**
- * @class	Casino
- *
- * @brief	A casino.
- *
- * @author	Ineeve
- * @date	19/11/2016
- */
+* @struct	CompareByAverageProfit
+*
+* @brief	Used to compare players by their average profit.
+*
+* @author	Renato Campos
+* @date	30/12/2016
+*/
+
 
 struct CompareByAverageProfit {
-	bool operator()(Player * lhs,Player * rhs) {
+	bool operator()(Player * lhs,Player * rhs) const {
 		return lhs->getAverageProfit() > rhs->getAverageProfit();
 	}
 };
+
+/**
+* @struct	CompareByAge
+*
+* @brief	Used to compare players by their age. Players with same age are compared by name.
+*
+* @author	Renato Campos
+* @date	30/12/2016
+*/
+
+
+struct CompareByAge {
+	bool operator()(Player *lhs, Player * rhs) const {
+		if (lhs->getAge() == rhs->getAge()) {
+			return lhs->getName() < rhs->getName();
+		}
+		else { 
+			return lhs->getAge() < rhs->getAge();
+		}
+	}
+};
+
+/**
+* @struct	CompareByName
+*
+* @brief	Used to compare players by their name.
+*
+* @author	Renato Campos
+* @date	30/12/2016
+*/
+
+
+struct CompareByName {
+	bool operator()(Player *lhs, Player * rhs) const {
+		return lhs->getName() < rhs->getName();
+	}
+};
+
+/**
+* @struct	CompareByIntelligence
+*
+* @brief	Used to compare players by their intelligence.
+*
+* @author	Renato Campos
+* @date	30/12/2016
+*/
+
+
+struct CompareByIntelligence {
+	bool operator()(Player *lhs, Player * rhs) const {
+		Bot0 *bot0l = dynamic_cast<Bot0*> (lhs);
+		Bot1 *bot1l = dynamic_cast<Bot1*> (lhs);
+		Bot2 *bot2l = dynamic_cast<Bot2*> (lhs);
+		Human *humanl = dynamic_cast<Human*> (lhs);
+		Bot0 *bot0r = dynamic_cast<Bot0*> (rhs);
+		Bot1 *bot1r = dynamic_cast<Bot1*> (rhs);
+		Bot2 *bot2r = dynamic_cast<Bot2*> (rhs);
+		Human *humanr = dynamic_cast<Human*> (rhs);
+		if (bot0l != nullptr && bot0r != nullptr) {
+			return bot0l->getName() < bot0r->getName();
+		}
+		else if (bot1l != nullptr && bot1r != nullptr) {
+			return bot1l->getName() < bot1r->getName();
+		}
+		else if (bot2l != nullptr && bot2r != nullptr) {
+			return bot2l->getName() < bot2r->getName();
+		}
+		else if (humanl != nullptr && humanr != nullptr) {
+			return humanl->getName() < humanr->getName();
+		}
+		else if (bot0l != nullptr ) {
+			return true;
+		}
+		else if (bot1l != nullptr && (bot2r != nullptr || humanr != nullptr)) {
+			return true;
+		}
+		else if (bot2l != nullptr && humanr != nullptr) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+};
+
+
+/**
+* @class	Casino
+*
+* @brief	A casino.
+*
+* @author	Ineeve
+* @date	19/11/2016
+*/
 
 class Casino {
 private:
@@ -197,11 +292,13 @@ private:
 	loginHash userslogin;
 	/** @brief	The users actual logged */
 	pair <string, string> userLOGIN;
-
+	//* @brief Binary Search Tree ordered to display the players */
 	set<Player *, CompareByAverageProfit> bestPlayers;
+	//* @brief */
 public:
 
-	void Casino::addBestPlayers();
+
+	
 
 
 	/**
@@ -530,15 +627,35 @@ public:
 	void saveLoginFile();
 
 	/**
+	* @fn	void Casino::fillBestPlayersSet();
+	*
+	* @brief	Fills best players set with player that have played at least 1 round.
+	* @author	Ineeve
+	* @date	30/12/2016
+	*/
+
+	void fillBestPlayersSet();
+
+	/**
 	 * @fn	void Casino::showStatistics() const;
 	 *
 	 * @brief	Displays casino's statistics in a user friendly way on the terminal.
-	 *
+	 * @param	numberOfPlayersToShow Number of players to display.
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 */
+	template <class T>
+	void showStatistics(set<Player*, T> setOfPlayers,int numberOfPlayersToShow) const;
 
-	void showStatistics() const;
+	/**
+	* @fn	void Casino::showStatisctisMenu();
+	*
+	* @brief	Lets user select the order that the players will be dispayed on the scoreboard.
+	* @author	Ineeve
+	* @date	30/12/2016
+	*/
+
+	void showStatisticsMenu(pair<short, short> xy);
 
 	/**
 	 * @fn	void Casino::showPlayers(pair <short, short> xy) const;
@@ -730,3 +847,26 @@ public:
 
 	unsigned int findPlayer(string name);
 };
+
+template<class T>
+void Casino::showStatistics(set<Player*,T> setOfPlayers, int numberOfPlayersToShow) const
+{
+	int userInput;
+	system("CLS");
+	cout << "Statistics\n\n\n\n";
+	cout << setw(15) << "NAME" << setw(25) << "BRAIN LEVEL" << setw(15) << "ROUNDS PLAYED" << setw(18) << "AVG. PROFIT" << setw(15) << "AGE" << endl;
+	int counter = 0;
+	for (auto i = setOfPlayers.begin(); i != setOfPlayers.end(); i++) {
+		if (counter >= numberOfPlayersToShow) {
+			break;
+		}
+		(*i)->showStatistics();
+		counter++;
+	}
+	cout << "0. Back\n";
+	while ((userInput = readInt()) != 0) {
+		cout << "Please insert a valid option\n";
+	}
+	return;
+	
+}

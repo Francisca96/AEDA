@@ -157,7 +157,6 @@ void Player::addMoney(float value)
 
 void Player::showStatistics()
 {
-	
 	Bot0 *bot0 = dynamic_cast<Bot0*> (this);
 	Bot1 *bot1 = dynamic_cast<Bot1*> (this);
 	Bot2 *bot2 = dynamic_cast<Bot2*> (this);
@@ -171,8 +170,9 @@ void Player::showStatistics()
 	else if (bot2 != nullptr) {
 		cout << setw(25 - name.length()) << "2";
 	}
-	cout << setw(15) << roundsPlayed << setw(10) << setprecision(2) << averageProfit << " $/round\n";
-
+	cout << setw(15) << roundsPlayed << setw(10) << setprecision(2) << averageProfit << " $/rnd" <<setw(15) << age << "\n";
+	
+	
 }
 
 unsigned int Player::bet(Table &table)

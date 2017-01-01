@@ -2,15 +2,15 @@
 
 #include "Casino.h"
 
-bool sortFunctionPlayers(Player *p1, Player *p2){
+bool sortFunctionPlayers(Player *p1, Player *p2) {
 	return p1->getName() < p2->getName();
 }
 
-bool sortFunctionTables(Table *t1, Table *t2){
+bool sortFunctionTables(Table *t1, Table *t2) {
 	return t1->getTableID() < t2->getTableID();
 }
 
-bool sortFunctionDealers(Dealer *d1, Dealer *d2){
+bool sortFunctionDealers(Dealer *d1, Dealer *d2) {
 	if (d1->getTableOn() == -1 && d2->getTableOn() != -1)
 	{
 		return true;
@@ -34,7 +34,7 @@ Casino::Casino(unsigned int totalMoney)
 	this->totalMoney = totalMoney;
 }
 
-Casino::Casino(unsigned int totalMoney,vector<Table*> &tablesVector, vector<Player *> &playersVector)
+Casino::Casino(unsigned int totalMoney, vector<Table*> &tablesVector, vector<Player *> &playersVector)
 {
 	addTablesToCasino(tablesVector);
 	addPlayersToCasino(playersVector);
@@ -79,7 +79,7 @@ bool Casino::login(pair<int, int> xy) {
 	{
 		cout << (char)196;
 	}
-	cout << (char)217  << setw(4) << (char)186 << endl;
+	cout << (char)217 << setw(4) << (char)186 << endl;
 	text = "Password:";
 	cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << " " << text << setw(38 - (4 + text.length())) << (char)186 << endl;
 
@@ -212,7 +212,7 @@ void Casino::addPlayersToCasino(vector<Player*>& newPlayers)
 void Casino::addPlayersToTable(vector<Player*>& playersVector, Table * table)
 {
 	for (size_t i = 0; i < playersVector.size(); i++) {
-		addPlayerToTable(playersVector.at(i),table);
+		addPlayerToTable(playersVector.at(i), table);
 	}
 }
 
@@ -240,7 +240,7 @@ void Casino::addPlayerToTable(Player * player1, Table * table)
 		if (foundPlayer == false) {
 			throw PlayerNotLoggedException(player1);
 		}
-		
+
 	}
 	catch (TooManyPlayersException &e) {
 		e.what();
@@ -312,7 +312,7 @@ void Casino::readPlayersFile() {
 			{
 				player = line.substr(0, line.find_first_of(" ; "));
 				line.erase(0, line.find_first_of(" ; ") + 3);
-				name = line.substr(0, line.find_first_of(";")-1);
+				name = line.substr(0, line.find_first_of(";") - 1);
 				line.erase(0, line.find_first_of(";") + 2);
 				initialMoney = stoi(line.substr(0, line.find_first_of(" ; ")), nullptr, 10);
 				line.erase(0, line.find_first_of(" ; ") + 3);
@@ -708,8 +708,8 @@ void Casino::manage(pair<short, short> xy) {
 			break;
 		case 4:
 			system("cls");
-			addBestPlayers();
-			this->showStatistics();
+			fillBestPlayersSet();
+			this->showStatisticsMenu(xy);
 			system("pause");
 			break;
 		default:
@@ -738,9 +738,9 @@ void Casino::create(pair<short, short> xy) {
 				cout << "Initial Money?" << endl;
 				initialMoney = readUnsignedIntBetween(10000, 50000);
 				cout << "Min Bet?" << endl;
-				minBet = readUnsignedIntBetween(1, initialMoney/1000);
+				minBet = readUnsignedIntBetween(1, initialMoney / 1000);
 				cout << "Max Bet?" << endl;
-				maxBet = readUnsignedIntBetween(minBet, 32*minBet);
+				maxBet = readUnsignedIntBetween(minBet, 32 * minBet);
 				cout << "Number Max Of Players?" << endl;
 				numberMaxOfPlayer = readUnsignedIntBetween(1, 6);
 				this->showDealers(xy);
@@ -1087,21 +1087,68 @@ unsigned int Casino::findPlayer(string name) {
 }
 
 
-void Casino::addBestPlayers() {
+void Casino::fillBestPlayersSet() {
 	for (auto i = players.begin(); i != players.end(); i++) {
-		if ((*i)->getAverageProfit() != 0) {
-			bestPlayers.insert(*i);
+		if (bestPlayers.find((*i)) == bestPlayers.end() && (*i)->getRoundsPlayed() > 0) {
+			bestPlayers.insert((*i));
 		}
 	}
 }
 
-void Casino::showStatistics() const {
-	cout << "Statistics\n\n\n\n";
-	cout << setw(15) << "NAME" << setw(25) << "BRAIN LEVEL" << setw(15) << "ROUNDS PLAYED" << setw(18) << "AVG. PROFIT" << endl;
-	for (auto i = bestPlayers.begin(); i != bestPlayers.end(); i++) {
-		(*i)->showStatistics();
-	}
 
+void Casino::showStatisticsMenu(pair<short, short> xy)
+{
+
+	set<Player*, CompareByAge> setByAge;
+	set<Player*, CompareByName> setByName;
+	set<Player*, CompareByIntelligence> setBySmart;
+	int r, exit = 0;
+	unsigned int choice;
+	int numberOfPlayers;
+	
+	while (!exit)
+	{
+		statisticsMenu(xy, choice);
+		numberOfPlayers = bestPlayers.size();
+		if (choice != 0) {
+			cout << "How many players do you want to see? ";
+			if ((r = readIntBetween(0,65536)) < numberOfPlayers) {
+				numberOfPlayers = r;
+			}
+		}
+		switch (choice)
+		{
+		case 0: //break
+			exit = 1;
+			break;
+		case 1: //Order by avg.profit
+			showStatistics(bestPlayers, numberOfPlayers);
+			break;
+		case 2: //Order by age
+
+			for (auto i = bestPlayers.begin(); i != bestPlayers.end(); i++) {
+					setByAge.insert((*i));
+			}
+			showStatistics(setByAge, numberOfPlayers);
+			break;
+		case 3: //Order by name
+
+			for (auto i = bestPlayers.begin(); i != bestPlayers.end(); i++) {
+				setByName.insert((*i));
+			}
+			showStatistics(setByName, numberOfPlayers);
+			break;
+		case 4: //Order by Intelligence
+
+			for (auto i = bestPlayers.begin(); i != bestPlayers.end(); i++) {
+				setBySmart.insert((*i));
+			}
+			showStatistics(setBySmart, numberOfPlayers);
+			break;
+		default:
+			break;
+		}
+	}
 }
 
 void Casino::showPlayers(pair <short, short> xy) const {
@@ -1134,7 +1181,7 @@ void Casino::showPlayers(pair <short, short> xy) const {
 	{
 		cout << setw((xy.first - 50) / 2 - 1) << (char)179; //│
 		name = players.at(i)->getName();
-		cout << setw(2) << " " << name << setw(24 - name.length()) << " " ;
+		cout << setw(2) << " " << name << setw(24 - name.length()) << " ";
 		if (players.at(i)->getOnTable() != -1)
 		{
 			sstext.clear();
@@ -1155,7 +1202,7 @@ void Casino::showPlayers(pair <short, short> xy) const {
 	cout << (char)217 << endl; //┘
 }
 
-void Casino::showDealers(pair <short, short> xy ) const {
+void Casino::showDealers(pair <short, short> xy) const {
 	system("cls");
 	string text;
 	stringstream sstext;
@@ -1194,7 +1241,7 @@ void Casino::showDealers(pair <short, short> xy ) const {
 		{
 			text = "Dealer isn't allocated";
 		}
-		cout << setw(10) << dealers.at(i)->getID() << setw(7) << " " << text << setw(35-text.length()) << (char)179 << endl;
+		cout << setw(10) << dealers.at(i)->getID() << setw(7) << " " << text << setw(35 - text.length()) << (char)179 << endl;
 	}
 	cout << setw((xy.first - 50) / 2 - 1) << (char)192; //└
 	for (unsigned int i = 0; i <= 50; i++)
