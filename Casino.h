@@ -21,6 +21,17 @@
 
 using namespace std;
 
+
+/**
+* @struct	userLoginHash
+*
+* @brief	Used to generate indexs and compare logins. It is only prepared for hash tables of size 47.
+*
+* @author	Renato Campos
+* @date	30/12/2016
+*/
+
+
 struct userLoginHash
 {
 	size_t operator() (const pair <string, string>& ur) const {
@@ -292,9 +303,8 @@ private:
 	loginHash userslogin;
 	/** @brief	The users actual logged */
 	pair <string, string> userLOGIN;
-	//* @brief Binary Search Tree ordered to display the players */
+	//* @brief Binary Search Tree ordered by average profit */
 	set<Player *, CompareByAverageProfit> bestPlayers;
-	//* @brief */
 public:
 
 
@@ -637,9 +647,10 @@ public:
 	void fillBestPlayersSet();
 
 	/**
-	 * @fn	void Casino::showStatistics() const;
+	 * @fn	void Casino::showStatistics(set<Player*, T> setOfPlayers,int numberOfPlayersToShow) const;
 	 *
 	 * @brief	Displays casino's statistics in a user friendly way on the terminal.
+	 * @param	setOfPlayers a std::set of players order as user selected.
 	 * @param	numberOfPlayersToShow Number of players to display.
 	 * @author	Ineeve
 	 * @date	19/11/2016
@@ -648,9 +659,10 @@ public:
 	void showStatistics(set<Player*, T> setOfPlayers,int numberOfPlayersToShow) const;
 
 	/**
-	* @fn	void Casino::showStatisctisMenu();
+	* @fn	void Casino::showStatisctisMenu(pair<short, short> xy);
 	*
 	* @brief	Lets user select the order that the players will be dispayed on the scoreboard.
+	* @param	xy Cursor coordinates.
 	* @author	Ineeve
 	* @date	30/12/2016
 	*/
