@@ -7,7 +7,7 @@
 #pragma once
 
 #ifdef _WIN32
-#define OS_Windows 0
+#define OS_Windows 0 /* @brief It Means that the application is running on a Windows System*/
 #include <windows.h>
 #else
 #define OS_Windows 1
@@ -140,3 +140,17 @@ void deleteMenu(pair <short, short> xy, unsigned int &choice);
  */
 
 void manageTableMenu(pair <short, short> xy, unsigned int &choice);
+
+/**
+* @fn	void statisticsMenu(pair <short, short> xy, unsigned int &choice);
+*
+* @brief	Displays the statistics menu and reads user choice.
+*
+* @author	Ineeve
+* @date	30/12/2016
+*
+* @param 		  	xy	  	A pair containing the horizontal and vertical lengths of the terminal.
+* @param [in,out]	choice	The user choice.
+*/
+
+void statisticsMenu(pair<short, short> xy, unsigned int &choice);

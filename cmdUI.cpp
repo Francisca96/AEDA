@@ -157,3 +157,10 @@ void manageTableMenu(pair<short, short> xy, unsigned int & choice) {
 	displayMenu0(xy, "3. Manage Tables ...", options);
 	choice = readIntBetween(0, 3);
 }
+
+void statisticsMenu(pair<short, short> xy, unsigned int &choice) {
+	vector <string> options = { "1. Order By Average Profit", "2. Order By Age", "3. Order By Name" , "4. Order By Intelligence", "0. Back" };
+	system("CLS");
+	displayMenu0(xy, "4. Statistics Menu", options);
+	choice = readIntBetween(0, 4);
+}

@@ -21,8 +21,32 @@
 
 using namespace std;
 
+
+/**
+* @struct	userLoginHash
+*
+* @brief	Used to generate indexs and compare logins. It is only prepared for hash tables of size 47.
+*
+* @author	Renato Campos
+* @date	30/12/2016
+*/
+
+
 struct userLoginHash
 {
+	/**
+	* @fn	size_t operator() (const pair <string, string>& ur) const
+	*
+	* @brief	Dispersion Function.
+	*
+	* @author	Renato Campos
+	* @date	30/12/2016
+	*
+	* @param	lhs Pointer to a player.
+	* @param	rhs Pointer to a player.
+	*
+	* @return	User index on hash table.
+	*/
 	size_t operator() (const pair <string, string>& ur) const {
 		unsigned int hashNumber = 0;
 		for (size_t i = 0; i < ur.second.size(); i++)
@@ -36,7 +60,7 @@ struct userLoginHash
 	}
 };
 
-typedef unordered_set< pair<string, string>, userLoginHash, userLoginHash> loginHash;
+typedef unordered_set< pair<string, string>, userLoginHash, userLoginHash> loginHash; /* @brief loginHash = unordered_set<pair<string,string>,userLoginHash,userLoginHash> */
 
 struct dealersComparasion
 {
@@ -183,19 +207,172 @@ public:
 };
 
 /**
- * @class	Casino
- *
- * @brief	A casino.
- *
- * @author	Ineeve
- * @date	19/11/2016
- */
+* @struct	CompareByAverageProfit
+*
+* @brief	Used to compare players by their average profit.
+*
+* @author	Renato Campos
+* @date	30/12/2016
+*/
+
 
 struct CompareByAverageProfit {
-	bool operator()(Player * lhs,Player * rhs) {
-		return lhs->getAverageProfit() < rhs->getAverageProfit();
+
+	/**
+	* @fn	bool operator()(Player *lhs, Player * rhs) const
+	*
+	* @brief	Operator that will perform the Less Comparison
+	*
+	* @author	Renato Campos
+	* @date	30/12/2016
+	*
+	* @param	lhs Pointer to a player.
+	* @param	rhs Pointer to a player.
+	*
+	* @return	True if lhs avg.profit > rhs avg.profit;
+	*/
+
+	bool operator()(Player * lhs,Player * rhs) const {
+		return lhs->getAverageProfit() > rhs->getAverageProfit();
 	}
 };
+
+/**
+* @struct	CompareByAge
+*
+* @brief	Used to compare players by their age. Players with same age are compared by name.
+*
+* @author	Renato Campos
+* @date	30/12/2016
+*/
+
+
+struct CompareByAge {
+	/**
+	* @fn	bool operator()(Player *lhs, Player * rhs) const
+	*
+	* @brief	Operator that will perform the Less Comparison
+	*
+	* @author	Renato Campos
+	* @date	30/12/2016
+	*
+	* @param	lhs Pointer to a player.
+	* @param	rhs Pointer to a player.
+	*
+	* @return	True if lhs age < rhs age. If ages are equal, players are compared by their name.
+	*/
+
+	bool operator()(Player *lhs, Player * rhs) const {
+		if (lhs->getAge() == rhs->getAge()) {
+			return lhs->getName() < rhs->getName();
+		}
+		else { 
+			return lhs->getAge() < rhs->getAge();
+		}
+	}
+};
+
+/**
+* @struct	CompareByName
+*
+* @brief	Used to compare players by their name.
+*
+* @author	Renato Campos
+* @date	30/12/2016
+*/
+
+
+struct CompareByName {
+	/**
+	* @fn	bool operator()(Player *lhs, Player * rhs) const
+	*
+	* @brief	Operator that will perform the Less Comparison
+	*
+	* @author	Renato Campos
+	* @date	30/12/2016
+	*
+	* @param	lhs Pointer to a player.
+	* @param	rhs Pointer to a player.
+	*
+	* @return	True if lhs name < rhs name;
+	*/
+
+	bool operator()(Player *lhs, Player * rhs) const {
+		return lhs->getName() < rhs->getName();
+	}
+};
+
+/**
+* @struct	CompareByIntelligence
+*
+* @brief	Used to compare players by their intelligence.
+*
+* @author	Renato Campos
+* @date	30/12/2016
+*/
+
+
+struct CompareByIntelligence {
+
+	/**
+	* @fn	bool operator()(Player *lhs, Player * rhs) const
+	*
+	* @brief	Operator that will perform the Less Comparison
+	*
+	* @author	Renato Campos
+	* @date	30/12/2016
+	*
+	* @param	lhs Pointer to a player.
+	* @param	rhs Pointer to a player.
+	*
+	* @return	True if lhs intelligence < rhs intelligence; If players have the same intelligence, they will be ordered by name.
+	*/
+
+	bool operator()(Player *lhs, Player * rhs) const {
+		Bot0 *bot0l = dynamic_cast<Bot0*> (lhs);
+		Bot1 *bot1l = dynamic_cast<Bot1*> (lhs);
+		Bot2 *bot2l = dynamic_cast<Bot2*> (lhs);
+		Human *humanl = dynamic_cast<Human*> (lhs);
+		Bot0 *bot0r = dynamic_cast<Bot0*> (rhs);
+		Bot1 *bot1r = dynamic_cast<Bot1*> (rhs);
+		Bot2 *bot2r = dynamic_cast<Bot2*> (rhs);
+		Human *humanr = dynamic_cast<Human*> (rhs);
+		if (bot0l != nullptr && bot0r != nullptr) {
+			return bot0l->getName() < bot0r->getName();
+		}
+		else if (bot1l != nullptr && bot1r != nullptr) {
+			return bot1l->getName() < bot1r->getName();
+		}
+		else if (bot2l != nullptr && bot2r != nullptr) {
+			return bot2l->getName() < bot2r->getName();
+		}
+		else if (humanl != nullptr && humanr != nullptr) {
+			return humanl->getName() < humanr->getName();
+		}
+		else if (bot0l != nullptr ) {
+			return true;
+		}
+		else if (bot1l != nullptr && (bot2r != nullptr || humanr != nullptr)) {
+			return true;
+		}
+		else if (bot2l != nullptr && humanr != nullptr) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+};
+
+
+/**
+* @class	Casino
+*
+* @brief	A casino.
+*
+* @author	Ineeve
+* @date	19/11/2016
+*/
 
 class Casino {
 private:
@@ -217,15 +394,13 @@ private:
 	vector<Table *> tables;
 	/** @brief	The players. */
 	vector<Player*> players;
-	/** @brief	The users. */
+	/** @brief	An unordered_set representing the hash table. */
 	loginHash userslogin;
 	/** @brief	The users actual logged */
 	pair <string, string> userLOGIN;
-
+	//* @brief Binary Search Tree ordered by average profit */
 	set<Player *, CompareByAverageProfit> bestPlayers;
 public:
-
-	void Casino::addBestPlayers();
 	
 	/**
 	* @fn	void showUsers(int n);
@@ -472,7 +647,7 @@ public:
 	* @author	Joao Carvalho
 	* @date	26/12/2016
 	*
-	* @param	tablesFile	A string already formatted to save the tables in a file.
+	* @param	usersFile	A string already formatted to save players in a file.
 	*/
 
 	void setUsersFile(string usersFile);
@@ -566,15 +741,37 @@ public:
 	void saveLoginFile();
 
 	/**
-	 * @fn	void Casino::showStatistics() const;
+	* @fn	void Casino::fillBestPlayersSet();
+	*
+	* @brief	Fills best players set with player that have played at least 1 round.
+	* @author	Ineeve
+	* @date	30/12/2016
+	*/
+
+	void fillBestPlayersSet();
+
+	/**
+	 * @fn	void Casino::showStatistics(set<Player*, T> setOfPlayers,int numberOfPlayersToShow) const;
 	 *
 	 * @brief	Displays casino's statistics in a user friendly way on the terminal.
-	 *
+	 * @param	setOfPlayers a std::set of players order as user selected.
+	 * @param	numberOfPlayersToShow Number of players to display.
 	 * @author	Ineeve
 	 * @date	19/11/2016
 	 */
+	template <class T>
+	void showStatistics(set<Player*, T> setOfPlayers,int numberOfPlayersToShow) const;
 
-	void showStatistics() const;
+	/**
+	* @fn	void Casino::showStatisticsMenu(pair<short, short> xy);
+	*
+	* @brief	Lets user select the order that the players will be dispayed on the scoreboard.
+	* @param	xy Cursor coordinates.
+	* @author	Ineeve
+	* @date	30/12/2016
+	*/
+
+	void showStatisticsMenu(pair<short, short> xy);
 
 	/**
 	 * @fn	void Casino::showPlayers(pair <short, short> xy) const;
@@ -766,3 +963,26 @@ public:
 
 	unsigned int findPlayer(string name);
 };
+
+template<class T>
+void Casino::showStatistics(set<Player*,T> setOfPlayers, int numberOfPlayersToShow) const
+{
+	int userInput;
+	system("CLS");
+	cout << "Statistics\n\n\n\n";
+	cout << setw(15) << "NAME" << setw(25) << "BRAIN LEVEL" << setw(15) << "ROUNDS PLAYED" << setw(18) << "AVG. PROFIT" << setw(15) << "AGE" << endl;
+	int counter = 0;
+	for (auto i = setOfPlayers.begin(); i != setOfPlayers.end(); i++) {
+		if (counter >= numberOfPlayersToShow) {
+			break;
+		}
+		(*i)->showStatistics();
+		counter++;
+	}
+	cout << "0. Back\n";
+	while ((userInput = readInt()) != 0) {
+		cout << "Please insert a valid option\n";
+	}
+	return;
+	
+}
