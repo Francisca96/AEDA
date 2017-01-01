@@ -34,6 +34,19 @@ using namespace std;
 
 struct userLoginHash
 {
+	/**
+	* @fn	size_t operator() (const pair <string, string>& ur) const
+	*
+	* @brief	Dispersion Function.
+	*
+	* @author	Renato Campos
+	* @date	30/12/2016
+	*
+	* @param	lhs Pointer to a player.
+	* @param	rhs Pointer to a player.
+	*
+	* @return	User index on hash table.
+	*/
 	size_t operator() (const pair <string, string>& ur) const {
 		unsigned int hashNumber = 0;
 		for (size_t i = 0; i < ur.second.size(); i++)
@@ -47,7 +60,7 @@ struct userLoginHash
 	}
 };
 
-typedef unordered_set< pair<string, string>, userLoginHash, userLoginHash> loginHash;
+typedef unordered_set< pair<string, string>, userLoginHash, userLoginHash> loginHash; /* @brief loginHash = unordered_set<pair<string,string>,userLoginHash,userLoginHash> */
 
 /**
  * @class	PlayerNotLoggedException
@@ -180,6 +193,21 @@ public:
 
 
 struct CompareByAverageProfit {
+
+	/**
+	* @fn	bool operator()(Player *lhs, Player * rhs) const
+	*
+	* @brief	Operator that will perform the Less Comparison
+	*
+	* @author	Renato Campos
+	* @date	30/12/2016
+	*
+	* @param	lhs Pointer to a player.
+	* @param	rhs Pointer to a player.
+	*
+	* @return	True if lhs avg.profit > rhs avg.profit;
+	*/
+
 	bool operator()(Player * lhs,Player * rhs) const {
 		return lhs->getAverageProfit() > rhs->getAverageProfit();
 	}
@@ -196,6 +224,20 @@ struct CompareByAverageProfit {
 
 
 struct CompareByAge {
+	/**
+	* @fn	bool operator()(Player *lhs, Player * rhs) const
+	*
+	* @brief	Operator that will perform the Less Comparison
+	*
+	* @author	Renato Campos
+	* @date	30/12/2016
+	*
+	* @param	lhs Pointer to a player.
+	* @param	rhs Pointer to a player.
+	*
+	* @return	True if lhs age < rhs age. If ages are equal, players are compared by their name.
+	*/
+
 	bool operator()(Player *lhs, Player * rhs) const {
 		if (lhs->getAge() == rhs->getAge()) {
 			return lhs->getName() < rhs->getName();
@@ -217,6 +259,20 @@ struct CompareByAge {
 
 
 struct CompareByName {
+	/**
+	* @fn	bool operator()(Player *lhs, Player * rhs) const
+	*
+	* @brief	Operator that will perform the Less Comparison
+	*
+	* @author	Renato Campos
+	* @date	30/12/2016
+	*
+	* @param	lhs Pointer to a player.
+	* @param	rhs Pointer to a player.
+	*
+	* @return	True if lhs name < rhs name;
+	*/
+
 	bool operator()(Player *lhs, Player * rhs) const {
 		return lhs->getName() < rhs->getName();
 	}
@@ -233,6 +289,21 @@ struct CompareByName {
 
 
 struct CompareByIntelligence {
+
+	/**
+	* @fn	bool operator()(Player *lhs, Player * rhs) const
+	*
+	* @brief	Operator that will perform the Less Comparison
+	*
+	* @author	Renato Campos
+	* @date	30/12/2016
+	*
+	* @param	lhs Pointer to a player.
+	* @param	rhs Pointer to a player.
+	*
+	* @return	True if lhs intelligence < rhs intelligence; If players have the same intelligence, they will be ordered by name.
+	*/
+
 	bool operator()(Player *lhs, Player * rhs) const {
 		Bot0 *bot0l = dynamic_cast<Bot0*> (lhs);
 		Bot1 *bot1l = dynamic_cast<Bot1*> (lhs);
@@ -299,7 +370,7 @@ private:
 	vector<Table *> tables;
 	/** @brief	The players. */
 	vector<Player*> players;
-	/** @brief	The users. */
+	/** @brief	An unordered_set representing the hash table. */
 	loginHash userslogin;
 	/** @brief	The users actual logged */
 	pair <string, string> userLOGIN;
@@ -543,7 +614,7 @@ public:
 	* @author	Joao Carvalho
 	* @date	26/12/2016
 	*
-	* @param	tablesFile	A string already formatted to save the tables in a file.
+	* @param	usersFile	A string already formatted to save players in a file.
 	*/
 
 	void setUsersFile(string usersFile);
@@ -659,7 +730,7 @@ public:
 	void showStatistics(set<Player*, T> setOfPlayers,int numberOfPlayersToShow) const;
 
 	/**
-	* @fn	void Casino::showStatisctisMenu(pair<short, short> xy);
+	* @fn	void Casino::showStatisticsMenu(pair<short, short> xy);
 	*
 	* @brief	Lets user select the order that the players will be dispayed on the scoreboard.
 	* @param	xy Cursor coordinates.

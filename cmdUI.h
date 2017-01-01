@@ -7,7 +7,7 @@
 #pragma once
 
 #ifdef _WIN32
-#define OS_Windows 0
+#define OS_Windows 0 /* @brief It Means that the application is running on a Windows System*/
 #include <windows.h>
 #else
 #define OS_Windows 1
