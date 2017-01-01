@@ -62,6 +62,30 @@ struct userLoginHash
 
 typedef unordered_set< pair<string, string>, userLoginHash, userLoginHash> loginHash; /* @brief loginHash = unordered_set<pair<string,string>,userLoginHash,userLoginHash> */
 
+struct dealersComparasion
+{
+	bool operator() (const Dealer* d1, const Dealer* d2) const {
+		if (d1->getTableOn() == -1 && d2->getTableOn() != -1)
+		{
+			return false;
+		}
+		else if (d1->getTableOn() == -1 && d2->getTableOn() == -1)
+		{
+			return d1->getID() > d2->getID();
+		}
+		else if (d1->getTableOn() != -1 && d2->getTableOn() != -1)
+		{
+			return d1->getID() > d2->getID();
+		}
+		else
+		{
+			return true;
+		}
+	}
+};
+
+typedef priority_queue< Dealer*, vector<Dealer*>, dealersComparasion> dealersPriority;
+
 /**
  * @class	PlayerNotLoggedException
  *
@@ -377,10 +401,19 @@ private:
 	//* @brief Binary Search Tree ordered by average profit */
 	set<Player *, CompareByAverageProfit> bestPlayers;
 public:
-
-
 	
+	/**
+	* @fn	void showUsers(int n);
+	*
+	* @brief	Display accounts infos.
+	*
+	* @author	Joao Carvalho
+	* @date	30/12/2016
+	*
+	* @param	totalMoney	The total money.
+	*/
 
+	void showUsers(int n);
 
 	/**
 	 * @fn	Casino::Casino(unsigned int totalMoney);
