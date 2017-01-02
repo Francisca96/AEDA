@@ -1,0 +1,13 @@
+<map id="Casino::manageTables" name="Casino::manageTables">
+<area shape="rect" id="node2" href="$class_casino.html#aaf0f71167edbeb284baf3f35339411a4" title="Searches for a dealer (sequential search). " alt="" coords="217,5,343,32"/>
+<area shape="rect" id="node3" href="$class_casino.html#a566f659a6920e2ccec53d0e231f6524c" title="Searches for a player (sequential search). " alt="" coords="217,56,343,83"/>
+<area shape="rect" id="node4" href="$class_casino.html#acf5876dc73948dbdafdad888b2ef50d4" title="Searches for a table (sequential search). " alt="" coords="219,107,341,133"/>
+<area shape="rect" id="node5" href="$class_table.html#a65097ec2fe98d83c44538132e4fc2047" title="Gets the players. " alt="" coords="219,157,341,184"/>
+<area shape="rect" id="node6" href="$cmd_u_i_8cpp.html#a071e1dea251b139583ae532689698d87" title="Displays the manage table menu and reads user choice. " alt="" coords="215,208,345,235"/>
+<area shape="rect" id="node9" href="$utils_8cpp.html#a55b3de51bc5631fb67d6681f33e52228" title="Reads unsigned int. Asks for user input. " alt="" coords="223,259,337,285"/>
+<area shape="rect" id="node10" href="$class_table.html#a003724a8c2586a29969620dc81d7e447" title="Removes the player described by his name. " alt="" coords="211,309,349,336"/>
+<area shape="rect" id="node11" href="$class_casino.html#acaf0b66e12eab500cfb7706f0e62f60c" title="Displays casino&#39;s dealers in a user friendly way on the terminal. " alt="" coords="208,360,352,387"/>
+<area shape="rect" id="node12" href="$class_casino.html#aa75a4d63a4ba052eb6f7fb86130091b9" title="Displays the players that are logged in a user friendly way on the terminal. " alt="" coords="208,411,352,437"/>
+<area shape="rect" id="node7" href="$cmd_u_i_8cpp.html#a3f76e0072f6af377fb5d0669abbb849d" title="displayMenu0" alt="" coords="404,183,507,209"/>
+<area shape="rect" id="node8" href="$utils_8cpp.html#a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" title="Reads int between a minimum and a maximum values. Ask for user input. " alt="" coords="400,233,511,260"/>
+</map>

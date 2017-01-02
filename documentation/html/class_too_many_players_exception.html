@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_too_many_players_exception.html'
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_too_many_players_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">TooManyPlayersException Class Reference</div>  </div>
@@ -97,12 +98,21 @@ $(document).ready(function(){initNavTree('class_too_many_players_exception.html'
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3ff13b4afc3b7b930bb211a8217ec429"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_too_many_players_exception.html#a3ff13b4afc3b7b930bb211a8217ec429">TooManyPlayersException</a> (unsigned int maxNumberOfPlayers, unsigned int actualNumOfPlayers)</td></tr>
+<tr class="memitem:a3ff13b4afc3b7b930bb211a8217ec429"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_too_many_players_exception.html#a3ff13b4afc3b7b930bb211a8217ec429">TooManyPlayersException</a> (unsigned int <a class="el" href="class_too_many_players_exception.html#a67299626935e7bb0075abd74f11055d1">maxNumberOfPlayers</a>, unsigned int <a class="el" href="class_too_many_players_exception.html#a7514ce61765122f007c18c3f0794edd1">actualNumOfPlayers</a>)</td></tr>
 <tr class="memdesc:a3ff13b4afc3b7b930bb211a8217ec429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a3ff13b4afc3b7b930bb211a8217ec429">More...</a><br /></td></tr>
 <tr class="separator:a3ff13b4afc3b7b930bb211a8217ec429"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaaf4d3518d044df6bec5478d5729b7e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_too_many_players_exception.html#aaaf4d3518d044df6bec5478d5729b7e3">what</a> ()</td></tr>
 <tr class="memdesc:aaaf4d3518d044df6bec5478d5729b7e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays information about this exception.  <a href="#aaaf4d3518d044df6bec5478d5729b7e3">More...</a><br /></td></tr>
 <tr class="separator:aaaf4d3518d044df6bec5478d5729b7e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a67299626935e7bb0075abd74f11055d1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_too_many_players_exception.html#a67299626935e7bb0075abd74f11055d1">maxNumberOfPlayers</a></td></tr>
+<tr class="memdesc:a67299626935e7bb0075abd74f11055d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum number of players.  <a href="#a67299626935e7bb0075abd74f11055d1">More...</a><br /></td></tr>
+<tr class="separator:a67299626935e7bb0075abd74f11055d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7514ce61765122f007c18c3f0794edd1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_too_many_players_exception.html#a7514ce61765122f007c18c3f0794edd1">actualNumOfPlayers</a></td></tr>
+<tr class="memdesc:a7514ce61765122f007c18c3f0794edd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The actual number of players.  <a href="#a7514ce61765122f007c18c3f0794edd1">More...</a><br /></td></tr>
+<tr class="separator:a7514ce61765122f007c18c3f0794edd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception for signalling too many players in a table errors. </p>
@@ -148,10 +158,14 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_table_8cpp_source.html#l01057">1057</a> of file <a class="el" href="_table_8cpp_source.html">Table.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_table_8cpp_source.html#l01076">1076</a> of file <a class="el" href="_table_8cpp_source.html">Table.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_table_8cpp_source.html#l00062">Table::addPlayers()</a>, and <a class="el" href="_table_8cpp_source.html#l00086">Table::play()</a>.</p>
-<div class="fragment"><div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;{</div><div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;    this-&gt;maxNumberOfPlayers = maxNumberOfPlayers;</div><div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;    this-&gt;actualNumOfPlayers = actualNumOfPlayers;</div><div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;}</div></div><!-- fragment -->
+<p>References <a class="el" href="_table_8h_source.html#l00037">actualNumOfPlayers</a>, and <a class="el" href="_table_8h_source.html#l00035">maxNumberOfPlayers</a>.</p>
+
+<p>Referenced by <a class="el" href="_table_8cpp_source.html#l00061">Table::addPlayers()</a>, and <a class="el" href="_table_8cpp_source.html#l00085">Table::play()</a>.</p>
+<div class="fragment"><div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;{</div><div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;    this-&gt;<a class="code" href="class_too_many_players_exception.html#a67299626935e7bb0075abd74f11055d1">maxNumberOfPlayers</a> = <a class="code" href="class_too_many_players_exception.html#a67299626935e7bb0075abd74f11055d1">maxNumberOfPlayers</a>;</div><div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;    this-&gt;<a class="code" href="class_too_many_players_exception.html#a7514ce61765122f007c18c3f0794edd1">actualNumOfPlayers</a> = <a class="code" href="class_too_many_players_exception.html#a7514ce61765122f007c18c3f0794edd1">actualNumOfPlayers</a>;</div><div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;}</div><div class="ttc" id="class_too_many_players_exception_html_a67299626935e7bb0075abd74f11055d1"><div class="ttname"><a href="class_too_many_players_exception.html#a67299626935e7bb0075abd74f11055d1">TooManyPlayersException::maxNumberOfPlayers</a></div><div class="ttdeci">unsigned int maxNumberOfPlayers</div><div class="ttdoc">The maximum number of players. </div><div class="ttdef"><b>Definition:</b> <a href="_table_8h_source.html#l00035">Table.h:35</a></div></div>
+<div class="ttc" id="class_too_many_players_exception_html_a7514ce61765122f007c18c3f0794edd1"><div class="ttname"><a href="class_too_many_players_exception.html#a7514ce61765122f007c18c3f0794edd1">TooManyPlayersException::actualNumOfPlayers</a></div><div class="ttdeci">unsigned int actualNumOfPlayers</div><div class="ttdoc">The actual number of players. </div><div class="ttdef"><b>Definition:</b> <a href="_table_8h_source.html#l00037">Table.h:37</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -176,8 +190,69 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_table_8cpp_source.html#l00008">8</a> of file <a class="el" href="_table_8cpp_source.html">Table.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00098">Casino::addPlayerToTable()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Error while loading players to table\n&quot;</span>;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;The table already has &quot;</span> &lt;&lt; actualNumOfPlayers &lt;&lt; <span class="stringliteral">&quot;out of &quot;</span> &lt;&lt; maxNumberOfPlayers &lt;&lt; <span class="stringliteral">&quot; players\n&quot;</span>;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div></div><!-- fragment -->
+<p>References <a class="el" href="_table_8h_source.html#l00037">actualNumOfPlayers</a>, and <a class="el" href="_table_8h_source.html#l00035">maxNumberOfPlayers</a>.</p>
+
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00233">Casino::addPlayerToTable()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Error while loading players to table\n&quot;</span>;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;The table already has &quot;</span> &lt;&lt; <a class="code" href="class_too_many_players_exception.html#a7514ce61765122f007c18c3f0794edd1">actualNumOfPlayers</a> &lt;&lt; <span class="stringliteral">&quot;out of &quot;</span> &lt;&lt; <a class="code" href="class_too_many_players_exception.html#a67299626935e7bb0075abd74f11055d1">maxNumberOfPlayers</a> &lt;&lt; <span class="stringliteral">&quot; players\n&quot;</span>;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div><div class="ttc" id="class_too_many_players_exception_html_a67299626935e7bb0075abd74f11055d1"><div class="ttname"><a href="class_too_many_players_exception.html#a67299626935e7bb0075abd74f11055d1">TooManyPlayersException::maxNumberOfPlayers</a></div><div class="ttdeci">unsigned int maxNumberOfPlayers</div><div class="ttdoc">The maximum number of players. </div><div class="ttdef"><b>Definition:</b> <a href="_table_8h_source.html#l00035">Table.h:35</a></div></div>
+<div class="ttc" id="class_too_many_players_exception_html_a7514ce61765122f007c18c3f0794edd1"><div class="ttname"><a href="class_too_many_players_exception.html#a7514ce61765122f007c18c3f0794edd1">TooManyPlayersException::actualNumOfPlayers</a></div><div class="ttdeci">unsigned int actualNumOfPlayers</div><div class="ttdoc">The actual number of players. </div><div class="ttdef"><b>Definition:</b> <a href="_table_8h_source.html#l00037">Table.h:37</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7514ce61765122f007c18c3f0794edd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7514ce61765122f007c18c3f0794edd1">&sect;&nbsp;</a></span>actualNumOfPlayers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int TooManyPlayersException::actualNumOfPlayers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The actual number of players. </p>
+
+<p>Definition at line <a class="el" href="_table_8h_source.html#l00037">37</a> of file <a class="el" href="_table_8h_source.html">Table.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_table_8cpp_source.html#l01076">TooManyPlayersException()</a>, and <a class="el" href="_table_8cpp_source.html#l00008">what()</a>.</p>
+
+</div>
+</div>
+<a id="a67299626935e7bb0075abd74f11055d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67299626935e7bb0075abd74f11055d1">&sect;&nbsp;</a></span>maxNumberOfPlayers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int TooManyPlayersException::maxNumberOfPlayers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The maximum number of players. </p>
+
+<p>Definition at line <a class="el" href="_table_8h_source.html#l00035">35</a> of file <a class="el" href="_table_8h_source.html">Table.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_table_8cpp_source.html#l00061">Table::addPlayers()</a>, <a class="el" href="_table_8cpp_source.html#l00384">Table::getNumberMaxOfPlayers()</a>, <a class="el" href="_table_8cpp_source.html#l00085">Table::play()</a>, <a class="el" href="_table_8cpp_source.html#l00818">Table::showPlay()</a>, <a class="el" href="_table_8cpp_source.html#l00019">Table::Table()</a>, <a class="el" href="_table_8cpp_source.html#l01076">TooManyPlayersException()</a>, and <a class="el" href="_table_8cpp_source.html#l00008">what()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

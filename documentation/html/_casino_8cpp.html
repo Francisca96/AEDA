@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -82,6 +82,8 @@ $(document).ready(function(){initNavTree('_casino_8cpp.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Casino.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -89,6 +91,191 @@ $(document).ready(function(){initNavTree('_casino_8cpp.html','');});
 <div class="textblock"><code>#include &quot;<a class="el" href="_casino_8h_source.html">Casino.h</a>&quot;</code><br />
 </div>
 <p><a href="_casino_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a21acead05f2186e35740b7e5ebfa8ddd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_casino_8cpp.html#a21acead05f2186e35740b7e5ebfa8ddd">sortFunctionPlayers</a> (<a class="el" href="class_player.html">Player</a> *p1, <a class="el" href="class_player.html">Player</a> *p2)</td></tr>
+<tr class="separator:a21acead05f2186e35740b7e5ebfa8ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8f337a223d32da27417b176b69f19e2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_casino_8cpp.html#aa8f337a223d32da27417b176b69f19e2">sortFunctionTables</a> (<a class="el" href="class_table.html">Table</a> *t1, <a class="el" href="class_table.html">Table</a> *t2)</td></tr>
+<tr class="separator:aa8f337a223d32da27417b176b69f19e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabf848b858ac34ad95e300db13337120"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_casino_8cpp.html#aabf848b858ac34ad95e300db13337120">sortFunctionDealers</a> (<a class="el" href="class_dealer.html">Dealer</a> *d1, <a class="el" href="class_dealer.html">Dealer</a> *d2)</td></tr>
+<tr class="separator:aabf848b858ac34ad95e300db13337120"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac54db75fc6f0b93df952578ba798d23e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_casino_8cpp.html#ac54db75fc6f0b93df952578ba798d23e">cmpPlayerPointers</a> (<a class="el" href="class_player.html">Player</a> *p1, <a class="el" href="class_player.html">Player</a> *p2)</td></tr>
+<tr class="separator:ac54db75fc6f0b93df952578ba798d23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ac54db75fc6f0b93df952578ba798d23e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac54db75fc6f0b93df952578ba798d23e">&sect;&nbsp;</a></span>cmpPlayerPointers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cmpPlayerPointers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> *&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> *&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_casino_8cpp_source.html#l01525">1525</a> of file <a class="el" href="_casino_8cpp_source.html">Casino.cpp</a>.</p>
+
+<p>References <a class="el" href="_player_8cpp_source.html#l00112">Player::getAverageProfit()</a>.</p>
+<div class="fragment"><div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;{</div><div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;    <span class="keywordflow">return</span> p1-&gt;<a class="code" href="class_player.html#af90c94927657ba8797817d9ee35a9956">getAverageProfit</a>() &lt;= p2-&gt;<a class="code" href="class_player.html#af90c94927657ba8797817d9ee35a9956">getAverageProfit</a>();</div><div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;}</div><div class="ttc" id="class_player_html_af90c94927657ba8797817d9ee35a9956"><div class="ttname"><a href="class_player.html#af90c94927657ba8797817d9ee35a9956">Player::getAverageProfit</a></div><div class="ttdeci">float getAverageProfit() const</div><div class="ttdoc">Gets average profit. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00112">Player.cpp:112</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_casino_8cpp_ac54db75fc6f0b93df952578ba798d23e_cgraph.png" border="0" usemap="#_casino_8cpp_ac54db75fc6f0b93df952578ba798d23e_cgraph" alt=""/></div>
+<map name="_casino_8cpp_ac54db75fc6f0b93df952578ba798d23e_cgraph" id="_casino_8cpp_ac54db75fc6f0b93df952578ba798d23e_cgraph">
+<area shape="rect" id="node2" href="class_player.html#af90c94927657ba8797817d9ee35a9956" title="Gets average profit. " alt="" coords="185,5,347,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aabf848b858ac34ad95e300db13337120"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabf848b858ac34ad95e300db13337120">&sect;&nbsp;</a></span>sortFunctionDealers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sortFunctionDealers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_dealer.html">Dealer</a> *&#160;</td>
+          <td class="paramname"><em>d1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_dealer.html">Dealer</a> *&#160;</td>
+          <td class="paramname"><em>d2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_casino_8cpp_source.html#l00013">13</a> of file <a class="el" href="_casino_8cpp_source.html">Casino.cpp</a>.</p>
+
+<p>References <a class="el" href="_dealer_8cpp_source.html#l00131">Dealer::getID()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00139">Dealer::getTableOn()</a>.</p>
+
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00416">Casino::readTablesFile()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                                                 {</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span> (d1-&gt;<a class="code" href="class_dealer.html#a33483233d2bdc17351d3d57fee448184">getTableOn</a>() == -1 &amp;&amp; d2-&gt;<a class="code" href="class_dealer.html#a33483233d2bdc17351d3d57fee448184">getTableOn</a>() != -1)</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (d1-&gt;<a class="code" href="class_dealer.html#a33483233d2bdc17351d3d57fee448184">getTableOn</a>() == -1 &amp;&amp; d2-&gt;<a class="code" href="class_dealer.html#a33483233d2bdc17351d3d57fee448184">getTableOn</a>() == -1)</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">return</span> d1-&gt;<a class="code" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">getID</a>() &lt; d2-&gt;<a class="code" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">getID</a>();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (d1-&gt;<a class="code" href="class_dealer.html#a33483233d2bdc17351d3d57fee448184">getTableOn</a>() != -1 &amp;&amp; d2-&gt;<a class="code" href="class_dealer.html#a33483233d2bdc17351d3d57fee448184">getTableOn</a>() != -1)</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> d1-&gt;<a class="code" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">getID</a>() &lt; d2-&gt;<a class="code" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">getID</a>();</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">else</span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div><div class="ttc" id="class_dealer_html_a33483233d2bdc17351d3d57fee448184"><div class="ttname"><a href="class_dealer.html#a33483233d2bdc17351d3d57fee448184">Dealer::getTableOn</a></div><div class="ttdeci">int getTableOn() const</div><div class="ttdoc">Gets identifier of the table that the dealer is on. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00139">Dealer.cpp:139</a></div></div>
+<div class="ttc" id="class_dealer_html_a8c45fa97cab622ceb350ccf31012b140"><div class="ttname"><a href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">Dealer::getID</a></div><div class="ttdeci">unsigned int getID() const</div><div class="ttdoc">Gets the Dealer&amp;#39;s identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00131">Dealer.cpp:131</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_casino_8cpp_aabf848b858ac34ad95e300db13337120_cgraph.png" border="0" usemap="#_casino_8cpp_aabf848b858ac34ad95e300db13337120_cgraph" alt=""/></div>
+<map name="_casino_8cpp_aabf848b858ac34ad95e300db13337120_cgraph" id="_casino_8cpp_aabf848b858ac34ad95e300db13337120_cgraph">
+<area shape="rect" id="node2" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140" title="Gets the Dealer&#39;s identifier. " alt="" coords="210,5,307,32"/>
+<area shape="rect" id="node3" href="class_dealer.html#a33483233d2bdc17351d3d57fee448184" title="Gets identifier of the table that the dealer is on. " alt="" coords="192,56,325,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a21acead05f2186e35740b7e5ebfa8ddd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21acead05f2186e35740b7e5ebfa8ddd">&sect;&nbsp;</a></span>sortFunctionPlayers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sortFunctionPlayers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> *&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> *&#160;</td>
+          <td class="paramname"><em>p2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_casino_8cpp_source.html#l00005">5</a> of file <a class="el" href="_casino_8cpp_source.html">Casino.cpp</a>.</p>
+
+<p>References <a class="el" href="_player_8cpp_source.html#l00097">Player::getName()</a>.</p>
+
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00311">Casino::readPlayersFile()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                                                 {</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keywordflow">return</span> p1-&gt;<a class="code" href="class_player.html#a4939193fc637f75bf7a11118334dae7e">getName</a>() &lt; p2-&gt;<a class="code" href="class_player.html#a4939193fc637f75bf7a11118334dae7e">getName</a>();</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;}</div><div class="ttc" id="class_player_html_a4939193fc637f75bf7a11118334dae7e"><div class="ttname"><a href="class_player.html#a4939193fc637f75bf7a11118334dae7e">Player::getName</a></div><div class="ttdeci">string getName() const</div><div class="ttdoc">Gets the name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00097">Player.cpp:97</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_casino_8cpp_a21acead05f2186e35740b7e5ebfa8ddd_cgraph.png" border="0" usemap="#_casino_8cpp_a21acead05f2186e35740b7e5ebfa8ddd_cgraph" alt=""/></div>
+<map name="_casino_8cpp_a21acead05f2186e35740b7e5ebfa8ddd_cgraph" id="_casino_8cpp_a21acead05f2186e35740b7e5ebfa8ddd_cgraph">
+<area shape="rect" id="node2" href="class_player.html#a4939193fc637f75bf7a11118334dae7e" title="Gets the name. " alt="" coords="192,5,311,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa8f337a223d32da27417b176b69f19e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8f337a223d32da27417b176b69f19e2">&sect;&nbsp;</a></span>sortFunctionTables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sortFunctionTables </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_table.html">Table</a> *&#160;</td>
+          <td class="paramname"><em>t1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_table.html">Table</a> *&#160;</td>
+          <td class="paramname"><em>t2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_casino_8cpp_source.html#l00009">9</a> of file <a class="el" href="_casino_8cpp_source.html">Casino.cpp</a>.</p>
+
+<p>References <a class="el" href="_table_8cpp_source.html#l00520">Table::getTableID()</a>.</p>
+
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00161">Casino::addTableToCasino()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                                              {</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">return</span> t1-&gt;<a class="code" href="class_table.html#aa4db39c76365882991132d3c07a85a81">getTableID</a>() &lt; t2-&gt;<a class="code" href="class_table.html#aa4db39c76365882991132d3c07a85a81">getTableID</a>();</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div><div class="ttc" id="class_table_html_aa4db39c76365882991132d3c07a85a81"><div class="ttname"><a href="class_table.html#aa4db39c76365882991132d3c07a85a81">Table::getTableID</a></div><div class="ttdeci">int getTableID() const</div><div class="ttdoc">Gets table identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_table_8cpp_source.html#l00520">Table.cpp:520</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_casino_8cpp_aa8f337a223d32da27417b176b69f19e2_cgraph.png" border="0" usemap="#_casino_8cpp_aa8f337a223d32da27417b176b69f19e2_cgraph" alt=""/></div>
+<map name="_casino_8cpp_aa8f337a223d32da27417b176b69f19e2_cgraph" id="_casino_8cpp_aa8f337a223d32da27417b176b69f19e2_cgraph">
+<area shape="rect" id="node2" href="class_table.html#aa4db39c76365882991132d3c07a85a81" title="Gets table identifier. " alt="" coords="185,5,308,32"/>
+</map>
+</div>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

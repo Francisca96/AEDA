@@ -1,26 +1,8 @@
 var searchData=
 [
-  ['readme',['README',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['rank',['rank',['../struct_card.html#a8e524627138cbbd914b5ab90e05b3c41',1,'Card']]],
-  ['readbinary',['readBinary',['../utils_8cpp.html#a7b2049483feeea98ff61c00d763b4fb5',1,'readBinary():&#160;utils.cpp'],['../utils_8h.html#a7b2049483feeea98ff61c00d763b4fb5',1,'readBinary():&#160;utils.cpp']]],
-  ['readcharyorn',['readCharYorN',['../utils_8cpp.html#ada25d6610efd2d1c473deb3289e0809d',1,'readCharYorN():&#160;utils.cpp'],['../utils_8h.html#ada25d6610efd2d1c473deb3289e0809d',1,'readCharYorN():&#160;utils.cpp']]],
-  ['readdealersfile',['readDealersFile',['../class_casino.html#a8a90d8525d1052a5ab1367508603ec96',1,'Casino']]],
-  ['readfloat',['readFloat',['../utils_8cpp.html#aa5de12b8cd82d61b545a85ea991944a3',1,'readFloat():&#160;utils.cpp'],['../utils_8h.html#aa5de12b8cd82d61b545a85ea991944a3',1,'readFloat():&#160;utils.cpp']]],
-  ['readint',['readInt',['../utils_8cpp.html#ac4dc9964d286ddbbd2a108991190d39d',1,'readInt():&#160;utils.cpp'],['../utils_8h.html#ac4dc9964d286ddbbd2a108991190d39d',1,'readInt():&#160;utils.cpp']]],
-  ['readintbetween',['readIntBetween',['../utils_8cpp.html#a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4',1,'readIntBetween(int min, int max):&#160;utils.cpp'],['../utils_8h.html#a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4',1,'readIntBetween(int min, int max):&#160;utils.cpp']]],
-  ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
-  ['readnameoffile',['readNameOfFile',['../utils_8cpp.html#acefd5a7062e81e56767fbfa11f6065e4',1,'readNameOfFile(string &amp;fileName):&#160;utils.cpp'],['../utils_8h.html#acefd5a7062e81e56767fbfa11f6065e4',1,'readNameOfFile(string &amp;fileName):&#160;utils.cpp']]],
-  ['readplayersfile',['readPlayersFile',['../class_casino.html#aa8eb27d8aece338ad3603efe1079cc59',1,'Casino']]],
-  ['readtablefile',['readTableFile',['../class_table.html#a5edf6fe1ff4f7286530e19e1621886dd',1,'Table']]],
-  ['readtablesfile',['readTablesFile',['../class_casino.html#a7ef9174a3aa71e490b4d00a4b4826f10',1,'Casino']]],
-  ['readunsignedint',['readUnsignedInt',['../utils_8cpp.html#a55b3de51bc5631fb67d6681f33e52228',1,'readUnsignedInt():&#160;utils.cpp'],['../utils_8h.html#a55b3de51bc5631fb67d6681f33e52228',1,'readUnsignedInt():&#160;utils.cpp']]],
-  ['readunsignedintbetween',['readUnsignedIntBetween',['../utils_8cpp.html#a685ffa2d206caa9be692206e68284cb4',1,'readUnsignedIntBetween(unsigned int minValue, unsigned int maxValue):&#160;utils.cpp'],['../utils_8h.html#a685ffa2d206caa9be692206e68284cb4',1,'readUnsignedIntBetween(unsigned int minValue, unsigned int maxValue):&#160;utils.cpp']]],
-  ['removecardfromfirsthandandsetitonsecondhand',['removeCardFromFirstHandAndSetItOnSecondHand',['../class_player.html#a81cb5e747e4b05b846abe1dab0008ddf',1,'Player']]],
-  ['removedealerfromcasino',['removeDealerFromCasino',['../class_casino.html#a00554a09b9bb5d9e7bdaaad2fe8fbbbd',1,'Casino']]],
-  ['removeplayer',['removePlayer',['../class_table.html#a003724a8c2586a29969620dc81d7e447',1,'Table']]],
-  ['removeplayerfromcasino',['removePlayerFromCasino',['../class_casino.html#a23122b72fe0f0e14e5c98acd6d324562',1,'Casino']]],
-  ['removetablefromcasino',['removeTableFromCasino',['../class_casino.html#af39418a2571c8411954dc74089882bb4',1,'Casino']]],
-  ['resetbot1counters',['resetBot1Counters',['../class_table.html#a36fd919f54624162b302dadb4d6c60ce',1,'Table']]],
-  ['resetcount',['resetCount',['../class_player.html#a8ff0c7c110fada9bf61df517285e061c',1,'Player::resetCount()'],['../class_bot1.html#afc6c9e0e4e6926e66a9e595306f82f58',1,'Bot1::resetCount()'],['../class_bot2.html#a3ea3a6d1513b446f6a6c3cef0aad8e8e',1,'Bot2::resetCount()']]],
-  ['restartdeck',['restartDeck',['../class_table.html#a023e75d86089f54522cece25586bbfe7',1,'Table']]]
+  ['ontable',['onTable',['../class_player.html#a27c8117c8739fa341f6952c6bb2de48d',1,'Player']]],
+  ['operator_28_29',['operator()',['../structuser_login_hash.html#ac39c5ce0e511b0a0f4c5b7a69eff6b80',1,'userLoginHash::operator()(const pair&lt; string, string &gt; &amp;ur) const'],['../structuser_login_hash.html#a8770efee0c8ca4227d23b5c979930ff4',1,'userLoginHash::operator()(const pair&lt; string, string &gt; &amp;ur1, const pair&lt; string, string &gt; &amp;ur2) const'],['../structdealers_comparison.html#a1a4ff6017d8c9a8383751af17f57deb4',1,'dealersComparison::operator()()'],['../struct_compare_by_average_profit.html#a5d41655df8f9eb13da3bbeede4cc0137',1,'CompareByAverageProfit::operator()()'],['../struct_compare_by_age.html#a20180389b8696a7b286833b0a3b26f00',1,'CompareByAge::operator()()'],['../struct_compare_by_name.html#ad7571d96fdf3da008bf8c1cfdbfab464',1,'CompareByName::operator()()'],['../struct_compare_by_intelligence.html#a09dc53fdfcfdf4febaf8865dcdee5028',1,'CompareByIntelligence::operator()()']]],
+  ['operator_3c_3c',['operator&lt;&lt;',['../struct_card.html#a49ad8f46a6afbe2edd535039681ac004',1,'Card::operator&lt;&lt;()'],['../utils_8cpp.html#ab279d64fd0ff5d0b510636f78b3b06e5',1,'operator&lt;&lt;(std::ostream &amp;out, const Card &amp;c):&#160;utils.cpp'],['../utils_8cpp.html#a9e5126bb63a37c606ccf5568d6be42b1',1,'operator&lt;&lt;(std::ostream &amp;out, const vector&lt; Card &gt; &amp;v):&#160;utils.cpp'],['../utils_8h.html#a972bfcad488ad7738c01df1d1c24de6b',1,'operator&lt;&lt;(std::ostream &amp;out, const Card &amp;c):&#160;utils.cpp'],['../utils_8h.html#a994a59f31545d6cd0ca004b1ad668a87',1,'operator&lt;&lt;(std::ostream &amp;out, const vector&lt; Card &gt; &amp;v):&#160;utils.cpp']]],
+  ['operator_3d_3d',['operator==',['../struct_card.html#aca435a7f87f91bc1008328c272ac0e8c',1,'Card::operator==(const Card &amp;a) const'],['../struct_card.html#a0b7554519cc029294c1c7e42b591d995',1,'Card::operator==(const string &amp;a) const']]],
+  ['os_5fwindows',['OS_Windows',['../cmd_u_i_8h.html#aaf238c78353071326ea5df0d0a6f7f1a',1,'cmdUI.h']]]
 ];

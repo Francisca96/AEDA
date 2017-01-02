@@ -1,0 +1,4 @@
+<map id="Dealer::hit" name="Dealer::hit">
+<area shape="rect" id="node2" href="$class_dealer.html#aa830a4e0a67d50f84c391972ea2a3d57" title="Removes a Card from the end of the deck and returns it. Additionaly pushes the Card to the deckDiscar..." alt="" coords="155,5,264,32"/>
+<area shape="rect" id="node3" href="$class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909" title="Updates dealer&#39;s handscore. " alt="" coords="135,56,284,83"/>
+</map>

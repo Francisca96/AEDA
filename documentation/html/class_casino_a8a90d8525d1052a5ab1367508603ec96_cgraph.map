@@ -1,0 +1,6 @@
+<map id="Casino::readDealersFile" name="Casino::readDealersFile">
+<area shape="rect" id="node2" href="$class_casino.html#a93780bfce351b004f0ac5602a8b593a2" title="Adds a dealer to the casino. " alt="" coords="217,5,400,32"/>
+<area shape="rect" id="node4" href="$class_dealer_already_exist_exception.html#a61aee4db55399ffd2e06ceedd04136be" title="Gets the identifier. " alt="" coords="213,57,404,98"/>
+<area shape="rect" id="node5" href="$class_dealer.html#a65ef0e688aab06970d20110e29f6b5af" title="Sets next identifier. " alt="" coords="247,123,371,149"/>
+<area shape="rect" id="node3" href="$class_dealer.html#a8c45fa97cab622ceb350ccf31012b140" title="Gets the Dealer&#39;s identifier. " alt="" coords="452,5,549,32"/>
+</map>

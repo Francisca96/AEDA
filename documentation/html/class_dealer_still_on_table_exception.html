@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_dealer_still_on_table_exception.
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_dealer_still_on_table_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">DealerStillOnTableException Class Reference</div>  </div>
@@ -103,6 +104,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a44ceb65d9728c8090515aeac00bed5ce"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer_still_on_table_exception.html#a44ceb65d9728c8090515aeac00bed5ce">getTableID</a> () const</td></tr>
 <tr class="memdesc:a44ceb65d9728c8090515aeac00bed5ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets table identifier.  <a href="#a44ceb65d9728c8090515aeac00bed5ce">More...</a><br /></td></tr>
 <tr class="separator:a44ceb65d9728c8090515aeac00bed5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a201f327e6db9cb058c4081f75844a744"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer_still_on_table_exception.html#a201f327e6db9cb058c4081f75844a744">dealerID</a></td></tr>
+<tr class="memdesc:a201f327e6db9cb058c4081f75844a744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier for the dealer.  <a href="#a201f327e6db9cb058c4081f75844a744">More...</a><br /></td></tr>
+<tr class="separator:a201f327e6db9cb058c4081f75844a744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a5521785aa0fb23e46fef2280a83f2f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer_still_on_table_exception.html#a3a5521785aa0fb23e46fef2280a83f2f">tableID</a></td></tr>
+<tr class="memdesc:a3a5521785aa0fb23e46fef2280a83f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier for the table.  <a href="#a3a5521785aa0fb23e46fef2280a83f2f">More...</a><br /></td></tr>
+<tr class="separator:a3a5521785aa0fb23e46fef2280a83f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception for signalling that dealer is still on a table. </p>
@@ -140,9 +150,20 @@ Public Member Functions</h2></td></tr>
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00167">167</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
 <p>References <a class="el" href="_dealer_8cpp_source.html#l00131">Dealer::getID()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00139">Dealer::getTableOn()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                                                                        {</div><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    this-&gt;dealerID = dealer-&gt;<a class="code" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">getID</a>();</div><div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    this-&gt;tableID = dealer-&gt;<a class="code" href="class_dealer.html#a33483233d2bdc17351d3d57fee448184">getTableOn</a>();</div><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;}</div><div class="ttc" id="class_dealer_html_a33483233d2bdc17351d3d57fee448184"><div class="ttname"><a href="class_dealer.html#a33483233d2bdc17351d3d57fee448184">Dealer::getTableOn</a></div><div class="ttdeci">int getTableOn() const</div><div class="ttdoc">Gets identifier of the table that the dealer is on. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00139">Dealer.cpp:139</a></div></div>
+<div class="fragment"><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                                                                        {</div><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    this-&gt;<a class="code" href="class_dealer_still_on_table_exception.html#a201f327e6db9cb058c4081f75844a744">dealerID</a> = dealer-&gt;<a class="code" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">getID</a>();</div><div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    this-&gt;<a class="code" href="class_dealer_still_on_table_exception.html#a3a5521785aa0fb23e46fef2280a83f2f">tableID</a> = dealer-&gt;<a class="code" href="class_dealer.html#a33483233d2bdc17351d3d57fee448184">getTableOn</a>();</div><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;}</div><div class="ttc" id="class_dealer_still_on_table_exception_html_a201f327e6db9cb058c4081f75844a744"><div class="ttname"><a href="class_dealer_still_on_table_exception.html#a201f327e6db9cb058c4081f75844a744">DealerStillOnTableException::dealerID</a></div><div class="ttdeci">int dealerID</div><div class="ttdoc">Identifier for the dealer. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00446">Dealer.h:446</a></div></div>
+<div class="ttc" id="class_dealer_html_a33483233d2bdc17351d3d57fee448184"><div class="ttname"><a href="class_dealer.html#a33483233d2bdc17351d3d57fee448184">Dealer::getTableOn</a></div><div class="ttdeci">int getTableOn() const</div><div class="ttdoc">Gets identifier of the table that the dealer is on. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00139">Dealer.cpp:139</a></div></div>
 <div class="ttc" id="class_dealer_html_a8c45fa97cab622ceb350ccf31012b140"><div class="ttname"><a href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">Dealer::getID</a></div><div class="ttdeci">unsigned int getID() const</div><div class="ttdoc">Gets the Dealer&amp;#39;s identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00131">Dealer.cpp:131</a></div></div>
-</div><!-- fragment -->
+<div class="ttc" id="class_dealer_still_on_table_exception_html_a3a5521785aa0fb23e46fef2280a83f2f"><div class="ttname"><a href="class_dealer_still_on_table_exception.html#a3a5521785aa0fb23e46fef2280a83f2f">DealerStillOnTableException::tableID</a></div><div class="ttdeci">unsigned int tableID</div><div class="ttdoc">Identifier for the table. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00448">Dealer.h:448</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dealer_still_on_table_exception_a0e73b06e76710c6f66c355248e4a5efa_cgraph.png" border="0" usemap="#class_dealer_still_on_table_exception_a0e73b06e76710c6f66c355248e4a5efa_cgraph" alt=""/></div>
+<map name="class_dealer_still_on_table_exception_a0e73b06e76710c6f66c355248e4a5efa_cgraph" id="class_dealer_still_on_table_exception_a0e73b06e76710c6f66c355248e4a5efa_cgraph">
+<area shape="rect" id="node2" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140" title="Gets the Dealer&#39;s identifier. " alt="" coords="266,5,363,32"/>
+<area shape="rect" id="node3" href="class_dealer.html#a33483233d2bdc17351d3d57fee448184" title="Gets identifier of the table that the dealer is on. " alt="" coords="248,56,381,83"/>
+</map>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -168,8 +189,62 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00172">172</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00581">Casino::eliminate()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                                                           {</div><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">return</span> this-&gt;tableID;</div><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div></div><!-- fragment -->
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00953">Casino::eliminate()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                                                           {</div><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_dealer_still_on_table_exception.html#a3a5521785aa0fb23e46fef2280a83f2f">tableID</a>;</div><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div><div class="ttc" id="class_dealer_still_on_table_exception_html_a3a5521785aa0fb23e46fef2280a83f2f"><div class="ttname"><a href="class_dealer_still_on_table_exception.html#a3a5521785aa0fb23e46fef2280a83f2f">DealerStillOnTableException::tableID</a></div><div class="ttdeci">unsigned int tableID</div><div class="ttdoc">Identifier for the table. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00448">Dealer.h:448</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a201f327e6db9cb058c4081f75844a744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a201f327e6db9cb058c4081f75844a744">&sect;&nbsp;</a></span>dealerID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DealerStillOnTableException::dealerID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Identifier for the dealer. </p>
+
+<p>Definition at line <a class="el" href="_dealer_8h_source.html#l00446">446</a> of file <a class="el" href="_dealer_8h_source.html">Dealer.h</a>.</p>
+
+</div>
+</div>
+<a id="a3a5521785aa0fb23e46fef2280a83f2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a5521785aa0fb23e46fef2280a83f2f">&sect;&nbsp;</a></span>tableID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int DealerStillOnTableException::tableID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Identifier for the table. </p>
+
+<p>Definition at line <a class="el" href="_dealer_8h_source.html#l00448">448</a> of file <a class="el" href="_dealer_8h_source.html">Dealer.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

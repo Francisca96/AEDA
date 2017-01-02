@@ -1,0 +1,4 @@
+<map id="Bot2::surrender" name="Bot2::surrender">
+<area shape="rect" id="node2" href="$class_table.html#af8f247155b520fe226c3014b3ca94477" title="Gets the dealer. " alt="" coords="181,5,297,32"/>
+<area shape="rect" id="node3" href="$class_dealer.html#a80922ef482150027656ef0a6a82bc773" title="Gets handscore. " alt="" coords="164,56,313,83"/>
+</map>

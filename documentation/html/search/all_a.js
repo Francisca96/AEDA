@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['nametooshortexception',['NameTooShortException',['../class_name_too_short_exception.html',1,'']]],
-  ['noplayersontableexception',['NoPlayersOnTableException',['../class_no_players_on_table_exception.html',1,'NoPlayersOnTableException'],['../class_no_players_on_table_exception.html#abe7ebe8452fefaf885ca49e0b0583890',1,'NoPlayersOnTableException::NoPlayersOnTableException()']]]
+  ['lastbetvalue',['lastBetValue',['../class_bot2.html#abf10634b4d479a9c3fd06558982d5a4d',1,'Bot2']]],
+  ['login',['login',['../class_casino.html#a4aaf40f6c05c3f24261b330a2489f7b9',1,'Casino']]],
+  ['loginhash',['loginHash',['../_casino_8h.html#a92dfe1aa72eb4778ab9ae8c35f03dea4',1,'Casino.h']]]
 ];

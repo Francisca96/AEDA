@@ -2,10 +2,15 @@ var hierarchy =
 [
     [ "Card", "struct_card.html", null ],
     [ "Casino", "class_casino.html", null ],
+    [ "CompareByAge", "struct_compare_by_age.html", null ],
+    [ "CompareByAverageProfit", "struct_compare_by_average_profit.html", null ],
+    [ "CompareByIntelligence", "struct_compare_by_intelligence.html", null ],
+    [ "CompareByName", "struct_compare_by_name.html", null ],
     [ "Dealer", "class_dealer.html", null ],
     [ "DealerAlreadyExistException", "class_dealer_already_exist_exception.html", null ],
     [ "DealerIsOnTableAlreadyException", "class_dealer_is_on_table_already_exception.html", null ],
     [ "DealerNotExistException", "class_dealer_not_exist_exception.html", null ],
+    [ "dealersComparison", "structdealers_comparison.html", null ],
     [ "DealerStillOnTableException", "class_dealer_still_on_table_exception.html", null ],
     [ "ExistingTableException", "class_existing_table_exception.html", null ],
     [ "HumanOnTableException", "class_human_on_table_exception.html", null ],
@@ -25,5 +30,6 @@ var hierarchy =
     [ "Table", "class_table.html", null ],
     [ "TableNotInCasinoException", "class_table_not_in_casino_exception.html", null ],
     [ "TooManyPlayersException", "class_too_many_players_exception.html", null ],
-    [ "TooYoungException", "class_too_young_exception.html", null ]
+    [ "TooYoungException", "class_too_young_exception.html", null ],
+    [ "userLoginHash", "structuser_login_hash.html", null ]
 ];

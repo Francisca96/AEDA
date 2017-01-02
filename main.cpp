@@ -124,10 +124,10 @@ int main(){
 			break;
 		case 2:
 			//TODO: simulation (game run all alone for n cycles)
-			cout << "How many rounds do you want to simulate?" << endl;
-			roundsToPlay = readUnsignedInt();
-			try
-			{
+			try{
+				casino.getTableToPlay();
+				cout << "How many rounds do you want to simulate?" << endl;
+				roundsToPlay = readUnsignedInt();
 				casino.getTableToPlay()->simulation(roundsToPlay);
 				system("pause");
 			}
@@ -162,7 +162,7 @@ int main(){
 			system("pause");
 			break;
 		case 4:
-			//TODO: menu to creat table, define employee of table, and bots to tables, choose files...
+			//TODO: menu to create table, define employee of table, and bots to tables, choose files...
 			casino.manage(xy);
 			break;
 		case 0:

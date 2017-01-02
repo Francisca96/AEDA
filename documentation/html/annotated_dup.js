@@ -5,10 +5,15 @@ var annotated_dup =
     [ "Bot2", "class_bot2.html", "class_bot2" ],
     [ "Card", "struct_card.html", "struct_card" ],
     [ "Casino", "class_casino.html", "class_casino" ],
+    [ "CompareByAge", "struct_compare_by_age.html", "struct_compare_by_age" ],
+    [ "CompareByAverageProfit", "struct_compare_by_average_profit.html", "struct_compare_by_average_profit" ],
+    [ "CompareByIntelligence", "struct_compare_by_intelligence.html", "struct_compare_by_intelligence" ],
+    [ "CompareByName", "struct_compare_by_name.html", "struct_compare_by_name" ],
     [ "Dealer", "class_dealer.html", "class_dealer" ],
     [ "DealerAlreadyExistException", "class_dealer_already_exist_exception.html", "class_dealer_already_exist_exception" ],
     [ "DealerIsOnTableAlreadyException", "class_dealer_is_on_table_already_exception.html", "class_dealer_is_on_table_already_exception" ],
     [ "DealerNotExistException", "class_dealer_not_exist_exception.html", "class_dealer_not_exist_exception" ],
+    [ "dealersComparison", "structdealers_comparison.html", "structdealers_comparison" ],
     [ "DealerStillOnTableException", "class_dealer_still_on_table_exception.html", "class_dealer_still_on_table_exception" ],
     [ "ExistingTableException", "class_existing_table_exception.html", "class_existing_table_exception" ],
     [ "Human", "class_human.html", "class_human" ],
@@ -24,5 +29,6 @@ var annotated_dup =
     [ "Table", "class_table.html", "class_table" ],
     [ "TableNotInCasinoException", "class_table_not_in_casino_exception.html", "class_table_not_in_casino_exception" ],
     [ "TooManyPlayersException", "class_too_many_players_exception.html", "class_too_many_players_exception" ],
-    [ "TooYoungException", "class_too_young_exception.html", "class_too_young_exception" ]
+    [ "TooYoungException", "class_too_young_exception.html", "class_too_young_exception" ],
+    [ "userLoginHash", "structuser_login_hash.html", "structuser_login_hash" ]
 ];

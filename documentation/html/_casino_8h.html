@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -83,7 +83,8 @@ $(document).ready(function(){initNavTree('_casino_8h.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">Casino.h File Reference</div>  </div>
 </div><!--header-->
@@ -92,16 +93,27 @@ $(document).ready(function(){initNavTree('_casino_8h.html','');});
 <p>Declares the casino class.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;set&gt;</code><br />
 <code>#include &lt;iomanip&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;unordered_set&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+<code>#include &lt;conio.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_table_8h_source.html">Table.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cmd_u_i_8h_source.html">cmdUI.h</a>&quot;</code><br />
 </div>
 <p><a href="_casino_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuser_login_hash.html">userLoginHash</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to generate indexs and compare logins. It is only prepared for hash tables of size 47.  <a href="structuser_login_hash.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdealers_comparison.html">dealersComparison</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to compare dealers.  <a href="structdealers_comparison.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_not_logged_exception.html">PlayerNotLoggedException</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception for signalling player not logged in.  <a href="class_player_not_logged_exception.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,15 +123,67 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_table_not_in_casino_exception.html">TableNotInCasinoException</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception for signalling that the table is not in the casino.  <a href="class_table_not_in_casino_exception.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_compare_by_average_profit.html">CompareByAverageProfit</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to compare players by their average profit.  <a href="struct_compare_by_average_profit.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_compare_by_age.html">CompareByAge</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to compare players by their age. Players with same age are compared by name.  <a href="struct_compare_by_age.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_compare_by_name.html">CompareByName</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to compare players by their name.  <a href="struct_compare_by_name.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_compare_by_intelligence.html">CompareByIntelligence</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to compare players by their intelligence.  <a href="struct_compare_by_intelligence.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_casino.html">Casino</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A casino.  <a href="class_casino.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a92dfe1aa72eb4778ab9ae8c35f03dea4"><td class="memItemLeft" align="right" valign="top">typedef unordered_set&lt; pair&lt; string, string &gt;, <a class="el" href="structuser_login_hash.html">userLoginHash</a>, <a class="el" href="structuser_login_hash.html">userLoginHash</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_casino_8h.html#a92dfe1aa72eb4778ab9ae8c35f03dea4">loginHash</a></td></tr>
+<tr class="separator:a92dfe1aa72eb4778ab9ae8c35f03dea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c4441425743408c593f4ffcd1a6cd72"><td class="memItemLeft" align="right" valign="top">typedef priority_queue&lt; <a class="el" href="class_dealer.html">Dealer</a> *, vector&lt; <a class="el" href="class_dealer.html">Dealer</a> * &gt;, <a class="el" href="structdealers_comparison.html">dealersComparison</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_casino_8h.html#a1c4441425743408c593f4ffcd1a6cd72">dealersPriority</a></td></tr>
+<tr class="separator:a1c4441425743408c593f4ffcd1a6cd72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Declares the casino class. </p>
 
 <p>Definition in file <a class="el" href="_casino_8h_source.html">Casino.h</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a1c4441425743408c593f4ffcd1a6cd72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c4441425743408c593f4ffcd1a6cd72">&sect;&nbsp;</a></span>dealersPriority</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef priority_queue&lt; <a class="el" href="class_dealer.html">Dealer</a>*, vector&lt;<a class="el" href="class_dealer.html">Dealer</a>*&gt;, <a class="el" href="structdealers_comparison.html">dealersComparison</a>&gt; <a class="el" href="_casino_8h.html#a1c4441425743408c593f4ffcd1a6cd72">dealersPriority</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_casino_8h_source.html#l00123">123</a> of file <a class="el" href="_casino_8h_source.html">Casino.h</a>.</p>
+
+</div>
+</div>
+<a id="a92dfe1aa72eb4778ab9ae8c35f03dea4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92dfe1aa72eb4778ab9ae8c35f03dea4">&sect;&nbsp;</a></span>loginHash</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef unordered_set&lt; pair&lt;string, string&gt;, <a class="el" href="structuser_login_hash.html">userLoginHash</a>, <a class="el" href="structuser_login_hash.html">userLoginHash</a>&gt; <a class="el" href="_casino_8h.html#a92dfe1aa72eb4778ab9ae8c35f03dea4">loginHash</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_casino_8h_source.html#l00076">76</a> of file <a class="el" href="_casino_8h_source.html">Casino.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

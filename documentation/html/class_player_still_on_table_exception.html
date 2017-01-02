@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_player_still_on_table_exception.
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_player_still_on_table_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PlayerStillOnTableException Class Reference</div>  </div>
@@ -103,6 +104,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a173aa6dec8b33b0b3fa1aa65a03848ad"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_still_on_table_exception.html#a173aa6dec8b33b0b3fa1aa65a03848ad">getTableId</a> () const</td></tr>
 <tr class="memdesc:a173aa6dec8b33b0b3fa1aa65a03848ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets table identifier.  <a href="#a173aa6dec8b33b0b3fa1aa65a03848ad">More...</a><br /></td></tr>
 <tr class="separator:a173aa6dec8b33b0b3fa1aa65a03848ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aff58c65c448022e702d78bed75fd3c2e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_still_on_table_exception.html#aff58c65c448022e702d78bed75fd3c2e">name</a></td></tr>
+<tr class="memdesc:aff58c65c448022e702d78bed75fd3c2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name.  <a href="#aff58c65c448022e702d78bed75fd3c2e">More...</a><br /></td></tr>
+<tr class="separator:aff58c65c448022e702d78bed75fd3c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75eb3132eb03947b98390ee83212292e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_still_on_table_exception.html#a75eb3132eb03947b98390ee83212292e">tableID</a></td></tr>
+<tr class="memdesc:a75eb3132eb03947b98390ee83212292e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier for the table.  <a href="#a75eb3132eb03947b98390ee83212292e">More...</a><br /></td></tr>
+<tr class="separator:a75eb3132eb03947b98390ee83212292e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception for signalling that the player is still on table. </p>
@@ -137,12 +147,23 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_player_8cpp_source.html#l01023">1023</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_player_8cpp_source.html#l01029">1029</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
 
-<p>References <a class="el" href="_player_8cpp_source.html#l00097">Player::getName()</a>, and <a class="el" href="_player_8cpp_source.html#l00235">Player::getOnTable()</a>.</p>
-<div class="fragment"><div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;                                                                        {</div><div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;    this-&gt;name = player-&gt;<a class="code" href="class_player.html#a4939193fc637f75bf7a11118334dae7e">getName</a>();</div><div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;    this-&gt;tableID = player-&gt;<a class="code" href="class_player.html#a3928c55936faef5fd63b24d94b9a5781">getOnTable</a>();</div><div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;}</div><div class="ttc" id="class_player_html_a3928c55936faef5fd63b24d94b9a5781"><div class="ttname"><a href="class_player.html#a3928c55936faef5fd63b24d94b9a5781">Player::getOnTable</a></div><div class="ttdeci">int getOnTable() const</div><div class="ttdoc">Gets if the player is on table or not. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00235">Player.cpp:235</a></div></div>
+<p>References <a class="el" href="_player_8cpp_source.html#l00097">Player::getName()</a>, and <a class="el" href="_player_8cpp_source.html#l00239">Player::getOnTable()</a>.</p>
+<div class="fragment"><div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;                                                                        {</div><div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;    this-&gt;<a class="code" href="class_player_still_on_table_exception.html#aff58c65c448022e702d78bed75fd3c2e">name</a> = player-&gt;<a class="code" href="class_player.html#a4939193fc637f75bf7a11118334dae7e">getName</a>();</div><div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;    this-&gt;<a class="code" href="class_player_still_on_table_exception.html#a75eb3132eb03947b98390ee83212292e">tableID</a> = player-&gt;<a class="code" href="class_player.html#a3928c55936faef5fd63b24d94b9a5781">getOnTable</a>();</div><div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;}</div><div class="ttc" id="class_player_still_on_table_exception_html_a75eb3132eb03947b98390ee83212292e"><div class="ttname"><a href="class_player_still_on_table_exception.html#a75eb3132eb03947b98390ee83212292e">PlayerStillOnTableException::tableID</a></div><div class="ttdeci">unsigned int tableID</div><div class="ttdoc">Identifier for the table. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8h_source.html#l00147">Player.h:147</a></div></div>
+<div class="ttc" id="class_player_html_a3928c55936faef5fd63b24d94b9a5781"><div class="ttname"><a href="class_player.html#a3928c55936faef5fd63b24d94b9a5781">Player::getOnTable</a></div><div class="ttdeci">int getOnTable() const</div><div class="ttdoc">Gets if the player is on table or not. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00239">Player.cpp:239</a></div></div>
 <div class="ttc" id="class_player_html_a4939193fc637f75bf7a11118334dae7e"><div class="ttname"><a href="class_player.html#a4939193fc637f75bf7a11118334dae7e">Player::getName</a></div><div class="ttdeci">string getName() const</div><div class="ttdoc">Gets the name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00097">Player.cpp:97</a></div></div>
-</div><!-- fragment -->
+<div class="ttc" id="class_player_still_on_table_exception_html_aff58c65c448022e702d78bed75fd3c2e"><div class="ttname"><a href="class_player_still_on_table_exception.html#aff58c65c448022e702d78bed75fd3c2e">PlayerStillOnTableException::name</a></div><div class="ttdeci">string name</div><div class="ttdoc">The name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8h_source.html#l00145">Player.h:145</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_player_still_on_table_exception_a1df43217f05e26b327768df459024fac_cgraph.png" border="0" usemap="#class_player_still_on_table_exception_a1df43217f05e26b327768df459024fac_cgraph" alt=""/></div>
+<map name="class_player_still_on_table_exception_a1df43217f05e26b327768df459024fac_cgraph" id="class_player_still_on_table_exception_a1df43217f05e26b327768df459024fac_cgraph">
+<area shape="rect" id="node2" href="class_player.html#a4939193fc637f75bf7a11118334dae7e" title="Gets the name. " alt="" coords="255,5,374,32"/>
+<area shape="rect" id="node3" href="class_player.html#a3928c55936faef5fd63b24d94b9a5781" title="Gets if the player is on table or not. " alt="" coords="248,56,381,83"/>
+</map>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -166,10 +187,64 @@ Public Member Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>19/11/2016</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The table identifier. </dd></dl>
 
-<p>Definition at line <a class="el" href="_player_8cpp_source.html#l01028">1028</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_player_8cpp_source.html#l01034">1034</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00581">Casino::eliminate()</a>.</p>
-<div class="fragment"><div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;                                                           {</div><div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;    <span class="keywordflow">return</span> this-&gt;tableID;</div><div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;}</div></div><!-- fragment -->
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00953">Casino::eliminate()</a>.</p>
+<div class="fragment"><div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;                                                           {</div><div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_player_still_on_table_exception.html#a75eb3132eb03947b98390ee83212292e">tableID</a>;</div><div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;}</div><div class="ttc" id="class_player_still_on_table_exception_html_a75eb3132eb03947b98390ee83212292e"><div class="ttname"><a href="class_player_still_on_table_exception.html#a75eb3132eb03947b98390ee83212292e">PlayerStillOnTableException::tableID</a></div><div class="ttdeci">unsigned int tableID</div><div class="ttdoc">Identifier for the table. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8h_source.html#l00147">Player.h:147</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aff58c65c448022e702d78bed75fd3c2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff58c65c448022e702d78bed75fd3c2e">&sect;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string PlayerStillOnTableException::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The name. </p>
+
+<p>Definition at line <a class="el" href="_player_8h_source.html#l00145">145</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
+</div>
+</div>
+<a id="a75eb3132eb03947b98390ee83212292e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75eb3132eb03947b98390ee83212292e">&sect;&nbsp;</a></span>tableID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PlayerStillOnTableException::tableID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Identifier for the table. </p>
+
+<p>Definition at line <a class="el" href="_player_8h_source.html#l00147">147</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

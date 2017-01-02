@@ -1,0 +1,7 @@
+<map id="Casino::addTablesToCasino" name="Casino::addTablesToCasino">
+<area shape="rect" id="node2" href="$class_casino.html#a0c6e77e20add9d90b286b7e2be59a1a8" title="Adds a table to casino. " alt="" coords="236,56,412,83"/>
+<area shape="rect" id="node3" href="$class_table.html#aafb202407f082dbe38b154db463ef0b1" title="Gets initial money of this table. " alt="" coords="465,5,613,32"/>
+<area shape="rect" id="node4" href="$_casino_8cpp.html#aa8f337a223d32da27417b176b69f19e2" title="sortFunctionTables" alt="" coords="473,56,605,83"/>
+<area shape="rect" id="node6" href="$class_existing_table_exception.html#a8024c517b64a950dedf37fd38ee6f738" title="Displays in terminal what caused this exception to be thrown. " alt="" coords="460,107,619,149"/>
+<area shape="rect" id="node5" href="$class_table.html#aa4db39c76365882991132d3c07a85a81" title="Gets table identifier. " alt="" coords="667,56,789,83"/>
+</map>

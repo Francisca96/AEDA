@@ -39,11 +39,10 @@ struct userLoginHash
 	*
 	* @brief	Dispersion Function.
 	*
-	* @author	Renato Campos
+	* @author	Francisca Paupério
 	* @date	30/12/2016
 	*
-	* @param	lhs Pointer to a player.
-	* @param	rhs Pointer to a player.
+	* @param	ur A string pair containing username and password.
 	*
 	* @return	User index on hash table.
 	*/
@@ -55,6 +54,20 @@ struct userLoginHash
 		}
 		return hashNumber % 47;
 	}
+
+	/**
+	* @fn	int operator() (const pair <string, string> &ur1, const pair <string, string> &ur2) const
+	*
+	* @brief	A binary predicate that compairs if two elements are equal.
+	*
+	* @author	Francisca Paupério
+	* @date	30/12/2016
+	*
+	* @param	ur1 One user.
+	* @param	ur2 One user.
+	*
+	* @return	True if elements have same username, False otherwise.
+	*/
 	int operator() (const pair <string, string> &ur1, const pair <string, string> &ur2) const {
 		return ur1.first == ur2.first;
 	}
@@ -62,8 +75,31 @@ struct userLoginHash
 
 typedef unordered_set< pair<string, string>, userLoginHash, userLoginHash> loginHash; /* @brief loginHash = unordered_set<pair<string,string>,userLoginHash,userLoginHash> */
 
-struct dealersComparasion
+/**
+* @struct	dealersComparison
+*
+* @brief	Used to compare dealers.
+*
+* @author	João Carvalho
+* @date	30/12/2016
+*/
+
+struct dealersComparison
 {
+	/**
+	* @fn	bool operator() (const Dealer* d1, const Dealer* d2) const
+	*
+	* @brief	A binary predicate that performs the less operator.
+	*
+	* @author	Francisca Paupério
+	* @date	30/12/2016
+	*
+	* @param	d1 Pointer to a Dealer.
+	* @param	d2 Pointer to a Dealer.
+	*
+	* @return	True if d1 > d2.
+	*/
+
 	bool operator() (const Dealer* d1, const Dealer* d2) const {
 		if (d1->getTableOn() == -1 && d2->getTableOn() != -1)
 		{
@@ -84,7 +120,43 @@ struct dealersComparasion
 	}
 };
 
-typedef priority_queue< Dealer*, vector<Dealer*>, dealersComparasion> dealersPriority;
+/**
+* @struct	botNamesCompare
+*
+* @brief	Used to compare bot names.
+*
+* @author	João Carvalho
+* @date		30/12/2016
+*/
+struct botNamesCompare {
+	/**
+	* @fn	bool operator() (const pair<string,bool> &d1, const pair<string, bool> &d2) const
+	*
+	* @brief	A binary predicate that performs the less operator.
+	*
+	* @author	Francisca Paupério
+	* @date	30/12/2016
+	*
+	* @param	d1 A pair containing a bot name and a bool (hasPlayedBefore)
+	* @param	d2 A pair containing a bot name and a bool (hasPlayedBefore)
+	*
+	* @return	True if d1 > d2.
+	*/
+
+	bool operator() (const pair<string,bool> &d1, const pair<string, bool> &d2) const {
+		if (d1.second == true && d2.second == false) {
+			return true;
+		}
+		if (d1.second == false && d2.second == true) {
+			return false;
+		}
+		return d1.first > d2.first;
+	}
+};
+
+typedef priority_queue< Dealer*, vector<Dealer*>, dealersComparison> dealersPriority; /* @brief dealersPriority it's a priority queue that holds pointers to dealers and compares them using the dealersComparison struct */
+
+typedef priority_queue<pair<string,bool>, vector<pair<string,bool>>, botNamesCompare> botNamesPriority; 
 
 /**
  * @class	PlayerNotLoggedException
@@ -376,6 +448,9 @@ struct CompareByIntelligence {
 
 class Casino {
 private:
+
+	/** @brief Bot Names to automatically generate bots. Actual size = 36*/
+	botNamesPriority botNames;
 	/** @brief	The players file. */
 	string playersFile;
 	/** @brief	The dealers file. */
@@ -410,7 +485,7 @@ public:
 	* @author	Joao Carvalho
 	* @date	30/12/2016
 	*
-	* @param	totalMoney	The total money.
+	* @param	n	Number of users.
 	*/
 
 	void showUsers(int n);

@@ -131,17 +131,17 @@ void start_menu(pair <short, short> xy, int &choice) {
 }
 
 void manageCasino(pair<short, short> xy, unsigned int &choice) {
-	vector <string> options = {"1. Create ..." ,"2. Delete...", "3. Manage Tables", "4. Best Platers" , "" , "0. Return to MENU" };
+	vector <string> options = {"1. Create ..." ,"2. Delete...", "3. Manage Tables", "4. Best Players" , "" , "0. Return to MENU" };
 	system("CLS");
 	displayMenu0(xy, "MANAGE CASINO", options);
 	choice = readIntBetween(0, 4);
 }
 
 void createMenu(pair<short, short> xy, unsigned int &choice) {
-	vector <string> options = { "-. Create ..." ,"  1. Table" ,"  2. Dealer", "  3. Player (BOT)", "  4. Account", "-. Delete...", "-. Manage Tables", "-. Stats" , "" ,"0. Back" };
+	vector <string> options = { "-. Create ..." ,"  1. Table" ,"  2. Dealer", "  3. Player (BOT)", "  4. Account","  5. Several Players (BOTs)","-. Delete...", "-. Manage Tables", "-. Stats" , "" ,"0. Back" };
 	system("CLS");
 	displayMenu0(xy, "1. Create ...", options);
-	choice = readIntBetween(0, 4);
+	choice = readIntBetween(0, 5);
 }
 
 void deleteMenu(pair<short, short> xy, unsigned int &choice) {

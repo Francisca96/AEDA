@@ -29,6 +29,7 @@ var class_player =
     [ "saveInfo", "class_player.html#aade769a50507ec98b76354c94174b5a3", null ],
     [ "setActualBet", "class_player.html#a532e4e3d79979f5e9e83938d6b1854ad", null ],
     [ "setAge", "class_player.html#ae40dd6f0454849bfe0ccb2faa32d5eef", null ],
+    [ "setAverageProfit", "class_player.html#a8af74c94fd1783e8b428fefaa81cef35", null ],
     [ "setCurrentMoney", "class_player.html#a58cd48e60ab8b69e47776359c77df8c1", null ],
     [ "setHand2Score", "class_player.html#a62cfec47d7af1fba889dc502c70b8e00", null ],
     [ "setHandScore", "class_player.html#a4f795936b834f2d80a725f529c79c781", null ],
@@ -40,5 +41,17 @@ var class_player =
     [ "showStatistics", "class_player.html#abc620380dbb2cd754d4e1427760d9518", null ],
     [ "split", "class_player.html#a44606c251b5d4cca55ffc680752886ba", null ],
     [ "surrender", "class_player.html#a1b2746dd99d44b728ffeb4dde3ff3e9e", null ],
-    [ "takeInsurance", "class_player.html#a61a4b3a68af4b5ac47437cdb577086f7", null ]
+    [ "takeInsurance", "class_player.html#a61a4b3a68af4b5ac47437cdb577086f7", null ],
+    [ "actualBet", "class_player.html#ab8623b75c3f668fd37f21ed7be8b4bb9", null ],
+    [ "age", "class_player.html#ac7bb28d0c997f8fd7ee84a660670a0be", null ],
+    [ "averageProfit", "class_player.html#aeae39faeb2dc13f0b5bb4b7db6d76633", null ],
+    [ "currentMoney", "class_player.html#a6252287f2f487871dbd8573f4280fdb3", null ],
+    [ "hand", "class_player.html#a3c645b2bb22fe405e677e2879bc7ba90", null ],
+    [ "hand2", "class_player.html#a0494b9d0f5d0249b413dca3abf84a9d2", null ],
+    [ "hand2Score", "class_player.html#a888973c1a178e58f948889b6dc2f9cc9", null ],
+    [ "handScore", "class_player.html#ab0b8da4e0a1c506e3858a730208759a6", null ],
+    [ "initialMoney", "class_player.html#aacffce30f5380fc06011b4e8381f0370", null ],
+    [ "name", "class_player.html#acf0355128a99ee20ad9931b760fb2de1", null ],
+    [ "onTable", "class_player.html#a27c8117c8739fa341f6952c6bb2de48d", null ],
+    [ "roundsPlayed", "class_player.html#a668b7ea676439ac536bbdded069a2487", null ]
 ];

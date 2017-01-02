@@ -9,5 +9,6 @@ var searchData=
   ['deletemenu',['deleteMenu',['../cmd_u_i_8cpp.html#a2451dbf01b864018c05fe791e91d32d1',1,'deleteMenu(pair&lt; short, short &gt; xy, unsigned int &amp;choice):&#160;cmdUI.cpp'],['../cmd_u_i_8h.html#a2451dbf01b864018c05fe791e91d32d1',1,'deleteMenu(pair&lt; short, short &gt; xy, unsigned int &amp;choice):&#160;cmdUI.cpp']]],
   ['discard',['discard',['../class_dealer.html#aa830a4e0a67d50f84c391972ea2a3d57',1,'Dealer']]],
   ['displaymenu0',['displayMenu0',['../cmd_u_i_8cpp.html#a3f76e0072f6af377fb5d0669abbb849d',1,'cmdUI.cpp']]],
-  ['doubledown',['doubleDown',['../class_player.html#a08a3cae149f0ee66b4fad5cbe60e2a6d',1,'Player']]]
+  ['doubledown',['doubleDown',['../class_player.html#a08a3cae149f0ee66b4fad5cbe60e2a6d',1,'Player']]],
+  ['drawtitle',['drawTitle',['../cmd_u_i_8cpp.html#a006ac3db07ba3e1ca416928b9c2ecf54',1,'drawTitle(pair&lt; short, short &gt; xy):&#160;cmdUI.cpp'],['../cmd_u_i_8h.html#a006ac3db07ba3e1ca416928b9c2ecf54',1,'drawTitle(pair&lt; short, short &gt; xy):&#160;cmdUI.cpp']]]
 ];

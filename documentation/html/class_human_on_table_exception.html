@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_human_on_table_exception.html','
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_human_on_table_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">HumanOnTableException Class Reference</div>  </div>
@@ -100,6 +101,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abd859782137a73608aa7ad90656424b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_human_on_table_exception.html#abd859782137a73608aa7ad90656424b6">HumanOnTableException</a> (<a class="el" href="class_player.html">Player</a> *player)</td></tr>
 <tr class="memdesc:abd859782137a73608aa7ad90656424b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#abd859782137a73608aa7ad90656424b6">More...</a><br /></td></tr>
 <tr class="separator:abd859782137a73608aa7ad90656424b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a103b7f6d8efe9f67558a531e706c95cc"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_human_on_table_exception.html#a103b7f6d8efe9f67558a531e706c95cc">name</a></td></tr>
+<tr class="memdesc:a103b7f6d8efe9f67558a531e706c95cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The human name.  <a href="#a103b7f6d8efe9f67558a531e706c95cc">More...</a><br /></td></tr>
+<tr class="separator:a103b7f6d8efe9f67558a531e706c95cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception for signalling that there is a human on the table. </p>
@@ -134,11 +141,47 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_player_8cpp_source.html#l01036">1036</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_player_8cpp_source.html#l01042">1042</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
 
 <p>References <a class="el" href="_player_8cpp_source.html#l00097">Player::getName()</a>.</p>
-<div class="fragment"><div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;                                                            {</div><div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;    this-&gt;name = player-&gt;<a class="code" href="class_player.html#a4939193fc637f75bf7a11118334dae7e">getName</a>();</div><div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;}</div><div class="ttc" id="class_player_html_a4939193fc637f75bf7a11118334dae7e"><div class="ttname"><a href="class_player.html#a4939193fc637f75bf7a11118334dae7e">Player::getName</a></div><div class="ttdeci">string getName() const</div><div class="ttdoc">Gets the name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00097">Player.cpp:97</a></div></div>
-</div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;                                                            {</div><div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;    this-&gt;<a class="code" href="class_human_on_table_exception.html#a103b7f6d8efe9f67558a531e706c95cc">name</a> = player-&gt;<a class="code" href="class_player.html#a4939193fc637f75bf7a11118334dae7e">getName</a>();</div><div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;}</div><div class="ttc" id="class_human_on_table_exception_html_a103b7f6d8efe9f67558a531e706c95cc"><div class="ttname"><a href="class_human_on_table_exception.html#a103b7f6d8efe9f67558a531e706c95cc">HumanOnTableException::name</a></div><div class="ttdeci">string name</div><div class="ttdoc">The human name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8h_source.html#l00218">Player.h:218</a></div></div>
+<div class="ttc" id="class_player_html_a4939193fc637f75bf7a11118334dae7e"><div class="ttname"><a href="class_player.html#a4939193fc637f75bf7a11118334dae7e">Player::getName</a></div><div class="ttdeci">string getName() const</div><div class="ttdoc">Gets the name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00097">Player.cpp:97</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_human_on_table_exception_abd859782137a73608aa7ad90656424b6_cgraph.png" border="0" usemap="#class_human_on_table_exception_abd859782137a73608aa7ad90656424b6_cgraph" alt=""/></div>
+<map name="class_human_on_table_exception_abd859782137a73608aa7ad90656424b6_cgraph" id="class_human_on_table_exception_abd859782137a73608aa7ad90656424b6_cgraph">
+<area shape="rect" id="node2" href="class_player.html#a4939193fc637f75bf7a11118334dae7e" title="Gets the name. " alt="" coords="231,13,349,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a103b7f6d8efe9f67558a531e706c95cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a103b7f6d8efe9f67558a531e706c95cc">&sect;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string HumanOnTableException::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The human name. </p>
+
+<p>Definition at line <a class="el" href="_player_8h_source.html#l00218">218</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

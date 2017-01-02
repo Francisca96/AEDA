@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_dealer_already_exist_exception.h
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_dealer_already_exist_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">DealerAlreadyExistException Class Reference</div>  </div>
@@ -103,6 +104,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a61aee4db55399ffd2e06ceedd04136be"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer_already_exist_exception.html#a61aee4db55399ffd2e06ceedd04136be">getID</a> () const</td></tr>
 <tr class="memdesc:a61aee4db55399ffd2e06ceedd04136be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the identifier.  <a href="#a61aee4db55399ffd2e06ceedd04136be">More...</a><br /></td></tr>
 <tr class="separator:a61aee4db55399ffd2e06ceedd04136be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac10910d7b4a727a3793c66ee3375a144"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer_already_exist_exception.html#ac10910d7b4a727a3793c66ee3375a144">dealerID</a></td></tr>
+<tr class="memdesc:ac10910d7b4a727a3793c66ee3375a144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier for the dealer.  <a href="#ac10910d7b4a727a3793c66ee3375a144">More...</a><br /></td></tr>
+<tr class="separator:ac10910d7b4a727a3793c66ee3375a144"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception for signalling that the dealer already exists. </p>
@@ -140,8 +147,17 @@ Public Member Functions</h2></td></tr>
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00159">159</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
 <p>References <a class="el" href="_dealer_8cpp_source.html#l00131">Dealer::getID()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                                                                        {</div><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    this-&gt;dealerID = dealer-&gt;<a class="code" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">getID</a>();</div><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;}</div><div class="ttc" id="class_dealer_html_a8c45fa97cab622ceb350ccf31012b140"><div class="ttname"><a href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">Dealer::getID</a></div><div class="ttdeci">unsigned int getID() const</div><div class="ttdoc">Gets the Dealer&amp;#39;s identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00131">Dealer.cpp:131</a></div></div>
-</div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                                                                        {</div><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    this-&gt;<a class="code" href="class_dealer_already_exist_exception.html#ac10910d7b4a727a3793c66ee3375a144">dealerID</a> = dealer-&gt;<a class="code" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">getID</a>();</div><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;}</div><div class="ttc" id="class_dealer_already_exist_exception_html_ac10910d7b4a727a3793c66ee3375a144"><div class="ttname"><a href="class_dealer_already_exist_exception.html#ac10910d7b4a727a3793c66ee3375a144">DealerAlreadyExistException::dealerID</a></div><div class="ttdeci">int dealerID</div><div class="ttdoc">Identifier for the dealer. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00375">Dealer.h:375</a></div></div>
+<div class="ttc" id="class_dealer_html_a8c45fa97cab622ceb350ccf31012b140"><div class="ttname"><a href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">Dealer::getID</a></div><div class="ttdeci">unsigned int getID() const</div><div class="ttdoc">Gets the Dealer&amp;#39;s identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00131">Dealer.cpp:131</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dealer_already_exist_exception_add77c4940bd7faeb6d9de01f12a7688d_cgraph.png" border="0" usemap="#class_dealer_already_exist_exception_add77c4940bd7faeb6d9de01f12a7688d_cgraph" alt=""/></div>
+<map name="class_dealer_already_exist_exception_add77c4940bd7faeb6d9de01f12a7688d_cgraph" id="class_dealer_already_exist_exception_add77c4940bd7faeb6d9de01f12a7688d_cgraph">
+<area shape="rect" id="node2" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140" title="Gets the Dealer&#39;s identifier. " alt="" coords="252,13,349,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -167,8 +183,36 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00163">163</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00230">Casino::readDealersFile()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                                             {</div><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordflow">return</span> dealerID;</div><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}</div></div><!-- fragment -->
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00377">Casino::readDealersFile()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                                             {</div><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_dealer_already_exist_exception.html#ac10910d7b4a727a3793c66ee3375a144">dealerID</a>;</div><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}</div><div class="ttc" id="class_dealer_already_exist_exception_html_ac10910d7b4a727a3793c66ee3375a144"><div class="ttname"><a href="class_dealer_already_exist_exception.html#ac10910d7b4a727a3793c66ee3375a144">DealerAlreadyExistException::dealerID</a></div><div class="ttdeci">int dealerID</div><div class="ttdoc">Identifier for the dealer. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00375">Dealer.h:375</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac10910d7b4a727a3793c66ee3375a144"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac10910d7b4a727a3793c66ee3375a144">&sect;&nbsp;</a></span>dealerID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DealerAlreadyExistException::dealerID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Identifier for the dealer. </p>
+
+<p>Definition at line <a class="el" href="_dealer_8h_source.html#l00375">375</a> of file <a class="el" href="_dealer_8h_source.html">Dealer.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

@@ -1,5 +1,8 @@
 var searchData=
 [
+  ['actualbet',['actualBet',['../class_player.html#ab8623b75c3f668fd37f21ed7be8b4bb9',1,'Player']]],
+  ['actualnumofplayers',['actualNumOfPlayers',['../class_too_many_players_exception.html#a7514ce61765122f007c18c3f0794edd1',1,'TooManyPlayersException']]],
+  ['actualplayers',['actualPlayers',['../class_table.html#aca20a5bf1f4bb9282f2652ee4cbd125c',1,'Table']]],
   ['addcardstodeck',['addCardsToDeck',['../class_dealer.html#aab8779425d7113d6167a6bcd59dc6e55',1,'Dealer']]],
   ['addcount',['addCount',['../class_player.html#aaf1f4c6fb5cc531db4d7acd4b8e2a2dc',1,'Player::addCount()'],['../class_bot1.html#aaa5fc1e84b013c6f8d70b53658ffc156',1,'Bot1::addCount()'],['../class_bot2.html#a6b9b7841dcec84a12d365c6c226c2bb1',1,'Bot2::addCount()']]],
   ['adddealertocasino',['addDealerToCasino',['../class_casino.html#a93780bfce351b004f0ac5602a8b593a2',1,'Casino']]],
@@ -12,5 +15,7 @@ var searchData=
   ['addplayertocasino',['addPlayerToCasino',['../class_casino.html#a54749cf7229b9cf10665660f6edfc4d8',1,'Casino']]],
   ['addplayertotable',['addPlayerToTable',['../class_casino.html#afa089e95581b451abf4adf4afb1b1ccd',1,'Casino']]],
   ['addtablestocasino',['addTablesToCasino',['../class_casino.html#a2d01e3d373c98e5a7ecaeeea19cbc99f',1,'Casino']]],
-  ['addtabletocasino',['addTableToCasino',['../class_casino.html#a0c6e77e20add9d90b286b7e2be59a1a8',1,'Casino']]]
+  ['addtabletocasino',['addTableToCasino',['../class_casino.html#a0c6e77e20add9d90b286b7e2be59a1a8',1,'Casino']]],
+  ['age',['age',['../class_player.html#ac7bb28d0c997f8fd7ee84a660670a0be',1,'Player']]],
+  ['averageprofit',['averageProfit',['../class_player.html#aeae39faeb2dc13f0b5bb4b7db6d76633',1,'Player']]]
 ];

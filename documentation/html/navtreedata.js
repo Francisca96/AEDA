@@ -7,8 +7,8 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
@@ -16,7 +16,9 @@ var NAVTREE =
       [ "File List", "files.html", "files" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ]
+        [ "Functions", "globals_func.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -25,7 +27,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_casino_8cpp.html",
-"cmd_u_i_8h.html#a9d7e8af417b6d543da691e9c0e2f6f9f"
+"class_player_not_logged_exception.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

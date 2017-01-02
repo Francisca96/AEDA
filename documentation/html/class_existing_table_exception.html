@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_existing_table_exception.html','
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_existing_table_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ExistingTableException Class Reference</div>  </div>
@@ -103,13 +104,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8024c517b64a950dedf37fd38ee6f738"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_existing_table_exception.html#a8024c517b64a950dedf37fd38ee6f738">what</a> ()</td></tr>
 <tr class="memdesc:a8024c517b64a950dedf37fd38ee6f738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays in terminal what caused this exception to be thrown.  <a href="#a8024c517b64a950dedf37fd38ee6f738">More...</a><br /></td></tr>
 <tr class="separator:a8024c517b64a950dedf37fd38ee6f738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5e59fe489591f7a646aa94913de93af4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_existing_table_exception.html#a5e59fe489591f7a646aa94913de93af4">id</a></td></tr>
+<tr class="memdesc:a5e59fe489591f7a646aa94913de93af4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The identifier.  <a href="#a5e59fe489591f7a646aa94913de93af4">More...</a><br /></td></tr>
+<tr class="separator:a5e59fe489591f7a646aa94913de93af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception for signalling that a table with the specified ID already exists. </p>
 <dl class="section author"><dt>Author</dt><dd>Ineeve </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>19/11/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="_casino_8h_source.html#l00068">68</a> of file <a class="el" href="_casino_8h_source.html">Casino.h</a>.</p>
+<p>Definition at line <a class="el" href="_casino_8h_source.html#l00174">174</a> of file <a class="el" href="_casino_8h_source.html">Casino.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2a05bc445d1cfaf1ba1020510e3f4e80"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2a05bc445d1cfaf1ba1020510e3f4e80">&sect;&nbsp;</a></span>ExistingTableException()</h2>
@@ -137,11 +144,19 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_casino_8cpp_source.html#l00976">976</a> of file <a class="el" href="_casino_8cpp_source.html">Casino.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_casino_8cpp_source.html#l01505">1505</a> of file <a class="el" href="_casino_8cpp_source.html">Casino.cpp</a>.</p>
 
-<p>References <a class="el" href="_table_8cpp_source.html#l00509">Table::getTableID()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;{</div><div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;    <span class="keywordtype">id</span> = table-&gt;<a class="code" href="class_table.html#aa4db39c76365882991132d3c07a85a81">getTableID</a>();</div><div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;}</div><div class="ttc" id="class_table_html_aa4db39c76365882991132d3c07a85a81"><div class="ttname"><a href="class_table.html#aa4db39c76365882991132d3c07a85a81">Table::getTableID</a></div><div class="ttdeci">int getTableID() const</div><div class="ttdoc">Gets table identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_table_8cpp_source.html#l00509">Table.cpp:509</a></div></div>
-</div><!-- fragment -->
+<p>References <a class="el" href="_table_8cpp_source.html#l00520">Table::getTableID()</a>.</p>
+<div class="fragment"><div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;{</div><div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;    <span class="keywordtype">id</span> = table-&gt;<a class="code" href="class_table.html#aa4db39c76365882991132d3c07a85a81">getTableID</a>();</div><div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;}</div><div class="ttc" id="class_table_html_aa4db39c76365882991132d3c07a85a81"><div class="ttname"><a href="class_table.html#aa4db39c76365882991132d3c07a85a81">Table::getTableID</a></div><div class="ttdeci">int getTableID() const</div><div class="ttdoc">Gets table identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_table_8cpp_source.html#l00520">Table.cpp:520</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_existing_table_exception_a2a05bc445d1cfaf1ba1020510e3f4e80_cgraph.png" border="0" usemap="#class_existing_table_exception_a2a05bc445d1cfaf1ba1020510e3f4e80_cgraph" alt=""/></div>
+<map name="class_existing_table_exception_a2a05bc445d1cfaf1ba1020510e3f4e80_cgraph" id="class_existing_table_exception_a2a05bc445d1cfaf1ba1020510e3f4e80_cgraph">
+<area shape="rect" id="node2" href="class_table.html#aa4db39c76365882991132d3c07a85a81" title="Gets table identifier. " alt="" coords="220,13,343,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -164,10 +179,37 @@ Public Member Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Ineeve </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>19/11/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="_casino_8cpp_source.html#l00981">981</a> of file <a class="el" href="_casino_8cpp_source.html">Casino.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_casino_8cpp_source.html#l01510">1510</a> of file <a class="el" href="_casino_8cpp_source.html">Casino.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00027">Casino::addTableToCasino()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;{</div><div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Table ID.&quot;</span> &lt;&lt; <span class="keywordtype">id</span> &lt;&lt; <span class="stringliteral">&quot; already exists in this casino\n&quot;</span>;</div><div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;}</div></div><!-- fragment -->
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00161">Casino::addTableToCasino()</a>.</p>
+<div class="fragment"><div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160;{</div><div class="line"><a name="l01512"></a><span class="lineno"> 1512</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Table ID.&quot;</span> &lt;&lt; <span class="keywordtype">id</span> &lt;&lt; <span class="stringliteral">&quot; already exists in this casino\n&quot;</span>;</div><div class="line"><a name="l01513"></a><span class="lineno"> 1513</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5e59fe489591f7a646aa94913de93af4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e59fe489591f7a646aa94913de93af4">&sect;&nbsp;</a></span>id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int ExistingTableException::id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The identifier. </p>
+
+<p>Definition at line <a class="el" href="_casino_8h_source.html#l00177">177</a> of file <a class="el" href="_casino_8h_source.html">Casino.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

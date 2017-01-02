@@ -1,0 +1,4 @@
+<map id="PlayerStillOnTableException::PlayerStillOnTableException" name="PlayerStillOnTableException::PlayerStillOnTableException">
+<area shape="rect" id="node2" href="$class_player.html#a4939193fc637f75bf7a11118334dae7e" title="Gets the name. " alt="" coords="255,5,374,32"/>
+<area shape="rect" id="node3" href="$class_player.html#a3928c55936faef5fd63b24d94b9a5781" title="Gets if the player is on table or not. " alt="" coords="248,56,381,83"/>
+</map>

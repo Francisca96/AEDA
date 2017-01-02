@@ -12,11 +12,21 @@ var class_dealer =
     [ "getHand", "class_dealer.html#ad02ffb06122263fe63b1d5d9a711cdfe", null ],
     [ "getHandScore", "class_dealer.html#a80922ef482150027656ef0a6a82bc773", null ],
     [ "getID", "class_dealer.html#a8c45fa97cab622ceb350ccf31012b140", null ],
+    [ "getNextID", "class_dealer.html#a3af257ebe799a924bbfc2e5898672f3e", null ],
     [ "getTableOn", "class_dealer.html#a33483233d2bdc17351d3d57fee448184", null ],
     [ "hasCardInHand", "class_dealer.html#a859c16c03295b75e0a469ec897afeff7", null ],
     [ "hit", "class_dealer.html#a7d9ccd145c1bdaf2aea4c28b08d9866d", null ],
     [ "play", "class_dealer.html#a77983c83dc250bf5a3a9fb365fbcdbdb", null ],
     [ "setHandScore", "class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909", null ],
+    [ "setNextID", "class_dealer.html#a65ef0e688aab06970d20110e29f6b5af", null ],
     [ "setTable", "class_dealer.html#af1065f11bc62bb7d46f50530eb3125d9", null ],
-    [ "shuffleDeck", "class_dealer.html#a5b4e4ca09848455326edb23777d7f896", null ]
+    [ "shuffleDeck", "class_dealer.html#a5b4e4ca09848455326edb23777d7f896", null ],
+    [ "deck", "class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd", null ],
+    [ "deckDiscarded", "class_dealer.html#a79a4fefe14d59df512c3fbf9f2039a28", null ],
+    [ "hand", "class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a", null ],
+    [ "handScore", "class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e", null ],
+    [ "ID", "class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8", null ],
+    [ "nextID", "class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3", null ],
+    [ "nextPlayer", "class_dealer.html#a5beeda363f72f5c3b15b8e83d1d4331c", null ],
+    [ "TableID", "class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a", null ]
 ];

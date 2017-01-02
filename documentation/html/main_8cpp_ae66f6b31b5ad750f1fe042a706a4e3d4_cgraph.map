@@ -1,0 +1,51 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$cmd_u_i_8cpp.html#a350bca8c244b72101da3e634ef5695aa" title="Center the terminal window. The returned length is measured in characters. " alt="" coords="146,116,250,143"/>
+<area shape="rect" id="node3" href="$class_no_players_on_table_exception.html#a59983e4b1309c92ee096c263fa5fcd85" title="Gets the identifier. " alt="" coords="104,167,292,209"/>
+<area shape="rect" id="node4" href="$class_casino.html#abc474c7425555e4ac8e030495cb7a8e3" title="Gets table to play. " alt="" coords="119,233,277,260"/>
+<area shape="rect" id="node5" href="$class_casino.html#a2ba8405edb7821a4046e450bfa67abf7" title="login system. " alt="" coords="108,284,288,311"/>
+<area shape="rect" id="node6" href="$class_casino.html#a4aaf40f6c05c3f24261b330a2489f7b9" title="login system. " alt="" coords="149,765,247,792"/>
+<area shape="rect" id="node9" href="$class_casino.html#acafc79028d02c97ac115c9dad1bce6eb" title="Manages casino. Enables the user to select between menus. " alt="" coords="140,385,256,412"/>
+<area shape="rect" id="node14" href="$utils_8cpp.html#a55b3de51bc5631fb67d6681f33e52228" title="Reads unsigned int. Asks for user input. " alt="" coords="614,411,729,437"/>
+<area shape="rect" id="node21" href="$class_table.html#adecda273118cb01bf719e877e8677b25" title="Plays Blackjack allowing humans to play against bots and other humans too. " alt="" coords="393,883,478,909"/>
+<area shape="rect" id="node27" href="$class_casino.html#a8a90d8525d1052a5ab1367508603ec96" title="Reads dealers .txt file. The dealers file should be placed in the project directory. " alt="" coords="118,613,278,640"/>
+<area shape="rect" id="node30" href="$class_casino.html#a89d84ed4d31db875004e6ae9bbe795e8" title="Reads login .txt file. The login file should be placed in the project directory. " alt="" coords="125,715,271,741"/>
+<area shape="rect" id="node31" href="$class_casino.html#aa8eb27d8aece338ad3603efe1079cc59" title="Reads players .txt file. The players file should be placed in the project directory. " alt="" coords="118,867,278,893"/>
+<area shape="rect" id="node35" href="$class_casino.html#a7ef9174a3aa71e490b4d00a4b4826f10" title="Reads tables .txt file. The tables file should be placed in the project directory. " alt="" coords="121,1475,275,1501"/>
+<area shape="rect" id="node38" href="$utils_8cpp.html#a59ba61591a389ad07561671807e5b3cf" title="Asks user to save the current status when exiting. " alt="" coords="149,1171,247,1197"/>
+<area shape="rect" id="node39" href="$utils_8cpp.html#a11166113d21454c8d054735425e5d496" title="Reads and parses the users file to usersVec. " alt="" coords="407,1132,463,1159"/>
+<area shape="rect" id="node40" href="$class_casino.html#aa5f99a588052b451514a65735449964a" title="Saves the dealers in a txt file. " alt="" coords="117,968,279,995"/>
+<area shape="rect" id="node41" href="$class_casino.html#a15cde9448fc0bb2434eafdc1aea223b2" title="Saves login .txt file. " alt="" coords="124,1019,272,1045"/>
+<area shape="rect" id="node42" href="$class_casino.html#a58badd6bd812dbc68bfe6d9610c7c0c8" title="Saves the players in a txt file. " alt="" coords="117,1069,279,1096"/>
+<area shape="rect" id="node43" href="$class_casino.html#a3ab5d11c2a99d525672f459e18b6b540" title="Saves the tables in a txt file. " alt="" coords="121,1120,275,1147"/>
+<area shape="rect" id="node44" href="$class_casino.html#a437b52a25414c25c250c52df98db027a" title="Select table using the given &lt;x,y&gt; coordinates. " alt="" coords="367,5,503,32"/>
+<area shape="rect" id="node45" href="$class_casino.html#ab6af7e25d850cc4f3e38ae910849ac85" title="Sets dealers file. " alt="" coords="121,1221,275,1248"/>
+<area shape="rect" id="node46" href="$class_casino.html#ae75fc8b1e56e1b9c9c8e4f3e0a9ed668" title="Sets players file. " alt="" coords="121,1272,275,1299"/>
+<area shape="rect" id="node47" href="$class_casino.html#a16476391b68864965e90e7764d20c2d4" title="Sets tables file. " alt="" coords="125,1323,271,1349"/>
+<area shape="rect" id="node48" href="$class_casino.html#a8d1defc42f95348d42b7a01305fe593b" title="Sets users file. " alt="" coords="127,1373,269,1400"/>
+<area shape="rect" id="node49" href="$class_table.html#a6ec84ae60accc92f67e7cf8288a6d1a3" title="Simulates a blackjack game for the given rounds. " alt="" coords="138,1424,258,1451"/>
+<area shape="rect" id="node50" href="$cmd_u_i_8cpp.html#a4c6d8a30cfef3b6adeff15978a5cf917" title="Displays the main menu. " alt="" coords="155,664,241,691"/>
+<area shape="rect" id="node7" href="$cmd_u_i_8cpp.html#a006ac3db07ba3e1ca416928b9c2ecf54" title="Displays the title. " alt="" coords="399,781,472,808"/>
+<area shape="rect" id="node8" href="$cmd_u_i_8cpp.html#a7dcf4a3c31b79f53e2ffdb455b5e84b9" title="Set cursor on &lt;x,y&gt; coordinates. " alt="" coords="635,731,707,757"/>
+<area shape="rect" id="node10" href="$cmd_u_i_8cpp.html#a2aa92df8c5017fd8386360c516dd21f7" title="Displays the manage casino menu and reads user choice. " alt="" coords="381,360,489,387"/>
+<area shape="rect" id="node11" href="$class_casino.html#a944f6c61313dd0b23a050c2c07f8d29e" title="Creates a menu for casino. " alt="" coords="382,563,489,589"/>
+<area shape="rect" id="node15" href="$class_casino.html#a34dc3475e5bdbae7ebee3ab991d4c805" title="Open a delete menu. " alt="" coords="374,157,497,184"/>
+<area shape="rect" id="node16" href="$class_casino.html#a33ac92a701d94a758177cea078aa7bfb" title="Displays casino&#39;s tables in a user friendly way on the terminal. " alt="" coords="602,56,741,83"/>
+<area shape="rect" id="node17" href="$class_casino.html#acf5876dc73948dbdafdad888b2ef50d4" title="Searches for a table (sequential search). " alt="" coords="611,157,732,184"/>
+<area shape="rect" id="node18" href="$class_casino.html#aeae4b2414f1163d4383afd4a7c57f6ca" title="Manage tables. " alt="" coords="358,208,513,235"/>
+<area shape="rect" id="node19" href="$class_casino.html#af84a2d82274b406086de9099ce722baf" title="Fills best players set with player that have played at least 1 round. " alt="" coords="349,259,522,285"/>
+<area shape="rect" id="node20" href="$class_casino.html#a52c226df2302bd9db07b90f66b593bf3" title="Lets user select the order that the players will be dispayed on the scoreboard. " alt="" coords="342,309,529,336"/>
+<area shape="rect" id="node12" href="$utils_8cpp.html#a685ffa2d206caa9be692206e68284cb4" title="Reads unsigned int between a minimum and a maximum values. Ask for user input. " alt="" coords="589,621,754,648"/>
+<area shape="rect" id="node13" href="$class_casino.html#a93780bfce351b004f0ac5602a8b593a2" title="Adds a dealer to the casino. " alt="" coords="580,537,763,564"/>
+<area shape="rect" id="node22" href="$class_too_many_players_exception.html#a3ff13b4afc3b7b930bb211a8217ec429" title="Constructor. " alt="" coords="579,883,764,925"/>
+<area shape="rect" id="node23" href="$utils_8cpp.html#a778f88815f581f9e2eeca1f197b0d7bf" title="Checks if the file with name filetxt_temp exists. " alt="" coords="635,949,708,976"/>
+<area shape="rect" id="node24" href="$utils_8cpp.html#a436341e0fbeaefa986ca6d17c4a475b9" title="Sleeps for a given time. " alt="" coords="631,1000,711,1027"/>
+<area shape="rect" id="node25" href="$class_human.html#a4c63103f213ad473cc9b60b1d1856b26" title="Gets user identifier. " alt="" coords="607,781,735,808"/>
+<area shape="rect" id="node26" href="$utils_8cpp.html#ada25d6610efd2d1c473deb3289e0809d" title="Reads character &quot;y&quot; or &quot;n&quot;. Case insensitive. " alt="" coords="620,832,723,859"/>
+<area shape="rect" id="node28" href="$class_dealer_already_exist_exception.html#a61aee4db55399ffd2e06ceedd04136be" title="Gets the identifier. " alt="" coords="340,665,531,706"/>
+<area shape="rect" id="node29" href="$class_dealer.html#a65ef0e688aab06970d20110e29f6b5af" title="Sets next identifier. " alt="" coords="373,613,497,640"/>
+<area shape="rect" id="node32" href="$class_player.html#a7cc1745523751dcea0263c9658e33111" title="Sets initial money. " alt="" coords="358,933,513,960"/>
+<area shape="rect" id="node33" href="$class_player.html#acc0e88f7ca8c27d4d06dc87973fafce7" title="Sits on a table. &#45;1 if the player is not on any table. " alt="" coords="605,1263,738,1289"/>
+<area shape="rect" id="node34" href="$_casino_8cpp.html#a21acead05f2186e35740b7e5ebfa8ddd" title="sortFunctionPlayers" alt="" coords="366,984,505,1011"/>
+<area shape="rect" id="node36" href="$class_table.html#afa6f99eb44c137304837fbc46ef5599c" title="Sets an identifier. " alt="" coords="390,1424,481,1451"/>
+<area shape="rect" id="node37" href="$class_table.html#a8b9779dcd6f5695e121f75d10f9fe703" title="Adds a player to this table. " alt="" coords="376,1475,495,1501"/>
+</map>

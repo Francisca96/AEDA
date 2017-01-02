@@ -11,5 +11,7 @@ var class_bot2 =
     [ "setLastBetValue", "class_bot2.html#a80476f21747f64db05a0d1081700d459", null ],
     [ "split", "class_bot2.html#ae6201f99237024624a485acf3dff0956", null ],
     [ "surrender", "class_bot2.html#a53cc77742cc1f7e12f5158e07ffc4c8c", null ],
-    [ "takeInsurance", "class_bot2.html#a7783364c4ebda2e5235b0df78295837e", null ]
+    [ "takeInsurance", "class_bot2.html#a7783364c4ebda2e5235b0df78295837e", null ],
+    [ "currentCount", "class_bot2.html#a98b0819ee51009fb28cc7e37ba44ff8e", null ],
+    [ "lastBetValue", "class_bot2.html#abf10634b4d479a9c3fd06558982d5a4d", null ]
 ];
