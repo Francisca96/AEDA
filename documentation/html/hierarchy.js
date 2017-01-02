@@ -10,7 +10,7 @@ var hierarchy =
     [ "DealerAlreadyExistException", "class_dealer_already_exist_exception.html", null ],
     [ "DealerIsOnTableAlreadyException", "class_dealer_is_on_table_already_exception.html", null ],
     [ "DealerNotExistException", "class_dealer_not_exist_exception.html", null ],
-    [ "dealersComparasion", "structdealers_comparasion.html", null ],
+    [ "dealersComparison", "structdealers_comparison.html", null ],
     [ "DealerStillOnTableException", "class_dealer_still_on_table_exception.html", null ],
     [ "ExistingTableException", "class_existing_table_exception.html", null ],
     [ "HumanOnTableException", "class_human_on_table_exception.html", null ],

@@ -76,7 +76,7 @@ struct userLoginHash
 typedef unordered_set< pair<string, string>, userLoginHash, userLoginHash> loginHash; /* @brief loginHash = unordered_set<pair<string,string>,userLoginHash,userLoginHash> */
 
 /**
-* @struct	userLoginHash 
+* @struct	dealersComparison
 *
 * @brief	Used to compare dealers.
 *
@@ -84,7 +84,7 @@ typedef unordered_set< pair<string, string>, userLoginHash, userLoginHash> login
 * @date	30/12/2016
 */
 
-struct dealersComparasion
+struct dealersComparison
 {
 	/**
 	* @fn	bool operator() (const Dealer* d1, const Dealer* d2) const
@@ -120,7 +120,7 @@ struct dealersComparasion
 	}
 };
 
-typedef priority_queue< Dealer*, vector<Dealer*>, dealersComparasion> dealersPriority;
+typedef priority_queue< Dealer*, vector<Dealer*>, dealersComparison> dealersPriority;
 
 /**
  * @class	PlayerNotLoggedException

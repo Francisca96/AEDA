@@ -13,7 +13,7 @@ var annotated_dup =
     [ "DealerAlreadyExistException", "class_dealer_already_exist_exception.html", "class_dealer_already_exist_exception" ],
     [ "DealerIsOnTableAlreadyException", "class_dealer_is_on_table_already_exception.html", "class_dealer_is_on_table_already_exception" ],
     [ "DealerNotExistException", "class_dealer_not_exist_exception.html", "class_dealer_not_exist_exception" ],
-    [ "dealersComparasion", "structdealers_comparasion.html", "structdealers_comparasion" ],
+    [ "dealersComparison", "structdealers_comparison.html", "structdealers_comparison" ],
     [ "DealerStillOnTableException", "class_dealer_still_on_table_exception.html", "class_dealer_still_on_table_exception" ],
     [ "ExistingTableException", "class_existing_table_exception.html", "class_existing_table_exception" ],
     [ "Human", "class_human.html", "class_human" ],
