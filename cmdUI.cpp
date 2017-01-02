@@ -131,7 +131,7 @@ void start_menu(pair <short, short> xy, int &choice) {
 }
 
 void manageCasino(pair<short, short> xy, unsigned int &choice) {
-	vector <string> options = {"1. Create ..." ,"2. Delete...", "3. Manage Tables", "4. Best Platers" , "" , "0. Return to MENU" };
+	vector <string> options = {"1. Create ..." ,"2. Delete...", "3. Manage Tables", "4. Best Players" , "" , "0. Return to MENU" };
 	system("CLS");
 	displayMenu0(xy, "MANAGE CASINO", options);
 	choice = readIntBetween(0, 4);

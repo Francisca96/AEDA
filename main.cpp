@@ -124,10 +124,10 @@ int main(){
 			break;
 		case 2:
 			//TODO: simulation (game run all alone for n cycles)
-			cout << "How many rounds do you want to simulate?" << endl;
-			roundsToPlay = readUnsignedInt();
-			try
-			{
+			try{
+				casino.getTableToPlay();
+				cout << "How many rounds do you want to simulate?" << endl;
+				roundsToPlay = readUnsignedInt();
 				casino.getTableToPlay()->simulation(roundsToPlay);
 				system("pause");
 			}

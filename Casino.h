@@ -120,7 +120,7 @@ struct dealersComparison
 	}
 };
 
-typedef priority_queue< Dealer*, vector<Dealer*>, dealersComparison> dealersPriority;
+typedef priority_queue< Dealer*, vector<Dealer*>, dealersComparison> dealersPriority; /* @brief dealersPriority it's a priority queue that holds pointers to dealers and compares them using the dealersComparison struct */
 
 /**
  * @class	PlayerNotLoggedException
