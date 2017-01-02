@@ -26,6 +26,7 @@ Table::Table(unsigned int minBet, unsigned int maxBet, unsigned int moneyOfTable
 	this->phaseOfPlaying = 0;
 	initialMoney = moneyOfTable;
 	tableID = nextID;
+	dealerOfTable->setTable(tableID);
 	nextID++;
 }
 
