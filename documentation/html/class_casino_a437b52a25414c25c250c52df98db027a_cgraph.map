@@ -1,0 +1,5 @@
+<map id="Casino::selectTable" name="Casino::selectTable">
+<area shape="rect" id="node2" href="$utils_8cpp.html#ac4dc9964d286ddbbd2a108991190d39d" title="Reads a int value. Asks for user input. " alt="" coords="238,5,299,32"/>
+<area shape="rect" id="node3" href="$class_casino.html#a2208d1e4acbc255091c4904609d3b5a8" title="Sets table to play. " alt="" coords="189,56,348,83"/>
+<area shape="rect" id="node4" href="$class_casino.html#a33ac92a701d94a758177cea078aa7bfb" title="Displays casino&#39;s tables in a user friendly way on the terminal. " alt="" coords="199,107,338,133"/>
+</map>

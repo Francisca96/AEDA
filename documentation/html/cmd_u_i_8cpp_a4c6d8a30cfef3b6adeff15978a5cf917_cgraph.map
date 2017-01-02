@@ -1,0 +1,6 @@
+<map id="start_menu" name="start_menu">
+<area shape="rect" id="node2" href="$cmd_u_i_8cpp.html#a7dcf4a3c31b79f53e2ffdb455b5e84b9" title="Set cursor on &lt;x,y&gt; coordinates. " alt="" coords="159,5,231,32"/>
+<area shape="rect" id="node3" href="$cmd_u_i_8cpp.html#a3f76e0072f6af377fb5d0669abbb849d" title="displayMenu0" alt="" coords="144,56,247,83"/>
+<area shape="rect" id="node4" href="$cmd_u_i_8cpp.html#a006ac3db07ba3e1ca416928b9c2ecf54" title="Displays the title. " alt="" coords="159,107,232,133"/>
+<area shape="rect" id="node5" href="$utils_8cpp.html#a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" title="Reads int between a minimum and a maximum values. Ask for user input. " alt="" coords="140,157,251,184"/>
+</map>

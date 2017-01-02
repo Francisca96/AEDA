@@ -10,5 +10,6 @@ var class_bot1 =
     [ "saveInfo", "class_bot1.html#a6a592534214c25fb4845abe4b45fda54", null ],
     [ "split", "class_bot1.html#a5a6f599a48d7703753df2dcb0f18a904", null ],
     [ "surrender", "class_bot1.html#a29446be5d3baa8139e4cdf3bebb1d40c", null ],
-    [ "takeInsurance", "class_bot1.html#a0c8591cd8a969f231fd772a1622a9dac", null ]
+    [ "takeInsurance", "class_bot1.html#a0c8591cd8a969f231fd772a1622a9dac", null ],
+    [ "currentCount", "class_bot1.html#a9b5ac2b9ad8ed3b3b5ac52632b3e564a", null ]
 ];

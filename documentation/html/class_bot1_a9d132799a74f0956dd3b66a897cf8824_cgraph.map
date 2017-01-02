@@ -1,0 +1,7 @@
+<map id="Bot1::play" name="Bot1::play">
+<area shape="rect" id="node2" href="$class_table.html#a9786384ddd91a466b354b69301be977d" title="Adds money to this table. " alt="" coords="135,5,301,32"/>
+<area shape="rect" id="node3" href="$class_dealer.html#aa830a4e0a67d50f84c391972ea2a3d57" title="Removes a Card from the end of the deck and returns it. Additionaly pushes the Card to the deckDiscar..." alt="" coords="163,56,273,83"/>
+<area shape="rect" id="node4" href="$class_table.html#af8f247155b520fe226c3014b3ca94477" title="Gets the dealer. " alt="" coords="160,107,276,133"/>
+<area shape="rect" id="node5" href="$class_dealer.html#ad02ffb06122263fe63b1d5d9a711cdfe" title="Gets the hand. " alt="" coords="161,157,275,184"/>
+<area shape="rect" id="node6" href="$class_table.html#a65097ec2fe98d83c44538132e4fc2047" title="Gets the players. " alt="" coords="157,208,279,235"/>
+</map>

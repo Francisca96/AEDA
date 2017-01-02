@@ -1,23 +1,10 @@
 var searchData=
 [
-  ['readbinary',['readBinary',['../utils_8cpp.html#a7b2049483feeea98ff61c00d763b4fb5',1,'readBinary():&#160;utils.cpp'],['../utils_8h.html#a7b2049483feeea98ff61c00d763b4fb5',1,'readBinary():&#160;utils.cpp']]],
-  ['readcharyorn',['readCharYorN',['../utils_8cpp.html#ada25d6610efd2d1c473deb3289e0809d',1,'readCharYorN():&#160;utils.cpp'],['../utils_8h.html#ada25d6610efd2d1c473deb3289e0809d',1,'readCharYorN():&#160;utils.cpp']]],
-  ['readdealersfile',['readDealersFile',['../class_casino.html#a8a90d8525d1052a5ab1367508603ec96',1,'Casino']]],
-  ['readfloat',['readFloat',['../utils_8cpp.html#aa5de12b8cd82d61b545a85ea991944a3',1,'readFloat():&#160;utils.cpp'],['../utils_8h.html#aa5de12b8cd82d61b545a85ea991944a3',1,'readFloat():&#160;utils.cpp']]],
-  ['readint',['readInt',['../utils_8cpp.html#ac4dc9964d286ddbbd2a108991190d39d',1,'readInt():&#160;utils.cpp'],['../utils_8h.html#ac4dc9964d286ddbbd2a108991190d39d',1,'readInt():&#160;utils.cpp']]],
-  ['readintbetween',['readIntBetween',['../utils_8cpp.html#a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4',1,'readIntBetween(int min, int max):&#160;utils.cpp'],['../utils_8h.html#a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4',1,'readIntBetween(int min, int max):&#160;utils.cpp']]],
-  ['readnameoffile',['readNameOfFile',['../utils_8cpp.html#acefd5a7062e81e56767fbfa11f6065e4',1,'readNameOfFile(string &amp;fileName):&#160;utils.cpp'],['../utils_8h.html#acefd5a7062e81e56767fbfa11f6065e4',1,'readNameOfFile(string &amp;fileName):&#160;utils.cpp']]],
-  ['readplayersfile',['readPlayersFile',['../class_casino.html#aa8eb27d8aece338ad3603efe1079cc59',1,'Casino']]],
-  ['readtablefile',['readTableFile',['../class_table.html#a5edf6fe1ff4f7286530e19e1621886dd',1,'Table']]],
-  ['readtablesfile',['readTablesFile',['../class_casino.html#a7ef9174a3aa71e490b4d00a4b4826f10',1,'Casino']]],
-  ['readunsignedint',['readUnsignedInt',['../utils_8cpp.html#a55b3de51bc5631fb67d6681f33e52228',1,'readUnsignedInt():&#160;utils.cpp'],['../utils_8h.html#a55b3de51bc5631fb67d6681f33e52228',1,'readUnsignedInt():&#160;utils.cpp']]],
-  ['readunsignedintbetween',['readUnsignedIntBetween',['../utils_8cpp.html#a685ffa2d206caa9be692206e68284cb4',1,'readUnsignedIntBetween(unsigned int minValue, unsigned int maxValue):&#160;utils.cpp'],['../utils_8h.html#a685ffa2d206caa9be692206e68284cb4',1,'readUnsignedIntBetween(unsigned int minValue, unsigned int maxValue):&#160;utils.cpp']]],
-  ['removecardfromfirsthandandsetitonsecondhand',['removeCardFromFirstHandAndSetItOnSecondHand',['../class_player.html#a81cb5e747e4b05b846abe1dab0008ddf',1,'Player']]],
-  ['removedealerfromcasino',['removeDealerFromCasino',['../class_casino.html#a00554a09b9bb5d9e7bdaaad2fe8fbbbd',1,'Casino']]],
-  ['removeplayer',['removePlayer',['../class_table.html#a003724a8c2586a29969620dc81d7e447',1,'Table']]],
-  ['removeplayerfromcasino',['removePlayerFromCasino',['../class_casino.html#a23122b72fe0f0e14e5c98acd6d324562',1,'Casino']]],
-  ['removetablefromcasino',['removeTableFromCasino',['../class_casino.html#af39418a2571c8411954dc74089882bb4',1,'Casino']]],
-  ['resetbot1counters',['resetBot1Counters',['../class_table.html#a36fd919f54624162b302dadb4d6c60ce',1,'Table']]],
-  ['resetcount',['resetCount',['../class_player.html#a8ff0c7c110fada9bf61df517285e061c',1,'Player::resetCount()'],['../class_bot1.html#afc6c9e0e4e6926e66a9e595306f82f58',1,'Bot1::resetCount()'],['../class_bot2.html#a3ea3a6d1513b446f6a6c3cef0aad8e8e',1,'Bot2::resetCount()']]],
-  ['restartdeck',['restartDeck',['../class_table.html#a023e75d86089f54522cece25586bbfe7',1,'Table']]]
+  ['paytoplayer',['payToPlayer',['../class_table.html#a9f12053cf49da2ea2e45ced3a5f2f0b3',1,'Table']]],
+  ['play',['play',['../class_dealer.html#a77983c83dc250bf5a3a9fb365fbcdbdb',1,'Dealer::play()'],['../class_player.html#a633ae716d3226a5701a6d0c9314baad4',1,'Player::play()'],['../class_bot0.html#ad4107238ba36ce4ddf2debd7b10c6a9e',1,'Bot0::play()'],['../class_bot1.html#a9d132799a74f0956dd3b66a897cf8824',1,'Bot1::play()'],['../class_bot2.html#ab3fb6a4c1627247f21b43893862148ff',1,'Bot2::play()'],['../class_human.html#ac2536a8f230ba6dd457b81e406f42a60',1,'Human::play()'],['../class_table.html#adecda273118cb01bf719e877e8677b25',1,'Table::play()']]],
+  ['playeralreadyexistexception',['PlayerAlreadyExistException',['../class_player_already_exist_exception.html#a0e35ed0af5e3009762fc0f3c79d857f6',1,'PlayerAlreadyExistException']]],
+  ['playerisntontableexception',['PlayerIsntOnTableException',['../class_player_isnt_on_table_exception.html#aa020ed309e592d30471472d9b287f852',1,'PlayerIsntOnTableException']]],
+  ['playernotexistexception',['PlayerNotExistException',['../class_player_not_exist_exception.html#ae3e9a72697c6c59fb3de66e2f6970445',1,'PlayerNotExistException']]],
+  ['playernotloggedexception',['PlayerNotLoggedException',['../class_player_not_logged_exception.html#aee0f412b8c985e3a42f51e3c6abbc0ab',1,'PlayerNotLoggedException']]],
+  ['playerstillontableexception',['PlayerStillOnTableException',['../class_player_still_on_table_exception.html#a1df43217f05e26b327768df459024fac',1,'PlayerStillOnTableException']]]
 ];

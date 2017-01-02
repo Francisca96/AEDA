@@ -1,0 +1,6 @@
+<map id="Dealer::play" name="Dealer::play">
+<area shape="rect" id="node2" href="$class_table.html#a65097ec2fe98d83c44538132e4fc2047" title="Gets the players. " alt="" coords="144,5,267,32"/>
+<area shape="rect" id="node3" href="$class_dealer.html#a7d9ccd145c1bdaf2aea4c28b08d9866d" title="Places a Card in the Dealer hand and updates the handscore. " alt="" coords="165,56,246,83"/>
+<area shape="rect" id="node4" href="$class_dealer.html#aa830a4e0a67d50f84c391972ea2a3d57" title="Removes a Card from the end of the deck and returns it. Additionaly pushes the Card to the deckDiscar..." alt="" coords="335,31,444,57"/>
+<area shape="rect" id="node5" href="$class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909" title="Updates dealer&#39;s handscore. " alt="" coords="315,81,464,108"/>
+</map>

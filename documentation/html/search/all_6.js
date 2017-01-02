@@ -29,5 +29,6 @@ var searchData=
   ['gettableon',['getTableOn',['../class_dealer.html#a33483233d2bdc17351d3d57fee448184',1,'Dealer']]],
   ['gettables',['getTables',['../class_casino.html#a205d3a479c8bb19a2259f170c6ab5f27',1,'Casino']]],
   ['gettabletoplay',['getTableToPlay',['../class_casino.html#abc474c7425555e4ac8e030495cb7a8e3',1,'Casino']]],
-  ['getuserid',['getUserID',['../class_player.html#a0bb5b47696cebd816394429e821ba4f0',1,'Player::getUserID()'],['../class_human.html#a4c63103f213ad473cc9b60b1d1856b26',1,'Human::getUserID()']]]
+  ['getuserid',['getUserID',['../class_player.html#a0bb5b47696cebd816394429e821ba4f0',1,'Player::getUserID()'],['../class_human.html#a4c63103f213ad473cc9b60b1d1856b26',1,'Human::getUserID()']]],
+  ['getuserloginname',['getUserLoginName',['../class_casino.html#a2ba8405edb7821a4046e450bfa67abf7',1,'Casino']]]
 ];

@@ -12,8 +12,15 @@ var searchData=
   ['closetable',['closeTable',['../class_table.html#aef16699bce79d25558251dfcf2b6c459',1,'Table']]],
   ['cmdui_2ecpp',['cmdUI.cpp',['../cmd_u_i_8cpp.html',1,'']]],
   ['cmdui_2eh',['cmdUI.h',['../cmd_u_i_8h.html',1,'']]],
+  ['cmpplayerpointers',['cmpPlayerPointers',['../_casino_8cpp.html#ac54db75fc6f0b93df952578ba798d23e',1,'Casino.cpp']]],
+  ['comparebyage',['CompareByAge',['../struct_compare_by_age.html',1,'']]],
+  ['comparebyaverageprofit',['CompareByAverageProfit',['../struct_compare_by_average_profit.html',1,'']]],
+  ['comparebyintelligence',['CompareByIntelligence',['../struct_compare_by_intelligence.html',1,'']]],
+  ['comparebyname',['CompareByName',['../struct_compare_by_name.html',1,'']]],
   ['create',['create',['../class_casino.html#a944f6c61313dd0b23a050c2c07f8d29e',1,'Casino']]],
   ['createdeck',['createDeck',['../utils_8cpp.html#a7ab9ca131650f2684140e6906b0e04b0',1,'createDeck():&#160;utils.cpp'],['../utils_8h.html#a099be8692473d7f3fbde4e56a6b580a0',1,'createDeck():&#160;utils.cpp']]],
   ['createmenu',['createMenu',['../cmd_u_i_8cpp.html#a6b96de8bf548d42406d7e77b2ed24d82',1,'createMenu(pair&lt; short, short &gt; xy, unsigned int &amp;choice):&#160;cmdUI.cpp'],['../cmd_u_i_8h.html#a6b96de8bf548d42406d7e77b2ed24d82',1,'createMenu(pair&lt; short, short &gt; xy, unsigned int &amp;choice):&#160;cmdUI.cpp']]],
+  ['currentcount',['currentCount',['../class_bot1.html#a9b5ac2b9ad8ed3b3b5ac52632b3e564a',1,'Bot1::currentCount()'],['../class_bot2.html#a98b0819ee51009fb28cc7e37ba44ff8e',1,'Bot2::currentCount()']]],
+  ['currentmoney',['currentMoney',['../class_player.html#a6252287f2f487871dbd8573f4280fdb3',1,'Player']]],
   ['cursorxy',['cursorxy',['../cmd_u_i_8cpp.html#a7dcf4a3c31b79f53e2ffdb455b5e84b9',1,'cursorxy(short x, short y):&#160;cmdUI.cpp'],['../cmd_u_i_8h.html#a7dcf4a3c31b79f53e2ffdb455b5e84b9',1,'cursorxy(short x, short y):&#160;cmdUI.cpp']]]
 ];

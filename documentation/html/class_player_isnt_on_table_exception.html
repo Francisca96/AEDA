@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_player_isnt_on_table_exception.h
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_player_isnt_on_table_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PlayerIsntOnTableException Class Reference</div>  </div>
@@ -97,9 +98,15 @@ $(document).ready(function(){initNavTree('class_player_isnt_on_table_exception.h
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa020ed309e592d30471472d9b287f852"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_isnt_on_table_exception.html#aa020ed309e592d30471472d9b287f852">PlayerIsntOnTableException</a> (string &amp;name)</td></tr>
+<tr class="memitem:aa020ed309e592d30471472d9b287f852"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_isnt_on_table_exception.html#aa020ed309e592d30471472d9b287f852">PlayerIsntOnTableException</a> (string &amp;<a class="el" href="class_player_isnt_on_table_exception.html#a96e0693ffa9c68572027277cd2e16880">name</a>)</td></tr>
 <tr class="memdesc:aa020ed309e592d30471472d9b287f852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aa020ed309e592d30471472d9b287f852">More...</a><br /></td></tr>
 <tr class="separator:aa020ed309e592d30471472d9b287f852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a96e0693ffa9c68572027277cd2e16880"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_isnt_on_table_exception.html#a96e0693ffa9c68572027277cd2e16880">name</a></td></tr>
+<tr class="memdesc:a96e0693ffa9c68572027277cd2e16880"><td class="mdescLeft">&#160;</td><td class="mdescRight">The player's name.  <a href="#a96e0693ffa9c68572027277cd2e16880">More...</a><br /></td></tr>
+<tr class="separator:a96e0693ffa9c68572027277cd2e16880"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception for signalling that the player is not on the table. </p>
@@ -134,8 +141,36 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_player_8cpp_source.html#l01032">1032</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;                                                                    {</div><div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;    this-&gt;name = name;</div><div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;}</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="_player_8cpp_source.html#l01038">1038</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;                                                                    {</div><div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;    this-&gt;<a class="code" href="class_player_isnt_on_table_exception.html#a96e0693ffa9c68572027277cd2e16880">name</a> = <a class="code" href="class_player_isnt_on_table_exception.html#a96e0693ffa9c68572027277cd2e16880">name</a>;</div><div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;}</div><div class="ttc" id="class_player_isnt_on_table_exception_html_a96e0693ffa9c68572027277cd2e16880"><div class="ttname"><a href="class_player_isnt_on_table_exception.html#a96e0693ffa9c68572027277cd2e16880">PlayerIsntOnTableException::name</a></div><div class="ttdeci">string name</div><div class="ttdoc">The player&amp;#39;s name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8h_source.html#l00189">Player.h:189</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a96e0693ffa9c68572027277cd2e16880"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96e0693ffa9c68572027277cd2e16880">&sect;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string PlayerIsntOnTableException::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The player's name. </p>
+
+<p>Definition at line <a class="el" href="_player_8h_source.html#l00189">189</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

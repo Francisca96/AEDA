@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_player_already_exist_exception.h
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_player_already_exist_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PlayerAlreadyExistException Class Reference</div>  </div>
@@ -100,6 +101,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0e35ed0af5e3009762fc0f3c79d857f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_already_exist_exception.html#a0e35ed0af5e3009762fc0f3c79d857f6">PlayerAlreadyExistException</a> (<a class="el" href="class_player.html">Player</a> *player)</td></tr>
 <tr class="memdesc:a0e35ed0af5e3009762fc0f3c79d857f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a0e35ed0af5e3009762fc0f3c79d857f6">More...</a><br /></td></tr>
 <tr class="separator:a0e35ed0af5e3009762fc0f3c79d857f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a28586f90a81b23197503f017b333e103"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_already_exist_exception.html#a28586f90a81b23197503f017b333e103">name</a></td></tr>
+<tr class="memdesc:a28586f90a81b23197503f017b333e103"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name.  <a href="#a28586f90a81b23197503f017b333e103">More...</a><br /></td></tr>
+<tr class="separator:a28586f90a81b23197503f017b333e103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception for signalling that the player already exists. </p>
@@ -134,11 +141,47 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_player_8cpp_source.html#l01015">1015</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_player_8cpp_source.html#l01021">1021</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
 
 <p>References <a class="el" href="_player_8cpp_source.html#l00097">Player::getName()</a>.</p>
-<div class="fragment"><div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;                                                                        {</div><div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;    this-&gt;name = player-&gt;<a class="code" href="class_player.html#a4939193fc637f75bf7a11118334dae7e">getName</a>();</div><div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;}</div><div class="ttc" id="class_player_html_a4939193fc637f75bf7a11118334dae7e"><div class="ttname"><a href="class_player.html#a4939193fc637f75bf7a11118334dae7e">Player::getName</a></div><div class="ttdeci">string getName() const</div><div class="ttdoc">Gets the name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00097">Player.cpp:97</a></div></div>
-</div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;                                                                        {</div><div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;    this-&gt;<a class="code" href="class_player_already_exist_exception.html#a28586f90a81b23197503f017b333e103">name</a> = player-&gt;<a class="code" href="class_player.html#a4939193fc637f75bf7a11118334dae7e">getName</a>();</div><div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;}</div><div class="ttc" id="class_player_html_a4939193fc637f75bf7a11118334dae7e"><div class="ttname"><a href="class_player.html#a4939193fc637f75bf7a11118334dae7e">Player::getName</a></div><div class="ttdeci">string getName() const</div><div class="ttdoc">Gets the name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00097">Player.cpp:97</a></div></div>
+<div class="ttc" id="class_player_already_exist_exception_html_a28586f90a81b23197503f017b333e103"><div class="ttname"><a href="class_player_already_exist_exception.html#a28586f90a81b23197503f017b333e103">PlayerAlreadyExistException::name</a></div><div class="ttdeci">string name</div><div class="ttdoc">The name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8h_source.html#l00087">Player.h:87</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_player_already_exist_exception_a0e35ed0af5e3009762fc0f3c79d857f6_cgraph.png" border="0" usemap="#class_player_already_exist_exception_a0e35ed0af5e3009762fc0f3c79d857f6_cgraph" alt=""/></div>
+<map name="class_player_already_exist_exception_a0e35ed0af5e3009762fc0f3c79d857f6_cgraph" id="class_player_already_exist_exception_a0e35ed0af5e3009762fc0f3c79d857f6_cgraph">
+<area shape="rect" id="node2" href="class_player.html#a4939193fc637f75bf7a11118334dae7e" title="Gets the name. " alt="" coords="252,13,371,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a28586f90a81b23197503f017b333e103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28586f90a81b23197503f017b333e103">&sect;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string PlayerAlreadyExistException::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The name. </p>
+
+<p>Definition at line <a class="el" href="_player_8h_source.html#l00087">87</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

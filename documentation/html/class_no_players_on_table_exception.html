@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_no_players_on_table_exception.ht
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_no_players_on_table_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">NoPlayersOnTableException Class Reference</div>  </div>
@@ -103,6 +104,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a59983e4b1309c92ee096c263fa5fcd85"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_no_players_on_table_exception.html#a59983e4b1309c92ee096c263fa5fcd85">getID</a> () const</td></tr>
 <tr class="memdesc:a59983e4b1309c92ee096c263fa5fcd85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the identifier.  <a href="#a59983e4b1309c92ee096c263fa5fcd85">More...</a><br /></td></tr>
 <tr class="separator:a59983e4b1309c92ee096c263fa5fcd85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a2399ad3eb7dd7fba50510961495dbb1b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_no_players_on_table_exception.html#a2399ad3eb7dd7fba50510961495dbb1b">tableID</a></td></tr>
+<tr class="memdesc:a2399ad3eb7dd7fba50510961495dbb1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier for the table.  <a href="#a2399ad3eb7dd7fba50510961495dbb1b">More...</a><br /></td></tr>
+<tr class="separator:a2399ad3eb7dd7fba50510961495dbb1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception for signalling no players on table errors. </p>
@@ -137,10 +144,19 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_table_8cpp_source.html#l01063">1063</a> of file <a class="el" href="_table_8cpp_source.html">Table.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_table_8cpp_source.html#l01082">1082</a> of file <a class="el" href="_table_8cpp_source.html">Table.cpp</a>.</p>
 
-<p>References <a class="el" href="_table_8cpp_source.html#l00509">Table::getTableID()</a>.</p>
-<div class="fragment"><div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;                                                                 {</div><div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;    this-&gt;tableID = table-&gt;getTableID();</div><div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;}</div></div><!-- fragment -->
+<p>References <a class="el" href="_table_8cpp_source.html#l00520">Table::getTableID()</a>.</p>
+<div class="fragment"><div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;                                                                 {</div><div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;    this-&gt;<a class="code" href="class_no_players_on_table_exception.html#a2399ad3eb7dd7fba50510961495dbb1b">tableID</a> = table-&gt;getTableID();</div><div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;}</div><div class="ttc" id="class_no_players_on_table_exception_html_a2399ad3eb7dd7fba50510961495dbb1b"><div class="ttname"><a href="class_no_players_on_table_exception.html#a2399ad3eb7dd7fba50510961495dbb1b">NoPlayersOnTableException::tableID</a></div><div class="ttdeci">unsigned int tableID</div><div class="ttdoc">Identifier for the table. </div><div class="ttdef"><b>Definition:</b> <a href="_table_8h_source.html#l00078">Table.h:78</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_no_players_on_table_exception_abe7ebe8452fefaf885ca49e0b0583890_cgraph.png" border="0" usemap="#class_no_players_on_table_exception_abe7ebe8452fefaf885ca49e0b0583890_cgraph" alt=""/></div>
+<map name="class_no_players_on_table_exception_abe7ebe8452fefaf885ca49e0b0583890_cgraph" id="class_no_players_on_table_exception_abe7ebe8452fefaf885ca49e0b0583890_cgraph">
+<area shape="rect" id="node2" href="class_table.html#aa4db39c76365882991132d3c07a85a81" title="Gets table identifier. " alt="" coords="249,13,372,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -164,10 +180,38 @@ Public Member Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>18/11/2016</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The identifier. </dd></dl>
 
-<p>Definition at line <a class="el" href="_table_8cpp_source.html#l01067">1067</a> of file <a class="el" href="_table_8cpp_source.html">Table.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_table_8cpp_source.html#l01086">1086</a> of file <a class="el" href="_table_8cpp_source.html">Table.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="main_8cpp_source.html#l00013">main()</a>.</p>
-<div class="fragment"><div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;                                                    {</div><div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;    <span class="keywordflow">return</span> this-&gt;tableID;</div><div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;}</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;                                                    {</div><div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_no_players_on_table_exception.html#a2399ad3eb7dd7fba50510961495dbb1b">tableID</a>;</div><div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;}</div><div class="ttc" id="class_no_players_on_table_exception_html_a2399ad3eb7dd7fba50510961495dbb1b"><div class="ttname"><a href="class_no_players_on_table_exception.html#a2399ad3eb7dd7fba50510961495dbb1b">NoPlayersOnTableException::tableID</a></div><div class="ttdeci">unsigned int tableID</div><div class="ttdoc">Identifier for the table. </div><div class="ttdef"><b>Definition:</b> <a href="_table_8h_source.html#l00078">Table.h:78</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2399ad3eb7dd7fba50510961495dbb1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2399ad3eb7dd7fba50510961495dbb1b">&sect;&nbsp;</a></span>tableID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int NoPlayersOnTableException::tableID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Identifier for the table. </p>
+
+<p>Definition at line <a class="el" href="_table_8h_source.html#l00078">78</a> of file <a class="el" href="_table_8h_source.html">Table.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

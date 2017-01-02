@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -85,6 +85,8 @@ $(document).ready(function(){initNavTree('class_dealer.html','');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_dealer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Dealer Class Reference</div>  </div>
@@ -101,7 +103,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a518fd02cf57eaf55e06b7754c4649a3f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#a518fd02cf57eaf55e06b7754c4649a3f">Dealer</a> ()</td></tr>
 <tr class="memdesc:a518fd02cf57eaf55e06b7754c4649a3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. Creates a default deck of 52 cards.  <a href="#a518fd02cf57eaf55e06b7754c4649a3f">More...</a><br /></td></tr>
 <tr class="separator:a518fd02cf57eaf55e06b7754c4649a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0875adb24e228f777ed19065cea76af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#af0875adb24e228f777ed19065cea76af">Dealer</a> (unsigned int ID)</td></tr>
+<tr class="memitem:af0875adb24e228f777ed19065cea76af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#af0875adb24e228f777ed19065cea76af">Dealer</a> (unsigned int <a class="el" href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">ID</a>)</td></tr>
 <tr class="memdesc:af0875adb24e228f777ed19065cea76af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. Creates a default deck of 52 cards.  <a href="#af0875adb24e228f777ed19065cea76af">More...</a><br /></td></tr>
 <tr class="separator:af0875adb24e228f777ed19065cea76af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c76c77a6659432eff6a85f7765f7edb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#a1c76c77a6659432eff6a85f7765f7edb">Dealer</a> (vector&lt; <a class="el" href="struct_card.html">Card</a> &gt; newDeck)</td></tr>
@@ -158,12 +160,42 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a65ef0e688aab06970d20110e29f6b5af"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#a65ef0e688aab06970d20110e29f6b5af">setNextID</a> (unsigned int ID)</td></tr>
+<tr class="memitem:a65ef0e688aab06970d20110e29f6b5af"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#a65ef0e688aab06970d20110e29f6b5af">setNextID</a> (unsigned int <a class="el" href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">ID</a>)</td></tr>
 <tr class="memdesc:a65ef0e688aab06970d20110e29f6b5af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets next identifier.  <a href="#a65ef0e688aab06970d20110e29f6b5af">More...</a><br /></td></tr>
 <tr class="separator:a65ef0e688aab06970d20110e29f6b5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3af257ebe799a924bbfc2e5898672f3e"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#a3af257ebe799a924bbfc2e5898672f3e">getNextID</a> ()</td></tr>
 <tr class="memdesc:a3af257ebe799a924bbfc2e5898672f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the next identifier.  <a href="#a3af257ebe799a924bbfc2e5898672f3e">More...</a><br /></td></tr>
 <tr class="separator:a3af257ebe799a924bbfc2e5898672f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a1462f2a70797fb455bf6bddeeab89ee8"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">ID</a></td></tr>
+<tr class="memdesc:a1462f2a70797fb455bf6bddeeab89ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The identifier.  <a href="#a1462f2a70797fb455bf6bddeeab89ee8">More...</a><br /></td></tr>
+<tr class="separator:a1462f2a70797fb455bf6bddeeab89ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77cbd78e5edb5bd9499c97384a4fb20a"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="struct_card.html">Card</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">hand</a></td></tr>
+<tr class="memdesc:a77cbd78e5edb5bd9499c97384a4fb20a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The hand.  <a href="#a77cbd78e5edb5bd9499c97384a4fb20a">More...</a><br /></td></tr>
+<tr class="separator:a77cbd78e5edb5bd9499c97384a4fb20a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad05712a20c2e1348c4db54dec2efdb4e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">handScore</a></td></tr>
+<tr class="memdesc:ad05712a20c2e1348c4db54dec2efdb4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The hand score.  <a href="#ad05712a20c2e1348c4db54dec2efdb4e">More...</a><br /></td></tr>
+<tr class="separator:ad05712a20c2e1348c4db54dec2efdb4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5beeda363f72f5c3b15b8e83d1d4331c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#a5beeda363f72f5c3b15b8e83d1d4331c">nextPlayer</a></td></tr>
+<tr class="memdesc:a5beeda363f72f5c3b15b8e83d1d4331c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The next player.(Deprecated)  <a href="#a5beeda363f72f5c3b15b8e83d1d4331c">More...</a><br /></td></tr>
+<tr class="separator:a5beeda363f72f5c3b15b8e83d1d4331c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2553d1f5f7ca58ab1041b4f768ac96dd"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="struct_card.html">Card</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">deck</a></td></tr>
+<tr class="memdesc:a2553d1f5f7ca58ab1041b4f768ac96dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The deck.  <a href="#a2553d1f5f7ca58ab1041b4f768ac96dd">More...</a><br /></td></tr>
+<tr class="separator:a2553d1f5f7ca58ab1041b4f768ac96dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79a4fefe14d59df512c3fbf9f2039a28"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="struct_card.html">Card</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#a79a4fefe14d59df512c3fbf9f2039a28">deckDiscarded</a></td></tr>
+<tr class="memdesc:a79a4fefe14d59df512c3fbf9f2039a28"><td class="mdescLeft">&#160;</td><td class="mdescRight">The discarded deck.  <a href="#a79a4fefe14d59df512c3fbf9f2039a28">More...</a><br /></td></tr>
+<tr class="separator:a79a4fefe14d59df512c3fbf9f2039a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ae5c0922bb3151c39e18e09e69b233a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a">TableID</a></td></tr>
+<tr class="memdesc:a9ae5c0922bb3151c39e18e09e69b233a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier for the table that the dealer is on.  <a href="#a9ae5c0922bb3151c39e18e09e69b233a">More...</a><br /></td></tr>
+<tr class="separator:a9ae5c0922bb3151c39e18e09e69b233a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:ae3c70d13263a05c5528ec4b650e088b3"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3">nextID</a> = 0</td></tr>
+<tr class="memdesc:ae3c70d13263a05c5528ec4b650e088b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier for the next <a class="el" href="class_dealer.html" title="A dealer. The dealer is responsible to deal cards to the players and to himself. He is the one that h...">Dealer</a>.  <a href="#ae3c70d13263a05c5528ec4b650e088b3">More...</a><br /></td></tr>
+<tr class="separator:ae3c70d13263a05c5528ec4b650e088b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A dealer. The dealer is responsible to deal cards to the players and to himself. He is the one that holds that deck and reshufles it. </p>
@@ -193,10 +225,23 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00008">8</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>References <a class="el" href="utils_8cpp_source.html#l00015">createDeck()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00032">shuffleDeck()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    deck = <a class="code" href="utils_8cpp.html#a7ab9ca131650f2684140e6906b0e04b0">createDeck</a>();</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">shuffleDeck</a>();</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    TableID = -1;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    ID = nextID;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    nextID++;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div><div class="ttc" id="utils_8cpp_html_a7ab9ca131650f2684140e6906b0e04b0"><div class="ttname"><a href="utils_8cpp.html#a7ab9ca131650f2684140e6906b0e04b0">createDeck</a></div><div class="ttdeci">vector&lt; Card &gt; createDeck()</div><div class="ttdoc">Creates the deck. </div><div class="ttdef"><b>Definition:</b> <a href="utils_8cpp_source.html#l00015">utils.cpp:15</a></div></div>
+<p>References <a class="el" href="utils_8cpp_source.html#l00015">createDeck()</a>, <a class="el" href="_dealer_8h_source.html#l00043">deck</a>, <a class="el" href="_dealer_8h_source.html#l00035">ID</a>, <a class="el" href="_dealer_8h_source.html#l00033">nextID</a>, <a class="el" href="_dealer_8cpp_source.html#l00032">shuffleDeck()</a>, and <a class="el" href="_dealer_8h_source.html#l00047">TableID</a>.</p>
+<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">deck</a> = <a class="code" href="utils_8cpp.html#a7ab9ca131650f2684140e6906b0e04b0">createDeck</a>();</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">shuffleDeck</a>();</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a">TableID</a> = -1;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">ID</a> = <a class="code" href="class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3">nextID</a>;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3">nextID</a>++;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div><div class="ttc" id="class_dealer_html_ae3c70d13263a05c5528ec4b650e088b3"><div class="ttname"><a href="class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3">Dealer::nextID</a></div><div class="ttdeci">static unsigned int nextID</div><div class="ttdoc">Identifier for the next Dealer. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00033">Dealer.h:33</a></div></div>
+<div class="ttc" id="class_dealer_html_a2553d1f5f7ca58ab1041b4f768ac96dd"><div class="ttname"><a href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">Dealer::deck</a></div><div class="ttdeci">vector&lt; Card &gt; deck</div><div class="ttdoc">The deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00043">Dealer.h:43</a></div></div>
+<div class="ttc" id="class_dealer_html_a1462f2a70797fb455bf6bddeeab89ee8"><div class="ttname"><a href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">Dealer::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdoc">The identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00035">Dealer.h:35</a></div></div>
+<div class="ttc" id="utils_8cpp_html_a7ab9ca131650f2684140e6906b0e04b0"><div class="ttname"><a href="utils_8cpp.html#a7ab9ca131650f2684140e6906b0e04b0">createDeck</a></div><div class="ttdeci">vector&lt; Card &gt; createDeck()</div><div class="ttdoc">Creates the deck. </div><div class="ttdef"><b>Definition:</b> <a href="utils_8cpp_source.html#l00015">utils.cpp:15</a></div></div>
 <div class="ttc" id="class_dealer_html_a5b4e4ca09848455326edb23777d7f896"><div class="ttname"><a href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">Dealer::shuffleDeck</a></div><div class="ttdeci">void shuffleDeck()</div><div class="ttdoc">Shuffle deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00032">Dealer.cpp:32</a></div></div>
-</div><!-- fragment -->
+<div class="ttc" id="class_dealer_html_a9ae5c0922bb3151c39e18e09e69b233a"><div class="ttname"><a href="class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a">Dealer::TableID</a></div><div class="ttdeci">int TableID</div><div class="ttdoc">Identifier for the table that the dealer is on. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00047">Dealer.h:47</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dealer_a518fd02cf57eaf55e06b7754c4649a3f_cgraph.png" border="0" usemap="#class_dealer_a518fd02cf57eaf55e06b7754c4649a3f_cgraph" alt=""/></div>
+<map name="class_dealer_a518fd02cf57eaf55e06b7754c4649a3f_cgraph" id="class_dealer_a518fd02cf57eaf55e06b7754c4649a3f_cgraph">
+<area shape="rect" id="node2" href="utils_8cpp.html#a7ab9ca131650f2684140e6906b0e04b0" title="Creates the deck. " alt="" coords="181,5,269,32"/>
+<area shape="rect" id="node3" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896" title="Shuffle deck. " alt="" coords="157,56,292,83"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="af0875adb24e228f777ed19065cea76af"></a>
@@ -227,10 +272,22 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00017">17</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>References <a class="el" href="utils_8cpp_source.html#l00015">createDeck()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00032">shuffleDeck()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                              {</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    deck = <a class="code" href="utils_8cpp.html#a7ab9ca131650f2684140e6906b0e04b0">createDeck</a>();</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">shuffleDeck</a>();</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    TableID = -1;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    this-&gt;ID = ID;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div><div class="ttc" id="utils_8cpp_html_a7ab9ca131650f2684140e6906b0e04b0"><div class="ttname"><a href="utils_8cpp.html#a7ab9ca131650f2684140e6906b0e04b0">createDeck</a></div><div class="ttdeci">vector&lt; Card &gt; createDeck()</div><div class="ttdoc">Creates the deck. </div><div class="ttdef"><b>Definition:</b> <a href="utils_8cpp_source.html#l00015">utils.cpp:15</a></div></div>
+<p>References <a class="el" href="utils_8cpp_source.html#l00015">createDeck()</a>, <a class="el" href="_dealer_8h_source.html#l00043">deck</a>, <a class="el" href="_dealer_8h_source.html#l00035">ID</a>, <a class="el" href="_dealer_8cpp_source.html#l00032">shuffleDeck()</a>, and <a class="el" href="_dealer_8h_source.html#l00047">TableID</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                              {</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">deck</a> = <a class="code" href="utils_8cpp.html#a7ab9ca131650f2684140e6906b0e04b0">createDeck</a>();</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">shuffleDeck</a>();</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a">TableID</a> = -1;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    this-&gt;<a class="code" href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">ID</a> = <a class="code" href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">ID</a>;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div><div class="ttc" id="class_dealer_html_a2553d1f5f7ca58ab1041b4f768ac96dd"><div class="ttname"><a href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">Dealer::deck</a></div><div class="ttdeci">vector&lt; Card &gt; deck</div><div class="ttdoc">The deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00043">Dealer.h:43</a></div></div>
+<div class="ttc" id="class_dealer_html_a1462f2a70797fb455bf6bddeeab89ee8"><div class="ttname"><a href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">Dealer::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdoc">The identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00035">Dealer.h:35</a></div></div>
+<div class="ttc" id="utils_8cpp_html_a7ab9ca131650f2684140e6906b0e04b0"><div class="ttname"><a href="utils_8cpp.html#a7ab9ca131650f2684140e6906b0e04b0">createDeck</a></div><div class="ttdeci">vector&lt; Card &gt; createDeck()</div><div class="ttdoc">Creates the deck. </div><div class="ttdef"><b>Definition:</b> <a href="utils_8cpp_source.html#l00015">utils.cpp:15</a></div></div>
 <div class="ttc" id="class_dealer_html_a5b4e4ca09848455326edb23777d7f896"><div class="ttname"><a href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">Dealer::shuffleDeck</a></div><div class="ttdeci">void shuffleDeck()</div><div class="ttdoc">Shuffle deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00032">Dealer.cpp:32</a></div></div>
-</div><!-- fragment -->
+<div class="ttc" id="class_dealer_html_a9ae5c0922bb3151c39e18e09e69b233a"><div class="ttname"><a href="class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a">Dealer::TableID</a></div><div class="ttdeci">int TableID</div><div class="ttdoc">Identifier for the table that the dealer is on. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00047">Dealer.h:47</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dealer_af0875adb24e228f777ed19065cea76af_cgraph.png" border="0" usemap="#class_dealer_af0875adb24e228f777ed19065cea76af_cgraph" alt=""/></div>
+<map name="class_dealer_af0875adb24e228f777ed19065cea76af_cgraph" id="class_dealer_af0875adb24e228f777ed19065cea76af_cgraph">
+<area shape="rect" id="node2" href="utils_8cpp.html#a7ab9ca131650f2684140e6906b0e04b0" title="Creates the deck. " alt="" coords="181,5,269,32"/>
+<area shape="rect" id="node3" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896" title="Shuffle deck. " alt="" coords="157,56,292,83"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a1c76c77a6659432eff6a85f7765f7edb"></a>
@@ -261,9 +318,21 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00024">24</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>References <a class="el" href="_dealer_8cpp_source.html#l00032">shuffleDeck()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                   {</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    TableID = -1;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    this-&gt;deck = newDeck;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">shuffleDeck</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ID = nextID;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    nextID++;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div><div class="ttc" id="class_dealer_html_a5b4e4ca09848455326edb23777d7f896"><div class="ttname"><a href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">Dealer::shuffleDeck</a></div><div class="ttdeci">void shuffleDeck()</div><div class="ttdoc">Shuffle deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00032">Dealer.cpp:32</a></div></div>
-</div><!-- fragment -->
+<p>References <a class="el" href="_dealer_8h_source.html#l00043">deck</a>, <a class="el" href="_dealer_8h_source.html#l00035">ID</a>, <a class="el" href="_dealer_8h_source.html#l00033">nextID</a>, <a class="el" href="_dealer_8cpp_source.html#l00032">shuffleDeck()</a>, and <a class="el" href="_dealer_8h_source.html#l00047">TableID</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                   {</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a">TableID</a> = -1;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    this-&gt;<a class="code" href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">deck</a> = newDeck;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">shuffleDeck</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">ID</a> = <a class="code" href="class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3">nextID</a>;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3">nextID</a>++;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div><div class="ttc" id="class_dealer_html_ae3c70d13263a05c5528ec4b650e088b3"><div class="ttname"><a href="class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3">Dealer::nextID</a></div><div class="ttdeci">static unsigned int nextID</div><div class="ttdoc">Identifier for the next Dealer. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00033">Dealer.h:33</a></div></div>
+<div class="ttc" id="class_dealer_html_a2553d1f5f7ca58ab1041b4f768ac96dd"><div class="ttname"><a href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">Dealer::deck</a></div><div class="ttdeci">vector&lt; Card &gt; deck</div><div class="ttdoc">The deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00043">Dealer.h:43</a></div></div>
+<div class="ttc" id="class_dealer_html_a1462f2a70797fb455bf6bddeeab89ee8"><div class="ttname"><a href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">Dealer::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdoc">The identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00035">Dealer.h:35</a></div></div>
+<div class="ttc" id="class_dealer_html_a5b4e4ca09848455326edb23777d7f896"><div class="ttname"><a href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">Dealer::shuffleDeck</a></div><div class="ttdeci">void shuffleDeck()</div><div class="ttdoc">Shuffle deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00032">Dealer.cpp:32</a></div></div>
+<div class="ttc" id="class_dealer_html_a9ae5c0922bb3151c39e18e09e69b233a"><div class="ttname"><a href="class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a">Dealer::TableID</a></div><div class="ttdeci">int TableID</div><div class="ttdoc">Identifier for the table that the dealer is on. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00047">Dealer.h:47</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dealer_a1c76c77a6659432eff6a85f7765f7edb_cgraph.png" border="0" usemap="#class_dealer_a1c76c77a6659432eff6a85f7765f7edb_cgraph" alt=""/></div>
+<map name="class_dealer_a1c76c77a6659432eff6a85f7765f7edb_cgraph" id="class_dealer_a1c76c77a6659432eff6a85f7765f7edb_cgraph">
+<area shape="rect" id="node2" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896" title="Shuffle deck. " alt="" coords="157,5,292,32"/>
+</map>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -295,9 +364,18 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00084">84</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>References <a class="el" href="_dealer_8cpp_source.html#l00032">shuffleDeck()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    deck.insert(deck.end(), cards.begin(), cards.end());</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">shuffleDeck</a>();</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div><div class="ttc" id="class_dealer_html_a5b4e4ca09848455326edb23777d7f896"><div class="ttname"><a href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">Dealer::shuffleDeck</a></div><div class="ttdeci">void shuffleDeck()</div><div class="ttdoc">Shuffle deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00032">Dealer.cpp:32</a></div></div>
-</div><!-- fragment -->
+<p>References <a class="el" href="_dealer_8h_source.html#l00043">deck</a>, and <a class="el" href="_dealer_8cpp_source.html#l00032">shuffleDeck()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">deck</a>.insert(<a class="code" href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">deck</a>.end(), cards.begin(), cards.end());</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">shuffleDeck</a>();</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div><div class="ttc" id="class_dealer_html_a2553d1f5f7ca58ab1041b4f768ac96dd"><div class="ttname"><a href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">Dealer::deck</a></div><div class="ttdeci">vector&lt; Card &gt; deck</div><div class="ttdoc">The deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00043">Dealer.h:43</a></div></div>
+<div class="ttc" id="class_dealer_html_a5b4e4ca09848455326edb23777d7f896"><div class="ttname"><a href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">Dealer::shuffleDeck</a></div><div class="ttdeci">void shuffleDeck()</div><div class="ttdoc">Shuffle deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00032">Dealer.cpp:32</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dealer_aab8779425d7113d6167a6bcd59dc6e55_cgraph.png" border="0" usemap="#class_dealer_aab8779425d7113d6167a6bcd59dc6e55_cgraph" alt=""/></div>
+<map name="class_dealer_aab8779425d7113d6167a6bcd59dc6e55_cgraph" id="class_dealer_aab8779425d7113d6167a6bcd59dc6e55_cgraph">
+<area shape="rect" id="node2" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896" title="Shuffle deck. " alt="" coords="220,5,355,32"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a6f499114631d7a3bd9955c7350c6ff5e"></a>
@@ -320,7 +398,10 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>19/11/2016 </dd></dl>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00100">100</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    deckDiscarded.clear();</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div></div><!-- fragment -->
+
+<p>References <a class="el" href="_dealer_8h_source.html#l00045">deckDiscarded</a>.</p>
+<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="class_dealer.html#a79a4fefe14d59df512c3fbf9f2039a28">deckDiscarded</a>.clear();</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div><div class="ttc" id="class_dealer_html_a79a4fefe14d59df512c3fbf9f2039a28"><div class="ttname"><a href="class_dealer.html#a79a4fefe14d59df512c3fbf9f2039a28">Dealer::deckDiscarded</a></div><div class="ttdeci">vector&lt; Card &gt; deckDiscarded</div><div class="ttdoc">The discarded deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00045">Dealer.h:45</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ab901e82f15d06a0eba37df9286c227e1"></a>
@@ -344,9 +425,18 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00105">105</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>References <a class="el" href="_dealer_8cpp_source.html#l00057">setHandScore()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    hand.clear();</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    this-&gt;<a class="code" href="class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909">setHandScore</a>();</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div><div class="ttc" id="class_dealer_html_af81f980fe797b87efc5c3cef2cc4c909"><div class="ttname"><a href="class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909">Dealer::setHandScore</a></div><div class="ttdeci">unsigned int setHandScore()</div><div class="ttdoc">Updates dealer&amp;#39;s handscore. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00057">Dealer.cpp:57</a></div></div>
-</div><!-- fragment -->
+<p>References <a class="el" href="_dealer_8h_source.html#l00037">hand</a>, and <a class="el" href="_dealer_8cpp_source.html#l00057">setHandScore()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">hand</a>.clear();</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    this-&gt;<a class="code" href="class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909">setHandScore</a>();</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div><div class="ttc" id="class_dealer_html_af81f980fe797b87efc5c3cef2cc4c909"><div class="ttname"><a href="class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909">Dealer::setHandScore</a></div><div class="ttdeci">unsigned int setHandScore()</div><div class="ttdoc">Updates dealer&amp;#39;s handscore. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00057">Dealer.cpp:57</a></div></div>
+<div class="ttc" id="class_dealer_html_a77cbd78e5edb5bd9499c97384a4fb20a"><div class="ttname"><a href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">Dealer::hand</a></div><div class="ttdeci">vector&lt; Card &gt; hand</div><div class="ttdoc">The hand. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00037">Dealer.h:37</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dealer_ab901e82f15d06a0eba37df9286c227e1_cgraph.png" border="0" usemap="#class_dealer_ab901e82f15d06a0eba37df9286c227e1_cgraph" alt=""/></div>
+<map name="class_dealer_ab901e82f15d06a0eba37df9286c227e1_cgraph" id="class_dealer_ab901e82f15d06a0eba37df9286c227e1_cgraph">
+<area shape="rect" id="node2" href="class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909" title="Updates dealer&#39;s handscore. " alt="" coords="179,5,328,32"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="aa830a4e0a67d50f84c391972ea2a3d57"></a>
@@ -378,8 +468,12 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00036">36</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_dealer_8cpp_source.html#l00047">hit()</a>, <a class="el" href="_player_8cpp_source.html#l00360">Bot0::play()</a>, <a class="el" href="_player_8cpp_source.html#l00549">Bot1::play()</a>, <a class="el" href="_player_8cpp_source.html#l00777">Bot2::play()</a>, and <a class="el" href="_player_8cpp_source.html#l00992">Human::play()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                             {</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="struct_card.html">Card</a> nextCard;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    nextCard = deck.back();</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    deckDiscarded.push_back(nextCard);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    deck.pop_back();</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; players.size(); i++) {</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        players.at(i)-&gt;addCount(nextCard);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> nextCard;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div><div class="ttc" id="struct_card_html"><div class="ttname"><a href="struct_card.html">Card</a></div><div class="ttdoc">A card. </div><div class="ttdef"><b>Definition:</b> <a href="utils_8h_source.html#l00028">utils.h:28</a></div></div>
+<p>References <a class="el" href="_dealer_8h_source.html#l00043">deck</a>, and <a class="el" href="_dealer_8h_source.html#l00045">deckDiscarded</a>.</p>
+
+<p>Referenced by <a class="el" href="_dealer_8cpp_source.html#l00047">hit()</a>, <a class="el" href="_player_8cpp_source.html#l00366">Bot0::play()</a>, <a class="el" href="_player_8cpp_source.html#l00555">Bot1::play()</a>, <a class="el" href="_player_8cpp_source.html#l00783">Bot2::play()</a>, and <a class="el" href="_player_8cpp_source.html#l00998">Human::play()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                             {</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="struct_card.html">Card</a> nextCard;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    nextCard = <a class="code" href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">deck</a>.back();</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_dealer.html#a79a4fefe14d59df512c3fbf9f2039a28">deckDiscarded</a>.push_back(nextCard);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">deck</a>.pop_back();</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; players.size(); i++) {</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        players.at(i)-&gt;addCount(nextCard);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> nextCard;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div><div class="ttc" id="class_dealer_html_a2553d1f5f7ca58ab1041b4f768ac96dd"><div class="ttname"><a href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">Dealer::deck</a></div><div class="ttdeci">vector&lt; Card &gt; deck</div><div class="ttdoc">The deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00043">Dealer.h:43</a></div></div>
+<div class="ttc" id="struct_card_html"><div class="ttname"><a href="struct_card.html">Card</a></div><div class="ttdoc">A card. </div><div class="ttdef"><b>Definition:</b> <a href="utils_8h_source.html#l00028">utils.h:28</a></div></div>
+<div class="ttc" id="class_dealer_html_a79a4fefe14d59df512c3fbf9f2039a28"><div class="ttname"><a href="class_dealer.html#a79a4fefe14d59df512c3fbf9f2039a28">Dealer::deckDiscarded</a></div><div class="ttdeci">vector&lt; Card &gt; deckDiscarded</div><div class="ttdoc">The discarded deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00045">Dealer.h:45</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -404,7 +498,10 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The deck. </dd></dl>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00074">74</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> deck;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div></div><!-- fragment -->
+
+<p>References <a class="el" href="_dealer_8h_source.html#l00043">deck</a>.</p>
+<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">deck</a>;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div><div class="ttc" id="class_dealer_html_a2553d1f5f7ca58ab1041b4f768ac96dd"><div class="ttname"><a href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">Dealer::deck</a></div><div class="ttdeci">vector&lt; Card &gt; deck</div><div class="ttdoc">The deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00043">Dealer.h:43</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a20af0c4e9ecd85f87629cdc18ce49296"></a>
@@ -428,7 +525,10 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The discarded deck. </dd></dl>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00090">90</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> deckDiscarded;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div></div><!-- fragment -->
+
+<p>References <a class="el" href="_dealer_8h_source.html#l00045">deckDiscarded</a>.</p>
+<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_dealer.html#a79a4fefe14d59df512c3fbf9f2039a28">deckDiscarded</a>;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div><div class="ttc" id="class_dealer_html_a79a4fefe14d59df512c3fbf9f2039a28"><div class="ttname"><a href="class_dealer.html#a79a4fefe14d59df512c3fbf9f2039a28">Dealer::deckDiscarded</a></div><div class="ttdeci">vector&lt; Card &gt; deckDiscarded</div><div class="ttdoc">The discarded deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00045">Dealer.h:45</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad02ffb06122263fe63b1d5d9a711cdfe"></a>
@@ -453,8 +553,11 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00079">79</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_player_8cpp_source.html#l00549">Bot1::play()</a>, and <a class="el" href="_player_8cpp_source.html#l00381">Bot1::split()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> hand;</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div></div><!-- fragment -->
+<p>References <a class="el" href="_dealer_8h_source.html#l00037">hand</a>.</p>
+
+<p>Referenced by <a class="el" href="_player_8cpp_source.html#l00555">Bot1::play()</a>, and <a class="el" href="_player_8cpp_source.html#l00387">Bot1::split()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">hand</a>;</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div><div class="ttc" id="class_dealer_html_a77cbd78e5edb5bd9499c97384a4fb20a"><div class="ttname"><a href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">Dealer::hand</a></div><div class="ttdeci">vector&lt; Card &gt; hand</div><div class="ttdoc">The hand. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00037">Dealer.h:37</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a80922ef482150027656ef0a6a82bc773"></a>
@@ -479,8 +582,11 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00095">95</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_player_8cpp_source.html#l00404">Bot1::surrender()</a>, and <a class="el" href="_player_8cpp_source.html#l00796">Bot2::surrender()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> handScore;</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div></div><!-- fragment -->
+<p>References <a class="el" href="_dealer_8h_source.html#l00039">handScore</a>.</p>
+
+<p>Referenced by <a class="el" href="_player_8cpp_source.html#l00410">Bot1::surrender()</a>, and <a class="el" href="_player_8cpp_source.html#l00802">Bot2::surrender()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">handScore</a>;</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div><div class="ttc" id="class_dealer_html_ad05712a20c2e1348c4db54dec2efdb4e"><div class="ttname"><a href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">Dealer::handScore</a></div><div class="ttdeci">unsigned int handScore</div><div class="ttdoc">The hand score. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00039">Dealer.h:39</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8c45fa97cab622ceb350ccf31012b140"></a>
@@ -505,8 +611,11 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00131">131</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00132">Casino::addDealerToCasino()</a>, <a class="el" href="_dealer_8cpp_source.html#l00159">DealerAlreadyExistException::DealerAlreadyExistException()</a>, <a class="el" href="_dealer_8cpp_source.html#l00155">DealerIsOnTableAlreadyException::DealerIsOnTableAlreadyException()</a>, <a class="el" href="_dealer_8cpp_source.html#l00151">DealerNotExistException::DealerNotExistException()</a>, <a class="el" href="_dealer_8cpp_source.html#l00167">DealerStillOnTableException::DealerStillOnTableException()</a>, and <a class="el" href="_casino_8cpp_source.html#l00143">Casino::removeDealerFromCasino()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                                 {</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> this-&gt;ID;</div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div></div><!-- fragment -->
+<p>References <a class="el" href="_dealer_8h_source.html#l00035">ID</a>.</p>
+
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00267">Casino::addDealerToCasino()</a>, <a class="el" href="_dealer_8cpp_source.html#l00159">DealerAlreadyExistException::DealerAlreadyExistException()</a>, <a class="el" href="_dealer_8cpp_source.html#l00155">DealerIsOnTableAlreadyException::DealerIsOnTableAlreadyException()</a>, <a class="el" href="_dealer_8cpp_source.html#l00151">DealerNotExistException::DealerNotExistException()</a>, <a class="el" href="_dealer_8cpp_source.html#l00167">DealerStillOnTableException::DealerStillOnTableException()</a>, <a class="el" href="_casino_8h_source.html#l00080">dealersComparasion::operator()()</a>, <a class="el" href="_casino_8cpp_source.html#l00278">Casino::removeDealerFromCasino()</a>, and <a class="el" href="_casino_8cpp_source.html#l00013">sortFunctionDealers()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                                 {</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">ID</a>;</div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div><div class="ttc" id="class_dealer_html_a1462f2a70797fb455bf6bddeeab89ee8"><div class="ttname"><a href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">Dealer::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdoc">The identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00035">Dealer.h:35</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3af257ebe799a924bbfc2e5898672f3e"></a>
@@ -539,8 +648,11 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00147">147</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00357">Casino::saveDealersFile()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                               {</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">return</span> nextID;</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div></div><!-- fragment -->
+<p>References <a class="el" href="_dealer_8h_source.html#l00033">nextID</a>.</p>
+
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00586">Casino::saveDealersFile()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                               {</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3">nextID</a>;</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div><div class="ttc" id="class_dealer_html_ae3c70d13263a05c5528ec4b650e088b3"><div class="ttname"><a href="class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3">Dealer::nextID</a></div><div class="ttdeci">static unsigned int nextID</div><div class="ttdoc">Identifier for the next Dealer. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00033">Dealer.h:33</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a33483233d2bdc17351d3d57fee448184"></a>
@@ -565,8 +677,11 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00139">139</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00470">Casino::create()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00167">DealerStillOnTableException::DealerStillOnTableException()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                             {</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">return</span> this-&gt;TableID;</div><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div></div><!-- fragment -->
+<p>References <a class="el" href="_dealer_8h_source.html#l00047">TableID</a>.</p>
+
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00735">Casino::create()</a>, <a class="el" href="_dealer_8cpp_source.html#l00167">DealerStillOnTableException::DealerStillOnTableException()</a>, <a class="el" href="_casino_8h_source.html#l00080">dealersComparasion::operator()()</a>, and <a class="el" href="_casino_8cpp_source.html#l00013">sortFunctionDealers()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                             {</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a">TableID</a>;</div><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div><div class="ttc" id="class_dealer_html_a9ae5c0922bb3151c39e18e09e69b233a"><div class="ttname"><a href="class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a">Dealer::TableID</a></div><div class="ttdeci">int TableID</div><div class="ttdoc">Identifier for the table that the dealer is on. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00047">Dealer.h:47</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a859c16c03295b75e0a469ec897afeff7"></a>
@@ -597,7 +712,10 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>True if the card is in the dealer's hand, false if not. </dd></dl>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00111">111</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;{</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; hand.size(); i++) {</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span> (hand.at(i) == c) {</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        }</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div></div><!-- fragment -->
+
+<p>References <a class="el" href="_dealer_8h_source.html#l00037">hand</a>.</p>
+<div class="fragment"><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;{</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">hand</a>.size(); i++) {</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">hand</a>.at(i) == c) {</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        }</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div><div class="ttc" id="class_dealer_html_a77cbd78e5edb5bd9499c97384a4fb20a"><div class="ttname"><a href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">Dealer::hand</a></div><div class="ttdeci">vector&lt; Card &gt; hand</div><div class="ttdoc">The hand. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00037">Dealer.h:37</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a7d9ccd145c1bdaf2aea4c28b08d9866d"></a>
@@ -629,12 +747,22 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00047">47</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>References <a class="el" href="_dealer_8cpp_source.html#l00036">discard()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00057">setHandScore()</a>.</p>
+<p>References <a class="el" href="_dealer_8cpp_source.html#l00036">discard()</a>, <a class="el" href="_dealer_8h_source.html#l00037">hand</a>, and <a class="el" href="_dealer_8cpp_source.html#l00057">setHandScore()</a>.</p>
 
 <p>Referenced by <a class="el" href="_dealer_8cpp_source.html#l00122">play()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                          {</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    hand.push_back(<a class="code" href="class_dealer.html#aa830a4e0a67d50f84c391972ea2a3d57">discard</a>(players));</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909">setHandScore</a>();</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> hand.back();</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div><div class="ttc" id="class_dealer_html_aa830a4e0a67d50f84c391972ea2a3d57"><div class="ttname"><a href="class_dealer.html#aa830a4e0a67d50f84c391972ea2a3d57">Dealer::discard</a></div><div class="ttdeci">Card discard(vector&lt; Player *&gt; players)</div><div class="ttdoc">Removes a Card from the end of the deck and returns it. Additionaly pushes the Card to the deckDiscar...</div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00036">Dealer.cpp:36</a></div></div>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                          {</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">hand</a>.push_back(<a class="code" href="class_dealer.html#aa830a4e0a67d50f84c391972ea2a3d57">discard</a>(players));</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909">setHandScore</a>();</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">hand</a>.back();</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div><div class="ttc" id="class_dealer_html_aa830a4e0a67d50f84c391972ea2a3d57"><div class="ttname"><a href="class_dealer.html#aa830a4e0a67d50f84c391972ea2a3d57">Dealer::discard</a></div><div class="ttdeci">Card discard(vector&lt; Player *&gt; players)</div><div class="ttdoc">Removes a Card from the end of the deck and returns it. Additionaly pushes the Card to the deckDiscar...</div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00036">Dealer.cpp:36</a></div></div>
 <div class="ttc" id="class_dealer_html_af81f980fe797b87efc5c3cef2cc4c909"><div class="ttname"><a href="class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909">Dealer::setHandScore</a></div><div class="ttdeci">unsigned int setHandScore()</div><div class="ttdoc">Updates dealer&amp;#39;s handscore. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00057">Dealer.cpp:57</a></div></div>
-</div><!-- fragment -->
+<div class="ttc" id="class_dealer_html_a77cbd78e5edb5bd9499c97384a4fb20a"><div class="ttname"><a href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">Dealer::hand</a></div><div class="ttdeci">vector&lt; Card &gt; hand</div><div class="ttdoc">The hand. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00037">Dealer.h:37</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dealer_a7d9ccd145c1bdaf2aea4c28b08d9866d_cgraph.png" border="0" usemap="#class_dealer_a7d9ccd145c1bdaf2aea4c28b08d9866d_cgraph" alt=""/></div>
+<map name="class_dealer_a7d9ccd145c1bdaf2aea4c28b08d9866d_cgraph" id="class_dealer_a7d9ccd145c1bdaf2aea4c28b08d9866d_cgraph">
+<area shape="rect" id="node2" href="class_dealer.html#aa830a4e0a67d50f84c391972ea2a3d57" title="Removes a Card from the end of the deck and returns it. Additionaly pushes the Card to the deckDiscar..." alt="" coords="155,5,264,32"/>
+<area shape="rect" id="node3" href="class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909" title="Updates dealer&#39;s handscore. " alt="" coords="135,56,284,83"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a77983c83dc250bf5a3a9fb365fbcdbdb"></a>
@@ -666,10 +794,22 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00122">122</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>References <a class="el" href="_table_8cpp_source.html#l00534">Table::getPlayers()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00047">hit()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">if</span> (handScore &lt; 17) {</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="class_dealer.html#a7d9ccd145c1bdaf2aea4c28b08d9866d">hit</a>(table.<a class="code" href="class_table.html#a65097ec2fe98d83c44538132e4fc2047">getPlayers</a>());</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;hit&quot;</span>; <span class="comment">//means hit</span></div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="stringliteral">&quot;stand&quot;</span>; <span class="comment">//means stand</span></div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div><div class="ttc" id="class_dealer_html_a7d9ccd145c1bdaf2aea4c28b08d9866d"><div class="ttname"><a href="class_dealer.html#a7d9ccd145c1bdaf2aea4c28b08d9866d">Dealer::hit</a></div><div class="ttdeci">Card &amp; hit(vector&lt; Player *&gt; players)</div><div class="ttdoc">Places a Card in the Dealer hand and updates the handscore. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00047">Dealer.cpp:47</a></div></div>
-<div class="ttc" id="class_table_html_a65097ec2fe98d83c44538132e4fc2047"><div class="ttname"><a href="class_table.html#a65097ec2fe98d83c44538132e4fc2047">Table::getPlayers</a></div><div class="ttdeci">vector&lt; Player * &gt; getPlayers() const</div><div class="ttdoc">Gets the players. </div><div class="ttdef"><b>Definition:</b> <a href="_table_8cpp_source.html#l00534">Table.cpp:534</a></div></div>
-</div><!-- fragment -->
+<p>References <a class="el" href="_table_8cpp_source.html#l00545">Table::getPlayers()</a>, <a class="el" href="_dealer_8h_source.html#l00039">handScore</a>, and <a class="el" href="_dealer_8cpp_source.html#l00047">hit()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">handScore</a> &lt; 17) {</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="class_dealer.html#a7d9ccd145c1bdaf2aea4c28b08d9866d">hit</a>(table.<a class="code" href="class_table.html#a65097ec2fe98d83c44538132e4fc2047">getPlayers</a>());</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;hit&quot;</span>; <span class="comment">//means hit</span></div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="stringliteral">&quot;stand&quot;</span>; <span class="comment">//means stand</span></div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div><div class="ttc" id="class_dealer_html_a7d9ccd145c1bdaf2aea4c28b08d9866d"><div class="ttname"><a href="class_dealer.html#a7d9ccd145c1bdaf2aea4c28b08d9866d">Dealer::hit</a></div><div class="ttdeci">Card &amp; hit(vector&lt; Player *&gt; players)</div><div class="ttdoc">Places a Card in the Dealer hand and updates the handscore. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00047">Dealer.cpp:47</a></div></div>
+<div class="ttc" id="class_dealer_html_ad05712a20c2e1348c4db54dec2efdb4e"><div class="ttname"><a href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">Dealer::handScore</a></div><div class="ttdeci">unsigned int handScore</div><div class="ttdoc">The hand score. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00039">Dealer.h:39</a></div></div>
+<div class="ttc" id="class_table_html_a65097ec2fe98d83c44538132e4fc2047"><div class="ttname"><a href="class_table.html#a65097ec2fe98d83c44538132e4fc2047">Table::getPlayers</a></div><div class="ttdeci">vector&lt; Player * &gt; getPlayers() const</div><div class="ttdoc">Gets the players. </div><div class="ttdef"><b>Definition:</b> <a href="_table_8cpp_source.html#l00545">Table.cpp:545</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dealer_a77983c83dc250bf5a3a9fb365fbcdbdb_cgraph.png" border="0" usemap="#class_dealer_a77983c83dc250bf5a3a9fb365fbcdbdb_cgraph" alt=""/></div>
+<map name="class_dealer_a77983c83dc250bf5a3a9fb365fbcdbdb_cgraph" id="class_dealer_a77983c83dc250bf5a3a9fb365fbcdbdb_cgraph">
+<area shape="rect" id="node2" href="class_table.html#a65097ec2fe98d83c44538132e4fc2047" title="Gets the players. " alt="" coords="144,5,267,32"/>
+<area shape="rect" id="node3" href="class_dealer.html#a7d9ccd145c1bdaf2aea4c28b08d9866d" title="Places a Card in the Dealer hand and updates the handscore. " alt="" coords="165,56,246,83"/>
+<area shape="rect" id="node4" href="class_dealer.html#aa830a4e0a67d50f84c391972ea2a3d57" title="Removes a Card from the end of the deck and returns it. Additionaly pushes the Card to the deckDiscar..." alt="" coords="335,31,444,57"/>
+<area shape="rect" id="node5" href="class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909" title="Updates dealer&#39;s handscore. " alt="" coords="315,81,464,108"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="af81f980fe797b87efc5c3cef2cc4c909"></a>
@@ -694,8 +834,12 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00057">57</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
+<p>References <a class="el" href="_dealer_8h_source.html#l00037">hand</a>, and <a class="el" href="_dealer_8h_source.html#l00039">handScore</a>.</p>
+
 <p>Referenced by <a class="el" href="_dealer_8cpp_source.html#l00105">clearHand()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00047">hit()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                 {</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    this-&gt;handScore = 0;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; hand.size(); i++)</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        this-&gt;handScore += hand.at(i).score;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> (handScore &gt; 21) {</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; hand.size(); i++) {</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">if</span> (hand.at(i).score == 11 &amp;&amp; handScore &gt; 21) {</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                this-&gt;handScore -= 10;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            }</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> this-&gt;handScore;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                 {</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    this-&gt;<a class="code" href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">handScore</a> = 0;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">hand</a>.size(); i++)</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        this-&gt;<a class="code" href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">handScore</a> += <a class="code" href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">hand</a>.at(i).score;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">handScore</a> &gt; 21) {</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">hand</a>.size(); i++) {</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">hand</a>.at(i).score == 11 &amp;&amp; <a class="code" href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">handScore</a> &gt; 21) {</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                this-&gt;<a class="code" href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">handScore</a> -= 10;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            }</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">handScore</a>;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div><div class="ttc" id="class_dealer_html_a77cbd78e5edb5bd9499c97384a4fb20a"><div class="ttname"><a href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">Dealer::hand</a></div><div class="ttdeci">vector&lt; Card &gt; hand</div><div class="ttdoc">The hand. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00037">Dealer.h:37</a></div></div>
+<div class="ttc" id="class_dealer_html_ad05712a20c2e1348c4db54dec2efdb4e"><div class="ttname"><a href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">Dealer::handScore</a></div><div class="ttdeci">unsigned int handScore</div><div class="ttdoc">The hand score. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00039">Dealer.h:39</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a65ef0e688aab06970d20110e29f6b5af"></a>
@@ -734,8 +878,12 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00143">143</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00230">Casino::readDealersFile()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                                      {</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    nextID = ID;</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div></div><!-- fragment -->
+<p>References <a class="el" href="_dealer_8h_source.html#l00035">ID</a>, and <a class="el" href="_dealer_8h_source.html#l00033">nextID</a>.</p>
+
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00377">Casino::readDealersFile()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                                      {</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <a class="code" href="class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3">nextID</a> = <a class="code" href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">ID</a>;</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div><div class="ttc" id="class_dealer_html_ae3c70d13263a05c5528ec4b650e088b3"><div class="ttname"><a href="class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3">Dealer::nextID</a></div><div class="ttdeci">static unsigned int nextID</div><div class="ttdoc">Identifier for the next Dealer. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00033">Dealer.h:33</a></div></div>
+<div class="ttc" id="class_dealer_html_a1462f2a70797fb455bf6bddeeab89ee8"><div class="ttname"><a href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">Dealer::ID</a></div><div class="ttdeci">unsigned int ID</div><div class="ttdoc">The identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00035">Dealer.h:35</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af1065f11bc62bb7d46f50530eb3125d9"></a>
@@ -766,8 +914,11 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00135">135</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_table_8cpp_source.html#l00046">Table::setDealer()</a>, and <a class="el" href="_table_8cpp_source.html#l00019">Table::Table()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                                 {</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    this-&gt;TableID = tableID;</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div></div><!-- fragment -->
+<p>References <a class="el" href="_dealer_8h_source.html#l00047">TableID</a>.</p>
+
+<p>Referenced by <a class="el" href="_table_8cpp_source.html#l00045">Table::setDealer()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                                 {</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    this-&gt;<a class="code" href="class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a">TableID</a> = tableID;</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div><div class="ttc" id="class_dealer_html_a9ae5c0922bb3151c39e18e09e69b233a"><div class="ttname"><a href="class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a">Dealer::TableID</a></div><div class="ttdeci">int TableID</div><div class="ttdoc">Identifier for the table that the dealer is on. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00047">Dealer.h:47</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5b4e4ca09848455326edb23777d7f896"></a>
@@ -791,8 +942,234 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00032">32</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
+<p>References <a class="el" href="_dealer_8h_source.html#l00043">deck</a>.</p>
+
 <p>Referenced by <a class="el" href="_dealer_8cpp_source.html#l00084">addCardsToDeck()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00008">Dealer()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                         {</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    random_shuffle(deck.begin(), deck.end());</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                         {</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    random_shuffle(<a class="code" href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">deck</a>.begin(), <a class="code" href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">deck</a>.end());</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div><div class="ttc" id="class_dealer_html_a2553d1f5f7ca58ab1041b4f768ac96dd"><div class="ttname"><a href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">Dealer::deck</a></div><div class="ttdeci">vector&lt; Card &gt; deck</div><div class="ttdoc">The deck. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00043">Dealer.h:43</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2553d1f5f7ca58ab1041b4f768ac96dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2553d1f5f7ca58ab1041b4f768ac96dd">&sect;&nbsp;</a></span>deck</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="struct_card.html">Card</a>&gt; Dealer::deck</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The deck. </p>
+
+<p>Definition at line <a class="el" href="_dealer_8h_source.html#l00043">43</a> of file <a class="el" href="_dealer_8h_source.html">Dealer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_dealer_8cpp_source.html#l00084">addCardsToDeck()</a>, <a class="el" href="_dealer_8cpp_source.html#l00008">Dealer()</a>, <a class="el" href="_dealer_8cpp_source.html#l00036">discard()</a>, <a class="el" href="_dealer_8cpp_source.html#l00074">getDeck()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00032">shuffleDeck()</a>.</p>
+
+</div>
+</div>
+<a id="a79a4fefe14d59df512c3fbf9f2039a28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79a4fefe14d59df512c3fbf9f2039a28">&sect;&nbsp;</a></span>deckDiscarded</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="struct_card.html">Card</a>&gt; Dealer::deckDiscarded</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The discarded deck. </p>
+
+<p>Definition at line <a class="el" href="_dealer_8h_source.html#l00045">45</a> of file <a class="el" href="_dealer_8h_source.html">Dealer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_dealer_8cpp_source.html#l00100">clearDiscardedDeck()</a>, <a class="el" href="_dealer_8cpp_source.html#l00036">discard()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00090">getDiscardedDeck()</a>.</p>
+
+</div>
+</div>
+<a id="a77cbd78e5edb5bd9499c97384a4fb20a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77cbd78e5edb5bd9499c97384a4fb20a">&sect;&nbsp;</a></span>hand</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="struct_card.html">Card</a>&gt; Dealer::hand</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The hand. </p>
+
+<p>Definition at line <a class="el" href="_dealer_8h_source.html#l00037">37</a> of file <a class="el" href="_dealer_8h_source.html">Dealer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_dealer_8cpp_source.html#l00105">clearHand()</a>, <a class="el" href="_dealer_8cpp_source.html#l00079">getHand()</a>, <a class="el" href="_dealer_8cpp_source.html#l00111">hasCardInHand()</a>, <a class="el" href="_dealer_8cpp_source.html#l00047">hit()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00057">setHandScore()</a>.</p>
+
+</div>
+</div>
+<a id="ad05712a20c2e1348c4db54dec2efdb4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad05712a20c2e1348c4db54dec2efdb4e">&sect;&nbsp;</a></span>handScore</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Dealer::handScore</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The hand score. </p>
+
+<p>Definition at line <a class="el" href="_dealer_8h_source.html#l00039">39</a> of file <a class="el" href="_dealer_8h_source.html">Dealer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_dealer_8cpp_source.html#l00095">getHandScore()</a>, <a class="el" href="_dealer_8cpp_source.html#l00122">play()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00057">setHandScore()</a>.</p>
+
+</div>
+</div>
+<a id="a1462f2a70797fb455bf6bddeeab89ee8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1462f2a70797fb455bf6bddeeab89ee8">&sect;&nbsp;</a></span>ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Dealer::ID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The identifier. </p>
+
+<p>Definition at line <a class="el" href="_dealer_8h_source.html#l00035">35</a> of file <a class="el" href="_dealer_8h_source.html">Dealer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_dealer_8cpp_source.html#l00008">Dealer()</a>, <a class="el" href="_dealer_8cpp_source.html#l00131">getID()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00143">setNextID()</a>.</p>
+
+</div>
+</div>
+<a id="ae3c70d13263a05c5528ec4b650e088b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3c70d13263a05c5528ec4b650e088b3">&sect;&nbsp;</a></span>nextID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Dealer::nextID = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Identifier for the next <a class="el" href="class_dealer.html" title="A dealer. The dealer is responsible to deal cards to the players and to himself. He is the one that h...">Dealer</a>. </p>
+
+<p>Definition at line <a class="el" href="_dealer_8h_source.html#l00033">33</a> of file <a class="el" href="_dealer_8h_source.html">Dealer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_dealer_8cpp_source.html#l00008">Dealer()</a>, <a class="el" href="_dealer_8cpp_source.html#l00147">getNextID()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00143">setNextID()</a>.</p>
+
+</div>
+</div>
+<a id="a5beeda363f72f5c3b15b8e83d1d4331c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5beeda363f72f5c3b15b8e83d1d4331c">&sect;&nbsp;</a></span>nextPlayer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Dealer::nextPlayer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The next player.(Deprecated) </p>
+
+<p>Definition at line <a class="el" href="_dealer_8h_source.html#l00041">41</a> of file <a class="el" href="_dealer_8h_source.html">Dealer.h</a>.</p>
+
+</div>
+</div>
+<a id="a9ae5c0922bb3151c39e18e09e69b233a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ae5c0922bb3151c39e18e09e69b233a">&sect;&nbsp;</a></span>TableID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Dealer::TableID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Identifier for the table that the dealer is on. </p>
+
+<p>Definition at line <a class="el" href="_dealer_8h_source.html#l00047">47</a> of file <a class="el" href="_dealer_8h_source.html">Dealer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_dealer_8cpp_source.html#l00008">Dealer()</a>, <a class="el" href="_dealer_8cpp_source.html#l00139">getTableOn()</a>, and <a class="el" href="_dealer_8cpp_source.html#l00135">setTable()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

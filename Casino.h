@@ -39,11 +39,10 @@ struct userLoginHash
 	*
 	* @brief	Dispersion Function.
 	*
-	* @author	Renato Campos
+	* @author	Francisca Paupério
 	* @date	30/12/2016
 	*
-	* @param	lhs Pointer to a player.
-	* @param	rhs Pointer to a player.
+	* @param	ur A string pair containing username and password.
 	*
 	* @return	User index on hash table.
 	*/
@@ -55,6 +54,20 @@ struct userLoginHash
 		}
 		return hashNumber % 47;
 	}
+
+	/**
+	* @fn	int operator() (const pair <string, string> &ur1, const pair <string, string> &ur2) const
+	*
+	* @brief	A binary predicate that compairs if two elements are equal.
+	*
+	* @author	Francisca Paupério
+	* @date	30/12/2016
+	*
+	* @param	ur1 One user.
+	* @param	ur2 One user.
+	*
+	* @return	True if elements have same username, False otherwise.
+	*/
 	int operator() (const pair <string, string> &ur1, const pair <string, string> &ur2) const {
 		return ur1.first == ur2.first;
 	}
@@ -410,7 +423,7 @@ public:
 	* @author	Joao Carvalho
 	* @date	30/12/2016
 	*
-	* @param	totalMoney	The total money.
+	* @param	n	Number of users.
 	*/
 
 	void showUsers(int n);

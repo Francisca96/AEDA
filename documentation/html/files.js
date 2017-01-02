@@ -1,12 +1,7 @@
 var files =
 [
-    [ "Casino.cpp", "_casino_8cpp.html", null ],
-    [ "Casino.h", "_casino_8h.html", [
-      [ "PlayerNotLoggedException", "class_player_not_logged_exception.html", "class_player_not_logged_exception" ],
-      [ "ExistingTableException", "class_existing_table_exception.html", "class_existing_table_exception" ],
-      [ "TableNotInCasinoException", "class_table_not_in_casino_exception.html", "class_table_not_in_casino_exception" ],
-      [ "Casino", "class_casino.html", "class_casino" ]
-    ] ],
+    [ "Casino.cpp", "_casino_8cpp.html", "_casino_8cpp" ],
+    [ "Casino.h", "_casino_8h.html", "_casino_8h" ],
     [ "cmdUI.cpp", "cmd_u_i_8cpp.html", "cmd_u_i_8cpp" ],
     [ "cmdUI.h", "cmd_u_i_8h.html", "cmd_u_i_8h" ],
     [ "Dealer.cpp", "_dealer_8cpp.html", null ],

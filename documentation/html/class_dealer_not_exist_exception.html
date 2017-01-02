@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_dealer_not_exist_exception.html'
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_dealer_not_exist_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">DealerNotExistException Class Reference</div>  </div>
@@ -100,6 +101,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a200ebb1e837e430ffc61674bad87f88b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer_not_exist_exception.html#a200ebb1e837e430ffc61674bad87f88b">DealerNotExistException</a> (<a class="el" href="class_dealer.html">Dealer</a> *dealer)</td></tr>
 <tr class="memdesc:a200ebb1e837e430ffc61674bad87f88b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a200ebb1e837e430ffc61674bad87f88b">More...</a><br /></td></tr>
 <tr class="separator:a200ebb1e837e430ffc61674bad87f88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a2aeb4546b12a8ecf5a8a8aada8b5cc22"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dealer_not_exist_exception.html#a2aeb4546b12a8ecf5a8a8aada8b5cc22">dealerID</a></td></tr>
+<tr class="memdesc:a2aeb4546b12a8ecf5a8a8aada8b5cc22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier for the dealer.  <a href="#a2aeb4546b12a8ecf5a8a8aada8b5cc22">More...</a><br /></td></tr>
+<tr class="separator:a2aeb4546b12a8ecf5a8a8aada8b5cc22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception for signalling that the dealer doest not exist. </p>
@@ -137,8 +144,44 @@ Public Member Functions</h2></td></tr>
 <p>Definition at line <a class="el" href="_dealer_8cpp_source.html#l00151">151</a> of file <a class="el" href="_dealer_8cpp_source.html">Dealer.cpp</a>.</p>
 
 <p>References <a class="el" href="_dealer_8cpp_source.html#l00131">Dealer::getID()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                                                               {</div><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    this-&gt;dealerID = dealer-&gt;<a class="code" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">getID</a>();</div><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;}</div><div class="ttc" id="class_dealer_html_a8c45fa97cab622ceb350ccf31012b140"><div class="ttname"><a href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">Dealer::getID</a></div><div class="ttdeci">unsigned int getID() const</div><div class="ttdoc">Gets the Dealer&amp;#39;s identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00131">Dealer.cpp:131</a></div></div>
-</div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                                                               {</div><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    this-&gt;<a class="code" href="class_dealer_not_exist_exception.html#a2aeb4546b12a8ecf5a8a8aada8b5cc22">dealerID</a> = dealer-&gt;<a class="code" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">getID</a>();</div><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;}</div><div class="ttc" id="class_dealer_not_exist_exception_html_a2aeb4546b12a8ecf5a8a8aada8b5cc22"><div class="ttname"><a href="class_dealer_not_exist_exception.html#a2aeb4546b12a8ecf5a8a8aada8b5cc22">DealerNotExistException::dealerID</a></div><div class="ttdeci">int dealerID</div><div class="ttdoc">Identifier for the dealer. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8h_source.html#l00346">Dealer.h:346</a></div></div>
+<div class="ttc" id="class_dealer_html_a8c45fa97cab622ceb350ccf31012b140"><div class="ttname"><a href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">Dealer::getID</a></div><div class="ttdeci">unsigned int getID() const</div><div class="ttdoc">Gets the Dealer&amp;#39;s identifier. </div><div class="ttdef"><b>Definition:</b> <a href="_dealer_8cpp_source.html#l00131">Dealer.cpp:131</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dealer_not_exist_exception_a200ebb1e837e430ffc61674bad87f88b_cgraph.png" border="0" usemap="#class_dealer_not_exist_exception_a200ebb1e837e430ffc61674bad87f88b_cgraph" alt=""/></div>
+<map name="class_dealer_not_exist_exception_a200ebb1e837e430ffc61674bad87f88b_cgraph" id="class_dealer_not_exist_exception_a200ebb1e837e430ffc61674bad87f88b_cgraph">
+<area shape="rect" id="node2" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140" title="Gets the Dealer&#39;s identifier. " alt="" coords="228,13,325,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2aeb4546b12a8ecf5a8a8aada8b5cc22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2aeb4546b12a8ecf5a8a8aada8b5cc22">&sect;&nbsp;</a></span>dealerID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DealerNotExistException::dealerID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Identifier for the dealer. </p>
+
+<p>Definition at line <a class="el" href="_dealer_8h_source.html#l00346">346</a> of file <a class="el" href="_dealer_8h_source.html">Dealer.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -95,6 +95,8 @@ $(document).ready(function(){initNavTree('class_dealer.html','');});
   <tr><td class="entry"><a class="el" href="class_dealer.html#a518fd02cf57eaf55e06b7754c4649a3f">Dealer</a>()</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#af0875adb24e228f777ed19065cea76af">Dealer</a>(unsigned int ID)</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_dealer.html#a1c76c77a6659432eff6a85f7765f7edb">Dealer</a>(vector&lt; Card &gt; newDeck)</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#a2553d1f5f7ca58ab1041b4f768ac96dd">deck</a></td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_dealer.html#a79a4fefe14d59df512c3fbf9f2039a28">deckDiscarded</a></td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#aa830a4e0a67d50f84c391972ea2a3d57">discard</a>(vector&lt; Player *&gt; players)</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_dealer.html#a3e47299eeff86b20db81ac062659a5dd">getDeck</a>()</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#a20af0c4e9ecd85f87629cdc18ce49296">getDiscardedDeck</a>()</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
@@ -103,13 +105,19 @@ $(document).ready(function(){initNavTree('class_dealer.html','');});
   <tr><td class="entry"><a class="el" href="class_dealer.html#a8c45fa97cab622ceb350ccf31012b140">getID</a>() const</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#a3af257ebe799a924bbfc2e5898672f3e">getNextID</a>()</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_dealer.html#a33483233d2bdc17351d3d57fee448184">getTableOn</a>() const</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#a77cbd78e5edb5bd9499c97384a4fb20a">hand</a></td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_dealer.html#ad05712a20c2e1348c4db54dec2efdb4e">handScore</a></td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#a859c16c03295b75e0a469ec897afeff7">hasCardInHand</a>(Card &amp;c)</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_dealer.html#a7d9ccd145c1bdaf2aea4c28b08d9866d">hit</a>(vector&lt; Player *&gt; players)</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#a77983c83dc250bf5a3a9fb365fbcdbdb">play</a>(Table &amp;table)</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909">setHandScore</a>()</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#a65ef0e688aab06970d20110e29f6b5af">setNextID</a>(unsigned int ID)</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_dealer.html#af1065f11bc62bb7d46f50530eb3125d9">setTable</a>(int tableID)</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">shuffleDeck</a>()</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#a1462f2a70797fb455bf6bddeeab89ee8">ID</a></td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3">nextID</a></td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#a5beeda363f72f5c3b15b8e83d1d4331c">nextPlayer</a></td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_dealer.html#a77983c83dc250bf5a3a9fb365fbcdbdb">play</a>(Table &amp;table)</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#af81f980fe797b87efc5c3cef2cc4c909">setHandScore</a>()</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_dealer.html#a65ef0e688aab06970d20110e29f6b5af">setNextID</a>(unsigned int ID)</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#af1065f11bc62bb7d46f50530eb3125d9">setTable</a>(int tableID)</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_dealer.html#a5b4e4ca09848455326edb23777d7f896">shuffleDeck</a>()</td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_dealer.html#a9ae5c0922bb3151c39e18e09e69b233a">TableID</a></td><td class="entry"><a class="el" href="class_dealer.html">Dealer</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

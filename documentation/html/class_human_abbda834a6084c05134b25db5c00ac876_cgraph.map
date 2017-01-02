@@ -1,0 +1,5 @@
+<map id="Human::bet" name="Human::bet">
+<area shape="rect" id="node2" href="$class_table.html#acd5423db5e5ed6a22a846708a47f36eb" title="Gets maximum bet. " alt="" coords="163,5,287,32"/>
+<area shape="rect" id="node3" href="$class_table.html#ae771baf4201fb1c73198f5c7e7189260" title="Gets minimum bet. " alt="" coords="165,56,285,83"/>
+<area shape="rect" id="node4" href="$utils_8cpp.html#a685ffa2d206caa9be692206e68284cb4" title="Reads unsigned int between a minimum and a maximum values. Ask for user input. " alt="" coords="143,107,308,133"/>
+</map>

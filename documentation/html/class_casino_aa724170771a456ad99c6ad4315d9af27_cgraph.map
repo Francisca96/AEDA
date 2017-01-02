@@ -1,0 +1,7 @@
+<map id="Casino::addPlayersToTable" name="Casino::addPlayersToTable">
+<area shape="rect" id="node2" href="$class_casino.html#afa089e95581b451abf4adf4afb1b1ccd" title="Adds a player to a table of the casino. " alt="" coords="233,64,407,91"/>
+<area shape="rect" id="node3" href="$class_table.html#a8b9779dcd6f5695e121f75d10f9fe703" title="Adds a player to this table. " alt="" coords="485,5,603,32"/>
+<area shape="rect" id="node5" href="$class_too_many_players_exception.html#aaaf4d3518d044df6bec5478d5729b7e3" title="Displays information about this exception. " alt="" coords="455,57,633,98"/>
+<area shape="rect" id="node6" href="$class_player_not_logged_exception.html#ad224c777831b13df0b2a48e5a0e333ae" title="Displays in terminal what caused this exception to be thrown. " alt="" coords="455,122,633,163"/>
+<area shape="rect" id="node4" href="$class_player.html#acc0e88f7ca8c27d4d06dc87973fafce7" title="Sits on a table. &#45;1 if the player is not on any table. " alt="" coords="681,5,815,32"/>
+</map>

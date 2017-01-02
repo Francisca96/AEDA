@@ -1,0 +1,6 @@
+<map id="Casino::readPlayersFile" name="Casino::readPlayersFile">
+<area shape="rect" id="node2" href="$class_player.html#a7cc1745523751dcea0263c9658e33111" title="Sets initial money. " alt="" coords="213,5,368,32"/>
+<area shape="rect" id="node3" href="$class_player.html#acc0e88f7ca8c27d4d06dc87973fafce7" title="Sits on a table. &#45;1 if the player is not on any table. " alt="" coords="224,56,357,83"/>
+<area shape="rect" id="node4" href="$_casino_8cpp.html#a21acead05f2186e35740b7e5ebfa8ddd" title="sortFunctionPlayers" alt="" coords="221,107,360,133"/>
+<area shape="rect" id="node5" href="$class_player.html#a4939193fc637f75bf7a11118334dae7e" title="Gets the name. " alt="" coords="416,107,535,133"/>
+</map>

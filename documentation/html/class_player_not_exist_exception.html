@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_player_not_exist_exception.html'
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_player_not_exist_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PlayerNotExistException Class Reference</div>  </div>
@@ -97,9 +98,15 @@ $(document).ready(function(){initNavTree('class_player_not_exist_exception.html'
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae3e9a72697c6c59fb3de66e2f6970445"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_not_exist_exception.html#ae3e9a72697c6c59fb3de66e2f6970445">PlayerNotExistException</a> (string name)</td></tr>
+<tr class="memitem:ae3e9a72697c6c59fb3de66e2f6970445"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_not_exist_exception.html#ae3e9a72697c6c59fb3de66e2f6970445">PlayerNotExistException</a> (string <a class="el" href="class_player_not_exist_exception.html#a4199473c087e6ee50da96deee6b60ded">name</a>)</td></tr>
 <tr class="memdesc:ae3e9a72697c6c59fb3de66e2f6970445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ae3e9a72697c6c59fb3de66e2f6970445">More...</a><br /></td></tr>
 <tr class="separator:ae3e9a72697c6c59fb3de66e2f6970445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4199473c087e6ee50da96deee6b60ded"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_not_exist_exception.html#a4199473c087e6ee50da96deee6b60ded">name</a></td></tr>
+<tr class="memdesc:a4199473c087e6ee50da96deee6b60ded"><td class="mdescLeft">&#160;</td><td class="mdescRight">The player's name.  <a href="#a4199473c087e6ee50da96deee6b60ded">More...</a><br /></td></tr>
+<tr class="separator:a4199473c087e6ee50da96deee6b60ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception for signalling that the player does not exist. </p>
@@ -134,8 +141,36 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_player_8cpp_source.html#l01019">1019</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;                                                            {</div><div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;    this-&gt;name = name;</div><div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;}</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="_player_8cpp_source.html#l01025">1025</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;                                                            {</div><div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;    this-&gt;<a class="code" href="class_player_not_exist_exception.html#a4199473c087e6ee50da96deee6b60ded">name</a> = <a class="code" href="class_player_not_exist_exception.html#a4199473c087e6ee50da96deee6b60ded">name</a>;</div><div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;}</div><div class="ttc" id="class_player_not_exist_exception_html_a4199473c087e6ee50da96deee6b60ded"><div class="ttname"><a href="class_player_not_exist_exception.html#a4199473c087e6ee50da96deee6b60ded">PlayerNotExistException::name</a></div><div class="ttdeci">string name</div><div class="ttdoc">The player&amp;#39;s name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8h_source.html#l00116">Player.h:116</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4199473c087e6ee50da96deee6b60ded"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4199473c087e6ee50da96deee6b60ded">&sect;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string PlayerNotExistException::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The player's name. </p>
+
+<p>Definition at line <a class="el" href="_player_8h_source.html#l00116">116</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

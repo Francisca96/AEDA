@@ -1,0 +1,17 @@
+<map id="Casino::eliminate" name="Casino::eliminate">
+<area shape="rect" id="node2" href="$cmd_u_i_8cpp.html#a2451dbf01b864018c05fe791e91d32d1" title="Displays a delete menu and reads user choice. " alt="" coords="237,31,327,57"/>
+<area shape="rect" id="node5" href="$class_player_still_on_table_exception.html#a173aa6dec8b33b0b3fa1aa65a03848ad" title="Gets table identifier. " alt="" coords="189,82,375,123"/>
+<area shape="rect" id="node6" href="$class_dealer_still_on_table_exception.html#a44ceb65d9728c8090515aeac00bed5ce" title="Gets table identifier. " alt="" coords="189,147,375,189"/>
+<area shape="rect" id="node7" href="$utils_8cpp.html#a55b3de51bc5631fb67d6681f33e52228" title="Reads unsigned int. Asks for user input. " alt="" coords="225,213,339,240"/>
+<area shape="rect" id="node8" href="$class_casino.html#a00554a09b9bb5d9e7bdaaad2fe8fbbbd" title="Removes a dealer from the casino. " alt="" coords="193,265,371,306"/>
+<area shape="rect" id="node10" href="$class_casino.html#a23122b72fe0f0e14e5c98acd6d324562" title="Removes the player from casino. " alt="" coords="193,330,371,371"/>
+<area shape="rect" id="node11" href="$class_casino.html#af39418a2571c8411954dc74089882bb4" title="Removes the table from casino. " alt="" coords="176,396,388,423"/>
+<area shape="rect" id="node13" href="$class_casino.html#acaf0b66e12eab500cfb7706f0e62f60c" title="Displays casino&#39;s dealers in a user friendly way on the terminal. " alt="" coords="210,447,354,473"/>
+<area shape="rect" id="node14" href="$class_casino.html#aa75a4d63a4ba052eb6f7fb86130091b9" title="Displays the players that are logged in a user friendly way on the terminal. " alt="" coords="210,497,354,524"/>
+<area shape="rect" id="node15" href="$class_casino.html#a33ac92a701d94a758177cea078aa7bfb" title="Displays casino&#39;s tables in a user friendly way on the terminal. " alt="" coords="213,548,351,575"/>
+<area shape="rect" id="node16" href="$class_casino.html#ad4233abf0b8e16d4c8e26b37a121ad84" title="Display accounts infos. " alt="" coords="215,599,349,625"/>
+<area shape="rect" id="node3" href="$cmd_u_i_8cpp.html#a3f76e0072f6af377fb5d0669abbb849d" title="displayMenu0" alt="" coords="446,5,549,32"/>
+<area shape="rect" id="node4" href="$utils_8cpp.html#a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" title="Reads int between a minimum and a maximum values. Ask for user input. " alt="" coords="442,56,553,83"/>
+<area shape="rect" id="node9" href="$class_dealer.html#a8c45fa97cab622ceb350ccf31012b140" title="Gets the Dealer&#39;s identifier. " alt="" coords="449,272,546,299"/>
+<area shape="rect" id="node12" href="$class_table.html#aa4db39c76365882991132d3c07a85a81" title="Gets table identifier. " alt="" coords="436,396,559,423"/>
+</map>

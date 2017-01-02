@@ -1,0 +1,7 @@
+<map id="Casino::showStatisticsMenu" name="Casino::showStatisticsMenu">
+<area shape="rect" id="node2" href="$utils_8cpp.html#a5f5b6dc9dfd4ca8f5bf107d3cbac9cb4" title="Reads int between a minimum and a maximum values. Ask for user input. " alt="" coords="443,56,553,83"/>
+<area shape="rect" id="node3" href="$class_casino.html#abdfc7428564168060a3d3cb8bfa7948d" title="Displays casino&#39;s statistics in a user friendly way on the terminal. " alt="" coords="240,5,395,32"/>
+<area shape="rect" id="node5" href="$cmd_u_i_8cpp.html#a4b9d863effe0199405f916bce3f06692" title="Displays the statistics menu and reads user choice. " alt="" coords="264,107,371,133"/>
+<area shape="rect" id="node4" href="$utils_8cpp.html#ac4dc9964d286ddbbd2a108991190d39d" title="Reads a int value. Asks for user input. " alt="" coords="467,5,529,32"/>
+<area shape="rect" id="node6" href="$cmd_u_i_8cpp.html#a3f76e0072f6af377fb5d0669abbb849d" title="displayMenu0" alt="" coords="447,107,549,133"/>
+</map>

@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Aeda-Casino
-   &#160;<span id="projectnumber">1.0.0.0</span>
+   &#160;<span id="projectnumber">2.0.0.0</span>
    </div>
    <div id="projectbrief">A BlackJack Game and Simulator</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('class_player_not_logged_exception.html
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_player_not_logged_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PlayerNotLoggedException Class Reference</div>  </div>
@@ -103,13 +104,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad224c777831b13df0b2a48e5a0e333ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_not_logged_exception.html#ad224c777831b13df0b2a48e5a0e333ae">what</a> ()</td></tr>
 <tr class="memdesc:ad224c777831b13df0b2a48e5a0e333ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays in terminal what caused this exception to be thrown.  <a href="#ad224c777831b13df0b2a48e5a0e333ae">More...</a><br /></td></tr>
 <tr class="separator:ad224c777831b13df0b2a48e5a0e333ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7d5e1c8f7f042a9c8de5e500ac72ee49"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_not_logged_exception.html#a7d5e1c8f7f042a9c8de5e500ac72ee49">name</a></td></tr>
+<tr class="memdesc:a7d5e1c8f7f042a9c8de5e500ac72ee49"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name.  <a href="#a7d5e1c8f7f042a9c8de5e500ac72ee49">More...</a><br /></td></tr>
+<tr class="separator:a7d5e1c8f7f042a9c8de5e500ac72ee49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exception for signalling player not logged in. </p>
 <dl class="section author"><dt>Author</dt><dd>Ineeve </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>19/11/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="_casino_8h_source.html#l00028">28</a> of file <a class="el" href="_casino_8h_source.html">Casino.h</a>.</p>
+<p>Definition at line <a class="el" href="_casino_8h_source.html#l00111">111</a> of file <a class="el" href="_casino_8h_source.html">Casino.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aee0f412b8c985e3a42f51e3c6abbc0ab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aee0f412b8c985e3a42f51e3c6abbc0ab">&sect;&nbsp;</a></span>PlayerNotLoggedException()</h2>
@@ -137,11 +144,20 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_casino_8cpp_source.html#l00966">966</a> of file <a class="el" href="_casino_8cpp_source.html">Casino.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_casino_8cpp_source.html#l01495">1495</a> of file <a class="el" href="_casino_8cpp_source.html">Casino.cpp</a>.</p>
 
 <p>References <a class="el" href="_player_8cpp_source.html#l00097">Player::getName()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;{</div><div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;    name = player1-&gt;<a class="code" href="class_player.html#a4939193fc637f75bf7a11118334dae7e">getName</a>();</div><div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;}</div><div class="ttc" id="class_player_html_a4939193fc637f75bf7a11118334dae7e"><div class="ttname"><a href="class_player.html#a4939193fc637f75bf7a11118334dae7e">Player::getName</a></div><div class="ttdeci">string getName() const</div><div class="ttdoc">Gets the name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00097">Player.cpp:97</a></div></div>
-</div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l01496"></a><span class="lineno"> 1496</span>&#160;{</div><div class="line"><a name="l01497"></a><span class="lineno"> 1497</span>&#160;    <a class="code" href="class_player_not_logged_exception.html#a7d5e1c8f7f042a9c8de5e500ac72ee49">name</a> = player1-&gt;<a class="code" href="class_player.html#a4939193fc637f75bf7a11118334dae7e">getName</a>();</div><div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;}</div><div class="ttc" id="class_player_not_logged_exception_html_a7d5e1c8f7f042a9c8de5e500ac72ee49"><div class="ttname"><a href="class_player_not_logged_exception.html#a7d5e1c8f7f042a9c8de5e500ac72ee49">PlayerNotLoggedException::name</a></div><div class="ttdeci">string name</div><div class="ttdoc">The name. </div><div class="ttdef"><b>Definition:</b> <a href="_casino_8h_source.html#l00114">Casino.h:114</a></div></div>
+<div class="ttc" id="class_player_html_a4939193fc637f75bf7a11118334dae7e"><div class="ttname"><a href="class_player.html#a4939193fc637f75bf7a11118334dae7e">Player::getName</a></div><div class="ttdeci">string getName() const</div><div class="ttdoc">Gets the name. </div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00097">Player.cpp:97</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_player_not_logged_exception_aee0f412b8c985e3a42f51e3c6abbc0ab_cgraph.png" border="0" usemap="#class_player_not_logged_exception_aee0f412b8c985e3a42f51e3c6abbc0ab_cgraph" alt=""/></div>
+<map name="class_player_not_logged_exception_aee0f412b8c985e3a42f51e3c6abbc0ab_cgraph" id="class_player_not_logged_exception_aee0f412b8c985e3a42f51e3c6abbc0ab_cgraph">
+<area shape="rect" id="node2" href="class_player.html#a4939193fc637f75bf7a11118334dae7e" title="Gets the name. " alt="" coords="240,13,359,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -164,10 +180,38 @@ Public Member Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Ineeve </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>19/11/2016 </dd></dl>
 
-<p>Definition at line <a class="el" href="_casino_8cpp_source.html#l00971">971</a> of file <a class="el" href="_casino_8cpp_source.html">Casino.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_casino_8cpp_source.html#l01500">1500</a> of file <a class="el" href="_casino_8cpp_source.html">Casino.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00098">Casino::addPlayerToTable()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;{</div><div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;    cout &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; is not logged in this Casino, try to log in first.\n&quot;</span>;</div><div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;}</div></div><!-- fragment -->
+<p>Referenced by <a class="el" href="_casino_8cpp_source.html#l00233">Casino::addPlayerToTable()</a>.</p>
+<div class="fragment"><div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;{</div><div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;    cout &lt;&lt; <a class="code" href="class_player_not_logged_exception.html#a7d5e1c8f7f042a9c8de5e500ac72ee49">name</a> &lt;&lt; <span class="stringliteral">&quot; is not logged in this Casino, try to log in first.\n&quot;</span>;</div><div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160;}</div><div class="ttc" id="class_player_not_logged_exception_html_a7d5e1c8f7f042a9c8de5e500ac72ee49"><div class="ttname"><a href="class_player_not_logged_exception.html#a7d5e1c8f7f042a9c8de5e500ac72ee49">PlayerNotLoggedException::name</a></div><div class="ttdeci">string name</div><div class="ttdoc">The name. </div><div class="ttdef"><b>Definition:</b> <a href="_casino_8h_source.html#l00114">Casino.h:114</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7d5e1c8f7f042a9c8de5e500ac72ee49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d5e1c8f7f042a9c8de5e500ac72ee49">&sect;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string PlayerNotLoggedException::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The name. </p>
+
+<p>Definition at line <a class="el" href="_casino_8h_source.html#l00114">114</a> of file <a class="el" href="_casino_8h_source.html">Casino.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

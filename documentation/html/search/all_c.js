@@ -1,13 +1,9 @@
 var searchData=
 [
-  ['paytoplayer',['payToPlayer',['../class_table.html#a9f12053cf49da2ea2e45ced3a5f2f0b3',1,'Table']]],
-  ['play',['play',['../class_dealer.html#a77983c83dc250bf5a3a9fb365fbcdbdb',1,'Dealer::play()'],['../class_player.html#a633ae716d3226a5701a6d0c9314baad4',1,'Player::play()'],['../class_bot0.html#ad4107238ba36ce4ddf2debd7b10c6a9e',1,'Bot0::play()'],['../class_bot1.html#a9d132799a74f0956dd3b66a897cf8824',1,'Bot1::play()'],['../class_bot2.html#ab3fb6a4c1627247f21b43893862148ff',1,'Bot2::play()'],['../class_human.html#ac2536a8f230ba6dd457b81e406f42a60',1,'Human::play()'],['../class_table.html#a00a1f21ddd1664b9305ab08ee48e5c3c',1,'Table::play()']]],
-  ['player',['Player',['../class_player.html',1,'']]],
-  ['player_2ecpp',['Player.cpp',['../_player_8cpp.html',1,'']]],
-  ['player_2eh',['Player.h',['../_player_8h.html',1,'']]],
-  ['playeralreadyexistexception',['PlayerAlreadyExistException',['../class_player_already_exist_exception.html',1,'PlayerAlreadyExistException'],['../class_player_already_exist_exception.html#a0e35ed0af5e3009762fc0f3c79d857f6',1,'PlayerAlreadyExistException::PlayerAlreadyExistException()']]],
-  ['playerisntontableexception',['PlayerIsntOnTableException',['../class_player_isnt_on_table_exception.html',1,'PlayerIsntOnTableException'],['../class_player_isnt_on_table_exception.html#aa020ed309e592d30471472d9b287f852',1,'PlayerIsntOnTableException::PlayerIsntOnTableException()']]],
-  ['playernotexistexception',['PlayerNotExistException',['../class_player_not_exist_exception.html',1,'PlayerNotExistException'],['../class_player_not_exist_exception.html#ae3e9a72697c6c59fb3de66e2f6970445',1,'PlayerNotExistException::PlayerNotExistException()']]],
-  ['playernotloggedexception',['PlayerNotLoggedException',['../class_player_not_logged_exception.html',1,'PlayerNotLoggedException'],['../class_player_not_logged_exception.html#aee0f412b8c985e3a42f51e3c6abbc0ab',1,'PlayerNotLoggedException::PlayerNotLoggedException()']]],
-  ['playerstillontableexception',['PlayerStillOnTableException',['../class_player_still_on_table_exception.html',1,'PlayerStillOnTableException'],['../class_player_still_on_table_exception.html#a1df43217f05e26b327768df459024fac',1,'PlayerStillOnTableException::PlayerStillOnTableException()']]]
+  ['name',['name',['../class_player_not_logged_exception.html#a7d5e1c8f7f042a9c8de5e500ac72ee49',1,'PlayerNotLoggedException::name()'],['../class_player_already_exist_exception.html#a28586f90a81b23197503f017b333e103',1,'PlayerAlreadyExistException::name()'],['../class_player_not_exist_exception.html#a4199473c087e6ee50da96deee6b60ded',1,'PlayerNotExistException::name()'],['../class_player_still_on_table_exception.html#aff58c65c448022e702d78bed75fd3c2e',1,'PlayerStillOnTableException::name()'],['../class_player_isnt_on_table_exception.html#a96e0693ffa9c68572027277cd2e16880',1,'PlayerIsntOnTableException::name()'],['../class_human_on_table_exception.html#a103b7f6d8efe9f67558a531e706c95cc',1,'HumanOnTableException::name()'],['../class_player.html#acf0355128a99ee20ad9931b760fb2de1',1,'Player::name()']]],
+  ['nametooshortexception',['NameTooShortException',['../class_name_too_short_exception.html',1,'']]],
+  ['nextid',['nextID',['../class_dealer.html#ae3c70d13263a05c5528ec4b650e088b3',1,'Dealer::nextID()'],['../class_table.html#a811f351feb5d3a5cb84da1d948933a11',1,'Table::nextID()']]],
+  ['nextplayer',['nextPlayer',['../class_dealer.html#a5beeda363f72f5c3b15b8e83d1d4331c',1,'Dealer']]],
+  ['nextplayerindex',['nextPlayerIndex',['../class_table.html#a0c5a82347889500050d5679bc1e94eff',1,'Table']]],
+  ['noplayersontableexception',['NoPlayersOnTableException',['../class_no_players_on_table_exception.html',1,'NoPlayersOnTableException'],['../class_no_players_on_table_exception.html#abe7ebe8452fefaf885ca49e0b0583890',1,'NoPlayersOnTableException::NoPlayersOnTableException()']]]
 ];

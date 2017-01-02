@@ -8,5 +8,7 @@ var class_human =
     [ "saveInfo", "class_human.html#a0afaa0af47dd435b599b17aaecb8fae6", null ],
     [ "setUserID", "class_human.html#a2a9efdb2f886ef6619af6b5c45044372", null ],
     [ "split", "class_human.html#ac406bdd47735f87dec9965b8a86d32ed", null ],
-    [ "takeInsurance", "class_human.html#af6cc17fa0b07ceadde23d352c1204719", null ]
+    [ "takeInsurance", "class_human.html#af6cc17fa0b07ceadde23d352c1204719", null ],
+    [ "userID", "class_human.html#a6444221f72eed8ad73e97e559baae2c4", null ],
+    [ "username", "class_human.html#a8a997ee950563778c9df93ca5ecf7898", null ]
 ];

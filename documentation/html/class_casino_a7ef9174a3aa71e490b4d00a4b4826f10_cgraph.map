@@ -1,0 +1,17 @@
+<map id="Casino::readTablesFile" name="Casino::readTablesFile">
+<area shape="rect" id="node2" href="$class_table.html#a8b9779dcd6f5695e121f75d10f9fe703" title="Adds a player to this table. " alt="" coords="240,5,359,32"/>
+<area shape="rect" id="node4" href="$class_casino.html#a54749cf7229b9cf10665660f6edfc4d8" title="Adds a player to casino. " alt="" coords="208,56,391,83"/>
+<area shape="rect" id="node5" href="$class_player.html#a4939193fc637f75bf7a11118334dae7e" title="Gets the name. " alt="" coords="459,56,577,83"/>
+<area shape="rect" id="node6" href="$class_casino.html#a0c6e77e20add9d90b286b7e2be59a1a8" title="Adds a table to casino. " alt="" coords="211,157,387,184"/>
+<area shape="rect" id="node11" href="$class_casino.html#a566f659a6920e2ccec53d0e231f6524c" title="Searches for a player (sequential search). " alt="" coords="236,208,363,235"/>
+<area shape="rect" id="node12" href="$class_table.html#afa6f99eb44c137304837fbc46ef5599c" title="Sets an identifier. " alt="" coords="254,259,345,285"/>
+<area shape="rect" id="node13" href="$class_table.html#aa5953efa5c4e38b0f211f3523b378273" title="Sets next identifier. " alt="" coords="240,309,359,336"/>
+<area shape="rect" id="node14" href="$_casino_8cpp.html#aabf848b858ac34ad95e300db13337120" title="sortFunctionDealers" alt="" coords="230,360,369,387"/>
+<area shape="rect" id="node3" href="$class_player.html#acc0e88f7ca8c27d4d06dc87973fafce7" title="Sits on a table. &#45;1 if the player is not on any table. " alt="" coords="451,5,585,32"/>
+<area shape="rect" id="node7" href="$class_table.html#aafb202407f082dbe38b154db463ef0b1" title="Gets initial money of this table. " alt="" coords="444,107,592,133"/>
+<area shape="rect" id="node8" href="$_casino_8cpp.html#aa8f337a223d32da27417b176b69f19e2" title="sortFunctionTables" alt="" coords="452,157,584,184"/>
+<area shape="rect" id="node10" href="$class_existing_table_exception.html#a8024c517b64a950dedf37fd38ee6f738" title="Displays in terminal what caused this exception to be thrown. " alt="" coords="439,209,597,250"/>
+<area shape="rect" id="node9" href="$class_table.html#aa4db39c76365882991132d3c07a85a81" title="Gets table identifier. " alt="" coords="645,157,768,184"/>
+<area shape="rect" id="node15" href="$class_dealer.html#a8c45fa97cab622ceb350ccf31012b140" title="Gets the Dealer&#39;s identifier. " alt="" coords="469,335,567,361"/>
+<area shape="rect" id="node16" href="$class_dealer.html#a33483233d2bdc17351d3d57fee448184" title="Gets identifier of the table that the dealer is on. " alt="" coords="451,385,585,412"/>
+</map>
