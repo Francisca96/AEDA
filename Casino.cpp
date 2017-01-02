@@ -985,6 +985,7 @@ void Casino::create(pair<short, short> xy) {
 				}
 				newBot->setAge(rand() % 82 + 18);
 				tempBots.push_back(newBot);
+				cout << "Bot " << newBotName << ": Level " << randomIntelligence <<", " << newBot->getAge() <<" years old , was added to this Casino\n";
 			}
 			addPlayersToCasino(tempBots);
 			system("pause");
