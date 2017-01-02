@@ -32,6 +32,11 @@ bool sortFunctionDealers(Dealer *d1, Dealer *d2) {
 Casino::Casino(unsigned int totalMoney)
 {
 	this->totalMoney = totalMoney;
+	vector<string> names = { "Albert", "Allen", "Bert", "Bob", "Cecil", "Clarence", "Elliot", "Elmer", "Eugene", "Fergus", "Ferris", "Frank", "Frasier", "Fred", "George", "Graham", "Harvey","Irwin", "Larry", "Lester", "Marvin", "Neil", "Niles", "Oliver", "Opie", "Ryan", "Toby", "Ulric", "Ulysses", "Uri", "Waldo", "Wally", "Walt", "Wesley", "Yanni", "Yogi", "Yuri" };
+	for (int i = 0; i < names.size(); i++) {
+		pair<string, bool> temp = { names.at(i),false };
+		botNames.push(temp);
+	}
 }
 
 Casino::Casino(unsigned int totalMoney, vector<Table*> &tablesVector, vector<Player *> &playersVector)
@@ -42,6 +47,11 @@ Casino::Casino(unsigned int totalMoney, vector<Table*> &tablesVector, vector<Pla
 		dealers.push_back(tables.at(i)->getDealer());
 	}
 	this->totalMoney = totalMoney;
+	vector<string> names = { "Albert", "Allen", "Bert", "Bob", "Cecil", "Clarence", "Elliot", "Elmer", "Eugene", "Fergus", "Ferris", "Frank", "Frasier", "Fred", "George", "Graham", "Harvey","Irwin", "Larry", "Lester", "Marvin", "Neil", "Niles", "Oliver", "Opie", "Ryan", "Toby", "Ulric", "Ulysses", "Uri", "Waldo", "Wally", "Walt", "Wesley", "Yanni", "Yogi", "Yuri" };
+	for (int i = 0; i < names.size(); i++) {
+		pair<string, bool> temp = { names.at(i),false };
+		botNames.push(temp);
+	}
 }
 
 bool Casino::login(pair<int, int> xy) {
@@ -735,7 +745,9 @@ void Casino::manage(pair<short, short> xy) {
 void Casino::create(pair<short, short> xy) {
 	unsigned int exit = 0;
 	unsigned int choice;
-
+	string newBotName;
+	vector<Player*> tempBots;
+	int numberOfBots;
 	string text, name, pass;
 	int x = (xy.first - 36) / 2 + 4;
 	char ch = 0;
@@ -772,7 +784,7 @@ void Casino::create(pair<short, short> xy) {
 				dealerID = dq.top()->getID();
 				cout << "The dealers with ID: " << dealerID << " will be set for this table" << endl;
 				dealerOfTable = dq.top();
-				
+
 				if (dealerOfTable->getTableOn() == -1)
 				{
 					Table *newTable = new Table(minBet, maxBet, initialMoney, numberMaxOfPlayer, dealerOfTable);
@@ -870,7 +882,7 @@ void Casino::create(pair<short, short> xy) {
 			cout << (char)185 /*╣*/ << endl;
 			text = "UserName:";
 			cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << " " << text << setw(38 - (4 + text.length())) << (char)186 << endl;
-							cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)218;
+			cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)218;
 			for (unsigned int i = 0; i <= 28; i++)
 			{
 				cout << (char)196;
@@ -885,7 +897,7 @@ void Casino::create(pair<short, short> xy) {
 			cout << (char)217 << setw(4) << (char)186 << endl;
 			text = "Password:";
 			cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << " " << text << setw(38 - (4 + text.length())) << (char)186 << endl;
-							cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)218;
+			cout << setw((xy.first - 36) / 2 - 1) << (char)186 << setw(4) << (char)218;
 			for (unsigned int i = 0; i <= 28; i++)
 			{
 				cout << (char)196;
@@ -917,7 +929,7 @@ void Casino::create(pair<short, short> xy) {
 					{
 						x--;
 						cursorxy(x, 9);
-						cout << ' ' ;
+						cout << ' ';
 						cursorxy(x, 9);
 						pass.pop_back();
 					}
@@ -939,11 +951,45 @@ void Casino::create(pair<short, short> xy) {
 				cout << "Account was created with success!" << endl;
 				system("pause");
 			}
-			else{
+			else {
 				cout << "Account wasn't created with success!" << endl;
 				system("pause");
 			}
 			break;
+		case 5:
+		{
+			Player * newBot = new Bot0();
+			cout << "Number of bots to create (Max =" << botNames.size() << " ) :";
+			numberOfBots = readIntBetween(1, botNames.size());
+			if (numberOfBots > botNames.size()) {
+				cout << "There are only " << botNames.size() << " names available in the database.\n";
+				cout << botNames.size() << " bots will be added to this casino.\n";
+				numberOfBots = botNames.size();
+			}
+			for (int i = 0; i < numberOfBots; i++) {
+				if (botNames.empty()) {
+					cout << "There are no more names in the database\n";
+					break;
+				}
+				newBotName = botNames.top().first;
+				botNames.pop();
+				int randomIntelligence = rand() % 3;
+				if (randomIntelligence == 0) {
+					newBot = new Bot0(newBotName, 1000);
+				}
+				else if (randomIntelligence == 1) {
+					newBot = new Bot1(newBotName, 1000);
+				}
+				else if (randomIntelligence == 2) {
+					newBot = new Bot2(newBotName, 1000);
+				}
+				newBot->setAge(rand() % 82 + 18);
+				tempBots.push_back(newBot);
+			}
+			addPlayersToCasino(tempBots);
+			system("pause");
+			break;
+		}
 		default:
 			break;
 		}
@@ -1012,6 +1058,8 @@ void Casino::eliminate(pair<short, short> xy) {
 					getline(cin, name);
 				}
 				this->removePlayerFromCasino(name);
+				pair<string, bool> p = {name, true};
+				botNames.push(p);
 				cout << "The player was deleted with success" << endl;
 				system("pause");
 			}

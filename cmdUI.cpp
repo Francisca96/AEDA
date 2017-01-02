@@ -138,10 +138,10 @@ void manageCasino(pair<short, short> xy, unsigned int &choice) {
 }
 
 void createMenu(pair<short, short> xy, unsigned int &choice) {
-	vector <string> options = { "-. Create ..." ,"  1. Table" ,"  2. Dealer", "  3. Player (BOT)", "  4. Account", "-. Delete...", "-. Manage Tables", "-. Stats" , "" ,"0. Back" };
+	vector <string> options = { "-. Create ..." ,"  1. Table" ,"  2. Dealer", "  3. Player (BOT)", "  4. Account","  5. Several Players (BOTs)","-. Delete...", "-. Manage Tables", "-. Stats" , "" ,"0. Back" };
 	system("CLS");
 	displayMenu0(xy, "1. Create ...", options);
-	choice = readIntBetween(0, 4);
+	choice = readIntBetween(0, 5);
 }
 
 void deleteMenu(pair<short, short> xy, unsigned int &choice) {
