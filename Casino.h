@@ -75,8 +75,31 @@ struct userLoginHash
 
 typedef unordered_set< pair<string, string>, userLoginHash, userLoginHash> loginHash; /* @brief loginHash = unordered_set<pair<string,string>,userLoginHash,userLoginHash> */
 
+/**
+* @struct	userLoginHash 
+*
+* @brief	Used to compare dealers.
+*
+* @author	João Carvalho
+* @date	30/12/2016
+*/
+
 struct dealersComparasion
 {
+	/**
+	* @fn	bool operator() (const Dealer* d1, const Dealer* d2) const
+	*
+	* @brief	A binary predicate that performs the less operator.
+	*
+	* @author	Francisca Paupério
+	* @date	30/12/2016
+	*
+	* @param	d1 Pointer to a Dealer.
+	* @param	d2 Pointer to a Dealer.
+	*
+	* @return	True if d1 < d2.
+	*/
+
 	bool operator() (const Dealer* d1, const Dealer* d2) const {
 		if (d1->getTableOn() == -1 && d2->getTableOn() != -1)
 		{
