@@ -69,7 +69,7 @@ int main(){
 	int tryNumber = 0;
 	try
 	{
-			casino.login(xy);
+		while (!casino.login(xy));
 	}
 	catch (PlayerNotExistException)
 	{
