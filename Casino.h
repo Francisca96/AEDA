@@ -156,7 +156,7 @@ struct botNamesCompare {
 
 typedef priority_queue< Dealer*, vector<Dealer*>, dealersComparison> dealersPriority; /* @brief dealersPriority it's a priority queue that holds pointers to dealers and compares them using the dealersComparison struct */
 
-typedef priority_queue<pair<string,bool>, vector<pair<string,bool>>, botNamesCompare> botNamesPriority; 
+typedef priority_queue<pair<string,bool>, vector<pair<string,bool>>, botNamesCompare> botNamesPriority;  /* @brief bots Priority to be added to Casino automatically*/
 
 /**
  * @class	PlayerNotLoggedException
