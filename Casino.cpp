@@ -55,6 +55,7 @@ Casino::Casino(unsigned int totalMoney, vector<Table*> &tablesVector, vector<Pla
 }
 
 bool Casino::login(pair<int, int> xy) {
+	system("CLS");
 	drawTitle(xy);
 	string text, name, pass;
 	cout << setw((xy.first - 36) / 2 - 1) << (char)201; //╔
@@ -144,17 +145,23 @@ bool Casino::login(pair<int, int> xy) {
 	cursorxy(0, 24);
 	this->userLOGIN.first = name;
 	this->userLOGIN.second = pass;
-	if (userslogin.find(this->userLOGIN) != userslogin.end())
+	for (loginHash::iterator it = userslogin.begin(); it != userslogin.end(); it++)
 	{
-		cout << "Login in Sucess" << endl;
-		return true;
+		if (it->first == name && it->second == pass)
+		{
+			cout << "Login in Sucess" << endl;
+			return true;
+		}
+		else if(it->first == name && it->second != pass)
+		{
+			cout << "Login Fail, password incorrect" << endl;
+			system("pause");
+			return false;
+		}
 	}
-	else
-	{
-		cout << "Login Fail" << endl;
-		userslogin.insert(this->userLOGIN);
-		throw PlayerNotExistException(name);
-	}
+	cout << "Login Fail" << endl;
+	userslogin.insert(this->userLOGIN);
+	throw PlayerNotExistException(name);
 }
 
 string Casino::getUserLoginName() {
@@ -1082,6 +1089,7 @@ void Casino::eliminate(pair<short, short> xy) {
 				system("cls");
 				cout << "How many accounts do you want to show?" << endl;
 				int n;
+				int found = 0;
 				stringstream ss;
 				string line;
 				getline(cin, line);
@@ -1095,30 +1103,36 @@ void Casino::eliminate(pair<short, short> xy) {
 				string pass;
 				getline(cin, pass);
 				pair<string, string> user(name, pass);
-				loginHash::iterator it = userslogin.find(user);
-				if (it != userslogin.end())
+				for (loginHash::iterator it = userslogin.begin(); it != userslogin.end(); it++)
 				{
-					cout << "Do you want remove(0)/edit(1)?" << endl;
-					stringstream ss2;
-					string line2;
-					getline(cin, line2);
-					ss2 << line2;
-					ss2 >> n;
-					if (n == 0)
+					if (it->first == name && it->second == pass+"\r")
 					{
-						userslogin.erase(it);
-						cout << "Account was removed with success!" << endl;
-						system("pause");
-					}
-					else if(n == 1) {
-						cout << "What is the new password?" << endl;
-						getline(cin, pass);
-						pair<string, string> newUser(name, pass);
-						userslogin.erase(it);
-						userslogin.insert(newUser);
+						found = 1;
+						cout << "Do you want remove(0)/edit(1)?" << endl;
+						stringstream ss2;
+						string line2;
+						getline(cin, line2);
+						ss2 << line2;
+						ss2 >> n;
+						if (n == 0)
+						{
+							userslogin.erase(it);
+							cout << "Account was removed with success!" << endl;
+							system("pause");
+							break;
+						}
+						else if (n == 1)
+						{
+							cout << "What is the new password?" << endl;
+							getline(cin, pass);
+							pair<string, string> newUser(name, pass);
+							userslogin.erase(it);
+							userslogin.insert(newUser);
+							break;
+						}
 					}
 				}
-				else
+				if (found == 0)
 				{
 					cout << "Account wasn´t removed with success!" << endl;
 					system("pause");
