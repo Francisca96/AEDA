@@ -1,4 +1,4 @@
-AEDA-Casino
+##AEDA-Casino
 
 Within the scope of Algorithms and Data Structures course unit we were challenged to analyse, design, develop and test a problem using Object Oriented Programming and C++ language to implement our solution.
 
